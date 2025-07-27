@@ -27,11 +27,14 @@ Clear-Host
 [string]$GoogleDirectLink = 'https://drive.google.com/uc?export=download&id='
 
 
-# Define tree path
+# DEV => [string]$AppDir = "C:\Users\stefy\Source\Repos\MoonBase\Tools\src\app"
+
+# Locate script path
 [string]$MainPS1 = $MyInvocation.MyCommand.Path
 [string]$AppDir = $PSScriptRoot
 Set-Location -Path $AppDir
-#[string]$AppDir = "C:\Users\stefy\Source\Repos\MoonBase\Tools\src\app"
+
+# Define parent path
 [string]$SrcDir = Split-Path -Path $AppDir -Parent
 [string]$ToolsDir = Split-Path -Path $SrcDir -Parent
 [string]$ModpackDir = Split-Path -Path $ToolsDir -Parent
