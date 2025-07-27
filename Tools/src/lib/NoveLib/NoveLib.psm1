@@ -18,7 +18,6 @@ By NoveIX
                                                                 
 '@
 
-
     Write-Host $AsciiArt
     Start-Sleep -Seconds 2
 }
