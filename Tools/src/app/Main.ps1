@@ -55,7 +55,8 @@ if ($ModpackDir -Like "*\Moon*") {
 
 }
 else {
-    Write-Host "`nError: No project was found with Name '$ModpackDir'" -ForegroundColor Red
+    $ModpackDirName = Split-Path $ModpackDir -Parent
+    Write-Host "`nError: No project was found with Name '$ModpackDirName'" -ForegroundColor Red
     Write-Host "`nPress Enter to exit..." -NoNewline
     Read-Host
     exit 1
