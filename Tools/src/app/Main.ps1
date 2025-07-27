@@ -41,7 +41,7 @@ if ($ModpackDir -Like "*\Moon*") {
     # Title
     [string]$Modpack_PSTitle = 'Moon Base 2'
     # Github
-    [string]$GitHub_RepositoryName = 'MoonBase2'
+    [string]$GitHub_RepositoryName = 'Moon-Base-2'
 
     # Moon Base ssh key
     [string]$SSHKey_PrivateURLID = '1NQBNCotC3-pcMcZRLzwxxLost_WgKaPl'
@@ -55,6 +55,9 @@ if ($ModpackDir -Like "*\Moon*") {
 
 }
 else {
+    Write-Host "`nError: No project was found with Name '$ModpackDir'" -ForegroundColor Red
+    Write-Host "`nPress Enter to exit..." -NoNewline
+    Read-Host
     exit 1
 }
 
@@ -104,6 +107,7 @@ catch {
     Write-Host "`nError: Failed to import module: '$ModuleName'." -ForegroundColor Red
     Write-Host "`nReason: $($_.Exception.Message)" -ForegroundColor Yellow
     Write-Host "`nPress Enter to exit..." -NoNewline
+    Read-Host
     Exit 1
 }
 
