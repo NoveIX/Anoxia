@@ -1,0 +1,133 @@
+
+[xpCost]
+	#Set to true if experience cost should be inverted, meaning the shorter the distance, the more expensive. Can be used to encourage other methods for short-distance travel.
+	inverseXpCost = false
+	#The amount of blocks per xp level requirement. If set to 500, the base xp cost for travelling 1000 blocks will be 2 levels.
+	#Range: > -2147483648
+	blocksPerXpLevel = 500
+	#The minimum base xp cost (may be subceeded by multipliers defined below)
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	minimumBaseXpCost = 0.0
+	#The maximum base xp cost (may be exceeded by multipliers defined below), set to 0 to disable all distance-based XP costs
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	maximumBaseXpCost = 3.0
+	#How much xp is needed per leashed animal to travel with you
+	#Range: > -2147483648
+	xpCostPerLeashed = 0
+	#The base xp level cost when travelling between dimensions. Ignores block distance.
+	#Range: > -2147483648
+	dimensionalWarpXpCost = 5
+	#The multiplier applied to the base xp cost when teleporting to a global waystone through any method.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	globalWaystoneXpCostMultiplier = 0.0
+	#The multiplier applied to the base xp cost when teleporting using a Warp Stone item (not the Waystone block, Konstantin)
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	warpStoneXpCostMultiplier = 0.0
+	#The multiplier applied to the base xp cost when teleporting from one waystone to another.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	waystoneXpCostMultiplier = 0.0
+	#The multiplier applied to the base xp cost when teleporting from one sharestone to another.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	sharestoneXpCostMultiplier = 0.0
+	#The multiplier applied to the base xp cost when teleporting from a portstone.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	portstoneXpCostMultiplier = 0.0
+	#The multiplier applied to the base xp cost when teleporting from one warp plate to another.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	warpPlateXpCostMultiplier = 0.0
+	#The multiplier applied to the base xp cost when teleporting via the inventory button.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	inventoryButtonXpCostMultiplier = 0.0
+
+[restrictions]
+	#If enabled, only creative players can place, edit or break waystones. This does NOT disable the crafting recipe.
+	restrictToCreative = false
+	#If enabled, only the owner of a waystone (the one who placed it) can rename it.
+	restrictRenameToOwner = false
+	#If enabled, waystones generated in worldgen are unbreakable.
+	generatedWaystonesUnbreakable = true
+	#If enabled, leashed mobs will be teleported with you
+	transportLeashed = true
+	#Whether to take leashed mobs with you when teleporting between dimensions
+	transportLeashedDimensional = true
+	#List of leashed mobs that cannot be taken with you when teleporting
+	leashedDenyList = ["minecraft:wither"]
+	#Set to 'ALLOW' to allow dimensional warp in general. Set to 'GLOBAL_ONLY' to restrict dimensional warp to global waystones. Set to 'DENY' to disallow all dimensional warps.
+	#Allowed Values: ALLOW, GLOBAL_ONLY, DENY
+	dimensionalWarp = "ALLOW"
+	#List of dimensions that players are allowed to warp cross-dimension from and to. If left empty, all dimensions except those in dimensionalWarpDenyList are allowed.
+	dimensionalWarpAllowList = []
+	#List of dimensions that players are not allowed to warp cross-dimension from and to. Only used if dimensionalWarpAllowList is empty.
+	dimensionalWarpDenyList = []
+	#Set to true if players should be able to teleport between waystones by simply right-clicking a waystone.
+	allowWaystoneToWaystoneTeleport = true
+	#Set to false to allow non-creative players to make waystones globally activated for all players.
+	globalWaystoneSetupRequiresCreativeMode = true
+
+[cooldowns]
+	#The multiplier applied to the cooldown when teleporting to a global waystone via inventory button or warp stone.
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	globalWaystoneCooldownMultiplier = 1.0
+	#The cooldown between usages of the warp stone in seconds. This is bound to the player, not the item, so multiple warp stones share the same cooldown.
+	#Range: > -2147483648
+	warpStoneCooldown = 30
+	#The time in ticks that it takes to use a warp stone. This is the charge-up time when holding right-click.
+	#Range: > -2147483648
+	warpStoneUseTime = 32
+	#The time in ticks that it takes to use a warp plate. This is the time the player has to stand on top for.
+	#Range: > -2147483648
+	warpPlateUseTime = 20
+	#The time in ticks it takes to use a scroll. This is the charge-up time when holding right-click.
+	#Range: > -2147483648
+	scrollUseTime = 32
+	#The cooldown between usages of the inventory button in seconds.
+	#Range: > -2147483648
+	inventoryButtonCooldown = 300
+
+[inventoryButton]
+	#Set to 'NONE' for no inventory button. Set to 'NEAREST' for an inventory button that teleports to the nearest waystone. Set to 'ANY' for an inventory button that opens the waystone selection menu. Set to a waystone name for an inventory button that teleports to a specifically named waystone.
+	inventoryButton = ""
+	#The x position of the warp button in the inventory.
+	#Range: > -2147483648
+	warpButtonX = 58
+	#The y position of the warp button in the inventory.
+	#Range: > -2147483648
+	warpButtonY = 60
+	#The y position of the warp button in the creative menu.
+	#Range: > -2147483648
+	creativeWarpButtonX = 88
+	#The y position of the warp button in the creative menu.
+	#Range: > -2147483648
+	creativeWarpButtonY = 33
+
+[worldGen]
+	#Set to 'DEFAULT' to only generate the normally textured waystones. Set to 'MOSSY' or 'SANDY' to generate all as that variant. Set to 'BIOME' to make the style depend on the biome it is generated in.
+	#Allowed Values: DEFAULT, MOSSY, SANDY, BIOME
+	worldGenStyle = "BIOME"
+	#Approximate chunk distance between waystones generated freely in world generation. Set to 0 to disable generation.
+	#Range: > -2147483648
+	frequency = 25
+	#List of dimensions that waystones are allowed to spawn in through world gen. If left empty, all dimensions except those in worldGenDimensionDenyList are used.
+	dimensionAllowList = ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end", "ad_astra:moon", "ad_astra:mars", "ad_astra:mercury", "ad_astra:glacio", "mythicbotany:alfheim", "twilightforest:twilight_forest"]
+	#List of dimensions that waystones are not allowed to spawn in through world gen. Only used if worldGenDimensionAllowList is empty.
+	dimensionDenyList = []
+	#Set to 'PRESET_FIRST' to first use names from the custom names list. Set to 'PRESET_ONLY' to use only those custom names. Set to 'MIXED' to have some waystones use custom names, and others random names.
+	#Allowed Values: PRESET_FIRST, RANDOM_ONLY, PRESET_ONLY, MIXED
+	nameGenerationMode = "PRESET_FIRST"
+	#These names will be used for the PRESET name generation mode. See the nameGenerationMode option for more info.
+	customWaystoneNames = ["Tsungtai, The New Triumph", "Kolshk, The City of Surprise", "Mungchin, City of Slaughtermaw", "Septethal, City of Battles", "Tentreth, City of Prophecy", "Iphyndol, The Earthen Crown", "Skohtar, City of the Mist Bridge", "Ujawii, The City of Blue Sands", "Nevthet, The Earthen Crown", "Torfimm, City of Fine Spirits", "Sundibor, Taboo Town", "Orvylir, City of Fate", "Hilgradel, The Honest City", "Pyzel, City of the Banished", "Lornath, The Capital's Warhorse", "Mosym, The City of Castles", "Summersnow, City of Divination", "Kehltir, City of White Skies", "Terlas, The Barren City", "Symarol, City of Lilies", "Lohten, The Trampled Lily", "Maldorn, The City of Blue Sands", "Quarden, City of Song", "Sornpyr, The Black Opal", "Lornath, The City of Bone Crab", "Myrabara, Yellow Cobra City", "Altheta, The City of Bright Peaks", "Porlusk, Evermead City", "Lornath, The Cliffs Edge", "Flynndol, The City of Celebration", "Pyzel, City of Ash", "Oralong, City of Laughter", "Lyern, The City of Mithral Mages", "Sundibor, City of Nobel Pursuits", "Al-Adwan, City of Emerald Mist", "Furnhen, Dry Vine City", "Raston, City of the Forgotten Rivers", "Yhan, The City of White Trolls", "Depthome, City of Shelter", "Nevthet, Lagertown", "Hlathri, The Trampled Lily", "Gorad, The Ratnest", "Mungchin, The Little Daffodil", "Ujawii, City of the Copper Dome", "Koyju, City of Gutslug Gorge", "Kerik, City of Stills", "Dhonleth, City of Ash", "Sundibor, City of the Wasted", "Ko Ti' Long, The Earthen Crown", "Adroveer, The Score of Umberlee", "Axeleaf Forest", "Laceneedle Glades", "Lacevine Brambles", "Doraweng Jungle", "Charoot Jungle", "Baldor Vale", "Sugarberry Thicket", "Bonemoss Woods", "Tonatih Thickets", "Irtiosroot Brambles", "Nephritemoss Growth", "Shouxin Vale", "Kroth Vale", "Laorin Swamp", "Fawnleaf Wood", "Tecloht Forest", "Kulkehn Thickets", "Ehkaj Jungle", "Loushen Growth", "Boneroot Swamps", "Flintleaf Forest", "Mopanos Woodland", "Flintgrass Glades", "Venomvine Swamp", "Bahbalu Vale", "Maikenga Woodlands", "Thradid Jungle", "Coralwoods", "Musokonri Woodland", "Boltberry Forest", "Daggerblossom Woods", "Opochti Thicket", "Whiskeyseed Vale", "Coralflower Woods", "Erapis Timber", "Fossileaf Timber", "Redclover Glades", "Adnortena Timber", "Octelroot Glades", "Anchorpine Swamp", "Crowroot Woods", "Flaulae Woodlands", "Fangfern Glade", "Namarrkin Vale", "Konapli Woodlands", "Mohllu Swamps", "Xipli Forest", "Nephritemoss Growth", "Charbrush Forest", "Olivine Jungle", "Guanwuguan, Celestial of the Torrential", "Cnabomaglus, Deity of the Drift", "Wolqua, Goddess of Grain", "Shanja, Goddess of Daylight", "Musitti, Goddess of Swine", "Bilanha, Saint of Wisdom", "Ninikuga, God of the Meek", "Miquetechah, Guardian of Animosity", "Moginkoi, God of the Trees", "Kuninotokone, Goddess of Fear", "Verbiticai, Deity of Twilight", "Verbiticai, Goddess of Sacrifice", "Bulgun, God of Infinity", "Ikunen, Spirit of Daylight", "Angabag, Spirit of Control", "Ptah, Goddess of Spirits", "Narsag, Lord of the Solstice", "Shuzili, God of Violence", "Guangzunshen, God of Sparks", "Eagawa, God of the Overflow", "Denobog, Goddess of Umbrage", "Katendroa, Celestial of Sailors", "lahshaf, God of Attraction", "Pehu, Lord of Education", "Itztlaqueliuh, Goddess of Heroism", "Luegewan, Goddess of Repose", "Volanek, Deity of Barley", "Surasama, God of Worry", "Ahabmuzen, God of Intoxication", "Danali, Goddess of Consciousness", "Inzbe, Lord of Wildness", "Biandi, Lord of Indulgence", "Hadef, Saint of the Seasons", "Suruku, Guardian of Action", "Mancopulao, Spirit of Artificers", "Iypangwa, Deity of Calm", "Ungal, God of Corruption", "Numuzu, God of Necrosis", "Minamtji, God of Hunger", "Makyog, God of the Past", "Ninbaba, Goddess of the Solstice", "Tithra, God of Pilgrims", "Penukk, Guardian of Frost", "Varagna, Deity of Alliance", "Seshep, God of Blacksmiths", "Anehit, Goddess of Deluge", "Abumbe, Goddess of Struggle", "Holt?ohi, Goddess of Blades", "Anujet, Saint of An imosity", "Tlalteoyoa, God of Order", "Sablehay", "Cedarshoot", "Featherblossom", "Axonna", "Nyane", "Thradid", "Pebbleweed", "Stormclover", "Konapli", "Peattree", "Olivineedle", "Axewood", "Jasperpine", "Lubangela", "Venomoss", "Ikenda", "Amberweed", "Octeleaf", "Spikebark", "Mangorkinj", "Wayhra", "Lemonleaf", "Lapisroot", "Guanib", "Lustania", "Bozomtre", "Kadrino", "Findyas", "Mykaroseed", "Mitrendi", "Rohngoh", "Kihtakwa", "Raisinmoss", "Axebrush", "Kadrino", "Hauzkoi", "Tilhua", "Findyas", "Mangorkinj", "Ciderleaf", "Oatshoot", "Featherwood", "Tredamus", "Brickmoss", "Scapramoss", "Olivineseed", "Wanbren", "Cholekah", "Pennyshrub", "Catrix", "Opaleaf", "Brilliant Black", "Creekblossom", "Nekasi", "Four Pearls", "Three Roads", "Aleroot", "Cobalt Kappa", "Tilled Earth", "Earthen Pantry", "Eseya", "Morning Dew", "Khonvem", "Cholekah", "Lost Fragments", "Devil's Pride", "Gilded Stake", "Steady Hand", "Pouring Rein", "Fawnleaf", "Brikta", "Simple Fortitude", "Ciderbrush", "Musokonri", "Quick Tempered", "Tredamus", "Nobel Fragment", "Dohmu", "Tahraniz", "Last Word", "Golden Shrines", "Thradid", "Findyas", "Moradin's Joy", "Itzli", "Redgrain", "Ehkaj", "Jasperpine", "Magreth", "Elucidation", "Green Goddess", "White Resolute", "Last Hurrah", "Righteous Burn", "Parting Song", "Damascus Dawn", "Senuana", "Fifth Circie", "Caim Eclipse", "Golden Meadow", "Olrunn", "Kodre", "Sylrix", "Melni", "Kalitore", "Hidelia", "Mahb", "Hegromon", "Obredon", "Otrohsie", "Erota", "Atrhas", "Mildreas", "Biantra", "Pasivae", "Ito", "Trencol", "Etripos", "Lysetra", "Thaen", "Praxik", "Obredon", "Hegromon", "Paltrene", "Saho", "Kevik", "Nex", "Soltur", "Prospet", "Cardre", "Sypheno", "Senopi", "Weyloht", "Erydum", "Ernomei", "Vanreth", "Julit", "Reni", "Dahtris", "Thilexin", "Mendefari", "Prytus", "Aiede", "Melni", "Borkhos", "Sefris", "Tortrani", "Weyloht", "Hitaka", "Tempestra", "Natun", "Allemantheia", "Elrion Silverleaf"]
+	#Set to true if waystones should be added to the generation of villages. Some villages may still spawn without a waystone.
+	spawnInVillages = true
+	#Ensures that pretty much every village will have a waystone, by spawning it as early as possible. In addition, this means waystones will generally be located in the center of the village.
+	forceSpawnInVillages = true
+
+[client]
+	#If enabled, the text overlay on waystones will no longer always render at full brightness.
+	disableTextGlow = false
+
+[compatibility]
+	#If enabled, JourneyMap waypoints will be created for each activated waystone.
+	displayWaystonesOnJourneyMap = true
+	#If enabled, JourneyMap waypoints will only be created if the mod 'JourneyMap Integration' is not installed
+	preferJourneyMapIntegration = true
+

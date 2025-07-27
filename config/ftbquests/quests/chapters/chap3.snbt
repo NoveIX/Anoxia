@@ -1,0 +1,186 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chap3"
+	group: "6AD3CA4E618085FE"
+	icon: "exnihilosequentia:oak_sieve"
+	id: "767439B98CA2D98B"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: [
+				"71A14ADD48243714"
+				"757A33A74174DF1D"
+			]
+			id: "6DD1628183FBE8AD"
+			tasks: [{
+				id: "7DD8B7825F5F7B90"
+				item: "exnihilosequentia:string_mesh"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6DD1628183FBE8AD"]
+			id: "1846CEAF19A7104B"
+			tasks: [{
+				id: "2CB65DF4C512D883"
+				item: "exnihilosequentia:flint_mesh"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1846CEAF19A7104B"]
+			id: "695167A04A4403F3"
+			tasks: [{
+				id: "0CABBB7B5F7AE2F1"
+				item: "exnihilosequentia:iron_mesh"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["695167A04A4403F3"]
+			id: "3F8FA98445A8E06D"
+			tasks: [{
+				id: "26D43FD30EA2DFF5"
+				item: "exnihilosequentia:diamond_mesh"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3F8FA98445A8E06D"]
+			id: "51724031DEDAF249"
+			tasks: [{
+				id: "1DE9F7CFB848DC1C"
+				item: "exnihilosequentia:emerald_mesh"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["51724031DEDAF249"]
+			id: "4DE85BD2F5F6C76B"
+			tasks: [{
+				id: "419257380A354C4A"
+				item: "exnihilosequentia:netherite_mesh"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 0.0d
+		}
+		{
+			id: "30EF26D7D4B6C00F"
+			tasks: [{
+				id: "64DFF2A456CDB90A"
+				item: {
+					Count: 1
+					id: "moonbase:create_string_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["30EF26D7D4B6C00F"]
+			id: "371C587459FEC2A4"
+			tasks: [{
+				id: "00B016445DCE615B"
+				item: {
+					Count: 1
+					id: "moonbase:create_flint_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["371C587459FEC2A4"]
+			id: "38B73502A6C09142"
+			tasks: [{
+				id: "2CAA125427197E2A"
+				item: {
+					Count: 1
+					id: "moonbase:create_iron_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["38B73502A6C09142"]
+			id: "6E68D3FE78C16513"
+			tasks: [{
+				id: "516732D40E02634E"
+				item: {
+					Count: 1
+					id: "moonbase:create_diamond_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 4.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["6E68D3FE78C16513"]
+			id: "523C91D72C66D430"
+			tasks: [{
+				id: "01C71B3D6A7DD9DF"
+				item: {
+					Count: 1
+					id: "moonbase:create_emerald_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 6.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["523C91D72C66D430"]
+			id: "300BEB5F77E7AD56"
+			tasks: [{
+				id: "3BBD06CDB669AA4B"
+				item: {
+					Count: 1
+					id: "moonbase:create_netherite_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 7.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["300BEB5F77E7AD56"]
+			id: "28FAD25E2C786113"
+			tasks: [{
+				id: "512A7DCCE81AD5F9"
+				item: {
+					Count: 1
+					id: "moonbase:create_aethersteel_mesh"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 9.0d
+			y: -1.5d
+		}
+	]
+	title: "Sieve"
+}

@@ -1,0 +1,10 @@
+
+[common]
+	#Whether players will be rewarded with a Paimon Medal when they first join the world.
+	spawnWithMedal = false
+	#Whether players will be rewarded with a Paimon Medal when they first fish an item up.
+	getMedalByFishing = true
+	#The interval of Paimon's speech in tick.
+	#Range: > 0
+	soundInterval = 999999999
+

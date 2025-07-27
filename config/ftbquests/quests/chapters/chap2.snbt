@@ -1,0 +1,481 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chap2"
+	group: "6AD3CA4E618085FE"
+	icon: "minecraft:furnace"
+	id: "687952B9BB10C48A"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["31E5B5F78BADD0F1"]
+			id: "1CD13EECDB3994BE"
+			tasks: [{
+				id: "1548B4C2B29ED86C"
+				item: "minecraft:oak_planks"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["1CD13EECDB3994BE"]
+			id: "67EF12065137E04A"
+			tasks: [{
+				id: "38B0E58403B06B4B"
+				item: "minecraft:crafting_table"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["67EF12065137E04A"]
+			id: "32A5FB3A6B975B80"
+			tasks: [{
+				id: "491D8A4E17285876"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_crucible"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			x: -1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"69059DA497BA1655"
+				"67EF12065137E04A"
+			]
+			id: "6EE8C179D97AF79A"
+			tasks: [{
+				id: "1AA81D2698BDD016"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_barrel"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			title: "Wooden Barrels"
+			x: -1.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["67EF12065137E04A"]
+			id: "619F5EBEF4E15117"
+			tasks: [{
+				id: "2E457B4CB6101133"
+				item: "farmersdelight:cutting_board"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["67EF12065137E04A"]
+			id: "71A14ADD48243714"
+			tasks: [{
+				id: "4BF5BDA2D49C1BDA"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_sieve"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			x: -1.5d
+			y: -1.0d
+		}
+		{
+			dependencies: ["53C8BDB37D270B95"]
+			id: "32A8A446288B77F1"
+			tasks: [{
+				id: "448C93879FDC2261"
+				item: "minecraft:cobblestone"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 1.5d
+		}
+		{
+			dependencies: [
+				"32A8A446288B77F1"
+				"67EF12065137E04A"
+			]
+			id: "10C2047E3DE06280"
+			tasks: [{
+				id: "3FF40B33230C34DD"
+				item: "moonbase:compressed_cobblestone"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["10C2047E3DE06280"]
+			id: "49885A364F2E8258"
+			tasks: [{
+				id: "7B382B78ED10CFA4"
+				item: "minecraft:furnace"
+				type: "item"
+			}]
+			x: 1.5d
+			y: -1.5d
+		}
+		{
+			dependencies: ["619F5EBEF4E15117"]
+			id: "4E34E970493A0A16"
+			tasks: [{
+				id: "050C0A1709B210A0"
+				item: "farmersdelight:tree_bark"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["4E34E970493A0A16"]
+			id: "3884661EC5A5A544"
+			tasks: [{
+				id: "1E31D104211B63C0"
+				item: "farmersdelight:organic_compost"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["3884661EC5A5A544"]
+			id: "4382E17173471614"
+			tasks: [{
+				id: "131641AB68709E1B"
+				item: "farmersdelight:rich_soil"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 4.5d
+		}
+		{
+			dependencies: [
+				"619F5EBEF4E15117"
+				"6EE8C179D97AF79A"
+			]
+			id: "30A6E09FFFBB9168"
+			tasks: [{
+				id: "1416DFDB29F70789"
+				item: "minecolonies:barrel_block"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 3.0d
+		}
+		{
+			dependencies: [
+				"4382E17173471614"
+				"10E47B4EDF1A94E8"
+			]
+			id: "5C95C1B37B6EF43C"
+			tasks: [{
+				id: "4F65647CC17EE453"
+				item: "twilightforest:uberous_soil"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["32A8A446288B77F1"]
+			id: "4F0F4EBC44118AAC"
+			tasks: [{
+				id: "24C89AFE5036C6A9"
+				item: {
+					Count: 1
+					id: "exnihilosequentia:stone_hammer"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["4F0F4EBC44118AAC"]
+			id: "229CD961ECF5744C"
+			tasks: [{
+				count: 64L
+				id: "6C28E2C9304C7E58"
+				item: { Count: 64, id: "minecraft:gravel" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["30A6E09FFFBB9168"]
+			id: "10E47B4EDF1A94E8"
+			tasks: [{
+				count: 12L
+				id: "09A088FDE14731D2"
+				item: { Count: 12, id: "minecolonies:compost" }
+				type: "item"
+			}]
+			x: -3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["6EE8C179D97AF79A"]
+			id: "1E3AC00B450C00CD"
+			tasks: [{
+				id: "258160A6A6FD1C84"
+				item: "minecraft:dirt"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 1.0d
+		}
+		{
+			id: "6952C57495A4F03C"
+			tasks: [{
+				id: "63588D7E876D679F"
+				item: {
+					Count: 1
+					id: "minecraft:water_bucket"
+					tag: {
+						Purity: 3
+					}
+				}
+				type: "item"
+			}]
+			x: 1.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["65ACD516B7C09A84"]
+			id: "141395D323123D04"
+			tasks: [{
+				id: "3B386A110B41DBA9"
+				item: "exnihilosequentia:dust"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: [
+				"141395D323123D04"
+				"6952C57495A4F03C"
+			]
+			id: "6958F0941A08612B"
+			tasks: [{
+				id: "13FA1D9BEEBA0B54"
+				item: "minecraft:clay"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["229CD961ECF5744C"]
+			id: "65ACD516B7C09A84"
+			tasks: [{
+				id: "38EB69B30384D568"
+				item: "minecraft:sand"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["6958F0941A08612B"]
+			id: "05B31EC6EFCFDE21"
+			tasks: [{
+				id: "3322EF745D159E5B"
+				item: "exnihilosequentia:porcelain_clay"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["05B31EC6EFCFDE21"]
+			id: "335A47E4D9BCEC60"
+			tasks: [{
+				id: "3266C1A6396CEF8E"
+				item: "exnihilosequentia:unfired_crucible"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["335A47E4D9BCEC60"]
+			id: "73CAE9038A704E1E"
+			tasks: [{
+				id: "5101DCC4C36001B5"
+				item: "minecraft:lava_bucket"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["73CAE9038A704E1E"]
+			id: "4136D0D0B89E8BCC"
+			tasks: [{
+				id: "08C3E0213FC88EDB"
+				item: "cobblefordays:tier_1"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 1.5d
+		}
+	]
+	title: "Resources"
+}

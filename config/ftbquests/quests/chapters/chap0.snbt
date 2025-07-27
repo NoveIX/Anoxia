@@ -1,0 +1,34 @@
+{
+	always_invisible: true
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chap0"
+	group: ""
+	icon: "minecraft:command_block"
+	id: "60D472008118234D"
+	order_index: 0
+	quest_links: [ ]
+	quests: [{
+		id: "466985ED3651E3F5"
+		rewards: [{
+			auto: "invisible"
+			command: "/gamerule keepInventory true"
+			elevate_perms: true
+			exclude_from_claim_all: true
+			id: "5D8896A8AD447F70"
+			silent: true
+			team_reward: false
+			title: "Keep Inventory"
+			type: "command"
+		}]
+		tasks: [{
+			dimension: "ad_astra:moon"
+			id: "37C6BA31907780F4"
+			title: "Moon"
+			type: "dimension"
+		}]
+		x: 0.0d
+		y: 0.0d
+	}]
+	title: "Server config"
+}

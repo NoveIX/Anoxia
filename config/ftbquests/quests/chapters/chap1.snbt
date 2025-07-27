@@ -1,0 +1,402 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chap1"
+	group: "6AD3CA4E618085FE"
+	icon: "akashictome:tome"
+	id: "3332445691791350"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "akashictome:tome"
+			id: "54AFFE249B3A6AB0"
+			rewards: [
+				{
+					count: 16
+					id: "21213BE9B233BEBF"
+					item: "minecraft:apple"
+					type: "item"
+				}
+				{
+					id: "2282492DA9DA323B"
+					item: {
+						Count: 1
+						id: "structurecompass:structure_compass"
+						tag: {
+							"structurecompass:structureName": "moonbase:hub"
+						}
+					}
+					type: "item"
+				}
+				{
+					count: 2
+					id: "4AA10F2A49497233"
+					item: {
+						Count: 1
+						id: "ad_astra:oxygen_tank"
+						tag: {
+							BotariumData: {
+								StoredFluids: [{
+									Amount: 1000L
+									Fluid: "mekanism:oxygen"
+								}]
+							}
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "0A8C7880567B0DBC"
+					item: {
+						Count: 1
+						id: "tiab:time_in_a_bottle"
+						tag: { }
+					}
+					type: "item"
+				}
+			]
+			shape: "hexagon"
+			size: 2.0d
+			tasks: [{
+				id: "6F66D5F2807B5DDF"
+				type: "checkmark"
+			}]
+			title: "Welcome"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["54AFFE249B3A6AB0"]
+			id: "7A68078C107F781B"
+			rewards: [{
+				id: "1CA8BD54449F611F"
+				item: "ftbquests:screen_1"
+				type: "item"
+			}]
+			shape: "diamond"
+			size: 1.5d
+			tasks: [{
+				icon: "minecraft:brewing_stand"
+				id: "12F14AE4D622E8E6"
+				structure: "moonbase:hub"
+				title: "Selene Reseach Hub"
+				type: "structure"
+			}]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"7A68078C107F781B"
+				"101BE9723FD254C6"
+			]
+			icon: {
+				Count: 1
+				id: "ad_astra:oxygen_tank"
+				tag: { }
+			}
+			id: "65F579372C3FF7BA"
+			tasks: [
+				{
+					id: "52AABF22A1FA54FE"
+					item: "mekanism:electrolytic_separator"
+					type: "item"
+				}
+				{
+					id: "14F25CC35127C1AC"
+					item: "mekanism:rotary_condensentrator"
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "112E50FA08497A70"
+					item: { Count: 2, id: "ad_astra:solar_panel" }
+					type: "item"
+				}
+				{
+					id: "017CAC3FA33841A8"
+					item: {
+						Count: 1
+						id: "thermal:wrench"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "4B9AF714A6F0C36C"
+					item: {
+						Count: 1
+						id: "portabletanks:basic_portable_tank"
+						tag: { }
+					}
+					type: "item"
+				}
+			]
+			title: "Oxygen facility"
+			x: 1.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["7A68078C107F781B"]
+			icon: "minecraft:oak_sapling"
+			id: "44010E3B1A52CB04"
+			tasks: [
+				{
+					id: "4DE1F7CE575215A7"
+					item: "minecraft:oak_sapling"
+					type: "item"
+				}
+				{
+					id: "65FFAAA389DB4CC8"
+					item: "minecraft:dirt"
+					type: "item"
+				}
+			]
+			title: "First resource"
+			x: -1.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["7A68078C107F781B"]
+			icon: {
+				Count: 1
+				id: "minecraft:iron_pickaxe"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "52F6E85EF3E25075"
+			tasks: [
+				{
+					id: "6521A5F3AAA9C658"
+					item: {
+						Count: 1
+						id: "minecraft:iron_pickaxe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "2D0B21368A582174"
+					item: {
+						Count: 1
+						id: "minecraft:iron_axe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "1D22A6DDE265E170"
+					item: {
+						Count: 1
+						id: "minecraft:iron_shovel"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Explore the hub"
+			x: 0.0d
+			y: 3.5d
+		}
+		{
+			dependencies: ["44010E3B1A52CB04"]
+			id: "0A48D9BE8B643D0C"
+			tasks: [{
+				id: "2D0E1422CF3914FF"
+				item: "botanypots:terracotta_botany_pot"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			id: "5979342B3758F03D"
+			tasks: [{
+				count: 64L
+				id: "17FFBB1D9FAA41FE"
+				item: { Count: 64, id: "ad_astra:moon_sand" }
+				type: "item"
+			}]
+			title: "Clean the base"
+			x: 0.0d
+			y: 5.0d
+		}
+		{
+			dependencies: [
+				"5979342B3758F03D"
+				"49885A364F2E8258"
+			]
+			id: "538DE7975E29C8BA"
+			tasks: [{
+				count: 64L
+				id: "04D0DD6F29BFDFC5"
+				item: "minecraft:glass"
+				type: "item"
+			}]
+			title: "Rebuild the structure"
+			x: 1.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["44010E3B1A52CB04"]
+			id: "53C8BDB37D270B95"
+			tasks: [{
+				id: "3B39053BBF86C539"
+				item: "botania:pebble"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["65F579372C3FF7BA"]
+			icon: "mekanism:oxygen_bucket"
+			id: "59523D65644FD52A"
+			tasks: [{
+				amount: 1000L
+				fluid: "mekanism:oxygen"
+				id: "1BC16F14527092CC"
+				type: "fluid"
+			}]
+			x: 3.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["0A48D9BE8B643D0C"]
+			id: "31E5B5F78BADD0F1"
+			tasks: [{
+				id: "78F63066AA0B6E6B"
+				item: "minecraft:oak_log"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 3.5d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			id: "713A57FD92747F33"
+			tasks: [{
+				id: "5418CAD2A50DF360"
+				item: "create:clipboard"
+				type: "item"
+			}]
+			title: "Read Ellie's notes"
+			x: -1.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			id: "101BE9723FD254C6"
+			tasks: [{
+				id: "318A2FF70070EFE8"
+				item: "mekanism:basic_chemical_tank"
+				type: "item"
+			}]
+			title: "Find the oxygen supply"
+			x: 1.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["0A48D9BE8B643D0C"]
+			id: "1267053BC0D5D353"
+			tasks: [{
+				id: "036FE489E1BFC029"
+				item: "minecraft:potato"
+				type: "item"
+			}]
+			x: -4.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["0A48D9BE8B643D0C"]
+			id: "6515425731405A2B"
+			tasks: [{
+				id: "4190F0BF08EE3A47"
+				item: "supplementaries:flax"
+				type: "item"
+			}]
+			x: -4.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["1267053BC0D5D353"]
+			id: "09E9140DE790A899"
+			tasks: [{
+				id: "6FDADC126788636B"
+				item: "minecraft:baked_potato"
+				type: "item"
+			}]
+			x: -6.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["6515425731405A2B"]
+			id: "757A33A74174DF1D"
+			tasks: [{
+				id: "0D3024B71EF40691"
+				item: "minecraft:string"
+				type: "item"
+			}]
+			x: -6.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["0A48D9BE8B643D0C"]
+			id: "6935551B383B6BF5"
+			tasks: [{
+				id: "0088D3A93F293745"
+				item: "quark:oak_hedge"
+				type: "item"
+			}]
+			x: -4.5d
+			y: 3.5d
+		}
+		{
+			icon: "ad_astra:moon_globe"
+			id: "3DDB3D829D8EB4C4"
+			tasks: [
+				{
+					id: "2BE550721C127700"
+					structure: "ad_astra:lunarian_village"
+					title: "Lunarian Village"
+					type: "structure"
+				}
+				{
+					id: "4F5A8E79BB22D61D"
+					structure: "ad_astra:lunar_tower"
+					title: "Lunar tower"
+					type: "structure"
+				}
+				{
+					id: "38E22A664C5DC095"
+					structure: "ad_astra:moon_dungeon"
+					type: "structure"
+				}
+			]
+			title: "Explore moon"
+			x: 3.0d
+			y: 3.5d
+		}
+		{
+			icon: "waystones:waystone"
+			id: "5DF34175126F2024"
+			tasks: [{
+				id: "260E9BE8A3391B60"
+				type: "checkmark"
+			}]
+			title: "Waystone"
+			x: 0.0d
+			y: -2.0d
+		}
+	]
+	title: "Survivor"
+}
