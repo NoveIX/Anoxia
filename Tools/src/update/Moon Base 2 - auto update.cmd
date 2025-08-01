@@ -3,13 +3,13 @@ setlocal
 
 set "targetFile=%TEMP%\NoveLib\MoonBase2_ModpackPath.txt"
 
-REM Verifica esistenza
+REM Check existence of txt file in temp
 if not exist "%targetFile%" (
     echo Target file not found: %targetFile%
     exit /b 1
 )
 
-REM Legge il percorso del file PowerShell
+REM Read the PowerShell file path
 for /f "usebackq delims=" %%A in ("%targetFile%") do set "scriptPath=%%A"
 
 REM Controlla se lo script esiste
@@ -18,7 +18,7 @@ if not exist "%scriptPath%" (
     exit /b 1
 )
 
-REM Avvia lo script
+REM Run the script
 powershell -ExecutionPolicy Bypass -File "%scriptPath%" -Update
 
 endlocal
