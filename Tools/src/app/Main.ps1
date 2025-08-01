@@ -183,7 +183,8 @@ function Start-DownloadSSHKey {
 
         # Download Key
         Write-LogHost -Message "Start download SSH $KeyType key" -Level INFO
-        $ExitCode = Start-DownloadFile -URL $URL -Path $keyDir -OutFile $SSHKey_Name
+        $outFile = Join-Path -Path $keyDir -ChildPath $SSHKey_Name
+        $ExitCode = Start-DownloadFile -URL $URL -OutFile $outFile
 
         # Log
         if ($ExitCode -eq 0) {

@@ -83,9 +83,6 @@ function Start-DownloadFile {
         [string]$URL,
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [string]$Path,
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
         [string]$OutFile
     )
 
@@ -94,23 +91,20 @@ function Start-DownloadFile {
         New-Item -Path $Path -ItemType Directory -Force | Out-Null
     }
 
-    # Calculate save path
-    $savePath = Join-Path -Path $Path -ChildPath $OutFile
-
     try {
-        Start-BitsTransfer -Source $URL -Destination $savePath -ErrorAction Stop
+        Start-BitsTransfer -Source $URL -Destination $OutFile -ErrorAction Stop
         return 0
     }
     catch {
         try {
             Write-LogHost -Message "Failed to download with Start-BitsTransfer" -Level WARN
-            Invoke-WebRequest -Uri $URL -OutFile $savePath
+            Invoke-WebRequest -Uri $URL -OutFile $OutFile
             return 0
         }
         catch {
             try {
                 Write-LogHost -Message "Failed to download with Invoke-WebRequest" -Level WARN
-                curl.exe -# $URL -o $savePath
+                curl.exe -# $URL -o $OutFile
                 return 0
             }
             catch {
@@ -142,15 +136,26 @@ function Copy-FileFast {
         New-Item -ItemType Directory -Path $Destination -Force | Out-Null
     }
 
+    # Resolve full path
+    $Source = Resolve-Path -LiteralPath $Source
+    $Destination = Resolve-Path -LiteralPath $Destination
+
     # Recursive copy with attribute preservation
-    $items = Get-ChildItem -Path $Source -Recurse -Force
+    [array]$items = Get-ChildItem -Path $Source -Recurse -Force
 
     #Counter
     [int]$currentItem = 0
     [int]$totalItem = $items.Count
+    [int]$decimalPlaces = 2
 
     foreach ($item in $items) {
+        # Progress bar
         $currentItem++
+        [double]$averagePercent = (($currentItem / $totalItem) * 100)
+        [double]$percentComplete = [math]::Round($averagePercent, $decimalPlaces)
+        [string]$percentString = $percentComplete.ToString("N$decimalPlaces")
+        [string]$status = "Item $currentItem of $totalItem ($percentString `%) - $($item.Name)"
+        Write-Progress -Id 0 -Activity "Copy in progress..." -Status $status -PercentComplete $percentComplete
 
         # Calculate path relative path on destination path
         [string]$SourceRelativePath = $item.FullName.Substring((Resolve-Path $Source).Path.Length)
@@ -159,19 +164,12 @@ function Copy-FileFast {
         # Copy item to destination
         if ($item.PSIsContainer) {
             # Copy folder
-            $DestinationFullPathParent = Split-Path $DestinationFullPath -Parent
+            [string]$DestinationFullPathParent = Split-Path $DestinationFullPath -Parent
             Copy-Item -Path $item.FullName -Destination $DestinationFullPathParent -Force
-
-            # Log
-            Write-LogHost -Message "($currentItem / $totalItem) Copied folder: $($item.FullName)" -Level TRACE
         }
         else {
             # Copy item
             Copy-Item -Path $item.FullName -Destination $DestinationFullPath -Force
-
-            # Log
-            $fileInfo = Join-Path -Path $DestinationFullPath -ChildPath $($item.Name)
-            Write-LogHost -Message "($currentItem / $totalItem) Copied file: $fileInfo" -Level TRACE
         }
 
         # restore attribute
@@ -187,6 +185,8 @@ function Copy-FileFast {
         }
     }
 
+    Start-Sleep -Milliseconds 200
+    Write-Progress -Id 0 -Activity "Copy completed" -Completed
     return 0
 }
 #endregion
