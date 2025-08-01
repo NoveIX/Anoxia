@@ -179,12 +179,12 @@ function Start-DownloadSSHKey {
 
         # Construct full URL for key
         Write-LogHost -Message "Construct full URL for $KeyType key" -Level INFO
-        $URL = $GoogleDirectLink + $SSHKey_URLID
+        [string]$URL = $GoogleDirectLink + $SSHKey_URLID
 
         # Download Key
         Write-LogHost -Message "Start download SSH $KeyType key" -Level INFO
-        $outFile = Join-Path -Path $keyDir -ChildPath $SSHKey_Name
-        $ExitCode = Start-DownloadFile -URL $URL -OutFile $outFile
+        [string]$OutFile = Join-Path -Path $keyDir -ChildPath $SSHKey_Name
+        $ExitCode = Start-DownloadFile -URL $URL -OutFile $OutFile
 
         # Log
         if ($ExitCode -eq 0) {

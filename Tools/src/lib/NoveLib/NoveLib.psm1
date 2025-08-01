@@ -86,11 +86,6 @@ function Start-DownloadFile {
         [string]$OutFile
     )
 
-    # create save path
-    if (-not (Test-Path -Path $Path -PathType Container)) {
-        New-Item -Path $Path -ItemType Directory -Force | Out-Null
-    }
-
     try {
         Start-BitsTransfer -Source $URL -Destination $OutFile -ErrorAction Stop
         return 0
