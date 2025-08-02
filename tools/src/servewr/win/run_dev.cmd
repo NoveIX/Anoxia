@@ -1,5 +1,7 @@
 @echo off
-powershell -ExecutionPolicy Bypass -File "%~dp0\..\..\app\Main.ps1" -Update
+REM Nome dello script (nome + estensione)
+set "script_name=%~nx0"
+powershell -ExecutionPolicy Bypass -File "%~dp0\..\..\app\Main.ps1" -Server -InvokeCMD %script_name%
 
 REM Versioni Forge e Minecraft
 SET "mcVer=1.20.1"
