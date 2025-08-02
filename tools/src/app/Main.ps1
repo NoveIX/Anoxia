@@ -41,7 +41,7 @@ Set-Location -Path $AppDir
 # Find modpack dir
 if ($ModpackDir -Like "*\Moon*") {
     # Title
-    [string]$Modpack_PSTitle = 'Moon Base 2'
+    [string]$PSTitle = 'Moon Base 2'
     # Github
     [string]$GitHub_RepositoryName = 'Moon-Base-2'
 
@@ -52,8 +52,8 @@ if ($ModpackDir -Like "*\Moon*") {
     [string]$SSHKey_PublicName = 'moonbase2_github_readonly.pub'
 
     # Moon base auto update
-    [string]$AutoUp_TXTFileName = 'MoonBase2_modpack_path.txt'
-    [string]$AutoUp_CMDFileName = 'MoonBase2_auto_update.cmd'
+    [string]$AutoUpdate_FileNameTXT = 'MoonBase2_modpack_path.txt'
+    [string]$AutoUpdate_FileNameCMD = 'MoonBase2_auto_update.cmd'
 
 }
 else {
@@ -88,12 +88,12 @@ else {
 
 # Define %temp%\NoveLib
 [string]$TempPath = Join-Path -Path $env:TEMP -ChildPath $ModuleName
-[string]$AutoUpTXTPath = Join-Path -Path $TempPath -ChildPath $AutoUp_TXTFileName
+[string]$AutoUpdate_PathTXT = Join-Path -Path $TempPath -ChildPath $AutoUpdate_FileNameTXT
 
 # Define update, file and path
 [string]$UpdateDir = Join-Path -Path $srcDir -ChildPath 'update'
-[string]$AutoUpdateCMD = Join-Path -Path $UpdateDir -ChildPath $AutoUp_CMDFileName
-[string]$InShell_AutoUpdateCMD = Join-Path -Path $ShellStartup -ChildPath $AutoUp_CMDFileName
+[string]$AutoUpdateCMD = Join-Path -Path $UpdateDir -ChildPath $AutoUpdate_FileNameCMD
+[string]$InShell_AutoUpdateCMD = Join-Path -Path $ShellStartup -ChildPath $AutoUpdate_FileNameCMD
 #endregion
 
 # =================================================================================================== #
@@ -294,11 +294,11 @@ function Invoke-Setup {
 
     # Log - set title
     if ($Repair) {
-        [Console]::Title = "Repair $Modpack_PSTitle"
+        [Console]::Title = "Repair $PSTitle"
         Write-LogHost -Message "Execute Repair" -Level INFO
     }
     else {
-        [Console]::Title = "Setup $Modpack_PSTitle"
+        [Console]::Title = "Setup $PSTitle"
         Write-LogHost -Message "Execute setup" -Level INFO
     }
 
@@ -352,7 +352,7 @@ function Invoke-Update {
     param ()
 
     # Set title
-    [Console]::Title = "Update $Modpack_PSTitle"
+    [Console]::Title = "Update $PSTitle"
 
     # Log
     Write-LogHost -Message "Execute update" -Level INFO
@@ -449,7 +449,7 @@ function Invoke-AutoUpdate {
 
     # Write update path in user local temp
     $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-    [System.IO.File]::WriteAllText($AutoUpTXTPath, $MainPS1, $utf8NoBom)
+    [System.IO.File]::WriteAllText($AutoUpdate_PathTXT, $MainPS1, $utf8NoBom)
 
     if ($?) { Write-LogHost -Message "Write modpack path in $TempPath" -Level DONE }
     else { Write-LogHost -Message "Failed to write modpack path in $TempPath" -Level FAIL }
@@ -461,8 +461,8 @@ function Invoke-AutoUpdate {
         Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
 
         # Log
-        if ($?) { Write-LogHost -Message "Deleted in `"Shell:Starup`" file `"$AutoUp_CMDFileName`"" -Level DONE }
-        else { Write-LogHost -Message "Don't exist in `"Shell:Starup`" file `"$AutoUp_CMDFileName`"" -Level INFO }
+        if ($?) { Write-LogHost -Message "Deleted in `"Shell:Starup`" file `"$AutoUpdate_FileNameCMD`"" -Level DONE }
+        else { Write-LogHost -Message "Don't exist in `"Shell:Starup`" file `"$AutoUpdate_FileNameCMD`"" -Level INFO }
     }
 
     # Copy file execute update in Shell Startup
@@ -470,10 +470,10 @@ function Invoke-AutoUpdate {
 
     # Log
     if ($ExitCode -eq 0) {
-        Write-LogHost -Message "Copy `"$AutoUp_CMDFileName`" in `"Shell:Starup`"" -Level DONE
+        Write-LogHost -Message "Copy `"$AutoUpdate_FileNameCMD`" in `"Shell:Starup`"" -Level DONE
     }
     else {
-        Write-LogHost -Message "Failed to copy `"$AutoUp_CMDFileName`" in `"Shell:Starup`"" -Level FAIL
+        Write-LogHost -Message "Failed to copy `"$AutoUpdate_FileNameCMD`" in `"Shell:Starup`"" -Level FAIL
         Write-Host
         Write-Host "Press Enter to exit..." -NoNewline
         Read-Host
@@ -533,7 +533,7 @@ function Invoke-Remove {
     param ()
 
     # Set title
-    [Console]::Title = "Remove $Modpack_PSTitle"
+    [Console]::Title = "Remove $PSTitle"
 
     # ========= #
 
@@ -559,8 +559,8 @@ function Invoke-Remove {
     Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
 
     # Log
-    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUp_CMDFileName`" in `"Shell:Starup`" folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist `"$AutoUp_CMDFileName`" file in `"Shell:Starup`" folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUpdate_FileNameCMD`" in `"Shell:Starup`" folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist `"$AutoUpdate_FileNameCMD`" file in `"Shell:Starup`" folder" -Level INFO }
 
     # ========= #
 
