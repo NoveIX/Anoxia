@@ -26,9 +26,6 @@ Clear-Host
 # Google direct link
 [string]$GoogleDirectLink = 'https://drive.google.com/uc?export=download&id='
 
-
-# DEV => [string]$AppDir = "C:\Users\stefy\Source\Repos\MoonBase\Tools\src\app"
-
 # Locate script path
 [string]$MainPS1 = $MyInvocation.MyCommand.Path
 [string]$AppDir = $PSScriptRoot
@@ -44,7 +41,7 @@ if ($ModpackDir -Like "*\Moon*") {
     # Title
     [string]$Modpack_PSTitle = 'Moon Base 2'
     # Github
-    [string]$GitHub_RepositoryName = 'MoonBase2'
+    [string]$GitHub_RepositoryName = 'Moon-Base-2'
 
     # Moon Base ssh key
     [string]$SSHKey_PrivateURLID = '1JdE8tJ-PKKY39eK5I8qi9K5Hi-mg_68Z'

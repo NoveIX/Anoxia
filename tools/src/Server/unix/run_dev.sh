@@ -39,4 +39,4 @@ echo
 echo "# =========================================================== #"
 echo
 
-tmux new-session -d -s UndeadRising "export VAR=value; java @user_jvm_args.txt @libraries/net/minecraftforge/forge/$mcVer-$forgeVer/unix_args.txt \"$@\""
+tmux new-session -d -s "Moon Base 2" "export VAR=value; java @user_jvm_args.txt @libraries/net/minecraftforge/forge/$mcVer-$forgeVer/unix_args.txt \"$@\""
