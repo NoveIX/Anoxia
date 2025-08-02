@@ -47,14 +47,14 @@ if ($ModpackDir -Like "*\Moon*") {
     [string]$GitHub_RepositoryName = 'MoonBase2'
 
     # Moon Base ssh key
-    [string]$SSHKey_PrivateURLID = '1NQBNCotC3-pcMcZRLzwxxLost_WgKaPl'
-    [string]$SSHKey_PublicURLID = '1H-98PGCJhcaKIWX1VwV0YhYF9iOn2tUc'
-    [string]$SSHKey_PrivateName = 'MoonBase2-RepositoryKey'
-    [string]$SSHKey_PublicName = 'MoonBase2-RepositoryKey.pub'
+    [string]$SSHKey_PrivateURLID = '1JdE8tJ-PKKY39eK5I8qi9K5Hi-mg_68Z'
+    [string]$SSHKey_PublicURLID = '1DIDDAJZk2L7UZiElQr05PP7lE83taae4'
+    [string]$SSHKey_PrivateName = 'moonbase2_github_readonly'
+    [string]$SSHKey_PublicName = 'moonbase2_github_readonly.pub'
 
     # Moon base auto update
-    [string]$AutoUpTXTFileName = 'MoonBase2_ModpackPath.txt'
-    [string]$AutoUpCMDFileName = 'Moon Base 2 - auto update.cmd'
+    [string]$AutoUp_TXTFileName = 'MoonBase2_modpack_path.txt'
+    [string]$AutoUp_CMDFileName = 'MoonBase2_auto_update.cmd'
 
 }
 else {
@@ -89,12 +89,12 @@ else {
 
 # Define %temp%\NoveLib
 [string]$TempPath = Join-Path -Path $env:TEMP -ChildPath $ModuleName
-[string]$AutoUpTXTPath = Join-Path -Path $TempPath -ChildPath $AutoUpTXTFileName
+[string]$AutoUpTXTPath = Join-Path -Path $TempPath -ChildPath $AutoUp_TXTFileName
 
 # Define update, file and path
 [string]$UpdateDir = Join-Path -Path $srcDir -ChildPath 'update'
-[string]$AutoUpdateCMD = Join-Path -Path $UpdateDir -ChildPath $AutoUpCMDFileName
-[string]$InShell_AutoUpdateCMD = Join-Path -Path $ShellStartup -ChildPath $AutoUpCMDFileName
+[string]$AutoUpdateCMD = Join-Path -Path $UpdateDir -ChildPath $AutoUp_CMDFileName
+[string]$InShell_AutoUpdateCMD = Join-Path -Path $ShellStartup -ChildPath $AutoUp_CMDFileName
 #endregion
 
 # =================================================================================================== #
@@ -502,8 +502,8 @@ function Invoke-AutoUpdate {
         Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
 
         # Log
-        if ($?) { Write-LogHost -Message "Deleted in `"Shell:Starup`" file `"$AutoUpCMDFileName`"" -Level DONE }
-        else { Write-LogHost -Message "Don't exist in `"Shell:Starup`" file `"$AutoUpCMDFileName`"" -Level INFO }
+        if ($?) { Write-LogHost -Message "Deleted in `"Shell:Starup`" file `"$AutoUp_CMDFileName`"" -Level DONE }
+        else { Write-LogHost -Message "Don't exist in `"Shell:Starup`" file `"$AutoUp_CMDFileName`"" -Level INFO }
     }
 
     # Copy file execute update in Shell Startup
@@ -511,10 +511,10 @@ function Invoke-AutoUpdate {
 
     # Log
     if ($ExitCode -eq 0) {
-        Write-LogHost -Message "Copy `"$AutoUpCMDFileName`" in `"Shell:Starup`"" -Level DONE
+        Write-LogHost -Message "Copy `"$AutoUp_CMDFileName`" in `"Shell:Starup`"" -Level DONE
     }
     else {
-        Write-LogHost -Message "Failed to copy `"$AutoUpCMDFileName`" in `"Shell:Starup`"" -Level FAIL
+        Write-LogHost -Message "Failed to copy `"$AutoUp_CMDFileName`" in `"Shell:Starup`"" -Level FAIL
         Write-Host
         Write-Host "Press Enter to exit..." -NoNewline
         Read-Host
@@ -560,8 +560,8 @@ function Invoke-Remove {
     Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
 
     # Log
-    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUpCMDFileName`" in `"Shell:Starup`" folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist `"$AutoUpCMDFileName`" file in `"Shell:Starup`" folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUp_CMDFileName`" in `"Shell:Starup`" folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist `"$AutoUp_CMDFileName`" file in `"Shell:Starup`" folder" -Level INFO }
 
     # ========= #
 
