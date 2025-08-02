@@ -225,7 +225,7 @@ function Confirm-Selection {
     }
 
     if (-not ($Answer -eq "Y" -or [string]::IsNullOrWhiteSpace($Answer))) {
-        Write-LogHost -Message "Operation canceled by user. Closing in 5 seconds..." -Level INFO
+        Write-LogHost -Message "Operation canceled by user. Continue in 5 seconds..." -Level INFO
         Start-Sleep -Seconds 5
         Exit 1
     }
