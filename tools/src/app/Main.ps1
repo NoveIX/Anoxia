@@ -9,7 +9,9 @@ param(
     [Parameter(ParameterSetName = 'Repair')]
     [switch]$Repair,
     [Parameter(ParameterSetName = 'Remove')]
-    [switch]$Remove
+    [switch]$Remove,
+    [Parameter(ParameterSetName = 'Server')]
+    [switch]$Server
 )
 
 # Set background black
@@ -407,46 +409,6 @@ function Invoke-Update {
 
 # =================================================================================================== #
 
-#region Delete File
-function Invoke-RepairDeleteFile {
-    param ()
-
-    # Log
-    Write-LogHost -Message "get items in repository modpack dir" -Level INFO
-
-    # Get item from repository dir
-    $repoModpackItems = Get-ChildItem -Path $RepoModpackDir -Force
-
-    # remove all item in modpack dir if exist in repository dir
-    foreach ($repoModpackItem in $repoModpackItems) {
-
-        # Calculate the path relative to the repository folder
-        [string]$relativePath = $repoModpackItem.FullName.Substring((Resolve-Path $repoModpackDir).Path.Length)
-
-        # Builds the corresponding path in the modpack dir
-        [string]$destPath = Join-Path -Path $ModpackDir -ChildPath $relativePath
-
-        # If the folder exist in the modpack dir, remove it - Skip Tools
-        if ((Test-Path -Path $destPath) -and ($destPath -notlike "*Tools*")) {
-            Remove-Item -Path $destPath -Recurse -Force
-
-            # Log
-            if ($?) { Write-LogHost -Message "Deleted folder $destPath" -Level TRACE }
-            else { Write-LogHost -Message "Don't exist folder $destPath" -Level INFO }
-        }
-        else {
-            # Log
-            Write-LogHost -Message "Skip folder $destPath" -Level TRACE
-        }
-    }
-
-    #Log
-    Write-LogHost -Message "Delete completed" -Level DONE
-}
-#endregion
-
-# =================================================================================================== #
-
 #region auto update
 function Invoke-AutoUpdate {
     param (
@@ -521,6 +483,46 @@ function Invoke-AutoUpdate {
     # Give time to read
     Start-Sleep -Seconds 10
     exit 0
+}
+#endregion
+
+# =================================================================================================== #
+
+#region Delete File
+function Invoke-RepairDeleteFile {
+    param ()
+
+    # Log
+    Write-LogHost -Message "get items in repository modpack dir" -Level INFO
+
+    # Get item from repository dir
+    $repoModpackItems = Get-ChildItem -Path $RepoModpackDir -Force
+
+    # remove all item in modpack dir if exist in repository dir
+    foreach ($repoModpackItem in $repoModpackItems) {
+
+        # Calculate the path relative to the repository folder
+        [string]$relativePath = $repoModpackItem.FullName.Substring((Resolve-Path $repoModpackDir).Path.Length)
+
+        # Builds the corresponding path in the modpack dir
+        [string]$destPath = Join-Path -Path $ModpackDir -ChildPath $relativePath
+
+        # If the folder exist in the modpack dir, remove it - Skip Tools
+        if ((Test-Path -Path $destPath) -and ($destPath -notlike "*Tools*")) {
+            Remove-Item -Path $destPath -Recurse -Force
+
+            # Log
+            if ($?) { Write-LogHost -Message "Deleted folder $destPath" -Level TRACE }
+            else { Write-LogHost -Message "Don't exist folder $destPath" -Level INFO }
+        }
+        else {
+            # Log
+            Write-LogHost -Message "Skip folder $destPath" -Level TRACE
+        }
+    }
+
+    #Log
+    Write-LogHost -Message "Delete completed" -Level DONE
 }
 #endregion
 
