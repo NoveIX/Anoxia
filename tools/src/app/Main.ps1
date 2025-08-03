@@ -311,7 +311,7 @@ function Invoke-AutoUpdateSetup {
 
     Write-Host "`n# ==================== Auto update mode ===================== #`n"
     Write-Host "Enable auto update?"
-    Write-Host "Every time your PC starts up with your user account, the system will check for updates to the modpack. DIO CANE"
+    Write-Host "Every time your PC starts up with your user account, the system will check for updates to the modpack."
     if (Test-Path -Path $InShell_AutoUpdateCMD -PathType Leaf) {
         $ExitCode = Confirm-Selection -Message "Do you want to enable auto update mode?" -Answer 'Y'
     }
@@ -381,6 +381,7 @@ function Invoke-Update {
         # Download Update with ssh
         $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
         git pull
+
         $ExitCode = $LASTEXITCODE
         Invoke-UIGitBot
 
@@ -389,7 +390,7 @@ function Invoke-Update {
             Write-LogHost -Message "Check repository update completed" -Level DONE
         }
         else {
-            Write-LogHost -Message "Failed get update. git pull exit code $ExitCode" -Level DONE
+            Write-LogHost -Message "Failed get update. git pull exit code $ExitCode" -Level FAIL
             Write-Host "`nPress Enter to exit..." -NoNewline
             Read-Host
             Exit 1
