@@ -239,15 +239,17 @@ function Invoke-DownloadRepository {
             else { Write-LogHost -Message "Failed to create repositoy folder" -Level FAIL }
         }
 
-        # Download repository with ssh - Log
+        # Log
         Write-LogHost -Message "Prepare SSH Command" -Level INFO
         Invoke-UIGitTop
+
+        # Download repository with ssh
         $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
         git clone -b 1.20 --depth 1 --single-branch "git@github.com:NoveIX/$GitHub_RepositoryName.git" $RepoModpackDir
         $ExitCode = $LASTEXITCODE
-        Invoke-UIGitBot
 
         # Log
+        Invoke-UIGitBot
         if ($ExitCode -eq 0) {
             Write-LogHost -Message "Download repository completed" -Level DONE
         }
@@ -369,7 +371,7 @@ function Invoke-Update {
 
 
     # Test .gir path in modpack dir copy file if not exist - Log
-    Write-LogHost -Message "Control .git folder" -Level INFO
+    Write-LogHost -Message "Check .git folder" -Level INFO
     if (Test-Path -Path $gitDir -PathType Container) {
 
         # Change directory to execute git pull
