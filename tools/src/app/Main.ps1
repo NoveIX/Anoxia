@@ -347,65 +347,18 @@ function Invoke-AutoUpdateSetup {
 # =================================================================================================== #
 
 #region Update
-<# function Invoke-Update {
-    # Set title
-    [Console]::Title = "Update $PSTitle"
+function Invoke-Update {
+    param ()
+
+    # Set title - Log
+    [Console]::Title = "Update $Modpack_PSTitle"
     Write-LogHost -Message "Execute update" -Level INFO
 
     # Ensure SSH Key
     Invoke-DownloadSSHKey
 
     # Test .gir path in modpack dir copy file if not exist - Log
-    Write-LogHost -Message "Check .git folder" -Level INFO
-    if (Test-Path -Path $gitDir -PathType Container) {
-
-        # Change directory to execute git pull - Log
-        Write-LogHost -Message "Change directory to: $ModpackDir" -Level INFO
-        Set-Location -Path $ModpackDir
-
-        # Log
-        Write-LogHost -Message "Prepare SSH Command" -Level INFO
-        Invoke-UIGitTop
-
-        # Download Update with ssh
-        $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
-        git pull
-        $ExitCode = $LASTEXITCODE
-
-        # Log
-        Invoke-UIGitBot
-        if ($ExitCode -eq 0) {
-            Write-LogHost -Message "Check repository update completed" -Level DONE
-        }
-        else {
-            Write-LogHost -Message "Failed get update. Git pull exit code $ExitCode" -Level FAIL
-            Write-Host "`nPress Enter to exit..." -NoNewline
-            Read-Host
-            exit 1
-        }
-    }
-    else {
-        return 1
-    }
-
-    return 0
-} #>
-function Invoke-Update {
-    param ()
-
-    # Set title
-    [Console]::Title = "Update $Modpack_PSTitle"
-
-    # Log
-    Write-LogHost -Message "Execute update" -Level INFO
-
-    # Ensure SSH Key
-    Invoke-DownloadSSHKey
-
-    #Log
     Write-LogHost -Message "Control .git folder" -Level INFO
-
-    # Test .gir path in modpack dir copy file if not exist
     if (Test-Path -Path $gitDir -PathType Container) {
 
         # Log - Change directory to execute git pull
@@ -434,18 +387,10 @@ function Invoke-Update {
         }
     }
     else {
-        # Log
-        Write-LogHost -Message "can't find .git folder in Modpack folder" -Level WARN
-        Write-Host
-
-        # Ask if want execute setup
-        Confirm-Selection -Message "Would you like to proceed with the installation?"
-        Invoke-Setup
+        return 1
     }
 
-    # Give time to read
-    Start-Sleep -Seconds 10
-    exit 0
+    return 0
 }
 #endregion
 
