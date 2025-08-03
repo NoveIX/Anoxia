@@ -1,4 +1,3 @@
-@ -1,537 +0,0 @@
 # File: Tools\src\app\Main.ps1
 
 # Parameter
