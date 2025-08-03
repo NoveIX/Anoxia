@@ -42,7 +42,7 @@ Set-Location -Path $WokrDir
 if ($ModpackDir -Like "*\Moon*") {
     # Title - GitHub repository name
     [string]$PSTitle = 'Moon Base 2'
-    [string]$GitHub_RepositoryName = 'MoonBase2'
+    [string]$GitHub_RepositoryName = 'mb2-modpack'
 
     # Moon Base ssh key
     [string]$SSHKey_PrivateURLID = '1NQBNCotC3-pcMcZRLzwxxLost_WgKaPl'

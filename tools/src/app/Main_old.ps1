@@ -44,7 +44,7 @@ if ($ModpackDir -Like "*\Moon*") {
     # Title
     [string]$Modpack_PSTitle = 'Moon Base 2'
     # Github
-    [string]$GitHub_RepositoryName = 'MoonBase2'
+    [string]$GitHub_RepositoryName = 'mb2-modpack'
 
     # Moon Base ssh key
     [string]$SSHKey_PrivateURLID = '1NQBNCotC3-pcMcZRLzwxxLost_WgKaPl'
