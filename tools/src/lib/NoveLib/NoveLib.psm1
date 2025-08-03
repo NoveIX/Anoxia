@@ -192,9 +192,7 @@ function Copy-FileFast {
 function Invoke-UIGitTop {
     [CmdletBinding()]
     param ()
-    Write-Host
-    Write-Host "# ===================== Git log message ===================== #"
-    Write-Host
+    Write-Host "`n# ===================== Git log message ===================== #`n"
 }
 
 
@@ -204,9 +202,7 @@ function Invoke-UIGitTop {
 function Invoke-UIGitBot {
     [CmdletBinding()]
     param ()
-    Write-Host
-    Write-Host "# =========================================================== #"
-    Write-Host
+    Write-Host "`n# =========================================================== #`n"
 }
 #endregion
 
@@ -223,8 +219,14 @@ function Confirm-Selection {
     if ($null -ne $Answer) {
         $Answer = Read-Host
     }
+    else {
+        Write-Host "Y"
+    }
 
-    if (-not ($Answer -eq "Y" -or [string]::IsNullOrWhiteSpace($Answer))) {
+    if ($Answer -eq "Y" -or [string]::IsNullOrWhiteSpace($Answer)) {
+        return 0
+    }
+    else {
         return 1
     }
 }
