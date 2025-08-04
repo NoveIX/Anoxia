@@ -437,23 +437,23 @@ function Invoke-Repair {
             Remove-Item -Path $destPath -Recurse -Force
 
             # Log
-            if ($?) { Write-LogHost -Message "Deleted $destDir folder" -Level DONE }
-            else { Write-LogHost -Message "Don't exist $destDir folder" -Level INFO }
+            if ($?) { Write-LogHost -Message "Deleted folder: $destDir" -Level DONE }
+            else { Write-LogHost -Message "Don't exist folder: $destDir" -Level INFO }
         }
         else {
-            Write-LogHost -Message "Skip $destPath folder" -Level TRACE
+            Write-LogHost -Message "Skip folder: $destPath" -Level TRACE
         }
     }
 
     # Remove SSH key dir - Log
     Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted key folder in src folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist key folder in src folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted folder: $KeyDir" -Level DONE }
+    else { Write-LogHost -Message "Don't exist folder: $KeyDir" -Level INFO }
 
     # Remove Repo dir - Log
     Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted folder: $RepoDir" -Level DONE }
+    else { Write-LogHost -Message "Don't exist folder: $RepoDir" -Level INFO }
 
     # Starting setup in repair mode - Log
     Write-LogHost -Message "Delete completed" -Level DONE
@@ -477,36 +477,36 @@ function Invoke-Remove {
 
     # Remove .git in modpack dir - Log
     Remove-Item -Path $GitDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted .git folder  in modpack folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist .git folder in modpack folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted folder: $GitDir" -Level DONE }
+    else { Write-LogHost -Message "Don't exist folder: $GitDir" -Level INFO }
 
     # ========= #
 
     # Remove repo dir - Log
     Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted folder: $RepoDir" -Level DONE }
+    else { Write-LogHost -Message "Don't exist folder: $RepoDir" -Level INFO }
 
     # ========= #
 
     # Remove key dir - Log
     Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted key folder in src folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist key folder in src folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted folder: $KeyDir" -Level DONE }
+    else { Write-LogHost -Message "Don't exist folder: $KeyDir" -Level INFO }
 
     # ========= #
 
     # Remove NoveLib in local user temp - Log
     Remove-Item -Path $LocalTemp -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted $LocalTemp folder in %Temp% folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist $LocalTemp folder in %Temp% folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted folder: $LocalTemp" -Level DONE }
+    else { Write-LogHost -Message "Don't exist folder: $LocalTemp" -Level INFO }
 
     # ========= #
 
     # Remove auto update file in Shell:Startup - Log
     Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted $AutoUpdateCMD_Name file in Shell:Starup folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist $AutoUpdateCMD_Name file in Shell:Starup folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted file: $InShell_AutoUpdateCMD" -Level DONE }
+    else { Write-LogHost -Message "Don't exist file: $InShell_AutoUpdateCMD" -Level INFO }
 }
 #endregion
 
