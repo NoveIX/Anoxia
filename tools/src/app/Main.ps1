@@ -437,23 +437,23 @@ function Invoke-Repair {
             Remove-Item -Path $destPath -Recurse -Force
 
             # Log
-            if ($?) { Write-LogHost -Message "Deleted folder $destDir" -Level DONE }
-            else { Write-LogHost -Message "Don't exist folder $destDir" -Level INFO }
+            if ($?) { Write-LogHost -Message "Deleted $destDir folder" -Level DONE }
+            else { Write-LogHost -Message "Don't exist $destDir folder" -Level INFO }
         }
         else {
-            Write-LogHost -Message "Skip folder $destPath" -Level TRACE
+            Write-LogHost -Message "Skip $destPath folder" -Level TRACE
         }
     }
 
     # Remove SSH key dir - Log
     Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted key folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist the key folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted key folder in src folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist key folder in src folder" -Level INFO }
 
     # Remove Repo dir - Log
     Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted repositoy folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist repositoy folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
 
     # Starting setup in repair mode - Log
     Write-LogHost -Message "Delete completed" -Level DONE
