@@ -405,6 +405,7 @@ function Invoke-Update {
         if ($ExitCode -eq 0) {
             Write-Host "`nStarting setup..." -NoNewline
             Start-Sleep -Seconds 3
+            Clear-Host
             Write-AsciiArt
             Invoke-Setup
         }
@@ -457,6 +458,7 @@ function Invoke-Repair {
     Write-LogHost -Message "Delete completed" -Level DONE
     Write-Host "`nStarting setup..." -NoNewline
     Start-Sleep -Seconds 3
+    Clear-Host
     Write-AsciiArt
     Invoke-Setup -Repair
 }
