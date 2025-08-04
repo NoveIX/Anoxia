@@ -51,9 +51,9 @@ if ($ModpackDir -Like "*Project Anoxia*") {
     [string]$GitHub_RepositoryName = 'Anoxia'
 
     # Moon Base ssh key
-    [string]$SSHKey_PrivateURLID = ''
+    [string]$SSHKey_PrivateURLID = '1GmWulfVRzqmd6smBK0DzJZcPIKw8ti__'
     [string]$SSHKey_PrivateName = 'anoxia_github_readonly'
-    [string]$SSHKey_PublicURLID = ''
+    [string]$SSHKey_PublicURLID = '1cg216BH7fghtu6-jDb95sgW5vOShx8nK'
     [string]$SSHKey_PublicName = 'anoxia_github_readonly.pub'
 
     # Moon base auto update
@@ -269,7 +269,7 @@ function Invoke-Setup {
 
         # Log
         if ($ExitCode -eq 0) {
-            Write-LogHost -Message "Copy copy repository file in modpack folder completed" -Level DONE
+            Write-LogHost -Message "Copy repository file in modpack folder completed" -Level DONE
         }
         else {
             Write-LogHost -Message "Failed to copy repository file in modpack folder" -Level FAIL
@@ -475,8 +475,8 @@ function Invoke-Remove {
 if ($Update) {
     $ExitCode = Invoke-Update -Location $ModpackDir
     if ($ExitCode -eq 1) {
-        Write-LogHost -Message "can't find .git folder in Modpack folder`n" -Level WARN
-        $ExitCode = Confirm-Selection -Message "Would you like to proceed with the installation?"
+        Write-LogHost -Message "can't find .git folder in Modpack folder" -Level WARN
+        $ExitCode = Confirm-Selection -Message "`nWould you like to proceed with the installation?"
         if ($ExitCode -eq 0) {
             Write-Host "`nStarting setup..." -NoNewline
             Start-Sleep -Seconds 3
