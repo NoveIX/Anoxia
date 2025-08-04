@@ -361,7 +361,7 @@ function Invoke-Update {
 
         # Download Update with ssh
         $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
-        git pull
+        git.exe pull
         Set-Location -Path $WokrDir
         $ExitCode = $LASTEXITCODE
 
