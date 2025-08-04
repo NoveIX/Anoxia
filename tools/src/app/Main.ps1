@@ -113,8 +113,9 @@ else {
 # Forge
 [string]$MCVer = "1.20.1"
 [string]$ForgeVer = "47.4.0"
-[string]$MavenDirectLink = "https://maven.minecraftforge.net/net/minecraftforge/forge"
+[string]$MavenBaseURL = "https://maven.minecraftforge.net/net/minecraftforge/forge"
 [string]$ForgeFileName = "forge-$MCVer-$ForgeVer-installer.jar"
+[string]$URL = "$MavenBaseURL/$MCVer-$ForgeVer/$ForgeFileName"
 #endregion
 
 # =================================================================================================== #
