@@ -2,22 +2,22 @@
 
 # Parameter
 param(
-    [Parameter(ParameterSetName = 'Setup')]
+    [Parameter(ParameterSetName = "Setup")]
     [switch]$Setup,
-    [Parameter(ParameterSetName = 'Update')]
+    [Parameter(ParameterSetName = "Update")]
     [switch]$Update,
-    [Parameter(ParameterSetName = 'Repair')]
+    [Parameter(ParameterSetName = "Repair")]
     [switch]$Repair,
-    [Parameter(ParameterSetName = 'Remove')]
+    [Parameter(ParameterSetName = "Remove")]
     [switch]$Remove,
-    [Parameter(ParameterSetName = 'Server')]
+    [Parameter(ParameterSetName = "Server")]
     [switch]$Server,
-    [Parameter(ParameterSetName = 'Server')]
+    [Parameter(ParameterSetName = "Server")]
     [string]$InvokeCMD
 )
 
 # Set background black
-[console]::BackgroundColor = 'Black'
+[console]::BackgroundColor = "Black"
 Clear-Host
 
 # =================================================================================================== #
@@ -39,26 +39,26 @@ Set-Location -Path $WokrDir
 [string]$ModpackDir = Split-Path -Path $ToolsDir -Parent
 
 # Module name
-[string]$ModuleName = 'NoveLib'
+[string]$ModuleName = "NoveLib"
 
 # Google direct link
-[string]$GoogleBaseURL = 'https://drive.google.com/uc?export=download&id='
+[string]$GoogleBaseURL = "https://drive.google.com/uc?export=download&id="
 
 # Find modpack name
 if ($ModpackDir -Like "*Project Anoxia*") {
     # Title - GitHub repository name
-    [string]$PSTitle = 'Project Anoxia - Lunar Ruins'
-    [string]$GitHub_RepositoryName = 'Anoxia'
+    [string]$PSTitle = "Project Anoxia - Lunar Ruins"
+    [string]$GitHub_RepositoryName = "Anoxia"
 
     # Moon Base ssh key
-    [string]$SSHKey_PrivateURLID = '1GmWulfVRzqmd6smBK0DzJZcPIKw8ti__'
-    [string]$SSHKey_PrivateName = 'anoxia_github_readonly'
-    [string]$SSHKey_PublicURLID = '1cg216BH7fghtu6-jDb95sgW5vOShx8nK'
-    [string]$SSHKey_PublicName = 'anoxia_github_readonly.pub'
+    [string]$SSHKey_PrivateURLID = "1GmWulfVRzqmd6smBK0DzJZcPIKw8ti__"
+    [string]$SSHKey_PrivateName = "anoxia_github_readonly"
+    [string]$SSHKey_PublicURLID = "1cg216BH7fghtu6-jDb95sgW5vOShx8nK"
+    [string]$SSHKey_PublicName = "anoxia_github_readonly.pub"
 
     # Moon base auto update
-    [string]$AutoUpdateTXT_Name = 'anoxia_modpack_path.txt'
-    [string]$AutoUpdateCMD_Name = 'anoxia_modpack_auto_update.cmd'
+    [string]$AutoUpdateTXT_Name = "anoxia_modpack_path.txt"
+    [string]$AutoUpdateCMD_Name = "anoxia_modpack_auto_update.cmd"
 }
 else {
     $ProjectName = Split-Path $ModpackDir -Leaf
@@ -75,16 +75,16 @@ else {
 [string]$GitDir = Join-Path -Path $ModpackDir -ChildPath ".git"
 
 # Define key, file and path
-[string]$KeyDir = Join-Path -Path $SrcDir -ChildPath 'key'
+[string]$KeyDir = Join-Path -Path $SrcDir -ChildPath "key"
 [string]$SSHKey_PrivatePath = Join-Path -Path $KeyDir -ChildPath $SSHKey_PrivateName
 [string]$SSHKey_PublicPath = Join-Path -Path $KeyDir -ChildPath $SSHKey_PublicName
 
 # Define repository path
-[string]$RepoDir = Join-Path -Path $SrcDir -ChildPath 'repo'
+[string]$RepoDir = Join-Path -Path $SrcDir -ChildPath "repo"
 [string]$RepoModpackDir = Join-Path -Path $RepoDir -ChildPath $GitHub_RepositoryName
 
 # Define library, file and path
-[string]$LibDir = Join-Path -Path $SrcDir -ChildPath 'lib'
+[string]$LibDir = Join-Path -Path $SrcDir -ChildPath "lib"
 [string]$NoveLibDir = Join-Path -Path $LibDir -ChildPath $ModuleName
 [string]$ModuleManifest = Join-Path -Path $NoveLibDir -ChildPath "$ModuleName.psd1"
 
@@ -92,14 +92,14 @@ else {
 
 ### Auto update
 # Define Shell:Startup
-[string]$ShellStartup = [Environment]::GetFolderPath('Startup')
+[string]$ShellStartup = [Environment]::GetFolderPath("Startup")
 
 # Define %temp%\NoveLib
 [string]$LocalTemp = Join-Path -Path $env:TEMP -ChildPath $ModuleName
 [string]$AutoUpdateTXT = Join-Path -Path $LocalTemp -ChildPath $AutoUpdateTXT_Name
 
 # Define update, file and path
-[string]$UpdateDir = Join-Path -Path $SrcDir -ChildPath 'update'
+[string]$UpdateDir = Join-Path -Path $SrcDir -ChildPath "update"
 [string]$AutoUpdateCMD = Join-Path -Path $UpdateDir -ChildPath $AutoUpdateCMD_Name
 [string]$InShell_AutoUpdateCMD = Join-Path -Path $ShellStartup -ChildPath $AutoUpdateCMD_Name
 
@@ -168,7 +168,7 @@ function Start-DownloadSSHKey {
         [string]$SSHKey_Path,
         [string]$SSHKey_URLID,
         [string]$SSHKey_Name,
-        [ValidateSet('private', 'public')]
+        [ValidateSet("private", "public")]
         [string]$KeyType
     )
 
@@ -477,22 +477,36 @@ function Invoke-Remove {
 
     # Remove .git in modpack dir - Log
     Remove-Item -Path $GitDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted folder .git in modpack folder" -Level DONE }
+    if ($?) { Write-LogHost -Message "Deleted .git folder  in modpack folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist .git folder in modpack folder" -Level INFO }
+
+    # ========= #
+
+    # Remove repo dir - Log
+    Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
+    if ($?) { Write-LogHost -Message "Deleted repo folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist repo folder" -Level INFO }
+
+    # ========= #
+
+    # Remove key dir - Log
+    Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
+    if ($?) { Write-LogHost -Message "Deleted repo folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist repo folder" -Level INFO }
 
     # ========= #
 
     # Remove NoveLib in local user temp - Log
     Remove-Item -Path $LocalTemp -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted folder $LocalTemp" -Level DONE }
-    else { Write-LogHost -Message "Don't exist folder $LocalTemp" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted $LocalTemp folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist $LocalTemp folder" -Level INFO }
 
     # ========= #
 
     # Remove auto update file in Shell:Startup - Log
     Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUpdateCMD_Name`" in `"Shell:Starup`" folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist `"$AutoUpdateCMD_Name`" file in `"Shell:Starup`" folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted $AutoUpdateCMD_Name file in Shell:Starup folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist $AutoUpdateCMD_Name file in Shell:Starup folder" -Level INFO }
 }
 #endregion
 
