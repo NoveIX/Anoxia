@@ -86,27 +86,46 @@ function Start-DownloadFile {
         [string]$OutFile
     )
 
+    # Try Start-BitsTransfer
     try {
         Start-BitsTransfer -Source $URL -Destination $OutFile -ErrorAction Stop
-        return 0
+        return 0 # 0 = Success
     }
     catch {
-        try {
-            Write-LogHost -Message "Failed to download with Start-BitsTransfer" -Level WARN
-            Invoke-WebRequest -Uri $URL -OutFile $OutFile
-            return 0
-        }
-        catch {
-            try {
-                Write-LogHost -Message "Failed to download with Invoke-WebRequest" -Level WARN
-                curl.exe -# $URL -o $OutFile
-                return 0
-            }
-            catch {
-                return 1
-            }
-        }
+        Write-LogHost -Message "Failed download with 'Start-BitsTransfer'" -Level WARN
     }
+
+    # Try Invoke-WebRequest
+    try {
+        Invoke-WebRequest -Uri $URL -OutFile $OutFile -ErrorAction Stop
+        return 0 # 0 = Success
+    }
+    catch {
+        Write-LogHost -Message "Failed download with 'Invoke-WebRequest'" -Level WARN
+    }
+
+    # Try curl.exe
+    & curl.exe --fail $URL -o $OutFile *> $null
+    if ($LASTEXITCODE -eq 0) {
+        return 0 # 0 = Success
+    }
+    else {
+        Write-LogHost -Message "Failed download with 'curl.exe'" -Level WARN
+    }
+
+
+    # Try System.Net.WebClient
+    try {
+        $wc = New-Object System.Net.WebClient
+        $wc.DownloadFile($URL, $OutFile)
+        return 0 # 0 = Success
+    }
+    catch {
+        Write-LogHost -Message "Failed download with 'System.Net.WebClient'" -Level WARN
+    }
+
+    # all methods have failed
+    return 1 # 1 = Failed
 }
 #endregion
 
