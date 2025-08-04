@@ -350,11 +350,11 @@ function Invoke-AutoUpdateSetup {
         }
 
         Write-LogHost -Message "Setup completed." -Level INFO
-        Write-Host "`nAuto update: ON"
+        Write-LogHost -Message "`nAuto update: ON" -Level INFO
     }
     else {
         Write-LogHost -Message "Setup completed." -Level INFO
-        Write-Host "`nAuto update: OFF"
+        Write-LogHost -Message "`nAuto update: OFF" -Level INFO
     }
 }
 #endregion
@@ -491,8 +491,8 @@ function Invoke-Remove {
 
     # Remove auto update file in Shell:Startup - Log
     Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUp_CMDFileName`" in `"Shell:Starup`" folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist `"$AutoUp_CMDFileName`" file in `"Shell:Starup`" folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted file `"$AutoUpdateCMD_Name`" in `"Shell:Starup`" folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist `"$AutoUpdateCMD_Name`" file in `"Shell:Starup`" folder" -Level INFO }
 }
 #endregion
 
