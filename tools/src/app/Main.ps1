@@ -264,6 +264,9 @@ function Invoke-DownloadRepository {
 
 #region Setup
 function Invoke-Setup {
+    param (
+        [switch]$Repair
+    )
 
     # Set title
     [Console]::Title = "Setup $PSTitle"
@@ -290,12 +293,12 @@ function Invoke-Setup {
             Read-Host
             Exit 1
         }
+
+        Invoke-AutoUpdateSetup -Repair:$Repair
     }
     else {
         Write-LogHost -Message "Find .git folder" -Level DONE
     }
-
-    return 0
 }
 #endregion
 
@@ -303,17 +306,22 @@ function Invoke-Setup {
 
 #region Setup AutoUp
 function Invoke-AutoUpdateSetup {
+    param (
+        [switch]$Repair
+    )
 
-    Write-Host "`n# ==================== Auto update mode ===================== #`n"
-    Write-Host "Enable auto update?"
-    Write-Host "Every time your PC starts up with your user account, the system will check for updates to the modpack."
-    if ((Test-Path -Path $InShell_AutoUpdateCMD -PathType Leaf) -and (Test-Path -Path $AutoUpdateTXT -PathType Leaf) ) {
-        $ExitCode = Confirm-Selection -Message "Do you want to enable auto update mode?" -Answer 'Y'
+    if ($Repair) {
+        [bool]$SelfAutoUpdate = $((Test-Path -Path $InShell_AutoUpdateCMD -PathType Leaf) -and (Test-Path -Path $AutoUpdateTXT -PathType Leaf))
+        if ($SelfAutoUpdate) { $ExitCode = 0 } # True
+        else { $ExitCode = 1 } # False
     }
     else {
+        Write-Host "`n# ==================== Auto update mode ===================== #`n"
+        Write-Host "Enable auto update?"
+        Write-Host "Every time your PC starts up with your user account, the system will check for updates to the modpack."
         $ExitCode = Confirm-Selection -Message "Do you want to enable auto update mode?"
+        Write-Host "`n# =========================================================== #`n"
     }
-    Write-Host "`n# =========================================================== #`n"
 
     if ($ExitCode -eq 0) {
         # Create NoveLib dir in %Temp% if not exist
@@ -341,10 +349,11 @@ function Invoke-AutoUpdateSetup {
             Read-Host
             Exit 1
         }
-        return 0
+
+        Write-LogHost -Message "Setup completed. Auto update: ON" -Level INFO
     }
     else {
-        return 1
+        Write-LogHost -Message "Setup completed. Auto update: OFF" -Level INFO
     }
 }
 #endregion
@@ -374,7 +383,7 @@ function Invoke-Update {
 
         # Download Update with ssh
         $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
-        & git pull 2>&1 | Write-Host
+        & git pull
         $ExitCode = $LASTEXITCODE
         Set-Location -Path $WokrDir
 
@@ -392,10 +401,14 @@ function Invoke-Update {
         }
     }
     else {
-        return 1
+        Write-LogHost -Message "can't find .git folder in Modpack folder" -Level WARN
+        $ExitCode = Confirm-Selection -Message "`nWould you like to proceed with the installation?"
+        if ($ExitCode -eq 0) {
+            Write-Host "`nStarting setup..." -NoNewline
+            Start-Sleep -Seconds 3
+            Invoke-Setup
+        }
     }
-
-    return 0
 }
 #endregion
 
@@ -440,10 +453,11 @@ function Invoke-Repair {
     if ($?) { Write-LogHost -Message "Deleted repositoy folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist repositoy folder" -Level INFO }
 
-    # Log
+    # Starting setup in repair mode - Log
     Write-LogHost -Message "Delete completed" -Level DONE
-
-    return 0
+    Write-Host "`nStarting setup..." -NoNewline
+    Start-Sleep -Seconds 3
+    Invoke-Setup -Repair
 }
 #endregion
 
@@ -476,10 +490,6 @@ function Invoke-Remove {
     Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted file `"$AutoUp_CMDFileName`" in `"Shell:Starup`" folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist `"$AutoUp_CMDFileName`" file in `"Shell:Starup`" folder" -Level INFO }
-
-    # ========= #
-
-    return 0
 }
 #endregion
 
@@ -487,39 +497,16 @@ function Invoke-Remove {
 
 #region Script code
 if ($Update) {
-    $ExitCode = Invoke-Update -Location $ModpackDir
-    if ($ExitCode -eq 1) {
-        Write-LogHost -Message "can't find .git folder in Modpack folder" -Level WARN
-        $ExitCode = Confirm-Selection -Message "`nWould you like to proceed with the installation?"
-        if ($ExitCode -eq 0) {
-            Write-Host "`nStarting setup..." -NoNewline
-            Start-Sleep -Seconds 3
-            . $MainPS1 -Setup
-            exit 0
-        }
-    }
+    Invoke-Update -Location $ModpackDir
 }
 elseif ($Setup) {
-    $ExitCode = Invoke-Setup
-    if ($ExitCode -eq 0) {
-        $ExitCode = Invoke-AutoUpdateSetup
-        if ($ExitCode -eq 0) {
-            Write-LogHost -Message "Setup completed. Auto update: ON" -Level INFO
-        }
-        else {
-            Write-LogHost -Message "Setup completed. Auto update: OFF" -Level INFO
-        }
-    }
+    Invoke-Setup
 }
 elseif ($Repair) {
-    $ExitCode = Invoke-Repair
-    Write-Host "`nStarting setup..." -NoNewline
-    Start-Sleep -Seconds 3
-    . $MainPS1 -Setup
-    exit 0
+    Invoke-Repair
 }
 elseif ($Remove) {
-    $ExitCode = Invoke-Remove
+    Invoke-Remove
 }
 else {
     Write-LogHost -Message "Fueature not write yet" -Debug
