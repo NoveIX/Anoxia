@@ -346,11 +346,11 @@ function Invoke-Update {
     )
 
     # Set title - Log
-    [Console]::Title = "Update $Modpack_PSTitle"
+    [Console]::Title = "Update $PSTitle"
     Write-LogHost -Message "Execute update" -Level INFO
 
     # Test .gir path in modpack dir copy file if not exist - Log
-    Write-LogHost -Message "Control .git folder" -Level INFO
+    Write-LogHost -Message "Check .git folder in modpack folder" -Level INFO
     if (Test-Path -Path $gitDir -PathType Container) {
 
         # Log - Change directory to execute git pull
@@ -512,7 +512,14 @@ else {
 }
 
 # Give time to read
-Write-Host "`n# Script finished. Closing in 15 seconds. #" -NoNewline
-Start-Sleep -Seconds 15
+Write-Host "`n# Script finished. Closing in 15 seconds. #"
+Start-Sleep -Seconds 12
+Write-Host "`nClosing: 3 " -NoNewline
+Start-Sleep -Seconds 1
+Write-Host "2 " -NoNewline
+Start-Sleep -Seconds 1
+Write-Host "1 " -NoNewline
+Start-Sleep -Seconds 1
+Write-Host "0 " -NoNewline
 exit 0
 #endregion
