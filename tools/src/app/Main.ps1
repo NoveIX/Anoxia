@@ -349,10 +349,12 @@ function Invoke-AutoUpdateSetup {
             Exit 1
         }
 
-        Write-LogHost -Message "Setup completed. Auto update: ON" -Level INFO
+        Write-LogHost -Message "Setup completed." -Level INFO
+        Write-Host "`nAuto update: ON"
     }
     else {
-        Write-LogHost -Message "Setup completed. Auto update: OFF" -Level INFO
+        Write-LogHost -Message "Setup completed." -Level INFO
+        Write-Host "`nAuto update: OFF"
     }
 }
 #endregion
