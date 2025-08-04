@@ -408,7 +408,6 @@ function Invoke-Update {
             Write-Host "`nStarting setup..." -NoNewline
             Start-Sleep -Seconds 3
             Clear-Host
-            Write-AsciiArt
             Invoke-Setup
         }
     }
@@ -461,7 +460,6 @@ function Invoke-Repair {
     Write-Host "`nStarting setup..." -NoNewline
     Start-Sleep -Seconds 3
     Clear-Host
-    Write-AsciiArt
     Invoke-Setup -Repair
 }
 #endregion
