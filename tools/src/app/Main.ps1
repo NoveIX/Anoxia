@@ -484,22 +484,22 @@ function Invoke-Remove {
 
     # Remove repo dir - Log
     Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted repo folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist repo folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
 
     # ========= #
 
     # Remove key dir - Log
     Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted repo folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist repo folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted key folder in src folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist key folder in src folder" -Level INFO }
 
     # ========= #
 
     # Remove NoveLib in local user temp - Log
     Remove-Item -Path $LocalTemp -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted $LocalTemp folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist $LocalTemp folder" -Level INFO }
+    if ($?) { Write-LogHost -Message "Deleted $LocalTemp folder in %Temp% folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist $LocalTemp folder in %Temp% folder" -Level INFO }
 
     # ========= #
 
