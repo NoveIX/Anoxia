@@ -286,6 +286,7 @@ function Invoke-Setup {
         # Log
         if ($ExitCode -eq 0) {
             Write-LogHost -Message "Copy repository file in modpack folder completed" -Level DONE
+            Invoke-AutoUpdateSetup -Repair:$Repair
         }
         else {
             Write-LogHost -Message "Failed to copy repository file in modpack folder" -Level FAIL
@@ -293,8 +294,6 @@ function Invoke-Setup {
             Read-Host
             Exit 1
         }
-
-        Invoke-AutoUpdateSetup -Repair:$Repair
     }
     else {
         Write-LogHost -Message "Find .git folder" -Level DONE
@@ -406,6 +405,7 @@ function Invoke-Update {
         if ($ExitCode -eq 0) {
             Write-Host "`nStarting setup..." -NoNewline
             Start-Sleep -Seconds 3
+            Write-AsciiArt
             Invoke-Setup
         }
     }
@@ -457,6 +457,7 @@ function Invoke-Repair {
     Write-LogHost -Message "Delete completed" -Level DONE
     Write-Host "`nStarting setup..." -NoNewline
     Start-Sleep -Seconds 3
+    Write-AsciiArt
     Invoke-Setup -Repair
 }
 #endregion
