@@ -239,7 +239,7 @@ function Invoke-DownloadRepository {
         Write-LogHost -Message "Prepare SSH Command" -Level INFO
         Invoke-UIGitTop
         $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
-        & git clone -b 1.20 --depth 1 --single-branch "git@github.com:NoveIX/$GitHub_RepositoryName.git" $RepoModpackDir 2>&1 | ForEach-Object { Write-Host $_ }
+        & git clone -b 1.20 --depth 1 --single-branch "git@github.com:NoveIX/$GitHub_RepositoryName.git" $RepoModpackDir
         $ExitCode = $LASTEXITCODE
         Invoke-UIGitBot
 
@@ -374,7 +374,7 @@ function Invoke-Update {
 
         # Download Update with ssh
         $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
-        & git pull 2>&1 | ForEach-Object { Write-Host $_ }
+        & git pull 2>&1 | Write-Host
         $ExitCode = $LASTEXITCODE
         Set-Location -Path $WokrDir
 
