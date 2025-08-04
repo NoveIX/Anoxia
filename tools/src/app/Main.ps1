@@ -335,26 +335,26 @@ function Invoke-AutoUpdateSetup {
         else { Write-LogHost -Message "Failed to write modpack path in $AutoUpdateTXT" -Level FAIL }
 
         # Copy file execute update in Shell Startup
-        Write-LogHost -Message "Start copy `"$AutoUpdateCMD_Name`" file in `"Shell:Starup`"" -Level INFO
+        Write-LogHost -Message "Start copy $AutoUpdateCMD_Name file in Shell:Starup" -Level INFO
         $ExitCode = Copy-FileFast -Source $AutoUpdateCMD -Destination $ShellStartup
 
         # Log
         if ($ExitCode -eq 0) {
-            Write-LogHost -Message "Copy `"$AutoUpdateCMD_Name`" in `"Shell:Starup`" completed" -Level DONE
+            Write-LogHost -Message "Copy $AutoUpdateCMD_Name in Shell:Starup completed" -Level DONE
         }
         else {
-            Write-LogHost -Message "Failed to copy `"$AutoUpdateCMD_Name`" in `"Shell:Starup`"" -Level FAIL
+            Write-LogHost -Message "Failed to copy $AutoUpdateCMD_Name in Shell:Starup" -Level FAIL
             Write-Host "`nPress Enter to exit..." -NoNewline
             Read-Host
             Exit 1
         }
 
         Write-LogHost -Message "Setup completed." -Level INFO
-        Write-LogHost -Message "`nAuto update: ON" -Level INFO
+        Write-Host "`nAuto update: ON"
     }
     else {
         Write-LogHost -Message "Setup completed." -Level INFO
-        Write-LogHost -Message "`nAuto update: OFF" -Level INFO
+        Write-Host "`nAuto update: OFF"
     }
 }
 #endregion
