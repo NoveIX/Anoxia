@@ -446,7 +446,7 @@ function Invoke-Repair {
     }
 
     # Remove SSH key dir - Log
-    Remove-Item -Path $KeyDir -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted key folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist the key folder" -Level INFO }
 
