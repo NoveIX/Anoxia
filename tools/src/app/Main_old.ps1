@@ -40,17 +40,17 @@ Set-Location -Path $AppDir
 [string]$ModpackDir = Split-Path -Path $ToolsDir -Parent
 
 # Find modpack dir
-if ($ModpackDir -Like "*\Moon*") {
+if ($ModpackDir -Like "*\Project Anoxia*") {
     # Title
     [string]$Modpack_PSTitle = 'Moon Base 2'
     # Github
     [string]$GitHub_RepositoryName = 'mb2-modpack'
 
     # Moon Base ssh key
-    [string]$SSHKey_PrivateURLID = '1NQBNCotC3-pcMcZRLzwxxLost_WgKaPl'
-    [string]$SSHKey_PublicURLID = '1H-98PGCJhcaKIWX1VwV0YhYF9iOn2tUc'
-    [string]$SSHKey_PrivateName = 'MoonBase2-RepositoryKey'
-    [string]$SSHKey_PublicName = 'MoonBase2-RepositoryKey.pub'
+    [string]$SSHKey_PrivateURLID = '1GmWulfVRzqmd6smBK0DzJZcPIKw8ti__'
+    [string]$SSHKey_PublicURLID = '1cg216BH7fghtu6-jDb95sgW5vOShx8nK'
+    [string]$SSHKey_PrivateName = 'anoxia_github_readonly'
+    [string]$SSHKey_PublicName = 'anoxia_github_readonly.pub'
 
     # Moon base auto update
     [string]$AutoUpTXTFileName = 'MoonBase2_ModpackPath.txt'
