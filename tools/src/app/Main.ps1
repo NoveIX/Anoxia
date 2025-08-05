@@ -109,17 +109,17 @@ else {
 
 # =================================================================================================== #
 
-### Server
-[string]$DownloadDir = Join-Path -Path $ToolsDir -ChildPath "download"
-[string]$ForgeLib = Join-Path -Path $DownloadDir -ChildPath "libraries"
-[string]$ForgeJVMArg = Join-Path -Path $DownloadDir -ChildPath "libraries"
-
-# Forge
+### Forge
 [string]$MCVer = "1.20.1"
 [string]$ForgeVer = "47.4.0"
 [string]$MavenBaseURL = "https://maven.minecraftforge.net/net/minecraftforge/forge"
-[string]$ForgeFileName = "forge-$MCVer-$ForgeVer-installer.jar"
-[string]$URL = "$MavenBaseURL/$MCVer-$ForgeVer/$ForgeFileName"
+[string]$ForgeInstallerJAR_Name = "forge-$MCVer-$ForgeVer-installer.jar"
+
+### Server
+[string]$DownloadDir = Join-Path -Path $SrcDir -ChildPath "download"
+[string]$ForgeInstallerJAR = Join-Path -Path $DownloadDir -ChildPath $ForgeInstallerJAR_Name
+[string]$ForgeLib = Join-Path -Path $DownloadDir -ChildPath "libraries"
+
 #endregion
 
 # =================================================================================================== #
@@ -132,7 +132,6 @@ try {
     Write-AsciiArt
 }
 catch {
-    # User response
     Write-Host "`nError: Failed to import module: '$ModuleName'." -ForegroundColor Red
     Write-Host "`nReason: $($_.Exception.Message)" -ForegroundColor Yellow
     Write-Host "`nPress Enter to exit..." -NoNewline
@@ -177,7 +176,7 @@ function Start-DownloadSSHKey {
         [string]$KeyType
     )
 
-    # Test key path download if not exist - Log
+    # Test key path and download if not exist - Log
     Write-LogHost -Message "Check SSH $KeyType key" -Level INFO
     if (-not (Test-Path -Path $SSHKey_Path -PathType Leaf)) {
 
@@ -197,7 +196,7 @@ function Start-DownloadSSHKey {
             Write-LogHost -Message "Download completed SSH $KeyType key" -Level DONE
         }
         else {
-            Write-LogHost -Message "Failed download SSH $KeyType key" -Level FAIL
+            Write-LogHost -Message "Failed to download SSH $KeyType key" -Level FAIL
             Write-Host "`nPress Enter to exit..." -NoNewline
             Read-Host
             Exit 1
@@ -527,6 +526,39 @@ function Invoke-Remove {
 #endregion
 
 # =================================================================================================== #
+#region Server
+function Invoke-Server {
+    # Set title - Log
+    [Console]::Title = "Remove $PSTitle"
+    Write-LogHost -Message "Execute Remove" -Level INFO
+
+    # Test forge installer and download if not exist - Log
+    Write-LogHost -Message "Check $ForgeInstallerJAR_Name" -Level INFO
+    if (-not (Test-Path -Path $ForgeInstallerJAR -PathType Leaf)) {
+
+        # Create download dir if not exist
+        if (-not (Test-Path -Path $DownloadDir -PathType Container)) {
+            New-Item -Path $DownloadDir -ItemType Directory -Force | Out-Null
+        }
+
+        [string]$URL = "$MavenBaseURL/$MCVer-$ForgeVer/$ForgeInstallerJAR_Name"
+        $OutFile = Join-Path -Path $DownloadDir -ChildPath $ForgeInstallerJAR_Name
+        $ExitCode = Start-DownloadFile -URL $URL -OutFile $OutFile
+
+        # Log
+        if ($ExitCode -eq 0) {
+            Write-LogHost -Message "Download completed $ForgeInstallerJAR_Name" -Level DONE
+        }
+        else {
+            Write-LogHost -Message "Failed to download $ForgeInstallerJAR_Name" -Level FAIL
+            Write-Host "`nPress Enter to exit..." -NoNewline
+            Read-Host
+            Exit 1
+        }
+    }
+}
+#endregion
+# =================================================================================================== #
 
 #region Menu
 function Invoke-Menu {
@@ -539,7 +571,6 @@ function Invoke-Menu {
     # Menu
     [bool]$ExitWhile = $false
     do {
-        Pause
         Clear-Host
         Write-Host "`n# ======================== Main Menu ======================== #`n"
         Write-Host "1. Install modpack dev feature"
