@@ -373,12 +373,12 @@ function Invoke-Update {
         [string]$Location
     )
 
-    # Ensure SSH Key
-    Invoke-DownloadSSHKey
-
     # Set title - Log
     [Console]::Title = "Update $PSTitle"
     Write-LogHost -Message "Execute update..." -Level INFO
+
+    # Ensure SSH Key
+    Invoke-DownloadSSHKey
 
     # Test .gir path in modpack dir copy file if not exist - Log
     Write-LogHost -Message "Check .git folder in modpack folder" -Level INFO
