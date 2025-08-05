@@ -115,6 +115,7 @@ else {
 [string]$DownloadDir = Join-Path -Path $SrcDir -ChildPath "download"
 [string]$ForgeInstallerJAR = Join-Path -Path $DownloadDir -ChildPath $ForgeInstallerJAR_Name
 [string]$ForgeLib = Join-Path -Path $DownloadDir -ChildPath "libraries"
+[string]$ForgeLibModpackDir = Join-Path -Path $ModpackDir -ChildPath "libraries"
 
 #endregion
 
@@ -466,6 +467,11 @@ function Invoke-Repair {
     if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
 
+    # Remove download dir - Log
+    Remove-Item -Path $DownloadDir -Recurse -Force -ErrorAction SilentlyContinue
+    if ($?) { Write-LogHost -Message "Deleted download folder in src folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist download folder in src folder" -Level INFO }
+
     # Starting setup in repair mode - Log
     Write-LogHost -Message "Delete completed" -Level DONE
     Write-Host "`nStarting setup..." -NoNewline
@@ -507,6 +513,13 @@ function Invoke-Remove {
 
     # ========= #
 
+    # Remove download dir - Log
+    Remove-Item -Path $DownloadDir -Recurse -Force -ErrorAction SilentlyContinue
+    if ($?) { Write-LogHost -Message "Deleted download folder in src folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist download folder in src folder" -Level INFO }
+
+    # ========= #
+
     # Remove NoveLib in local user temp - Log
     Remove-Item -Path $LocalTemp -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted NoveLib folder in %Temp% folder" -Level DONE }
@@ -522,11 +535,12 @@ function Invoke-Remove {
 #endregion
 
 # =================================================================================================== #
+
 #region Server
 function Invoke-Server {
     # Set title - Log
-    [Console]::Title = "Remove $PSTitle"
-    Write-LogHost -Message "Execute Remove" -Level INFO
+    [Console]::Title = "Server $PSTitle"
+    Write-LogHost -Message "Execute Server" -Level INFO
 
     $JavaVer = Test-JavaVersion
     if (-not ($JavaVer -ge 17)) {
@@ -563,14 +577,55 @@ function Invoke-Server {
             Exit 1
         }
     }
+    else {
+        Write-LogHost -Message "Find $ForgeInstallerJAR_Name" -Level DONE
+    }
 
     # Install forge essential
-    Write-LogHost -Message "Check $ForgeInstallerJAR_Name" -Level INFO
+    Write-LogHost -Message "Check Forge libraries in download folder" -Level INFO
     if (-not (Test-Path -Path $ForgeLib -PathType Container)) {
+
+        # Change directory - Log
+        Write-LogHost -Message "Change directory to: $DownloadDir" -Level INFO
         Set-Location -Path $DownloadDir
+
+        # Install forge file essential
+        Write-LogHost -Message "Install Forge libraries" -Level INFO
         java -jar $ForgeInstallerJAR_Name --installServer
+
+        # Change directory - Log
+        Write-LogHost -Message "Change directory to: $WokrDir" -Level INFO
         Set-Location -Path $WokrDir
     }
+    else {
+        Write-LogHost -Message "Find libraries folder in download folder" -Level DONE
+    }
+
+    # copy forge essential
+    Write-LogHost -Message "Check Forge libraries in modpack folder" -Level INFO
+    if (-not (Test-Path -Path $ForgeLibModpackDir -PathType Container)) {
+
+        # Copy file in modpack dir
+        Write-LogHost -Message "Start copy libraries folder in modpack folder" -Level INFO
+        $ExitCode = Copy-FileFast -Source $ForgeLib -Destination $ForgeLibModpackDir
+
+        # Log
+        if ($ExitCode -eq 0) {
+            Write-LogHost -Message "Copy libraries folder in modpack folder completed" -Level DONE
+        }
+        else {
+            Write-LogHost -Message "Failed to copy libraries folder in modpack folder" -Level FAIL
+            Write-Host "`nPress Enter to exit..." -NoNewline
+            Read-Host
+            Exit 1
+        }
+    }
+    else {
+        Write-LogHost -Message "Find libraries folder in modpack folder" -Level DONE
+    }
+
+    # Install setup
+    Invoke-Setup
 }
 #endregion
 # =================================================================================================== #
@@ -592,7 +647,6 @@ function Invoke-Menu {
         Write-Host "2. Check dev feature update"
         Write-Host "3. Repair installation dev feature"
         Write-Host "4. Remove Installation and Auto Update"
-        if ($Server) { Write-Host "5. Install Server" }
         Write-Host "`n0. Exit Main Menu"
         Write-Host "`n# =========================================================== #`n"
 
@@ -617,16 +671,6 @@ function Invoke-Menu {
             "4" {
                 Invoke-Remove
                 Start-Sleep -Seconds 5
-            }
-            "5" {
-                if ($Server) {
-                    Invoke-Server
-                    Start-Sleep -Seconds 5
-                }
-                else {
-                    Write-Host "`nSelect a valid option." -NoNewline
-                    Start-Sleep -Seconds 3
-                }
             }
             "0" {
                 Write-Host "Exit Menu..."
