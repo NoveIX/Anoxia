@@ -16,7 +16,7 @@ param(
     [string]$InvokeCMD,
     [Parameter(ParameterSetName = "Server")]
     [Parameter(ParameterSetName = "Menu")]
-    [string]$Menu
+    [switch]$Menu
 )
 
 # Set background black
