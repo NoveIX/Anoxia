@@ -275,7 +275,7 @@ function Invoke-Setup {
 
     # Set title - Log
     [Console]::Title = "Setup $PSTitle"
-    Write-LogHost -Message "Execute setup..." -Level INFO
+    Write-LogHost -Message "Execute setup" -Level INFO
 
     # Ensure repository
     Invoke-DownloadRepository
@@ -376,7 +376,7 @@ function Invoke-Update {
 
     # Set title - Log
     [Console]::Title = "Update $PSTitle"
-    Write-LogHost -Message "Execute update..." -Level INFO
+    Write-LogHost -Message "Execute update" -Level INFO
 
     # Ensure SSH Key
     Invoke-DownloadSSHKey
@@ -416,7 +416,7 @@ function Invoke-Update {
         if ($ExitCode -eq 0) {
             Write-Host "`nStarting setup..." -NoNewline
             Start-Sleep -Seconds 3
-            Write-Host
+            Write-Host "`n"
             Invoke-Setup
         }
     }
@@ -430,7 +430,7 @@ function Invoke-Repair {
 
     # Set title - Log
     [Console]::Title = "Repair $PSTitle"
-    Write-LogHost -Message "Execute Repair..." -Level INFO
+    Write-LogHost -Message "Execute Repair" -Level INFO
 
     # Download update in repository dir
     if (Test-Path -Path $RepoModpackDir -PathType Container) {
@@ -487,7 +487,7 @@ function Invoke-Remove {
 
     # Set title - Log
     [Console]::Title = "Remove $PSTitle"
-    Write-LogHost -Message "Execute Remove..." -Level INFO
+    Write-LogHost -Message "Execute Remove" -Level INFO
 
     # ========= #
 
@@ -533,7 +533,7 @@ function Invoke-Menu {
 
     # Set title - Log
     [Console]::Title = "Menu $PSTitle"
-    Write-LogHost -Message "Execute Menu..." -Level INFO
+    Write-LogHost -Message "Execute Menu" -Level INFO
     Start-Sleep -Seconds 2
 
     # Menu
@@ -552,6 +552,7 @@ function Invoke-Menu {
 
         # Logic
         Write-Host "Select an option: " -NoNewline
+        Write-Host "`n"
         [string]$MenuAnswer = Read-Host
 
         switch ($MenuAnswer) {
