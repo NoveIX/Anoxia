@@ -251,3 +251,31 @@ function Confirm-Selection {
     }
 }
 #endregion
+
+# =================================================================================================== #
+
+#region Test JAVA
+function Test-JavaVersion {
+
+    # get java version
+    $output = & java --version 2>$null
+    if (-not $output) {
+        Write-Host "Java 11+ is not installed or is not in the PATH."
+        return 1
+    }
+
+    # Extract the first line (e.g., openjdk version “17.0.8” 2024-01-16)
+    $firstLine = $output | Select-Object -First 1
+
+    # Try extracting the major version from formats such as “17.0.8” or “21.0.2”
+    if ($firstLine -match '(\d+)\.\d+(\.\d+)?') {
+        $major = [int]$matches[1]
+        return $major
+    }
+    else {
+        Write-Host “Unable to determine Java version from string: $firstLine”
+        return 2
+    }
+}
+
+#endregion

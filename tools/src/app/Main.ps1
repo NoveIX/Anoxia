@@ -415,7 +415,7 @@ function Invoke-Update {
         if ($ExitCode -eq 0) {
             Write-Host "`nStarting setup..." -NoNewline
             Start-Sleep -Seconds 3
-            Clear-Host
+            Write-Host
             Invoke-Setup
         }
     }
@@ -474,7 +474,7 @@ function Invoke-Repair {
     Write-LogHost -Message "Delete completed" -Level DONE
     Write-Host "`nStarting setup..." -NoNewline
     Start-Sleep -Seconds 3
-    Clear-Host
+    Write-Host
     Invoke-Setup -Repair
 }
 #endregion
@@ -581,7 +581,7 @@ function Invoke-Menu {
             }
             "0" {
                 Write-Host "`nExit Menu..." -NoNewline
-                Write-Host
+                Write-Host "`n"
                 $ExitWhile = $true
             }
             Default {
