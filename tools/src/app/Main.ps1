@@ -10,12 +10,8 @@ param(
     [switch]$Repair,
     [Parameter(ParameterSetName = "Remove")]
     [switch]$Remove,
-    [Parameter(ParameterSetName = "Menu")]
     [Parameter(ParameterSetName = "Server")]
     [switch]$Server,
-    [Parameter(ParameterSetName = "Menu")]
-    [Parameter(ParameterSetName = "Server")]
-    [string]$InvokeCMD,
     [Parameter(ParameterSetName = "Menu")]
     [switch]$Menu
 )
@@ -532,6 +528,17 @@ function Invoke-Server {
     [Console]::Title = "Remove $PSTitle"
     Write-LogHost -Message "Execute Remove" -Level INFO
 
+    $JavaVer = Test-JavaVersion
+    if (-not ($JavaVer -ge 17)) {
+        Write-LogHost -Message "Not find java version 17+" -Level WARN
+        $ExitCode = Confirm-Selection -Message "Do you want to continue?"
+        if ($ExitCode -ne 0) {
+            Write-Host "`nPress Enter to exit..." -NoNewline
+            Read-Host
+            Exit 1
+        }
+    }
+
     # Test forge installer and download if not exist - Log
     Write-LogHost -Message "Check $ForgeInstallerJAR_Name" -Level INFO
     if (-not (Test-Path -Path $ForgeInstallerJAR -PathType Leaf)) {
@@ -555,6 +562,14 @@ function Invoke-Server {
             Read-Host
             Exit 1
         }
+    }
+
+    # Install forge essential
+    Write-LogHost -Message "Check $ForgeInstallerJAR_Name" -Level INFO
+    if (-not (Test-Path -Path $ForgeLib -PathType Container)) {
+        Set-Location -Path $DownloadDir
+        java -jar $ForgeInstallerJAR_Name --installServer
+        Set-Location -Path $WokrDir
     }
 }
 #endregion
@@ -641,11 +656,14 @@ elseif ($Repair) {
 elseif ($Remove) {
     Invoke-Remove
 }
+elseif ($Server) {
+    Invoke-Server
+}
 elseif ($Menu) {
     Invoke-Menu
 }
 else {
-    Write-LogHost -Message "Fueature not write yet" -Debug
+    Write-LogHost -Message "Fueature not write yet" -Level DEBUG
 }
 
 # Give time to read
