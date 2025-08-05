@@ -45,7 +45,8 @@ Set-Location -Path $WokrDir
 [string]$GoogleBaseURL = "https://drive.google.com/uc?export=download&id="
 
 # Find modpack name
-if ($ModpackDir -Like "*Project Anoxia*") {
+$ProjectName = Split-Path $ModpackDir -Leaf
+if ($ProjectName -Like "*Anoxia*") {
     # Title - GitHub repository name
     [string]$PSTitle = "Project Anoxia - Lunar Ruins"
     [string]$GitHub_RepositoryName = "Anoxia"
@@ -61,7 +62,6 @@ if ($ModpackDir -Like "*Project Anoxia*") {
     [string]$AutoUpdateCMD_Name = "anoxia_modpack_auto_update.cmd"
 }
 else {
-    $ProjectName = Split-Path $ModpackDir -Leaf
     Write-Host "`nError: No project was found with name '$ProjectName'" -ForegroundColor Red
     Write-Host "`nPress Enter to exit..." -NoNewline
     Read-Host
