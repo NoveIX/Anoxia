@@ -552,8 +552,8 @@ function Invoke-Menu {
 
         # Logic
         Write-Host "Select an option: " -NoNewline
-        Write-Host "`n"
         [string]$MenuAnswer = Read-Host
+        Write-Host "`n"
 
         switch ($MenuAnswer) {
             "1" {
@@ -583,8 +583,7 @@ function Invoke-Menu {
                 }
             }
             "0" {
-                Write-Host "`nExit Menu..." -NoNewline
-                Write-Host "`n"
+                Write-Host "`nExit Menu..."
                 $ExitWhile = $true
             }
             Default {
