@@ -467,10 +467,10 @@ function Invoke-Repair {
     if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
 
-    # Remove download dir - Log
+    <#     # Remove download dir - Log
     Remove-Item -Path $DownloadDir -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted download folder in src folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist download folder in src folder" -Level INFO }
+    else { Write-LogHost -Message "Don't exist download folder in src folder" -Level INFO } #>
 
     # Starting setup in repair mode - Log
     Write-LogHost -Message "Delete completed" -Level DONE
