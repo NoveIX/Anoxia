@@ -533,7 +533,7 @@ function Invoke-Menu {
     # Set title - Log
     [Console]::Title = "Menu $PSTitle"
     Write-LogHost -Message "Execute Menu..." -Level INFO
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 2
 
     # Menu
     [bool]$ExitWhile = $false
