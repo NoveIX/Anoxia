@@ -2,17 +2,15 @@
 
 # Locate script path
 ScriptDir=$(dirname "$(realpath "$0")")
-UnixDir=$ScriptDir
-cd $ScriptDir
+ServerDir=$ScriptDir
+cd $ServerDir
 
 # Define parent path
-ServerDir=$(realpath "$UnixDir/..")
-SrcDir=$(realpath "$ServerDir/..")
-ToolsDir=$(realpath "$SrcDir/..")
+ToolsDir=$(realpath "$ServerDir/..")
 ModpackDir=$(realpath "$ToolsDir/..")
 
 # Define key, file and path
-KeyDir="$SrcDir/key"
+KeyDir="$ToolsDir/src/key"
 SSHKey_PrivatePath=$keyDir/'anoxia_github_readonly'
 SSHKey_PublicPath=$keyDir/'anoxia_github_readonly.pub'
 
