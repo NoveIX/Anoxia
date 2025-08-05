@@ -475,7 +475,7 @@ function Invoke-Repair {
     Write-LogHost -Message "Delete completed" -Level DONE
     Write-Host "`nStarting setup..." -NoNewline
     Start-Sleep -Seconds 3
-    Write-Host
+    Write-Host "`n"
     Invoke-Setup -Repair
 }
 #endregion
@@ -553,7 +553,7 @@ function Invoke-Menu {
         # Logic
         Write-Host "Select an option: " -NoNewline
         [string]$MenuAnswer = Read-Host
-        Write-Host "`n"
+        Write-Host
 
         switch ($MenuAnswer) {
             "1" {
