@@ -302,6 +302,7 @@ function Invoke-Setup {
     }
     else {
         Write-LogHost -Message "Find .git folder" -Level DONE
+        Write-Host "`nDev feature already installed"
     }
 }
 #endregion
@@ -538,6 +539,7 @@ function Invoke-Menu {
     # Menu
     [bool]$ExitWhile = $false
     do {
+        Pause
         Clear-Host
         Write-Host "`n# ======================== Main Menu ======================== #`n"
         Write-Host "1. Install modpack dev feature"
