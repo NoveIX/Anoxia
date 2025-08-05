@@ -581,6 +581,7 @@ function Invoke-Menu {
             }
             "0" {
                 Write-Host "`nExit Menu..." -NoNewline
+                Write-Host
                 $ExitWhile = $true
             }
             Default {
