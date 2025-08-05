@@ -373,6 +373,9 @@ function Invoke-Update {
         [string]$Location
     )
 
+    # Ensure SSH Key
+    Invoke-DownloadSSHKey
+
     # Set title - Log
     [Console]::Title = "Update $PSTitle"
     Write-LogHost -Message "Execute update..." -Level INFO
@@ -429,7 +432,12 @@ function Invoke-Repair {
     Write-LogHost -Message "Execute Repair..." -Level INFO
 
     # Download update in repository dir
-    Invoke-Update -Location $RepoModpackDir
+    if (Test-Path -Path $RepoModpackDir -PathType Container) {
+        Invoke-Update -Location $RepoModpackDir
+    }
+    else {
+        Invoke-DownloadRepository
+    }
 
     # Get item from repository dir - Log
     Write-LogHost -Message "get items in repository modpack dir" -Level INFO
