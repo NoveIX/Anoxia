@@ -10,8 +10,8 @@ param(
     [switch]$Repair,
     [Parameter(ParameterSetName = "Remove")]
     [switch]$Remove,
-    [Parameter(ParameterSetName = "Server")]
-    [switch]$Server,
+<#     [Parameter(ParameterSetName = "Server")]
+    [switch]$Server, #>
     [Parameter(ParameterSetName = "Menu")]
     [switch]$Menu
 )
@@ -105,7 +105,7 @@ else {
 
 # =================================================================================================== #
 
-### Forge
+<# ### Forge
 [string]$MCVer = "1.20.1"
 [string]$ForgeVer = "47.4.0"
 [string]$MavenBaseURL = "https://maven.minecraftforge.net/net/minecraftforge/forge"
@@ -116,7 +116,7 @@ else {
 [string]$ForgeInstallerJAR = Join-Path -Path $DownloadDir -ChildPath $ForgeInstallerJAR_Name
 [string]$ForgeLib = Join-Path -Path $DownloadDir -ChildPath "libraries"
 [string]$ForgeLibModpackDir = Join-Path -Path $ModpackDir -ChildPath "libraries"
-
+[string]$JVMArgsTXT = Join-Path -Path $DownloadDir -ChildPath "user_jvm_args.txt" #>
 #endregion
 
 # =================================================================================================== #
@@ -536,7 +536,7 @@ function Invoke-Remove {
 
 # =================================================================================================== #
 
-#region Server
+<# #region Server
 function Invoke-Server {
     # Set title - Log
     [Console]::Title = "Server $PSTitle"
@@ -551,6 +551,11 @@ function Invoke-Server {
             Read-Host
             Exit 1
         }
+    }
+
+    if ((Test-Path -Path $ForgeLibModpackDir -PathType Container) -and (Test-Path -Path $JVMArgsTXT -PathType Leaf)) {
+        Write-LogHost "Server already installed" -Level INFO
+        exit 0
     }
 
     # Test forge installer and download if not exist - Log
@@ -627,7 +632,7 @@ function Invoke-Server {
     # Install setup
     Invoke-Setup
 }
-#endregion
+#endregion #>
 # =================================================================================================== #
 
 #region Menu
@@ -699,9 +704,6 @@ elseif ($Repair) {
 }
 elseif ($Remove) {
     Invoke-Remove
-}
-elseif ($Server) {
-    Invoke-Server
 }
 elseif ($Menu) {
     Invoke-Menu
