@@ -7,7 +7,6 @@ cd $serverDir
 
 # Define parent path
 toolsDir=$(realpath "$serverDir/..")
-modpackDir=$(realpath "$toolsDir/..")
 
 # Define key, file and path
 keyDir="$toolsDir/src/key"
