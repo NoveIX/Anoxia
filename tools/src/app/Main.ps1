@@ -583,11 +583,11 @@ function Invoke-Menu {
                 }
             }
             "0" {
-                Write-Host "`nExit Menu..."
+                Write-Host "Exit Menu..."
                 $ExitWhile = $true
             }
             Default {
-                Write-Host "`nSelect a valid option" -NoNewline
+                Write-Host "Select a valid option" -NoNewline
                 Start-Sleep -Seconds 3
             }
         }
