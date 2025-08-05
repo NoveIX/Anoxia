@@ -32,10 +32,4 @@ GIT_SSH_COMMAND="ssh -i $auth" git pull
 echo -e "\n# =========================================================== #\n"
 
 # Run Server
-echo "Avvio tmux..."
 tmux new-session -d -s "Anoxia" "export VAR=value; java @user_jvm_args.txt @libraries/net/minecraftforge/forge/$mcVer-$forgeVer/unix_args.txt \"$@\""
-if [ $? -eq 0 ]; then
-    echo "tmux avviato con successo."
-else
-    echo "Errore nell'avvio di tmux."
-fi
