@@ -10,11 +10,12 @@ param(
     [switch]$Repair,
     [Parameter(ParameterSetName = "Remove")]
     [switch]$Remove,
+    [Parameter(ParameterSetName = "Menu")]
     [Parameter(ParameterSetName = "Server")]
     [switch]$Server,
+    [Parameter(ParameterSetName = "Menu")]
     [Parameter(ParameterSetName = "Server")]
     [string]$InvokeCMD,
-    [Parameter(ParameterSetName = "Server")]
     [Parameter(ParameterSetName = "Menu")]
     [switch]$Menu
 )
@@ -544,13 +545,26 @@ function Invoke-Menu {
         [string]$MenuAnswer = Read-Host
 
         switch ($MenuAnswer) {
-            "1" { Invoke-Setup }
-            "2" { Invoke-Update -Location $ModpackDir }
-            "3" { Invoke-Repair }
-            "4" { Invoke-Remove }
+            "1" {
+                Invoke-Setup
+                Start-Sleep -Seconds 5
+            }
+            "2" {
+                Invoke-Update -Location $ModpackDir
+                Start-Sleep -Seconds 5
+            }
+            "3" {
+                Invoke-Repair
+                Start-Sleep -Seconds 5
+            }
+            "4" {
+                Invoke-Remove
+                Start-Sleep -Seconds 5
+            }
             "5" {
                 if ($Server) {
                     Invoke-Server
+                    Start-Sleep -Seconds 5
                 }
                 else {
                     Write-Host "`nSelect a valid option." -NoNewline
