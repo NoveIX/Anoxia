@@ -277,5 +277,4 @@ function Test-JavaVersion {
         return 2
     }
 }
-
 #endregion
