@@ -10,7 +10,7 @@ param(
     [switch]$Repair,
     [Parameter(ParameterSetName = "Remove")]
     [switch]$Remove,
-<#     [Parameter(ParameterSetName = "Server")]
+    <#     [Parameter(ParameterSetName = "Server")]
     [switch]$Server, #>
     [Parameter(ParameterSetName = "Menu")]
     [switch]$Menu
