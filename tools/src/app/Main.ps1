@@ -13,7 +13,10 @@ param(
     [Parameter(ParameterSetName = "Server")]
     [switch]$Server,
     [Parameter(ParameterSetName = "Server")]
-    [string]$InvokeCMD
+    [string]$InvokeCMD,
+    [Parameter(ParameterSetName = "Server")]
+    [Parameter(ParameterSetName = "Menu")]
+    [string]$Menu
 )
 
 # Set background black
@@ -269,9 +272,9 @@ function Invoke-Setup {
         [switch]$Repair
     )
 
-    # Set title
+    # Set title - Log
     [Console]::Title = "Setup $PSTitle"
-    Write-LogHost -Message "Execute setup" -Level INFO
+    Write-LogHost -Message "Execute setup..." -Level INFO
 
     # Ensure repository
     Invoke-DownloadRepository
@@ -371,7 +374,7 @@ function Invoke-Update {
 
     # Set title - Log
     [Console]::Title = "Update $PSTitle"
-    Write-LogHost -Message "Execute update" -Level INFO
+    Write-LogHost -Message "Execute update..." -Level INFO
 
     # Test .gir path in modpack dir copy file if not exist - Log
     Write-LogHost -Message "Check .git folder in modpack folder" -Level INFO
@@ -395,7 +398,7 @@ function Invoke-Update {
             Write-LogHost -Message "Check repository update completed" -Level DONE
         }
         else {
-            Write-LogHost -Message "Failed get update " -Level FAIL
+            Write-LogHost -Message "Failed get repository update " -Level FAIL
             Write-Host
             Write-Host "Press Enter to exit..." -NoNewline
             Read-Host
@@ -419,9 +422,13 @@ function Invoke-Update {
 
 #region Repair
 function Invoke-Repair {
-    # Set title
+
+    # Set title - Log
     [Console]::Title = "Repair $PSTitle"
-    Write-LogHost -Message "Execute Repair" -Level INFO
+    Write-LogHost -Message "Execute Repair..." -Level INFO
+
+    # Download update in repository dir
+    Invoke-Update -Location $RepoModpackDir
 
     # Get item from repository dir - Log
     Write-LogHost -Message "get items in repository modpack dir" -Level INFO
@@ -468,9 +475,9 @@ function Invoke-Repair {
 #region Remove
 function Invoke-Remove {
 
-    # Set title
+    # Set title - Log
     [Console]::Title = "Remove $PSTitle"
-    Write-LogHost -Message "Execute Remove" -Level INFO
+    Write-LogHost -Message "Execute Remove..." -Level INFO
 
     # ========= #
 
@@ -511,6 +518,60 @@ function Invoke-Remove {
 
 # =================================================================================================== #
 
+#region Menu
+function Invoke-Menu {
+
+    # Set title - Log
+    [Console]::Title = "Menu $PSTitle"
+    Write-LogHost -Message "Execute Menu..." -Level INFO
+    Start-Sleep -Seconds 5
+
+    # Menu
+    [bool]$ExitWhile = $false
+    do {
+        Clear-Host
+        Write-Host "`n# ======================== Main Menu ======================== #`n"
+        Write-Host "1. Install modpack dev feature"
+        Write-Host "2. Check dev feature update"
+        Write-Host "3. Repair installation dev feature"
+        Write-Host "4. Remove Installation and Auto Update"
+        if ($Server) { Write-Host "5. Install Server" }
+        Write-Host "`n0. Exit Main Menu"
+        Write-Host "`n# =========================================================== #`n"
+
+        # Logic
+        Write-Host "Select an option: " -NoNewline
+        [string]$MenuAnswer = Read-Host
+
+        switch ($MenuAnswer) {
+            "1" { Invoke-Setup }
+            "2" { Invoke-Update -Location $ModpackDir }
+            "3" { Invoke-Repair }
+            "4" { Invoke-Remove }
+            "5" {
+                if ($Server) {
+                    Invoke-Server
+                }
+                else {
+                    Write-Host "`nSelect a valid option." -NoNewline
+                    Start-Sleep -Seconds 3
+                }
+            }
+            "0" {
+                Write-Host "`nExit Menu..." -NoNewline
+                $ExitWhile = $true
+            }
+            Default {
+                Write-Host "`nSelect a valid option" -NoNewline
+                Start-Sleep -Seconds 3
+            }
+        }
+    } while (-not $ExitWhile)
+}
+#endregion
+
+# =================================================================================================== #
+
 #region Script code
 if ($Update) {
     Invoke-Update -Location $ModpackDir
@@ -523,6 +584,9 @@ elseif ($Repair) {
 }
 elseif ($Remove) {
     Invoke-Remove
+}
+elseif ($Menu) {
+    Invoke-Menu
 }
 else {
     Write-LogHost -Message "Fueature not write yet" -Debug

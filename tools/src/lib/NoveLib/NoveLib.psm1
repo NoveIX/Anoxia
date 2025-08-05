@@ -234,6 +234,7 @@ function Confirm-Selection {
         [string]$Message,
         [string]$Answer = $null
     )
+
     Write-Host "$Message (Y/n): " -NoNewline
     if ($null -ne $Answer) {
         $Answer = Read-Host
