@@ -1,26 +1,26 @@
 #!/bin/bash
 
 # Locate script path
-ScriptDir=$(dirname "$(realpath "$0")")
-ServerDir=$ScriptDir
-cd $ServerDir
+scriptDir=$(dirname "$(realpath "$0")")
+serverDir=$scriptDir
+cd $serverDir
 
 # Define parent path
-ToolsDir=$(realpath "$ServerDir/..")
-ModpackDir=$(realpath "$ToolsDir/..")
+toolsDir=$(realpath "$serverDir/..")
+modpackDir=$(realpath "$toolsDir/..")
 
 # Define key, file and path
-KeyDir="$ToolsDir/src/key"
-SSHKey_PrivatePath=$keyDir/'anoxia_github_readonly'
-SSHKey_PublicPath=$keyDir/'anoxia_github_readonly.pub'
+keyDir="$toolsDir/src/key"
+sshKey_PrivatePath="$keyDir/anoxia_github_readonly"
+sshKey_PublicPath="$keyDir/anoxia_github_readonly.pub"
 
 # Define forge and minecraft version
 mcVer=1.20.1
 forgeVer=47.4.0
 
 # Change directory modpack dir
-cd $ModpackDir
-auth="$SSHKey_PrivatePath"
+cd $modpackDir
+auth="$sshKey_PrivatePath"
 
 # Check update and start server
 echo -e "\n# ===================== Git log message ===================== #\n"
