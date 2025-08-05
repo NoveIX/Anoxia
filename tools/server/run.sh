@@ -5,7 +5,7 @@
 # pass them to this script directly
 
 # Check update
-. /run.sh
+./run.sh
 
 # Run Server
 tmux new-session -d -s "Anoxia" "export VAR=value; java @user_jvm_args.txt @libraries/net/minecraftforge/forge/$mcVer-$forgeVer/unix_args.txt \"$@\""
