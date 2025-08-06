@@ -37,5 +37,6 @@ oc2rnet.dll
 options.txt
 patchouli_data.json
 rhino.local.properties
+user-prefs.json
 usercache.json
 usernamecache.json
