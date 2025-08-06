@@ -34,6 +34,10 @@ global.items.GAME_RmOut = [
     "ad_astra:iron_rod",
     "ad_astra:oxygen_bucket",
 
+    //Actually Addiction
+    "actuallyadditions:tiny_coal",
+    "actuallyadditions:tiny_charcoal",
+
     //ArchitectsPalette
     "architects_palette:withered_bone",
 
