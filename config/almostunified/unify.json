@@ -20,11 +20,12 @@
   ],
   "stoneStrata": [
     "stone",
-    "nether",
+    "andesite",
     "deepslate",
-    "granite",
     "diorite",
-    "andesite"
+    "granite",
+    "nether",
+    "end"
   ],
   "tags": [
     "forge:nuggets/{material}",
