@@ -29,7 +29,6 @@
 /tacz*
 /tools
 .curseclient
-emi.json
 knownkeys.txt
 .qmenu_opened.marker
 ds_private_storage.json
