@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-set "targetFile=%TEMP%\NoveLib\MoonBase2_modpack_path.txt"
+set "targetFile=%TEMP%\NoveLib\anoxia_modpack_path.txt"
 
 REM Check existence of txt file in temp
 if not exist "%targetFile%" (
