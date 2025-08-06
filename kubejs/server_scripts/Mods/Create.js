@@ -9,7 +9,7 @@ ServerEvents.recipes((event) => {
 
 	//Millstone
 	event.remove({ output: "create:millstone" });
-	event.shaped("create:millstone", [" F ", " C ", "ASA"], { F: "supplementaries:timber_frame", C: "create:large_cogwheel", A: "create:andesite_casing", S: "moonbase:compressed_andesite" });
+	event.shaped("create:millstone", [" F ", " C ", "ASA"], { F: "supplementaries:timber_frame", C: "create:large_cogwheel", A: "create:andesite_casing", S: "anoxia:compressed_andesite" });
 
 	//#region Compacting
 	event.remove({ id: "createaddition:compacting/cake_base" });

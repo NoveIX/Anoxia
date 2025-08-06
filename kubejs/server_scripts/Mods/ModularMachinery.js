@@ -1,15 +1,15 @@
 ServerEvents.recipes((event) => {
 	//MM
-	event.shaped("mm:machine_controller", [" A ", "RMR", "LRL"], { A: "computercraft:monitor_advanced", R: "#forge:storage_blocks/redstone_alloy", M: "moonbase:machine_casing", L: "ae2:logic_processor" });
-	event.shaped("moonbase:machine_casing", [" M ", "MRM", " M "], { M: "moonbase:modularium", R: "#forge:storage_blocks/redstone_alloy" });
-	event.shaped("mm:machine_vent", ["MBM", "BAB", "MBM"], { M: "moonbase:modularium", B: "enderio:dark_steel_bars", A: "moonbase:amongus" });
-	event.shaped("mm:machine_gearbox", ["MGM", "GCG", "MGM"], { M: "moonbase:modularium", G: "#forge:gears/steel", C: "create:gearbox" });
-	event.shaped("mm:machine_circuit", ["MCM", "C C", "MCM"], { M: "moonbase:modularium", C: "mekanism:basic_control_circuit" });
+	event.shaped("mm:machine_controller", [" A ", "RMR", "LRL"], { A: "computercraft:monitor_advanced", R: "#forge:storage_blocks/redstone_alloy", M: "anoxia:machine_casing", L: "ae2:logic_processor" });
+	event.shaped("anoxia:machine_casing", [" M ", "MRM", " M "], { M: "anoxia:modularium", R: "#forge:storage_blocks/redstone_alloy" });
+	event.shaped("mm:machine_vent", ["MBM", "BAB", "MBM"], { M: "anoxia:modularium", B: "enderio:dark_steel_bars", A: "anoxia:amongus" });
+	event.shaped("mm:machine_gearbox", ["MGM", "GCG", "MGM"], { M: "anoxia:modularium", G: "#forge:gears/steel", C: "create:gearbox" });
+	event.shaped("mm:machine_circuit", ["MCM", "C C", "MCM"], { M: "anoxia:modularium", C: "mekanism:basic_control_circuit" });
 
 	//#region Item
 	const ItemInPort = [
 		//Input
-		{ get: "mm:tiny_item_port_input", put: "moonbase:machine_casing" },
+		{ get: "mm:tiny_item_port_input", put: "anoxia:machine_casing" },
 		{ get: "mm:small_item_port_input", put: "mm:tiny_item_port_input" },
 		{ get: "mm:normal_item_port_input", put: "mm:small_item_port_input" },
 		{ get: "mm:reinforced_item_port_input", put: "mm:normal_item_port_input" },
@@ -19,13 +19,13 @@ ServerEvents.recipes((event) => {
 		{ get: "mm:ultimate_item_port_input", put: "mm:ludicrous_item_port_input" },
 	];
 	function ItemInPortRecipes({ get, put }) {
-		event.shaped(get, [" H ", "MPM", "CMC"], { H: "minecraft:hopper", M: "moonbase:modularium", P: put, C: "#forge:chests/wooden" });
+		event.shaped(get, [" H ", "MPM", "CMC"], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, C: "#forge:chests/wooden" });
 	}
 	ItemInPort.forEach(ItemInPortRecipes);
 
 	const ItemOutPort = [
 		//Output
-		{ get: "mm:tiny_item_port_output", put: "moonbase:machine_casing" },
+		{ get: "mm:tiny_item_port_output", put: "anoxia:machine_casing" },
 		{ get: "mm:small_item_port_output", put: "mm:tiny_item_port_output" },
 		{ get: "mm:normal_item_port_output", put: "mm:small_item_port_output" },
 		{ get: "mm:reinforced_item_port_output", put: "mm:normal_item_port_output" },
@@ -35,7 +35,7 @@ ServerEvents.recipes((event) => {
 		{ get: "mm:huge_item_port_output", put: "mm:huge_item_port_output" },
 	];
 	function ItemOutPortRecipes({ get, put }) {
-		event.shaped(get, ["CMC", "MPM", " H "], { H: "minecraft:hopper", M: "moonbase:modularium", P: put, C: "#forge:chests/wooden" });
+		event.shaped(get, ["CMC", "MPM", " H "], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, C: "#forge:chests/wooden" });
 	}
 	ItemOutPort.forEach(ItemOutPortRecipes);
 	//#endregion
@@ -43,7 +43,7 @@ ServerEvents.recipes((event) => {
 	//#region Fluid
 	const FluidInPort = [
 		//input
-		{ get: "mm:tiny_fluid_port_input", put: "moonbase:machine_casing" },
+		{ get: "mm:tiny_fluid_port_input", put: "anoxia:machine_casing" },
 		{ get: "mm:small_fluid_port_input", put: "mm:tiny_fluid_port_input" },
 		{ get: "mm:normal_fluid_port_input", put: "mm:small_fluid_port_input" },
 		{ get: "mm:reinforced_fluid_port_input", put: "mm:normal_fluid_port_input" },
@@ -53,13 +53,13 @@ ServerEvents.recipes((event) => {
 		{ get: "mm:ultimate_fluid_port_input", put: "mm:ludicrous_fluid_port_input" },
 	];
 	function FluidInPortRecipes({ get, put }) {
-		event.shaped(get, [" H ", "MPM", "BMB"], { H: "minecraft:hopper", M: "moonbase:modularium", P: put, B: "minecraft:bucket" });
+		event.shaped(get, [" H ", "MPM", "BMB"], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, B: "minecraft:bucket" });
 	}
 	FluidInPort.forEach(FluidInPortRecipes);
 
 	const FluidOutPort = [
 		//Output
-		{ get: "mm:tiny_fluid_port_output", put: "moonbase:machine_casing" },
+		{ get: "mm:tiny_fluid_port_output", put: "anoxia:machine_casing" },
 		{ get: "mm:small_fluid_port_output", put: "mm:tiny_fluid_port_output" },
 		{ get: "mm:normal_fluid_port_output", put: "mm:small_fluid_port_output" },
 		{ get: "mm:reinforced_fluid_port_output", put: "mm:normal_fluid_port_output" },
@@ -69,7 +69,7 @@ ServerEvents.recipes((event) => {
 		{ get: "mm:ultimate_fluid_port_output", put: "mm:ludicrous_fluid_port_output" },
 	];
 	function FluidOutPortRecipes({ get, put }) {
-		event.shaped(get, ["BMB", "MPM", " H "], { H: "minecraft:hopper", M: "moonbase:modularium", P: put, B: "minecraft:bucket" });
+		event.shaped(get, ["BMB", "MPM", " H "], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, B: "minecraft:bucket" });
 	}
 	FluidOutPort.forEach(FluidOutPortRecipes);
 	//#endregion
@@ -77,7 +77,7 @@ ServerEvents.recipes((event) => {
 	//#region Energy
 	const EnergyInPort = [
 		//input
-		{ get: "#forge:chests/wooden", put: "moonbase:machine_casing" },
+		{ get: "#forge:chests/wooden", put: "anoxia:machine_casing" },
 		{ get: "mm:small_energy_port_input", put: "#forge:chests/wooden" },
 		{ get: "mm:normal_energy_port_input", put: "mm:small_energy_port_input" },
 		{ get: "mm:reinforced_energy_port_input", put: "mm:normal_energy_port_input" },
@@ -87,7 +87,7 @@ ServerEvents.recipes((event) => {
 		{ get: "mm:ultimate_energy_port_input", put: "mm:ludicrous_energy_port_input" },
 	];
 	function EnergyInPortRecipes({ get, put }) {
-		event.shaped(get, [" E ", "MPM", "RMR"], { E: "pipez:energy_pipe", M: "moonbase:modularium", P: put, R: "#forge:ingots/red_alloy" });
+		event.shaped(get, [" E ", "MPM", "RMR"], { E: "pipez:energy_pipe", M: "anoxia:modularium", P: put, R: "#forge:ingots/red_alloy" });
 	}
 	EnergyInPort.forEach(EnergyInPortRecipes);
 

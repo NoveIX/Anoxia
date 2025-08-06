@@ -166,7 +166,7 @@ ServerEvents.recipes((event) => {
 		},
 		{
 			//Modularium
-			get: { item: "moonbase:modularium" },
+			get: { item: "anoxiaodularium" },
 			put: [
 				{ count: 1, ingredient: { tag: "forge:ingots/vibrant_alloy" } },
 				{ count: 1, ingredient: { tag: "forge:ingots/enderium" } },
@@ -267,10 +267,10 @@ ServerEvents.recipes((event) => {
 		{
 			//Grains of Infinity
 			get: [
-				{ chance: 0.75, item: { item: "moonbase:compressed_cobbled_deepslate" }, optional: false },
+				{ chance: 0.75, item: { item: "anoxia:compressed_cobbled_deepslate" }, optional: false },
 				{ chance: 0.01, item: { item: "enderio:grains_of_infinity" }, optional: false },
 			],
-			put: { item: "moonbase:compressed_deepslate" },
+			put: { item: "anoxia:compressed_deepslate" },
 			rsflux: 2400,
 		},
 

@@ -1,14 +1,14 @@
 ServerEvents.recipes((event) => {
 	//Sifter
 	event.remove({ output: "createsifter:sifter" });
-	event.shaped("createsifter:sifter", ["PSP", "KCK", "ADA"], { P: "#minecraft:planks", S: "exnihilosequentia:sieves", K: "#forge:rods/wooden", C: "create:large_cogwheel", A: "create:andesite_casing", D: "moonbase:compressed_andesite" });
+	event.shaped("createsifter:sifter", ["PSP", "KCK", "ADA"], { P: "#minecraft:planks", S: "exnihilosequentia:sieves", K: "#forge:rods/wooden", C: "create:large_cogwheel", A: "create:andesite_casing", D: "anoxiapressed_andesite" });
 
 	//#region Sifting
 	event.remove({ type: "createsifter:sifting" });
 	const DropPattern = [
 		//Stone
 		{
-			tier: "moonbase:create_flint_mesh",
+			tier: "anoxia:create_flint_mesh",
 			put: { item: "minecraft:stone" },
 			get: [
 				{ item: "exnihilosequentia:basalt_pebble", chance: 0.2 },
@@ -26,7 +26,7 @@ ServerEvents.recipes((event) => {
 
 		//Gravel
 		{
-			tier: "moonbase:create_string_mesh",
+			tier: "anoxia:create_string_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.12 },
@@ -34,7 +34,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_flint_mesh",
+			tier: "anoxia:create_flint_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.16 },
@@ -44,7 +44,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_iron_mesh",
+			tier: "anoxia:create_iron_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.2 },
@@ -58,7 +58,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_diamond_mesh",
+			tier: "anoxia:create_diamond_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.24 },
@@ -74,7 +74,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.28 },
@@ -90,7 +90,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.32 },
@@ -106,7 +106,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_aethersteel_mesh",
+			tier: "anoxia:create_aethersteel_mesh",
 			put: { item: "minecraft:gravel" },
 			get: [
 				{ item: "minecraft:flint", chance: 0.36 },
@@ -124,7 +124,7 @@ ServerEvents.recipes((event) => {
 
 		//Sand
 		{
-			tier: "moonbase:create_string_mesh",
+			tier: "anoxia:create_string_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "minecraft:cocoa_beans", chance: 0.3 },
@@ -133,7 +133,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_flint_mesh",
+			tier: "anoxia:create_flint_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "ae2:certus_quartz_crystal", chance: 0.03 },
@@ -142,7 +142,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_iron_mesh",
+			tier: "anoxia:create_iron_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "ae2:certus_quartz_crystal", chance: 0.06 },
@@ -153,7 +153,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_diamond_mesh",
+			tier: "anoxia:create_diamond_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "ae2:certus_quartz_crystal", chance: 0.09 },
@@ -161,11 +161,11 @@ ServerEvents.recipes((event) => {
 				{ item: "exnihilosequentia:copper_pieces", chance: 0.12 },
 				{ item: "exnihilosequentia:nickel_pieces", chance: 0.08 },
 				{ item: "exnihilosequentia:tin_pieces", chance: 0.08 },
-				{ item: "moonbase:osmium_pieces", chance: 0.04 },
+				{ item: "anoxia:osmium_pieces", chance: 0.04 },
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "ae2:certus_quartz_crystal", chance: 0.12 },
@@ -173,11 +173,11 @@ ServerEvents.recipes((event) => {
 				{ item: "exnihilosequentia:copper_pieces", chance: 0.16 },
 				{ item: "exnihilosequentia:nickel_pieces", chance: 0.12 },
 				{ item: "exnihilosequentia:tin_pieces", chance: 0.12 },
-				{ item: "moonbase:osmium_pieces", chance: 0.08 },
+				{ item: "anoxia:osmium_pieces", chance: 0.08 },
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "ae2:certus_quartz_crystal", chance: 0.15 },
@@ -185,11 +185,11 @@ ServerEvents.recipes((event) => {
 				{ item: "exnihilosequentia:copper_pieces", chance: 0.2 },
 				{ item: "exnihilosequentia:nickel_pieces", chance: 0.16 },
 				{ item: "exnihilosequentia:tin_pieces", chance: 0.16 },
-				{ item: "moonbase:osmium_pieces", chance: 0.12 },
+				{ item: "anoxia:osmium_pieces", chance: 0.12 },
 			],
 		},
 		{
-			tier: "moonbase:create_aethersteel_mesh",
+			tier: "anoxia:create_aethersteel_mesh",
 			put: { item: "minecraft:sand" },
 			get: [
 				{ item: "ae2:certus_quartz_crystal", chance: 0.18 },
@@ -197,13 +197,13 @@ ServerEvents.recipes((event) => {
 				{ item: "exnihilosequentia:copper_pieces", chance: 0.24 },
 				{ item: "exnihilosequentia:nickel_pieces", chance: 0.2 },
 				{ item: "exnihilosequentia:tin_pieces", chance: 0.2 },
-				{ item: "moonbase:osmium_pieces", chance: 0.16 },
+				{ item: "anoxia:osmium_pieces", chance: 0.16 },
 			],
 		},
 
 		//Dust
 		{
-			tier: "moonbase:create_string_mesh",
+			tier: "anoxia:create_string_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.2 },
@@ -212,7 +212,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_flint_mesh",
+			tier: "anoxia:create_flint_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.22 },
@@ -223,7 +223,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_iron_mesh",
+			tier: "anoxia:create_iron_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.24 },
@@ -239,7 +239,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_diamond_mesh",
+			tier: "anoxia:create_diamond_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.26 },
@@ -256,7 +256,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.28 },
@@ -273,7 +273,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.3 },
@@ -290,7 +290,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_aethersteel_mesh",
+			tier: "anoxia:create_aethersteel_mesh",
 			put: { item: "exnihilosequentia:dust" },
 			get: [
 				{ item: "minecraft:bone_meal", chance: 0.32 },
@@ -309,7 +309,7 @@ ServerEvents.recipes((event) => {
 
 		//Dirt
 		{
-			tier: "moonbase:create_string_mesh",
+			tier: "anoxia:create_string_mesh",
 			put: { item: "minecraft:dirt" },
 			get: [
 				{ item: "minecraft:wheat_seeds", chance: 0.7 },
@@ -333,24 +333,24 @@ ServerEvents.recipes((event) => {
 
 		//Netherrack
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "exnihilosequentia:crushed_netherrack" },
 			get: [{ item: "minecraft:ancient_debris", chance: 0.008 }],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "exnihilosequentia:crushed_netherrack" },
 			get: [{ item: "minecraft:ancient_debris", chance: 0.016 }],
 		},
 		{
-			tier: "moonbase:create_aethersteel_mesh",
+			tier: "anoxia:create_aethersteel_mesh",
 			put: { item: "exnihilosequentia:crushed_netherrack" },
 			get: [{ item: "minecraft:ancient_debris", chance: 0.024 }],
 		},
 
 		//Endstone
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "exnihilosequentia:crushed_end_stone" },
 			get: [
 				{ item: "minecraft:ender_pearl", chance: 0.01 },
@@ -359,7 +359,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "exnihilosequentia:crushed_end_stone" },
 			get: [
 				{ item: "minecraft:ender_pearl", chance: 0.02 },
@@ -368,7 +368,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			tier: "moonbase:create_aethersteel_mesh",
+			tier: "anoxia:create_aethersteel_mesh",
 			put: { item: "exnihilosequentia:crushed_end_stone" },
 			get: [
 				{ item: "minecraft:ender_pearl", chance: 0.03 },
@@ -379,7 +379,7 @@ ServerEvents.recipes((event) => {
 
 		//Leaves
 		{
-			tier: "moonbase:create_string_mesh",
+			tier: "anoxia:create_string_mesh",
 			put: { tag: "minecraft:leaves" },
 			get: [
 				{ item: "exnihilosequentia:silkworm", chance: 0.25 },
@@ -397,12 +397,12 @@ ServerEvents.recipes((event) => {
 
 		//Aetherslate
 		{
-			tier: "moonbase:create_aethersteel_mesh",
+			tier: "anoxia:create_aethersteel_mesh",
 			put: { item: "aethersteel:cobbled_aetherslate" },
 			get: [{ item: "aethersteel:aether_debris", chance: 0.016 }],
 		},
 		{
-			tier: "moonbase:create_emerald_mesh",
+			tier: "anoxia:create_emerald_mesh",
 			put: { item: "aethersteel:cobbled_aetherslate" },
 			get: [{ item: "aethersteel:aether_debris", chance: 0.008 }],
 		},

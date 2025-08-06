@@ -27,9 +27,9 @@ ServerEvents.recipes((event) => {
 
 	//Deepslate Furnace
 	event.remove({ output: "quark:deepslate_furnace" });
-	event.shaped("quark:deepslate_furnace", ["CCC", "C C", "CCC"], { C: "moonbase:compressed_cobbled_deepslate" });
+	event.shaped("quark:deepslate_furnace", ["CCC", "C C", "CCC"], { C: "anoxia:compressed_cobbled_deepslate" });
 
 	//Blackstone Furnace
 	event.remove({ output: "quark:blackstone_furnace" });
-	event.shaped("quark:blackstone_furnace", ["CCC", "C C", "CCC"], { C: "moonbase:compressed_blackstone" });
+	event.shaped("quark:blackstone_furnace", ["CCC", "C C", "CCC"], { C: "anoxia:compressed_blackstone" });
 });

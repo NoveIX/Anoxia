@@ -9,8 +9,8 @@ ServerEvents.recipes((event) => {
 	//#region Crusher
 	event.remove({ id: "industrialforegoing:crusher/sand_silicon" });
 	const CrusherPattern = [
-		{ get: { tag: "moonbase:dusts" }, put: { tag: "forge:sand" } },
-		{ get: { tag: "moonbase:silicons" }, put: { tag: "moonbase:dust" } },
+		{ get: { tag: "anoxia:dusts" }, put: { tag: "forge:sand" } },
+		{ get: { tag: "anoxia:silicons" }, put: { tag: "anoxia:dust" } },
 	];
 	function CrusherRecipes({ get, put }) {
 		event.custom({

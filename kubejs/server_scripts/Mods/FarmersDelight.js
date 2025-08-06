@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
 
 	//Organic Compost
 	event.remove({ output: "farmersdelight:organic_compost" });
-	event.shaped("farmersdelight:organic_compost", ["FFF", "FDF", "FFF"], { F: "#moonbase:fertilizers", D: "minecraft:dirt" });
+	event.shaped("farmersdelight:organic_compost", ["FFF", "FDF", "FFF"], { F: "#anoxia:fertilizers", D: "minecraft:dirt" });
 
 	//#region Cutting
 	event.remove({ output: "forbidden_arcanus:ender_pearl_fragment" });

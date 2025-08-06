@@ -13,7 +13,7 @@ ServerEvents.recipes((event) => {
 		{ get: "ironfurnaces:netherite_furnace", put: "#forge:plates/netherite", frame: "ironfurnaces:obsidian_furnace" }, //Obsidian to Netherite
 
 		//Upgrade
-		{ get: "ironfurnaces:upgrade_copper", put: "#forge:plates/copper", frame: "moonbase:compressed_cobblestone" }, //Stone to Copper
+		{ get: "ironfurnaces:upgrade_copper", put: "#forge:plates/copper", frame: "anoxia:compressed_cobblestone" }, //Stone to Copper
 		{ get: "ironfurnaces:upgrade_iron2", put: "#forge:plates/iron", frame: "ironfurnaces:upgrade_copper" }, //Copper to Iron
 		{ get: "ironfurnaces:upgrade_silver2", put: "#forge:plates/silver", frame: "ironfurnaces:upgrade_iron2" }, //Iron to Silver
 		{ get: "ironfurnaces:upgrade_gold2", put: "#forge:plates/gold", frame: "ironfurnaces:upgrade_silver2" }, //Silver to Gold

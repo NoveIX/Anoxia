@@ -1,25 +1,25 @@
 ServerEvents.tags("item", (event) => {
-	//Moon Base
-	event.add("moonbase:coil/copper", "createaddition:copper_spool");
-	event.add("moonbase:coil/copper", "immersiveengineering:wirecoil_copper");
-	event.add("moonbase:coil/electrum", "createaddition:electrum_spool");
-	event.add("moonbase:coil/electrum", "immersiveengineering:wirecoil_electrum");
-	event.add("moonbase:dusts", "exnihilosequentia:dust");
-	event.add("moonbase:silicons", "ae2:silicon");
-	event.add("moonbase:fertilizers", "minecraft:bone_meal");
-	event.add("moonbase:fertilizers", "minecraft:rotten_flesh");
-	event.add("moonbase:fertilizers", "farmersdelight:tree_bark");
-	event.add("moonbase:fertilizers", "farmersdelight:straw");
-	event.add("moonbase:stone/furnaces", "minecraft:furnace");
-	event.add("moonbase:stone/furnaces", "quark:deepslate_furnace");
-	event.add("moonbase:blackstone/furnaces", "nethersdelight:blackstone_furnace");
-	event.add("moonbase:blackstone/furnaces", "quark:blackstone_furnace");
-	event.add("moonbase:furnaces", "#moonbase:stone/furnaces");
-	event.add("moonbase:furnaces", "#moonbase:blackstone/furnaces");
-	event.add("moonbase:blastfurnaces", "minecraft:blast_furnace");
-	event.add("moonbase:blastfurnaces", "nethersdelight:blackstone_blast_furnace");
-	event.add("moonbase:smokers", "minecraft:smoker");
-	event.add("moonbase:smokers", "nethersdelight:nether_brick_smoker");
+	//Anoxia
+	event.add("anoxiaoil/copper", "createaddition:copper_spool");
+	event.add("anoxia:coil/copper", "immersiveengineering:wirecoil_copper");
+	event.add("anoxia:coil/electrum", "createaddition:electrum_spool");
+	event.add("anoxia:coil/electrum", "immersiveengineering:wirecoil_electrum");
+	event.add("anoxia:dusts", "exnihilosequentia:dust");
+	event.add("anoxia:silicons", "ae2:silicon");
+	event.add("anoxia:fertilizers", "minecraft:bone_meal");
+	event.add("anoxia:fertilizers", "minecraft:rotten_flesh");
+	event.add("anoxia:fertilizers", "farmersdelight:tree_bark");
+	event.add("anoxia:fertilizers", "farmersdelight:straw");
+	event.add("anoxia:stone/furnaces", "minecraft:furnace");
+	event.add("anoxia:stone/furnaces", "quark:deepslate_furnace");
+	event.add("anoxia:blackstone/furnaces", "nethersdelight:blackstone_furnace");
+	event.add("anoxia:blackstone/furnaces", "quark:blackstone_furnace");
+	event.add("anoxia:furnaces", "#anoxia:stone/furnaces");
+	event.add("anoxia:furnaces", "#anoxia:blackstone/furnaces");
+	event.add("anoxia:blastfurnaces", "minecraft:blast_furnace");
+	event.add("anoxia:blastfurnaces", "nethersdelight:blackstone_blast_furnace");
+	event.add("anoxia:smokers", "minecraft:smoker");
+	event.add("anoxia:smokers", "nethersdelight:nether_brick_smoker");
 
 	//Forge
 	event.add("forge:plastic", "pneumaticcraft:plastic");

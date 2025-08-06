@@ -14,12 +14,12 @@ ServerEvents.recipes((event) => {
 		["immersiveengineering:dust_wood", "mekanism:sawdust"],
 		["thermal:saw_blade", "immersiveengineering:sawblade"],
 		["immersiveengineering:coal_coke", "thermal:coal_coke"],
-		["cyclic:compressed_cobblestone", "moonbase:compressed_cobblestone"],
+		["cyclic:compressed_cobblestone", "anoxia:compressed_cobblestone"],
 		["enderio:silicon", "ae2:silicon"],
 		["oc2r:silicon", "ae2:silicon"],
 		["powah:uraninite_raw", "mekanism:raw_uranium"],
-		["minecraft:smoker", "#moonbase:smokers"],
-		["minecraft:blast_furnace", "#moonbase:blastfurnaces"],
+		["minecraft:smoker", "#anoxia:smokers"],
+		["minecraft:blast_furnace", "#anoxia:blastfurnaces"],
 	];
 
 	IngredientReplacements.forEach((replacement) => {

@@ -1,6 +1,6 @@
 ItemEvents.modification((event) => {
-	event.modify("moonbase:tiny_coal", (item) => (item.burnTime = 200));
-	event.modify("moonbase:tiny_charcoal", (item) => (item.burnTime = 200));
+	event.modify("anoxia:tiny_coal", (item) => (item.burnTime = 200));
+	event.modify("anoxia:tiny_charcoal", (item) => (item.burnTime = 200));
 	event.modify("thermal:sawdust", (item) => (item.burnTime = 100));
 	event.modify("mekanism:sawdust", (item) => (item.burnTime = 100));
 

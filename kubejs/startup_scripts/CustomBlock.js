@@ -1,7 +1,7 @@
 StartupEvents.registry("block", (event) => {
 	//Cobblestone
 	event
-        .create("moonbase:compressed_cobblestone")
+        .create("anoxia:compressed_cobblestone")
         .displayName("Compressed Cobblestone")
         .soundType("stone")
         .hardness(2.0)
@@ -11,7 +11,7 @@ StartupEvents.registry("block", (event) => {
         .tagBlock("minecraft:needs_wooden_tool");
 
 	event
-        .create("moonbase:double_compressed_cobblestone")
+        .create("anoxia:double_compressed_cobblestone")
 		.displayName("Double_Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -21,7 +21,7 @@ StartupEvents.registry("block", (event) => {
 		.tagBlock("minecraft:needs_wooden_tool");
 
 	event
-		.create("moonbase:triple_compressed_cobblestone")
+		.create("anoxia:triple_compressed_cobblestone")
 		.displayName("Triple Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -31,7 +31,7 @@ StartupEvents.registry("block", (event) => {
 		.tagBlock("minecraft:needs_wooden_tool");
 
 	event
-		.create("moonbase:quadruple_compressed_cobblestone")
+		.create("anoxia:quadruple_compressed_cobblestone")
 		.displayName("Quadruple Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -41,7 +41,7 @@ StartupEvents.registry("block", (event) => {
 		.tagBlock("minecraft:needs_wooden_tool");
 
 	event
-		.create("moonbase:quintuple_compressed_cobblestone")
+		.create("anoxia:quintuple_compressed_cobblestone")
 		.displayName("Quintuple Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -51,7 +51,7 @@ StartupEvents.registry("block", (event) => {
 		.tagBlock("minecraft:needs_wooden_tool");
 
 	event
-		.create("moonbase:sextuple_compressed_cobblestone")
+		.create("anoxia:sextuple_compressed_cobblestone")
 		.displayName("Sextuple Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -61,7 +61,7 @@ StartupEvents.registry("block", (event) => {
 		.tagBlock("minecraft:needs_wooden_tool");
 
 	event
-		.create("moonbase:septuple_compressed_cobblestone")
+		.create("anoxia:septuple_compressed_cobblestone")
 		.displayName("Septuple Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -71,7 +71,7 @@ StartupEvents.registry("block", (event) => {
 		.tagBlock("minecraft:needs_wooden_tool");
 
 	event
-		.create("moonbase:octuple_compressed_cobblestone")
+		.create("anoxia:octuple_compressed_cobblestone")
 		.displayName("Octuple Compressed Cobblestone")
 		.soundType("stone")
 		.hardness(2.0)
@@ -82,7 +82,7 @@ StartupEvents.registry("block", (event) => {
 
 	//DeepSlate
 	event
-		.create("moonbase:compressed_deepslate")
+		.create("anoxia:compressed_deepslate")
 		.displayName("Compressed deepslate")
 		.soundType("deepslate")
 		.hardness(3.0)
@@ -93,7 +93,7 @@ StartupEvents.registry("block", (event) => {
 
     //Cobble DeepSlate
 	event
-        .create("moonbase:compressed_cobbled_deepslate")
+        .create("anoxia:compressed_cobbled_deepslate")
         .displayName("Compressed Cobbled Deepslate")
         .soundType("deepslate")
         .hardness(3.5)
@@ -104,7 +104,7 @@ StartupEvents.registry("block", (event) => {
 
     //BlackStone
 	event
-        .create("moonbase:compressed_blackstone")
+        .create("anoxia:compressed_blackstone")
         .displayName("Compressed Blackstone")
         .soundType("stone")
         .hardness(1.5)
@@ -115,7 +115,7 @@ StartupEvents.registry("block", (event) => {
 
 	//Andesite
 	event
-		.create("moonbase:compressed_andesite")
+		.create("anoxia:compressed_andesite")
 		.displayName("Compressed Andesite")
 		.soundType("stone")
 		.hardness(1.5)
@@ -126,7 +126,7 @@ StartupEvents.registry("block", (event) => {
 
 	//Modular Machinery
 	event
-		.create("moonbase:machine_casing")
+		.create("anoxia:machine_casing")
 		.displayName("Machine Casing")
 		.soundType("metal")
 		.hardness(5.0)

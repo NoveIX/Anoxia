@@ -8,7 +8,7 @@ ServerEvents.recipes((event) => {
 	//#region Elven Trade
 	const ElvenTradePattern = [
 		//Aethersteel
-		{ get: [{ item: "aethersteel:aetherslate" }], put: [{ item: "moonbase:compressed_deepslate" }] },
+		{ get: [{ item: "aethersteel:aetherslate" }], put: [{ item: "anoxia:compressed_deepslate" }] },
 	];
 	function ElvenTradeRecipes({ get, put }) {
 		event.custom({

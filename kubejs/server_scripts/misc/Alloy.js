@@ -418,7 +418,7 @@ ServerEvents.recipes((event) => {
 		{
 			//Modularium
 			alloy: "complex",
-			get: "moonbase:modularium",
+			get: "anoxia:modularium",
 			n0: 1,
 			put1: "forge:ingots/vibrant_alloy",
 			n1: 1,

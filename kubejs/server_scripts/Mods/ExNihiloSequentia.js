@@ -282,7 +282,7 @@ ServerEvents.recipes((event) => {
 			],
 		},
 		{
-			get: { item: "moonbase:osmium_pieces" },
+			get: { item: "anoxia:osmium_pieces" },
 			put: { item: "minecraft:sand" },
 			drop: [
 				{ chance: 0.04, mesh: "diamond" },

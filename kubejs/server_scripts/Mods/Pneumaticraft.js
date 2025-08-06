@@ -44,7 +44,7 @@ ServerEvents.recipes((event) => {
 		{
 			//Empty PCB
 			get: [{ item: "pneumaticcraft:empty_pcb" }],
-			put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { item: "thermal:rf_coil" }, { tag: "forge:plates/copper" }, { tag: "moonbase:coil/copper" }],
+			put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { item: "thermal:rf_coil" }, { tag: "forge:plates/copper" }, { tag: "anoxia:coil/copper" }],
 			bar: 2,
 		},
 		{

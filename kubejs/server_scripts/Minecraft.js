@@ -5,15 +5,15 @@ ServerEvents.recipes((event) => {
 
 	//Furnace
 	event.remove({ output: "minecraft:furnace" });
-	event.shaped("minecraft:furnace", ["CCC", "C C", "CCC"], { C: "moonbase:compressed_cobblestone" });
+	event.shaped("minecraft:furnace", ["CCC", "C C", "CCC"], { C: "anoxia:compressed_cobblestone" });
 
 	//Blast Furnace
 	event.remove({ output: "minecraft:blast_furnace" });
-	event.shaped("minecraft:blast_furnace", ["PPP", "PFP", "CCC"], { P: "#forge:plates/iron", F: "#moonbase:stone/furnaces", C: "minecraft:smooth_stone" });
+	event.shaped("minecraft:blast_furnace", ["PPP", "PFP", "CCC"], { P: "#forge:plates/iron", F: "#anoxia:stone/furnaces", C: "minecraft:smooth_stone" });
 
 	//Smoker
 	event.remove({ output: "minecraft:smoker" });
-	event.shaped("minecraft:smoker", ["CLC", "LFL", "CLC"], { C: "moonbase:compressed_cobblestone", L: "#minecraft:logs", F: "#moonbase:stone/furnaces" });
+	event.shaped("minecraft:smoker", ["CLC", "LFL", "CLC"], { C: "anoxia:compressed_cobblestone", L: "#minecraft:logs", F: "#anoxia:stone/furnaces" });
 
 	//SmithingTemplate
 	event.remove({ output: "minecraft:netherite_upgrade_smithing_template" });

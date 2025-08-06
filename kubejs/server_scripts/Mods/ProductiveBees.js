@@ -9,6 +9,6 @@ ServerEvents.recipes((event) => {
 			item: "productivebees:configurable_honeycomb",
 			nbt: '{EntityTag:{type:"productivebees:silicon"}}',
 		},
-		outputs: [{ item: { tag: "forge:wax" } }, { chance: 50, item: { tag: "moonbase:silicons" } }],
+		outputs: [{ item: { tag: "forge:wax" } }, { chance: 50, item: { tag: "anoxia:silicons" } }],
 	});
 });
