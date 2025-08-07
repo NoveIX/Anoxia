@@ -1,9 +1,9 @@
 {
-	"biomes": "#moonbase:has_structure/lunar_biomes",
+	"biomes": "#anoxia:has_structure/lunar_biomes",
 	"adapt_noise": false,
 	"spawn_overrides": {},
 	"type": "minecraft:jigsaw",
-	"start_pool": "moonbase:hub/research",
+	"start_pool": "anoxia:hub/research",
 	"size": 7,
 	"step": "surface_structures",
 	"start_height": {

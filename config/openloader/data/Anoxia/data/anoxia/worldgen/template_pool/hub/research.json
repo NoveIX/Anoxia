@@ -1,10 +1,10 @@
 {
-	"name": "moonbase:hub/research",
+	"name": "anoxia:hub/research",
 	"fallback": "minecraft:empty",
 	"elements": [{
 		"weight": 1,
 		"element": {
-			"location": "moonbase:hub/research/selene",
+			"location": "anoxia:hub/research/selene",
 			"processors": "minecraft:empty",
 			"projection": "rigid",
 			"element_type": "minecraft:single_pool_element"
