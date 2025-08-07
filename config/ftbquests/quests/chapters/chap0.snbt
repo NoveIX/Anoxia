@@ -10,25 +10,87 @@
 	quest_links: [ ]
 	quests: [{
 		id: "466985ED3651E3F5"
-		rewards: [{
-			auto: "invisible"
-			command: "/gamerule keepInventory true"
-			elevate_perms: true
-			exclude_from_claim_all: true
-			id: "5D8896A8AD447F70"
-			silent: true
-			team_reward: false
-			title: "Keep Inventory"
-			type: "command"
-		}]
+		rewards: [
+			{
+				auto: "invisible"
+				command: "/gamerule keepInventory true"
+				elevate_perms: true
+				exclude_from_claim_all: true
+				id: "5D8896A8AD447F70"
+				silent: true
+				team_reward: false
+				title: "Keep Inventory"
+				type: "command"
+			}
+			{
+				auto: "invisible"
+				count: 16
+				exclude_from_claim_all: true
+				id: "2E0E18C35242A009"
+				item: {
+					Count: 1
+					id: "minecraft:apple"
+					tag: { }
+				}
+				team_reward: false
+				type: "item"
+			}
+			{
+				auto: "invisible"
+				exclude_from_claim_all: true
+				id: "5CEDBCAFD3DAF257"
+				item: {
+					Count: 1
+					id: "structurecompass:structure_compass"
+					tag: {
+						"structurecompass:structureName": "anoxia:hub"
+					}
+				}
+				team_reward: false
+				type: "item"
+			}
+			{
+				auto: "invisible"
+				count: 2
+				exclude_from_claim_all: true
+				id: "222FB12AF6B3808A"
+				item: {
+					Count: 1
+					id: "ad_astra:oxygen_tank"
+					tag: {
+						BotariumData: {
+							StoredFluids: [{
+								Amount: 1000L
+								Fluid: "mekanism:oxygen"
+							}]
+						}
+					}
+				}
+				team_reward: false
+				type: "item"
+			}
+			{
+				auto: "invisible"
+				exclude_from_claim_all: true
+				id: "369D69E611D8BA65"
+				item: {
+					Count: 1
+					id: "tiab:time_in_a_bottle"
+					tag: { }
+				}
+				team_reward: false
+				type: "item"
+			}
+		]
 		tasks: [{
 			dimension: "ad_astra:moon"
 			id: "37C6BA31907780F4"
 			title: "Moon"
 			type: "dimension"
 		}]
+		title: "Starting item"
 		x: 0.0d
 		y: 0.0d
 	}]
-	title: "Server config"
+	title: "Invisible quest"
 }

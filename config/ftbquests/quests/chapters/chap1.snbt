@@ -9,88 +9,26 @@
 	quest_links: [ ]
 	quests: [
 		{
-			icon: "akashictome:tome"
-			id: "54AFFE249B3A6AB0"
-			rewards: [
-				{
-					count: 16
-					id: "21213BE9B233BEBF"
-					item: "minecraft:apple"
-					type: "item"
-				}
-				{
-					id: "2282492DA9DA323B"
-					item: {
-						Count: 1
-						id: "structurecompass:structure_compass"
-						tag: {
-							"structurecompass:structureName": "moonbase:hub"
-						}
-					}
-					type: "item"
-				}
-				{
-					count: 2
-					id: "4AA10F2A49497233"
-					item: {
-						Count: 1
-						id: "ad_astra:oxygen_tank"
-						tag: {
-							BotariumData: {
-								StoredFluids: [{
-									Amount: 1000L
-									Fluid: "mekanism:oxygen"
-								}]
-							}
-						}
-					}
-					type: "item"
-				}
-				{
-					id: "0A8C7880567B0DBC"
-					item: {
-						Count: 1
-						id: "tiab:time_in_a_bottle"
-						tag: { }
-					}
-					type: "item"
-				}
-			]
-			shape: "hexagon"
-			size: 2.0d
-			tasks: [{
-				id: "6F66D5F2807B5DDF"
-				type: "checkmark"
-			}]
-			title: "Welcome"
-			x: 0.0d
-			y: 0.0d
-		}
-		{
-			dependencies: ["54AFFE249B3A6AB0"]
 			id: "7A68078C107F781B"
 			rewards: [{
 				id: "1CA8BD54449F611F"
 				item: "ftbquests:screen_1"
 				type: "item"
 			}]
-			shape: "diamond"
+			shape: "hexagon"
 			size: 1.5d
 			tasks: [{
 				icon: "minecraft:brewing_stand"
 				id: "12F14AE4D622E8E6"
-				structure: "moonbase:hub"
+				structure: "anoxia:hub"
 				title: "Selene Reseach Hub"
 				type: "structure"
 			}]
-			x: 0.0d
-			y: 2.0d
+			x: -4.5d
+			y: -3.75d
 		}
 		{
-			dependencies: [
-				"7A68078C107F781B"
-				"101BE9723FD254C6"
-			]
+			dependencies: ["101BE9723FD254C6"]
 			icon: {
 				Count: 1
 				id: "ad_astra:oxygen_tank"
@@ -134,28 +72,8 @@
 				}
 			]
 			title: "Oxygen facility"
-			x: 1.5d
-			y: 2.0d
-		}
-		{
-			dependencies: ["7A68078C107F781B"]
-			icon: "minecraft:oak_sapling"
-			id: "44010E3B1A52CB04"
-			tasks: [
-				{
-					id: "4DE1F7CE575215A7"
-					item: "minecraft:oak_sapling"
-					type: "item"
-				}
-				{
-					id: "65FFAAA389DB4CC8"
-					item: "minecraft:dirt"
-					type: "item"
-				}
-			]
-			title: "First resource"
-			x: -1.5d
-			y: 2.0d
+			x: -3.0d
+			y: 1.0d
 		}
 		{
 			dependencies: ["7A68078C107F781B"]
@@ -203,19 +121,8 @@
 				}
 			]
 			title: "Explore the hub"
-			x: 0.0d
-			y: 3.5d
-		}
-		{
-			dependencies: ["44010E3B1A52CB04"]
-			id: "0A48D9BE8B643D0C"
-			tasks: [{
-				id: "2D0E1422CF3914FF"
-				item: "botanypots:terracotta_botany_pot"
-				type: "item"
-			}]
-			x: -3.0d
-			y: 2.0d
+			x: -4.5d
+			y: -2.0d
 		}
 		{
 			dependencies: ["52F6E85EF3E25075"]
@@ -227,14 +134,11 @@
 				type: "item"
 			}]
 			title: "Clean the base"
-			x: 0.0d
-			y: 5.0d
+			x: -3.0d
+			y: -3.5d
 		}
 		{
-			dependencies: [
-				"5979342B3758F03D"
-				"49885A364F2E8258"
-			]
+			dependencies: ["5979342B3758F03D"]
 			id: "538DE7975E29C8BA"
 			tasks: [{
 				count: 64L
@@ -243,43 +147,31 @@
 				type: "item"
 			}]
 			title: "Rebuild the structure"
-			x: 1.0d
-			y: 4.5d
-		}
-		{
-			dependencies: ["44010E3B1A52CB04"]
-			id: "53C8BDB37D270B95"
-			tasks: [{
-				id: "3B39053BBF86C539"
-				item: "botania:pebble"
-				type: "item"
-			}]
 			x: -1.5d
-			y: 3.5d
+			y: -3.5d
 		}
 		{
 			dependencies: ["65F579372C3FF7BA"]
 			icon: "mekanism:oxygen_bucket"
 			id: "59523D65644FD52A"
+			rewards: [{
+				count: 2
+				id: "028A68C1C6EA3E3B"
+				item: {
+					Count: 1
+					id: "ad_astra:oxygen_tank"
+					tag: { }
+				}
+				type: "item"
+			}]
 			tasks: [{
 				amount: 1000L
 				fluid: "mekanism:oxygen"
 				id: "1BC16F14527092CC"
 				type: "fluid"
 			}]
-			x: 3.0d
-			y: 2.0d
-		}
-		{
-			dependencies: ["0A48D9BE8B643D0C"]
-			id: "31E5B5F78BADD0F1"
-			tasks: [{
-				id: "78F63066AA0B6E6B"
-				item: "minecraft:oak_log"
-				type: "item"
-			}]
-			x: -3.0d
-			y: 3.5d
+			x: -4.5d
+			y: 1.0d
 		}
 		{
 			dependencies: ["52F6E85EF3E25075"]
@@ -290,8 +182,8 @@
 				type: "item"
 			}]
 			title: "Read Ellie's notes"
-			x: -1.0d
-			y: 4.5d
+			x: -4.5d
+			y: -0.5d
 		}
 		{
 			dependencies: ["52F6E85EF3E25075"]
@@ -301,68 +193,65 @@
 				item: "mekanism:basic_chemical_tank"
 				type: "item"
 			}]
-			title: "Find the oxygen supply"
-			x: 1.5d
-			y: 3.5d
-		}
-		{
-			dependencies: ["0A48D9BE8B643D0C"]
-			id: "1267053BC0D5D353"
-			tasks: [{
-				id: "036FE489E1BFC029"
-				item: "minecraft:potato"
-				type: "item"
-			}]
-			x: -4.5d
-			y: 1.5d
-		}
-		{
-			dependencies: ["0A48D9BE8B643D0C"]
-			id: "6515425731405A2B"
-			tasks: [{
-				id: "4190F0BF08EE3A47"
-				item: "supplementaries:flax"
-				type: "item"
-			}]
-			x: -4.5d
-			y: 2.5d
-		}
-		{
-			dependencies: ["1267053BC0D5D353"]
-			id: "09E9140DE790A899"
-			tasks: [{
-				id: "6FDADC126788636B"
-				item: "minecraft:baked_potato"
-				type: "item"
-			}]
-			x: -6.0d
-			y: 1.5d
-		}
-		{
-			dependencies: ["6515425731405A2B"]
-			id: "757A33A74174DF1D"
-			tasks: [{
-				id: "0D3024B71EF40691"
-				item: "minecraft:string"
-				type: "item"
-			}]
-			x: -6.0d
-			y: 2.5d
-		}
-		{
-			dependencies: ["0A48D9BE8B643D0C"]
-			id: "6935551B383B6BF5"
-			tasks: [{
-				id: "0088D3A93F293745"
-				item: "quark:oak_hedge"
-				type: "item"
-			}]
-			x: -4.5d
-			y: 3.5d
+			title: "Oxygen supply"
+			x: -3.0d
+			y: -0.5d
 		}
 		{
 			icon: "ad_astra:moon_globe"
 			id: "3DDB3D829D8EB4C4"
+			rewards: [
+				{
+					id: "440BD7566C07827D"
+					item: {
+						Count: 1
+						id: "ad_astra:space_helmet"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "39AB5FBA3EEB5ED4"
+					item: {
+						Count: 1
+						id: "ad_astra:space_suit"
+						tag: {
+							BotariumData: {
+								StoredFluids: [{
+									Amount: 2500L
+									Fluid: "mekanism:oxygen"
+								}]
+							}
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "27901F5AAA7F4AEF"
+					item: {
+						Count: 1
+						id: "ad_astra:space_pants"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "72D63AC9E696F3B9"
+					item: {
+						Count: 1
+						id: "ad_astra:space_boots"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
 			tasks: [
 				{
 					id: "2BE550721C127700"
@@ -379,23 +268,669 @@
 				{
 					id: "38E22A664C5DC095"
 					structure: "ad_astra:moon_dungeon"
+					title: "Moon dungeon"
 					type: "structure"
 				}
 			]
 			title: "Explore moon"
-			x: 3.0d
-			y: 3.5d
+			x: -1.5d
+			y: -5.0d
 		}
 		{
 			icon: "waystones:waystone"
 			id: "5DF34175126F2024"
+			rewards: [{
+				id: "0D289DC8A23A4D04"
+				item: "waystones:waystone"
+				type: "item"
+			}]
 			tasks: [{
 				id: "260E9BE8A3391B60"
 				type: "checkmark"
 			}]
 			title: "Waystone"
+			x: 1.5d
+			y: -5.0d
+		}
+		{
+			icon: "minecraft:book"
+			id: "426AD30C1FCDD959"
+			rewards: [{
+				id: "7D70A1F552F9431C"
+				item: "sophisticatedbackpacks:backpack"
+				type: "item"
+			}]
+			tasks: [{
+				id: "2A68D220C5BB80B8"
+				type: "checkmark"
+			}]
+			title: "Keep inventory"
+			x: 0.0d
+			y: -5.0d
+		}
+		{
+			dependencies: ["65F579372C3FF7BA"]
+			icon: "ad_astra:solar_panel"
+			id: "64DEABBA26F559A1"
+			rewards: [{
+				id: "3775A8B25E25B5CB"
+				item: {
+					Count: 1
+					id: "thermal:energy_cell"
+					tag: {
+						BlockEntityTag: {
+							Energy: 0
+							EnergyMax: 1000000
+							EnergyRecv: 1000
+							EnergySend: 1000
+						}
+					}
+				}
+				type: "item"
+			}]
+			tasks: [{
+				id: "647ACCF57350FD87"
+				max_input: 1000L
+				type: "forge_energy"
+				value: 10000L
+			}]
+			title: "Solar energy"
+			x: -1.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			id: "4015DA64141E74B8"
+			tasks: [
+				{
+					id: "084FBF15E7D701BD"
+					item: {
+						Count: 1
+						id: "itemfilters:or"
+						tag: {
+							items: [
+								{
+									Count: 1b
+									id: "minecraft:oak_sapling"
+								}
+								{
+									Count: 1b
+									id: "minecraft:spruce_sapling"
+								}
+								{
+									Count: 1b
+									id: "minecraft:birch_sapling"
+								}
+								{
+									Count: 1b
+									id: "minecraft:jungle_sapling"
+								}
+								{
+									Count: 1b
+									id: "minecraft:acacia_sapling"
+									tag: { }
+								}
+								{
+									Count: 1b
+									id: "minecraft:dark_oak_sapling"
+								}
+								{
+									Count: 1b
+									id: "minecraft:cherry_sapling"
+								}
+							]
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "068E34D908A91796"
+					item: {
+						Count: 1
+						id: "itemfilters:or"
+						tag: {
+							items: [
+								{
+									Count: 1b
+									id: "minecraft:oak_log"
+								}
+								{
+									Count: 1b
+									id: "minecraft:spruce_log"
+								}
+								{
+									Count: 1b
+									id: "minecraft:birch_log"
+								}
+								{
+									Count: 1b
+									id: "minecraft:jungle_log"
+									tag: { }
+								}
+								{
+									Count: 1b
+									id: "minecraft:acacia_log"
+								}
+								{
+									Count: 1b
+									id: "minecraft:dark_oak_log"
+								}
+								{
+									Count: 1b
+									id: "minecraft:mangrove_log"
+								}
+							]
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Log"
+			x: -3.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["4015DA64141E74B8"]
+			id: "32EC95C922B9C2F9"
+			tasks: [{
+				id: "735221E2670321A4"
+				item: "minecraft:crafting_table"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"32EC95C922B9C2F9"
+				"737A25EC7E2D9E27"
+			]
+			id: "01533B5D599998B4"
+			tasks: [{
+				id: "3F5CED013EA3E47C"
+				item: "farmersdelight:cutting_board"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -0.5d
+		}
+		{
+			id: "6DF621DC479AA812"
+			tasks: [{
+				id: "1592F69733832A3A"
+				item: "botanypots:terracotta_botany_pot"
+				type: "item"
+			}]
+			x: 1.5d
+			y: -3.5d
+		}
+		{
+			dependencies: ["6DF621DC479AA812"]
+			id: "6A6EC4BD9AF0984E"
+			tasks: [{
+				id: "79B44E0595ED2679"
+				item: "supplementaries:flax"
+				type: "item"
+			}]
+			x: 3.0d
+			y: -3.5d
+		}
+		{
+			dependencies: ["6DF621DC479AA812"]
+			id: "5C19ABB7095691A8"
+			tasks: [{
+				id: "53370CEF45DEF367"
+				item: "minecraft:potato"
+				type: "item"
+			}]
+			x: 3.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["6DF621DC479AA812"]
+			dependency_requirement: "all_started"
+			id: "0122A1AA458176B9"
+			tasks: [{
+				id: "6042B495C7608054"
+				item: "minecraft:carrot"
+				type: "item"
+			}]
+			x: 4.5d
+			y: -3.5d
+		}
+		{
+			dependencies: ["6DF621DC479AA812"]
+			dependency_requirement: "all_started"
+			id: "1D8C5F6429D095F0"
+			tasks: [{
+				id: "72F5B2D87F3A4871"
+				item: "quark:oak_hedge"
+				type: "item"
+			}]
+			x: 4.5d
+			y: -2.0d
+		}
+		{
+			dependencies: ["6DF621DC479AA812"]
+			id: "6FCC00A52BAA27E0"
+			tasks: [{
+				id: "10DC2CC6EE118165"
+				item: "minecraft:dirt"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -3.5d
+		}
+		{
+			dependencies: ["6FCC00A52BAA27E0"]
+			id: "45F9B9C41A35CDE4"
+			tasks: [{
+				id: "4320CB5A7EA0171F"
+				item: "botania:pebble"
+				type: "item"
+			}]
+			x: 3.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["32EC95C922B9C2F9"]
+			id: "737A25EC7E2D9E27"
+			tasks: [{
+				id: "5C4AB36FDC589C34"
+				item: "minecraft:oak_planks"
+				type: "item"
+			}]
 			x: 0.0d
 			y: -2.0d
+		}
+		{
+			dependencies: ["01533B5D599998B4"]
+			id: "61266150E619166C"
+			tasks: [{
+				id: "609A6F97D5143F5A"
+				item: "farmersdelight:tree_bark"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -0.5d
+		}
+		{
+			dependencies: [
+				"61266150E619166C"
+				"6FCC00A52BAA27E0"
+			]
+			id: "7429044E637EEE3D"
+			tasks: [{
+				id: "7C9FF34CFD370928"
+				item: "farmersdelight:organic_compost"
+				type: "item"
+			}]
+			x: 1.5d
+			y: -0.5d
+		}
+		{
+			dependencies: ["45F9B9C41A35CDE4"]
+			id: "1184E877535E9DBC"
+			tasks: [{
+				id: "5513BDB24679EDF0"
+				item: "minecraft:cobblestone"
+				type: "item"
+			}]
+			x: 4.5d
+			y: -0.5d
+		}
+		{
+			dependencies: ["1184E877535E9DBC"]
+			id: "180659ABC79C9F28"
+			tasks: [{
+				id: "4859CA1CD1184FC9"
+				item: "minecraft:furnace"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["6A6EC4BD9AF0984E"]
+			id: "7F579355997B6BDA"
+			tasks: [{
+				id: "2DFE4A38E50DC8AB"
+				item: "minecraft:string"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["7F579355997B6BDA"]
+			id: "5FBA6C9634EDBC3E"
+			tasks: [{
+				id: "396C3FCD1F3F5953"
+				item: "exnihilosequentia:iron_mesh"
+				type: "item"
+			}]
+			x: 7.5d
+			y: -2.0d
+		}
+		{
+			id: "1D6472C5DC38AFF4"
+			tasks: [{
+				id: "548489C4C7C85FF8"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_barrel"
+								tag: { }
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_barrel"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			title: "Barrel"
+			x: -1.5d
+			y: 2.5d
+		}
+		{
+			id: "10CBF7A17D7F07A8"
+			tasks: [{
+				id: "60F623A6F64C9C23"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_sieve"
+								tag: { }
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_sieve"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			title: "Sieve"
+			x: -3.0d
+			y: 2.5d
+		}
+		{
+			id: "5F737B8C7BBDE429"
+			tasks: [{
+				id: "3C9A4D04B839DB77"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_crucible"
+								tag: { }
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_crucible"
+							}
+						]
+					}
+				}
+				type: "item"
+			}]
+			title: "Crucible"
+			x: 0.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["5F737B8C7BBDE429"]
+			id: "27724016BB4DADF5"
+			tasks: [{
+				id: "3CEF7E945696A281"
+				item: {
+					Count: 1
+					id: "minecraft:potion"
+					tag: {
+						Potion: "minecraft:water"
+					}
+				}
+				type: "item"
+			}]
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["1184E877535E9DBC"]
+			id: "34F76B7CD399BD63"
+			tasks: [{
+				id: "51A108AA0A89E3DE"
+				item: {
+					Count: 1
+					id: "exnihilosequentia:stone_hammer"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 4.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["34F76B7CD399BD63"]
+			id: "61114B1E9B2344E3"
+			tasks: [{
+				id: "6F473B49037E4504"
+				item: "minecraft:gravel"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["61114B1E9B2344E3"]
+			id: "2D755913D1FE0663"
+			tasks: [{
+				id: "4752A68297DB5E14"
+				item: "minecraft:sand"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["2D755913D1FE0663"]
+			id: "75C9F9FC9DAEE3F7"
+			tasks: [{
+				id: "4C219DBA6DC3BB57"
+				item: "exnihilosequentia:dust"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 1.0d
+		}
+		{
+			dependencies: [
+				"1D6472C5DC38AFF4"
+				"75C9F9FC9DAEE3F7"
+				"27724016BB4DADF5"
+			]
+			id: "746E5C1095AAF9C3"
+			tasks: [{
+				id: "175D74562E97CA99"
+				item: "minecraft:clay"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 4.0d
+		}
+		{
+			id: "2CD4AC1CE27C500A"
+			tasks: [{
+				entity: "minecraft:stray"
+				id: "679DAEB662EDCCF8"
+				type: "kill"
+				value: 1L
+			}]
+			x: -4.5d
+			y: 4.0d
+		}
+		{
+			dependencies: [
+				"2CD4AC1CE27C500A"
+				"746E5C1095AAF9C3"
+			]
+			id: "0088397CE23F7617"
+			tasks: [{
+				id: "360CDFE99CFBCA5F"
+				item: "exnihilosequentia:porcelain_clay"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 5.5d
+		}
+		{
+			dependencies: [
+				"0088397CE23F7617"
+				"180659ABC79C9F28"
+			]
+			id: "62D9BC67FE8B9246"
+			tasks: [{
+				id: "504E2F61988AB491"
+				item: "exnihilosequentia:unfired_crucible"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 5.5d
+		}
+		{
+			id: "39E5122098A4F7D8"
+			tasks: [{
+				id: "41EC01C26D5303B2"
+				item: "exnihilosequentia:fired_crucible"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 5.5d
 		}
 	]
 	title: "Survivor"
