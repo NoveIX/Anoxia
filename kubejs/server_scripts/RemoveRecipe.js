@@ -18,8 +18,13 @@ ServerEvents.recipes((event) => {
         event.remove({ input: item });
     });
 
-    //#region RmID
+    //#region Remove ID
     const RmID = [
+        //Cyclic
+        "cyclic:compressed_cobblestone", //Crafting: Cobblestone => CompressedCobblestone
+        "cyclic:compressed_cobblestone_u", //Crafting: CompressedCobblestone => Cobblestone
+        "cyclic:compat/sturdy_stone", //Crafting: Stone + Cobblestone => CompressedCobblestone
+
         "ad_astra:recipes/steel_ingot_from_blasting_iron_ingot", //Blasting: Iront => Steel
         "bucketlib:create/dough", //Crafting: Flour + Water => Dough
         "bucketlib:farmersdelight/wheat_dough_from_water", //Crafting: Wheat + Water => Dough

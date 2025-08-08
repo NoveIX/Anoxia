@@ -1,16 +1,10 @@
 ServerEvents.recipes((event) => {
-	//Log Core
-	const CoreConvertPattern = [
-		{ get: "twilightforest:time_log", put: "twilightforest:time_log_core" },
-		{ get: "twilightforest:transformation_log", put: "twilightforest:transformation_log_core" },
-		{ get: "twilightforest:mining_log_core", put: "twilightforest:mining_log" },
-		{ get: "twilightforest:sorting_log", put: "twilightforest:sorting_log_core" },
-	];
-	function CoreConvertRecipes({ get, put }) {
-		event.shaped(Item.of(get, 64), ["L"], { L: put });
-	}
-	CoreConvertPattern.forEach(CoreConvertRecipes);
+    //Log Core
+    event.shaped(Item.of("twilightforest:time_log", 64), ["A"], { L: "twilightforest:time_log_core" });
+    event.shaped(Item.of("twilightforest:transformation_log", 64), ["A"], { L: "twilightforest:transformation_log_core" });
+    event.shaped(Item.of("twilightforest:mining_log_core", 64), ["A"], { L: "twilightforest:mining_log" });
+    event.shaped(Item.of("twilightforest:sorting_log", 64), ["A"], { L: "twilightforest:sorting_log_core" });
 
-	// Uberous Soil
-	event.shaped("twilightforest:uberous_soil", ["FFF", "FRF", "FFF"], { R: "farmersdelight:rich_soil", F: "industrialforegoing:fertilizer" });
+    // Uberous Soil
+    event.shaped("twilightforest:uberous_soil", ["FFF", "FRF", "FFF"], { R: "farmersdelight:rich_soil", F: "industrialforegoing:fertilizer" });
 });

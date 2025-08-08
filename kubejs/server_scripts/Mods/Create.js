@@ -22,6 +22,8 @@ ServerEvents.recipes((event) => {
     event.shaped("create:white_sail", ["ABA", "BCB", "ABA"], { A: "#forge:string", B: "#forge:rods/wooden", C: "projectred_core:silicon" });
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Compacting
     event.remove({ id: "createaddition:compacting/cake_base" });
     const CompactingPattern = [
@@ -40,6 +42,8 @@ ServerEvents.recipes((event) => {
     }
     CompactingPattern.forEach(CompactingRecipes);
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Milling
     const MillStonePattern = [
@@ -88,6 +92,8 @@ ServerEvents.recipes((event) => {
     //MillStonePattern.forEach(MillstoneRecipes);
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Mixing
     event.remove({ id: "create:mixing/dough_by_mixing" });
     const MixingPattern = [
@@ -111,6 +117,8 @@ ServerEvents.recipes((event) => {
     }
     MixingPattern.forEach(MixingRecipes);
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Splashing
     event.remove({ id: "create:splashing/wheat_flour" });

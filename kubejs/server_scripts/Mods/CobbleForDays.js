@@ -9,8 +9,8 @@ ServerEvents.recipes((event) => {
 	];
 	function CobblestoneGeneratorRecipes({ get, frame, upgrade }) {
 		event.remove({ output: get });
-		event.shaped(get, ["FFF", "WUL", "FFF"], { F: frame, U: upgrade, W: "minecraft:water_bucket", L: "minecraft:lava_bucket" });
-		event.shaped(get, ["FFF", "LUW", "FFF"], { F: frame, U: upgrade, W: "minecraft:water_bucket", L: "minecraft:lava_bucket" });
+		event.shaped(get, ["AAA", "CBD", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
+		event.shaped(get, ["AAA", "DBC", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
 	}
 	CobblestoneGeneratorPattern.forEach(CobblestoneGeneratorRecipes);
 });

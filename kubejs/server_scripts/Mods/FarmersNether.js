@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
 	//Blackstone Furnace
 	event.remove({ output: "nethersdelight:blackstone_furnace" });
-	event.shaped("nethersdelight:blackstone_furnace", ["CCC", "C C", "CCC"], { C: "anoxiaompressed_blackstone" });
+	event.shaped("nethersdelight:blackstone_furnace", ["CCC", "C C", "CCC"], { C: "anoxia:compressed_blackstone" });
 
 	//Blackstone Blast Furnace
 	event.remove({ output: "nethersdelight:blackstone_blast_furnace" });

@@ -1,5 +1,5 @@
 ServerEvents.recipes((event) => {
-	//Void Fragment
-	event.remove({ output: "transmog:void_fragment" });
-	event.shaped("transmog:void_fragment", [" E ", "OAO", " O "], { E: "minecraft:ender_pearl", O: "#forge:ingots/obsidian", A: "minecraft:amethyst_shard" });
+    //Void Fragment
+    event.remove({ output: "transmog:void_fragment" });
+    event.shaped("transmog:void_fragment", [" A ", "BCB", " B "], { A: "minecraft:ender_pearl", B: "#forge:ingots/obsidian", C: "minecraft:amethyst_shard" });
 });
