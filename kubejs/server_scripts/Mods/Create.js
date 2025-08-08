@@ -18,12 +18,8 @@ ServerEvents.recipes((event) => {
     event.shaped("create:windmill_bearing", ["ABA", "ACA"], { A: "anoxia:compressed_deepslate", B: "minecraft:sticky_piston", C: "create:shaft" });
 
     //Windmill Sail Frame
-    event.remove({ output: "create:sail_frame" });
-    event.shaped("create:sail_frame", ["ABA", "B B", "ABA"], { A: "forge:string", B: "forge:rods/wooden" });
-
-    //Windmill Sail
     event.remove({ output: "create:white_sail" });
-    event.shapeless("create:white_sail", ["create:sail_frame", "projectred_core:silicon"]);
+    event.shaped("create:white_sail", ["ABA", "BCB", "ABA"], { A: "#forge:string", B: "#forge:rods/wooden", C: "projectred_core:silicon" });
     //#endregion
 
     //#region Compacting

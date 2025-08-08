@@ -273,7 +273,7 @@
 				}
 			]
 			title: "Explore moon"
-			x: -1.5d
+			x: 3.0d
 			y: -5.0d
 		}
 		{
@@ -289,7 +289,7 @@
 				type: "checkmark"
 			}]
 			title: "Waystone"
-			x: 1.5d
+			x: 6.0d
 			y: -5.0d
 		}
 		{
@@ -305,7 +305,7 @@
 				type: "checkmark"
 			}]
 			title: "Keep inventory"
-			x: 0.0d
+			x: 4.5d
 			y: -5.0d
 		}
 		{
@@ -335,11 +335,12 @@
 				value: 10000L
 			}]
 			title: "Solar energy"
-			x: -1.5d
-			y: 1.0d
+			x: -4.5d
+			y: 2.5d
 		}
 		{
 			dependencies: ["52F6E85EF3E25075"]
+			icon: "minecraft:oak_log"
 			id: "4015DA64141E74B8"
 			tasks: [
 				{
@@ -451,8 +452,8 @@
 				item: "farmersdelight:cutting_board"
 				type: "item"
 			}]
-			x: -1.5d
-			y: -0.5d
+			x: 0.0d
+			y: -2.0d
 		}
 		{
 			id: "6DF621DC479AA812"
@@ -461,8 +462,8 @@
 				item: "botanypots:terracotta_botany_pot"
 				type: "item"
 			}]
-			x: 1.5d
-			y: -3.5d
+			x: -4.5d
+			y: 5.5d
 		}
 		{
 			dependencies: ["6DF621DC479AA812"]
@@ -472,8 +473,8 @@
 				item: "supplementaries:flax"
 				type: "item"
 			}]
-			x: 3.0d
-			y: -3.5d
+			x: -4.5d
+			y: 4.0d
 		}
 		{
 			dependencies: ["6DF621DC479AA812"]
@@ -483,8 +484,8 @@
 				item: "minecraft:potato"
 				type: "item"
 			}]
-			x: 3.0d
-			y: -2.0d
+			x: -3.0d
+			y: 5.5d
 		}
 		{
 			dependencies: ["6DF621DC479AA812"]
@@ -495,8 +496,8 @@
 				item: "minecraft:carrot"
 				type: "item"
 			}]
-			x: 4.5d
-			y: -3.5d
+			x: -4.5d
+			y: 7.0d
 		}
 		{
 			dependencies: ["6DF621DC479AA812"]
@@ -507,30 +508,18 @@
 				item: "quark:oak_hedge"
 				type: "item"
 			}]
-			x: 4.5d
-			y: -2.0d
+			x: -3.0d
+			y: 4.0d
 		}
 		{
-			dependencies: ["6DF621DC479AA812"]
 			id: "6FCC00A52BAA27E0"
 			tasks: [{
 				id: "10DC2CC6EE118165"
 				item: "minecraft:dirt"
 				type: "item"
 			}]
-			x: 0.0d
+			x: 1.5d
 			y: -3.5d
-		}
-		{
-			dependencies: ["6FCC00A52BAA27E0"]
-			id: "45F9B9C41A35CDE4"
-			tasks: [{
-				id: "4320CB5A7EA0171F"
-				item: "botania:pebble"
-				type: "item"
-			}]
-			x: 3.0d
-			y: -0.5d
 		}
 		{
 			dependencies: ["32EC95C922B9C2F9"]
@@ -540,8 +529,8 @@
 				item: "minecraft:oak_planks"
 				type: "item"
 			}]
-			x: 0.0d
-			y: -2.0d
+			x: -1.5d
+			y: -0.5d
 		}
 		{
 			dependencies: ["01533B5D599998B4"]
@@ -566,18 +555,26 @@
 				type: "item"
 			}]
 			x: 1.5d
-			y: -0.5d
+			y: -2.0d
 		}
 		{
-			dependencies: ["45F9B9C41A35CDE4"]
+			dependencies: ["6FCC00A52BAA27E0"]
+			icon: "minecraft:cobblestone"
 			id: "1184E877535E9DBC"
-			tasks: [{
-				id: "5513BDB24679EDF0"
-				item: "minecraft:cobblestone"
-				type: "item"
-			}]
-			x: 4.5d
-			y: -0.5d
+			tasks: [
+				{
+					id: "1CF140A1C68662F9"
+					item: "botania:pebble"
+					type: "item"
+				}
+				{
+					id: "7417BF46D556FE4A"
+					item: "minecraft:cobblestone"
+					type: "item"
+				}
+			]
+			x: 3.0d
+			y: -2.0d
 		}
 		{
 			dependencies: ["1184E877535E9DBC"]
@@ -587,8 +584,8 @@
 				item: "minecraft:furnace"
 				type: "item"
 			}]
-			x: 6.0d
-			y: -0.5d
+			x: 4.5d
+			y: -2.0d
 		}
 		{
 			dependencies: ["6A6EC4BD9AF0984E"]
@@ -598,21 +595,12 @@
 				item: "minecraft:string"
 				type: "item"
 			}]
-			x: 6.0d
-			y: -2.0d
+			x: -3.0d
+			y: 2.5d
 		}
 		{
-			dependencies: ["7F579355997B6BDA"]
-			id: "5FBA6C9634EDBC3E"
-			tasks: [{
-				id: "396C3FCD1F3F5953"
-				item: "exnihilosequentia:iron_mesh"
-				type: "item"
-			}]
-			x: 7.5d
-			y: -2.0d
-		}
-		{
+			dependencies: ["737A25EC7E2D9E27"]
+			icon: "exnihilosequentia:oak_barrel"
 			id: "1D6472C5DC38AFF4"
 			tasks: [{
 				id: "548489C4C7C85FF8"
@@ -672,73 +660,87 @@
 				type: "item"
 			}]
 			title: "Barrel"
+			x: 1.5d
+			y: 1.0d
+		}
+		{
+			dependencies: [
+				"737A25EC7E2D9E27"
+				"7F579355997B6BDA"
+			]
+			icon: "exnihilosequentia:oak_sieve"
+			id: "10CBF7A17D7F07A8"
+			tasks: [
+				{
+					id: "60F623A6F64C9C23"
+					item: {
+						Count: 1
+						id: "itemfilters:or"
+						tag: {
+							items: [
+								{
+									Count: 1b
+									id: "exnihilosequentia:acacia_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:bamboo_sieve"
+									tag: { }
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:birch_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:cherry_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:dark_oak_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:jungle_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:mangrove_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:oak_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:spruce_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:crimson_sieve"
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:warped_sieve"
+								}
+							]
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "3BAB0490EF7EEBBE"
+					item: "exnihilosequentia:string_mesh"
+					type: "item"
+				}
+			]
+			title: "Sieve"
 			x: -1.5d
 			y: 2.5d
 		}
 		{
-			id: "10CBF7A17D7F07A8"
-			tasks: [{
-				id: "60F623A6F64C9C23"
-				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "exnihilosequentia:acacia_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:bamboo_sieve"
-								tag: { }
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:birch_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:cherry_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:dark_oak_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:jungle_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:mangrove_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:oak_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:spruce_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:crimson_sieve"
-							}
-							{
-								Count: 1b
-								id: "exnihilosequentia:warped_sieve"
-							}
-						]
-					}
-				}
-				type: "item"
-			}]
-			title: "Sieve"
-			x: -3.0d
-			y: 2.5d
-		}
-		{
+			dependencies: ["737A25EC7E2D9E27"]
+			icon: "exnihilosequentia:oak_crucible"
 			id: "5F737B8C7BBDE429"
 			tasks: [{
 				id: "3C9A4D04B839DB77"
@@ -799,7 +801,7 @@
 			}]
 			title: "Crucible"
 			x: 0.0d
-			y: 2.5d
+			y: 1.0d
 		}
 		{
 			dependencies: ["5F737B8C7BBDE429"]
@@ -815,58 +817,113 @@
 				}
 				type: "item"
 			}]
-			x: 0.0d
-			y: 4.0d
+			x: 1.5d
+			y: 2.5d
 		}
 		{
 			dependencies: ["1184E877535E9DBC"]
+			icon: {
+				Count: 1
+				id: "exnihilosequentia:cherry_hammer"
+				tag: {
+					Damage: 0
+				}
+			}
 			id: "34F76B7CD399BD63"
 			tasks: [{
-				id: "51A108AA0A89E3DE"
+				id: "560359E36D08E1EF"
 				item: {
 					Count: 1
-					id: "exnihilosequentia:stone_hammer"
+					id: "itemfilters:or"
 					tag: {
-						Damage: 0
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:wooden_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:stone_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:copper_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:diamond_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:golden_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:iron_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:netherite_hammer"
+								tag: {
+									Damage: 0
+								}
+							}
+						]
 					}
 				}
 				type: "item"
 			}]
-			x: 4.5d
-			y: 1.0d
+			title: "Hammer"
+			x: 3.0d
+			y: -0.5d
 		}
 		{
 			dependencies: ["34F76B7CD399BD63"]
-			id: "61114B1E9B2344E3"
-			tasks: [{
-				id: "6F473B49037E4504"
-				item: "minecraft:gravel"
-				type: "item"
-			}]
-			x: 3.0d
-			y: 1.0d
-		}
-		{
-			dependencies: ["61114B1E9B2344E3"]
-			id: "2D755913D1FE0663"
-			tasks: [{
-				id: "4752A68297DB5E14"
-				item: "minecraft:sand"
-				type: "item"
-			}]
-			x: 1.5d
-			y: 1.0d
-		}
-		{
-			dependencies: ["2D755913D1FE0663"]
 			id: "75C9F9FC9DAEE3F7"
-			tasks: [{
-				id: "4C219DBA6DC3BB57"
-				item: "exnihilosequentia:dust"
-				type: "item"
-			}]
-			x: 0.0d
-			y: 1.0d
+			tasks: [
+				{
+					id: "06A2F75544C2B047"
+					item: { Count: 64, id: "minecraft:gravel" }
+					type: "item"
+				}
+				{
+					id: "08AFC923C75BD915"
+					item: "minecraft:sand"
+					type: "item"
+				}
+				{
+					id: "52F463E8F06DF552"
+					item: "exnihilosequentia:dust"
+					type: "item"
+				}
+			]
+			x: 1.5d
+			y: -0.5d
 		}
 		{
 			dependencies: [
@@ -880,57 +937,280 @@
 				item: "minecraft:clay"
 				type: "item"
 			}]
+			x: 3.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["180659ABC79C9F28"]
+			icon: "exnihilosequentia:fired_crucible"
+			id: "39E5122098A4F7D8"
+			tasks: [
+				{
+					id: "3AB84423AE13138C"
+					item: "minecraft:bone_meal"
+					type: "item"
+				}
+				{
+					id: "4C93227476882E99"
+					item: "exnihilosequentia:porcelain_clay"
+					type: "item"
+				}
+				{
+					id: "1425525CDC6A7830"
+					item: "exnihilosequentia:unfired_crucible"
+					type: "item"
+				}
+				{
+					id: "63D8D0D758820C34"
+					item: "exnihilosequentia:fired_crucible"
+					type: "item"
+				}
+			]
+			title: "Fired Crucible"
+			x: 6.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["39E5122098A4F7D8"]
+			id: "2BF94CCE40DD0BE9"
+			tasks: [{
+				id: "4D64D2ED04EE65CF"
+				item: "minecraft:lava_bucket"
+				type: "item"
+			}]
+			x: 7.5d
+			y: -2.0d
+		}
+		{
+			dependencies: ["2BF94CCE40DD0BE9"]
+			id: "1EBF767475C7CACE"
+			tasks: [{
+				id: "3C10E079C197D9FE"
+				item: "cobblefordays:tier_1"
+				type: "item"
+			}]
+			x: 9.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["10CBF7A17D7F07A8"]
+			id: "61F108BE4291F0E0"
+			tasks: [{
+				id: "081C16C1060E1C6D"
+				item: "exnihilosequentia:flint_mesh"
+				type: "item"
+			}]
 			x: -1.5d
 			y: 4.0d
 		}
 		{
-			id: "2CD4AC1CE27C500A"
+			dependencies: ["61F108BE4291F0E0"]
+			id: "7FC931F1FBDD266E"
 			tasks: [{
-				entity: "minecraft:stray"
-				id: "679DAEB662EDCCF8"
-				type: "kill"
-				value: 1L
-			}]
-			x: -4.5d
-			y: 4.0d
-		}
-		{
-			dependencies: [
-				"2CD4AC1CE27C500A"
-				"746E5C1095AAF9C3"
-			]
-			id: "0088397CE23F7617"
-			tasks: [{
-				id: "360CDFE99CFBCA5F"
-				item: "exnihilosequentia:porcelain_clay"
+				id: "569DFC0F70ABA63A"
+				item: "exnihilosequentia:iron_mesh"
 				type: "item"
 			}]
 			x: -1.5d
 			y: 5.5d
 		}
 		{
-			dependencies: [
-				"0088397CE23F7617"
-				"180659ABC79C9F28"
-			]
-			id: "62D9BC67FE8B9246"
+			dependencies: ["7FC931F1FBDD266E"]
+			id: "5F00A2F9C3D7094D"
 			tasks: [{
-				id: "504E2F61988AB491"
-				item: "exnihilosequentia:unfired_crucible"
+				id: "66DDAFC861FA7D51"
+				item: "exnihilosequentia:diamond_mesh"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 7.0d
+		}
+		{
+			dependencies: ["5F00A2F9C3D7094D"]
+			id: "7D00C51FE0994C7E"
+			tasks: [{
+				id: "16D44DB81B70A9BD"
+				item: "exnihilosequentia:emerald_mesh"
 				type: "item"
 			}]
 			x: 0.0d
-			y: 5.5d
+			y: 7.0d
 		}
 		{
-			id: "39E5122098A4F7D8"
+			dependencies: ["7D00C51FE0994C7E"]
+			id: "1BE459C6FB904CC5"
 			tasks: [{
-				id: "41EC01C26D5303B2"
-				item: "exnihilosequentia:fired_crucible"
+				id: "5CB0C784DFEDFB5D"
+				item: "exnihilosequentia:netherite_mesh"
 				type: "item"
 			}]
 			x: 1.5d
-			y: 5.5d
+			y: 7.0d
+		}
+		{
+			dependencies: ["737A25EC7E2D9E27"]
+			id: "44219005C5AD6978"
+			tasks: [{
+				id: "7BFDAC5153352BAD"
+				item: "supplementaries:timber_frame"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["1EBF767475C7CACE"]
+			id: "221458DD0880EC31"
+			tasks: [{
+				id: "4EFC1563C4715D37"
+				item: "cobblefordays:tier_2"
+				type: "item"
+			}]
+			x: 10.5d
+			y: -2.0d
+		}
+		{
+			dependencies: ["221458DD0880EC31"]
+			id: "4DB0353344D9C603"
+			tasks: [{
+				id: "76C6C7F442AD4AA5"
+				item: "cobblefordays:tier_3"
+				type: "item"
+			}]
+			x: 10.5d
+			y: -0.5d
+		}
+		{
+			dependencies: ["4DB0353344D9C603"]
+			id: "0148AA1440AD2317"
+			tasks: [{
+				id: "12DBF3BE84990CF0"
+				item: "cobblefordays:tier_4"
+				type: "item"
+			}]
+			x: 10.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["0148AA1440AD2317"]
+			id: "277034C6547CD4BC"
+			tasks: [{
+				id: "1714540D0EACFBF5"
+				item: "cobblefordays:tier_5"
+				type: "item"
+			}]
+			x: 10.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["180659ABC79C9F28"]
+			id: "2C5172B8975C4FEA"
+			tasks: [{
+				id: "7CE22E7E55C3BF2D"
+				item: "ironfurnaces:copper_furnace"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["2C5172B8975C4FEA"]
+			id: "0E3A21D45D541A57"
+			tasks: [{
+				id: "7257DC4FAE9834D3"
+				item: "ironfurnaces:iron_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: -0.5d
+		}
+		{
+			dependencies: ["0E3A21D45D541A57"]
+			id: "2BCFA28BF0458AA4"
+			tasks: [{
+				id: "793D1BD28B932C1C"
+				item: "ironfurnaces:silver_furnace"
+				type: "item"
+			}]
+			x: 9.0d
+			y: -0.5d
+		}
+		{
+			dependencies: ["2BCFA28BF0458AA4"]
+			id: "7298575399D1DC2E"
+			tasks: [{
+				id: "2573AF731F016666"
+				item: "ironfurnaces:gold_furnace"
+				type: "item"
+			}]
+			x: 9.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["7298575399D1DC2E"]
+			id: "2B34B4547E80B3F5"
+			tasks: [{
+				id: "4BBB06B1F3065133"
+				item: "ironfurnaces:diamond_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 1.0d
+		}
+		{
+			dependencies: ["2B34B4547E80B3F5"]
+			id: "402D68BCA59AD5DA"
+			tasks: [{
+				id: "4B0B10EC64205B19"
+				item: "ironfurnaces:emerald_furnace"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["402D68BCA59AD5DA"]
+			id: "6CBF8A579B4B57BD"
+			tasks: [{
+				id: "1AC31532FDA10318"
+				item: "ironfurnaces:obsidian_furnace"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 2.5d
+		}
+		{
+			dependencies: ["6CBF8A579B4B57BD"]
+			id: "5BED68AABEB3EF40"
+			tasks: [{
+				id: "4DA277CCF3AF89DC"
+				item: "ironfurnaces:netherite_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["180659ABC79C9F28"]
+			id: "47CF479DE02225FB"
+			tasks: [{
+				id: "00F49D1F221A4001"
+				item: "projectred_core:boule"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["47CF479DE02225FB"]
+			id: "197B444D61AB1002"
+			tasks: [{
+				id: "636DACCF5ECD9547"
+				item: "projectred_core:silicon"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 4.0d
 		}
 	]
 	title: "Survivor"
