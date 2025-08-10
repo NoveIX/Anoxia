@@ -4,7 +4,7 @@ ServerEvents.recipes((event) => {
     event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
 
     //Among US
-    event.shaped("anoxia:amongus", ["WWW", "WRW", "WWW"], { R: "minecraft:rotten_flesh", W: "minecraft:red_wool" });
+    event.shaped("anoxia:amongus", ["BBB", "BAB", "BBB"], { A: "minecraft:rotten_flesh", B: "minecraft:red_wool" });
 
     //Tiny Charcoal
     event.shapeless(Item.of("anoxia:tiny_charcoal", 8), ["minecraft:charcoal"]);
@@ -15,7 +15,7 @@ ServerEvents.recipes((event) => {
     event.shapeless("minecraft:coal", Item.of("anoxia:tiny_coal", 8)); //Reverse
 
     //Raw Osmium
-    event.shaped("mekanism:raw_osmium", ["PP", "PP"], { P: "anoxia:osmium_pieces" });
+    event.shaped("mekanism:raw_osmium", ["AA", "AA"], { A: "anoxia:osmium_pieces" });
 
     //// # =================================================================================================== #
 
@@ -34,7 +34,7 @@ ServerEvents.recipes((event) => {
         { get: "anoxia:compressed_andesite", put: "minecraft:andesite" },
     ];
     function CompressRecipes({ get, put }) {
-        event.shaped(get, ["BBB", "BBB", "BBB"], { B: put });
+        event.shaped(get, ["AAA", "AAA", "AAA"], { A: put });
         event.shapeless(Item.of(put, 9), [get]);
     }
     CompressPattern.forEach(CompressRecipes);
