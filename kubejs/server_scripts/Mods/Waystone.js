@@ -30,4 +30,7 @@ ServerEvents.recipes((event) => {
     //Clear Waystone
     event.shapeless("waystones:waystone", ["waystones:mossy_waystone", "supplementaries:soap"]);
     event.shapeless("waystones:waystone", ["waystones:sandy_waystone", "supplementaries:soap"]);
+    event.shapeless("waystones:waystone", ["waystones:deepslate_waystone", "supplementaries:soap"]);
+    event.shapeless("waystones:waystone", ["waystones:blackstone_waystone", "supplementaries:soap"]);
+    event.shapeless("waystones:waystone", ["waystones:end_stone_waystone", "supplementaries:soap"]);
 });

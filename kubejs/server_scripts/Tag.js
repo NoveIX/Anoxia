@@ -1,6 +1,6 @@
 ServerEvents.tags("item", (event) => {
     //Anoxia
-    event.add("anoxiaoil/copper", "createaddition:copper_spool");
+    event.add("anoxia:coil/copper", "createaddition:copper_spool");
     event.add("anoxia:coil/copper", "immersiveengineering:wirecoil_copper");
     event.add("anoxia:coil/electrum", "createaddition:electrum_spool");
     event.add("anoxia:coil/electrum", "immersiveengineering:wirecoil_electrum");

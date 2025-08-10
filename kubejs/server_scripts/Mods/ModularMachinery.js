@@ -180,3 +180,219 @@ MMEvents.createStructures((event) => {
 });
 
 //#endregion
+
+//#region Modular Machine Recipes
+MMEvents.createProcesses((event) => {
+    ////Artificial Portal
+    const ArtificialPortalPatter = [
+        {
+            //Chiseled Hadaline Brick
+            id: "mm:chiseled_hadaline_bricks",
+            get: { type: "mm:item", item: "architects_palette:chiseled_hadaline_bricks", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:chiseled_abyssaline_bricks", count: 1 },
+        },
+        {
+            //Craterstone
+            id: "mm:craterstone",
+            get: { type: "mm:item", item: "architects_palette:craterstone", count: 1 },
+            put: { type: "mm:item", item: "minecraft:cobblestone", count: 1 },
+        },
+        {
+            //Entrails
+            id: "mm:entrails",
+            get: { type: "mm:item", item: "architects_palette:entrails", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:rotten_flesh_block", count: 1 },
+        },
+        {
+            //Esoterrack
+            id: "mm:esoterrack",
+            get: { type: "mm:item", item: "architects_palette:esoterrack", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:rotten_flesh_block", count: 1 },
+        },
+        {
+            //Hadaline Bricks
+            id: "mm:hadaline_bricks",
+            get: { type: "mm:item", item: "architects_palette:hadaline_bricks", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_bricks", count: 1 },
+        },
+        {
+            //Hadaline
+            id: "mm:hadaline",
+            get: { type: "mm:item", item: "architects_palette:hadaline", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline", count: 1 },
+        },
+        {
+            //Hadaline Lamp
+            id: "mm:hadaline_lamp",
+            get: { type: "mm:item", item: "architects_palette:hadaline_lamp", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_lamp", count: 1 },
+        },
+        {
+            //Hadaline Pillar
+            id: "mm:hadaline_pillar",
+            get: { type: "mm:item", item: "architects_palette:hadaline_pillar", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_pillar", count: 1 },
+        },
+        {
+            //Hadaline Plating
+            id: "mm:hadaline_plating",
+            get: { type: "mm:item", item: "architects_palette:hadaline_plating", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_plating", count: 1 },
+        },
+        {
+            //Hadaline Tiles
+            id: "mm:hadaline_tiles",
+            get: { type: "mm:item", item: "architects_palette:hadaline_tiles", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_tiles", count: 1 },
+        },
+        {
+            //Moonshale Bricks
+            id: "mm:moonshale_bricks",
+            get: { type: "mm:item", item: "architects_palette:moonshale_bricks", count: 1 },
+            put: { type: "mm:item", item: "minecraft:stone_bricks", count: 1 },
+        },
+        {
+            //Moonshale
+            id: "mm:moonshale",
+            get: { type: "mm:item", item: "architects_palette:moonshale", count: 1 },
+            put: { type: "mm:item", item: "minecraft:stone", count: 1 },
+        },
+        {
+            //Moonstone
+            id: "mm:moonstone",
+            get: { type: "mm:item", item: "architects_palette:moonstone", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:sunstone", count: 1 },
+        },
+        {
+            //Nebulite
+            id: "mm:nebulite",
+            get: { type: "mm:item", item: "architects_palette:nebulite", count: 1 },
+            put: { type: "mm:item", item: "minecraft:diorite", count: 1 },
+        },
+        {
+            //Onyx
+            id: "mm:onyx",
+            get: { type: "mm:item", item: "architects_palette:onyx", count: 1 },
+            put: { type: "mm:item", item: "minecraft:granite", count: 1 },
+        },
+        {
+            //Twisted Leaves
+            id: "mm:twisted_leaves",
+            get: { type: "mm:item", item: "architects_palette:twisted_leaves", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:leaves", count: 1 },
+        },
+        {
+            //Twisted Log
+            id: "mm:twisted_log",
+            get: { type: "mm:item", item: "architects_palette:twisted_log", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:logs", count: 1 },
+        },
+        {
+            //Twisted Planks
+            id: "mm:twisted_planks",
+            get: { type: "mm:item", item: "architects_palette:twisted_planks", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:planks", count: 1 },
+        },
+        {
+            //Twisted Sapling
+            id: "mm:twisted_sapling",
+            get: { type: "mm:item", item: "architects_palette:twisted_sapling", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:saplings", count: 1 },
+        },
+        {
+            //Unobtanium
+            id: "mm:unobtanium",
+            get: { type: "mm:item", item: "architects_palette:unobtanium", count: 1 },
+            put: { type: "mm:item", item: "aethersteel:aethersteel_ingot", count: 3 },
+        },
+        {
+            //Warpstone
+            id: "mm:warpstone",
+            get: { type: "mm:item", item: "architects_palette:warpstone", count: 1 },
+            put: { type: "mm:item", item: "minecraft:clay", count: 1 },
+        },
+    ];
+    function ArtificialPortalRecipes({ id, get, put }) {
+        event.create(id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: put }).output({ type: "mm:output/simple", ingredient: get });
+    }
+    ArtificialPortalPatter.forEach(ArtificialPortalRecipes);
+});
+
+////Empowerer
+MMEvents.createProcesses((event) => {
+    //Diamatine Block
+    event
+        .create("mm:diamatine_block")
+        .structureId("mm:empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:diamatine_crystal_block", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/light_blue", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:clay_ball", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:clay", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_diamatine_crystal_block", count: 1 } });
+
+    //Emeradic Block
+    event
+        .create("mm:emeradic_block")
+        .structureId("mm:empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:emeradic_crystal_block", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/lime", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:grass", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "minecraft:saplings", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:slimeballs", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 600000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_emeradic_crystal_block", count: 1 } });
+
+    //Enori Block
+    event
+        .create("mm:enori_block")
+        .structureId("mm:empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:enori_crystal_block", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/gray", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:snowball", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:stone_button", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:cobblestone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 650000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_enori_crystal_block", count: 1 } });
+
+    //Palis Block
+    event
+        .create("mm:palis_block")
+        .structureId("mm:empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:palis_crystal_block", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/cyan", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:prismarine_shard", count: 3 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_palis_crystal_block", count: 1 } });
+
+    //Redstonia Block
+    event
+        .create("mm:restonia_block")
+        .structureId("mm:empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:restonia_crystal_block", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/red", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:nether_brick", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dusts/redstone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:brick", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 450000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_restonia_crystal_block", count: 1 } });
+
+    //Void Block
+    event
+        .create("mm:void_block")
+        .structureId("mm:empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:void_crystal_block", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/black", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "minecraft:coals", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:flint", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:stone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 550000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_void_crystal_block", count: 1 } });
+});
+//#endregion

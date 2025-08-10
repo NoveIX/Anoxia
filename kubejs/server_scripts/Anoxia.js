@@ -1,4 +1,24 @@
 ServerEvents.recipes((event) => {
+    //Aethersteel Mesh
+    event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
+    event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
+
+    //Among US
+    event.shaped("anoxia:amongus", ["WWW", "WRW", "WWW"], { R: "minecraft:rotten_flesh", W: "minecraft:red_wool" });
+
+    //Tiny Charcoal
+    event.shapeless(Item.of("anoxia:tiny_charcoal", 8), ["minecraft:charcoal"]);
+    event.shapeless("minecraft:charcoal", Item.of("anoxia:tiny_charcoal", 8)); //Reverse
+
+    //Tiny Coal
+    event.shapeless(Item.of("anoxia:tiny_coal", 8), ["minecraft:coal"]);
+    event.shapeless("minecraft:coal", Item.of("anoxia:tiny_coal", 8)); //Reverse
+
+    //Raw Osmium
+    event.shaped("mekanism:raw_osmium", ["PP", "PP"], { P: "anoxia:osmium_pieces" });
+
+    //// # =================================================================================================== #
+
     //Compressed
     const CompressPattern = [
         { get: "anoxia:compressed_cobblestone", put: "minecraft:cobblestone" },
@@ -31,22 +51,4 @@ ServerEvents.recipes((event) => {
         event.shaped(get, map, put);
     }
     MeshPattern.forEach(MeshRecipes);
-
-    //Aethersteel Mesh
-    event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
-    event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
-
-    //Tiny Coal
-    event.shapeless(Item.of("anoxia:tiny_coal", 8), ["minecraft:coal"]);
-    event.shapeless("minecraft:coal", Item.of("anoxia:tiny_coal", 8)); //Reverse
-
-    //Tiny Charcoal
-    event.shapeless(Item.of("anoxia:tiny_charcoal", 8), ["minecraft:charcoal"]);
-    event.shapeless("minecraft:charcoal", Item.of("anoxia:tiny_charcoal", 8)); //Reverse
-
-    //Raw Osmium
-    event.shaped("mekanism:raw_osmium", ["PP", "PP"], { P: "anoxia:osmium_pieces" });
-
-    //Among US
-    event.shaped("anoxia:amongus", ["WWW", "WRW", "WWW"], { R: "minecraft:rotten_flesh", W: "minecraft:red_wool" });
 });
