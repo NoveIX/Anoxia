@@ -161,7 +161,9 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //#region Fun Simple
+    //// # =================================================================================================== #
+
+    //#region Func Simple
     function SimpleAlloy({ alloy, get, n0, put1, n1, put2, n2, rsflux }) {
         if (alloy === "simple") {
             //Immersive Alloy
@@ -189,7 +191,9 @@ ServerEvents.recipes((event) => {
     }
     //#endregion
 
-    //#region Fun Ender
+    //// # =================================================================================================== #
+
+    //#region Func Ender
     function EnderAlloy({ alloy, get, n0, put1, n1, put2, n2, rsflux }) {
         if (alloy === "ender") {
             //EnderIO
@@ -218,7 +222,9 @@ ServerEvents.recipes((event) => {
     }
     //#endregion
 
-    //#region Fun Complex
+    //// # =================================================================================================== #
+
+    //#region Func Complex
     function ComplexAlloy({ alloy, get, n0, put1, n1, put2, n2, put3, n3, rsflux }) {
         if (alloy === "complex") {
             //EnderIO
@@ -249,7 +255,9 @@ ServerEvents.recipes((event) => {
     }
     //#endregion
 
-    //#region Fun Smelter
+    //// # =================================================================================================== #
+
+    //#region Func Smelter
     function Smelter({ get, dust }) {
         //Furnace
         event.smelting(get, `#${dust}`);
@@ -282,6 +290,8 @@ ServerEvents.recipes((event) => {
         });
     }
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Ingot
     const AlloyPattern = [
@@ -642,44 +652,45 @@ ServerEvents.recipes((event) => {
             block: "forge:storage_blocks/stellarium",
         },
     ];
-    function AlloyRecipes({ alloy, get, n0, put1, n1, put2, n2, put3, n3, rsflux, dust, nugget, block }) {
+    AlloyPattern.forEach((recipe) => {
         //Remove
-        event.remove({ output: get });
+        event.remove({ output: recipe.get });
 
         //Recipes
-        SimpleAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, rsflux: rsflux });
-        EnderAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, rsflux: rsflux });
-        ComplexAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, put3: put3, n3: n3, rsflux: rsflux });
+        SimpleAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        EnderAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        ComplexAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, put3: recipe.put3, n3: recipe.n3, rsflux: recipe.rsflux });
 
         ////Smelting
-        if (dust && dust.startsWith("forge:dusts/")) {
-            Smelter({ get: get, dust: dust });
+        if (recipe.dust && recipe.dust.startsWith("forge:dusts/")) {
+            Smelter({ get: recipe.get, dust: recipe.dust });
         }
 
         //Thermal - unPress
-        if (block && block.startsWith("forge:storage_blocks/")) {
-            event.shapeless(Item.of(get, 9), [`#${block}`]);
+        if (recipe.block && recipe.block.startsWith("forge:storage_blocks/")) {
+            event.shapeless(Item.of(recipe.get, 9), [`#${recipe.block}`]);
             event.custom({
                 type: "thermal:press",
-                ingredients: [{ tag: block, count: 1 }, { item: "thermal:press_unpacking_die" }],
-                result: [{ item: get, count: 9 }],
+                ingredients: [{ tag: recipe.block, count: 1 }, { item: "thermal:press_unpacking_die" }],
+                result: [{ item: recipe.get, count: 9 }],
                 energy: 400,
             });
         }
 
         //Thermal - Press
-        if (nugget && nugget.startsWith("forge:nuggets/")) {
-            event.shaped(get, ["NNN", "NNN", "NNN"], { N: `#${nugget}` });
+        if (recipe.nugget && recipe.nugget.startsWith("forge:nuggets/")) {
+            event.shaped(recipe.get, ["NNN", "NNN", "NNN"], { N: `#${recipe.nugget}` });
             event.custom({
                 type: "thermal:press",
-                ingredients: [{ tag: nugget, count: 9 }, { item: "thermal:press_packing_3x3_die" }],
-                result: [{ item: get }],
+                ingredients: [{ tag: recipe.nugget, count: 9 }, { item: "thermal:press_packing_3x3_die" }],
+                result: [{ item: recipe.get }],
                 energy: 400,
             });
         }
-    }
-    AlloyPattern.forEach(AlloyRecipes);
+    });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region IngotAlt
     const AlloyAltPattern = [
@@ -722,12 +733,11 @@ ServerEvents.recipes((event) => {
             rsflux: 18000,
         },
     ];
-    function AlloyAltRecipes({ alloy, get, n0, put1, n1, put2, n2, put3, n3, rsflux }) {
+    AlloyAltPattern.forEach((recipe) => {
         //Recipes
-        SimpleAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, rsflux: rsflux });
-        EnderAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, rsflux: rsflux });
-        ComplexAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, put3: put3, n3: n3, rsflux: rsflux });
-    }
-    AlloyAltPattern.forEach(AlloyAltRecipes);
+        SimpleAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        EnderAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        ComplexAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, put3: recipe.put3, n3: recipe.n3, rsflux: recipe.rsflux });
+    });
     //#endregion
 });

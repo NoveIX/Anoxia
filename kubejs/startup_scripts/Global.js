@@ -89,7 +89,7 @@ global.items.GAME_RmOut = [
 
     //EnderIO
     "enderio:flour",
-    "enderio:silicon",
+    "enderio:silicon", //Both InOut
     "enderio:fire_water_bucket",
 
     //Forbidden Arcanus - Removed for prevent Crash
@@ -238,8 +238,8 @@ global.items.GAME_RmOut = [
     "pamhc2foodcore:flouritem",
 
     //OpenComputer
-    "oc2r:silicon_blend",
-    "oc2r:silicon",
+    "oc2r:silicon_blend", //Both InOut
+    "oc2r:silicon", //Both InOut
 
     //Pneumaticraft
     "pneumaticcraft:wheat_flour",
@@ -273,6 +273,13 @@ global.items.GAME_RmOut = [
 ];
 
 global.items.GAME_RmIn = [
+    //Ender IO
+    "enderio:silicon", //Both InOut
+
+    //OpenComputer
+    "oc2r:silicon_blend", //Both InOut
+    "oc2r:silicon", //Both InOut
+
     //Mystacal Agriculture
     "mysticalagriculture:silicon_essence",
 

@@ -30,14 +30,13 @@ ServerEvents.recipes((event) => {
             put: [{ tag: "forge:eggs" }, { item: "minecraft:sugar" }, { item: "minecraft:sugar" }, { tag: "forge:dough" }],
         },
     ];
-    function CompactingRecipes({ get, put }) {
+    CompactingPattern.forEach((recipe) => {
         event.custom({
             type: "create:compacting",
-            ingredients: put,
-            results: get,
+            ingredients: recipe.put,
+            results: recipe.get,
         });
-    }
-    CompactingPattern.forEach(CompactingRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #
@@ -78,11 +77,11 @@ ServerEvents.recipes((event) => {
         { get: [{ item: "thermal:ruby_dust" }], put: [{ tag: "forge:gems/ruby" }] },
         { get: [{ item: "thermal:sapphire_dust" }], put: [{ tag: "forge:gems/sapphire" }] },
     ];
-    MillStonePattern.forEach((machine) => {
+    MillStonePattern.forEach((recipe) => {
         event.custom({
             type: "create:milling",
-            ingredients: machine.put,
-            results: machine.get,
+            ingredients: recipe.put,
+            results: recipe.get,
             processingTime: 200,
         });
     });
@@ -104,14 +103,13 @@ ServerEvents.recipes((event) => {
             put: [{ tag: "forge:flour/wheat" }, { amount: 1000, fluid: "minecraft:water", nbt: {} }],
         },
     ];
-    function MixingRecipes({ get, put }) {
+    MixingPattern.forEach((recipe) => {
         event.custom({
             type: "create:mixing",
-            ingredients: put,
-            results: get,
+            ingredients: recipe.put,
+            results: recipe.get,
         });
-    }
-    MixingPattern.forEach(MixingRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #
@@ -125,13 +123,12 @@ ServerEvents.recipes((event) => {
             put: [{ tag: "forge:flour/wheat" }],
         },
     ];
-    function SplashingRecipes({ get, put }) {
+    SplashingPattern.forEach((recipe) => {
         event.custom({
             type: "create:splashing",
-            ingredients: put,
-            results: get,
+            ingredients: recipe.put,
+            results: recipe.get,
         });
-    }
-    SplashingPattern.forEach(SplashingRecipes);
+    });
     //#endregion
 });

@@ -6,6 +6,8 @@ ServerEvents.recipes((event) => {
     event.shaped("mm:machine_gearbox", ["MGM", "GCG", "MGM"], { M: "anoxia:modularium", G: "#forge:gears/steel", C: "create:gearbox" });
     event.shaped("mm:machine_circuit", ["MCM", "C C", "MCM"], { M: "anoxia:modularium", C: "mekanism:basic_control_circuit" });
 
+    //// # =================================================================================================== #
+
     //#region Item
     const ItemInPort = [
         //Input
@@ -18,10 +20,9 @@ ServerEvents.recipes((event) => {
         { get: "mm:ludicrous_item_port_input", put: "mm:huge_item_port_input" },
         { get: "mm:ultimate_item_port_input", put: "mm:ludicrous_item_port_input" },
     ];
-    function ItemInPortRecipes({ get, put }) {
-        event.shaped(get, [" H ", "MPM", "CMC"], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, C: "#forge:chests/wooden" });
-    }
-    ItemInPort.forEach(ItemInPortRecipes);
+    ItemInPort.forEach((recipe) => {
+        event.shaped(recipe.get, [" H ", "MPM", "CMC"], { H: "minecraft:hopper", M: "anoxia:modularium", P: recipe.put, C: "#forge:chests/wooden" });
+    });
 
     const ItemOutPort = [
         //Output
@@ -34,11 +35,12 @@ ServerEvents.recipes((event) => {
         { get: "mm:huge_item_port_output", put: "mm:huge_item_port_output" },
         { get: "mm:huge_item_port_output", put: "mm:huge_item_port_output" },
     ];
-    function ItemOutPortRecipes({ get, put }) {
-        event.shaped(get, ["CMC", "MPM", " H "], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, C: "#forge:chests/wooden" });
-    }
-    ItemOutPort.forEach(ItemOutPortRecipes);
+    ItemOutPort.forEach((recipe) => {
+        event.shaped(recipe.get, ["CMC", "MPM", " H "], { H: "minecraft:hopper", M: "anoxia:modularium", P: recipe.put, C: "#forge:chests/wooden" });
+    });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Fluid
     const FluidInPort = [
@@ -52,10 +54,9 @@ ServerEvents.recipes((event) => {
         { get: "mm:ludicrous_fluid_port_input", put: "mm:huge_fluid_port_input" },
         { get: "mm:ultimate_fluid_port_input", put: "mm:ludicrous_fluid_port_input" },
     ];
-    function FluidInPortRecipes({ get, put }) {
-        event.shaped(get, [" H ", "MPM", "BMB"], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, B: "minecraft:bucket" });
-    }
-    FluidInPort.forEach(FluidInPortRecipes);
+    FluidInPort.forEach((recipe) => {
+        event.shaped(recipe.get, [" H ", "MPM", "BMB"], { H: "minecraft:hopper", M: "anoxia:modularium", P: recipe.put, B: "minecraft:bucket" });
+    });
 
     const FluidOutPort = [
         //Output
@@ -68,11 +69,12 @@ ServerEvents.recipes((event) => {
         { get: "mm:ludicrous_fluid_port_output", put: "mm:huge_fluid_port_output" },
         { get: "mm:ultimate_fluid_port_output", put: "mm:ludicrous_fluid_port_output" },
     ];
-    function FluidOutPortRecipes({ get, put }) {
-        event.shaped(get, ["BMB", "MPM", " H "], { H: "minecraft:hopper", M: "anoxia:modularium", P: put, B: "minecraft:bucket" });
-    }
-    FluidOutPort.forEach(FluidOutPortRecipes);
+    FluidOutPort.forEach((recipe) => {
+        event.shaped(recipe.get, ["BMB", "MPM", " H "], { H: "minecraft:hopper", M: "anoxia:modularium", P: recipe.put, B: "minecraft:bucket" });
+    });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Energy
     const EnergyInPort = [
@@ -86,10 +88,9 @@ ServerEvents.recipes((event) => {
         { get: "mm:ludicrous_energy_port_input", put: "mm:huge_energy_port_input" },
         { get: "mm:ultimate_energy_port_input", put: "mm:ludicrous_energy_port_input" },
     ];
-    function EnergyInPortRecipes({ get, put }) {
-        event.shaped(get, [" E ", "MPM", "RMR"], { E: "pipez:energy_pipe", M: "anoxia:modularium", P: put, R: "#forge:ingots/red_alloy" });
-    }
-    EnergyInPort.forEach(EnergyInPortRecipes);
+    EnergyInPort.forEach((recipe) => {
+        event.shaped(recipe.get, [" E ", "MPM", "RMR"], { E: "pipez:energy_pipe", M: "anoxia:modularium", P: recipe.put, R: "#forge:ingots/red_alloy" });
+    });
 
     const EnergyOutPort = [
         //Output
@@ -102,11 +103,12 @@ ServerEvents.recipes((event) => {
         { get: "mm:ludicrous_energy_port_output", put: "mm:huge_energy_port_output" },
         { get: "mm:ultimate_energy_port_output", put: "mm:ludicrous_energy_port_output" },
     ];
-    function EnergyOutPortRecipes({ get, put }) {
-        event.shaped(get, ["RMR", "MPM", " E "], { E: "pipez:energy_pipe", M: "moonbase:modularium", P: put, R: "#forge:ingots/red_alloy" });
-    }
-    EnergyOutPort.forEach(EnergyOutPortRecipes);
+    EnergyOutPort.forEach((recipe) => {
+        event.shaped(recipe.get, ["RMR", "MPM", " E "], { E: "pipez:energy_pipe", M: "moonbase:modularium", P: recipe.put, R: "#forge:ingots/red_alloy" });
+    });
 });
+
+//// # =================================================================================================== #
 
 //Modular Machine Structure
 MMEvents.createStructures((event) => {
@@ -133,6 +135,8 @@ MMEvents.createStructures((event) => {
         });
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Portal
     event
         .create("mm:portal")
@@ -152,6 +156,8 @@ MMEvents.createStructures((event) => {
                 .key("2", { portType: "mm:item", input: false });
         });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Energizer
     event
@@ -181,6 +187,8 @@ MMEvents.createStructures((event) => {
         });
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Sieve
     event
         .create("mm:sieve")
@@ -208,6 +216,8 @@ MMEvents.createStructures((event) => {
         });
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Crusher
     event
         .create("mm:crusher")
@@ -232,6 +242,8 @@ MMEvents.createStructures((event) => {
                 .key("5", { portType: "mm:energy", input: true });
         });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Sawmill
     //event.create("mm:sawmill").controllerId("mm:machine_controller").name("Nanometer Sawmill");
@@ -369,10 +381,11 @@ MMEvents.createProcesses((event) => {
             put: { type: "mm:item", item: "minecraft:clay", count: 1 },
         },
     ];
-    function ArtificialPortalRecipes({ id, get, put }) {
-        event.create(id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: put }).output({ type: "mm:output/simple", ingredient: get });
-    }
-    ArtificialPortalPatter.forEach(ArtificialPortalRecipes);
+    ArtificialPortalPatter.forEach((recipe) => {
+        event.create(recipe.id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
+    });
+
+    //// # =================================================================================================== #
 
     //Diamatine Block
     event
@@ -449,6 +462,8 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 550000 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_void_crystal_block", count: 1 } });
 
+    //// # =================================================================================================== #
+
     //#region Sieve Recipes
     //Gravel
     event
@@ -457,7 +472,7 @@ MMEvents.createProcesses((event) => {
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
-        .output({ type: "mm:output/simple", chance: 0.40, ingredient: { type: "mm:item", item: "minecraft:flint", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.4, ingredient: { type: "mm:item", item: "minecraft:flint", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.36, ingredient: { type: "mm:item", item: "minecraft:coal", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "minecraft:lapis_lazuli", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.028, ingredient: { type: "mm:item", item: "minecraft:diamond", count: 2 } })
@@ -466,7 +481,7 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:iron_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:lead_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:aluminum_pieces", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.20, ingredient: { type: "mm:item", item: "exnihilosequentia:platinum_pieces", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:platinum_pieces", count: 2 } });
 
     //Sand
     event
@@ -480,7 +495,7 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:copper_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:nickel_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:tin_pieces", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.20, ingredient: { type: "mm:item", item: "anoxia:osmium_pieces", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "anoxia:osmium_pieces", count: 2 } });
 
     //Dust
     event
@@ -499,7 +514,7 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:gold_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:silver_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:zinc_pieces", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.20, ingredient: { type: "mm:item", item: "exnihilosequentia:uranium_pieces", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:uranium_pieces", count: 2 } });
 
     //Netherrack
     event

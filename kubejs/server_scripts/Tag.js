@@ -1,66 +1,78 @@
 ServerEvents.tags("item", (event) => {
-    //Anoxia
-    event.add("anoxia:coil/copper", "createaddition:copper_spool");
-    event.add("anoxia:coil/copper", "immersiveengineering:wirecoil_copper");
-    event.add("anoxia:coil/electrum", "createaddition:electrum_spool");
-    event.add("anoxia:coil/electrum", "immersiveengineering:wirecoil_electrum");
-    event.add("anoxia:dusts", "exnihilosequentia:dust");
-    event.add("anoxia:silicons", "ae2:silicon");
-    event.add("anoxia:fertilizers", "minecraft:bone_meal");
-    event.add("anoxia:fertilizers", "minecraft:rotten_flesh");
-    event.add("anoxia:fertilizers", "farmersdelight:tree_bark");
-    event.add("anoxia:fertilizers", "farmersdelight:straw");
-    event.add("anoxia:stone/furnaces", "minecraft:furnace");
-    event.add("anoxia:stone/furnaces", "quark:deepslate_furnace");
-    event.add("anoxia:blackstone/furnaces", "nethersdelight:blackstone_furnace");
-    event.add("anoxia:blackstone/furnaces", "quark:blackstone_furnace");
-    event.add("anoxia:furnaces", "#anoxia:stone/furnaces");
-    event.add("anoxia:furnaces", "#anoxia:blackstone/furnaces");
-    event.add("anoxia:blastfurnaces", "minecraft:blast_furnace");
-    event.add("anoxia:blastfurnaces", "nethersdelight:blackstone_blast_furnace");
-    event.add("anoxia:smokers", "minecraft:smoker");
-    event.add("anoxia:smokers", "nethersdelight:nether_brick_smoker");
-    event.add("forge:pebble/stone", "botania:pebble");
-    event.add("forge:pebble/stone", "exnihilosequentia:stone_pebble");
-    event.add("forge:pebble/stone", "twigs:pebble");
+    //#region Tags
+    const TagsPattern = [
+        //Anoxia
+        { tag: "anoxia:coil/copper", item: "createaddition:copper_spool" },
+        { tag: "anoxia:coil/copper", item: "createaddition:copper_spool" },
+        { tag: "anoxia:coil/copper", item: "immersiveengineering:wirecoil_copper" },
+        { tag: "anoxia:coil/electrum", item: "createaddition:electrum_spool" },
+        { tag: "anoxia:coil/electrum", item: "immersiveengineering:wirecoil_electrum" },
+        { tag: "anoxia:fertilizers", item: "minecraft:bone_meal" },
+        { tag: "anoxia:fertilizers", item: "minecraft:rotten_flesh" },
+        { tag: "anoxia:fertilizers", item: "farmersdelight:tree_bark" },
+        { tag: "anoxia:fertilizers", item: "farmersdelight:straw" },
+        { tag: "anoxia:stone/furnaces", item: "minecraft:furnace" },
+        { tag: "anoxia:stone/furnaces", item: "quark:deepslate_furnace" },
+        { tag: "anoxia:blackstone/furnaces", item: "nethersdelight:blackstone_furnace" },
+        { tag: "anoxia:blackstone/furnaces", item: "quark:blackstone_furnace" },
+        { tag: "anoxia:furnaces", item: "#anoxia:stone/furnaces" },
+        { tag: "anoxia:furnaces", item: "#anoxia:blackstone/furnaces" },
+        { tag: "anoxia:blastfurnaces", item: "minecraft:blast_furnace" },
+        { tag: "anoxia:blastfurnaces", item: "nethersdelight:blackstone_blast_furnace" },
+        { tag: "anoxia:smokers", item: "minecraft:smoker" },
+        { tag: "anoxia:smokers", item: "nethersdelight:nether_brick_smoker" },
 
-    //Forge
-    event.add("forge:plastic", "pneumaticcraft:plastic");
-    event.add("forge:flour/wheat", "enderio:flour");
-    event.add("forge:flour", "enderio:flour");
-    event.add("forge:flour/wheat", "pneumaticcraft:wheat_flour");
-    event.add("forge:flour", "pneumaticcraft:wheat_flour");
-    event.add("forge:dusts/flour", "create:wheat_flour");
-    event.add("forge:ores/uranium", "#forge:ores/uraninite");
-    event.add("forge:raw_materials/uranium", "powah:uraninite_raw");
-    event.add("forge:ingots", "redstone_arsenal:flux_ingot");
-    event.add("forge:ingots", "avaritia:neutron_ingot");
-    event.add("forge:ingots/aethersteel", "aethersteel:aethersteel_ingot");
-    event.add("forge:ingots/cognitive_alloy", "experienceobelisk:cognitive_alloy");
+        //Forge
+        { tag: "forge:plastic", item: "pneumaticcraft:plastic" },
+        { tag: "forge:flour/wheat", item: "enderio:flour" },
+        { tag: "forge:flour", item: "enderio:flour" },
+        { tag: "forge:flour/wheat", item: "pneumaticcraft:wheat_flour" },
+        { tag: "forge:flour", item: "pneumaticcraft:wheat_flour" },
+        { tag: "forge:dusts/flour", item: "create:wheat_flour" },
+        { tag: "forge:ores/uranium", item: "#forge:ores/uraninite" },
+        { tag: "forge:raw_materials/uranium", item: "powah:uraninite_raw" },
+        { tag: "forge:pebble/stone", item: "botania:pebble" },
+        { tag: "forge:pebble/stone", item: "exnihilosequentia:stone_pebble" },
+        { tag: "forge:pebble/stone", item: "twigs:pebble" },
+        { tag: "forge:dust", item: "exnihilosequentia:dust" },
+        //ingots
+        { tag: "forge:ingots/flux", item: "redstone_arsenal:flux_ingot" },
+        { tag: "forge:ingots/neutron", item: "avaritia:neutron_ingot" },
+        { tag: "forge:ingots/aethersteel", item: "aethersteel:aethersteel_ingot" },
+        { tag: "forge:ingots/cognitive_alloy", item: "experienceobelisk:cognitive_alloy" },
 
-    //Botania
-    event.add("botania:petals/flower", "botania:white_petal");
-    event.add("botania:petals/flower", "botania:light_gray_petal");
-    event.add("botania:petals/flower", "botania:gray_petal");
-    event.add("botania:petals/flower", "botania:black_petal");
-    event.add("botania:petals/flower", "botania:brown_petal");
-    event.add("botania:petals/flower", "botania:red_petal");
-    event.add("botania:petals/flower", "botania:orange_petal");
-    event.add("botania:petals/flower", "botania:yellow_petal");
-    event.add("botania:petals/flower", "botania:lime_petal");
-    event.add("botania:petals/flower", "botania:green_petal");
-    event.add("botania:petals/flower", "botania:cyan_petal");
-    event.add("botania:petals/flower", "botania:light_blue_petal");
-    event.add("botania:petals/flower", "botania:blue_petal");
-    event.add("botania:petals/flower", "botania:purple_petal");
-    event.add("botania:petals/flower", "botania:magenta_petal");
-    event.add("botania:petals/flower", "botania:pink_petal");
+        //Botania
+        { tag: "botania:petals/flower", item: "botania:white_petal" },
+        { tag: "botania:petals/flower", item: "botania:light_gray_petal" },
+        { tag: "botania:petals/flower", item: "botania:gray_petal" },
+        { tag: "botania:petals/flower", item: "botania:black_petal" },
+        { tag: "botania:petals/flower", item: "botania:brown_petal" },
+        { tag: "botania:petals/flower", item: "botania:red_petal" },
+        { tag: "botania:petals/flower", item: "botania:orange_petal" },
+        { tag: "botania:petals/flower", item: "botania:yellow_petal" },
+        { tag: "botania:petals/flower", item: "botania:lime_petal" },
+        { tag: "botania:petals/flower", item: "botania:green_petal" },
+        { tag: "botania:petals/flower", item: "botania:cyan_petal" },
+        { tag: "botania:petals/flower", item: "botania:light_blue_petal" },
+        { tag: "botania:petals/flower", item: "botania:blue_petal" },
+        { tag: "botania:petals/flower", item: "botania:purple_petal" },
+        { tag: "botania:petals/flower", item: "botania:magenta_petal" },
+        { tag: "botania:petals/flower", item: "botania:pink_petal" },
+    ];
+    TagsPattern.forEach((recipe) => {
+        event.add(recipe.tag, recipe.item);
+    });
+    //#endregion
 
     //Remove
     event.remove("forge:nuggets/ender_pearl", "forbidden_arcanus:ender_pearl_fragment");
     event.remove("minecraft:coals", "immersiveengineering:coal_coke");
     event.removeAllTagsFrom("thermal_extra:arcane_gold_dust");
     event.removeAllTagsFrom("thermal_extra:zinc_dust");
+
+    //Game full removed
+    event.removeAllTagsFrom("enderio:silicon");
+    event.removeAllTagsFrom("oc2r:silicon");
 
     ////Ingot
     //Chemlib

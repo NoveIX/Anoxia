@@ -8,16 +8,15 @@ ServerEvents.recipes((event) => {
             guid: "anoxia:restore_dought",
         },
     ];
-    function BasinFermentingRecipes({ get, put, guid }) {
+    BasinFermentingPattern.forEach((recipe) => {
         event
             .custom({
                 type: "createdieselgenerators:basin_fermenting",
-                ingredients: put,
+                ingredients: recipe.put,
                 processingTime: 200,
-                results: get,
+                results: recipe.get,
             })
-            .id(guid);
-    }
-    BasinFermentingPattern.forEach(BasinFermentingRecipes);
+            .id(recipe.guid);
+    });
     //#endregion
 });

@@ -1,9 +1,15 @@
 ServerEvents.recipes((event) => {
-    //Log Core
-    event.shaped(Item.of("twilightforest:time_log", 64), ["A"], { A: "twilightforest:time_log_core" });
-    event.shaped(Item.of("twilightforest:transformation_log", 64), ["A"], { A: "twilightforest:transformation_log_core" });
-    event.shaped(Item.of("twilightforest:mining_log_core", 64), ["A"], { A: "twilightforest:mining_log" });
-    event.shaped(Item.of("twilightforest:sorting_log", 64), ["A"], { A: "twilightforest:sorting_log_core" });
+    //#region LogCore
+    const LogCore = [
+        { get: "twilightforest:time_log", put: "twilightforest:time_log_core" },
+        { get: "twilightforest:transformation_log", put: "twilightforest:transformation_log_core" },
+        { get: "twilightforest:mining_log_core", put: "twilightforest:mining_log" },
+        { get: "twilightforest:sorting_log", put: "twilightforest:sorting_log_core" },
+    ];
+    LogCore.forEach((recipe) => {
+        event.shaped(Item.of(recipe.get, 64), ["A"], { A: recipe.put });
+    });
+    //#endregion
 
     // Uberous Soil
     event.shaped("twilightforest:uberous_soil", ["BBB", "BAB", "BBB"], { A: "farmersdelight:rich_soil", B: "industrialforegoing:fertilizer" });

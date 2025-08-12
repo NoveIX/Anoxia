@@ -249,17 +249,16 @@ ServerEvents.recipes((event) => {
             level: 2,
         },
     ];
-    function FlowerRecipes({ get, put, level, brazier, hex }) {
+    FlowerPattern.forEach((recipe) => {
         event.custom({
             type: "rootsclassic:ritual",
             effect: "rootsclassic:crafting",
-            level: level,
-            color: hex,
-            ingredients: put,
-            incenses: brazier,
-            result: get,
+            ingredients: recipe.put,
+            result: recipe.get,
+            level: recipe.level,
+            incenses: recipe.brazier,
+            color: recipe.hex,
         });
-    }
-    FlowerPattern.forEach(FlowerRecipes);
+    });
     //#endregion
 });

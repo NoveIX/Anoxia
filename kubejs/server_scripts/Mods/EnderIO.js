@@ -53,128 +53,7 @@ ServerEvents.recipes((event) => {
     event.shaped("enderio:sag_mill", ["EEE", "DMD", "GCG"], { E: "#forge:ingots/energetic_alloy", D: "#forge:ingots/dark_steel", M: "thermal:machine_frame", G: "#forge:gears/dark_steel", C: "actuallyadditions:crusher_double" });
 
     //#region Alloy
-    event.remove({ id: "enderio:alloy_smelting/copper_alloy_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/energetic_alloy_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/vibrant_alloy_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/redstone_alloy_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/conductive_alloy_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/pulsating_alloy_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/dark_steel_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/soularium_ingot" });
-    event.remove({ id: "enderio:alloy_smelting/end_steel_ingot" });
-    //Restore
-    event.remove({ id: "enderio:smelting/create/smelting/bread" });
-    event.remove({ id: "enderio:alloy_smelting/cake_base" });
-    event.remove({ id: "enderio:alloy_smelting/cookie" });
-    event.remove({ id: "enderio:smelting/industrialforegoing/plastic" });
     const AlloyPattern = [
-        /* 		{
-			//Copper Alloy
-			get: { item: "enderio:copper_alloy_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/copper" } },
-				{ count: 1, ingredient: { tag: "forge:silicon" } },
-			],
-			rsflux: 4000,
-		},
-		{
-			//Energetic Alloy
-			get: { item: "enderio:energetic_alloy_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:dusts/redstone" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/electrum" } },
-				{ count: 1, ingredient: { tag: "forge:dusts/glowstone" } },
-			],
-			rsflux: 10000,
-		},
-		{
-			//Vibrant Alloy
-			get: { item: "enderio:vibrant_alloy_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/energetic_alloy" } },
-				{ count: 1, ingredient: { tag: "forge:ender_pearls" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/rose_gold" } },
-			],
-			rsflux: 15000,
-		},
-		{
-			//Redstone Alloy
-			get: { item: "enderio:redstone_alloy_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/red_alloy" } },
-				{ count: 1, ingredient: { tag: "forge:silicon" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/graphite" } },
-			],
-			rsflux: 3000,
-		},
-		{
-			//Conductive Alloy
-			get: { item: "enderio:conductive_alloy_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/red_alloy" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/iron" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/copper_alloy" } },
-			],
-			rsflux: 8000,
-		},
-		{
-			//Pulsating Alloy
-			get: { item: "enderio:pulsating_alloy_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/iron" } },
-				{ count: 1, ingredient: { tag: "forge:ender_pearls" } },
-			],
-			rsflux: 10000,
-		},
-		{
-			//DarkSteel Ingot
-			get: { item: "enderio:dark_steel_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/iron" } },
-				{ count: 1, ingredient: { tag: "forge:dusts/coal" } },
-				{ count: 1, ingredient: { tag: "forge:obsidian" } },
-			],
-			rsflux: 20000,
-		},
-		{
-			//DarkSteel Ingot Alternative
-			get: { item: "enderio:dark_steel_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/steel" } },
-				{ count: 1, ingredient: { tag: "forge:obsidian" } },
-			],
-			rsflux: 10000,
-		},
-		{
-			//Soularium Ingot
-			get: { item: "enderio:soularium_ingot" },
-			put: [
-				{ count: 1, ingredient: { item: "minecraft:soul_sand" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/gold" } },
-			],
-			rsflux: 10000,
-		},
-		{
-			//EndSteel Ingot
-			get: { item: "enderio:end_steel_ingot" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:end_stones" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/dark_steel" } },
-				{ count: 1, ingredient: { tag: "forge:obsidian" } },
-			],
-			rsflux: 20000,
-		},
-		{
-			//Modularium
-			get: { item: "anoxiaodularium" },
-			put: [
-				{ count: 1, ingredient: { tag: "forge:ingots/vibrant_alloy" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/enderium" } },
-				{ count: 1, ingredient: { tag: "forge:ingots/electrotine_alloy" } },
-			],
-			rsflux: 10000,
-		}, */
-
         //Restore
         {
             //Restore Alloy Bread => Accept forge:dough
@@ -219,17 +98,18 @@ ServerEvents.recipes((event) => {
             rsflux: 1500,
         },
     ];
-    function AlloyRecipes({ get, put, rsflux }) {
+    AlloyPattern.forEach((recipe) => {
         event.custom({
             type: "enderio:alloy_smelting",
             experience: 0.3,
-            energy: rsflux,
-            inputs: put,
-            result: get,
+            inputs: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
         });
-    }
-    AlloyPattern.forEach(AlloyRecipes);
+    });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Fire
     event.remove({ id: "enderio:fire_crafting/infinity" });
@@ -241,6 +121,8 @@ ServerEvents.recipes((event) => {
         max_item_drops: 1,
     });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region SAG
     event.remove({ id: "enderio:sag_milling/sand" });
@@ -306,15 +188,14 @@ ServerEvents.recipes((event) => {
             rsflux: 2400,
         },
     ];
-    function SAGRecipes({ get, put, rsflux }) {
+    SAGPattern.forEach((recipe) => {
         event.custom({
             type: "enderio:sag_milling",
-            energy: rsflux,
-            input: put,
-            outputs: get,
+            input: recipe.put,
+            outputs: recipe.get,
+            energy: recipe.rsflux,
         });
-    }
-    SAGPattern.forEach(SAGRecipes);
+    });
     //#endregion
 });
 

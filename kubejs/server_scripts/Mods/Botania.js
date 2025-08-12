@@ -7,15 +7,15 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Elven Trade
-    const ElvenTrade = [
+    const ElvenTradePattern = [
         //Aethersteel
         { get: [{ item: "aethersteel:aetherslate" }], put: [{ item: "anoxia:compressed_deepslate" }] },
     ];
-    ElvenTrade.forEach((machine) => {
+    ElvenTradePattern.forEach((recipe) => {
         event.custom({
             type: "botania:elven_trade",
-            ingredients: machine.put,
-            output: machine.get,
+            ingredients: recipe.put,
+            output: recipe.get,
         });
     })
     //#endregion

@@ -15,11 +15,12 @@ ServerEvents.recipes((event) => {
         { get: "quark:mangrove_chest", put: "#minecraft:mangrove_logs" },
         { get: "quark:cherry_chest", put: "#minecraft:cherry_logs" },
     ];
-    function ChestRecipes({ get, put }) {
-        event.remove({ output: get, input: put });
-        event.shaped(get, ["LLL", "L L", "LLL"], { L: put });
-    }
-    ChestPattern.forEach(ChestRecipes);
+    ChestPattern.forEach((recipe) => {
+        event.remove({ output: recipe.get, input: recipe.put });
+        event.shaped(recipe.get, ["LLL", "L L", "LLL"], { L: recipe.put });
+    });
+
+    //// # =================================================================================================== #
 
     //Sturdy Stone
     event.remove({ output: "quark:sturdy_stone" });

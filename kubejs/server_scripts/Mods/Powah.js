@@ -98,14 +98,13 @@ ServerEvents.recipes((event) => {
             rsflux: 30000,
         },
     ];
-    function EnergizingRecipes({ get, put, rsflux }) {
+    EnergizingPattern.forEach((recipe) => {
         event.custom({
             type: "powah:energizing",
-            ingredients: put,
-            energy: rsflux,
-            result: get,
+            ingredients: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
         });
-    }
-    EnergizingPattern.forEach(EnergizingRecipes);
+    });
     //#endregion
 });

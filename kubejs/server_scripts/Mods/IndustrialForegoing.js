@@ -6,19 +6,20 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "industrialforegoing:dye_mixer" });
     event.shaped("industrialforegoing:dye_mixer", ["PGP", "RFB", "PAP"], { P: "#forge:plates/iron", F: "industrialforegoing:machine_frame_pity", A: "#forge:gears/gold", R: "minecraft:red_dye", G: "minecraft:green_dye", B: "minecraft:blue_dye" });
 
+    //// # =================================================================================================== #
+
     //#region Crusher
     event.remove({ id: "industrialforegoing:crusher/sand_silicon" });
     const CrusherPattern = [
-        { get: { tag: "anoxia:dusts" }, put: { tag: "forge:sand" } },
-        { get: { tag: "anoxia:silicons" }, put: { tag: "anoxia:dust" } },
+        { get: { tag: "forge:dust" }, put: { tag: "forge:sand" } },
+        { get: { tag: "forge:silicon" }, put: { tag: "forge:dust" } },
     ];
-    function CrusherRecipes({ get, put }) {
+    CrusherPattern.forEach((recipe) => {
         event.custom({
             type: "industrialforegoing:crusher",
-            input: put,
-            output: get,
+            input: recipe.put,
+            output: recipe.get,
         });
-    }
-    CrusherPattern.forEach(CrusherRecipes);
+    });
     //#endregion
 });

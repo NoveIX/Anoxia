@@ -93,6 +93,8 @@ ServerEvents.recipes((event) => {
     //event.shaped("immersiveengineering:coke", ["CCC", "CCC", "CCC"], { C: "#forge:coal_coke" });
     //event.shapeless("immersiveengineering:coke", ["thermal:coal_coke_block"]);
 
+    //// # =================================================================================================== #
+
     //#region Alloy
     const AlloyPattern = [
         {
@@ -106,17 +108,18 @@ ServerEvents.recipes((event) => {
             add: { base_ingredient: { tag: "forge:dusts/electrotine" }, count: 4 },
         },
     ];
-    function AlloyRecipes({ get, put, add }) {
+    AlloyPattern.forEach((recipe) => {
         event.custom({
             type: "immersiveengineering:alloy",
-            input0: put,
-            input1: add,
-            result: get,
+            input0: recipe.put,
+            input1: recipe.add,
+            result: recipe.get,
             time: 200,
         });
-    }
-    AlloyPattern.forEach(AlloyRecipes);
+    });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region ArcFurnace
     const ArcFurnacePattern = [
@@ -131,18 +134,19 @@ ServerEvents.recipes((event) => {
             add: [{ base_ingredient: { tag: "forge:dusts/electrotine" }, count: 4 }],
         },
     ];
-    function ArcFurnaceRecipes({ get, put, add }) {
+    ArcFurnacePattern.forEach((recipe) => {
         event.custom({
             type: "immersiveengineering:arc_furnace",
-            input: put,
-            additives: add,
-            results: get,
+            input: recipe.put,
+            additives: recipe.add,
+            results: recipe.get,
             energy: 51200,
             time: 100,
         });
-    }
-    ArcFurnacePattern.forEach(ArcFurnaceRecipes);
+    });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region CokeOven
     event.remove({ type: "immersiveengineering:coke_oven" });
@@ -166,15 +170,14 @@ ServerEvents.recipes((event) => {
             tick: 16200,
         },
     ];
-    function CokeOvenRecipes({ get, put, fluid, tick }) {
+    CokeOvenPattern.forEach((recipe) => {
         event.custom({
             type: "immersiveengineering:coke_oven",
-            creosote: fluid,
-            input: put,
-            result: get,
-            time: tick,
+            input: recipe.put,
+            result: recipe.get,
+            creosote: recipe.fluid,
+            time: recipe.tick,
         });
-    }
-    CokeOvenPattern.forEach(CokeOvenRecipes);
+    });
     //#endregion
 });

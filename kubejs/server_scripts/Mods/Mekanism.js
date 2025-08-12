@@ -21,6 +21,8 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "mekanism:steel_casing" });
     event.shaped("mekanism:steel_casing", ["DUD", "UFU", "DUD"], { D: "#forge:ingots/dark_steel", U: "#forge:circuits/ultimate", F: "thermal:machine_frame" });
 
+    //// # =================================================================================================== #
+
     //Metallurgic Infusing
     const AlloyPattern = [
         //Basic Circuit
@@ -35,14 +37,13 @@ ServerEvents.recipes((event) => {
         //Atomic Alloy
         { get: { item: "mekanism:alloy_atomic" }, put: { ingredient: { item: "mekanism:alloy_reinforced" } }, chem: { amount: 160, tag: "mekanism:refined_obsidian" } },
     ];
-    function AlloyRecipes({ get, put, chem }) {
-        event.remove({ output: get, type: "mekanism:metallurgic_infusing" });
+    AlloyPattern.forEach((recipe) => {
+        event.remove({ output: recipe.get, type: "mekanism:metallurgic_infusing" });
         event.custom({
             type: "mekanism:metallurgic_infusing",
-            chemicalInput: chem,
-            itemInput: put,
-            output: get,
+            chemicalInput: recipe.chem,
+            itemInput: recipe.put,
+            output: recipe.get,
         });
-    }
-    AlloyPattern.forEach(AlloyRecipes);
+    });
 });

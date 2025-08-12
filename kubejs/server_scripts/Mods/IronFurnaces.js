@@ -23,9 +23,8 @@ ServerEvents.recipes((event) => {
         { get: "ironfurnaces:upgrade_obsidian2", put: "#forge:ingots/obsidian", frame: "#forge:glass/colorless" }, //Crystal to Obsidian
         { get: "ironfurnaces:upgrade_netherite", put: "#forge:plates/netherite", frame: "ironfurnaces:upgrade_obsidian" }, //Obsidian To Netherite
     ];
-    function FurnaceRecipes({ get, put, frame }) {
-        event.remove({ output: get });
-        event.shaped(get, ["III", "IUI", "III"], { I: put, U: frame });
-    }
-    FurnacePattern.forEach(FurnaceRecipes);
+    FurnacePattern.forEach((recipe) => {
+        event.remove({ output: recipe.get });
+        event.shaped(recipe.get, ["III", "IUI", "III"], { I: recipe.put, U: recipe.frame });
+    });
 });

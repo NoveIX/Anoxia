@@ -119,6 +119,8 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Plate
     const PlatePattern = [
         //Ad Astra
@@ -219,17 +221,17 @@ ServerEvents.recipes((event) => {
         { get: "thermal_extra:dragonsteel_plate", put: "forge:ingots/dragonsteel", rsflux: 16000 },
         { get: "thermal_extra:abyssal_plate", put: "forge:ingots/abyssal", rsflux: 20000 },
     ];
-    function PlateRecipes({ get, put, rsflux }) {
+    PlatePattern.forEach((recipe) => {
         //Remove
-        event.remove({ output: get });
+        event.remove({ output: recipe.get });
 
         //Crafting
-        event.shapeless(get, [`#${put}`, `#${put}`, "immersiveengineering:hammer"]);
+        event.shapeless(recipe.get, [`#${recipe.put}`, `#${recipe.put}`, "immersiveengineering:hammer"]);
         event.custom({
             type: "ad_astra:hammering",
-            ingredients: [{ tag: put }, { tag: put }, { item: "ad_astra:hammer" }],
+            ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { item: "ad_astra:hammer" }],
             result: {
-                item: get,
+                item: recipe.get,
                 count: 1,
             },
         });
@@ -237,27 +239,26 @@ ServerEvents.recipes((event) => {
         //Create
         event.custom({
             type: "create:pressing",
-            ingredients: [{ tag: put }],
-            results: [{ item: get }],
+            ingredients: [{ tag: recipe.put }],
+            results: [{ item: recipe.get }],
         });
 
         //Immersive
         event.custom({
             type: "immersiveengineering:metal_press",
-            energy: rsflux,
-            input: { tag: put },
             mold: "immersiveengineering:mold_plate",
-            result: { item: get },
+            input: { tag: recipe.put },
+            result: { item: recipe.get },
+            energy: recipe.rsflux,
         });
 
         //Thermal
         event.custom({
             type: "thermal:press",
-            ingredient: { tag: put },
-            result: [{ item: get }],
-            energy: rsflux,
+            ingredient: { tag: recipe.put },
+            result: [{ item: recipe.get }],
+            energy: recipe.rsflux,
         });
-    }
-    PlatePattern.forEach(PlateRecipes);
+    });
     //#endregion
 });

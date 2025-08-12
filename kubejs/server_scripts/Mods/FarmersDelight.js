@@ -24,14 +24,13 @@ ServerEvents.recipes((event) => {
             cutter: { tag: "forge:tools/knives" },
         },
     ];
-    function CuttingRecipes({ get, put, cutter }) {
+    CuttingPattern.forEach((recipe) => {
         event.custom({
             type: "farmersdelight:cutting",
-            ingredients: put,
-            result: get,
-            tool: cutter,
+            ingredients: recipe.put,
+            result: recipe.get,
+            tool: recipe.cutter,
         });
-    }
-    CuttingPattern.forEach(CuttingRecipes);
+    });
     //#endregion
 });

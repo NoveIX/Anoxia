@@ -29,19 +29,19 @@ ServerEvents.recipes((event) => {
         { under: "bigreactors:insanite_block", multi: 80 },
         { under: "avaritia:infinity", multi: 1000 },
     ];
-    HeatPattern.forEach((machine) => {
-        if (machine.heat === "true") {
+    HeatPattern.forEach((recipe) => {
+        if (recipe.heat === "true") {
             event.custom({
                 type: "exnihilosequentia:heat",
-                amount: machine.multi,
-                block: machine.under,
+                amount: recipe.multi,
+                block: recipe.under,
                 state: { lit: "true" },
             });
         } else {
             event.custom({
                 type: "exnihilosequentia:heat",
-                amount: machine.multi,
-                block: machine.under,
+                amount: recipe.multi,
+                block: recipe.under,
             });
         }
     });
@@ -594,12 +594,12 @@ ServerEvents.recipes((event) => {
         },
         //#endregion
     ];
-    Sieve.forEach((machine) => {
+    Sieve.forEach((recipe) => {
         event.custom({
             type: "exnihilosequentia:sifting",
-            input: machine.put,
-            result: machine.get,
-            rolls: machine.drop,
+            input: recipe.put,
+            result: recipe.get,
+            rolls: recipe.drop,
         });
     });
     //#endregion

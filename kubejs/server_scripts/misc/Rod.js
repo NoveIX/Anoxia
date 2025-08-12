@@ -39,6 +39,8 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
+    //// # =================================================================================================== #
+
     //#region Rod
     const RodPattern = [
         //Create
@@ -74,37 +76,36 @@ ServerEvents.recipes((event) => {
         { get: "thermal_extra:dragonsteel_rod", put: "forge:ingots/dragonsteel", rsflux: 16000 },
         { get: "thermal_extra:abyssal_rod", put: "forge:ingots/abyssal", rsflux: 20000 },
     ];
-    function RodRecipes({ get, put, rsflux }) {
+    RodPattern.forEach((recipe) => {
         //Remove
-        event.remove({ output: get });
+        event.remove({ output: recipe.get });
 
         //Crafting
-        event.shaped(Item.of(get, 2), ["  R", " R ", "R  "], { R: `#${put}` });
+        event.shaped(Item.of(recipe.get, 2), ["  R", " R ", "R  "], { R: `#${recipe.put}` });
 
         //Create
         event.custom({
             type: "createaddition:rolling",
-            input: { tag: put },
-            result: { item: get, count: 2 },
+            input: { tag: recipe.put },
+            result: { item: recipe.get, count: 2 },
         });
 
         //Immersive
         event.custom({
             type: "immersiveengineering:metal_press",
-            energy: rsflux,
-            input: { tag: put },
             mold: "immersiveengineering:mold_rod",
-            result: { base_ingredient: { item: get }, count: 2 },
+            input: { tag: recipe.put },
+            result: { base_ingredient: { item: recipe.get }, count: 2 },
+            energy: recipe.rsflux,
         });
 
         //Thermal
         event.custom({
             type: "thermal:press",
-            energy: rsflux,
-            ingredients: [{ tag: put, count: 1 }, { item: "thermal_extra:press_rod_die" }],
-            result: [{ count: 2, item: get }],
+            energy: recipe.rsflux,
+            ingredients: [{ tag: recipe.put, count: 1 }, { item: "thermal_extra:press_rod_die" }],
+            result: [{ count: 2, item: recipe.get }],
         });
-    }
-    RodPattern.forEach(RodRecipes);
+    });
     //#endregion
 });

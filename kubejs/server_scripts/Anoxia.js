@@ -29,11 +29,10 @@ ServerEvents.recipes((event) => {
         { get: "anoxia:compressed_blackstone", put: "minecraft:blackstone" },
         { get: "anoxia:compressed_andesite", put: "minecraft:andesite" },
     ];
-    function CompressRecipes({ get, put }) {
-        event.shaped(get, ["AAA", "AAA", "AAA"], { A: put });
-        event.shapeless(Item.of(put, 9), [get]);
-    }
-    CompressPattern.forEach(CompressRecipes);
+    CompressPattern.forEach((recipe) => {
+        event.shaped(recipe.get, ["AAA", "AAA", "AAA"], { A: recipe.put });
+        event.shapeless(Item.of(recipe.put, 9), [recipe.get]);
+    });
 
     //Create Mesh from ExNihilo
     event.shaped("anoxia:create_string_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:string_mesh" });

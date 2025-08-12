@@ -47,7 +47,9 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //#region Gear
+    //// # =================================================================================================== #
+
+    //#region Func Gear
     function Gear({ get, put, rsflux, liquid }) {
         //Create
         event.custom({
@@ -74,6 +76,8 @@ ServerEvents.recipes((event) => {
         });
     }
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Gear
     const GearPattern = [
@@ -125,26 +129,25 @@ ServerEvents.recipes((event) => {
         //Avaritia
         { get: "avaritia:neutron_gear", put: "forge:ingots/neutron", rsflux: 150000 },
     ];
-    function GearRecipes({ get, put, rsflux }) {
+    GearPattern.forEach((recipe) => {
         //Remove
-        event.remove({ output: get });
+        event.remove({ output: recipe.get });
 
-        if (put === "forge:ingots/neutron") {
+        if (recipe.put === "forge:ingots/neutron") {
             //Thermal => Neutrons
             event.custom({
                 type: "thermal:press",
-                ingredients: [{ tag: put, count: 4 }, { item: "thermal:press_gear_die" }],
-                result: [{ item: get }],
-                energy: rsflux,
+                ingredients: [{ tag: recipe.put, count: 4 }, { item: "thermal:press_gear_die" }],
+                result: [{ item: recipe.get }],
+                energy: recipe.rsflux,
             });
-        }
-
-        if (put.startsWith("forge:gems/")) {
-            Gear({ get: get, put: put, rsflux: rsflux, liquid: "minecraft:water" });
         } else {
-            Gear({ get: get, put: put, rsflux: rsflux, liquid: "minecraft:lava" });
+            if (recipe.put.startsWith("forge:gems/")) {
+                Gear({ get: recipe.get, put: recipe.put, rsflux: recipe.rsflux, liquid: "minecraft:water" });
+            } else {
+                Gear({ get: recipe.get, put: recipe.put, rsflux: recipe.rsflux, liquid: "minecraft:lava" });
+            }
         }
-    }
-    GearPattern.forEach(GearRecipes);
+    });
     //#endregion
 });

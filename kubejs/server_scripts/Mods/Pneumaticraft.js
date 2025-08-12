@@ -75,27 +75,25 @@ ServerEvents.recipes((event) => {
             bar: 1.5,
         },
     ];
-    function ChamberRecipes({ get, put, bar }) {
+    ChamberPattern.forEach((recipe) => {
         event.custom({
             type: "pneumaticcraft:pressure_chamber",
-            inputs: put,
-            pressure: bar,
-            results: get,
+            inputs: recipe.put,
+            results: recipe.get,
+            pressure: recipe.bar,
         });
-    }
-    ChamberPattern.forEach(ChamberRecipes);
+    });
     //#endregion
 
     //#region Explosion
-    const ExplosionPattern = [];
-    function ExplosionRecipes({ get, put, lost }) {
+    /*     const ExplosionPattern = [];
+    ExplosionPattern.forEach((recipe) => {
         event.custom({
             type: "pneumaticcraft:explosion_crafting",
-            input: put,
-            loss_rate: lost,
-            results: get,
+            input: recipe.put,
+            loss_rate: recipe.lost,
+            results: recipe.get,
         });
-    }
-    //ExplosionPattern.forEach(ExplosionRecipes);
+    }); */
     //#endregion
 });

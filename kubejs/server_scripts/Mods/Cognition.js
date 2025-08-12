@@ -16,7 +16,7 @@ ServerEvents.recipes((event) => {
 
     //#region Metamorpher
     event.remove({ id: "experienceobelisk:metamorpher/cognitive_alloy_metamorphosis" });
-    const Metamorpher = [
+    const MolecularMetamorphoerPattern = [
         {
             get: { item: "experienceobelisk:cognitive_alloy", count: 1 },
             put1: { item: "experienceobelisk:cognitive_flux" },
@@ -27,19 +27,19 @@ ServerEvents.recipes((event) => {
             n3: 0,
         },
     ];
-    Metamorpher.forEach((machine) => {
+    MolecularMetamorphoerPattern.forEach((recipe) => {
         event.custom({
             type: "experienceobelisk:molecular_metamorphosis",
-            ingredient1: machine.put1,
-            count1: machine.n1,
-            ingredient2: machine.put2,
-            count2: machine.n2,
-            ingredient3: machine.put3,
-            count3: machine.n3,
-            result: machine.get,
+            ingredient1: recipe.put1,
+            count1: recipe.n1,
+            ingredient2: recipe.put2,
+            count2: recipe.n2,
+            ingredient3: recipe.put3,
+            count3: recipe.n3,
+            result: recipe.get,
             cost: 32,
             processTime: 40,
         });
-    })
+    });
     //#endregion
 });

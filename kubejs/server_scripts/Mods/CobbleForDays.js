@@ -7,10 +7,9 @@ ServerEvents.recipes((event) => {
         { get: "cobblefordays:tier_4", frame: "#forge:storage_blocks/gold", upgrade: "cobblefordays:tier_3" },
         { get: "cobblefordays:tier_5", frame: "#forge:storage_blocks/diamond", upgrade: "cobblefordays:tier_4" },
     ];
-    function CobbleGenRecipes({ get, frame, upgrade }) {
-        event.remove({ output: get });
-        event.shaped(get, ["AAA", "CBD", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
-        event.shaped(get, ["AAA", "DBC", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
-    }
-    //CobbleGenPattern.forEach(CobbleGenRecipes);
+    CobbleGenPattern.forEach((recipe) => {
+        event.remove({ output: recipe.get });
+        event.shaped(recipe.get, ["AAA", "CBD", "AAA"], { A: recipe.frame, B: recipe.upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
+        event.shaped(recipe.get, ["AAA", "DBC", "AAA"], { A: recipe.frame, B: recipe.upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
+    });
 });

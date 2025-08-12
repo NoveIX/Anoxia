@@ -53,15 +53,14 @@ ServerEvents.recipes((event) => {
             rsflux: 5000,
         },
     ];
-    function PressRecipes({ get, put, rsflux }) {
+    PressPattern.forEach((recipe) => {
         event.custom({
             type: "thermal:press",
-            ingredients: put,
-            result: get,
-            energy: rsflux,
+            ingredients: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
         });
-    }
-    PressPattern.forEach(PressRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #
@@ -77,15 +76,14 @@ ServerEvents.recipes((event) => {
             rsflux: 1000,
         },
     ];
-    function PulverizerRecipes({ get, put, rsflux }) {
+    PulverizerPattern.forEach((recipe) => {
         event.custom({
             type: "thermal:pulverizer",
-            ingredient: put,
-            result: get,
-            energy: rsflux,
+            ingredient: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
         });
-    }
-    PulverizerPattern.forEach(PulverizerRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #
@@ -104,16 +102,15 @@ ServerEvents.recipes((event) => {
             state: [{ tag: "forge:tools/diamond", type: "cofh_core:tag_exists" }],
         },
     ];
-    function PulverizerRecycleRecipes({ get, put, state }) {
+    PulverizerRecyclePattern.forEach((recipe) => {
         event.custom({
             type: "thermal:pulverizer_recycle",
-            ingredient: put,
-            result: get,
+            ingredient: recipe.put,
+            result: recipe.get,
             experience: 0.5,
-            conditions: state,
+            conditions: recipe.state,
         });
-    }
-    PulverizerRecyclePattern.forEach(PulverizerRecycleRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #
@@ -132,15 +129,14 @@ ServerEvents.recipes((event) => {
             put: { item: "minecraft:coal" },
         },
     ];
-    function PyrolyzerRecipes({ get, put }) {
+    PyrolyzerPattern.forEach((recipe) => {
         event.custom({
             type: "thermal:pyrolyzer",
-            ingredient: put,
-            result: get,
+            ingredient: recipe.put,
+            result: recipe.get,
             experience: 0.15,
         });
-    }
-    PyrolyzerPattern.forEach(PyrolyzerRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #
@@ -176,14 +172,13 @@ ServerEvents.recipes((event) => {
             rsflux: 32000,
         },
     ];
-    function SmelterRecipes({ get, put, rsflux }) {
+    SmelterPattern.forEach((recipe) => {
         event.custom({
             type: "thermal:smelter",
-            ingredients: put,
-            result: get,
-            energy: rsflux,
+            ingredients: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
         });
-    }
-    SmelterPattern.forEach(SmelterRecipes);
+    });
     //#endregion
 });

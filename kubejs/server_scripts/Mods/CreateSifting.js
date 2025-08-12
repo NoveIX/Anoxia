@@ -416,11 +416,11 @@ ServerEvents.recipes((event) => {
         },
         //#endregion
     ];
-    Sifting.forEach((machine) => {
+    Sifting.forEach((recipe) => {
         event.custom({
             type: "createsifter:sifting",
-            ingredients: [{ item: machine.tier }, machine.put],
-            results: machine.get,
+            ingredients: [{ item: recipe.tier }, recipe.put],
+            results: recipe.get,
             waterlogged: false,
             processingTime: 500,
             minimumSpeed: 0,
