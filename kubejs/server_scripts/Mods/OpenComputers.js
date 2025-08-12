@@ -1,6 +1,7 @@
 ServerEvents.recipes((event) => {
     //Remove Recipes
     event.remove({ id: "oc2r:silicon" }); //Smelting: SiliconBlend => Silicon
+    event.remove({ id: "enderio:smelting/oc2r/silicon" }); //Alloy: SiliconBlend => Silicon
 
     //Transistor
     event.remove({ output: "oc2r:transistor" });

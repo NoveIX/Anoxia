@@ -16,7 +16,9 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Empowering
-    const EmpoweringPattern = [
+    event.remove({ output: "enderio:double_layer_capacitor" });
+    event.remove({ output: "enderio:octadic_capacitor" });
+    const Empowering = [
         {
             get: { item: "enderio:double_layer_capacitor" },
             put: { tag: "forge:dusts/coal" },
@@ -34,17 +36,16 @@ ServerEvents.recipes((event) => {
             sec: 900,
         },
     ];
-    function EmpoweringRecipes({ get, put, extra, rsflux, color, sec }) {
+    Empowering.forEach((machine) => {
         event.custom({
             type: "actuallyadditions:empowering",
-            base: put,
-            color: color,
-            energy: rsflux,
-            modifiers: extra,
-            result: get,
-            time: sec,
+            base: machine.put,
+            color: machine.color,
+            energy: machine.rsflux,
+            modifiers: machine.extra,
+            result: machine.get,
+            time: machine.sec,
         });
-    }
-    EmpoweringPattern.forEach(EmpoweringRecipes);
+    });
     //#endregion
 });

@@ -10,7 +10,7 @@ ServerEvents.recipes((event) => {
 
     //Gold Spool
     event.remove({ output: "createaddition:gold_spool" });
-    event.shaped("createaddition:gold_spool", ["AAA", "ASA", "AAA"], { A: "#forge:wires/gold", B: "createaddition:spool" });
+    event.shaped("createaddition:gold_spool", ["AAA", "ABA", "AAA"], { A: "#forge:wires/gold", B: "createaddition:spool" });
 
     //Electrum Spool
     event.remove({ output: "createaddition:electrum_spool" });

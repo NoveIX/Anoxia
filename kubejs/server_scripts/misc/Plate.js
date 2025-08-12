@@ -225,7 +225,14 @@ ServerEvents.recipes((event) => {
 
         //Crafting
         event.shapeless(get, [`#${put}`, `#${put}`, "immersiveengineering:hammer"]);
-        event.shapeless(get, [`#${put}`, `#${put}`, "ad_astra:hammer"]);
+        event.custom({
+            type: "ad_astra:hammering",
+            ingredients: [{ tag: put }, { tag: put }, { item: "ad_astra:hammer" }],
+            result: {
+                item: get,
+                count: 1,
+            },
+        });
 
         //Create
         event.custom({

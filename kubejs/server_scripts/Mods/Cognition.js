@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //Cognitive Alloy
     event.remove({ id: "experienceobelisk:cognitive_alloy" });
     event.shapeless("experienceobelisk:cognitive_alloy", [
         "#forge:ingots/copper",
@@ -15,7 +16,7 @@ ServerEvents.recipes((event) => {
 
     //#region Metamorpher
     event.remove({ id: "experienceobelisk:metamorpher/cognitive_alloy_metamorphosis" });
-    const MetamorpherPattern = [
+    const Metamorpher = [
         {
             get: { item: "experienceobelisk:cognitive_alloy", count: 1 },
             put1: { item: "experienceobelisk:cognitive_flux" },
@@ -26,20 +27,19 @@ ServerEvents.recipes((event) => {
             n3: 0,
         },
     ];
-    function MetamorpherRecipes({ get, put1, n1, put2, n2, put3, n3 }) {
+    Metamorpher.forEach((machine) => {
         event.custom({
             type: "experienceobelisk:molecular_metamorphosis",
-            ingredient1: put1,
-            count1: n1,
-            ingredient2: put2,
-            count2: n2,
-            ingredient3: put3,
-            count3: n3,
-            result: get,
+            ingredient1: machine.put1,
+            count1: machine.n1,
+            ingredient2: machine.put2,
+            count2: machine.n2,
+            ingredient3: machine.put3,
+            count3: machine.n3,
+            result: machine.get,
             cost: 32,
             processTime: 40,
         });
-    }
-    MetamorpherPattern.forEach(MetamorpherRecipes);
+    })
     //#endregion
 });

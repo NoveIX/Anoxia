@@ -1,17 +1,13 @@
 ServerEvents.recipes((event) => {
-    //Aethersteel Mesh
-    event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
-    event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
-
-    //Among US
+    //Amongus
     event.shaped("anoxia:amongus", ["BBB", "BAB", "BBB"], { A: "minecraft:rotten_flesh", B: "minecraft:red_wool" });
 
     //Tiny Charcoal
-    event.shapeless(Item.of("anoxia:tiny_charcoal", 8), ["minecraft:charcoal"]);
+    event.shapeless(Item.of("anoxia:tiny_charcoal", 8), "minecraft:charcoal");
     event.shapeless("minecraft:charcoal", Item.of("anoxia:tiny_charcoal", 8)); //Reverse
 
     //Tiny Coal
-    event.shapeless(Item.of("anoxia:tiny_coal", 8), ["minecraft:coal"]);
+    event.shapeless(Item.of("anoxia:tiny_coal", 8), "minecraft:coal");
     event.shapeless("minecraft:coal", Item.of("anoxia:tiny_coal", 8)); //Reverse
 
     //Raw Osmium
@@ -39,16 +35,21 @@ ServerEvents.recipes((event) => {
     }
     CompressPattern.forEach(CompressRecipes);
 
-    //Create Mesh
-    const MeshPattern = [
-        { get: "anoxia:create_string_mesh", map: ["AAA", "ABA", "AAA"], put: { A: "#forge:string", B: "supplementaries:timber_frame" } },
-        { get: "anoxia:create_flint_mesh", map: ["AAA", "ABA", "AAA"], put: { A: "minecraft:flint", B: "anoxia:create_string_mesh" } },
-        { get: "anoxia:create_iron_mesh", map: ["AAA", "ABA", "AAA"], put: { A: "#forge:ingots/iron", B: "anoxia:create_flint_mesh" } },
-        { get: "anoxia:create_diamond_mesh", map: ["AAA", "ABA", "AAA"], put: { A: "#forge:gems/diamond", B: "anoxia:create_iron_mesh" } },
-        { get: "anoxia:create_emerald_mesh", map: ["AAA", "ABA", "AAA"], put: { A: "#forge:gems/emerald", B: "anoxia:create_diamond_mesh" } },
-    ];
-    function MeshRecipes({ get, map, put }) {
-        event.shaped(get, map, put);
-    }
-    MeshPattern.forEach(MeshRecipes);
+    //Create Mesh from ExNihilo
+    event.shaped("anoxia:create_string_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:string_mesh" });
+    event.shaped("anoxia:create_flint_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:flint_mesh" });
+    event.shaped("anoxia:create_iron_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:iron_mesh" });
+    event.shaped("anoxia:create_diamond_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:diamond_mesh" });
+    event.shaped("anoxia:create_emerald_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:emerald_mesh" });
+    event.shaped("anoxia:create_netherite_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:netherite_mesh" });
+
+    //Upgrade Mesh
+    event.shapeless("anoxia:create_flint_mesh", ["minecraft:flint", "exnihilosequentia:flint_mesh"]);
+    event.shapeless("anoxia:create_iron_mesh", ["#forge:ingots/iron", "anoxia:create_flint_mesh"]);
+    event.shapeless("anoxia:create_diamond_mesh", ["#forge:gems/diamond", "anoxia:create_iron_mesh"]);
+    event.shapeless("anoxia:create_emerald_mesh", ["#forge:gems/emerald", "anoxia:create_diamond_mesh"]);
+
+    //Aethersteel Mesh
+    event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
+    event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
 });

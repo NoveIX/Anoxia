@@ -7,8 +7,16 @@ ServerEvents.recipes((event) => {
     event.remove({ type: "exnihilosequentia:heat" });
     const HeatPattern = [
         { under: "minecraft:lava", multi: 3 },
+        { under: "minecraft:furnace", multi: 3, heat: "true" },
+        { under: "cobblefordays:tier_1", multi: 3 },
+        { under: "cobblefordays:tier_2", multi: 4 },
+        { under: "cobblefordays:tier_3", multi: 5 },
+        { under: "cobblefordays:tier_4", multi: 6 },
+        { under: "cobblefordays:tier_5", multi: 7 },
         { under: "minecraft:fire", multi: 4 },
+        { under: "minecraft:campfire", multi: 4, heat: "true" },
         { under: "minecraft:soul_fire", multi: 4 },
+        { under: "minecraft:soul_campfire", multi: 4, heat: "true" },
         { under: "minecraft:magma_block", multi: 4 },
         { under: "botania:blaze_quartz", multi: 10 },
         { under: "botania:blaze_block", multi: 20 },
@@ -21,88 +29,28 @@ ServerEvents.recipes((event) => {
         { under: "bigreactors:insanite_block", multi: 80 },
         { under: "avaritia:infinity", multi: 1000 },
     ];
-    function HeatRecipes({ under, multi }) {
-        event.custom({
-            type: "exnihilosequentia:heat",
-            amount: multi,
-            block: under,
-        });
-    }
-    HeatPattern.forEach(HeatRecipes);
+    HeatPattern.forEach((machine) => {
+        if (machine.heat === "true") {
+            event.custom({
+                type: "exnihilosequentia:heat",
+                amount: machine.multi,
+                block: machine.under,
+                state: { lit: "true" },
+            });
+        } else {
+            event.custom({
+                type: "exnihilosequentia:heat",
+                amount: machine.multi,
+                block: machine.under,
+            });
+        }
+    });
     //#endregion
-
-    //#region Heat
-    const HeatLitPattern = [
-        { under: "minecraft:furnace", multi: 3 },
-        { under: "minecraft:campfire", multi: 4 },
-        { under: "minecraft:soul_campfire", multi: 4 },
-    ];
-    function HeatLitRecipes({ under, multi }) {
-        event.custom({
-            type: "exnihilosequentia:heat",
-            amount: multi,
-            block: under,
-            state: { lit: "true" },
-        });
-    }
-    HeatLitPattern.forEach(HeatLitRecipes);
 
     //#region Sieve
     event.remove({ type: "exnihilosequentia:sifting" });
-    const DropPattern = [
-        //Stone
-        {
-            get: { item: "exnihilosequentia:basalt_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:andesite_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:blackstone_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:calcite_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:deepslate_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:diorite_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:dripstone_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:granite_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:stone_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-        {
-            get: { item: "exnihilosequentia:tuff_pebble" },
-            put: { item: "minecraft:stone" },
-            drop: [{ chance: 0.2, mesh: "flint" }],
-        },
-
-        //Gravel
+    const Sieve = [
+        //#region Gravel drop
         {
             get: { item: "minecraft:flint" },
             put: { item: "minecraft:gravel" },
@@ -143,9 +91,9 @@ ServerEvents.recipes((event) => {
             put: { item: "minecraft:gravel" },
             drop: [
                 { chance: 0.008, mesh: "iron" },
-                { chance: 0.016, mesh: "diamond" },
-                { chance: 0.02, mesh: "emerald" },
-                { chance: 0.024, mesh: "netherite" },
+                { chance: 0.012, mesh: "diamond" },
+                { chance: 0.016, mesh: "emerald" },
+                { chance: 0.02, mesh: "netherite" },
             ],
         },
         {
@@ -153,9 +101,9 @@ ServerEvents.recipes((event) => {
             put: { item: "minecraft:gravel" },
             drop: [
                 { chance: 0.008, mesh: "iron" },
-                { chance: 0.016, mesh: "diamond" },
-                { chance: 0.02, mesh: "emerald" },
-                { chance: 0.024, mesh: "netherite" },
+                { chance: 0.012, mesh: "diamond" },
+                { chance: 0.016, mesh: "emerald" },
+                { chance: 0.02, mesh: "netherite" },
             ],
         },
         {
@@ -167,8 +115,6 @@ ServerEvents.recipes((event) => {
                 { chance: 0.06, mesh: "netherite" },
             ],
         },
-
-        //Gravel Metal Pieces
         {
             get: { item: "exnihilosequentia:iron_pieces" },
             put: { item: "minecraft:gravel" },
@@ -209,8 +155,9 @@ ServerEvents.recipes((event) => {
                 { chance: 0.12, mesh: "netherite" },
             ],
         },
+        //#endregion
 
-        //Sand
+        //#region Sand drop
         {
             get: { item: "minecraft:cocoa_beans" },
             put: { item: "minecraft:sand" },
@@ -248,8 +195,6 @@ ServerEvents.recipes((event) => {
                 { chance: 0.21, mesh: "netherite" },
             ],
         },
-
-        //Sand Metal Pieces
         {
             get: { item: "exnihilosequentia:copper_pieces" },
             put: { item: "minecraft:sand" },
@@ -290,8 +235,9 @@ ServerEvents.recipes((event) => {
                 { chance: 0.12, mesh: "netherite" },
             ],
         },
+        //#endregion
 
-        //Dust
+        //#region Dust drop
         {
             get: { item: "minecraft:bone_meal" },
             put: { item: "exnihilosequentia:dust" },
@@ -369,8 +315,6 @@ ServerEvents.recipes((event) => {
                 { chance: 0.11, mesh: "netherite" },
             ],
         },
-
-        //Dust Metal Pieces
         {
             get: { item: "exnihilosequentia:gold_pieces" },
             put: { item: "exnihilosequentia:dust" },
@@ -411,8 +355,110 @@ ServerEvents.recipes((event) => {
                 { chance: 0.12, mesh: "netherite" },
             ],
         },
+        //#endregion
 
-        //Dirt
+        //#region Netherrack drop
+        {
+            get: { item: "minecraft:ancient_debris" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [{ chance: 0.008, mesh: "emerald" }],
+        },
+        {
+            get: { item: "minecraft:ancient_debris" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [{ chance: 0.016, mesh: "netherite" }],
+        },
+        //#endregion
+
+        //#region Endstone drop
+        {
+            get: { item: "minecraft:ender_pearl" },
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            drop: [
+                { chance: 0.01, mesh: "emerald" },
+                { chance: 0.02, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "minecraft:ender_eye" },
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            drop: [
+                { chance: 0.001, mesh: "emerald" },
+                { chance: 0.002, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "minecraft:chorus_fruit" },
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            drop: [
+                { chance: 0.01, mesh: "emerald" },
+                { chance: 0.02, mesh: "netherite" },
+            ],
+        },
+        //#endregion
+
+        //#region Aetherslate drop
+        {
+            get: { item: "aethersteel:aether_debris" },
+            put: { item: "aethersteel:cobbled_aetherslate" },
+            drop: [{ chance: 0.008, mesh: "netherite" }],
+        },
+        //#endregion
+
+        //#region Stone drop
+        {
+            get: { item: "exnihilosequentia:basalt_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:andesite_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:blackstone_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:calcite_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:deepslate_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:diorite_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:dripstone_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:granite_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:stone_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        {
+            get: { item: "exnihilosequentia:tuff_pebble" },
+            put: { item: "minecraft:stone" },
+            drop: [{ chance: 0.2, mesh: "flint" }],
+        },
+        //#endregion
+
+        //#region Dirt drop
         {
             get: { item: "minecraft:wheat_seeds" },
             put: { item: "exnihilosequentia:dust" },
@@ -493,46 +539,9 @@ ServerEvents.recipes((event) => {
             put: { item: "exnihilosequentia:dust" },
             drop: [{ chance: 0.1, mesh: "string" }],
         },
+        //#endregion
 
-        //Netherrack
-        {
-            get: { item: "minecraft:ancient_debris" },
-            put: { item: "exnihilosequentia:crushed_netherrack" },
-            drop: [{ chance: 0.008, mesh: "emerald" }],
-        },
-        {
-            get: { item: "minecraft:ancient_debris" },
-            put: { item: "exnihilosequentia:crushed_netherrack" },
-            drop: [{ chance: 0.016, mesh: "netherite" }],
-        },
-
-        //Endstone
-        {
-            get: { item: "minecraft:ender_pearl" },
-            put: { item: "exnihilosequentia:crushed_end_stone" },
-            drop: [
-                { chance: 0.01, mesh: "emerald" },
-                { chance: 0.02, mesh: "netherite" },
-            ],
-        },
-        {
-            get: { item: "minecraft:ender_eye" },
-            put: { item: "exnihilosequentia:crushed_end_stone" },
-            drop: [
-                { chance: 0.001, mesh: "emerald" },
-                { chance: 0.002, mesh: "netherite" },
-            ],
-        },
-        {
-            get: { item: "minecraft:chorus_fruit" },
-            put: { item: "exnihilosequentia:crushed_end_stone" },
-            drop: [
-                { chance: 0.01, mesh: "emerald" },
-                { chance: 0.02, mesh: "netherite" },
-            ],
-        },
-
-        //Leaves
+        //#region Leaves drop
         {
             get: { item: "exnihilosequentia:silkworm" },
             put: { tag: "minecraft:leaves" },
@@ -583,19 +592,16 @@ ServerEvents.recipes((event) => {
             put: { tag: "minecraft:leaves" },
             drop: [{ chance: 0.1, mesh: "string" }],
         },
-
-        //Aetherslate
-        { get: { item: "aethersteel:aether_debris" }, put: { item: "aethersteel:cobbled_aetherslate" }, drop: [{ chance: 0.008, mesh: "netherite" }] },
+        //#endregion
     ];
-    function SieveRecipes({ get, put, drop }) {
+    Sieve.forEach((machine) => {
         event.custom({
             type: "exnihilosequentia:sifting",
-            input: put,
-            result: get,
-            rolls: drop,
+            input: machine.put,
+            result: machine.get,
+            rolls: machine.drop,
         });
-    }
-    DropPattern.forEach(SieveRecipes);
+    });
     //#endregion
 
     //#region Crusher

@@ -1,11 +1,8 @@
 ServerEvents.recipes((event) => {
     //#region Recipes
-    //Remove Recipes
-    event.remove({ id: "create:crafting/appliances/dough" }); //Crafting: Flour + Water => Dough
-
     //Andesite Alloy
     event.remove({ output: "create:andesite_alloy" });
-    event.shaped("create:andesite_alloy", ["BA", "AB"], { A: "minecraft:polished_andesite", B: "#forge:ingots/platinum" });
+    event.shaped("create:andesite_alloy", ["BA", "AB"], { A: "minecraft:polished_andesite", B: "#forge:ingots/lead" });
     event.shaped(Item.of("create:andesite_alloy", 9), ["A"], { A: "create:andesite_alloy_block" }); //Reverse
 
     //Millstone
@@ -81,15 +78,14 @@ ServerEvents.recipes((event) => {
         { get: [{ item: "thermal:ruby_dust" }], put: [{ tag: "forge:gems/ruby" }] },
         { get: [{ item: "thermal:sapphire_dust" }], put: [{ tag: "forge:gems/sapphire" }] },
     ];
-    function MillstoneRecipes({ get, put }) {
+    MillStonePattern.forEach((machine) => {
         event.custom({
             type: "create:milling",
-            ingredients: put,
+            ingredients: machine.put,
+            results: machine.get,
             processingTime: 200,
-            results: get,
         });
-    }
-    //MillStonePattern.forEach(MillstoneRecipes);
+    });
     //#endregion
 
     //// # =================================================================================================== #

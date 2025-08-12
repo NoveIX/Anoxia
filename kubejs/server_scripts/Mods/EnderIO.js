@@ -1,11 +1,4 @@
 ServerEvents.recipes((event) => {
-    //Remove Recipes
-    event.remove({ id: "enderio:smelting/oc2r/silicon" }); //Alloy: SiliconBlend => Silicon
-
-    //Remove
-    event.remove({ output: "enderio:double_layer_capacitor" });
-    event.remove({ output: "enderio:octadic_capacitor" });
-
     //Basic Capacitor
     event.remove({ output: "enderio:basic_capacitor" });
     event.shaped("enderio:basic_capacitor", [" GL", "GCG", "LG "], { G: "#forge:nuggets/gold", L: "powah:capacitor_basic_large", C: "#forge:ingots/copper" });

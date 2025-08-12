@@ -1,4 +1,9 @@
 ServerEvents.recipes((event) => {
+    //Remove Compressed Cobblestone
+    event.remove({ id: "cyclic:compressed_cobblestone" }); //Crafting: Cobblestone => CompressedCobblestone
+    event.remove({ id: "cyclic:compressed_cobblestone_u" }); //Crafting: CompressedCobblestone => Cobblestone
+    event.remove({ id: "cyclic:compat/sturdy_stone" }); //Crafting: Stone + Cobblestone =>
+
     //Wood Hopper
     event.remove({ output: "cyclic:hopper" });
     event.shaped("cyclic:hopper", ["S S", "SHS", " S "], { S: "#minecraft:wooden_slabs", H: "minecraft:hopper" });

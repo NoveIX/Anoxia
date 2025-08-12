@@ -1,11 +1,8 @@
 ServerEvents.recipes((event) => {
-    //#region BotanyPots Machine
     //event.remove({ mod: "botanypots" });
-    const BotanySoil = "botanypots:soil";
-    const BotanyCrop = "botanypots:crop";
-    //#endregion
+    event.remove({ type: "botanypots:soil" });
 
-    //========================================================================================================================================
+    //// # =================================================================================================== #
 
     //#region Definition Soil
     //Propriety
@@ -609,8 +606,6 @@ ServerEvents.recipes((event) => {
     //========================================================================================================================================
 
     //#region Recipes Soil
-    event.remove({ type: BotanySoil });
-
     //Soil Type
     const SoilPattern = [
         { type: GrassSoil, category: ["grass", "dirt", "stone", "mushroom", "soul_sand", "Soil"], multiplier: 0.8 },
@@ -776,7 +771,7 @@ ServerEvents.recipes((event) => {
         //{ seed: NitroSeed, essence: NitroEssence, crop: NitroCrop, tier: T6Soil, growth: T6GrowthTicks },
     ];
     function MysticalRecipe({ seed, essence, crop, tier, growth }) {
-        event.remove({ input: seed, type: BotanyCrop });
+        event.remove({ input: seed, type: "botanypots:crop" });
         const drops = [Item.of(essence).withChance(1).withRolls(1), Item.of(seed).withChance(0.01).withRolls(1), Item.of(FertilizedEssence).withChance(0.1).withRolls(1)];
         event.recipes.botanypots.crop(seed, tier, { block: crop }, drops, growth, GrowthMod);
     }
@@ -879,7 +874,7 @@ ServerEvents.recipes((event) => {
         }
 
         // Create recipes
-        event.remove({ input: sapling, type: BotanyCrop });
+        event.remove({ input: sapling, type: "botanypots:crop" });
         event.recipes.botanypots.crop(sapling, AllNotMagicalSoil, { block: sapling }, drops, TreeTicks, GrowthMod);
     }
     TreesPattern.forEach(TreeRecipes);

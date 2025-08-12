@@ -17,17 +17,17 @@ const Blaze = "minecraft:blaze";
 const WitherSkeleton = "minecraft:wither_skeleton";
 
 EntityJSEvents.biomeSpawns((event) => {
-    event.addSpawn(Zombie, [Moon1], 100, 3, 7);
-    event.addSpawn(Skeleton, [Moon1], 100, 3, 7);
+    event.addSpawn(Zombie, [Moon1], 100, 3, 6);
+    event.addSpawn(Skeleton, [Moon1], 100, 3, 6);
     event.addSpawn(WitherSkeleton, [Moon1], 10, 2, 3);
-    event.addSpawn(Zombie, [Mars1], 100, 3, 7);
-    event.addSpawn(Skeleton, [Mars1], 100, 3, 7);
+    event.addSpawn(Zombie, [Mars1], 100, 3, 6);
+    event.addSpawn(Skeleton, [Mars1], 100, 3, 6);
     event.addSpawn(WitherSkeleton, [Mars1], 10, 2, 3);
-    event.addSpawn(Zombie, [Mars2], 100, 3, 7);
-    event.addSpawn(Skeleton, [Mars2], 100, 3, 7);
+    event.addSpawn(Zombie, [Mars2], 100, 3, 6);
+    event.addSpawn(Skeleton, [Mars2], 100, 3, 6);
     event.addSpawn(WitherSkeleton, [Mars2], 10, 2, 3);
-    event.addSpawn(Zombie, [Mars3], 100, 3, 7);
-    event.addSpawn(Skeleton, [Mars3], 100, 3, 7);
+    event.addSpawn(Zombie, [Mars3], 100, 3, 6);
+    event.addSpawn(Skeleton, [Mars3], 100, 3, 6);
     event.addSpawn(WitherSkeleton, [Mars3], 10, 2, 3);
     //Heat
     //event.addSpawn(MagmaCube, [IsVenus], 10, 2, 3);

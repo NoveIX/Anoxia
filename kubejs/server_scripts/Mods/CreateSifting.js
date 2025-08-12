@@ -1,30 +1,12 @@
 ServerEvents.recipes((event) => {
     //Sifter
     event.remove({ output: "createsifter:sifter" });
-    event.shaped("createsifter:sifter", ["PSP", "KCK", "ADA"], { P: "#minecraft:planks", S: "exnihilosequentia:sieves", K: "#forge:rods/wooden", C: "create:large_cogwheel", A: "create:andesite_casing", D: "anoxiapressed_andesite" });
+    event.shaped("createsifter:sifter", ["ABA", "CDC", "EEE"], { A: "#minecraft:planks", B: "#exnihilosequentia:sieves", C: "#forge:rods/wooden", D: "create:large_cogwheel", E: "anoxia:compressed_andesite" });
 
-    //#region Sifting
+    ////Sifting
     event.remove({ type: "createsifter:sifting" });
-    const DropPattern = [
-        //Stone
-        {
-            tier: "anoxia:create_flint_mesh",
-            put: { item: "minecraft:stone" },
-            get: [
-                { item: "exnihilosequentia:basalt_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:andesite_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:blackstone_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:calcite_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:deepslate_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:diorite_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:dripstone_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:granite_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:granite_pebble", chance: 0.2 },
-                { item: "exnihilosequentia:tuff_pebble", chance: 0.2 },
-            ],
-        },
-
-        //Gravel
+    const Sifting = [
+        //#region Gravel drop
         {
             tier: "anoxia:create_string_mesh",
             put: { item: "minecraft:gravel" },
@@ -64,8 +46,8 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:flint", chance: 0.24 },
                 { item: "minecraft:coal", chance: 0.2 },
                 { item: "minecraft:lapis_lazuli", chance: 0.12 },
-                { item: "minecraft:diamond", chance: 0.016 },
-                { item: "minecraft:emerald", chance: 0.016 },
+                { item: "minecraft:diamond", chance: 0.012 },
+                { item: "minecraft:emerald", chance: 0.012 },
                 { item: "minecraft:amethyst_shard", chance: 0.02 },
                 { item: "exnihilosequentia:iron_pieces", chance: 0.12 },
                 { item: "exnihilosequentia:lead_pieces", chance: 0.08 },
@@ -80,8 +62,8 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:flint", chance: 0.28 },
                 { item: "minecraft:coal", chance: 0.24 },
                 { item: "minecraft:lapis_lazuli", chance: 0.16 },
-                { item: "minecraft:diamond", chance: 0.02 },
-                { item: "minecraft:emerald", chance: 0.02 },
+                { item: "minecraft:diamond", chance: 0.016 },
+                { item: "minecraft:emerald", chance: 0.016 },
                 { item: "minecraft:amethyst_shard", chance: 0.04 },
                 { item: "exnihilosequentia:iron_pieces", chance: 0.16 },
                 { item: "exnihilosequentia:lead_pieces", chance: 0.12 },
@@ -90,14 +72,14 @@ ServerEvents.recipes((event) => {
             ],
         },
         {
-            tier: "anoxia:create_emerald_mesh",
+            tier: "anoxia:create_netherite_mesh",
             put: { item: "minecraft:gravel" },
             get: [
                 { item: "minecraft:flint", chance: 0.32 },
                 { item: "minecraft:coal", chance: 0.28 },
                 { item: "minecraft:lapis_lazuli", chance: 0.2 },
-                { item: "minecraft:diamond", chance: 0.024 },
-                { item: "minecraft:emerald", chance: 0.024 },
+                { item: "minecraft:diamond", chance: 0.02 },
+                { item: "minecraft:emerald", chance: 0.02 },
                 { item: "minecraft:amethyst_shard", chance: 0.06 },
                 { item: "exnihilosequentia:iron_pieces", chance: 0.2 },
                 { item: "exnihilosequentia:lead_pieces", chance: 0.16 },
@@ -112,8 +94,8 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:flint", chance: 0.36 },
                 { item: "minecraft:coal", chance: 0.32 },
                 { item: "minecraft:lapis_lazuli", chance: 0.24 },
-                { item: "minecraft:diamond", chance: 0.028 },
-                { item: "minecraft:emerald", chance: 0.028 },
+                { item: "minecraft:diamond", chance: 0.024 },
+                { item: "minecraft:emerald", chance: 0.024 },
                 { item: "minecraft:amethyst_shard", chance: 0.08 },
                 { item: "exnihilosequentia:iron_pieces", chance: 0.24 },
                 { item: "exnihilosequentia:lead_pieces", chance: 0.2 },
@@ -121,8 +103,9 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:platinum_pieces", chance: 0.16 },
             ],
         },
+        //#endregion
 
-        //Sand
+        //#region Sand drop
         {
             tier: "anoxia:create_string_mesh",
             put: { item: "minecraft:sand" },
@@ -177,7 +160,7 @@ ServerEvents.recipes((event) => {
             ],
         },
         {
-            tier: "anoxia:create_emerald_mesh",
+            tier: "anoxia:create_netherite_mesh",
             put: { item: "minecraft:sand" },
             get: [
                 { item: "ae2:certus_quartz_crystal", chance: 0.15 },
@@ -200,8 +183,9 @@ ServerEvents.recipes((event) => {
                 { item: "anoxia:osmium_pieces", chance: 0.16 },
             ],
         },
+        //#endregion
 
-        //Dust
+        //#region Dust drop
         {
             tier: "anoxia:create_string_mesh",
             put: { item: "exnihilosequentia:dust" },
@@ -273,7 +257,7 @@ ServerEvents.recipes((event) => {
             ],
         },
         {
-            tier: "anoxia:create_emerald_mesh",
+            tier: "anoxia:create_netherite_mesh",
             put: { item: "exnihilosequentia:dust" },
             get: [
                 { item: "minecraft:bone_meal", chance: 0.3 },
@@ -306,8 +290,89 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:uranium_pieces", chance: 0.16 },
             ],
         },
+        //#endregion
 
-        //Dirt
+        //#region Netherrack drop
+        {
+            tier: "anoxia:create_emerald_mesh",
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            get: [{ item: "minecraft:ancient_debris", chance: 0.008 }],
+        },
+        {
+            tier: "anoxia:create_netherite_mesh",
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            get: [{ item: "minecraft:ancient_debris", chance: 0.012 }],
+        },
+        {
+            tier: "anoxia:create_aethersteel_mesh",
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            get: [{ item: "minecraft:ancient_debris", chance: 0.016 }],
+        },
+        //#endregion
+
+        //#region Endstone drop
+        {
+            tier: "anoxia:create_emerald_mesh",
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            get: [
+                { item: "minecraft:ender_pearl", chance: 0.01 },
+                { item: "minecraft:ender_eye", chance: 0.001 },
+                { item: "minecraft:chorus_fruit", chance: 0.01 },
+            ],
+        },
+        {
+            tier: "anoxia:create_netherite_mesh",
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            get: [
+                { item: "minecraft:ender_pearl", chance: 0.02 },
+                { item: "minecraft:ender_eye", chance: 0.002 },
+                { item: "minecraft:chorus_fruit", chance: 0.02 },
+            ],
+        },
+        {
+            tier: "anoxia:create_aethersteel_mesh",
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            get: [
+                { item: "minecraft:ender_pearl", chance: 0.03 },
+                { item: "minecraft:ender_eye", chance: 0.003 },
+                { item: "minecraft:chorus_fruit", chance: 0.03 },
+            ],
+        },
+        //#endregion
+
+        //#region Aetherslate drop
+        {
+            tier: "anoxia:create_netherite_mesh",
+            put: { item: "aethersteel:cobbled_aetherslate" },
+            get: [{ item: "aethersteel:aether_debris", chance: 0.008 }],
+        },
+        {
+            tier: "anoxia:create_aethersteel_mesh",
+            put: { item: "aethersteel:cobbled_aetherslate" },
+            get: [{ item: "aethersteel:aether_debris", chance: 0.012 }],
+        },
+        //#endregion
+
+        //#region Stone drop
+        {
+            tier: "anoxia:create_flint_mesh",
+            put: { item: "minecraft:stone" },
+            get: [
+                { item: "exnihilosequentia:basalt_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:andesite_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:blackstone_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:calcite_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:deepslate_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:diorite_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:dripstone_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:granite_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:granite_pebble", chance: 0.2 },
+                { item: "exnihilosequentia:tuff_pebble", chance: 0.2 },
+            ],
+        },
+        //#endregion
+
+        //#region Dirt drop
         {
             tier: "anoxia:create_string_mesh",
             put: { item: "minecraft:dirt" },
@@ -330,54 +395,9 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:cherry_sapling", chance: 0.1 },
             ],
         },
+        //#endregion
 
-        //Netherrack
-        {
-            tier: "anoxia:create_emerald_mesh",
-            put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.008 }],
-        },
-        {
-            tier: "anoxia:create_emerald_mesh",
-            put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.016 }],
-        },
-        {
-            tier: "anoxia:create_aethersteel_mesh",
-            put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.024 }],
-        },
-
-        //Endstone
-        {
-            tier: "anoxia:create_emerald_mesh",
-            put: { item: "exnihilosequentia:crushed_end_stone" },
-            get: [
-                { item: "minecraft:ender_pearl", chance: 0.01 },
-                { item: "minecraft:ender_eye", chance: 0.001 },
-                { item: "minecraft:chorus_fruit", chance: 0.01 },
-            ],
-        },
-        {
-            tier: "anoxia:create_emerald_mesh",
-            put: { item: "exnihilosequentia:crushed_end_stone" },
-            get: [
-                { item: "minecraft:ender_pearl", chance: 0.02 },
-                { item: "minecraft:ender_eye", chance: 0.002 },
-                { item: "minecraft:chorus_fruit", chance: 0.02 },
-            ],
-        },
-        {
-            tier: "anoxia:create_aethersteel_mesh",
-            put: { item: "exnihilosequentia:crushed_end_stone" },
-            get: [
-                { item: "minecraft:ender_pearl", chance: 0.03 },
-                { item: "minecraft:ender_eye", chance: 0.003 },
-                { item: "minecraft:chorus_fruit", chance: 0.03 },
-            ],
-        },
-
-        //Leaves
+        //#region Leaves drop
         {
             tier: "anoxia:create_string_mesh",
             put: { tag: "minecraft:leaves" },
@@ -394,29 +414,17 @@ ServerEvents.recipes((event) => {
                 { item: "delightful:green_tea_leaf", chance: 0.1 },
             ],
         },
-
-        //Aetherslate
-        {
-            tier: "anoxia:create_aethersteel_mesh",
-            put: { item: "aethersteel:cobbled_aetherslate" },
-            get: [{ item: "aethersteel:aether_debris", chance: 0.016 }],
-        },
-        {
-            tier: "anoxia:create_emerald_mesh",
-            put: { item: "aethersteel:cobbled_aetherslate" },
-            get: [{ item: "aethersteel:aether_debris", chance: 0.008 }],
-        },
+        //#endregion
     ];
-    function SiftingRecipes({ get, put, tier }) {
+    Sifting.forEach((machine) => {
         event.custom({
             type: "createsifter:sifting",
-            ingredients: [{ item: tier }, put],
-            results: get,
+            ingredients: [{ item: machine.tier }, machine.put],
+            results: machine.get,
             waterlogged: false,
             processingTime: 500,
             minimumSpeed: 0,
         });
-    }
-    DropPattern.forEach(SiftingRecipes);
+    });
     //#endregion
 });

@@ -20,6 +20,9 @@ ServerEvents.tags("item", (event) => {
     event.add("anoxia:blastfurnaces", "nethersdelight:blackstone_blast_furnace");
     event.add("anoxia:smokers", "minecraft:smoker");
     event.add("anoxia:smokers", "nethersdelight:nether_brick_smoker");
+    event.add("forge:pebble/stone", "botania:pebble");
+    event.add("forge:pebble/stone", "exnihilosequentia:stone_pebble");
+    event.add("forge:pebble/stone", "twigs:pebble");
 
     //Forge
     event.add("forge:plastic", "pneumaticcraft:plastic");
@@ -28,9 +31,6 @@ ServerEvents.tags("item", (event) => {
     event.add("forge:flour/wheat", "pneumaticcraft:wheat_flour");
     event.add("forge:flour", "pneumaticcraft:wheat_flour");
     event.add("forge:dusts/flour", "create:wheat_flour");
-    event.add("forge:pebble/stone", "botania:pebble");
-    event.add("forge:pebble/stone", "exnihilosequentia:stone_pebble");
-    event.add("forge:pebble/stone", "twigs:pebble");
     event.add("forge:ores/uranium", "#forge:ores/uraninite");
     event.add("forge:raw_materials/uranium", "powah:uraninite_raw");
     event.add("forge:ingots", "redstone_arsenal:flux_ingot");

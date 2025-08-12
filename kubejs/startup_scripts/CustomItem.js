@@ -6,6 +6,7 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:osmium_pieces").displayName("Osmium Pieces");
     event.create("anoxia:modularium").displayName("Modularium");
     event.create("anoxia:amongus").displayName("Among Us");
+    event.create("anoxia:sugoma").displayName("Sugoma");
 
     //Create Sifter
     event.create("anoxia:create_string_mesh", "createsifter:mesh").displayName("String Mesh").parentModel("createsifter:block/meshes/mesh").texture("mesh", "anoxia:item/create_string_mesh");

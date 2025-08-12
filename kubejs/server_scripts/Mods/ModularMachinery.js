@@ -93,7 +93,7 @@ ServerEvents.recipes((event) => {
 
     const EnergyOutPort = [
         //Output
-        { get: "mm:tiny_energy_port_output", put: "moonbase:machine_casing" },
+        { get: "mm:tiny_energy_port_output", put: "anoxia:machine_casing" },
         { get: "mm:small_energy_port_output", put: "mm:tiny_energy_port_output" },
         { get: "mm:normal_energy_port_output", put: "mm:small_energy_port_output" },
         { get: "mm:reinforced_energy_port_output", put: "mm:normal_energy_port_output" },
@@ -108,82 +108,139 @@ ServerEvents.recipes((event) => {
     EnergyOutPort.forEach(EnergyOutPortRecipes);
 });
 
-//#region Modular Machine Structure
+//Modular Machine Structure
 MMEvents.createStructures((event) => {
-    //Autonomus Empowerer
+    //#region Empowerer
     event
         .create("mm:empowerer")
         .controllerId("mm:machine_controller")
         .name("Autonomus Empowerer")
-        .layout((a) => {
-            a.layer(["         ", "         ", "         ", "         ", "    O    ", "         ", "         ", "         ", "         "])
-                .layer(["         ", "         ", "         ", "         ", "    I    ", "         ", "         ", "         ", "         "])
-                .layer(["         ", "    I    ", "         ", "         ", " I  E  I ", "         ", "         ", "    I    ", "    C    "])
-                .layer(["    B    ", "   B1B   ", "   BAB   ", " BBBABBB ", "B1AA2AA1B", " BBBABBB ", "   BAB   ", "   B1B   ", "    B    "])
+        .layout((mech) => {
+            mech.layer(["         ", "         ", "         ", "         ", "    2    ", "         ", "         ", "         ", "         "])
+                .layer(["         ", "         ", "         ", "         ", "    1    ", "         ", "         ", "         ", "         "])
+                .layer(["         ", "    1    ", "         ", "         ", " 1  5  1 ", "         ", "         ", "    1    ", "    C    "])
+                .layer(["    B    ", "   BDB   ", "   BAB   ", " BBBABBB ", "BDAAEAADB", " BBBABBB ", "   BAB   ", "   BDB   ", "    B    "])
                 .layer(["    B    ", "   BBB   ", "    B    ", " B BBB B ", "BBBBBBBBB", " B BBB B ", "    B    ", "   BBB   ", "    B    "])
-                .key("B", { block: "moonbase:machine_casing" })
+                .key("B", { block: "anoxia:machine_casing" })
                 .key("A", { block: "mm:machine_circuit" })
-                .key("1", { block: "actuallyadditions:display_stand" })
-                .key("2", { block: "actuallyadditions:empowerer" })
+                .key("D", { block: "actuallyadditions:display_stand" })
+                .key("E", { block: "actuallyadditions:empowerer" })
 
                 //port
-                .key("I", { portType: "mm:item", input: true })
-                .key("E", { portType: "mm:energy", input: true })
-                .key("O", { portType: "mm:item", input: false });
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false })
+                .key("5", { portType: "mm:energy", input: true });
         });
+    //#endregion
 
-    //Artificial Portal
+    //#region Portal
     event
         .create("mm:portal")
         .controllerId("mm:machine_controller")
         .name("Artificial Portal")
-        .layout((a) => {
-            a.layer(["BBBBB"])
-                .layer(["BPPPB"])
-                .layer(["BPPPB"])
-                .layer(["BPPPB"])
-                .layer(["BICOB"])
-                .key("B", { block: "rechiseled:obsidian_dark_connecting" })
-                .key("P", { block: "connectedglass:borderless_glass_purple_pane" })
+        .layout((mech) => {
+            mech.layer(["AAAAA"])
+                .layer(["ABBBA"])
+                .layer(["ABBBA"])
+                .layer(["ABBBA"])
+                .layer(["A1C2A"])
+                .key("A", { block: "rechiseled:obsidian_dark_connecting" })
+                .key("B", { block: "connectedglass:borderless_glass_purple_pane" })
 
                 //Port
-                .key("I", { portType: "mm:item", input: true })
-                .key("O", { portType: "mm:item", input: false });
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false });
         });
+    //#endregion
 
-    //Pulse energizer
+    //#region Energizer
     event
         .create("mm:energizer")
         .controllerId("mm:machine_controller")
         .name("Pulse energizer")
-        .layout((a) => {
-            a.layer(["BBBBB", "BBVBB", "BVVVB", "BBVBB", "BBBBB"])
-                .layer(["BGGGB", "G D G", "GDDDG", "G D G", "BGGGB"])
-                .layer(["BGGGB", "G R G", "GRRRG", "G R G", "BGGGB"])
-                .layer(["BGGGB", "G   G", "G   G", "G   G", "BGGGB"])
-                .layer(["BGGGB", "G   G", "G 1 G", "G   G", "BGGGB"])
-                .layer(["BGEGB", "I   O", "G A G", "O   I", "BGCGB"])
-                .layer(["BVBVB", "VBABV", "BAAAB", "VBABV", "BVBVB"])
-                .key("B", { block: "moonbase:machine_casing" })
-                .key("A", { block: "mm:machine_circuit" })
-                .key("V", { block: "mm:machine_vent" })
-                .key("G", { block: "ae2:quartz_glass" })
-                .key("D", { block: "thermal:dynamo_magmatic" })
-                .key("R", { block: "powah:energizing_rod_nitro" })
-                .key("1", { block: "powah:energizing_orb" })
+        .layout((mech) => {
+            mech.layer(["AAAAA", "AADAA", "ADDDA", "AADAA", "AAAAA"])
+                .layer(["AEEEA", "E F E", "EFFFE", "E F E", "AEEEA"])
+                .layer(["AEEEA", "E G E", "EGGGE", "E G E", "AEEEA"])
+                .layer(["AEEEA", "E   E", "E   E", "E   E", "AEEEA"])
+                .layer(["AEEEA", "E   E", "E H E", "E   E", "AEEEA"])
+                .layer(["AE5EA", "1   2", "E B E", "2   1", "AECEA"])
+                .layer(["ADADA", "DABAD", "ABBBA", "DABAD", "ADADA"])
+                .key("A", { block: "anoxia:machine_casing" })
+                .key("B", { block: "mm:machine_circuit" })
+                .key("D", { block: "mm:machine_vent" })
+                .key("E", { block: "ae2:quartz_glass" })
+                .key("F", { block: "thermal:dynamo_magmatic" })
+                .key("G", { block: "powah:energizing_rod_nitro" })
+                .key("H", { block: "powah:energizing_orb" })
 
                 //Port
-                .key("I", { portType: "mm:item", input: true })
-                .key("E", { portType: "mm:energy", input: true })
-                .key("O", { portType: "mm:item", input: false });
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false })
+                .key("5", { portType: "mm:energy", input: true });
         });
+    //#endregion
+
+    //#region Sieve
+    event
+        .create("mm:sieve")
+        .controllerId("mm:machine_controller")
+        .name("Quantum Sieve")
+        .layout((mech) => {
+            mech.layer(["AAAAA", "AAAAA", "AAAAA", "AAAAA", "AAAAA"])
+
+                .layer(["AEEEA", "EDDDE", "EDGDE", "EDDDE", "AEEEA"])
+
+                .layer(["A2A1A", "BDDDB", "5DFD5", "BDDDB", "A1C2A"])
+
+                .layer(["AAAAA", "AAAAA", "AAAAA", "AAAAA", "AAAAA"])
+                .key("A", { block: "anoxia:machine_casing" })
+                .key("B", { block: "mm:machine_circuit" })
+                .key("D", { block: "mm:machine_gearbox" })
+                .key("E", { block: "mm:machine_vent" })
+                .key("F", { block: "createsifter:sifter" })
+                .key("G", { block: "minecraft:hopper" })
+
+                //Port
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false })
+                .key("5", { portType: "mm:energy", input: true });
+        });
+    //#endregion
+
+    //#region Crusher
+    event
+        .create("mm:crusher")
+        .controllerId("mm:machine_controller")
+        .name("Collision Crusher")
+        .layout((mech) => {
+            mech.layer(["AAA", "AAA", "AAA"])
+                .layer(["ADA", "3E4", "ADA"])
+                .layer(["ADA", "BEB", "ADA"])
+                .layer(["A5A", "2E1", "ACA"])
+                .layer(["AAA", "AAA", "AAA"])
+                .key("A", { block: "anoxia:machine_casing" })
+                .key("B", { block: "mm:machine_gearbox" })
+                .key("D", { block: "mm:machine_vent" })
+                .key("E", { block: "actuallyadditions:crusher_double" })
+
+                //Port
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false })
+                .key("3", { portType: "mm:fluid", input: true })
+                .key("4", { portType: "mm:fluid", input: false })
+                .key("5", { portType: "mm:energy", input: true });
+        });
+    //#endregion
+
+    //#region Sawmill
+    //event.create("mm:sawmill").controllerId("mm:machine_controller").name("Nanometer Sawmill");
+    //#endregion
 });
 
-//#endregion
-
-//#region Modular Machine Recipes
+//Modular Machine Recipes
 MMEvents.createProcesses((event) => {
-    ////Artificial Portal
+    //#region Portal recipes
     const ArtificialPortalPatter = [
         {
             //Chiseled Hadaline Brick
@@ -316,10 +373,7 @@ MMEvents.createProcesses((event) => {
         event.create(id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: put }).output({ type: "mm:output/simple", ingredient: get });
     }
     ArtificialPortalPatter.forEach(ArtificialPortalRecipes);
-});
 
-////Empowerer
-MMEvents.createProcesses((event) => {
     //Diamatine Block
     event
         .create("mm:diamatine_block")
@@ -394,5 +448,86 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:stone", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 550000 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_void_crystal_block", count: 1 } });
+
+    //#region Sieve Recipes
+    //Gravel
+    event
+        .create("mm:sieve_gravel")
+        .structureId("mm:sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.40, ingredient: { type: "mm:item", item: "minecraft:flint", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.36, ingredient: { type: "mm:item", item: "minecraft:coal", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "minecraft:lapis_lazuli", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.028, ingredient: { type: "mm:item", item: "minecraft:diamond", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.028, ingredient: { type: "mm:item", item: "minecraft:emerald", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:amethyst_shard", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:iron_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:lead_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:aluminum_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.20, ingredient: { type: "mm:item", item: "exnihilosequentia:platinum_pieces", count: 2 } });
+
+    //Sand
+    event
+        .create("mm:sieve_sand")
+        .structureId("mm:sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:sand", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.22, ingredient: { type: "mm:item", item: "ae2:certus_quartz_crystal", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "projectred_core:electrotine_dust", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:copper_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:nickel_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:tin_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.20, ingredient: { type: "mm:item", item: "anoxia:osmium_pieces", count: 2 } });
+
+    //Dust
+    event
+        .create("mm:sieve_dust")
+        .structureId("mm:sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:dust", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.34, ingredient: { type: "mm:item", item: "minecraft:bone_meal", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.21, ingredient: { type: "mm:item", item: "minecraft:gunpowder", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "ae2:sky_dust", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.38, ingredient: { type: "mm:item", item: "ae2:certus_quartz_dust", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.27, ingredient: { type: "mm:item", item: "minecraft:redstone", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.21, ingredient: { type: "mm:item", item: "minecraft:glowstone_dust", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:blaze_powder", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:gold_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:silver_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:zinc_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.20, ingredient: { type: "mm:item", item: "exnihilosequentia:uranium_pieces", count: 2 } });
+
+    //Netherrack
+    event
+        .create("mm:sieve_netherrack")
+        .structureId("mm:sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_netherrack", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.024, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 2 } });
+
+    //Endstone
+    event
+        .create("mm:sieve_end_stone")
+        .structureId("mm:sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_end_stone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.04, ingredient: { type: "mm:item", item: "minecraft:ender_pearl", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.004, ingredient: { type: "mm:item", item: "minecraft:ender_eye", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.04, ingredient: { type: "mm:item", item: "minecraft:chorus_fruit", count: 2 } });
+
+    //Aetherslate
+    event
+        .create("mm:sieve_aetherslate")
+        .structureId("mm:sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "aethersteel:cobbled_aetherslate", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.016, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 2 } });
+    //#endregion
 });
-//#endregion

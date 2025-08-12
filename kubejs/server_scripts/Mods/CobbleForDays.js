@@ -1,16 +1,16 @@
 ServerEvents.recipes((event) => {
-	//Cobblestone Generator
-	const CobblestoneGeneratorPattern = [
-		{ get: "cobblefordays:tier_1", frame: "#minecraft:logs", upgrade: "#forge:glass/colorless" },
-		{ get: "cobblefordays:tier_2", frame: "anoxia:compressed_cobblestone", upgrade: "cobblefordays:tier_1" },
-		{ get: "cobblefordays:tier_3", frame: "#forge:storage_blocks/iron", upgrade: "cobblefordays:tier_2" },
-		{ get: "cobblefordays:tier_4", frame: "#forge:storage_blocks/gold", upgrade: "cobblefordays:tier_3" },
-		{ get: "cobblefordays:tier_5", frame: "#forge:storage_blocks/diamond", upgrade: "cobblefordays:tier_4" },
-	];
-	function CobblestoneGeneratorRecipes({ get, frame, upgrade }) {
-		event.remove({ output: get });
-		event.shaped(get, ["AAA", "CBD", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
-		event.shaped(get, ["AAA", "DBC", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
-	}
-	CobblestoneGeneratorPattern.forEach(CobblestoneGeneratorRecipes);
+    //Cobblestone Generator
+    const CobbleGenPattern = [
+        { get: "cobblefordays:tier_1", frame: "#minecraft:logs", upgrade: "#forge:glass/colorless" },
+        { get: "cobblefordays:tier_2", frame: "anoxia:compressed_cobblestone", upgrade: "cobblefordays:tier_1" },
+        { get: "cobblefordays:tier_3", frame: "#forge:storage_blocks/iron", upgrade: "cobblefordays:tier_2" },
+        { get: "cobblefordays:tier_4", frame: "#forge:storage_blocks/gold", upgrade: "cobblefordays:tier_3" },
+        { get: "cobblefordays:tier_5", frame: "#forge:storage_blocks/diamond", upgrade: "cobblefordays:tier_4" },
+    ];
+    function CobbleGenRecipes({ get, frame, upgrade }) {
+        event.remove({ output: get });
+        event.shaped(get, ["AAA", "CBD", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
+        event.shaped(get, ["AAA", "DBC", "AAA"], { A: frame, B: upgrade, C: "minecraft:water_bucket", D: "minecraft:lava_bucket" });
+    }
+    //CobbleGenPattern.forEach(CobbleGenRecipes);
 });
