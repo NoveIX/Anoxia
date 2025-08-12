@@ -1,8 +1,4 @@
 ServerEvents.recipes((event) => {
-    //Remove Recipes
-    event.remove({ id: "oc2r:silicon" }); //Smelting: SiliconBlend => Silicon
-    event.remove({ id: "enderio:smelting/oc2r/silicon" }); //Alloy: SiliconBlend => Silicon
-
     //Transistor
     event.remove({ output: "oc2r:transistor" });
     event.shaped(Item.of("oc2r:transistor", 4), ["CCC", "FDF", " E "], { C: "#forge:plates/copper", F: "thermal:rf_coil", D: "enderio:octadic_capacitor", E: "#forge:ingots/electrotine_alloy" });

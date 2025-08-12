@@ -49,7 +49,7 @@ ServerEvents.recipes((event) => {
 
     //#region Sieve
     event.remove({ type: "exnihilosequentia:sifting" });
-    const Sieve = [
+    const SievePattern = [
         //#region Gravel drop
         {
             get: { item: "minecraft:flint" },
@@ -594,7 +594,7 @@ ServerEvents.recipes((event) => {
         },
         //#endregion
     ];
-    Sieve.forEach((recipe) => {
+    SievePattern.forEach((recipe) => {
         event.custom({
             type: "exnihilosequentia:sifting",
             input: recipe.put,
