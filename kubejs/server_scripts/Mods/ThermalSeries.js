@@ -144,14 +144,6 @@ ServerEvents.recipes((event) => {
     //#region Smelter
     event.remove({ id: "thermal:compat/create/smelter_create_alloy_andesite_alloy" });
     const SmelterPattern = [
-        //Create
-        {
-            //Andesite Alloy
-            get: [{ item: "create:andesite_alloy", count: 2 }],
-            put: [{ tag: "forge:ingots/platinum" }, { item: "minecraft:polished_andesite" }],
-            rsflux: 4800,
-        },
-
         //ProjectRED
         {
             //Red Ingot

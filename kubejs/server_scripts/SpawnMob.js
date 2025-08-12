@@ -1,3 +1,4 @@
+// priority:2
 //Dimension
 const Moon1 = "ad_astra:lunar_wastelands";
 const Mars1 = "ad_astra:martian_wastelands";

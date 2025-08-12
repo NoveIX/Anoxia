@@ -1,3 +1,4 @@
+// priority:997
 ItemEvents.rightClicked("minecraft:water_bucket", (event) => {
     let currentDimension = event.player.level.dimension;
     // Sostituisci 'minecraft:the_nether' e 'minecraft:the_end' con le dimensioni che vuoi limitare

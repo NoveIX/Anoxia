@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
 
     ////Sifting
     event.remove({ type: "createsifter:sifting" });
-    const SiftingPattern = [
+    const SifterPattern = [
         //#region Gravel drop
         {
             tier: "anoxia:create_string_mesh",
@@ -416,7 +416,7 @@ ServerEvents.recipes((event) => {
         },
         //#endregion
     ];
-    SiftingPattern.forEach((recipe) => {
+    SifterPattern.forEach((recipe) => {
         event.custom({
             type: "createsifter:sifting",
             ingredients: [{ item: recipe.tier }, recipe.put],

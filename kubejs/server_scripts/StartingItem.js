@@ -1,3 +1,4 @@
+// priority:1
 PlayerEvents.loggedIn((event) => {
     //#region Definition
     const AkashicTome = Item.of("akashictome:tome", '{"akashictome:data":{ftbquests:{Count:1b,id:"ftbquests:book"}}}');

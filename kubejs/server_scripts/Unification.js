@@ -1,4 +1,4 @@
-// priority:100
+// priority:998
 ServerEvents.recipes((event) => {
     const IngredientReplacements = [
         //Input	//Output

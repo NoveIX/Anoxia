@@ -1,9 +1,7 @@
 ServerEvents.recipes((event) => {
     //#region Recipes
     //Andesite Alloy
-    event.remove({ output: "create:andesite_alloy" });
     event.shaped("create:andesite_alloy", ["BA", "AB"], { A: "minecraft:polished_andesite", B: "#forge:ingots/lead" });
-    event.shaped(Item.of("create:andesite_alloy", 9), ["A"], { A: "create:andesite_alloy_block" }); //Reverse
 
     //Millstone
     event.remove({ output: "create:millstone" });

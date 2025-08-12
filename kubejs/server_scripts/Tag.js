@@ -1,3 +1,4 @@
+// priority:999
 ServerEvents.tags("item", (event) => {
     //#region Tags
     const TagsPattern = [
@@ -21,6 +22,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "anoxia:blastfurnaces", item: "nethersdelight:blackstone_blast_furnace" },
         { tag: "anoxia:smokers", item: "minecraft:smoker" },
         { tag: "anoxia:smokers", item: "nethersdelight:nether_brick_smoker" },
+        { tag: "anoxia:stone/andesite", item: "minecraft:polished_andesite" },
 
         //Forge
         { tag: "forge:plastic", item: "pneumaticcraft:plastic" },
@@ -73,6 +75,9 @@ ServerEvents.tags("item", (event) => {
     //Game full removed
     event.removeAllTagsFrom("enderio:silicon");
     event.removeAllTagsFrom("oc2r:silicon");
+    event.removeAllTagsFrom("ad_astra:iron_plate");
+    event.removeAllTagsFrom("ad_astra:steel_plate");
+    event.removeAllTagsFrom("ad_astra:iron_rod");
 
     ////Ingot
     //Chemlib

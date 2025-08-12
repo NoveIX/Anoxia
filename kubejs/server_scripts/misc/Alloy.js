@@ -1,257 +1,88 @@
+// priority:996
 ServerEvents.recipes((event) => {
-    //#region RmID
-    const RmID = [
-        ////EnderIO
-        //Copper Alloy
-        "jaopca:thermal_expansion.storage_block_to_material.copper_alloy",
-        "jaopca:thermal_expansion.nugget_to_material.copper_alloy",
-        //Energetic Alloy
-        "jaopca:thermal_expansion.storage_block_to_material.energetic_alloy",
-        "jaopca:thermal_expansion.nugget_to_material.energetic_alloy",
-        //Vibrant Alloy
-        "jaopca:thermal_expansion.storage_block_to_material.vibrant_alloy",
-        "jaopca:thermal_expansion.nugget_to_material.vibrant_alloy",
-        //Redstone Alloy
-        "jaopca:thermal_expansion.storage_block_to_material.redstone_alloy",
-        "jaopca:thermal_expansion.nugget_to_material.redstone_alloy",
-        //Conductive Alloy
-        "jaopca:thermal_expansion.storage_block_to_material.conductive_alloy",
-        "jaopca:thermal_expansion.nugget_to_material.conductive_alloy",
-        //Pulsating Iron
-        "jaopca:thermal_expansion.storage_block_to_material.pulsating_alloy",
-        "jaopca:thermal_expansion.nugget_to_material.pulsating_alloy",
-        //Dark Steel
-        "jaopca:thermal_expansion.storage_block_to_material.dark_steel",
-        "jaopca:thermal_expansion.nugget_to_material.dark_steel",
-        //Soularium
-        "jaopca:thermal_expansion.storage_block_to_material.soularium",
-        "jaopca:thermal_expansion.nugget_to_material.soularium",
-        //End Stone
-        "jaopca:thermal_expansion.storage_block_to_material.end_steel",
-        "jaopca:thermal_expansion.nugget_to_material.end_steel",
-
-        ////Thermal
-        //Tin
-        "enderio:smelting/create/smelting/ingot_tin_compat_mekanism",
-        "enderio:smelting/exnihilosequentia/ens_tin_ingot",
-        "enderio:smelting/mekanism/processing/tin/ingot/from_ore_smelting",
-        "enderio:smelting/chemlib/tin_ingot_from_smelting_tin_dust",
-        "thermal_extra:machine/chiller/raw_tin",
-        "thermal:machines/press/packing3x3/press_tin_nugget_packing",
-        "jaopca:thermal_expansion.storage_block_to_material.tin",
-        "thermal:machines/press/unpacking/press_tin_unpacking",
-        "thermal:machines/smelter/smelter_tin_dust",
-        "thermal:machines/smelter/smelter_tin_plate_to_ingot",
-        //Lead
-        "enderio:smelting/create/smelting/ingot_lead_compat_immersiveengineering",
-        "enderio:smelting/exnihilosequentia/ens_lead_ingot",
-        "enderio:smelting/thermal/smelting/lead_ingot_from_deepslate_ore_smelting",
-        "enderio:smelting/chemlib/lead_ingot_from_smelting_lead_dust",
-        "thermal_extra:machine/chiller/raw_lead",
-        "thermal:machines/press/packing3x3/press_lead_nugget_packing",
-        "thermal:machines/press/unpacking/press_lead_unpacking",
-        "thermal:machines/smelter/smelter_lead_dust",
-        "thermal:machines/smelter/smelter_lead_plate_to_ingot",
-        //Silver
-        "enderio:smelting/create/smelting/ingot_silver_compat_immersiveengineering",
-        "enderio:smelting/chemlib/silver_ingot_from_smelting_silver_dust",
-        "enderio:smelting/immersiveengineering/smelting/ingot_silver3",
-        "enderio:smelting/immersiveengineering/smelting/ingot_silver",
-        "thermal_extra:machine/chiller/raw_silver",
-        "thermal:machines/press/packing3x3/press_silver_nugget_packing",
-        "thermal:machines/press/unpacking/press_silver_unpacking",
-        "thermal:machines/smelter/smelter_silver_dust",
-        "thermal:machines/smelter/smelter_silver_plate_to_ingot",
-        //Nickel
-        "enderio:smelting/immersiveengineering/smelting/ingot_nickel",
-        "enderio:smelting/immersiveengineering/smelting/ingot_nickel3",
-        "enderio:smelting/create/smelting/ingot_nickel_compat_immersiveengineering",
-        "enderio:smelting/chemlib/nickel_ingot_from_smelting_nickel_dust",
-        "thermal_extra:machine/chiller/raw_nickel",
-        "thermal:machines/press/packing3x3/press_nickel_nugget_packing",
-        "thermal:machines/press/unpacking/press_nickel_unpacking",
-        "thermal:machines/smelter/smelter_nickel_dust",
-        "thermal:machines/smelter/smelter_nickel_plate_to_ingot",
-        //Signalum
-        "enderio:smelting/thermal/smelting/signalum_ingot_from_dust_smelting",
-        "thermal:machines/press/packing3x3/press_signalum_nugget_packing",
-        "thermal:machines/press/unpacking/press_signalum_unpacking",
-        "thermal:machines/smelter/smelter_signalum_dust",
-        "thermal:machines/smelter/smelter_signalum_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_signalum",
-        //Lumium
-        "enderio:smelting/thermal/smelting/lumium_ingot_from_dust_smelting",
-        "thermal:machines/press/packing3x3/press_lumium_nugget_packing",
-        "thermal:machines/press/unpacking/press_lumium_unpacking",
-        "thermal:machines/smelter/smelter_lumium_dust",
-        "thermal:machines/smelter/smelter_lumium_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_lumium",
-        //Enderium
-        "enderio:smelting/thermal/smelting/enderium_ingot_from_dust_smelting",
-        "thermal:machines/press/packing3x3/press_enderium_nugget_packing",
-        "thermal:machines/press/unpacking/press_enderium_unpacking",
-        "thermal:machines/smelter/smelter_enderium_dust",
-        "thermal:machines/smelter/smelter_enderium_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_enderium",
-        //Steel
-        "enderio:smelting/mekanism/processing/steel/ingot/from_dust_smelting",
-        "thermal:machines/press/packing/press_steel_nugget_packing",
-        "thermal:machines/press/unpacking/press_steel_unpacking",
-        "thermal:machines/smelter/smelter_steel_dust",
-        "thermal:machines/smelter/smelter_alloy_steel",
-        //Rose Gold
-        "enderio:smelting/thermal/smelting/rose_gold_ingot_from_dust_smelting",
-        "thermal:machines/press/packing/press_rose_gold_nugget_packing",
-        "thermal:machines/press/unpacking/press_rose_gold_unpacking",
-        "thermal:machines/smelter/smelter_rose_gold_dust",
-        "thermal:machines/smelter/smelter_alloy_rose_gold",
-        //Bronze
-        "enderio:smelting/mekanism/processing/bronze/ingot/from_dust_smelting",
-        "thermal:machines/press/packing3x3/press_bronze_nugget_packing",
-        "thermal:machines/press/unpacking/press_bronze_unpacking",
-        "thermal:machines/smelter/smelter_bronze_dust",
-        "thermal:machines/smelter/smelter_bronze_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_bronze",
-        //Electrum
-        "enderio:smelting/immersiveengineering/smelting/ingot_electrum_from_dust",
-        "thermal:machines/press/packing3x3/press_electrum_nugget_packing",
-        "thermal:machines/press/unpacking/press_electrum_unpacking",
-        "thermal:machines/smelter/smelter_electrum_dust",
-        "thermal:machines/smelter/smelter_electrum_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_electrum",
-        //Invar
-        "enderio:smelting/thermal/smelting/invar_ingot_from_dust_smelting",
-        "thermal:machines/press/packing3x3/press_invar_nugget_packing",
-        "thermal:machines/press/unpacking/press_invar_unpacking",
-        "thermal:machines/smelter/smelter_invar_dust",
-        "thermal:machines/smelter/smelter_invar_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_invar",
-        //Constantan
-        "enderio:smelting/immersiveengineering/smelting/ingot_constantan_from_dust",
-        "thermal:machines/press/packing3x3/press_constantan_nugget_packing",
-        "thermal:machines/press/unpacking/press_constantan_unpacking",
-        "thermal:machines/smelter/smelter_constantan_dust",
-        "thermal:machines/smelter/smelter_constantan_plate_to_ingot",
-        "thermal:machines/smelter/smelter_alloy_constantan",
-
-        //Thermal Endergy
-        "enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
-        "jaopca:thermal_expansion.nugget_to_material.prismalium",
-        "thermalendergy:machine/press/unpacking/press_prismalium_unpacking",
-        "jaopca:thermal_expansion.storage_block_to_material.prismalium",
-        "jaopca:thermal_expansion.dust_to_material.prismalium",
-        "thermalendergy:machine/smelter/prismalium_ingot",
-
-        "enderio:smelting/thermalendergy/melodium_ingot_from_dust",
-        "jaopca:thermal_expansion.nugget_to_material.melodium",
-        "thermalendergy:machine/press/unpacking/press_melodium_unpacking",
-        "jaopca:thermal_expansion.storage_block_to_material.melodium",
-        "jaopca:thermal_expansion.dust_to_material.melodium",
-        "thermalendergy:machine/smelter/melodium_ingot",
-
-        "enderio:smelting/thermalendergy/stellarium_ingot_from_dust",
-        "jaopca:thermal_expansion.nugget_to_material.stellarium",
-        "thermalendergy:machine/press/unpacking/press_stellarium_unpacking",
-        "jaopca:thermal_expansion.storage_block_to_material.stellarium",
-        "jaopca:thermal_expansion.dust_to_material.stellarium",
-        "thermalendergy:machine/smelter/stellarium_ingot",
-    ];
-    RmID.forEach((ID) => {
-        event.remove({ id: ID });
-    });
-    //#endregion
-
-    //// # =================================================================================================== #
-
     //#region Func Simple
-    function SimpleAlloy({ alloy, get, n0, put1, n1, put2, n2, rsflux }) {
-        if (alloy === "simple") {
-            //Immersive Alloy
-            event.custom({
-                type: "immersiveengineering:alloy",
-                input0: { base_ingredient: { tag: put1 }, count: n1 },
-                input1: { base_ingredient: { tag: put2 }, count: n2 },
-                result: { base_ingredient: { item: get }, count: n0 },
-                time: 200,
-            });
+    function SimpleAlloy({ get, n0, put1, n1, put2, n2, rsflux }) {
+        //Immersive Alloy
+        event.custom({
+            type: "immersiveengineering:alloy",
+            input0: { base_ingredient: { tag: put1 }, count: n1 },
+            input1: { base_ingredient: { tag: put2 }, count: n2 },
+            result: { base_ingredient: { item: get }, count: n0 },
+            time: 200,
+        });
 
-            //Immersive Arc
-            event.custom({
-                type: "immersiveengineering:arc_furnace",
-                input: { base_ingredient: { tag: put1 }, count: n1 },
-                additives: [{ base_ingredient: { tag: put2 }, count: n2 }],
-                results: [{ base_ingredient: { item: get }, count: n0 }],
-                slag: { item: "thermal:slag" },
-                energy: rsflux,
-                time: 100,
-            });
+        //Immersive Arc
+        event.custom({
+            type: "immersiveengineering:arc_furnace",
+            input: { base_ingredient: { tag: put1 }, count: n1 },
+            additives: [{ base_ingredient: { tag: put2 }, count: n2 }],
+            results: [{ base_ingredient: { item: get }, count: n0 }],
+            slag: { item: "thermal:slag" },
+            energy: rsflux,
+            time: 100,
+        });
 
-            EnderAlloy({ alloy: alloy, get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, rsflux: rsflux });
-        }
+        EnderAlloy({ get: get, n0: n0, put1: put1, n1: n1, put2: put2, n2: n2, rsflux: rsflux });
     }
     //#endregion
 
     //// # =================================================================================================== #
 
     //#region Func Ender
-    function EnderAlloy({ alloy, get, n0, put1, n1, put2, n2, rsflux }) {
-        if (alloy === "ender") {
-            //EnderIO
-            event.custom({
-                type: "enderio:alloy_smelting",
-                inputs: [
-                    { count: n1, ingredient: { tag: put1 } },
-                    { count: n2, ingredient: { tag: put2 } },
-                ],
-                result: { item: get, count: n0 },
-                experience: 0.3,
-                energy: rsflux,
-            });
+    function EnderAlloy({ get, n0, put1, n1, put2, n2, rsflux }) {
+        //EnderIO
+        event.custom({
+            type: "enderio:alloy_smelting",
+            inputs: [
+                { count: n1, ingredient: { tag: put1 } },
+                { count: n2, ingredient: { tag: put2 } },
+            ],
+            result: { item: get, count: n0 },
+            experience: 0.3,
+            energy: rsflux,
+        });
 
-            //Thermal
-            event.custom({
-                type: "thermal:smelter",
-                ingredients: [
-                    { tag: put2, count: n2 },
-                    { tag: put1, count: n1 },
-                ],
-                result: [{ item: get, count: n0 }],
-                energy: rsflux,
-            });
-        }
+        //Thermal
+        event.custom({
+            type: "thermal:smelter",
+            ingredients: [
+                { tag: put2, count: n2 },
+                { tag: put1, count: n1 },
+            ],
+            result: [{ item: get, count: n0 }],
+            energy: rsflux,
+        });
     }
     //#endregion
 
     //// # =================================================================================================== #
 
     //#region Func Complex
-    function ComplexAlloy({ alloy, get, n0, put1, n1, put2, n2, put3, n3, rsflux }) {
-        if (alloy === "complex") {
-            //EnderIO
-            event.custom({
-                type: "enderio:alloy_smelting",
-                inputs: [
-                    { count: n1, ingredient: { tag: put1 } },
-                    { count: n2, ingredient: { tag: put2 } },
-                    { count: n3, ingredient: { tag: put3 } },
-                ],
-                result: { item: get, count: n0 },
-                experience: 0.3,
-                energy: rsflux,
-            });
+    function ComplexAlloy({ get, n0, put1, n1, put2, n2, put3, n3, rsflux }) {
+        //EnderIO
+        event.custom({
+            type: "enderio:alloy_smelting",
+            inputs: [
+                { count: n1, ingredient: { tag: put1 } },
+                { count: n2, ingredient: { tag: put2 } },
+                { count: n3, ingredient: { tag: put3 } },
+            ],
+            result: { item: get, count: n0 },
+            experience: 0.3,
+            energy: rsflux,
+        });
 
-            //Thermal
-            event.custom({
-                type: "thermal:smelter",
-                ingredients: [
-                    { tag: put2, count: n2 },
-                    { tag: put1, count: n1 },
-                    { tag: put3, count: n3 },
-                ],
-                result: [{ item: get, count: n0 }],
-                energy: rsflux,
-            });
-        }
+        //Thermal
+        event.custom({
+            type: "thermal:smelter",
+            ingredients: [
+                { tag: put2, count: n2 },
+                { tag: put1, count: n1 },
+                { tag: put3, count: n3 },
+            ],
+            result: [{ item: get, count: n0 }],
+            energy: rsflux,
+        });
     }
     //#endregion
 
@@ -295,6 +126,20 @@ ServerEvents.recipes((event) => {
 
     //#region Ingot
     const AlloyPattern = [
+        //Create
+        {
+            //Andesite Alloy
+            alloy: "simple",
+            get: "create:andesite_alloy",
+            n0: 2,
+            put1: "forge:ingots/platinum",
+            n1: 1,
+            put2: "anoxia:stone/andesite",
+            n2: 1,
+            rsflux: 8000,
+            block: "forge:storage_blocks/andesite_alloy",
+        },
+
         //EnderIO
         {
             //Copper Alloy
@@ -440,34 +285,6 @@ ServerEvents.recipes((event) => {
         },
 
         //Thermal
-        {
-            //Tin
-            get: "thermal:tin_ingot",
-            dust: "forge:dusts/tin",
-            nugget: "forge:nuggets/tin",
-            block: "forge:storage_blocks/tin",
-        },
-        {
-            //Lead
-            get: "thermal:lead_ingot",
-            dust: "forge:dusts/lead",
-            nugget: "forge:nuggets/lead",
-            block: "forge:storage_blocks/lead",
-        },
-        {
-            //Silver
-            get: "thermal:silver_ingot",
-            dust: "forge:dusts/silver",
-            nugget: "forge:nuggets/silver",
-            block: "forge:storage_blocks/silver",
-        },
-        {
-            //Nickel
-            get: "thermal:nickel_ingot",
-            dust: "forge:dusts/nickel",
-            nugget: "forge:nuggets/nickel",
-            block: "forge:storage_blocks/nickel",
-        },
         {
             //Signalum
             alloy: "complex",
@@ -657,9 +474,13 @@ ServerEvents.recipes((event) => {
         event.remove({ output: recipe.get });
 
         //Recipes
-        SimpleAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
-        EnderAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
-        ComplexAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, put3: recipe.put3, n3: recipe.n3, rsflux: recipe.rsflux });
+        if (recipe.alloy === "simple") {
+            SimpleAlloy({ get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        } else if (recipe.alloy === "ender") {
+            EnderAlloy({ get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        } else if (recipe.alloy === "complex") {
+            ComplexAlloy({ get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, put3: recipe.put3, n3: recipe.n3, rsflux: recipe.rsflux });
+        }
 
         ////Smelting
         if (recipe.dust && recipe.dust.startsWith("forge:dusts/")) {
@@ -735,9 +556,13 @@ ServerEvents.recipes((event) => {
     ];
     AlloyAltPattern.forEach((recipe) => {
         //Recipes
-        SimpleAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
-        EnderAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
-        ComplexAlloy({ alloy: recipe.alloy, get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, put3: recipe.put3, n3: recipe.n3, rsflux: recipe.rsflux });
+        if (recipe.alloy === "simple") {
+            SimpleAlloy({ get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        } else if (recipe.alloy === "ender") {
+            EnderAlloy({ get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, rsflux: recipe.rsflux });
+        } else if (recipe.alloy === "complex") {
+            ComplexAlloy({ get: recipe.get, n0: recipe.n0, put1: recipe.put1, n1: recipe.n1, put2: recipe.put2, n2: recipe.n2, put3: recipe.put3, n3: recipe.n3, rsflux: recipe.rsflux });
+        }
     });
     //#endregion
 });

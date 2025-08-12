@@ -3,6 +3,9 @@ ClientEvents.lang("en_us", (event) => {
     event.renameItem("quark:sturdy_stone", "Stasis Stone (Za Warudo! Toki wo tomare!)");
     event.renameItem("thermal:coal_coke_block", "Block of Coal Coke");
     event.renameItem("industrialforegoing:tinydryrubber", "Tiny Dry Rubber");
+    event.renameItem("create:white_sail", "Solar Wind Sail");
+    event.renameItem("create:sail_frame", "Solar Wind Sail Frame");
+    event.renameItem("create:windmill_bearing", "Solar Wind Bearing");
 
     // Biomes
     event.renameBiome("hyperbox:hyperbox", "Hyperbox");

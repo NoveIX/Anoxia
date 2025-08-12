@@ -25,14 +25,12 @@ global.items.JEI_Hide = [
 
 global.items.GAME_RmOut = [
     //Ad Astra
-    "ad_astra:coal_generator",
-    "ad_astra:compressor",
-    "ad_astra:oxygen_loader",
-    "ad_astra:fuel_refinery",
-    "ad_astra:iron_plate",
-    "ad_astra:steel_plate",
-    "ad_astra:iron_rod",
-    "ad_astra:oxygen_bucket",
+    //"ad_astra:coal_generator",
+    //"ad_astra:compressor",
+    //"ad_astra:fuel_refinery",
+    "ad_astra:iron_plate", //Both InOut
+    "ad_astra:steel_plate", //Both InOut
+    "ad_astra:iron_rod", //Both InOut
 
     //Actually Addiction
     "actuallyadditions:tiny_coal",
@@ -273,6 +271,10 @@ global.items.GAME_RmOut = [
 ];
 
 global.items.GAME_RmIn = [
+    //Ad Astra
+    "ad_astra:iron_plate", //Both InOut
+    "ad_astra:steel_plate", //Both InOut
+    "ad_astra:iron_rod", //Both InOut
     //Ender IO
     "enderio:silicon", //Both InOut
 
@@ -300,9 +302,6 @@ global.items.GAME_RmIn = [
 global.fluid = {};
 
 global.fluid.GAME_RmOut = [
-    //Ad Astra
-    "ad_astra:oxygen",
-
     //EnderIO
     "enderio:fire_water",
 
@@ -324,9 +323,6 @@ global.fluid.GAME_RmOut = [
 ];
 
 global.fluid.GAME_RmIn = [
-    //Ad Astra
-    "ad_astra:oxygen",
-
     //EnderIO
     "enderio:fire_water",
 

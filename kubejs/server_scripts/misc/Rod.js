@@ -1,46 +1,4 @@
 ServerEvents.recipes((event) => {
-    //#region RmID
-    const RmID = [
-        //Immersive
-        "thermal_extra:machine/press/iron_rod",
-
-        //Thermal Extra
-        "thermal_extra:machine/press/copper_rod",
-        "thermal_extra:machine/press/gold_rod",
-        "thermal_extra:machine/press/diamond_rod",
-        "thermal_extra:machine/press/emerald_rod",
-        "thermal_extra:machine/press/netherite_rod",
-        "thermal_extra:machine/press/lead_rod",
-        "thermal_extra:machine/press/tin_rod",
-        "thermal_extra:machine/press/silver_rod",
-        "thermal_extra:machine/press/nickel_rod",
-        "thermal_extra:machine/press/bronze_rod",
-        "thermal_extra:machine/press/electrum_rod",
-        "thermal_extra:machine/press/constantan_rod",
-        "thermal_extra:machine/press/invar_rod",
-        "thermal_extra:machine/press/signalum_rod",
-        "thermal_extra:machine/press/lumium_rod",
-        "thermal_extra:machine/press/enderium_rod",
-
-        //Thermal Extra Material
-        "thermal_extra:machine/press/soul_infused_rod",
-        "jaopca:thermal_expansion.molten_to_rod.soul_infused",
-        "thermal_extra:machine/press/twinite_rod",
-        "jaopca:thermal_expansion.molten_to_rod.twinite",
-        "thermal_extra:machine/press/shellite_rod",
-        "jaopca:thermal_expansion.molten_to_rod.shellite",
-        "thermal_extra:machine/press/dragonsteel_rod",
-        "jaopca:thermal_expansion.molten_to_rod.dragonsteel",
-        "thermal_extra:machine/press/abyssal_rod",
-        "jaopca:thermal_expansion.molten_to_rod.abyssal",
-    ];
-    RmID.forEach((ID) => {
-        event.remove({ id: ID });
-    });
-    //#endregion
-
-    //// # =================================================================================================== #
-
     //#region Rod
     const RodPattern = [
         //Create

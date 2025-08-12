@@ -1,10 +1,7 @@
 ServerEvents.recipes((event) => {
-    //Uranite
-    event.remove({ output: "powah:uraninite" });
-
     //Dieletric Paste
     event.remove({ output: "powah:dielectric_paste" });
-    event.shapeless(Item.of("powah:dielectric_paste", 16), ["#forge:dusts/grains_of_infinity", "#forge:dusts/grains_of_infinity", "exnihilosequentia:porcelain_clay", "#forge:dusts/blaze"]);
+    event.shapeless(Item.of("powah:dielectric_paste", 16), ["#forge:dusts/grains_of_infinity", "#forge:dusts/grains_of_infinity", "exnihilosequentia:porcelain_clay", 'minecraft:blaze_powder']);
 
     //Tiny Capacitor
     event.remove({ output: "powah:capacitor_basic_tiny" });
@@ -37,6 +34,10 @@ ServerEvents.recipes((event) => {
     //Nitro Capacitor
     event.remove({ output: "powah:capacitor_nitro" });
     event.shaped("powah:capacitor_nitro", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:steel_energized", C: "powah:capacitor_spirited" });
+
+    //Photoelectric Pane'
+    event.remove({output: 'powah:photoelectric_pane'})
+    event.shaped('powah:photoelectric_pane', ['ABA','BCB','ABA'], {A: "powah:dielectric_paste", B: 'projectred_core:electrotine_silicon',C: 'minecraft:glass_pane'});
 
     //// # =================================================================================================== #
 

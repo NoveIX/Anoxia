@@ -114,7 +114,7 @@ ServerEvents.recipes((event) => {
 MMEvents.createStructures((event) => {
     //#region Empowerer
     event
-        .create("mm:empowerer")
+        .create("mm:autonomus_empowerer")
         .controllerId("mm:machine_controller")
         .name("Autonomus Empowerer")
         .layout((mech) => {
@@ -139,7 +139,7 @@ MMEvents.createStructures((event) => {
 
     //#region Portal
     event
-        .create("mm:portal")
+        .create("mm:artificial_portal")
         .controllerId("mm:machine_controller")
         .name("Artificial Portal")
         .layout((mech) => {
@@ -161,7 +161,7 @@ MMEvents.createStructures((event) => {
 
     //#region Energizer
     event
-        .create("mm:energizer")
+        .create("mm:pulse_energizer")
         .controllerId("mm:machine_controller")
         .name("Pulse energizer")
         .layout((mech) => {
@@ -191,7 +191,7 @@ MMEvents.createStructures((event) => {
 
     //#region Sieve
     event
-        .create("mm:sieve")
+        .create("mm:quantum_sieve")
         .controllerId("mm:machine_controller")
         .name("Quantum Sieve")
         .layout((mech) => {
@@ -220,7 +220,7 @@ MMEvents.createStructures((event) => {
 
     //#region Crusher
     event
-        .create("mm:crusher")
+        .create("mm:collision_crusher")
         .controllerId("mm:machine_controller")
         .name("Collision Crusher")
         .layout((mech) => {
@@ -382,15 +382,17 @@ MMEvents.createProcesses((event) => {
         },
     ];
     ArtificialPortalPatter.forEach((recipe) => {
-        event.create(recipe.id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
+        event.create(recipe.id).structureId("mm:artificial_portal").ticks(20).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
     });
+    //#endregion
 
     //// # =================================================================================================== #
 
+    //#region Sieve Recipes
     //Diamatine Block
     event
         .create("mm:diamatine_block")
-        .structureId("mm:empowerer")
+        .structureId("mm:autonomus_empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:diamatine_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/light_blue", count: 1 } })
@@ -402,7 +404,7 @@ MMEvents.createProcesses((event) => {
     //Emeradic Block
     event
         .create("mm:emeradic_block")
-        .structureId("mm:empowerer")
+        .structureId("mm:autonomus_empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:emeradic_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/lime", count: 1 } })
@@ -415,7 +417,7 @@ MMEvents.createProcesses((event) => {
     //Enori Block
     event
         .create("mm:enori_block")
-        .structureId("mm:empowerer")
+        .structureId("mm:autonomus_empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:enori_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/gray", count: 1 } })
@@ -428,7 +430,7 @@ MMEvents.createProcesses((event) => {
     //Palis Block
     event
         .create("mm:palis_block")
-        .structureId("mm:empowerer")
+        .structureId("mm:autonomus_empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:palis_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/cyan", count: 1 } })
@@ -439,7 +441,7 @@ MMEvents.createProcesses((event) => {
     //Redstonia Block
     event
         .create("mm:restonia_block")
-        .structureId("mm:empowerer")
+        .structureId("mm:autonomus_empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:restonia_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/red", count: 1 } })
@@ -452,7 +454,7 @@ MMEvents.createProcesses((event) => {
     //Void Block
     event
         .create("mm:void_block")
-        .structureId("mm:empowerer")
+        .structureId("mm:autonomus_empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:void_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/black", count: 1 } })
@@ -461,6 +463,7 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:stone", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 550000 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_void_crystal_block", count: 1 } });
+    //#endregion
 
     //// # =================================================================================================== #
 
@@ -468,7 +471,7 @@ MMEvents.createProcesses((event) => {
     //Gravel
     event
         .create("mm:sieve_gravel")
-        .structureId("mm:sieve")
+        .structureId("mm:quantum_sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -486,7 +489,7 @@ MMEvents.createProcesses((event) => {
     //Sand
     event
         .create("mm:sieve_sand")
-        .structureId("mm:sieve")
+        .structureId("mm:quantum_sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:sand", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -500,7 +503,7 @@ MMEvents.createProcesses((event) => {
     //Dust
     event
         .create("mm:sieve_dust")
-        .structureId("mm:sieve")
+        .structureId("mm:quantum_sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:dust", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -519,7 +522,7 @@ MMEvents.createProcesses((event) => {
     //Netherrack
     event
         .create("mm:sieve_netherrack")
-        .structureId("mm:sieve")
+        .structureId("mm:quantum_sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_netherrack", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -528,7 +531,7 @@ MMEvents.createProcesses((event) => {
     //Endstone
     event
         .create("mm:sieve_end_stone")
-        .structureId("mm:sieve")
+        .structureId("mm:quantum_sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_end_stone", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -539,7 +542,7 @@ MMEvents.createProcesses((event) => {
     //Aetherslate
     event
         .create("mm:sieve_aetherslate")
-        .structureId("mm:sieve")
+        .structureId("mm:quantum_sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "aethersteel:cobbled_aetherslate", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })

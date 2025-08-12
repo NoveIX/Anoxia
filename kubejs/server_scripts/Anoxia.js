@@ -43,10 +43,10 @@ ServerEvents.recipes((event) => {
     event.shaped("anoxia:create_netherite_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:netherite_mesh" });
 
     //Upgrade Mesh
-    event.shapeless("anoxia:create_flint_mesh", ["minecraft:flint", "exnihilosequentia:flint_mesh"]);
-    event.shapeless("anoxia:create_iron_mesh", ["#forge:ingots/iron", "anoxia:create_flint_mesh"]);
-    event.shapeless("anoxia:create_diamond_mesh", ["#forge:gems/diamond", "anoxia:create_iron_mesh"]);
-    event.shapeless("anoxia:create_emerald_mesh", ["#forge:gems/emerald", "anoxia:create_diamond_mesh"]);
+    event.shaped("anoxia:create_flint_mesh", ["A A", "ABA", "A A"], { A: "minecraft:flint", B: "exnihilosequentia:flint_mesh" });
+    event.shaped("anoxia:create_iron_mesh", ["A A", "ABA", "A A"], { A: "#forge:ingots/iron", B: "anoxia:create_flint_mesh" });
+    event.shaped("anoxia:create_diamond_mesh", ["A A", "ABA", "A A"], { A: "#forge:gems/diamond", B: "anoxia:create_iron_mesh" });
+    event.shaped("anoxia:create_emerald_mesh", ["A A", "ABA", "A A"], { A: "#forge:gems/emerald", B: "anoxia:create_diamond_mesh" });
 
     //Aethersteel Mesh
     event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
