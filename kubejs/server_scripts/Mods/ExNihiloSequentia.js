@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
     //StoneCrook
-    event.remove({ output: "exnihilosequentia:ens_stone_crook" });
+    event.remove({ output: "exnihilosequentia:stone_crook" });
     event.shaped("exnihilosequentia:stone_crook", ["PP", " P", " P"], { P: "#forge:pebble/stone" });
 
     //#region Heat
