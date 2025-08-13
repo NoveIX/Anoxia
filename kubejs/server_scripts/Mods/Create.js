@@ -15,6 +15,7 @@ ServerEvents.recipes((event) => {
     //Windmill Sail Frame
     event.remove({ output: "create:white_sail" });
     event.shaped("create:white_sail", ["ABA", "BCB", "ABA"], { A: "minecraft:string", B: "#forge:rods/wooden", C: "projectred_core:silicon" });
+    event.shapeless("create:white_sail", ["create:sail_frame"]);
     //#endregion
 
     //// # =================================================================================================== #

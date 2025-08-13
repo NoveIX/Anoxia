@@ -1,7 +1,7 @@
 StartupEvents.registry("block", (event) => {
     //Cobblestone
     event.create("anoxia:compressed_cobblestone").displayName("Compressed Cobblestone").soundType("stone").hardness(2.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
-    event.create("anoxia:double_compressed_cobblestone").displayName("Double_Compressed Cobblestone").soundType("stone").hardness(2.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
+    event.create("anoxia:double_compressed_cobblestone").displayName("Double Compressed Cobblestone").soundType("stone").hardness(2.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
     event.create("anoxia:triple_compressed_cobblestone").displayName("Triple Compressed Cobblestone").soundType("stone").hardness(2.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
     event.create("anoxia:quadruple_compressed_cobblestone").displayName("Quadruple Compressed Cobblestone").soundType("stone").hardness(2.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
     event.create("anoxia:quintuple_compressed_cobblestone").displayName("Quintuple Compressed Cobblestone").soundType("stone").hardness(2.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
