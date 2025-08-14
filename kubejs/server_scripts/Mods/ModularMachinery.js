@@ -479,14 +479,7 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.27, ingredient: { type: "mm:item", item: "minecraft:coal", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "minecraft:lapis_lazuli", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.02, ingredient: { type: "mm:item", item: "minecraft:diamond", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.02, ingredient: { type: "mm:item", item: "minecraft:emerald", count: 2 } });
-
-    event
-        .create("mm:sieve_gravel_2")
-        .structureId("mm:quantum_sieve")
-        .ticks(5)
-        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
-        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.02, ingredient: { type: "mm:item", item: "minecraft:emerald", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.07, ingredient: { type: "mm:item", item: "minecraft:amethyst_shard", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:iron_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:lead_pieces", count: 2 } })
@@ -519,14 +512,7 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.14, ingredient: { type: "mm:item", item: "ae2:sky_dust", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "ae2:certus_quartz_dust", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "minecraft:redstone", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.18, ingredient: { type: "mm:item", item: "minecraft:glowstone_dust", count: 2 } });
-
-    event
-        .create("mm:sieve_dust_2")
-        .structureId("mm:quantum_sieve")
-        .ticks(5)
-        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:dust", count: 1 } })
-        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.18, ingredient: { type: "mm:item", item: "minecraft:glowstone_dust", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.13, ingredient: { type: "mm:item", item: "minecraft:blaze_powder", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:gold_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:silver_pieces", count: 2 } })
