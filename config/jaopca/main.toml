@@ -12,13 +12,13 @@
 	#Should the mod find dust materials with ores.
 	dust = true
 	#Should the mod find ingot materials without ores.
-	ingotPlain = true
+	ingotPlain = false
 	#Should the mod find gem materials without ores.
-	gemPlain = true
+	gemPlain = false
 	#Should the mod find crystal materials without ores.
-	crystalPlain = true
+	crystalPlain = false
 	#Should the mod find dust materials without ores.
-	dustPlain = true
+	dustPlain = false
 
 #Configurations related to material overrides.
 [materialOverrides]
@@ -32,7 +32,7 @@
 #Configurations related to item selection.
 [itemSelection]
 	#List of mods that are preferred when selecting items in recipes.
-	preferredMods = ["minecraft", "kubejs", "moonbase", "crafttweaker", "thermal", "mekanism", "chemlib", "immersiveengineering", "create", "ae2", "enderio", "hammerlib", "pamhc2foodcore", "pamhc2crops", "pamhc2trees", "pamhc2foodextended", "farmersdelight"]
+	preferredMods = ["minecraft", "kubejs", "anoxia", "crafttweaker", "thermal", "mekanism", "chemlib", "immersiveengineering", "create", "ae2", "enderio", "hammerlib", "pamhc2foodcore", "pamhc2crops", "pamhc2trees", "pamhc2foodextended", "farmersdelight"]
 
 #Configurations related to block tags.
 [blockTags]
