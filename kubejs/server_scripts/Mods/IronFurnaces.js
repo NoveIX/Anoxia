@@ -13,18 +13,18 @@ ServerEvents.recipes((event) => {
         { get: "ironfurnaces:netherite_furnace", put: "#forge:plates/netherite", frame: "ironfurnaces:obsidian_furnace" }, //Obsidian to Netherite
 
         //Upgrade
-        { get: "ironfurnaces:upgrade_copper", put: "#forge:plates/copper" }, //Stone to Copper
-        { get: "ironfurnaces:upgrade_iron2", put: "#forge:plates/iron" }, //Copper to Iron
-        { get: "ironfurnaces:upgrade_silver2", put: "#forge:plates/silver" }, //Iron to Silver
-        { get: "ironfurnaces:upgrade_gold2", put: "#forge:plates/gold" }, //Silver to Gold
-        { get: "ironfurnaces:upgrade_diamond", put: "#forge:gems/diamond" }, //Gold to Diamond
-        { get: "ironfurnaces:upgrade_emerald", put: "#forge:gems/emerald" }, //Diamond to Emerald
-        { get: "ironfurnaces:upgrade_obsidian", put: "#forge:ingots/obsidian" }, //Emerald to Obsidian
-        { get: "ironfurnaces:upgrade_obsidian2", put: "#forge:ingots/obsidian" }, //Crystal to Obsidian
-        { get: "ironfurnaces:upgrade_netherite", put: "#forge:plates/netherite" }, //Obsidian To Netherite
+        { get: "ironfurnaces:upgrade_copper", put: "#forge:plates/copper", frame: "anoxia:compressed_cobblestone" }, //Stone to Copper
+        { get: "ironfurnaces:upgrade_iron2", put: "#forge:plates/iron", frame: "anoxia:compressed_cobblestone" }, //Copper to Iron
+        { get: "ironfurnaces:upgrade_silver2", put: "#forge:plates/silver", frame: "anoxia:compressed_cobblestone" }, //Iron to Silver
+        { get: "ironfurnaces:upgrade_gold2", put: "#forge:plates/gold", frame: "anoxia:compressed_cobblestone" }, //Silver to Gold
+        { get: "ironfurnaces:upgrade_diamond", put: "#forge:gems/diamond", frame: "anoxia:compressed_cobblestone" }, //Gold to Diamond
+        { get: "ironfurnaces:upgrade_emerald", put: "#forge:gems/emerald", frame: "anoxia:compressed_cobblestone" }, //Diamond to Emerald
+        { get: "ironfurnaces:upgrade_obsidian", put: "#forge:ingots/obsidian", frame: "anoxia:compressed_cobblestone" }, //Emerald to Obsidian
+        { get: "ironfurnaces:upgrade_obsidian2", put: "#forge:ingots/obsidian", frame: "anoxia:compressed_cobblestone" }, //Crystal to Obsidian
+        { get: "ironfurnaces:upgrade_netherite", put: "#forge:plates/netherite", frame: "anoxia:compressed_cobblestone" }, //Obsidian To Netherite
     ];
     FurnacePattern.forEach((recipe) => {
         event.remove({ output: recipe.get });
-        event.shaped(recipe.get, ["III", "IUI", "III"], { I: recipe.put, U: "anoxia:compressed_cobblestone" });
+        event.shaped(recipe.get, ["III", "IUI", "III"], { I: recipe.put, U: recipe.frame });
     });
 });

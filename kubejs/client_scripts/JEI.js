@@ -1,24 +1,24 @@
 //#region Item
-//Add
-JEIEvents.addItems((event) => {
-    global.items.JEI_Add.forEach((id) => {
-        event.add(id);
-    });
-});
-
 //Hide
 JEIEvents.hideItems((event) => {
-    //Only Hide
-    global.items.JEI_Hide.forEach((id) => {
-        event.hide(id);
+    //Removed From Game
+    global.items.GAME_RmOut.forEach((item) => {
+        event.hide(item);
+    });
+    global.items.GAME_RmIn.forEach((item) => {
+        event.hide(item);
     });
 
-    //Removed From Game
-    global.items.GAME_RmOut.forEach((id) => {
-        event.hide(id);
+    //Only Hide
+    global.items.JEI_Hide.forEach((item) => {
+        event.hide(item);
     });
-    global.items.GAME_RmIn.forEach((id) => {
-        event.hide(id);
+
+    //Add
+    JEIEvents.addItems((event) => {
+        global.items.JEI_Add.forEach((item) => {
+            event.add(item);
+        });
     });
 });
 //#endregion
@@ -27,11 +27,11 @@ JEIEvents.hideItems((event) => {
 //Hide
 JEIEvents.hideFluids((event) => {
     //Removed From Game
-    global.fluid.GAME_RmOut.forEach((id) => {
-        event.hide(id);
+    global.fluid.GAME_RmOut.forEach((item) => {
+        event.hide(item);
     });
-    global.fluid.GAME_RmIn.forEach((id) => {
-        event.hide(id);
+    global.fluid.GAME_RmIn.forEach((item) => {
+        event.hide(item);
     });
 });
 //#endregion

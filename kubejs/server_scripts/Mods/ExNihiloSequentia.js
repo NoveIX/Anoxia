@@ -55,35 +55,35 @@ ServerEvents.recipes((event) => {
             get: { item: "minecraft:flint" },
             put: { item: "minecraft:gravel" },
             drop: [
-                { chance: 0.12, mesh: "string" },
-                { chance: 0.16, mesh: "flint" },
-                { chance: 0.2, mesh: "iron" },
-                { chance: 0.24, mesh: "diamond" },
-                { chance: 0.28, mesh: "emerald" },
-                { chance: 0.32, mesh: "netherite" },
+                { chance: 0.125, mesh: "string" },
+                { chance: 0.15, mesh: "flint" },
+                { chance: 0.18, mesh: "iron" },
+                { chance: 0.21, mesh: "diamond" },
+                { chance: 0.24, mesh: "emerald" },
+                { chance: 0.27, mesh: "netherite" },
             ],
         },
         {
             get: { item: "minecraft:coal" },
             put: { item: "minecraft:gravel" },
             drop: [
-                { chance: 0.08, mesh: "string" },
+                { chance: 0.09, mesh: "string" },
                 { chance: 0.12, mesh: "flint" },
-                { chance: 0.16, mesh: "iron" },
-                { chance: 0.2, mesh: "diamond" },
-                { chance: 0.24, mesh: "emerald" },
-                { chance: 0.28, mesh: "netherite" },
+                { chance: 0.15, mesh: "iron" },
+                { chance: 0.18, mesh: "diamond" },
+                { chance: 0.21, mesh: "emerald" },
+                { chance: 0.24, mesh: "netherite" },
             ],
         },
         {
             get: { item: "minecraft:lapis_lazuli" },
             put: { item: "minecraft:gravel" },
             drop: [
-                { chance: 0.04, mesh: "flint" },
-                { chance: 0.08, mesh: "iron" },
-                { chance: 0.12, mesh: "diamond" },
-                { chance: 0.16, mesh: "emerald" },
-                { chance: 0.2, mesh: "netherite" },
+                { chance: 0.05, mesh: "flint" },
+                { chance: 0.09, mesh: "iron" },
+                { chance: 0.13, mesh: "diamond" },
+                { chance: 0.17, mesh: "emerald" },
+                { chance: 0.21, mesh: "netherite" },
             ],
         },
         {
@@ -91,9 +91,9 @@ ServerEvents.recipes((event) => {
             put: { item: "minecraft:gravel" },
             drop: [
                 { chance: 0.008, mesh: "iron" },
-                { chance: 0.012, mesh: "diamond" },
-                { chance: 0.016, mesh: "emerald" },
-                { chance: 0.02, mesh: "netherite" },
+                { chance: 0.011, mesh: "diamond" },
+                { chance: 0.014, mesh: "emerald" },
+                { chance: 0.017, mesh: "netherite" },
             ],
         },
         {
@@ -101,18 +101,18 @@ ServerEvents.recipes((event) => {
             put: { item: "minecraft:gravel" },
             drop: [
                 { chance: 0.008, mesh: "iron" },
-                { chance: 0.012, mesh: "diamond" },
-                { chance: 0.016, mesh: "emerald" },
-                { chance: 0.02, mesh: "netherite" },
+                { chance: 0.011, mesh: "diamond" },
+                { chance: 0.014, mesh: "emerald" },
+                { chance: 0.017, mesh: "netherite" },
             ],
         },
         {
             get: { item: "minecraft:amethyst_shard" },
             put: { item: "minecraft:gravel" },
             drop: [
-                { chance: 0.02, mesh: "diamond" },
-                { chance: 0.04, mesh: "emerald" },
-                { chance: 0.06, mesh: "netherite" },
+                { chance: 0.01, mesh: "diamond" },
+                { chance: 0.03, mesh: "emerald" },
+                { chance: 0.05, mesh: "netherite" },
             ],
         },
         {
@@ -243,11 +243,11 @@ ServerEvents.recipes((event) => {
             put: { item: "exnihilosequentia:dust" },
             drop: [
                 { chance: 0.2, mesh: "string" },
-                { chance: 0.22, mesh: "flint" },
-                { chance: 0.24, mesh: "iron" },
-                { chance: 0.26, mesh: "diamond" },
-                { chance: 0.28, mesh: "emerald" },
-                { chance: 0.3, mesh: "netherite" },
+                { chance: 0.215, mesh: "flint" },
+                { chance: 0.23, mesh: "iron" },
+                { chance: 0.245, mesh: "diamond" },
+                { chance: 0.26, mesh: "emerald" },
+                { chance: 0.275, mesh: "netherite" },
             ],
         },
         {
@@ -255,11 +255,11 @@ ServerEvents.recipes((event) => {
             put: { item: "exnihilosequentia:dust" },
             drop: [
                 { chance: 0.07, mesh: "string" },
-                { chance: 0.09, mesh: "flint" },
-                { chance: 0.11, mesh: "iron" },
-                { chance: 0.13, mesh: "diamond" },
-                { chance: 0.15, mesh: "emerald" },
-                { chance: 0.17, mesh: "netherite" },
+                { chance: 0.08, mesh: "flint" },
+                { chance: 0.09, mesh: "iron" },
+                { chance: 0.1, mesh: "diamond" },
+                { chance: 0.11, mesh: "emerald" },
+                { chance: 0.12, mesh: "netherite" },
             ],
         },
         {
@@ -279,10 +279,10 @@ ServerEvents.recipes((event) => {
             put: { item: "exnihilosequentia:dust" },
             drop: [
                 { chance: 0.08, mesh: "flint" },
-                { chance: 0.13, mesh: "iron" },
-                { chance: 0.18, mesh: "diamond" },
-                { chance: 0.23, mesh: "emerald" },
-                { chance: 0.28, mesh: "netherite" },
+                { chance: 0.12, mesh: "iron" },
+                { chance: 0.16, mesh: "diamond" },
+                { chance: 0.2, mesh: "emerald" },
+                { chance: 0.24, mesh: "netherite" },
             ],
         },
         {
@@ -361,12 +361,39 @@ ServerEvents.recipes((event) => {
         {
             get: { item: "minecraft:ancient_debris" },
             put: { item: "exnihilosequentia:crushed_netherrack" },
-            drop: [{ chance: 0.008, mesh: "emerald" }],
+            drop: [
+                { chance: 0.008, mesh: "diamond" },
+                { chance: 0.011, mesh: "emerald" },
+                { chance: 0.014, mesh: "netherite" },
+            ],
+        },
+        //#endregion
+
+        //#region SoulSand drop
+        {
+            get: { item: "minecraft:nether_wart" },
+            put: { item: "minecraft:soul_sand" },
+            drop: [{ chance: 0.1, mesh: "string" }],
         },
         {
-            get: { item: "minecraft:ancient_debris" },
-            put: { item: "exnihilosequentia:crushed_netherrack" },
-            drop: [{ chance: 0.016, mesh: "netherite" }],
+            get: { item: "minecraft:quartz" },
+            put: { item: "minecraft:soul_sand" },
+            drop: [
+                { chance: 0.4, mesh: "flint" },
+                { chance: 0.5, mesh: "iron" },
+                { chance: 0.6, mesh: "diamond" },
+                { chance: 0.7, mesh: "emerald" },
+                { chance: 0.8, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "minecraft:ghast_tear" },
+            put: { item: "minecraft:soul_sand" },
+            drop: [
+                { chance: 0.02, mesh: "diamond" },
+                { chance: 0.03, mesh: "emerald" },
+                { chance: 0.04, mesh: "netherite" },
+            ],
         },
         //#endregion
 

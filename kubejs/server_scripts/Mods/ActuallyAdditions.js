@@ -5,11 +5,33 @@ ServerEvents.recipes((event) => {
     //Powered Funrace
     event.remove({ output: "actuallyadditions:powered_furnace" });
     event.shaped("actuallyadditions:powered_furnace", ["ABA", "CDC", "EFE"], {
-        A: "#forge:plates/iron",
+        A: "actuallyadditions:enori_crystal",
         B: "immersiveengineering:connector_mv",
         C: "ironfurnaces:gold_furnace",
         D: "actuallyadditions:iron_casing",
+        E: "#forge:gears/invar",
+        F: "actuallyadditions:advanced_coil",
+    });
+
+    //Crusher
+    event.remove({ output: "actuallyadditions:crusher" });
+    event.shaped("actuallyadditions:crusher", ["ABA", "CDC", "EFE"], {
+        A: "actuallyadditions:restonia_crystal",
+        B: "immersiveengineering:connector_lv",
+        C: "create:millstone",
+        D: "actuallyadditions:iron_casing",
         E: "#forge:gears/tin",
+        F: "actuallyadditions:basic_coil",
+    });
+
+    //Double Crusher
+    event.remove({ output: "actuallyadditions:crusher_double" });
+    event.shaped("actuallyadditions:crusher_double", ["ABA", "CDC", "EFE"], {
+        A: "actuallyadditions:enori_crystal",
+        B: "immersiveengineering:connector_mv",
+        C: "actuallyadditions:crusher",
+        D: "actuallyadditions:iron_casing",
+        E: "#forge:gears/invar",
         F: "actuallyadditions:advanced_coil",
     });
 

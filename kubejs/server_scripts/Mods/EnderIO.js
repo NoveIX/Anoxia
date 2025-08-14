@@ -30,7 +30,6 @@ ServerEvents.recipes((event) => {
 
     //DarkSteel Gear
     event.remove({ output: "enderio:dark_bimetal_gear" });
-    event.remove({ id: "jaopca:thermal_expansion.material_to_gear.dark_steel" });
     event.shaped("enderio:dark_bimetal_gear", ["SDS", "DGD", "SDS"], { S: "#forge:ingots/steel", D: "#forge:ingots/dark_steel", G: "enderio:vibrant_gear" });
 
     //Primitive Alloy
