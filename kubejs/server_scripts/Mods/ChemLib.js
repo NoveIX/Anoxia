@@ -65,7 +65,6 @@ ServerEvents.recipes((event) => {
         },
     });
 
-    event.remove({ id: "alchemistry:liquifier/oxygen" });
     event.custom({
         type: "alchemistry:liquifier",
         group: "alchemistry:liquifier",

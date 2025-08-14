@@ -1,8 +1,4 @@
 ServerEvents.recipes((event) => {
-    //Remove Recipes
-    event.remove({ id: "farmersdelight:wheat_dough_from_water" }); //Crafting: Wheat + Water => Dough
-    event.remove({ id: "farmersdelight:wheat_dough_from_eggs" }); //Crafting: Wheat + Egg => Dough
-
     //Organic Compost
     event.remove({ output: "farmersdelight:organic_compost" });
     event.shaped("farmersdelight:organic_compost", ["FFF", "FDF", "FFF"], { F: "#anoxia:fertilizers", D: "minecraft:dirt" });

@@ -4,7 +4,6 @@ ServerEvents.recipes((event) => {
     event.shaped("thermal:rf_coil", ["  R", " E ", "R  "], { R: "#forge:ingots/red_alloy", E: "#forge:ingots/electrum" });
 
     //Coal Coke
-    event.remove({ id: "thermal:storage/coal_coke_from_block" });
     event.shapeless(Item.of("thermal:coal_coke", 9), ["#forge:storage_blocks/coal_coke"]);
 
     //Machine Frame
@@ -18,8 +17,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Press
-    event.remove({ id: "thermal:machines/press/unpacking/press_sawdust_unpacking" });
-    event.remove({ id: "thermal:machines/press/packing3x3/press_sawdust_packing" });
     const PressPattern = [
         //Restore
         {
@@ -66,7 +63,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Pulverizer
-    event.remove({ id: "thermal:machines/pulverizer/pulverizer_logs" });
     const PulverizerPattern = [
         //Restore
         {
@@ -89,7 +85,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region PulverizerRecycle
-    event.remove({ id: "thermal:machines/pulverizer/pulverizer_diamond_tools" });
     const PulverizerRecyclePattern = [
         //Restore
         {
@@ -142,7 +137,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Smelter
-    event.remove({ id: "thermal:compat/create/smelter_create_alloy_andesite_alloy" });
     const SmelterPattern = [
         //ProjectRED
         {

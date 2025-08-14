@@ -111,7 +111,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Fire
-    event.remove({ id: "enderio:fire_crafting/infinity" });
     event.custom({
         type: "enderio:fire_crafting",
         base_blocks: [{ block: "minecraft:bedrock" }],
@@ -124,11 +123,7 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region SAG
-    event.remove({ id: "enderio:sag_milling/sand" });
     //Restore
-    event.remove({ id: "enderio:sag_milling/redstone_ore" });
-    event.remove({ id: "enderio:sag_milling/clay" });
-    event.remove({ id: "enderio:sag_milling/wheat" });
     const SAGPattern = [
         {
             //Dust

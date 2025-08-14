@@ -36,9 +36,6 @@ global.items.GAME_RmOut = [
     "actuallyadditions:tiny_coal",
     "actuallyadditions:tiny_charcoal",
 
-    //ArchitectsPalette
-    "architects_palette:withered_bone",
-
     //Chemlib
     "chemlib:oxygen_bucket",
 
@@ -342,3 +339,8 @@ global.fluid.GAME_RmIn = [
     "thermal_extra:raw_zinc",
 ];
 //#endregion
+
+//#region RecipeID
+global.recipe = {}
+
+global.recipe.id = []

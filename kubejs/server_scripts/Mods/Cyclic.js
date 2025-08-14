@@ -1,14 +1,12 @@
 ServerEvents.recipes((event) => {
-    //Remove Compressed Cobblestone
-    event.remove({ id: "cyclic:compressed_cobblestone" }); //Crafting: Cobblestone => CompressedCobblestone
-    event.remove({ id: "cyclic:compressed_cobblestone_u" }); //Crafting: CompressedCobblestone => Cobblestone
-    event.remove({ id: "cyclic:compat/sturdy_stone" }); //Crafting: Stone + Cobblestone =>
-
     //Wood Hopper
     event.remove({ output: "cyclic:hopper" });
-    event.shaped("cyclic:hopper", ["S S", "SHS", " S "], { S: "#minecraft:wooden_slabs", H: "minecraft:hopper" });
+    event.shaped("cyclic:hopper", ["A A", "ABA", " A "], { A: "#minecraft:wooden_slabs", B: "minecraft:hopper" });
 
     //Gold Hopper
     event.remove({ output: "cyclic:hopper_gold" });
-    event.shaped("cyclic:hopper_gold", ["P P", "PWP", " P "], { P: "#forge:plates/gold", W: "cyclic:hopper" });
+    event.shaped("cyclic:hopper_gold", ["A A", "ABA", " A "], { A: "#forge:plates/gold", B: "cyclic:hopper" });
+
+    event.remove({ output: "cyclic:soulstone" });
+    event.shaped("cyclic:soulstone", ["ABA", "BCB", "ABA"], { A: "#forge:storage_blocks/netherite", B: "minecraft:totem_of_undying", C: "forbidden_arcanus:dark_nether_star" });
 });

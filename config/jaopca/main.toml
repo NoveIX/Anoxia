@@ -39,14 +39,14 @@
 	#List of block tags that should not be added.
 	blacklist = []
 	#List of block tags that should be considered as defined.
-	customDefined = []
+	customDefined = ["forge:ores/aethersteel_scrap"]
 
 #Configurations related to item tags.
 [itemTags]
 	#List of item tags that should not be added.
 	blacklist = []
 	#List of item tags that should be considered as defined.
-	customDefined = []
+	customDefined = ["forge:ores/aethersteel_scrap"]
 
 #Configurations related to fluid tags.
 [fluidTags]

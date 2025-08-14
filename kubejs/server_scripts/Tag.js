@@ -2,16 +2,19 @@
 ServerEvents.tags("item", (event) => {
     //#region Tags
     const TagsPattern = [
-        //Anoxia
-        { tag: "anoxia:coil/copper", item: "createaddition:copper_spool" },
+        //Coil
         { tag: "anoxia:coil/copper", item: "createaddition:copper_spool" },
         { tag: "anoxia:coil/copper", item: "immersiveengineering:wirecoil_copper" },
         { tag: "anoxia:coil/electrum", item: "createaddition:electrum_spool" },
         { tag: "anoxia:coil/electrum", item: "immersiveengineering:wirecoil_electrum" },
+
+        //Fertilizer
         { tag: "anoxia:fertilizers", item: "minecraft:bone_meal" },
         { tag: "anoxia:fertilizers", item: "minecraft:rotten_flesh" },
         { tag: "anoxia:fertilizers", item: "farmersdelight:tree_bark" },
         { tag: "anoxia:fertilizers", item: "farmersdelight:straw" },
+
+        //Furnace
         { tag: "anoxia:stone/furnaces", item: "minecraft:furnace" },
         { tag: "anoxia:stone/furnaces", item: "quark:deepslate_furnace" },
         { tag: "anoxia:blackstone/furnaces", item: "nethersdelight:blackstone_furnace" },
@@ -22,9 +25,11 @@ ServerEvents.tags("item", (event) => {
         { tag: "anoxia:blastfurnaces", item: "nethersdelight:blackstone_blast_furnace" },
         { tag: "anoxia:smokers", item: "minecraft:smoker" },
         { tag: "anoxia:smokers", item: "nethersdelight:nether_brick_smoker" },
+
         { tag: "anoxia:stone/andesite", item: "minecraft:polished_andesite" },
 
         //Forge
+
         { tag: "forge:plastic", item: "pneumaticcraft:plastic" },
         { tag: "forge:flour/wheat", item: "enderio:flour" },
         { tag: "forge:flour", item: "enderio:flour" },
@@ -60,6 +65,15 @@ ServerEvents.tags("item", (event) => {
         { tag: "botania:petals/flower", item: "botania:purple_petal" },
         { tag: "botania:petals/flower", item: "botania:magenta_petal" },
         { tag: "botania:petals/flower", item: "botania:pink_petal" },
+
+        //JOAPCA Integration
+        { tag: "forge:ingots", item: "aethersteel:aethersteel_ingot" },
+        { tag: "forge:ingots/aethersteel", item: "aethersteel:aethersteel_ingot" },
+        { tag: "forge:ingots/aethersteel_scrap", item: "aethersteel:aethersteel_scrap" },
+        { tag: "theurgy:ores/mercury/high", item: "aethersteel:aether_debris" },
+        { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
+        { tag: "forge:ores", item: "aethersteel:aether_debris" },
+        { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
     ];
     TagsPattern.forEach((recipe) => {
         event.add(recipe.tag, recipe.item);
@@ -67,17 +81,17 @@ ServerEvents.tags("item", (event) => {
     //#endregion
 
     //Remove
-    event.remove("forge:nuggets/ender_pearl", "forbidden_arcanus:ender_pearl_fragment");
-    event.remove("minecraft:coals", "immersiveengineering:coal_coke");
-    event.removeAllTagsFrom("thermal_extra:arcane_gold_dust");
-    event.removeAllTagsFrom("thermal_extra:zinc_dust");
+    //event.remove("forge:nuggets/ender_pearl", "forbidden_arcanus:ender_pearl_fragment");
+    //event.remove("minecraft:coals", "immersiveengineering:coal_coke");
+    //event.removeAllTagsFrom("thermal_extra:arcane_gold_dust");
+    //event.removeAllTagsFrom("thermal_extra:zinc_dust");
 
     //Game full removed
-    event.removeAllTagsFrom("enderio:silicon");
-    event.removeAllTagsFrom("oc2r:silicon");
     event.removeAllTagsFrom("ad_astra:iron_plate");
     event.removeAllTagsFrom("ad_astra:steel_plate");
     event.removeAllTagsFrom("ad_astra:iron_rod");
+    event.removeAllTagsFrom("enderio:silicon");
+    event.removeAllTagsFrom("oc2r:silicon");
 
     ////Ingot
     //Chemlib

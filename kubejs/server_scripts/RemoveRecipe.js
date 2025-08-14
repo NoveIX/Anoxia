@@ -19,8 +19,8 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    const RemoveRecipesID = [];
-    RemoveRecipesID.forEach((Id) => {
-        event.remove({ id: Id });
+    //Recipe ID
+    global.recipe.id.forEach((id) => {
+        event.remove({ id: id });
     });
 });

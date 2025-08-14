@@ -14,8 +14,6 @@ ServerEvents.recipes((event) => {
 
     //#region Chamber
     event.remove({ type: "pneumaticcraft:pressure_chamber" });
-    event.remove({ id: "pneumaticcraft:pressure_chamber/pressure_chamber_enchanting" });
-    event.remove({ id: "pneumaticcraft:pressure_chamber/pressure_chamber_disenchanting" });
     const ChamberPattern = [
         {
             //Capacitor

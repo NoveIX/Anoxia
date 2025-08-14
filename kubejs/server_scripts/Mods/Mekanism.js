@@ -1,7 +1,4 @@
 ServerEvents.recipes((event) => {
-    //Remove Recipes
-    event.remove({ id: "mekanism:paper" }); //Crafting: SawDust => Paper
-
     //Uranium
     event.smelting("mekanism:ingot_uranium", "powah:uraninite");
 

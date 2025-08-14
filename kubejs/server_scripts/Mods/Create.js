@@ -21,7 +21,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Compacting
-    event.remove({ id: "createaddition:compacting/cake_base" });
     const CompactingPattern = [
         {
             //Restore CakeBase => accept Forge:Dough (PamHC)
@@ -89,7 +88,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Mixing
-    event.remove({ id: "create:mixing/dough_by_mixing" });
     const MixingPattern = [
         {
             //Andesite Alloy
@@ -114,7 +112,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Splashing
-    event.remove({ id: "create:splashing/wheat_flour" });
     const SplashingPattern = [
         {
             //Restore Splash Dough => PamHC Dought

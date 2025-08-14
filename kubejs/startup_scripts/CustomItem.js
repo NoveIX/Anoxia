@@ -2,7 +2,7 @@ StartupEvents.registry("item", (event) => {
     //Misc
     event.create("anoxia:tiny_coal").displayName("Tiny Coal");
     event.create("anoxia:tiny_charcoal").displayName("Tiny Charcoal");
-    event.create("anoxia:aethersteel_mesh").displayName("Aethersteel Mesh");
+    //event.create("anoxia:aethersteel_mesh").displayName("Aethersteel Mesh");
     event.create("anoxia:osmium_pieces").displayName("Osmium Pieces");
     event.create("anoxia:modularium").displayName("Modularium");
     event.create("anoxia:amongus").displayName("Among Us");

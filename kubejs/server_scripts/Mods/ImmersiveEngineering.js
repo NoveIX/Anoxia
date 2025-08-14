@@ -45,53 +45,25 @@ ServerEvents.recipes((event) => {
 
     ////Furnace
     //Coke Brick
-    event.remove({ id: "immersiveengineering:crafting/cokebrick" });
-    event.remove({ id: "immersiveengineering:crafting/cokebrick_from_slab" });
     event.shaped("immersiveengineering:cokebrick", ["PBP", "BSB", "PBP"], { P: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", S: "#forge:sandstone/colorless" });
 
     //Kiln Brick
-    event.remove({ id: "immersiveengineering:crafting/alloybrick" });
-    event.remove({ id: "immersiveengineering:crafting/alloybrick_from_slab" });
-    event.remove({ id: "createaddition:compat/immersiveengineering/item_application/kiln_brick" });
     event.shaped("immersiveengineering:alloybrick", ["RN", "NR"], { R: "#forge:sandstone/red", N: "#forge:ingots/brick" });
 
     //Blast Brick
-    event.remove({ id: "immersiveengineering:crafting/blastbrick" });
-    event.remove({ id: "immersiveengineering:crafting/blastbrick_from_slab" });
     event.shaped("immersiveengineering:blastbrick", ["NBN", "BCB", "NBN"], { N: "#forge:ingots/nether_brick", B: "#forge:ingots/brick", C: "immersiveengineering:cokebrick" });
 
     //Blast Brick Reinforced
-    event.remove({ id: "immersiveengineering:crafting/blastbrick_reinforced" });
-    event.remove({ id: "immersiveengineering:crafting/blastbrick_reinforced_from_slab" });
-    event.remove({ id: "createaddition:compat/immersiveengineering/item_application/reinforced_blast_brick" });
     event.shaped("immersiveengineering:blastbrick_reinforced", ["S S", " B ", "S S"], { S: "#forge:plates/steel", B: "immersiveengineering:blastbrick" });
 
     //Scaffoling Steel
-    event.remove({ id: "immersiveengineering:crafting/steel_scaffolding_standard" });
-    event.remove({ id: "immersiveengineering:crafting/steel_scaffolding_standard_from_slab" });
-    event.remove({ id: "immersiveengineering:crafting/steel_scaffolding_grate_top_from_slab" });
-    event.remove({ id: "immersiveengineering:crafting/steel_scaffolding_wooden_top_from_slab" });
     event.shaped(Item.of("immersiveengineering:steel_scaffolding_standard", 3), ["PPP", " R ", "R R"], { P: "#forge:plates/steel", R: "#forge:rods/steel" });
 
     //Scaffoling Aluminum
-    event.remove({ id: "immersiveengineering:crafting/stairs_alu_scaffolding_standard" });
-    event.remove({ id: "immersiveengineering:crafting/steel_scaffolding_standard_from_slab" });
-    event.remove({ id: "immersiveengineering:crafting/alu_scaffolding_grate_top_from_slab" });
-    event.remove({ id: "immersiveengineering:crafting/alu_scaffolding_wooden_top_from_slab" });
     event.shaped(Item.of("immersiveengineering:alu_scaffolding_standard", 3), ["PPP", " R ", "R R"], { P: "#forge:plates/aluminum", R: "#forge:rods/aluminum" });
 
     //Concrete Leaded
-    event.remove({ id: "immersiveengineering:crafting/concrete_leaded" });
-    event.remove({ id: "immersiveengineering:crafting/concrete_leaded_from_slab" });
-    event.remove({ id: "createaddition:compat/immersiveengineering/item_application/leaded_concrete" });
     event.shaped("immersiveengineering:concrete_leaded", ["P P", " B ", "P P"], { P: "#forge:plates/lead", B: "immersiveengineering:concrete" });
-
-    //Coal Coke Block
-    event.remove({ id: "immersiveengineering:crafting/coal_coke_to_coke" });
-    event.remove({ id: "immersiveengineering:crafting/coke_from_slab" });
-    event.remove({ id: "immersiveengineering:crafting/coke_to_coal_coke" });
-    //event.shaped("immersiveengineering:coke", ["CCC", "CCC", "CCC"], { C: "#forge:coal_coke" });
-    //event.shapeless("immersiveengineering:coke", ["thermal:coal_coke_block"]);
 
     //// # =================================================================================================== #
 

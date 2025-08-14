@@ -1,6 +1,5 @@
 ServerEvents.recipes((event) => {
     //Cognitive Alloy
-    event.remove({ id: "experienceobelisk:cognitive_alloy" });
     event.shapeless("experienceobelisk:cognitive_alloy", [
         "#forge:ingots/copper",
         "#forge:ingots/copper",
@@ -15,7 +14,6 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Metamorpher
-    event.remove({ id: "experienceobelisk:metamorpher/cognitive_alloy_metamorphosis" });
     const MolecularMetamorphoerPattern = [
         {
             get: { item: "experienceobelisk:cognitive_alloy", count: 1 },
