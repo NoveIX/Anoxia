@@ -28,6 +28,8 @@
 	crystal = []
 	#List of materials that should be dusts.
 	dust = ["glowstone", "redstone"]
+	#List of materials that should be ingot.
+	ingot = ["aethersteel_scrap"]
 
 #Configurations related to item selection.
 [itemSelection]

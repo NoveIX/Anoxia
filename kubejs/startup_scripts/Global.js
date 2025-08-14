@@ -1,28 +1,8 @@
-//#region JEI - Items
 global.items = {};
 
-global.items.JEI_Add = [
-    //Immersive
-    "immersiveengineering:storage_aluminum",
-    "immersiveengineering:storage_lead",
-    "immersiveengineering:storage_silver",
-    "immersiveengineering:storage_nickel",
-    "immersiveengineering:storage_uranium",
-    "immersiveengineering:storage_constantan",
-    "immersiveengineering:storage_electrum",
-    "immersiveengineering:storage_steel",
+//// # =================================================================================================== #
 
-    //Mekanism
-    "mekanism:creative_chemical_tank",
-    "mekanism:creative_fluid_tank",
-];
-
-global.items.JEI_Hide = [
-    //Mekanism
-    "mekanism:creative_chemical_tank",
-    "mekanism:creative_fluid_tank",
-];
-
+//#region Item
 global.items.GAME_RmOut = [
     //Ad Astra
     //"ad_astra:coal_generator",
@@ -295,9 +275,49 @@ global.items.GAME_RmIn = [
 ];
 //#endregion
 
-//#region Fluid
+//// # =================================================================================================== #
+
+//#region Tags
+global.items.RmAllTags = [
+"ad_astra:iron_plate",
+"ad_astra:steel_plate",
+"ad_astra:iron_rod",
+"enderio:silicon",
+"oc2r:silicon",
+]
+//#endregion
+
+//// # =================================================================================================== #
+
+//#region JEI - Items
+global.items.JEI_Add = [
+    //Immersive
+    "immersiveengineering:storage_aluminum",
+    "immersiveengineering:storage_lead",
+    "immersiveengineering:storage_silver",
+    "immersiveengineering:storage_nickel",
+    "immersiveengineering:storage_uranium",
+    "immersiveengineering:storage_constantan",
+    "immersiveengineering:storage_electrum",
+    "immersiveengineering:storage_steel",
+
+    //Mekanism
+    "mekanism:creative_chemical_tank",
+    "mekanism:creative_fluid_tank",
+];
+
+global.items.JEI_Hide = [
+    //Mekanism
+    "mekanism:creative_chemical_tank",
+    "mekanism:creative_fluid_tank",
+];
+//#endregion
+
+//// # =================================================================================================== #
+
 global.fluid = {};
 
+//#region Fluid
 global.fluid.GAME_RmOut = [
     //EnderIO
     "enderio:fire_water",
@@ -340,7 +360,9 @@ global.fluid.GAME_RmIn = [
 ];
 //#endregion
 
-//#region RecipeID
-global.recipe = {}
+//// # =================================================================================================== #
 
-global.recipe.id = []
+//#region RecipeID
+global.recipe = {};
+
+global.recipe.id = [];

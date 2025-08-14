@@ -65,8 +65,8 @@ ServerEvents.recipes((event) => {
         { get: [{ item: "thermal:enderium_dust" }], put: [{ tag: "forge:ingots/enderium" }] },
 
         //Gem
-        { get: [{ item: "mekanism:dust_coal" }], put: [{ tag: "forge:dusts/coal" }] },
-        { get: [{ item: "mekanism:dust_charcoal" }], put: [{ tag: "forge:dusts/charcoal" }] },
+        { get: [{ item: "mekanism:dust_coal" }], put: [{ item: "minecraft:coal" }] },
+        { get: [{ item: "mekanism:dust_charcoal" }], put: [{ item: "minecraft:charcoal" }] },
         { get: [{ item: "immersiveengineering:dust_coke" }], put: [{ tag: "forge:coal_coke" }] },
         { get: [{ item: "thermal:lapis_dust" }], put: [{ tag: "forge:gems/lapis" }] },
         { get: [{ item: "thermal:diamond_dust" }], put: [{ tag: "forge:gems/diamond" }] },

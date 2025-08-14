@@ -66,14 +66,11 @@ ServerEvents.tags("item", (event) => {
         { tag: "botania:petals/flower", item: "botania:magenta_petal" },
         { tag: "botania:petals/flower", item: "botania:pink_petal" },
 
-        //JOAPCA Integration
+        //Aethersteel integration ore
         { tag: "forge:ingots", item: "aethersteel:aethersteel_ingot" },
         { tag: "forge:ingots/aethersteel", item: "aethersteel:aethersteel_ingot" },
         { tag: "forge:ingots/aethersteel_scrap", item: "aethersteel:aethersteel_scrap" },
         { tag: "theurgy:ores/mercury/high", item: "aethersteel:aether_debris" },
-        { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
-        { tag: "forge:ores", item: "aethersteel:aether_debris" },
-        { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
     ];
     TagsPattern.forEach((recipe) => {
         event.add(recipe.tag, recipe.item);
@@ -92,6 +89,10 @@ ServerEvents.tags("item", (event) => {
     event.removeAllTagsFrom("ad_astra:iron_rod");
     event.removeAllTagsFrom("enderio:silicon");
     event.removeAllTagsFrom("oc2r:silicon");
+
+    global.items.RmAllTags.forEach((id) => {
+        event.removeAllTagsFrom(id);
+    });
 
     ////Ingot
     //Chemlib
@@ -225,4 +226,28 @@ ServerEvents.tags("item", (event) => {
     //event.add("forge:plates", "chemlib:thorium_plate");
     //event.add("forge:plates", "chemlib:protactinium_plate");
     //event.add("forge:plates", "chemlib:uranium_plate");
+});
+
+ServerEvents.tags("item", (event) => {
+    const TagsJAOPCAattern = [
+        //JAOPCA Integration
+        { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
+        { tag: "forge:ores", item: "aethersteel:aether_debris" },
+        { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
+    ];
+    TagsJAOPCAattern.forEach((recipe) => {
+        event.add(recipe.tag, recipe.item);
+    });
+});
+
+ServerEvents.tags("block", (event) => {
+    const TagsJAOPCAattern = [
+        //JAOPCA Integration
+        { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
+        { tag: "forge:ores", item: "aethersteel:aether_debris" },
+        { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
+    ];
+    TagsJAOPCAattern.forEach((recipe) => {
+        event.add(recipe.tag, recipe.item);
+    });
 });
