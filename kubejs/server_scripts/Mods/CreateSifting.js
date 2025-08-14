@@ -404,7 +404,7 @@ ServerEvents.recipes((event) => {
         {
             tier: "anoxia:create_aethersteel_mesh",
             put: { item: "aethersteel:cobbled_aetherslate" },
-            get: [{ item: "aethersteel:aether_debris", chance: 0.012 }],
+            get: [{ item: "aethersteel:aether_debris", chance: 0.011 }],
         },
         //#endregion
 
