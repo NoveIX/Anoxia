@@ -1,0 +1,5 @@
+{
+  "block.ad_astra.fuel_refinery": "Fluid Converter",
+  "item.ad_astra.fuel_refinery.tooltip": "Converts fluids between mods.",
+  "text.resourcefulconfig.ad_astra.option.fuelRefinery": "Fluid Converter"
+}

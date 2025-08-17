@@ -1,4 +1,13 @@
 ServerEvents.recipes((event) => {
+    const RmRecipeID = [
+        "industrialforegoing:crusher/sand_silicon"//Rm Silicon
+    ];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
+    //// # =================================================================================================== #
+
     //Fertilizer
     event.shaped("industrialforegoing:fertilizer", ["CCC", "CCC", "CCC"], { C: "minecolonies:compost" });
 

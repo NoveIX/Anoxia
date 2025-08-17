@@ -43,6 +43,22 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "immersiveengineering:sawdust" });
     event.shaped(Item.of("immersiveengineering:sawdust", 3), ["SSS"], { S: "#forge:dusts/wood" });
 
+    ////Storage Block
+    const StorageBlockIE = [
+        { get: "immersiveengineering:storage_aluminum", put: "#forge:ingots/aluminum" },
+        { get: "immersiveengineering:storage_lead", put: "#forge:ingots/lead" },
+        { get: "immersiveengineering:storage_silver", put: "#forge:ingots/silver" },
+        { get: "immersiveengineering:storage_nickel", put: "#forge:ingots/nickel" },
+        { get: "immersiveengineering:storage_uranium", put: "#forge:ingots/uranium" },
+        { get: "immersiveengineering:storage_constantan", put: "#forge:ingots/constantan" },
+        { get: "immersiveengineering:storage_electrum", put: "#forge:ingots/electrum" },
+        { get: "immersiveengineering:storage_steel", put: "#forge:ingots/steel" },
+    ];
+    StorageBlockIE.forEach((recipe) => {
+        event.remove({ output: recipe.get });
+        event.shaped(recipe.get, ["AAA", "AAA", "AAA"], { A: recipe.put });
+    });
+
     ////Furnace
     //Coke Brick
     event.shaped("immersiveengineering:cokebrick", ["PBP", "BSB", "PBP"], { P: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", S: "#forge:sandstone/colorless" });
@@ -129,8 +145,8 @@ ServerEvents.recipes((event) => {
     //#region BlastFurnace
     event.remove({ type: "immersiveengineering:blast_furnace" });
     const BlastFurnacePattern = [
-        { get: { tag: "forge:ingots/steel" }, put: { tag: "forge:ingots/iron" }, qty: 1, tick: 2400 },
-        { get: { tag: "forge:storage_blocks/iron" }, put: { tag: "forge:storage_blocks/steel" }, qty: 9, tick: 21600 },
+        { get: { item: "thermal:steel_ingot" }, put: { tag: "forge:ingots/iron" }, qty: 1, tick: 2400 },
+        { get: { item: "thermal:steel_block" }, put: { tag: "forge:storage_blocks/iron" }, qty: 9, tick: 21600 },
     ];
     BlastFurnacePattern.forEach((recipe) => {
         event.custom({
@@ -157,7 +173,7 @@ ServerEvents.recipes((event) => {
         event.custom({
             type: "immersiveengineering:blast_furnace_fuel",
             input: recipe.fuel,
-            time: recipe.time,
+            time: recipe.tick,
         });
     });
     //#endregion

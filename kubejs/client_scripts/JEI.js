@@ -2,7 +2,7 @@
 JEIEvents.hideItems((event) => {
     //Rm Full
     global.items.GAME_FullRm.forEach((item) => {
-        //event.hide(item);
+        event.hide(item);
     });
 
     //Rm Out

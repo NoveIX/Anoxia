@@ -6,7 +6,7 @@ ServerEvents.recipes((event) => {
         ["immersiveengineering:coal_coke", "#forge:coal_coke"],
         ["cyclic:compressed_cobblestone", "anoxia:compressed_cobblestone"],
         ["thermal:sawdust", "#forge:dusts/wood"],
-        ["thermal:saw_blade", "forge:sawblades"],
+        ["thermal:saw_blade", "#forge:sawblades"],
         ["minecraft:smoker", "#anoxia:smokers"],
         ["minecraft:blast_furnace", "#anoxia:blastfurnaces"],
         ["thermal:creosote_bucket", "immersiveengineering:creosote_bucket"],

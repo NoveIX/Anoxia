@@ -7,9 +7,11 @@ global.items = {};
 //RmOut - RmIn - RmTags
 global.items.GAME_FullRm = [
     //Ad Astra
-    "ad_astra:coal_generator",
+    "ad_astra:tier_1_rocket",
+    "ad_astra:tier_2_rocket",
+    "ad_astra:tier_3_rocket",
+    "ad_astra:tier_4_rocket",
     "ad_astra:compressor",
-    "ad_astra:fuel_refinery",
     "ad_astra:iron_plate",
     "ad_astra:steel_plate",
     "ad_astra:iron_rod",
@@ -213,8 +215,15 @@ global.items.GAME_FullRm = [
     "mysticalagriculture:infusion_crystals",
 
     //OpenComputer
-    "oc2r:silicon_blend", //Both InOut
-    "oc2r:silicon", //Both InOut
+    "oc2r:silicon_blend",
+    "oc2r:silicon",
+
+    //Solar Panel
+    "solarflux:twilightforest/twilight_cell_1",
+    "solarflux:twilightforest/twilight_cell_2",
+    "solarflux:sp_tf.fiery",
+    "solarflux:sp_tf.carminite",
+    "solarflux:twilightforest/twilight_upgrade",
 
     //Thermal Extra
     "thermal_extra:signalum_hammer",
@@ -307,8 +316,16 @@ global.recipe.GAME_Rmid = [
     //EnderIO
     "enderio:smelting/industrialforegoing/plastic", //Rm Plastic
     "enderio:smelting/oc2r/silicon", //Rm Silicon
+
+    //ClearLog
+    "mysticalagriculture:essence/chisel/marble",
+    "pamhc2foodcore:caramelcupcakeitem_x4",
+    "mysticalagriculture:essence/chisel/basalt",
+    "pamhc2foodcore:melonpieitem",
+    "mysticalagriculture:essence/chisel/limestone",
+    "pamhc2foodcore:honeymuffinitem",
 ];
 
 /* ServerEvents.recipes((event) => {
-    event.remove({ id: "thermal:compat/quark/sawmill_quark_azalea_logs" });
+    event.remove({ id:  });
 }); */

@@ -36,19 +36,19 @@ ServerEvents.recipes((event) => {
             //EnderIO Integration => Energized Gear
             get: [{ item: "enderio:energized_gear" }],
             put: [{ tag: "forge:ingots/energetic_alloy", count: 4 }, { item: "thermal:press_gear_die" }],
-            rsflux: 3600,
+            rsflux: 4000,
         },
         {
             //EnderIO Integration => Vibrant Gear
             get: [{ item: "enderio:vibrant_gear" }],
             put: [{ tag: "forge:ingots/vibrant_alloy", count: 4 }, { item: "thermal:press_gear_die" }],
-            rsflux: 4800,
+            rsflux: 6000,
         },
         {
             //EnderIO Integration => DarkSteel Gear
             get: [{ item: "enderio:dark_bimetal_gear" }],
             put: [{ tag: "forge:ingots/dark_steel", count: 4 }, { item: "thermal:press_gear_die" }],
-            rsflux: 5000,
+            rsflux: 8000,
         },
 
         //Unification

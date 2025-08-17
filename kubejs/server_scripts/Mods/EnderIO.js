@@ -1,4 +1,14 @@
 ServerEvents.recipes((event) => {
+const RmRecipeID = [
+    //Unification
+    "enderio:sag_milling/sand" //Rm Silicon
+];
+RmRecipeID.forEach((id)=>{
+    event.remove({ id: "enderio:sag_milling/sand" });
+})
+
+    //// # =================================================================================================== #
+
     //Basic Capacitor
     event.remove({ output: "enderio:basic_capacitor" });
     event.shaped("enderio:basic_capacitor", [" GL", "GCG", "LG "], { G: "#forge:nuggets/gold", L: "powah:capacitor_basic_large", C: "#forge:ingots/copper" });
@@ -55,13 +65,6 @@ ServerEvents.recipes((event) => {
 
     //#region Alloy
     const AlloyPattern = [
-        {
-            //Restore Alloy Uranium => Uranium (Mekanism)
-            get: { item: "mekanism:ingot_uranium" },
-            put: [{ count: 1, ingredient: { item: "powah:uraninite" } }],
-            rsflux: 1500,
-        },
-
         //Unification
         {
             //industrialforegoing:plastic => pneumaticcraft:plastic
