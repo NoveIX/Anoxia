@@ -1,4 +1,18 @@
 ServerEvents.recipes((event) => {
+    const RmRecipeID = [
+        //Unification
+        "thermal:machines/pyrolyzer/pyrolyzer_logs", //Rm Creosote
+        "thermal:machines/pyrolyzer/pyrolyzer_coal", //Rm Creosote
+        "thermal:machines/press/unpacking/press_sawdust_unpacking", //Rm Sawdust
+        "thermal:machines/pulverizer/pulverizer_logs", //Rm Sawdust
+        "thermal:machines/pulverizer/pulverizer_diamond_tools", //Rm Sawdust
+    ];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
+    //// # =================================================================================================== #
+
     //Flux Coil
     event.remove({ output: "thermal:rf_coil" });
     event.shaped("thermal:rf_coil", ["  R", " E ", "R  "], { R: "#forge:ingots/red_alloy", E: "#forge:ingots/electrum" });
@@ -18,19 +32,6 @@ ServerEvents.recipes((event) => {
 
     //#region Press
     const PressPattern = [
-        //Restore
-        {
-            //Restore Sawdust => Sawdust (Mekanism)
-            get: [{ item: "mekanism:sawdust", count: 9 }],
-            put: [{ item: "thermal:sawdust_block" }, { item: "thermal:press_unpacking_die" }],
-            rsflux: 400,
-        },
-        {
-            //Restore SawBlock => Accept forge:dusts/wood (Mekanism)
-            get: [{ item: "thermal:sawdust_block" }],
-            put: [{ tag: "forge:dusts/wood", count: 9 }, { item: "thermal:press_packing_3x3_die" }],
-            rsflux: 400,
-        },
         {
             //EnderIO Integration => Energized Gear
             get: [{ item: "enderio:energized_gear" }],
@@ -49,6 +50,20 @@ ServerEvents.recipes((event) => {
             put: [{ tag: "forge:ingots/dark_steel", count: 4 }, { item: "thermal:press_gear_die" }],
             rsflux: 5000,
         },
+
+        //Unification
+        {
+            //thermal:sawdust => mekanism:sawdust
+            get: [{ item: "mekanism:sawdust", count: 9 }],
+            put: [{ item: "thermal:sawdust_block" }, { item: "thermal:press_unpacking_die" }],
+            rsflux: 400,
+        },
+        {
+            //thermal:sawdust => mekanism:sawdust
+            get: [{ item: "thermal:sawdust_block" }],
+            put: [{ tag: "forge:dusts/wood", count: 9 }, { item: "thermal:press_packing_3x3_die" }],
+            rsflux: 400,
+        },
     ];
     PressPattern.forEach((recipe) => {
         event.custom({
@@ -64,9 +79,9 @@ ServerEvents.recipes((event) => {
 
     //#region Pulverizer
     const PulverizerPattern = [
-        //Restore
+        //Unification
         {
-            //Restore Sawdust = Sawdust (Mekanism)
+            //thermal:sawdust => mekanism:sawdust
             get: [{ item: "mekanism:sawdust", count: 8 }],
             put: { tag: "minecraft:logs" },
             rsflux: 1000,
@@ -86,9 +101,9 @@ ServerEvents.recipes((event) => {
 
     //#region PulverizerRecycle
     const PulverizerRecyclePattern = [
-        //Restore
+        //Unification
         {
-            //Restore Sawdust => Sawdust (Mekanism)
+            //thermal:sawdust => mekanism:sawdust
             get: [
                 { item: "minecraft:diamond", count: 1 },
                 { item: "mekanism:sawdust", count: 1 },
@@ -112,16 +127,24 @@ ServerEvents.recipes((event) => {
 
     //#region Pyrolyzer
     const PyrolyzerPattern = [
-        //Restore
+        //Unification
         {
-            //Restore Logs => Creosote (Immersive)
+            //thermal:creosote => immersive:creosote
             get: [{ item: "minecraft:charcoal" }, { fluid: "immersiveengineering:creosote", amount: 250 }],
             put: { tag: "minecraft:logs" },
+            rsflux: 2000,
         },
         {
-            //Restore Coke => Creosote (Immersive)
+            //thermal:creosote => immersive:creosote
             get: [{ item: "thermal:coal_coke" }, { item: "thermal:tar", chance: 0.25 }, { fluid: "immersiveengineering:creosote", amount: 500 }],
             put: { item: "minecraft:coal" },
+            rsflux: 4000,
+        },
+        {
+            //thermal:creosote => immersive:creosote
+            get: [{ item: "thermal:coal_coke_block" }, { item: "thermal:tar", chance: 0.25 }, { fluid: "immersiveengineering:creosote", amount: 4500 }],
+            put: { item: "minecraft:coal_block" },
+            rsflux: 36000,
         },
     ];
     PyrolyzerPattern.forEach((recipe) => {
@@ -129,6 +152,7 @@ ServerEvents.recipes((event) => {
             type: "thermal:pyrolyzer",
             ingredient: recipe.put,
             result: recipe.get,
+            energy: recipe.rsflux,
             experience: 0.15,
         });
     });
@@ -138,9 +162,8 @@ ServerEvents.recipes((event) => {
 
     //#region Smelter
     const SmelterPattern = [
-        //ProjectRED
         {
-            //Red Ingot
+            //ProjectRED Integration => Red Ingot
             get: [{ item: "projectred_core:red_ingot", count: 2 }],
             put: [
                 { tag: "forge:dusts/redstone", count: 2 },
@@ -149,7 +172,7 @@ ServerEvents.recipes((event) => {
             rsflux: 32000,
         },
         {
-            //Electrotine Ingot
+            //ProjectRED Integration => Electrotine Ingot
             get: [{ item: "projectred_core:electrotine_ingot", count: 2 }],
             put: [
                 { tag: "forge:dusts/electrotine", count: 2 },

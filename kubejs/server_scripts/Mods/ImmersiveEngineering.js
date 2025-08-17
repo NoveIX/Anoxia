@@ -48,21 +48,27 @@ ServerEvents.recipes((event) => {
     event.shaped("immersiveengineering:cokebrick", ["PBP", "BSB", "PBP"], { P: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", S: "#forge:sandstone/colorless" });
 
     //Kiln Brick
+    event.remove({ output: "immersiveengineering:alloybrick" });
     event.shaped("immersiveengineering:alloybrick", ["RN", "NR"], { R: "#forge:sandstone/red", N: "#forge:ingots/brick" });
 
     //Blast Brick
+    event.remove({ output: "immersiveengineering:blastbrick" });
     event.shaped("immersiveengineering:blastbrick", ["NBN", "BCB", "NBN"], { N: "#forge:ingots/nether_brick", B: "#forge:ingots/brick", C: "immersiveengineering:cokebrick" });
 
     //Blast Brick Reinforced
+    event.remove({ output: "immersiveengineering:blastbrick_reinforced" });
     event.shaped("immersiveengineering:blastbrick_reinforced", ["S S", " B ", "S S"], { S: "#forge:plates/steel", B: "immersiveengineering:blastbrick" });
 
     //Scaffoling Steel
+    event.remove({ output: "immersiveengineering:steel_scaffolding_standard" });
     event.shaped(Item.of("immersiveengineering:steel_scaffolding_standard", 3), ["PPP", " R ", "R R"], { P: "#forge:plates/steel", R: "#forge:rods/steel" });
 
     //Scaffoling Aluminum
+    event.remove({ output: "immersiveengineering:alu_scaffolding_standard" });
     event.shaped(Item.of("immersiveengineering:alu_scaffolding_standard", 3), ["PPP", " R ", "R R"], { P: "#forge:plates/aluminum", R: "#forge:rods/aluminum" });
 
     //Concrete Leaded
+    event.remove({ output: "immersiveengineering:alu_scaffolding_standard" });
     event.shaped("immersiveengineering:concrete_leaded", ["P P", " B ", "P P"], { P: "#forge:plates/lead", B: "immersiveengineering:concrete" });
 
     //// # =================================================================================================== #
@@ -114,6 +120,44 @@ ServerEvents.recipes((event) => {
             results: recipe.get,
             energy: 51200,
             time: 100,
+        });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region BlastFurnace
+    event.remove({ type: "immersiveengineering:blast_furnace" });
+    const BlastFurnacePattern = [
+        { get: { tag: "forge:ingots/steel" }, put: { tag: "forge:ingots/iron" }, qty: 1, tick: 2400 },
+        { get: { tag: "forge:storage_blocks/iron" }, put: { tag: "forge:storage_blocks/steel" }, qty: 9, tick: 21600 },
+    ];
+    BlastFurnacePattern.forEach((recipe) => {
+        event.custom({
+            type: "immersiveengineering:blast_furnace",
+            input: recipe.put,
+            result: recipe.get,
+            slag: { base_ingredient: { tag: "forge:slag" }, count: recipe.qty },
+            time: recipe.tick,
+        });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region BlastFurnace Fuel
+    event.remove({ type: "immersiveengineering:blast_furnace_fuel" });
+    const BlastFurnaceFuelPattern = [
+        { fuel: { tag: "forge:charcoal" }, tick: 300 },
+        { fuel: { tag: "forge:storage_blocks/charcoal" }, tick: 3000 },
+        { fuel: { tag: "forge:coal_coke" }, tick: 1200 },
+        { fuel: { tag: "forge:storage_blocks/coal_coke" }, tick: 10800 },
+    ];
+    BlastFurnaceFuelPattern.forEach((recipe) => {
+        event.custom({
+            type: "immersiveengineering:blast_furnace_fuel",
+            input: recipe.fuel,
+            time: recipe.time,
         });
     });
     //#endregion

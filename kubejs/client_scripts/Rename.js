@@ -1,14 +1,24 @@
 ClientEvents.lang("en_us", (event) => {
     // Basic Items
-    event.renameItem("quark:sturdy_stone", "Stasis Stone (Za Warudo! Toki wo tomare!)");
-    event.renameItem("thermal:coal_coke_block", "Block of Coal Coke");
-    event.renameItem("industrialforegoing:tinydryrubber", "Tiny Dry Rubber");
-    event.renameItem("create:white_sail", "Solar Wind Sail");
-    event.renameItem("create:sail_frame", "Solar Wind Sail Frame");
-    event.renameItem("create:windmill_bearing", "Solar Wind Bearing");
+    const RenamePattern = [
+        { item: "quark:sturdy_stone", new: "Stasis Stone (Za Warudo! Toki wo tomare!)" },
+        { item: "thermal:coal_coke_block", new: "Block of Coal Coke" },
+        { item: "industrialforegoing:tinydryrubber", new: "Tiny Dry Rubber" },
+        { item: "create:white_sail", new: "Solar Wind Sail" },
+        { item: "create:sail_frame", new: "Solar Wind Sail Frame" },
+        { item: "create:windmill_bearing", new: "Solar Wind Bearing" },
+        { item: "thermal:coal_coke", new: "Coal Coke" },
+    ];
+    RenamePattern.forEach((name) => {
+        event.renameItem(name.item, name.new);
+    });
+
+    //// # =================================================================================================== #
 
     // Biomes
     event.renameBiome("hyperbox:hyperbox", "Hyperbox");
+
+    //// # =================================================================================================== #
 
     //#region Pots definition
     // Define tiers with their display names

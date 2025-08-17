@@ -1,4 +1,15 @@
 ServerEvents.recipes((event) => {
+    const RmRecipeID = [
+        //Unification
+        "tacz_c:thin_brass_sheet_cutting",
+        "tacz_c:thin_copper_sheet_cutting",
+    ];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
+    //// # =================================================================================================== #
+
     //#region Recipes
     //Andesite Alloy
     event.shaped("create:andesite_alloy", ["BA", "AB"], { A: "minecraft:polished_andesite", B: "#forge:ingots/lead" });
@@ -16,8 +27,35 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "create:white_sail" });
     event.shaped("create:white_sail", ["ABA", "BCB", "ABA"], { A: "minecraft:string", B: "#forge:rods/wooden", C: "projectred_core:silicon" });
     event.shapeless("create:white_sail", ["create:sail_frame"]);
+
+    //Sawmill
+    event.remove({ output: "create:mechanical_saw" });
+    event.shaped("create:mechanical_saw", [" A ", "BCB", "BBB"], { A: "#forge:sawblades", B: "create:andesite_casing", C: "create:shaft" });
     //#endregion
 
+    //// # =================================================================================================== #
+
+    const CuttingPatern = [
+        //Unification
+        {
+            //create:copper_plate => "forge:plates/copper"
+            get: [{ count: 10, item: "tacz_c:thin_copper_sheet" }],
+            put: [{ tag: "forge:plates/copper" }],
+        },
+
+        {
+            get: [{ count: 10, item: "tacz_c:thin_brass_sheet" }],
+            put: [{ tag: "forge:plates/brass" }],
+        },
+    ];
+    CuttingPatern.forEach((recipe) => {
+        event.custom({
+            type: "create:cutting",
+            ingredients: recipe.put,
+            results: recipe.get,
+            processingTime: 100,
+        });
+    });
     //// # =================================================================================================== #
 
     //#region Compacting

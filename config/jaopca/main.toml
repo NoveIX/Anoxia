@@ -22,14 +22,14 @@
 
 #Configurations related to material overrides.
 [materialOverrides]
+	#List of materials that should be ingot.
+	ingot = ["aethersteel_scrap"]
 	#List of materials that should be gems.
 	gem = ["diamond", "emerald", "lapis", "prismarine", "quartz"]
 	#List of materials that should be crystals.
 	crystal = []
 	#List of materials that should be dusts.
 	dust = ["glowstone", "redstone"]
-	#List of materials that should be ingot.
-	ingot = ["aethersteel_scrap"]
 
 #Configurations related to item selection.
 [itemSelection]
@@ -41,14 +41,14 @@
 	#List of block tags that should not be added.
 	blacklist = []
 	#List of block tags that should be considered as defined.
-	customDefined = ["forge:ores/aethersteel_scrap"]
+	customDefined = []
 
 #Configurations related to item tags.
 [itemTags]
 	#List of item tags that should not be added.
 	blacklist = []
 	#List of item tags that should be considered as defined.
-	customDefined = ["forge:ores/aethersteel_scrap"]
+	customDefined = ["forge:ores/aethersteel_scrap", "forge:ingots/aethersteel_scrap"]
 
 #Configurations related to fluid tags.
 [fluidTags]

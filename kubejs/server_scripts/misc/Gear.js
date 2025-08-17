@@ -1,4 +1,45 @@
 ServerEvents.recipes((event) => {
+    const RmGearID = [
+        //Thermal Compat
+        "thermal:compat/redstone_arsenal/press_rsa_flux_ingot_to_gear",
+
+        //Thermal Endergy
+        "thermalendergy:machine/press/press_prismalium_ingot_to_gear",
+        "thermalendergy:machine/press/press_melodium_ingot_to_gear",
+        "thermalendergy:machine/press/press_stellarium_ingot_to_gear",
+
+        //Thermal Extra
+        "thermal_extra:machine/press/soul_infused_gear",
+        "thermal_extra:machine/press/shellite_gear",
+        "thermal_extra:machine/press/twinite_gear",
+        "thermal_extra:machine/press/dragonsteel_gear",
+        "thermal_extra:machine/press/abyssal_gear",
+
+        //Thermal Expansion
+        "thermal:machines/press/press_iron_ingot_to_gear",
+        "thermal:machines/press/press_gold_ingot_to_gear",
+        "thermal:machines/press/press_copper_ingot_to_gear",
+        "thermal:machines/press/press_netherite_ingot_to_gear",
+        "thermal:machines/press/press_tin_ingot_to_gear",
+        "thermal:machines/press/press_lead_ingot_to_gear",
+        "thermal:machines/press/press_silver_ingot_to_gear",
+        "thermal:machines/press/press_nickel_ingot_to_gear",
+        "thermal:machines/press/press_steel_ingot_to_gear",
+        "thermal:machines/press/press_rose_gold_ingot_to_gear",
+        "thermal:machines/press/press_signalum_ingot_to_gear",
+        "thermal:machines/press/press_lumium_ingot_to_gear",
+        "thermal:machines/press/press_enderium_ingot_to_gear",
+        "thermal:machines/press/press_bronze_ingot_to_gear",
+        "thermal:machines/press/press_electrum_ingot_to_gear",
+        "thermal:machines/press/press_invar_ingot_to_gear",
+        "thermal:machines/press/press_constantan_ingot_to_gear",
+    ];
+    RmGearID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
+    //// # =================================================================================================== #
+
     //#region Func Gear
     function Gear({ get, put, rsflux, liquid }) {
         //Create

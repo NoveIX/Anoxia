@@ -2,24 +2,24 @@
 ServerEvents.recipes((event) => {
     const IngredientReplacements = [
         //Input	//Output
-        ["industrialforegoing:plastic", "pneumaticcraft:plastic"],
-        ["pneumaticcraft:wheat_flour", "create:wheat_flour"],
-        ["enderio:flour", "create:wheat_flour"],
-        ["pamhc2foodcore:flouritem", "create:wheat_flour"],
-        ["create:dough", "pamhc2foodcore:doughitem"],
-        ["delightful:nut_dough", "pamhc2foodcore:doughitem"],
-        ["farmersdelight:wheat_dough", "pamhc2foodcore:doughitem"],
-        //["extendedcrafting:redstone_ingot", "projectred_core:red_ingot"],
-        ["thermal:sawdust", "mekanism:sawdust"],
-        ["immersiveengineering:dust_wood", "mekanism:sawdust"],
-        ["thermal:saw_blade", "immersiveengineering:sawblade"],
-        ["immersiveengineering:coal_coke", "thermal:coal_coke"],
+        ["industrialforegoing:plastic", "#forge:plastic"],
+        ["immersiveengineering:coal_coke", "#forge:coal_coke"],
         ["cyclic:compressed_cobblestone", "anoxia:compressed_cobblestone"],
-        ["enderio:silicon", "ae2:silicon"],
-        ["oc2r:silicon", "ae2:silicon"],
-        ["powah:uraninite_raw", "mekanism:raw_uranium"],
+        ["thermal:sawdust", "#forge:dusts/wood"],
+        ["thermal:saw_blade", "forge:sawblades"],
         ["minecraft:smoker", "#anoxia:smokers"],
         ["minecraft:blast_furnace", "#anoxia:blastfurnaces"],
+        ["thermal:creosote_bucket", "immersiveengineering:creosote_bucket"],
+        ["thermal:creosote", "immersiveengineering:creosote"],
+
+        //Create Unification
+        ["create:copper_sheet", "#forge:plates/copper"],
+        ["create:brass_sheet", "#forge:plates/brass"],
+        ["create:iron_sheet", "#forge:plates/iron"],
+        ["create:golden_sheet", "#forge:plates/gold"],
+        ["createaddition:electrum_sheet", "#forge:plates/electrum"],
+        ["createdeco:zinc_sheet", "#forge:plates/zinc"],
+        ["createdeco:netherite_sheet", "#forge:plates/netherite"],
     ];
 
     IngredientReplacements.forEach((replacement) => {

@@ -134,7 +134,7 @@ ServerEvents.recipes((event) => {
             n0: 2,
             put1: "forge:ingots/platinum",
             n1: 1,
-            put2: "anoxia:stone/andesite",
+            put2: "anoxia:stone/polished_andesite",
             n2: 1,
             rsflux: 8000,
             block: "forge:storage_blocks/andesite_alloy",

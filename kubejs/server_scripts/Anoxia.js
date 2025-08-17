@@ -26,10 +26,12 @@ ServerEvents.recipes((event) => {
         { get: "anoxia:septuple_compressed_cobblestone", put: "anoxia:sextuple_compressed_cobblestone" },
         { get: "anoxia:octuple_compressed_cobblestone", put: "anoxia:septuple_compressed_cobblestone" },
         { get: "anoxia:compressed_deepslate", put: "minecraft:deepslate" },
+        { get: "anoxia:compressed_cobbled_deepslate", put: "minecraft:cobbled_deepslate" },
         { get: "anoxia:compressed_blackstone", put: "minecraft:blackstone" },
         { get: "anoxia:compressed_andesite", put: "minecraft:andesite" },
     ];
     CompressPattern.forEach((recipe) => {
+        event.remove({ output: recipe.get });
         event.shaped(recipe.get, ["AAA", "AAA", "AAA"], { A: recipe.put });
         event.shapeless(Item.of(recipe.put, 9), [recipe.get]);
     });
@@ -43,7 +45,7 @@ ServerEvents.recipes((event) => {
     event.shaped("anoxia:create_netherite_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:netherite_mesh" });
 
     //Upgrade Mesh
-    event.shaped("anoxia:create_flint_mesh", ["A A", "ABA", "A A"], { A: "minecraft:flint", B: "exnihilosequentia:flint_mesh" });
+    event.shaped("anoxia:create_flint_mesh", ["A A", "ABA", "A A"], { A: "minecraft:flint", B: "anoxia:create_string_mesh" });
     event.shaped("anoxia:create_iron_mesh", ["A A", "ABA", "A A"], { A: "#forge:ingots/iron", B: "anoxia:create_flint_mesh" });
     event.shaped("anoxia:create_diamond_mesh", ["A A", "ABA", "A A"], { A: "#forge:gems/diamond", B: "anoxia:create_iron_mesh" });
     event.shaped("anoxia:create_emerald_mesh", ["A A", "ABA", "A A"], { A: "#forge:gems/emerald", B: "anoxia:create_diamond_mesh" });

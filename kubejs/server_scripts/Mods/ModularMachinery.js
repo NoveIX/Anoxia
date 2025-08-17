@@ -388,7 +388,7 @@ MMEvents.createProcesses((event) => {
 
     //// # =================================================================================================== #
 
-    //#region Sieve Recipes
+    //#region Empowerer Recipes
     //Diamatine Block
     event
         .create("mm:diamatine_block")
@@ -463,6 +463,28 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:stone", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 550000 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "actuallyadditions:empowered_void_crystal_block", count: 1 } });
+
+    //Double Layer Capacitor
+    event
+        .create("mm:double_layer_capacitor")
+        .structureId("mm:autonomus_empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "enderio:basic_capacitor", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:ingots/energetic_alloy", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dusts/coal", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 15000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "enderio:double_layer_capacitor", count: 1 } });
+
+    //Double Layer Capacitor
+    event
+        .create("mm:octadic_capacitor")
+        .structureId("mm:autonomus_empowerer")
+        .ticks(10)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "enderio:double_layer_capacitor", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:ingots/vibrant_alloy", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:storage_blocks/glowstone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 30000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "enderio:octadic_capacitor", count: 1 } });
     //#endregion
 
     //// # =================================================================================================== #

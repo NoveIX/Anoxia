@@ -1,12 +1,67 @@
 ServerEvents.recipes((event) => {
+    const RmPlateID = [
+        //Ad Astra
+        "jaopca:thermal_expansion.material_to_plate.desh",
+        "thermal:machines/press/press_desh_ingot_to_plate",
+        "jaopca:thermal_expansion.material_to_plate.ostrum",
+        "thermal:machines/press/press_ostrum_ingot_to_plate",
+        "jaopca:thermal_expansion.material_to_plate.calorite",
+        "thermal:machines/press/press_calorite_ingot_to_plate",
+
+        //Thermal Compat
+        "thermal:compat/immersiveengineering/press_ie_aluminum_ingot_to_plate",
+        "jaopca:thermal_expansion.material_to_plate.zinc",
+        "jaopca:thermal_expansion.material_to_plate.osmium",
+        "thermal:compat/immersiveengineering/press_ie_uranium_ingot_to_plate",
+
+        //Thermal Endergy
+        "thermalendergy:machine/press/press_prismalium_ingot_to_plate",
+        "thermalendergy:machine/press/press_melodium_ingot_to_plate",
+        "thermalendergy:machine/press/press_stellarium_ingot_to_plate",
+
+        //thermal Extra
+        "thermal_extra:machine/press/soul_infused_plate",
+        "thermal_extra:machine/press/shellite_plate",
+        "thermal_extra:machine/press/twinite_plate",
+        "thermal_extra:machine/press/dragonsteel_plate",
+        "thermal_extra:machine/press/abyssal_plate",
+
+        //Thermal Expansion
+        "thermal:machines/press/press_iron_ingot_to_plate",
+        "thermal:machines/press/press_gold_ingot_to_plate",
+        "thermal:machines/press/press_copper_ingot_to_plate",
+        "thermal:machines/press/press_netherite_ingot_to_plate",
+        "thermal:machines/press/press_tin_ingot_to_plate",
+        "thermal:machines/press/press_lead_ingot_to_plate",
+        "thermal:machines/press/press_silver_ingot_to_plate",
+        "thermal:machines/press/press_nickel_ingot_to_plate",
+        "thermal:machines/press/press_steel_ingot_to_plate",
+        "thermal:machines/press/press_rose_gold_ingot_to_plate",
+        "thermal:machines/press/press_signalum_ingot_to_plate",
+        "thermal:machines/press/press_lumium_ingot_to_plate",
+        "thermal:machines/press/press_enderium_ingot_to_plate",
+        "thermal:machines/press/press_bronze_ingot_to_plate",
+        "thermal:machines/press/press_electrum_ingot_to_plate",
+        "thermal:machines/press/press_invar_ingot_to_plate",
+        "thermal:machines/press/press_constantan_ingot_to_plate",
+    ];
+    RmPlateID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
+    //// # =================================================================================================== #
+
     //#region Plate
     const PlatePattern = [
         //Ad Astra
         { get: "ad_astra:desh_plate", put: "forge:ingots/desh", rsflux: 24000 },
         { get: "ad_astra:ostrum_plate", put: "forge:ingots/ostrum", rsflux: 28000 },
         { get: "ad_astra:calorite_plate", put: "forge:ingots/calorite", rsflux: 32000 },
+
         //Create
         { get: "create:brass_sheet", put: "forge:ingots/brass", rsflux: 6000 },
+        { get: "createdeco:andesite_sheet", put: "forge:ingots/andesite_alloy", rsflux: 4000 },
+        { get: "createdeco:industrial_iron_sheet", put: "createdeco:internal/ingots/industrial_iron_ingots", rsflux: 8000 },
 
         //ChemLib
         { get: "chemlib:lithium_plate", put: "forge:ingots/lithium", rsflux: 8000 },

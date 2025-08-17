@@ -1,35 +1,37 @@
+// priority:1001
 global.items = {};
 
 //// # =================================================================================================== #
 
-//#region Item
-global.items.GAME_RmOut = [
+//#region Rm full item
+//RmOut - RmIn - RmTags
+global.items.GAME_FullRm = [
     //Ad Astra
-    //"ad_astra:coal_generator",
-    //"ad_astra:compressor",
-    //"ad_astra:fuel_refinery",
-    "ad_astra:iron_plate", //Both InOut
-    "ad_astra:steel_plate", //Both InOut
-    "ad_astra:iron_rod", //Both InOut
+    "ad_astra:coal_generator",
+    "ad_astra:compressor",
+    "ad_astra:fuel_refinery",
+    "ad_astra:iron_plate",
+    "ad_astra:steel_plate",
+    "ad_astra:iron_rod",
 
     //Actually Addiction
     "actuallyadditions:tiny_coal",
     "actuallyadditions:tiny_charcoal",
+    "actuallyadditions:tiny_torch",
 
-    //Chemlib
-    "chemlib:oxygen_bucket",
+    //ChemLib
+    "chemlib:iron_plate",
+    "chemlib:gold_plate",
+    "chemlib:copper_plate",
+    "chemlib:tin_plate",
+    "chemlib:lead_plate",
+    "chemlib:silver_plate",
+    "chemlib:nickel_plate",
 
-    //Create Sifting
-    "createsifter:dust",
-    "createsifter:crushed_end_stone",
-    "createsifter:brass_sifter",
-    "createsifter:string_mesh",
-    "createsifter:andesite_mesh",
-    "createsifter:zinc_mesh",
-    "createsifter:brass_mesh",
-    "createsifter:custom_mesh",
-    "createsifter:advanced_brass_mesh",
-    "createsifter:advanced_custom_mesh",
+    //Crete
+    "create:copper_sheet",
+    "create:iron_sheet",
+    "create:golden_sheet",
 
     //Create Addition
     "createaddition:copper_rod",
@@ -44,6 +46,22 @@ global.items.GAME_RmOut = [
     "createaddition:copper_wire",
     "createaddition:electrum_wire",
 
+    //Create Deco
+    "createdeco:zinc_sheet",
+    "createdeco:netherite_sheet",
+
+    //Create Sifter
+    "createsifter:brass_sifter",
+    "createsifter:dust",
+    "createsifter:crushed_end_stone",
+    "createsifter:string_mesh",
+    "createsifter:andesite_mesh",
+    "createsifter:zinc_mesh",
+    "createsifter:brass_mesh",
+    "createsifter:custom_mesh",
+    "createsifter:advanced_brass_mesh",
+    "createsifter:advanced_custom_mesh",
+
     //Cyclic
     "cyclic:crafting_stick",
     "cyclic:crafting_bag",
@@ -53,86 +71,8 @@ global.items.GAME_RmOut = [
     "cyclic:fluid_pipe",
     "cyclic:uncrafter",
 
-    //ChemLib
-    "chemlib:iron_plate",
-    "chemlib:gold_plate",
-    "chemlib:copper_plate",
-    "chemlib:tin_plate",
-    "chemlib:lead_plate",
-    "chemlib:silver_plate",
-    "chemlib:nickel_plate",
-
     //EnderIO
-    "enderio:flour",
-    "enderio:silicon", //Both InOut
-    "enderio:fire_water_bucket",
-
-    //Forbidden Arcanus - Removed for prevent Crash
-    "forbidden_arcanus:edelwood_bucket",
-    "forbidden_arcanus:edelwood_water_bucket",
-    "forbidden_arcanus:edelwood_lava_bucket",
-    "forbidden_arcanus:edelwood_milk_bucket",
-    "forbidden_arcanus:edelwood_powder_snow_bucket",
-    "forbidden_arcanus:edelwood_pufferfish_bucket",
-    "forbidden_arcanus:edelwood_salmon_bucket",
-    "forbidden_arcanus:edelwood_cod_bucket",
-    "forbidden_arcanus:edelwood_tropical_fish_bucket",
-    "forbidden_arcanus:edelwood_bat_bucket",
-    "forbidden_arcanus:edelwood_squid_bucket",
-    "forbidden_arcanus:edelwood_glow_squid_bucket",
-    "forbidden_arcanus:edelwood_bee_bucket",
-    "forbidden_arcanus:edelwood_magma_cube_bucket",
-    "forbidden_arcanus:edelwood_strider_bucket",
-    "forbidden_arcanus:edelwood_slime_bucket",
-    "forbidden_arcanus:edelwood_chicken_bucket",
-    "forbidden_arcanus:edelwood_axolotl_bucket",
-    "forbidden_arcanus:edelwood_allay_bucket",
-    "forbidden_arcanus:edelwood_mushroom_stew_bucket",
-    "forbidden_arcanus:edelwood_suspicious_stew_bucket",
-    "forbidden_arcanus:edelwood_beetroot_soup_bucket",
-    "forbidden_arcanus:edelwood_bat_soup_bucket",
-
-    //HammerLib
-    "hammerlib:gears/wooden",
-    "hammerlib:gears/stone",
-    "hammerlib:gears/copper",
-    "hammerlib:gears/iron",
-    "hammerlib:gears/gold",
-    "hammerlib:gears/diamond",
-    "hammerlib:gears/netherite",
-
-    //Iron Furnace
-    "ironfurnaces:upgrade_iron",
-    "ironfurnaces:upgrade_gold",
-    "ironfurnaces:upgrade_crystal",
-    "ironfurnaces:upgrade_silver",
-    "ironfurnaces:rainbow_core",
-    "ironfurnaces:rainbow_plating",
-    "ironfurnaces:million_furnace",
-    "ironfurnaces:rainbow_coal",
-
-    //Immersive Engineering
-    "immersiveengineering:coal_coke",
-    "immersiveengineering:dust_wood",
-    "immersiveengineering:plate_copper",
-    "immersiveengineering:plate_aluminum",
-    "immersiveengineering:plate_lead",
-    "immersiveengineering:plate_silver",
-    "immersiveengineering:plate_nickel",
-    "immersiveengineering:plate_uranium",
-    "immersiveengineering:plate_constantan",
-    "immersiveengineering:plate_electrum",
-    "immersiveengineering:plate_steel",
-    "immersiveengineering:plate_iron",
-    "immersiveengineering:plate_gold",
-    "immersiveengineering:stick_iron",
-
-    //Industrial Foregoing
-    "industrialforegoing:iron_gear",
-    "industrialforegoing:gold_gear",
-    "industrialforegoing:diamond_gear",
-    "mifa:netherite_gear", // Addon
-    "industrialforegoing:plastic",
+    "enderio:silicon",
 
     //ExNihilo Sequentia
     "exnihilosequentia:andesite_crook",
@@ -164,8 +104,71 @@ global.items.GAME_RmOut = [
     "exnihilosequentia:terracotta_hammer",
     "exnihilosequentia:tuff_hammer",
 
-    //Extended Crafting
-    "extendedcrafting:redstone_ingot",
+    //Forbidden Arcanus - Removed for prevent Crash
+    "forbidden_arcanus:edelwood_bucket",
+    "forbidden_arcanus:edelwood_water_bucket",
+    "forbidden_arcanus:edelwood_lava_bucket",
+    "forbidden_arcanus:edelwood_milk_bucket",
+    "forbidden_arcanus:edelwood_powder_snow_bucket",
+    "forbidden_arcanus:edelwood_pufferfish_bucket",
+    "forbidden_arcanus:edelwood_salmon_bucket",
+    "forbidden_arcanus:edelwood_cod_bucket",
+    "forbidden_arcanus:edelwood_tropical_fish_bucket",
+    "forbidden_arcanus:edelwood_bat_bucket",
+    "forbidden_arcanus:edelwood_squid_bucket",
+    "forbidden_arcanus:edelwood_glow_squid_bucket",
+    "forbidden_arcanus:edelwood_bee_bucket",
+    "forbidden_arcanus:edelwood_magma_cube_bucket",
+    "forbidden_arcanus:edelwood_strider_bucket",
+    "forbidden_arcanus:edelwood_slime_bucket",
+    "forbidden_arcanus:edelwood_chicken_bucket",
+    "forbidden_arcanus:edelwood_axolotl_bucket",
+    "forbidden_arcanus:edelwood_allay_bucket",
+    "forbidden_arcanus:edelwood_mushroom_stew_bucket",
+    "forbidden_arcanus:edelwood_suspicious_stew_bucket",
+    "forbidden_arcanus:edelwood_beetroot_soup_bucket",
+    "forbidden_arcanus:edelwood_bat_soup_bucket",
+
+    //Hammer Lib
+    "hammerlib:gears/wooden",
+    "hammerlib:gears/stone",
+    "hammerlib:gears/copper",
+    "hammerlib:gears/iron",
+    "hammerlib:gears/gold",
+    "hammerlib:gears/diamond",
+    "hammerlib:gears/netherite",
+
+    //Immersive Engineering
+    "immersiveengineering:coal_coke",
+    "immersiveengineering:dust_wood",
+    "immersiveengineering:plate_copper",
+    "immersiveengineering:plate_aluminum",
+    "immersiveengineering:plate_lead",
+    "immersiveengineering:plate_silver",
+    "immersiveengineering:plate_nickel",
+    "immersiveengineering:plate_uranium",
+    "immersiveengineering:plate_constantan",
+    "immersiveengineering:plate_electrum",
+    "immersiveengineering:plate_steel",
+    "immersiveengineering:plate_iron",
+    "immersiveengineering:plate_gold",
+
+    //Industrial Foregoing
+    "industrialforegoing:iron_gear",
+    "industrialforegoing:gold_gear",
+    "industrialforegoing:diamond_gear",
+    "mifa:netherite_gear", // Addon
+    "industrialforegoing:plastic",
+
+    //Iron Furnace
+    "ironfurnaces:upgrade_iron",
+    "ironfurnaces:upgrade_gold",
+    "ironfurnaces:upgrade_crystal",
+    "ironfurnaces:upgrade_silver",
+    "ironfurnaces:rainbow_core",
+    "ironfurnaces:rainbow_plating",
+    "ironfurnaces:million_furnace",
+    "ironfurnaces:rainbow_coal",
 
     //Mekanism
     "mekanism:basic_smelting_factory",
@@ -209,20 +212,9 @@ global.items.GAME_RmOut = [
     "mysticalagriculture:machine_frame",
     "mysticalagriculture:infusion_crystals",
 
-    //PamsHarvestcraft
-    "pamhc2foodcore:flouritem",
-
     //OpenComputer
     "oc2r:silicon_blend", //Both InOut
     "oc2r:silicon", //Both InOut
-
-    //Pneumaticraft
-    "pneumaticcraft:wheat_flour",
-
-    //Thermal Expansion
-    "thermal:saw_blade",
-    "thermal:sawdust",
-    "thermal:creosote_bucket",
 
     //Thermal Extra
     "thermal_extra:signalum_hammer",
@@ -233,63 +225,36 @@ global.items.GAME_RmOut = [
     "thermal_extra:twinite_hammer",
     "thermal_extra:dragonsteel_hammer",
     "thermal_extra:abyssal_hammer",
-    "thermal_extra:soul_infused_bucket",
-    "thermal_extra:twinite_bucket",
-    "thermal_extra:shellite_bucket",
-    "thermal_extra:dragonsteel_bucket",
-    "thermal_extra:abyssal_bucket",
-    "thermal_extra:raw_arcane_gold_bucket",
-    "thermal_extra:arcane_gold_dust",
-    "thermal_extra:raw_zinc_bucket",
-    "thermal_extra:zinc_dust",
+    //"thermal_extra:soul_infused_bucket",
+    //"thermal_extra:twinite_bucket",
+    //"thermal_extra:shellite_bucket",
+    //"thermal_extra:dragonsteel_bucket",
+    //"thermal_extra:abyssal_bucket",
+    //"thermal_extra:raw_arcane_gold_bucket",
+    //"thermal_extra:arcane_gold_dust",
+    //"thermal_extra:raw_zinc_bucket",
+    //"thermal_extra:zinc_dust",
+
+    //Thermal Series
+    "thermal:sawdust",
+    "thermal:saw_blade",
 
     //Twilight Forest
     "twilightforest:uncrafting_table",
 ];
+//#endregion
 
-global.items.GAME_RmIn = [
-    //Ad Astra
-    "ad_astra:iron_plate", //Both InOut
-    "ad_astra:steel_plate", //Both InOut
-    "ad_astra:iron_rod", //Both InOut
-    //Ender IO
-    "enderio:silicon", //Both InOut
+//#region RmOut item
+global.items.GAME_RmOut = [];
+//#endregion
 
-    //OpenComputer
-    "oc2r:silicon_blend", //Both InOut
-    "oc2r:silicon", //Both InOut
-
-    //Mystacal Agriculture
-    "mysticalagriculture:silicon_essence",
-
-    //Thermal Extra
-    "thermal_extra:soul_infused_bucket",
-    "thermal_extra:twinite_bucket",
-    "thermal_extra:shellite_bucket",
-    "thermal_extra:dragonsteel_bucket",
-    "thermal_extra:abyssal_bucket",
-    "thermal_extra:raw_arcane_gold_bucket",
-    "thermal_extra:arcane_gold_dust",
-    "thermal_extra:raw_zinc_bucket",
-    "thermal_extra:zinc_dust",
-];
+//#region RmIn item
+global.items.GAME_RmIn = [];
 //#endregion
 
 //// # =================================================================================================== #
 
-//#region Tags
-global.items.RmAllTags = [
-"ad_astra:iron_plate",
-"ad_astra:steel_plate",
-"ad_astra:iron_rod",
-"enderio:silicon",
-"oc2r:silicon",
-]
-//#endregion
-
-//// # =================================================================================================== #
-
-//#region JEI - Items
+//#region JEI add item
 global.items.JEI_Add = [
     //Immersive
     "immersiveengineering:storage_aluminum",
@@ -305,7 +270,9 @@ global.items.JEI_Add = [
     "mekanism:creative_chemical_tank",
     "mekanism:creative_fluid_tank",
 ];
+//#endregion
 
+//#region JEI hide iteme
 global.items.JEI_Hide = [
     //Mekanism
     "mekanism:creative_chemical_tank",
@@ -317,52 +284,31 @@ global.items.JEI_Hide = [
 
 global.fluid = {};
 
-//#region Fluid
-global.fluid.GAME_RmOut = [
-    //EnderIO
-    "enderio:fire_water",
+//#region Rm Full fluid
+//RmOut - RmIn - RmTags
+global.fluid.GAME_FullRm = [];
+//#endregion
 
-    //Chemlib
-    "chemlib:oxygen_fluid",
+//#region RmOut fluid
+global.fluid.GAME_RmOut = [];
+//#endregion
 
-    //Thermal
-    "thermal:creosote",
-
-    //Thermal Extra
-    "thermal_extra:soul_infused",
-    "thermal_extra:twinite",
-    "thermal_extra:shellite",
-    "thermal_extra:dragonsteel",
-    "thermal_extra:abyssal",
-    "thermal_extra:zinc_dust",
-    "thermal_extra:raw_arcane_gold",
-    "thermal_extra:raw_zinc",
-];
-
-global.fluid.GAME_RmIn = [
-    //EnderIO
-    "enderio:fire_water",
-
-    //Chemlib
-    "chemlib:oxygen_fluid",
-
-    //Thermal
-    "thermal:creosote",
-
-    //Thermal Extra
-    "thermal_extra:soul_infused",
-    "thermal_extra:twinite",
-    "thermal_extra:shellite",
-    "thermal_extra:dragonsteel",
-    "thermal_extra:abyssal",
-    "thermal_extra:raw_arcane_gold",
-    "thermal_extra:raw_zinc",
-];
+//#region RmIn fluid
+global.fluid.GAME_RmIn = [];
 //#endregion
 
 //// # =================================================================================================== #
 
-//#region RecipeID
+//#region Rm recipeID
 global.recipe = {};
 
-global.recipe.id = [];
+//#region Rm recipeID
+global.recipe.GAME_Rmid = [
+    //EnderIO
+    "enderio:smelting/industrialforegoing/plastic", //Rm Plastic
+    "enderio:smelting/oc2r/silicon", //Rm Silicon
+];
+
+/* ServerEvents.recipes((event) => {
+    event.remove({ id: "thermal:compat/quark/sawmill_quark_azalea_logs" });
+}); */
