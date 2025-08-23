@@ -16,7 +16,11 @@ ServerEvents.recipes((event) => {
 
     //Cable Duct
     event.remove({ output: "ad_astra:cable_duct" });
-    event.shaped("ad_astra:cable_duct", ["ABA", "BBB", "ABA"], { A: "#forge:plates/steel", B: "#forge:ingots/copper" }); //Unification SteelPlate AdAstra => Tag
+    event.shaped("ad_astra:cable_duct", ["ABA", "BBB", "ABA"], { A: "#forge:plates/steel", B: "#forge:ingots/copper" }); //Unification SteelPlate AdAstra => SteelPlate Tag
+
+    //Hammer
+    event.remove({ output: "ad_astra:hammer" });
+    event.shaped("ad_astra:hammer", [" AB", " CA", "C  "], { A: "minecraft:iron_ingot", B: "minecraft:string", C: "minecraft:stick" });
 
     //// # =================================================================================================== #
 

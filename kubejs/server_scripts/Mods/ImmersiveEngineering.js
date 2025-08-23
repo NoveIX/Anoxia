@@ -1,4 +1,6 @@
 ServerEvents.recipes((event) => {
+    //Arc Recycling disable in OpenLoader
+
     //LV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_copper" });
     event.shapeless("immersiveengineering:wirecoil_copper", ["immersiveengineering:wirecoil_copper_ins", "#immersiveengineering:tools/wirecutters"]);

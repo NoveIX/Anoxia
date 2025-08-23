@@ -1,12 +1,13 @@
 StartupEvents.registry("item", (event) => {
     //Misc
-    event.create("anoxia:tiny_coal").displayName("Tiny Coal");
-    event.create("anoxia:tiny_charcoal").displayName("Tiny Charcoal");
-    //event.create("anoxia:aethersteel_mesh").displayName("Aethersteel Mesh");
-    event.create("anoxia:osmium_pieces").displayName("Osmium Pieces");
-    event.create("anoxia:modularium").displayName("Modularium");
-    event.create("anoxia:amongus").displayName("Among Us");
-    event.create("anoxia:sugoma").displayName("Sugoma");
+    event.create("anoxia:tiny_coal").displayName("Tiny Coal").texture("anoxia:item/tiny_coal");
+    event.create("anoxia:tiny_charcoal").displayName("Tiny Charcoal").texture("anoxia:item/tiny_charcoal");
+    //event.create("anoxia:aethersteel_mesh").displayName("Aethersteel Mesh").texture("anoxia:item/aethersteel_mesh");
+    event.create("anoxia:osmium_pieces").displayName("Osmium Pieces").texture("anoxia:item/osmium_pieces");
+    event.create("anoxia:modularium").displayName("Modularium").texture("anoxia:item/modularium");
+    event.create("anoxia:amongus").displayName("Among Us").texture("anoxia:item/amongus");
+    event.create("anoxia:sugoma").displayName("Sugoma").texture("anoxia:item/sugoma");
+    event.create("anoxia:human_soul").displayName("Human Soul").texture("anoxia:item/human_soul");
 
     //Create Sifter
     event.create("anoxia:create_string_mesh", "createsifter:mesh").displayName("String Mesh").parentModel("createsifter:block/meshes/mesh").texture("mesh", "anoxia:item/create_string_mesh");

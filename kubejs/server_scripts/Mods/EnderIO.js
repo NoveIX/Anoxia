@@ -1,11 +1,11 @@
 ServerEvents.recipes((event) => {
-const RmRecipeID = [
-    //Unification
-    "enderio:sag_milling/sand" //Rm Silicon
-];
-RmRecipeID.forEach((id)=>{
-    event.remove({ id: "enderio:sag_milling/sand" });
-})
+    const RmRecipeID = [
+        //Unification
+        "enderio:sag_milling/sand", //Rm Silicon
+    ];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
 
     //// # =================================================================================================== #
 
