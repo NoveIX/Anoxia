@@ -9,8 +9,6 @@ ServerEvents.recipes((event) => {
         ["thermal:saw_blade", "#forge:sawblades"],
         ["minecraft:smoker", "#anoxia:smokers"],
         ["minecraft:blast_furnace", "#anoxia:blastfurnaces"],
-        ["thermal:creosote_bucket", "immersiveengineering:creosote_bucket"],
-        ["thermal:creosote", "immersiveengineering:creosote"],
 
         //Create Unification
         ["create:copper_sheet", "#forge:plates/copper"],

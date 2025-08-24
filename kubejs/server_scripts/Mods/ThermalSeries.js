@@ -129,20 +129,17 @@ ServerEvents.recipes((event) => {
     const PyrolyzerPattern = [
         //Unification
         {
-            //thermal:creosote => immersive:creosote
-            get: [{ item: "minecraft:charcoal" }, { fluid: "immersiveengineering:creosote", amount: 250 }],
+            get: [{ item: "minecraft:charcoal" }, { fluid: "thermal:creosote", amount: 250 }],
             put: { tag: "minecraft:logs" },
             rsflux: 2000,
         },
         {
-            //thermal:creosote => immersive:creosote
-            get: [{ item: "thermal:coal_coke" }, { item: "thermal:tar", chance: 0.25 }, { fluid: "immersiveengineering:creosote", amount: 500 }],
+            get: [{ item: "thermal:coal_coke" }, { item: "thermal:tar", chance: 0.25 }, { fluid: "thermal:creosote", amount: 500 }],
             put: { item: "minecraft:coal" },
             rsflux: 4000,
         },
         {
-            //thermal:creosote => immersive:creosote
-            get: [{ item: "thermal:coal_coke_block" }, { item: "thermal:tar", chance: 0.25 }, { fluid: "immersiveengineering:creosote", amount: 4500 }],
+            get: [{ item: "thermal:coal_coke_block" }, { item: "thermal:tar", chance: 0.25 }, { fluid: "thermal:creosote", amount: 4500 }],
             put: { item: "minecraft:coal_block" },
             rsflux: 36000,
         },
