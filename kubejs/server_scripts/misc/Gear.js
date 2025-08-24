@@ -1,4 +1,4 @@
-/* ServerEvents.recipes((event) => {
+ServerEvents.recipes((event) => {
     const RmGearID = [
         //Thermal Compat
         "thermal:compat/redstone_arsenal/press_rsa_flux_ingot_to_gear",
@@ -128,4 +128,3 @@
     });
     //#endregion
 });
- */
