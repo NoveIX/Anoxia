@@ -480,8 +480,6 @@ ServerEvents.recipes((event) => {
     const RedArsSpg = "ars_nouveau:red_archwood_sapling";
     const PurpleArsSpg = "ars_nouveau:purple_archwood_sapling";
     const GreenArsSpg = "ars_nouveau:green_archwood_sapling";
-    //Forbidden Arcanus
-    const AurumSpg = "forbidden_arcanus:aurum_sapling";
     //Quark
     const AncientSpg = "quark:ancient_sapling";
     const BlueBlossomSpg = "quark:blue_blossom_sapling";
@@ -521,8 +519,6 @@ ServerEvents.recipes((event) => {
     const RedArsLog = "ars_nouveau:red_archwood_log";
     const PurpleArsLog = "ars_nouveau:purple_archwood_log";
     const GreenArsLog = "ars_nouveau:green_archwood_log";
-    //Forbidden Arcanus
-    const AurumLog = "forbidden_arcanus:aurum_log";
     //Quark
     const AncientLog = "quark:ancient_log";
     const BlossomLog = "quark:blossom_log";
@@ -556,8 +552,6 @@ ServerEvents.recipes((event) => {
     const RedArsLvs = "ars_nouveau:red_archwood_leaves";
     const PurpleArsLvs = "ars_nouveau:purple_archwood_leaves";
     const GreenArsLvs = "ars_nouveau:green_archwood_leaves";
-    //Forbidden Arcanum
-    const AurumLvs = "forbidden_arcanus:aurum_leaves";
     //Quark
     const AncientLvs = "quark:ancient_leaves";
     const BlueBlossomLvs = "quark:blue_blossom_leaves";
@@ -589,7 +583,6 @@ ServerEvents.recipes((event) => {
     const WhiteCurrant = "rootsclassic:whitecurrant";
     const GreenTeaLeaf = "delightful:green_tea_leaf";
     const MangroveRoot = "minecraft:mangrove_roots";
-    const GoldNugget = "minecraft:gold_nugget";
     const TwilightLiveroot = "twilightforest:liveroot";
     const MangroveTwilightRoot = "twilightforest:mangrove_root";
     const TimeLogCore = "twilightforest:time_log_core";
@@ -800,8 +793,6 @@ ServerEvents.recipes((event) => {
         { sapling: RedArsSpg, log: RedArsLog, leaves: RedArsLvs },
         { sapling: PurpleArsSpg, log: PurpleArsLog, leaves: PurpleArsLvs },
         { sapling: GreenArsSpg, log: GreenArsLog, leaves: GreenArsLvs },
-        //Forbidden Arcanus
-        { sapling: AurumSpg, log: AurumLog, leaves: AurumLvs, extra: Item.of(GoldNugget).withChance(0.01).withRolls(1) },
         //Quark
         { sapling: AncientSpg, log: AncientLog, leaves: AncientLvs },
         { sapling: BlueBlossomSpg, log: BlossomLog, leaves: BlueBlossomLvs },

@@ -13,6 +13,12 @@ ServerEvents.recipes((event) => {
     //Raw Osmium
     event.shaped("mekanism:raw_osmium", ["AA", "AA"], { A: "anoxia:osmium_pieces" });
 
+    //Obsidian Ingot
+    event.shaped("anoxia:obsidian_with_iron", [" A ", "ABA", " A "], { A: "#forge:nuggets/iron", B: "minecraft:obsidian" });
+
+    //Press Rod Die
+    event.shaped("anoxia:press_rod_die", [" A ", "ABA", " A "], { A: "#forge:plates/invar", B: "minecraft:blaze_rod" });
+
     //// # =================================================================================================== #
 
     //Compressed

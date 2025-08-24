@@ -53,6 +53,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:ingots/aethersteel", item: "aethersteel:aethersteel_ingot" },
         { tag: "forge:ingots/cognitive_alloy", item: "experienceobelisk:cognitive_alloy" },
         { tag: "forge:ingots/andesite_alloy", item: "create:andesite_alloy" },
+        { tag: "forge:ingots/obsidian", item: "anoxia:obsidian_ingot" },
 
         //Botania
         { tag: "botania:petals/flower", item: "botania:white_petal" },

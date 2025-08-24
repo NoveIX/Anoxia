@@ -1,7 +1,4 @@
 ServerEvents.recipes((event) => {
-    //Black Quartz
-    event.smelting("actuallyadditions:black_quartz", "botania:quartz_dark");
-
     //Powered Funrace
     event.remove({ output: "actuallyadditions:powered_furnace" });
     event.shaped("actuallyadditions:powered_furnace", ["ABA", "CDC", "EFE"], {

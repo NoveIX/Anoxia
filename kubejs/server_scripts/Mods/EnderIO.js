@@ -64,7 +64,7 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Alloy
-    const AlloyPattern = [
+/*     const AlloyPattern = [
         //Unification
         {
             //industrialforegoing:plastic => pneumaticcraft:plastic
@@ -81,7 +81,7 @@ ServerEvents.recipes((event) => {
             result: recipe.get,
             energy: recipe.rsflux,
         });
-    });
+    }); */
     //#endregion
 
     //// # =================================================================================================== #

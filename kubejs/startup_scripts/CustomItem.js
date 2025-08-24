@@ -8,6 +8,9 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:amongus").displayName("Among Us").texture("anoxia:item/amongus");
     event.create("anoxia:sugoma").displayName("Sugoma").texture("anoxia:item/sugoma");
     event.create("anoxia:human_soul").displayName("Human Soul").texture("anoxia:item/human_soul");
+    event.create("anoxia:press_rod_die").displayName("Rod Die").texture("anoxia:item/press_rod_die");
+    event.create("anoxia:obsidian_with_iron").displayName("Obsidian With Iron").texture("anoxia:item/obsidian_with_iron");
+    event.create("anoxia:obsidian_ingot").displayName("Obsidian Ingot").texture("anoxia:item/obsidian_ingot");
 
     //Create Sifter
     event.create("anoxia:create_string_mesh", "createsifter:mesh").displayName("String Mesh").parentModel("createsifter:block/meshes/mesh").texture("mesh", "anoxia:item/create_string_mesh");

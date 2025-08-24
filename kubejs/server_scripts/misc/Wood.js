@@ -201,9 +201,6 @@ ServerEvents.recipes((event) => {
         { log: "botania:dreamwood_log", srpLog: "botania:stripped_dreamwood_log", wood: "botania:dreamwood", srpWood: "botania:stripped_dreamwood", plank: "botania:dreamwood_planks" },
         { log: "botania:glimmering_dreamwood_log", srpLog: "botania:glimmering_stripped_dreamwood_log", wood: "botania:glimmering_dreamwood", srpWood: "botania:glimmering_stripped_dreamwood", plank: "botania:dreamwood_planks" },
 
-        //Forbidden => in Fix Plank
-        { log: "forbidden_arcanus:aurum_log", srpLog: "forbidden_arcanus:stripped_aurum_log", wood: "forbidden_arcanus:aurum_wood", srpWood: "forbidden_arcanus:stripped_aurum_wood", plank: "forbidden_arcanus:aurum_planks" },
-
         //Quark
         { log: "quark:ancient_log", srpLog: "quark:stripped_ancient_log", wood: "quark:ancient_wood", srpWood: "quark:stripped_ancient_wood", plank: "quark:ancient_planks" },
         { log: "quark:azalea_log", srpLog: "quark:stripped_azalea_log", wood: "quark:azalea_wood", srpWood: "quark:stripped_azalea_wood", plank: "quark:azalea_planks" },
@@ -258,10 +255,6 @@ ServerEvents.recipes((event) => {
         { log: "ad_astra:aeronos_stem", wood: "ad_astra:aeronos_cap", plank: "ad_astra:aeronos_planks" },
         { log: "ad_astra:strophar_stem", wood: "ad_astra:strophar_cap", plank: "ad_astra:strophar_planks" },
         //Gliacial => in Ad Astra Fix
-
-        //Forbidden
-        { log: "forbidden_arcanus:fungyss_stem", wood: "forbidden_arcanus:fungyss_hyphae", plank: "forbidden_arcanus:fungyss_planks" },
-        { log: "forbidden_arcanus:edelwood_log", wood: "forbidden_arcanus:carved_edelwood_log", plank: "forbidden_arcanus:edelwood_planks" },
     ];
     PlankFixPattern.forEach((recipe) => {
         //Farmer
@@ -334,11 +327,6 @@ ServerEvents.recipes((event) => {
         //Botania
         { plank: "botania:livingwood_planks", logTag: "botania:livingwood_logs" },
         { plank: "botania:dreamwood_planks", logTag: "botania:dreamwood_logs" },
-
-        //Forbidden
-        { plank: "forbidden_arcanus:fungyss_planks", logTag: "forbidden_arcanus:fungyss_stems" },
-        { plank: "forbidden_arcanus:stripped_aurum_wood", logTag: "forbidden_arcanus:mysterywood_logs" },
-        { plank: "forbidden_arcanus:edelwood_planks", logTag: "forbidden_arcanus:edelwood_logs" },
 
         //Ancient
         { plank: "quark:ancient_planks", logTag: "quark:ancient_logs" },

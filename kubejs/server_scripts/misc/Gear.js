@@ -1,4 +1,4 @@
-ServerEvents.recipes((event) => {
+/* ServerEvents.recipes((event) => {
     const RmGearID = [
         //Thermal Compat
         "thermal:compat/redstone_arsenal/press_rsa_flux_ingot_to_gear",
@@ -7,13 +7,6 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/press/press_prismalium_ingot_to_gear",
         "thermalendergy:machine/press/press_melodium_ingot_to_gear",
         "thermalendergy:machine/press/press_stellarium_ingot_to_gear",
-
-        //Thermal Extra
-        "thermal_extra:machine/press/soul_infused_gear",
-        "thermal_extra:machine/press/shellite_gear",
-        "thermal_extra:machine/press/twinite_gear",
-        "thermal_extra:machine/press/dragonsteel_gear",
-        "thermal_extra:machine/press/abyssal_gear",
 
         //Thermal Expansion
         "thermal:machines/press/press_iron_ingot_to_gear",
@@ -104,13 +97,6 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:melodium_gear", put: "forge:ingots/melodium", rsflux: 20000 },
         { get: "thermalendergy:stellarium_gear", put: "forge:ingots/stellarium", rsflux: 24000 },
 
-        //Thermal Extra
-        { get: "thermal_extra:soul_infused_gear", put: "forge:ingots/soul_infused", rsflux: 6000 },
-        { get: "thermal_extra:twinite_gear", put: "forge:ingots/twinite", rsflux: 8000 },
-        { get: "thermal_extra:shellite_gear", put: "forge:ingots/shellite", rsflux: 12000 },
-        { get: "thermal_extra:dragonsteel_gear", put: "forge:ingots/dragonsteel", rsflux: 16000 },
-        { get: "thermal_extra:abyssal_gear", put: "forge:ingots/abyssal", rsflux: 20000 },
-
         //Redstone Arsenal
         { get: "redstone_arsenal:flux_gear", put: "forge:ingots/flux", rsflux: 8000 },
 
@@ -142,3 +128,4 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 });
+ */

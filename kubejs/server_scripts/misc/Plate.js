@@ -19,13 +19,6 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/press/press_melodium_ingot_to_plate",
         "thermalendergy:machine/press/press_stellarium_ingot_to_plate",
 
-        //thermal Extra
-        "thermal_extra:machine/press/soul_infused_plate",
-        "thermal_extra:machine/press/shellite_plate",
-        "thermal_extra:machine/press/twinite_plate",
-        "thermal_extra:machine/press/dragonsteel_plate",
-        "thermal_extra:machine/press/abyssal_plate",
-
         //Thermal Expansion
         "thermal:machines/press/press_iron_ingot_to_plate",
         "thermal:machines/press/press_gold_ingot_to_plate",
@@ -36,6 +29,7 @@ ServerEvents.recipes((event) => {
         "thermal:machines/press/press_silver_ingot_to_plate",
         "thermal:machines/press/press_nickel_ingot_to_plate",
         "thermal:machines/press/press_steel_ingot_to_plate",
+        "thermal:compat/immersiveengineering/press_ie_steel_ingot_to_plate",
         "thermal:machines/press/press_rose_gold_ingot_to_plate",
         "thermal:machines/press/press_signalum_ingot_to_plate",
         "thermal:machines/press/press_lumium_ingot_to_plate",
@@ -146,13 +140,6 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:prismalium_plate", put: "forge:ingots/prismalium", rsflux: 16000 },
         { get: "thermalendergy:melodium_plate", put: "forge:ingots/melodium", rsflux: 20000 },
         { get: "thermalendergy:stellarium_plate", put: "forge:ingots/stellarium", rsflux: 24000 },
-
-        //Thermal Extra
-        { get: "thermal_extra:soul_infused_plate", put: "forge:ingots/soul_infused", rsflux: 6000 },
-        { get: "thermal_extra:twinite_plate", put: "forge:ingots/twinite", rsflux: 8000 },
-        { get: "thermal_extra:shellite_plate", put: "forge:ingots/shellite", rsflux: 12000 },
-        { get: "thermal_extra:dragonsteel_plate", put: "forge:ingots/dragonsteel", rsflux: 16000 },
-        { get: "thermal_extra:abyssal_plate", put: "forge:ingots/abyssal", rsflux: 20000 },
     ];
     PlatePattern.forEach((recipe) => {
         //Remove
