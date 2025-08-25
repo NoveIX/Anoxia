@@ -1,7 +1,7 @@
 // priority:999
 ServerEvents.tags("item", (event) => {
     //#region Tags
-    const TagsPattern = [
+    const TagAddPattern = [
         //#region Anoxia
         //Coil
         { tag: "anoxia:coil/copper", item: "createaddition:copper_spool" },
@@ -29,6 +29,14 @@ ServerEvents.tags("item", (event) => {
 
         //Stone
         { tag: "anoxia:stone/polished_andesite", item: "minecraft:polished_andesite" },
+
+        //Fermenter
+        { tag: "anoxia:fermenter", item: "minecraft:rotten_flesh" },
+        { tag: "anoxia:fermenter", item: "minecraft:fermented_spider_eye" },
+        { tag: "anoxia:fermenter", item: "minecraft:sugar" },
+        { tag: "anoxia:fermenter", item: "minecraft:brown_mushroom" },
+        { tag: "anoxia:fermenter", item: "minecraft:red_mushroom" },
+        { tag: "anoxia:fermenter", item: "minecraft:nether_wart" },
         //#endregion
 
         //// # =================================================================================================== #
@@ -83,7 +91,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "createdeco:internal/plates/copper_plates", item: "#forge:plates/copper" },
         { tag: "createdeco:internal/plates/zinc_plates", item: "#forge:plates/zinc" },
     ];
-    TagsPattern.forEach((recipe) => {
+    TagAddPattern.forEach((recipe) => {
         event.add(recipe.tag, recipe.item);
     });
     //#endregion
@@ -105,6 +113,26 @@ ServerEvents.tags("item", (event) => {
 //// # =================================================================================================== #
 
 ServerEvents.tags("fluid", (event) => {
+    const TagPattern = [
+        { tag: "anoxia:water", fluid: "minecraft:water" },
+        { tag: "anoxia:refined_canola", fluid: "actuallyadditions:refined_canola_oil" },
+        { tag: "anoxia:nutrient_distillation", fluid: "enderio:nutrient_distillation" },
+
+        //#region Anoxia
+    ];
+    TagPattern.forEach((recipe) => {
+        event.add(recipe.tag, recipe.fluid);
+    });
+
+    //Remove Single Tag
+    const RmTag = ["forge:fuel"];
+    RmTag.forEach((tag) => {
+        event.removeAll(tag);
+    });
+
+    //Add Tag
+    event.add("forge:fuel", "ad_astra:fuel");
+
     //Game Remove
     global.fluid.GAME_FullRm.forEach((id) => {
         event.removeAllTagsFrom(id);

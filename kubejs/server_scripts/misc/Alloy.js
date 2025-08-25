@@ -199,7 +199,7 @@ ServerEvents.recipes((event) => {
             time: 100,
         });
 
-        //EnderIO
+        /* //EnderIO
         event.custom({
             type: "enderio:alloy_smelting",
             inputs: [{ count: 1, ingredient: { tag: dust } }],
@@ -214,7 +214,7 @@ ServerEvents.recipes((event) => {
             ingredients: [{ tag: dust }],
             result: [{ item: get }],
             energy: 2000,
-        });
+        }); */
     }
     //#endregion
 
@@ -300,7 +300,7 @@ ServerEvents.recipes((event) => {
             alloy: "complex",
             get: "enderio:conductive_alloy_ingot",
             n0: 1,
-            put1: "forge:ingots/red_alloy",
+            put1: "forge:ingots/redstone_alloy",
             n1: 1,
             put2: "forge:ingots/iron",
             n2: 1,

@@ -399,6 +399,15 @@ ServerEvents.recipes((event) => {
 
         //#region Endstone drop
         {
+            get: { item: "mysticalagriculture:prosperity_shard" },
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            drop: [
+                { chance: 0.1, mesh: "diamond" },
+                { chance: 0.15, mesh: "emerald" },
+                { chance: 0.2, mesh: "netherite" },
+            ],
+        },
+        {
             get: { item: "minecraft:ender_pearl" },
             put: { item: "exnihilosequentia:crushed_end_stone" },
             drop: [

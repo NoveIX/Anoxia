@@ -367,12 +367,18 @@ ServerEvents.recipes((event) => {
 
         //#region Endstone drop
         {
+            tier: "anoxia:create_diamond_mesh",
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            get: [{ item: "mysticalagriculture:prosperity_shard", chance: 0.1 }],
+        },
+        {
             tier: "anoxia:create_emerald_mesh",
             put: { item: "exnihilosequentia:crushed_end_stone" },
             get: [
                 { item: "minecraft:ender_pearl", chance: 0.01 },
                 { item: "minecraft:ender_eye", chance: 0.001 },
                 { item: "minecraft:chorus_fruit", chance: 0.01 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.15 },
             ],
         },
         {
@@ -382,6 +388,7 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:ender_pearl", chance: 0.02 },
                 { item: "minecraft:ender_eye", chance: 0.002 },
                 { item: "minecraft:chorus_fruit", chance: 0.02 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.2 },
             ],
         },
         {
@@ -391,6 +398,7 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:ender_pearl", chance: 0.03 },
                 { item: "minecraft:ender_eye", chance: 0.003 },
                 { item: "minecraft:chorus_fruit", chance: 0.03 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.25 },
             ],
         },
         //#endregion

@@ -28,6 +28,13 @@ ServerEvents.recipes((event) => {
     const RefineryPattern = [
         { get: "thermal:creosote", put: "immersiveengineering:creosote" },
         { get: "immersiveengineering:creosote", put: "thermal:creosote" }, //Reverse
+
+        { get: "thermal:crude_oil", put: "ad_astra:oil" },
+        { get: "ad_astra:oil", put: "pneumaticcraft:oil" },
+        { get: "pneumaticcraft:oil", put: "thermal:crude_oil" }, //Reverse
+
+        { get: "immersiveengineering:biodiesel", put: "pneumaticcraft:biodiesel" },
+        { get: "pneumaticcraft:oil", put: "thermal:crude_oil" }, //Reverse
     ];
     RefineryPattern.forEach((recipe) => {
         event.custom({

@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
     event.custom({
         type: "extendedcrafting:compressor",
-        powerCost: 30000000,
+        powerCost: 50000000,
         inputCount: 1072658,
         ingredient: { item: "anoxia:human_soul" },
         catalyst: { item: "extendedcrafting:the_ultimate_catalyst" },

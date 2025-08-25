@@ -638,7 +638,7 @@ ServerEvents.recipes((event) => {
 
         // Tier 2
         { seed: NatureSeed, essence: NatureEssence, crop: NatureCrop, tier: T2Soil, growth: T2GrowthTicks },
-        { seed: DyeSeed, essence: DyeEssence, crop: DyeCrop, tier: T2Soil, growth: T2GrowthTicks },
+        //{ seed: DyeSeed, essence: DyeEssence, crop: DyeCrop, tier: T2Soil, growth: T2GrowthTicks },
         { seed: NetherSeed, essence: NetherEssence, crop: NetherCrop, tier: T2Soil, growth: T2GrowthTicks },
         { seed: CoalSeed, essence: CoalEssence, crop: CoalCrop, tier: T2Soil, growth: T2GrowthTicks },
         { seed: CoralSeed, essence: CoralEssence, crop: CoralCrop, tier: T2Soil, growth: T2GrowthTicks },
@@ -658,11 +658,11 @@ ServerEvents.recipes((event) => {
         { seed: AluminumSeed, essence: AluminumEssence, crop: AluminumCrop, tier: T2Soil, growth: T2GrowthTicks },
         { seed: SaltpeterSeed, essence: SaltpeterEssence, crop: SaltpeterCrop, tier: T2Soil, growth: T2GrowthTicks },
         { seed: ApatiteSeed, essence: ApatiteEssence, crop: ApatiteCrop, tier: T2Soil, growth: T2GrowthTicks },
-        { seed: GrainsSeed, essence: GrainsEssence, crop: GrainsCrop, tier: T2Soil, growth: T2GrowthTicks },
-        { seed: MysticalFlowerSeed, essence: MysticalFlowerEssence, crop: MysticalFlowerCrop, tier: T2Soil, growth: T2GrowthTicks },
-        { seed: MarbleSeed, essence: MarbleEssence, crop: MarbleCrop, tier: T2Soil, growth: T2GrowthTicks },
-        { seed: LimestoneSeed, essence: LimestoneEssence, crop: LimestoneCrop, tier: T2Soil, growth: T2GrowthTicks },
-        { seed: BasaltSeed, essence: BasaltEssence, crop: BasaltCrop, tier: T2Soil, growth: T2GrowthTicks },
+        //{ seed: GrainsSeed, essence: GrainsEssence, crop: GrainsCrop, tier: T2Soil, growth: T2GrowthTicks },
+        //{ seed: MysticalFlowerSeed, essence: MysticalFlowerEssence, crop: MysticalFlowerCrop, tier: T2Soil, growth: T2GrowthTicks },
+        //{ seed: MarbleSeed, essence: MarbleEssence, crop: MarbleCrop, tier: T2Soil, growth: T2GrowthTicks },
+        //{ seed: LimestoneSeed, essence: LimestoneEssence, crop: LimestoneCrop, tier: T2Soil, growth: T2GrowthTicks },
+        //{ seed: BasaltSeed, essence: BasaltEssence, crop: BasaltCrop, tier: T2Soil, growth: T2GrowthTicks },
 
         // Tier 3
         { seed: IronSeed, essence: IronEssence, crop: IronCrop, tier: T3Soil, growth: T3GrowthTicks },
@@ -736,14 +736,14 @@ ServerEvents.recipes((event) => {
         //{ seed: CompressedIronSeed, essence: CompressedIronEssence, crop: CompressedIronCrop, tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: FluixSeed, essence: FluixEssence, crop: FluixCrop, tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: EnergizedSeed, essence: EnergizedEssence, crop: EnergizedCrop, tier: T4Soil, growth: T4GrowthTicks },
-        //{ seed: BlazinugSeed, essence: BlazingEssence, crop: BlazingCrop, tier: T4Soil, growth: T4GrowthTicks },
+        //{ seed: BlazingSeed, essence: BlazingEssence, crop: BlazingCrop, tier: T4Soil, growth: T4GrowthTicks },
 
         // Tier 5
         { seed: DiamondSeed, essence: DiamondEssence, crop: DiamondCrop, tier: T5Soil, growth: T5GrowthTicks },
         { seed: EmeraldSeed, essence: EmeraldEssence, crop: EmeraldCrop, tier: T5Soil, growth: T5GrowthTicks },
         { seed: NetheriteSeed, essence: NetheriteEssence, crop: NetheriteCrop, tier: T5Soil, growth: T5GrowthTicks },
         { seed: WitherSeed, essence: WitherEssence, crop: WitherCrop, tier: T5Soil, growth: T5GrowthTicks },
-        //{ seed: PlatinumSeed, essence: PlatinumEssence, crop: PlatinumCrop, tier: T5Soil, growth: T5GrowthTicks },
+        { seed: PlatinumSeed, essence: PlatinumEssence, crop: PlatinumCrop, tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: IridiumSeed, essence: IridiumEssence, crop: IridiumCrop, tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: EnderiumSeed, essence: EnderiumEssence, crop: EnderiumCrop, tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: FluxInfusedSeed, essence: FluxInfusedEssence, crop: FluxInfusedCrop, tier: T5Soil, growth: T5GrowthTicks },

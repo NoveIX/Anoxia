@@ -214,4 +214,33 @@ ServerEvents.recipes((event) => {
         });
     });
     //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Refinery
+    const RefineryPattern = [
+        {
+            get: { amount: 16, fluid: "enderio:nutrient_distillation" },
+            put1: { amount: 8, tag: "anoxia:water" },
+            put2: { amount: 8, tag: "anoxia:refined_canola" },
+            mixer: { tag: "anoxia:fermenter" },
+        },
+        {
+            get: { amount: 16, fluid: "thermal:crude_oil" },
+            put1: { amount: 8, tag: "anoxia:nutrient_distillation" },
+            put2: { amount: 8, tag: "forge:biodiesel" },
+            mixer: { tag: "forge:dusts/coal" },
+        },
+    ];
+    RefineryPattern.forEach((recipe) => {
+        event.custom({
+            type: "immersiveengineering:refinery",
+            catalyst: recipe.mixer,
+            energy: 80,
+            input0: recipe.put1,
+            input1: recipe.put2,
+            result: recipe.get,
+        });
+    });
+    //#endregion
 });

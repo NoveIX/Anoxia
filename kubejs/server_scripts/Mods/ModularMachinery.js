@@ -570,7 +570,8 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
         .output({ type: "mm:output/simple", chance: 0.03, ingredient: { type: "mm:item", item: "minecraft:ender_pearl", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.003, ingredient: { type: "mm:item", item: "minecraft:ender_eye", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.03, ingredient: { type: "mm:item", item: "minecraft:chorus_fruit", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.03, ingredient: { type: "mm:item", item: "minecraft:chorus_fruit", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.25, ingredient: { type: "mm:item", item: "mysticalagriculture:prosperity_shard", count: 2 } });
 
     //Aetherslate
     event

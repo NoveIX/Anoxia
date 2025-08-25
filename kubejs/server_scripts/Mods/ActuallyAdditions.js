@@ -1,4 +1,9 @@
 ServerEvents.recipes((event) => {
+    const RmRecipeID = ["actuallyadditions:pressing/canola"];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
     //Powered Funrace
     event.remove({ output: "actuallyadditions:powered_furnace" });
     event.shaped("actuallyadditions:powered_furnace", ["ABA", "CDC", "EFE"], {
@@ -30,6 +35,17 @@ ServerEvents.recipes((event) => {
         D: "actuallyadditions:iron_casing",
         E: "#forge:gears/invar",
         F: "actuallyadditions:advanced_coil",
+    });
+
+    //// # =================================================================================================== #
+
+    const PressingPattern = [{ getFluid: "actuallyadditions:canola_oil", putItem: { tag: "forge:crops/canola" } }];
+    PressingPattern.forEach((recipe) => {
+        event.custom({
+            type: "actuallyadditions:pressing",
+            fluid: { Amount: 80, FluidName: recipe.getFluid },
+            ingredient: recipe.putItem,
+        });
     });
 
     //// # =================================================================================================== #
