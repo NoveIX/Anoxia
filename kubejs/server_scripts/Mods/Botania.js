@@ -84,81 +84,81 @@ ServerEvents.recipes((event) => {
         //T0
         {
             get: { count: 1, item: "mysticalagriculture:air_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneWater, RuneSpring, { item: "minecraft:glass_bottle" }, { item: "minecraft:glass_bottle" }, essenceT0, essenceT0],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneSpring, RuneWater, { item: "minecraft:glass_bottle" }, { item: "minecraft:glass_bottle" }, essenceT0, essenceT0],
             magic: ManaT0,
         },
         {
             get: { count: 1, item: "mysticalagriculture:earth_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneSummer, { tag: "minecraft:flowers" }, { tag: "minecraft:flowers" }, essenceT0, essenceT0],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { tag: "minecraft:flowers" }, { tag: "minecraft:flowers" }, essenceT0, essenceT0],
             magic: ManaT0,
         },
         {
             get: { count: 1, item: "mysticalagriculture:water_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneAutumn, { item: "minecraft:lava_bucket" }, { item: "minecraft:lava_bucket" }, essenceT0, essenceT0],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneWinter, RuneAir, { item: "minecraft:lava_bucket" }, { item: "minecraft:lava_bucket" }, essenceT0, essenceT0],
             magic: ManaT0,
         },
         {
             get: { count: 1, item: "mysticalagriculture:fire_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneWinter, { item: "minecraft:water_bucket" }, { item: "minecraft:water_bucket" }, essenceT0, essenceT0],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneAir, { item: "minecraft:water_bucket" }, { item: "minecraft:water_bucket" }, essenceT0, essenceT0],
             magic: ManaT0,
         },
 
         //T1
         {
             get: { count: 1, item: "mysticalagriculture:stone_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneAutumn, { item: "minecraft:stone" }, { item: "minecraft:stone" }, essenceT1, essenceT1],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneFire, { item: "minecraft:stone" }, { item: "minecraft:stone" }, essenceT1, essenceT1],
             magic: ManaT1,
         },
         {
             get: { count: 1, item: "mysticalagriculture:dirt_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWater, RuneSpring, { tag: "minecraft:dirt" }, { tag: "minecraft:dirt" }, essenceT1, essenceT1],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneWater, { tag: "minecraft:dirt" }, { tag: "minecraft:dirt" }, essenceT1, essenceT1],
             magic: ManaT1,
         },
         {
             get: { count: 1, item: "mysticalagriculture:wood_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneEarth, RuneSummer, { tag: "minecraft:logs" }, { tag: "minecraft:logs" }, essenceT1, essenceT1],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSummer, RuneAir, { tag: "minecraft:logs" }, { tag: "minecraft:logs" }, essenceT1, essenceT1],
             magic: ManaT1,
         },
         {
             get: { count: 1, item: "mysticalagriculture:ice_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneWinter, { item: "minecraft:ice" }, { item: "minecraft:ice" }, essenceT1, essenceT1],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneWinter, RuneAir, { item: "minecraft:ice" }, { item: "minecraft:ice" }, essenceT1, essenceT1],
             magic: ManaT1,
         },
         {
             get: { count: 1, item: "mysticalagriculture:deepslate_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneAutumn, { item: "minecraft:deepslate" }, { item: "minecraft:deepslate" }, essenceT1, essenceT1],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { item: "minecraft:deepslate" }, { item: "minecraft:deepslate" }, essenceT1, essenceT1],
             magic: ManaT1,
         },
 
         //T2
         {
             get: { count: 1, item: "mysticalagriculture:nature_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWater, RuneSpring, { tag: "minecraft:saplings" }, { tag: "minecraft:saplings" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneWater, { tag: "minecraft:saplings" }, { tag: "minecraft:saplings" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:nether_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneAir, RuneSummer, { tag: "forge:netherrack" }, { tag: "forge:netherrack" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneEarth, { tag: "forge:netherrack" }, { tag: "forge:netherrack" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:coal_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneAutumn, { item: "minecraft:coal" }, { item: "minecraft:coal" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { item: "minecraft:coal" }, { item: "minecraft:coal" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:coral_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneSummer, { tag: "minecraft:corals" }, { tag: "minecraft:corals" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneAir, { tag: "minecraft:corals" }, { tag: "minecraft:corals" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:honey_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneSpring, { tag: "forge:honeycombs" }, { tag: "forge:honeycombs" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneFire, { tag: "forge:honeycombs" }, { tag: "forge:honeycombs" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:amethyst_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneWater, RuneWinter, { item: "minecraft:amethyst_shard" }, { item: "minecraft:amethyst_shard" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneWinter, RuneEarth, { item: "minecraft:amethyst_shard" }, { item: "minecraft:amethyst_shard" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
@@ -178,7 +178,7 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:sheep_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneWinter, RuneEnvy, { tag: "forge:wool" }, { tag: "forge:wool" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneEnvy, { tag: "forge:wool" }, { tag: "forge:wool" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
@@ -188,74 +188,74 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:fish_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneSpring, RuneLust, { tag: "forge:fishes" }, { tag: "forge:fishes" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneLust, { tag: "forge:fishes" }, { tag: "forge:fishes" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:slime_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSummer, RuneGluttony, { tag: "forge:slimeballs" }, { tag: "forge:slimeballs" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneAutumn, RuneGluttony, { tag: "forge:slimeballs" }, { tag: "forge:slimeballs" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:turtle_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RunePride, { item: "minecraft:turtle_egg" }, { item: "minecraft:turtle_egg" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneSloth, { item: "minecraft:turtle_egg" }, { item: "minecraft:turtle_egg" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:sulfur_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneSummer, { tag: "forge:dusts/sulfur" }, { tag: "forge:dusts/sulfur" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneAutumn, RuneEarth, { tag: "forge:dusts/sulfur" }, { tag: "forge:dusts/sulfur" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:aluminum_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneWater, RuneAutumn, { tag: "forge:ingots/aluminum" }, { tag: "forge:ingots/aluminum" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneSummer, RuneWater, { tag: "forge:ingots/aluminum" }, { tag: "forge:ingots/aluminum" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:saltpeter_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneWinter, { tag: "forge:dusts/saltpeter" }, { tag: "forge:dusts/saltpeter" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneWinter, RuneWater, { tag: "forge:dusts/saltpeter" }, { tag: "forge:dusts/saltpeter" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
         {
             get: { count: 1, item: "mysticalagriculture:apatite_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneSpring, { tag: "forge:gems/apatite" }, { tag: "forge:gems/apatite" }, essenceT2, essenceT2],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneWater, { tag: "forge:gems/apatite" }, { tag: "forge:gems/apatite" }, essenceT2, essenceT2],
             magic: ManaT2,
         },
 
         //T3
         {
             get: { count: 1, item: "mysticalagriculture:iron_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneAutumn, { tag: "forge:ingots/iron" }, { tag: "forge:ingots/iron" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { tag: "forge:ingots/iron" }, { tag: "forge:ingots/iron" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:copper_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneWater, RuneSummer, { tag: "forge:ingots/copper" }, { tag: "forge:ingots/copper" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneWater, { tag: "forge:ingots/copper" }, { tag: "forge:ingots/copper" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:nether_quartz_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneAir, RuneSpring, { tag: "forge:gems/quartz" }, { tag: "forge:gems/quartz" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneAir, { tag: "forge:gems/quartz" }, { tag: "forge:gems/quartz" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:glowstone_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneAir, RuneWinter, { tag: "forge:dusts/glowstone" }, { tag: "forge:dusts/glowstone" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSpring, RuneAir, { tag: "forge:dusts/glowstone" }, { tag: "forge:dusts/glowstone" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:redstone_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneAutumn, { tag: "forge:dusts/redstone" }, { tag: "forge:dusts/redstone" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneAutumn, RuneEarth, { tag: "forge:dusts/redstone" }, { tag: "forge:dusts/redstone" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:obsidian_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWater, RuneWinter, { tag: "forge:ingots/obsidian" }, { tag: "forge:ingots/obsidian" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneWinter, RuneEarth, { tag: "forge:ingots/obsidian" }, { tag: "forge:ingots/obsidian" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:prismarine_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneSpring, RuneGreed, { tag: "forge:dusts/prismarine" }, { tag: "forge:gems/prismarine" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneAutumn, RuneGreed, { tag: "forge:dusts/prismarine" }, { tag: "forge:gems/prismarine" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
@@ -270,7 +270,7 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:creeper_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneEnvy, { item: "minecraft:gunpowder" }, { item: "minecraft:gunpowder" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneWrath, { item: "minecraft:gunpowder" }, { item: "minecraft:gunpowder" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
@@ -280,27 +280,27 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:rabbit_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneSpring, RuneGluttony, { item: "minecraft:rabbit_hide" }, { item: "minecraft:rabbit_hide" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneSpring, RuneLust, { item: "minecraft:rabbit_hide" }, { item: "minecraft:rabbit_hide" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:tin_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneWater, RuneSummer, { tag: "forge:ingots/tin" }, { tag: "forge:ingots/tin" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneAutumn, RuneEarth, { tag: "forge:ingots/tin" }, { tag: "forge:ingots/tin" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:zinc_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneSpring, { tag: "forge:ingots/zinc" }, { tag: "forge:ingots/zinc" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneSpring, RuneEarth, { tag: "forge:ingots/zinc" }, { tag: "forge:ingots/zinc" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:silver_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneEarth, RuneAutumn, { tag: "forge:ingots/silver" }, { tag: "forge:ingots/silver" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneWinter, RuneAir, { tag: "forge:ingots/silver" }, { tag: "forge:ingots/silver" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:lead_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneWinter, { tag: "forge:ingots/lead" }, { tag: "forge:ingots/lead" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneWater, { tag: "forge:ingots/lead" }, { tag: "forge:ingots/lead" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
@@ -310,59 +310,44 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:blitz_essence" },
-            put: [
-                BotaniaSeed,
-                RuneMana,
-                RuneAir,
-                RuneSpring,
-                RunePride,
-                { item: Item.of("mysticalagriculture:soul_jar", '{Souls:6.0d,Type:"mysticalagriculture:blitz"}') },
-                { item: Item.of("mysticalagriculture:soul_jar", '{Souls:6.0d,Type:"mysticalagriculture:blitz"}') },
-                essenceT3,
-                essenceT3,
-            ],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneSpring, RunePride, { item: "thermal:blitz_rod" }, { item: "thermal:blitz_rod" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:basalz_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneGluttony, { item: "thermal:basalz_rod" }, { item: "thermal:basalz_rod" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneWrath, { item: "thermal:basalz_rod" }, { item: "thermal:basalz_rod" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:steeleaf_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneWater, RuneSpring, { item: "twilightforest:steeleaf_ingot" }, { item: "twilightforest:steeleaf_ingot" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneAir, { item: "twilightforest:steeleaf_ingot" }, { item: "twilightforest:steeleaf_ingot" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:sky_stone_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneSummer, { item: "ae2:sky_stone_block" }, { item: "ae2:sky_stone_block" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneWinter, RuneEarth, { item: "ae2:sky_stone_block" }, { item: "ae2:sky_stone_block" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
         {
             get: { count: 1, item: "mysticalagriculture:certus_quartz_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneWinter, { tag: "ae2:all_certus_quartz" }, { tag: "ae2:all_certus_quartz" }, essenceT3, essenceT3],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneSummer, RuneWater, { tag: "ae2:all_certus_quartz" }, { tag: "ae2:all_certus_quartz" }, essenceT3, essenceT3],
             magic: ManaT3,
         },
 
         //T4
         {
             get: { count: 1, item: "mysticalagriculture:gold_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneSummer, { tag: "forge:ingots/gold" }, { tag: "forge:ingots/gold" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneEarth, { tag: "forge:ingots/gold" }, { tag: "forge:ingots/gold" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:lapis_lazuli_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneSpring, { tag: "forge:gems/lapis" }, { tag: "forge:gems/lapis" }, essenceT4, essenceT4],
-            magic: ManaT4,
-        },
-        {
-            get: { count: 1, item: "mysticalagriculture:lapis_lazuli_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneSpring, { tag: "forge:gems/lapis" }, { tag: "forge:gems/lapis" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneSpring, RuneAir, { tag: "forge:gems/lapis" }, { tag: "forge:gems/lapis" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:end_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneWinter, { tag: "forge:end_stones" }, { tag: "forge:end_stones" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneAir, { tag: "forge:end_stones" }, { tag: "forge:end_stones" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
@@ -382,69 +367,69 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:nickel_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWater, RuneAutumn, { tag: "forge:ingots/nickel" }, { tag: "forge:ingots/nickel" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { tag: "forge:ingots/nickel" }, { tag: "forge:ingots/nickel" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:uranium_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneWinter, { tag: "forge:ingots/uranium" }, { tag: "forge:ingots/uranium" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneFire, { tag: "forge:ingots/uranium" }, { tag: "forge:ingots/uranium" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:ruby_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneAir, RuneSpring, { tag: "forge:gems/ruby" }, { tag: "forge:gems/ruby" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneEarth, { tag: "forge:gems/ruby" }, { tag: "forge:gems/ruby" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:sapphire_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneEarth, RuneSummer, { tag: "forge:gems/sapphire" }, { tag: "forge:gems/sapphire" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneWinter, RuneAir, { tag: "forge:gems/sapphire" }, { tag: "forge:gems/sapphire" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:peridot_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWater, RuneSpring, { tag: "forge:gems/peridot" }, { tag: "forge:gems/peridot" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneWater, { tag: "forge:gems/peridot" }, { tag: "forge:gems/peridot" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:soulium_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneWinter, { item: "mysticalagriculture:soulium_dust" }, { item: "mysticalagriculture:soulium_dust" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { item: "mysticalagriculture:soulium_dust" }, { item: "mysticalagriculture:soulium_dust" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:osmium_essence" },
-            put: [BotaniaSeed, RuneMana, RuneAir, RuneWater, RuneSummer, { tag: "forge:ingots/osmium" }, { tag: "forge:ingots/osmium" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneWater, { tag: "forge:ingots/osmium" }, { tag: "forge:ingots/osmium" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:fluorite_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneAutumn, { tag: "forge:dusts/fluorite" }, { tag: "forge:dusts/fluorite" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneSpring, RuneAir, { tag: "forge:dusts/fluorite" }, { tag: "forge:dusts/fluorite" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:knightmetal_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneFire, RuneSummer, { tag: "forge:ingots/knightmetal" }, { tag: "forge:ingots/knightmetal" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAutumn, RuneFire, { tag: "forge:ingots/knightmetal" }, { tag: "forge:ingots/knightmetal" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
         {
             get: { count: 1, item: "mysticalagriculture:fiery_ingot_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneAir, RuneAutumn, { tag: "forge:ingots/fiery" }, { tag: "forge:ingots/fiery" }, essenceT4, essenceT4],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneEarth, { tag: "forge:ingots/fiery" }, { tag: "forge:ingots/fiery" }, essenceT4, essenceT4],
             magic: ManaT4,
         },
 
         //T5
         {
             get: { count: 1, item: "mysticalagriculture:diamond_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWater, RuneSummer, { tag: "forge:gems/diamond" }, { tag: "forge:gems/diamond" }, essenceT5, essenceT5],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneWater, { tag: "forge:gems/diamond" }, { tag: "forge:gems/diamond" }, essenceT5, essenceT5],
             magic: ManaT5,
         },
         {
             get: { count: 1, item: "mysticalagriculture:emerald_essence" },
-            put: [BotaniaSeed, RuneMana, RuneEarth, RuneAir, RuneSpring, { tag: "forge:gems/emerald" }, { tag: "forge:gems/emerald" }, essenceT5, essenceT5],
+            put: [BotaniaSeed, RuneMana, RuneEarth, RuneSpring, RuneAir, { tag: "forge:gems/emerald" }, { tag: "forge:gems/emerald" }, essenceT5, essenceT5],
             magic: ManaT5,
         },
         {
             get: { count: 1, item: "mysticalagriculture:netherite_essence" },
-            put: [BotaniaSeed, RuneMana, RuneFire, RuneEarth, RuneWinter, { tag: "forge:ingots/netherite" }, { tag: "forge:ingots/netherite" }, essenceT5, essenceT5],
+            put: [BotaniaSeed, RuneMana, RuneFire, RuneSummer, RuneEarth, { tag: "forge:ingots/netherite" }, { tag: "forge:ingots/netherite" }, essenceT5, essenceT5],
             magic: ManaT5,
         },
         {
@@ -454,7 +439,7 @@ ServerEvents.recipes((event) => {
         },
         {
             get: { count: 1, item: "mysticalagriculture:platinum_essence" },
-            put: [BotaniaSeed, RuneMana, RuneWater, RuneAir, RuneAutumn, { tag: "forge:ingots/platinum" }, { tag: "forge:ingots/platinum" }, essenceT5, essenceT5],
+            put: [BotaniaSeed, RuneMana, RuneAir, RuneAutumn, RuneWater, { tag: "forge:ingots/platinum" }, { tag: "forge:ingots/platinum" }, essenceT5, essenceT5],
             magic: ManaT5,
         },
 
