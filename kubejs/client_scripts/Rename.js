@@ -24,9 +24,9 @@ ClientEvents.lang("en_us", (event) => {
     // Define tiers with their display names
     const tiers = [
         { id: null, name: null },
-        { id: "elite", name: "Advanced" },
-        { id: "ultra", name: "Elite" },
-        { id: "creative", name: "Ultimate" },
+        { id: "elite", name: "Saffron" },
+        { id: "ultra", name: "Shadow" },
+        { id: "creative", name: "Crimson" },
     ];
 
     // Define material types

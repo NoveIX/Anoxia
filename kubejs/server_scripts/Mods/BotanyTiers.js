@@ -985,49 +985,48 @@ ServerEvents.recipes((event) => {
             t4hprpots: "botanypotstiers:creative_black_glazed_terracotta_hopper_botany_pot",
         },
     ];
-    function PotsRecipes({ frame, t1pots, t1hprpots, t2pots, t2hprpots, t3pots, t3hprpots, t4pots, t4hprpots }) {
+    PotsPattern.forEach((recipe) => {
         //pots
-        event.remove({ output: t1pots });
-        event.remove({ output: t2pots });
-        event.remove({ output: t3pots });
-        event.remove({ output: t4pots });
-        event.shaped(t1pots, ["SFS", "SSS"], { S: frame, F: "minecraft:flower_pot" });
-        event.shaped(t2pots, ["CPC"], { P: t1pots, C: "mekanism:advanced_control_circuit" });
-        event.shaped(t3pots, ["CPC"], { P: t2pots, C: "mekanism:elite_control_circuit" });
-        event.shaped(t4pots, ["CPC"], { P: t3pots, C: "mekanism:ultimate_control_circuit" });
+        event.remove({ output: recipe.t1pots });
+        event.remove({ output: recipe.t2pots });
+        event.remove({ output: recipe.t3pots });
+        event.remove({ output: recipe.t4pots });
+        event.shaped(recipe.t1pots, ["ABA", "AAA"], { A: recipe.frame, B: "minecraft:flower_pot" });
+        event.shaped(recipe.t2pots, ["ABA"], { A: "botanicalextramachinery:saffron_ingot", B: recipe.t1pots });
+        event.shaped(recipe.t3pots, ["ABA"], { A: "botanicalextramachinery:shadow_ingot", B: recipe.t2pots });
+        event.shaped(recipe.t4pots, ["ABA"], { A: "botanicalextramachinery:crimson_ingot", B: recipe.t3pots });
 
         //Hopper
-        event.remove({ output: t1hprpots });
-        event.remove({ output: t2hprpots });
-        event.remove({ output: t3hprpots });
-        event.remove({ output: t4hprpots });
-        event.shaped(t1hprpots, ["SFS", "SSS", " H "], { S: frame, F: "minecraft:flower_pot", H: "minecraft:hopper" });
-        event.shaped(t2hprpots, ["CPC"], { P: t1hprpots, C: "mekanism:advanced_control_circuit" });
-        event.shaped(t3hprpots, ["CPC"], { P: t2hprpots, C: "mekanism:elite_control_circuit" });
-        event.shaped(t4hprpots, ["CPC"], { P: t3hprpots, C: "mekanism:ultimate_control_circuit" });
+        event.remove({ output: recipe.t1hprpots });
+        event.remove({ output: recipe.t2hprpots });
+        event.remove({ output: recipe.t3hprpots });
+        event.remove({ output: recipe.t4hprpots });
+        event.shaped(recipe.t1hprpots, ["ABA", "AAA", " C "], { A: recipe.frame, B: "minecraft:flower_pot", C: "minecraft:hopper" });
+        event.shaped(recipe.t2hprpots, ["ABA"], { A: "botanicalextramachinery:saffron_ingot", B: recipe.t1hprpots });
+        event.shaped(recipe.t3hprpots, ["ABA"], { A: "botanicalextramachinery:shadow_ingot", B: recipe.t2hprpots });
+        event.shaped(recipe.t4hprpots, ["ABA"], { A: "botanicalextramachinery:crimson_ingot", B: recipe.t3hprpots });
 
         //To Hopper in Crafting
-        event.shaped(t2hprpots, ["CPC", " H "], { P: t1pots, C: "mekanism:advanced_control_circuit", H: "minecraft:hopper" });
-        event.shaped(t3hprpots, ["CPC", " H "], { P: t2pots, C: "mekanism:elite_control_circuit", H: "minecraft:hopper" });
-        event.shaped(t4hprpots, ["CPC", " H "], { P: t3pots, C: "mekanism:ultimate_control_circuit", H: "minecraft:hopper" });
+        event.shaped(recipe.t2hprpots, ["ABA", " C "], { A: recipe.t1pots, B: "botanicalextramachinery:saffron_ingot", C: "minecraft:hopper" });
+        event.shaped(recipe.t3hprpots, ["ABA", " C "], { A: recipe.t2pots, B: "botanicalextramachinery:shadow_ingot", C: "minecraft:hopper" });
+        event.shaped(recipe.t4hprpots, ["ABA", " C "], { A: recipe.t3pots, B: "botanicalextramachinery:crimson_ingot", C: "minecraft:hopper" });
 
         //To Hopper already Crafted
-        event.shaped(t1hprpots, ["P", "H"], { P: t1pots, H: "minecraft:hopper" });
-        event.shaped(t2hprpots, ["P", "H"], { P: t2pots, H: "minecraft:hopper" });
-        event.shaped(t3hprpots, ["P", "H"], { P: t3pots, H: "minecraft:hopper" });
-        event.shaped(t4hprpots, ["P", "H"], { P: t4pots, H: "minecraft:hopper" });
+        event.shaped(recipe.t1hprpots, ["A", "B"], { A: recipe.t1pots, B: "minecraft:hopper" });
+        event.shaped(recipe.t2hprpots, ["A", "B"], { A: recipe.t2pots, B: "minecraft:hopper" });
+        event.shaped(recipe.t3hprpots, ["A", "B"], { A: recipe.t3pots, B: "minecraft:hopper" });
+        event.shaped(recipe.t4hprpots, ["A", "B"], { A: recipe.t4pots, B: "minecraft:hopper" });
 
         //Color Pot
-        event.shaped(t1pots, ["FPF", "FFF"], { P: "#botanypots:pots/t1", F: frame });
-        event.shaped(t2pots, ["FPF", "FFF"], { P: "#botanypotstiers:pots/t2", F: frame });
-        event.shaped(t3pots, ["FPF", "FFF"], { P: "#botanypotstiers:pots/t3", F: frame });
-        event.shaped(t4pots, ["FPF", "FFF"], { P: "#botanypotstiers:pots/t4", F: frame });
-        event.shaped(t1hprpots, ["FPF", "FFF"], { P: "#botanypots:pots/t1/hopper", F: frame });
-        event.shaped(t2hprpots, ["FPF", "FFF"], { P: "#botanypotstiers:pots/t2/hopper", F: frame });
-        event.shaped(t3hprpots, ["FPF", "FFF"], { P: "#botanypotstiers:pots/t3/hopper", F: frame });
-        event.shaped(t4hprpots, ["FPF", "FFF"], { P: "#botanypotstiers:pots/t4/hopper", F: frame });
-    }
-    PotsPattern.forEach(PotsRecipes);
+        event.shaped(recipe.t1pots, ["BAB", "BBB"], { A: "#botanypots:pots/t1", B: recipe.frame });
+        event.shaped(recipe.t2pots, ["BAB", "BBB"], { A: "#botanypotstiers:pots/t2", B: recipe.frame });
+        event.shaped(recipe.t3pots, ["BAB", "BBB"], { A: "#botanypotstiers:pots/t3", B: recipe.frame });
+        event.shaped(recipe.t4pots, ["BAB", "BBB"], { A: "#botanypotstiers:pots/t4", B: recipe.frame });
+        event.shaped(recipe.t1hprpots, ["BAB", "BBB"], { A: "#botanypots:pots/t1/hopper", B: recipe.frame });
+        event.shaped(recipe.t2hprpots, ["BAB", "BBB"], { A: "#botanypotstiers:pots/t2/hopper", B: recipe.frame });
+        event.shaped(recipe.t3hprpots, ["BAB", "BBB"], { A: "#botanypotstiers:pots/t3/hopper", B: recipe.frame });
+        event.shaped(recipe.t4hprpots, ["BAB", "BBB"], { A: "#botanypotstiers:pots/t4/hopper", B: recipe.frame });
+    });
 
     //Clear Pot
     event.shapeless("botanypots:terracotta_botany_pot", ["#botanypots:pots/t1", "supplementaries:soap"]); //insert by Supplementary
