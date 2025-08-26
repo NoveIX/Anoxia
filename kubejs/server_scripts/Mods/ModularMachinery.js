@@ -241,6 +241,10 @@ MMEvents.createStructures((event) => {
                 .key("4", { portType: "mm:fluid", input: false })
                 .key("5", { portType: "mm:energy", input: true });
         });
+
+    /*         event.create("mm:interdimensional_miner")
+        .controllerId("mm:machine_controller")
+        .name("Interdimensional Miner") */
     //#endregion
 
     //// # =================================================================================================== #
@@ -581,5 +585,33 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "aethersteel:cobbled_aetherslate", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
         .output({ type: "mm:output/simple", chance: 0.011, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 2 } });
+
+    //Desh
+    event
+        .create("mm:sieve_moon_sand")
+        .structureId("mm:quantum_sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:moon_sand", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:desh_pieces", count: 2 } });
+
+    //Ostreum
+    event
+        .create("mm:sieve_mars_sand")
+        .structureId("mm:quantum_sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:mars_sand", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:ostrum_pieces", count: 2 } });
+
+    //Desh
+    event
+        .create("mm:sieve_venus_sand")
+        .structureId("mm:quantum_sieve")
+        .ticks(5)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:venus_sand", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:calorite_pieces", count: 2 } });
+
     //#endregion
 });

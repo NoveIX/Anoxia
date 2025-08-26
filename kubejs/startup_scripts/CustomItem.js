@@ -4,6 +4,9 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:tiny_charcoal").displayName("Tiny Charcoal").texture("anoxia:item/tiny_charcoal");
     //event.create("anoxia:aethersteel_mesh").displayName("Aethersteel Mesh").texture("anoxia:item/aethersteel_mesh");
     event.create("anoxia:osmium_pieces").displayName("Osmium Pieces").texture("anoxia:item/osmium_pieces");
+    event.create("anoxia:desh_pieces").displayName("Desh Pieces").texture("anoxia:item/desh_pieces");
+    event.create("anoxia:ostrum_pieces").displayName("Ostrum Pieces").texture("anoxia:item/ostrum_pieces");
+    event.create("anoxia:calorite_pieces").displayName("Calorite Pieces").texture("anoxia:item/calorite_pieces");
     event.create("anoxia:modularium").displayName("Modularium").texture("anoxia:item/modularium");
     event.create("anoxia:amongus").displayName("Among Us").texture("anoxia:item/amongus");
     event.create("anoxia:sugoma").displayName("Sugoma").texture("anoxia:item/sugoma");

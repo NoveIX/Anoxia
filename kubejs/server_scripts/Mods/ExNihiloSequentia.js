@@ -629,6 +629,36 @@ ServerEvents.recipes((event) => {
             drop: [{ chance: 0.1, mesh: "string" }],
         },
         //#endregion
+
+        //#region Space Sand
+        {
+            get: { item: "anoxia:desh_pieces" },
+            put: { item: "ad_astra:moon_sand" },
+            drop: [
+                { chance: 0.04, mesh: "diamond" },
+                { chance: 0.08, mesh: "emerald" },
+                { chance: 0.12, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "anoxia:ostrum_pieces" },
+            put: { item: "ad_astra:mars_sand" },
+            drop: [
+                { chance: 0.04, mesh: "diamond" },
+                { chance: 0.08, mesh: "emerald" },
+                { chance: 0.12, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "anoxia:calorite_pieces" },
+            put: { item: "ad_astra:venus_sand" },
+            drop: [
+                { chance: 0.04, mesh: "diamond" },
+                { chance: 0.08, mesh: "emerald" },
+                { chance: 0.12, mesh: "netherite" },
+            ],
+        },
+        //#endregion
     ];
     SievePattern.forEach((recipe) => {
         event.custom({

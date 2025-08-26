@@ -24,14 +24,46 @@ ServerEvents.recipes((event) => {
 
     //#region Mana Infusion
     event.remove({ output: "mysticalagriculture:prosperity_seed_base" });
-    const ManaInfusionPattern = [{ get: { item: "mysticalagriculture:prosperity_seed_base" }, put: { tag: "forge:seeds" }, magic: 5000 }];
+    const ManaInfusionPattern = [
+        { get: { item: "mysticalagriculture:prosperity_seed_base" }, put: { tag: "forge:seeds" }, magic: 5000 },
+
+        //Ad Astra Transmutation
+        { get: { item: "ad_astra:moon_sand" }, put: { item: "ad_astra:mars_sand" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:mars_sand" }, put: { item: "ad_astra:venus_sand" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:venus_sand" }, put: { item: "ad_astra:moon_sand" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:moon_stone" }, put: { item: "ad_astra:mars_stone" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:mars_stone" }, put: { item: "ad_astra:venus_stone" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:venus_stone" }, put: { item: "ad_astra:mercury_stone" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:mercury_stone" }, put: { item: "ad_astra:glacio_stone" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+        { get: { item: "ad_astra:glacio_stone" }, put: { item: "ad_astra:moon_stone" }, magic: 500, alchemy: { type: "block", block: "botania:alchemy_catalyst" } },
+
+        //Ad Astra Duplication
+        { get: { count: 2, item: "ad_astra:moon_sand" }, put: { item: "ad_astra:moon_sand" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:mars_sand" }, put: { item: "ad_astra:mars_sand" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:venus_sand" }, put: { item: "ad_astra:venus_sand" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:moon_stone" }, put: { item: "ad_astra:moon_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:mars_stone" }, put: { item: "ad_astra:mars_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:venus_stone" }, put: { item: "ad_astra:venus_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:mercury_stone" }, put: { item: "ad_astra:mercury_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+        { get: { count: 2, item: "ad_astra:glacio_stone" }, put: { item: "ad_astra:glacio_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+    ];
     ManaInfusionPattern.forEach((recipe) => {
-        event.custom({
-            type: "botania:mana_infusion",
-            input: recipe.put,
-            output: recipe.get,
-            mana: recipe.magic,
-        });
+        if (recipe.alchemy) {
+            event.custom({
+                type: "botania:mana_infusion",
+                catalyst: recipe.alchemy,
+                input: recipe.put,
+                output: recipe.get,
+                mana: recipe.magic,
+            });
+        } else {
+            event.custom({
+                type: "botania:mana_infusion",
+                input: recipe.put,
+                output: recipe.get,
+                mana: recipe.magic,
+            });
+        }
     });
     //#endregion
 

@@ -478,6 +478,74 @@ ServerEvents.recipes((event) => {
             ],
         },
         //#endregion
+
+        //#region Space Sand
+        //Desh
+        {
+            tier: "anoxia:create_diamond_mesh",
+            put: { item: "ad_astra:moon_sand" },
+            get: [{ item: "anoxia:desh_pieces", chance: 0.04 }],
+        },
+        {
+            tier: "anoxia:create_emerald_mesh",
+            put: { item: "ad_astra:moon_sand" },
+            get: [{ item: "anoxia:desh_pieces", chance: 0.08 }],
+        },
+        {
+            tier: "anoxia:create_netherite_mesh",
+            put: { item: "ad_astra:moon_sand" },
+            get: [{ item: "anoxia:desh_pieces", chance: 0.12 }],
+        },
+        {
+            tier: "anoxia:create_aethersteel_mesh",
+            put: { item: "ad_astra:moon_sand" },
+            get: [{ item: "anoxia:desh_pieces", chance: 0.16 }],
+        },
+
+        //Ostrum
+        {
+            tier: "anoxia:create_diamond_mesh",
+            put: { item: "ad_astra:mars_sand" },
+            get: [{ item: "anoxia:ostrum_pieces", chance: 0.04 }],
+        },
+        {
+            tier: "anoxia:create_emerald_mesh",
+            put: { item: "ad_astra:mars_sand" },
+            get: [{ item: "anoxia:ostrum_pieces", chance: 0.08 }],
+        },
+        {
+            tier: "anoxia:create_netherite_mesh",
+            put: { item: "ad_astra:mars_sand" },
+            get: [{ item: "anoxia:ostrum_pieces", chance: 0.12 }],
+        },
+        {
+            tier: "anoxia:create_aethersteel_mesh",
+            put: { item: "ad_astra:mars_sand" },
+            get: [{ item: "anoxia:ostrum_pieces", chance: 0.16 }],
+        },
+
+        //Calorite
+        {
+            tier: "anoxia:create_diamond_mesh",
+            put: { item: "ad_astra:venus_sand" },
+            get: [{ item: "anoxia:calorite_pieces", chance: 0.04 }],
+        },
+        {
+            tier: "anoxia:create_emerald_mesh",
+            put: { item: "ad_astra:venus_sand" },
+            get: [{ item: "anoxia:calorite_pieces", chance: 0.08 }],
+        },
+        {
+            tier: "anoxia:create_netherite_mesh",
+            put: { item: "ad_astra:venus_sand" },
+            get: [{ item: "anoxia:calorite_pieces", chance: 0.12 }],
+        },
+        {
+            tier: "anoxia:create_aethersteel_mesh",
+            put: { item: "ad_astra:venus_sand" },
+            get: [{ item: "anoxia:calorite_pieces", chance: 0.16 }],
+        },
+        //#endregion
     ];
     SifterPattern.forEach((recipe) => {
         event.custom({
