@@ -11,7 +11,6 @@ global.items.GAME_FullRm = [
     "ad_astra:tier_2_rocket",
     "ad_astra:tier_3_rocket",
     "ad_astra:tier_4_rocket",
-    "ad_astra:compressor",
     "ad_astra:iron_plate",
     "ad_astra:steel_plate",
     "ad_astra:iron_rod",

@@ -9,11 +9,11 @@ ServerEvents.recipes((event) => {
 
     //Blast Furnace
     event.remove({ output: "minecraft:blast_furnace" });
-    event.shaped("minecraft:blast_furnace", ["AAA", "ABA", "CCC"], { A: "#forge:plates/iron", B: "#anoxia:stone/furnaces", C: "minecraft:smooth_stone" });
+    event.shaped("minecraft:blast_furnace", ["AAA", "ABA", "CCC"], { A: "#forge:plates/iron", B: "#anoxia:furnaces/stone", C: "minecraft:smooth_stone" });
 
     //Smoker
     event.remove({ output: "minecraft:smoker" });
-    event.shaped("minecraft:smoker", ["ABA", "BCB", "ABA"], { A: "anoxia:compressed_cobblestone", B: "#minecraft:logs", C: "#anoxia:stone/furnaces" });
+    event.shaped("minecraft:smoker", ["ABA", "BCB", "ABA"], { A: "anoxia:compressed_cobblestone", B: "#minecraft:logs", C: "#anoxia:furnaces/stone" });
 
     //Smithing Template
     event.shaped("minecraft:coast_armor_trim_smithing_template", ["ACA", "ABA", "AAA"], { A: "#forge:gems/diamond", B: "minecraft:cobblestone", C: "minecraft:light_blue_concrete" });

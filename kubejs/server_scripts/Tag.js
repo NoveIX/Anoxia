@@ -16,12 +16,12 @@ ServerEvents.tags("item", (event) => {
         { tag: "anoxia:fertilizers", item: "farmersdelight:straw" },
 
         //Furnace
-        { tag: "anoxia:stone/furnaces", item: "minecraft:furnace" },
-        { tag: "anoxia:stone/furnaces", item: "quark:deepslate_furnace" },
-        { tag: "anoxia:blackstone/furnaces", item: "nethersdelight:blackstone_furnace" },
-        { tag: "anoxia:blackstone/furnaces", item: "quark:blackstone_furnace" },
-        { tag: "anoxia:furnaces", item: "#anoxia:stone/furnaces" },
-        { tag: "anoxia:furnaces", item: "#anoxia:blackstone/furnaces" },
+        { tag: "anoxia:furnaces/stone", item: "minecraft:furnace" },
+        { tag: "anoxia:furnaces/stone", item: "quark:deepslate_furnace" },
+        { tag: "anoxia:furnaces/blackstone", item: "nethersdelight:blackstone_furnace" },
+        { tag: "anoxia:furnaces/blackstone", item: "quark:blackstone_furnace" },
+        { tag: "anoxia:furnaces", item: "#anoxia:furnaces/stone" },
+        { tag: "anoxia:furnaces", item: "#anoxia:furnaces/blackstone" },
         { tag: "anoxia:blastfurnaces", item: "minecraft:blast_furnace" },
         { tag: "anoxia:blastfurnaces", item: "nethersdelight:blackstone_blast_furnace" },
         { tag: "anoxia:smokers", item: "minecraft:smoker" },

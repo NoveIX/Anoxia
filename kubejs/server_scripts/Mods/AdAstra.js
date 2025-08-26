@@ -1,4 +1,8 @@
 ServerEvents.recipes((event) => {
+    event.remove({ type: "ad_astra:compressing" });
+
+    //// # =================================================================================================== #
+
     const RmRecipeID = ["ad_astra:conversion/fuel_from_oil", "ad_astra:nasa_workbench/tier_1_rocket", "ad_astra:nasa_workbench/tier_2_rocket", "ad_astra:nasa_workbench/tier_3_rocket", "ad_astra:nasa_workbench/tier_4_rocket"];
     RmRecipeID.forEach((id) => {
         event.remove({ id: id });
@@ -21,6 +25,14 @@ ServerEvents.recipes((event) => {
     //Hammer
     event.remove({ output: "ad_astra:hammer" });
     event.shaped("ad_astra:hammer", [" AB", " CA", "C  "], { A: "minecraft:iron_ingot", B: "minecraft:string", C: "minecraft:stick" });
+
+    //Compressor
+    event.remove({ output: "ad_astra:compressor" });
+    event.shaped("ad_astra:compressor", ["ABA", "A A", "ACA"], { A: "#forge:plates/iron", B: "minecraft:piston", C: "minecraft:anvil" });
+
+    //Coal Generator
+    event.remove({ output: "ad_astra:coal_generator" });
+    event.shaped("ad_astra:coal_generator", ["AAA", "ABA", "ACA"], { A: "#forge:plates/iron", B: "#anoxia:furnaces/stone", C: "minecraft:campfire" });
 
     //// # =================================================================================================== #
 
