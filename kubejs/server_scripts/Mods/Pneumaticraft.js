@@ -84,7 +84,7 @@ ServerEvents.recipes((event) => {
         },
         {
             get: [{ item: "avaritia:neutron_pile" }],
-            put: [{ type: "pneumaticcraft:stacked_item", count: 9, ForgeItemFilter: "anoxia:octuple_compressed_cobblestone" }],
+            put: [{ type: "pneumaticcraft:stacked_item", count: 9, item: "anoxia:octuple_compressed_cobblestone" }],
             bar: 1.5,
         },
     ];

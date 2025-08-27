@@ -1,6 +1,17 @@
 ServerEvents.recipes((event) => {
     event.remove({ type: "mysticalagriculture:soul_extraction" });
 
+    //// # =================================================================================================== #
+
+    const RmRecipeID = [
+        //Unification
+        "tacz_c:thin_brass_sheet_cutting",
+        "tacz_c:thin_copper_sheet_cutting",
+    ];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
     //Altar
     event.remove({ output: "mysticalagriculture:infusion_altar" });
     event.shaped("mysticalagriculture:infusion_altar", ["ABA", " C ", "DDD"], { A: "#forge:ingots/gold", B: "minecraft:red_carpet", C: "rootsclassic:altar", D: "minecraft:stone" });

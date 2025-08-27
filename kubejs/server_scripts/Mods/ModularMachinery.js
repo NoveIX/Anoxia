@@ -114,7 +114,7 @@ ServerEvents.recipes((event) => {
 MMEvents.createStructures((event) => {
     //#region Empowerer
     event
-        .create("mm:autonomus_empowerer")
+        .create("mm:empowerer")
         .controllerId("mm:machine_controller")
         .name("Autonomus Empowerer")
         .layout((mech) => {
@@ -139,7 +139,7 @@ MMEvents.createStructures((event) => {
 
     //#region Portal
     event
-        .create("mm:artificial_portal")
+        .create("mm:portal")
         .controllerId("mm:machine_controller")
         .name("Artificial Portal")
         .layout((mech) => {
@@ -161,7 +161,7 @@ MMEvents.createStructures((event) => {
 
     //#region Energizer
     event
-        .create("mm:pulse_energizer")
+        .create("mm:energizer")
         .controllerId("mm:machine_controller")
         .name("Pulse energizer")
         .layout((mech) => {
@@ -191,7 +191,7 @@ MMEvents.createStructures((event) => {
 
     //#region Sieve
     event
-        .create("mm:quantum_sieve")
+        .create("mm:sieve")
         .controllerId("mm:machine_controller")
         .name("Quantum Sieve")
         .layout((mech) => {
@@ -220,7 +220,7 @@ MMEvents.createStructures((event) => {
 
     //#region Crusher
     event
-        .create("mm:collision_crusher")
+        .create("mm:crusher")
         .controllerId("mm:machine_controller")
         .name("Collision Crusher")
         .layout((mech) => {
@@ -242,15 +242,43 @@ MMEvents.createStructures((event) => {
                 .key("5", { portType: "mm:energy", input: true });
         });
 
-    /*         event.create("mm:interdimensional_miner")
-        .controllerId("mm:machine_controller")
-        .name("Interdimensional Miner") */
-    //#endregion
-
     //// # =================================================================================================== #
 
     //#region Sawmill
     //event.create("mm:sawmill").controllerId("mm:machine_controller").name("Nanometer Sawmill");
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Miner
+    event
+        .create("mm:miner")
+        .controllerId("mm:machine_controller")
+        .name("Fusion Interdimensional Miner")
+        .layout((mech) => {
+            mech.layer(["               ", "               ", "               ", "               ", "               ", "     AABAA     ", "     AABAA     ", "     BBHBB     ", "     AABAA     ", "     AABAA     ", "               ", "               ", "               ", "               ", "               "])
+                .layer(["               ", "               ", "               ", "               ", "     ADBDA     ", "    AFFFFFA    ", "    DFFFFFD    ", "    BFFFFFB    ", "    DFFFFFD    ", "    AFFFFFA    ", "     ADBDA     ", "               ", "               ", "               ", "               "])
+                .layer(["      AAA      ", "      A5A      ", "      ABA      ", "      ABA      ", "     AAAAA     ", "    AFFFFFA    ", "AAAAAFFFFFAAAAA", "A5BBAFFGFFABB5A", "AAAAAFFFFFAAAAA", "    AFFFFFA    ", "     AAAAA     ", "      ABA      ", "      ABA      ", "      A5A      ", "      AAA      "])
+                .layer(["      A2A      ", "      BIB      ", "      BEB      ", "      BEB      ", "     3AEA1     ", "    1FFFFF3    ", "ABBBAFFGFFABBBA", "2IEEEFGLGFEEEI2", "ABBBAFFGFFABBBA", "    3FFFFF1    ", "     1AEA3     ", "      BEB      ", "      BEB      ", "      BIB      ", "      ACA      "])
+                .layer(["      AAA      ", "      ABA      ", "      ABA      ", "      ABA      ", "     AAAAA     ", "    AFFFFFA    ", "AAAAAFFFFFAAAAA", "ABBBAFFGFFABBBA", "AAAAAFFFFFAAAAA", "    AFFFFFA    ", "     AAAAA     ", "      ABA      ", "      ABA      ", "      ABA      ", "      AAA      "])
+                .layer(["               ", "               ", "               ", "               ", "     ADBDA     ", "    AFFFFFA    ", "    DFFFFFD    ", "    BFFFFFB    ", "    DFFFFFD    ", "    AFFFFFA    ", "     ADBDA     ", "               ", "               ", "               ", "               "])
+                .layer(["               ", "               ", "               ", "               ", "               ", "     AABAA     ", "     AABAA     ", "     BBBBB     ", "     AABAA     ", "     AABAA     ", "               ", "               ", "               ", "               ", "               "])
+                .key("A", { block: "anoxia:machine_casing" })
+                .key("B", { block: "mm:machine_vent" })
+                .key("D", { block: "mm:machine_gearbox" })
+                .key("E", { block: "mm:machine_circuit" })
+                .key("F", { block: "thermal:enderium_block" })
+                .key("G", { block: "advanced_ae:quantum_alloy_block" })
+                .key("H", { block: "minecraft:beacon" })
+                .key("I", { block: "industrialforegoing:laser_drill" })
+                .key("L", { block: "industrialforegoing:ore_laser_base" })
+
+                //Port
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false })
+                .key("3", { portType: "mm:fluid", input: true })
+                .key("5", { portType: "mm:energy", input: true });
+        });
     //#endregion
 });
 
@@ -386,7 +414,7 @@ MMEvents.createProcesses((event) => {
         },
     ];
     ArtificialPortalPatter.forEach((recipe) => {
-        event.create(recipe.id).structureId("mm:artificial_portal").ticks(20).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
+        event.create(recipe.id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
     });
     //#endregion
 
@@ -396,7 +424,7 @@ MMEvents.createProcesses((event) => {
     //Diamatine Block
     event
         .create("mm:diamatine_block")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:diamatine_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/light_blue", count: 1 } })
@@ -408,7 +436,7 @@ MMEvents.createProcesses((event) => {
     //Emeradic Block
     event
         .create("mm:emeradic_block")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:emeradic_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/lime", count: 1 } })
@@ -421,7 +449,7 @@ MMEvents.createProcesses((event) => {
     //Enori Block
     event
         .create("mm:enori_block")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:enori_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/gray", count: 1 } })
@@ -434,7 +462,7 @@ MMEvents.createProcesses((event) => {
     //Palis Block
     event
         .create("mm:palis_block")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:palis_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/cyan", count: 1 } })
@@ -445,7 +473,7 @@ MMEvents.createProcesses((event) => {
     //Redstonia Block
     event
         .create("mm:restonia_block")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:restonia_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/red", count: 1 } })
@@ -458,7 +486,7 @@ MMEvents.createProcesses((event) => {
     //Void Block
     event
         .create("mm:void_block")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:void_crystal_block", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:dyes/black", count: 1 } })
@@ -471,7 +499,7 @@ MMEvents.createProcesses((event) => {
     //Double Layer Capacitor
     event
         .create("mm:double_layer_capacitor")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "enderio:basic_capacitor", count: 2 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:ingots/energetic_alloy", count: 2 } })
@@ -482,7 +510,7 @@ MMEvents.createProcesses((event) => {
     //Double Layer Capacitor
     event
         .create("mm:octadic_capacitor")
-        .structureId("mm:autonomus_empowerer")
+        .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "enderio:double_layer_capacitor", count: 2 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:ingots/vibrant_alloy", count: 2 } })
@@ -497,7 +525,7 @@ MMEvents.createProcesses((event) => {
     //Gravel
     event
         .create("mm:sieve_gravel")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -515,7 +543,7 @@ MMEvents.createProcesses((event) => {
     //Sand
     event
         .create("mm:sieve_sand")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:sand", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -529,7 +557,7 @@ MMEvents.createProcesses((event) => {
     //Dust
     event
         .create("mm:sieve_dust")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:dust", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -548,7 +576,7 @@ MMEvents.createProcesses((event) => {
     //Netherrack
     event
         .create("mm:sieve_netherrack")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_netherrack", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -557,7 +585,7 @@ MMEvents.createProcesses((event) => {
     //Soul Sand
     event
         .create("mm:sieve_soul_sand")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:soul_sand", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -568,7 +596,7 @@ MMEvents.createProcesses((event) => {
     //Endstone
     event
         .create("mm:sieve_end_stone")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_end_stone", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -580,7 +608,7 @@ MMEvents.createProcesses((event) => {
     //Aetherslate
     event
         .create("mm:sieve_aetherslate")
-        .structureId("mm:quantum_sieve")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "aethersteel:cobbled_aetherslate", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -588,8 +616,8 @@ MMEvents.createProcesses((event) => {
 
     //Desh
     event
-        .create("mm:sieve_moon_sand")
-        .structureId("mm:quantum_sieve")
+        .create("mm:sieve_moon")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:moon_sand", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -597,8 +625,8 @@ MMEvents.createProcesses((event) => {
 
     //Ostreum
     event
-        .create("mm:sieve_mars_sand")
-        .structureId("mm:quantum_sieve")
+        .create("mm:sieve_mars")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:mars_sand", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
@@ -606,12 +634,55 @@ MMEvents.createProcesses((event) => {
 
     //Desh
     event
-        .create("mm:sieve_venus_sand")
-        .structureId("mm:quantum_sieve")
+        .create("mm:sieve_venus")
+        .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:venus_sand", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
         .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:calorite_pieces", count: 2 } });
 
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Miner Recipe
+    event
+        .create("mm:mine")
+        .structureId("mm:miner")
+        .ticks(1200)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "chemlib:hydrogen", count: 16 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "ad_astra:cryo_fuel", amount: 16000 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 250000 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:glowstone", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "immersiveengineering:deepslate_ore_aluminum", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_emerald_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_osmium_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_fluorite_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_redstone_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_calorite_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_cinnabar_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_sapphire_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:nether_quartz_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_silver_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:raw_platinum", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_copper_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_sulfur_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_nickel_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_iron_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_lead_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ostrum_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_tin_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_niter_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_uranium_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_diamond_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_gold_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_lapis_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_coal_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_desh_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 4 } });
     //#endregion
 });
