@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
     //Dieletric Paste
     event.remove({ output: "powah:dielectric_paste" });
-    event.shapeless(Item.of("powah:dielectric_paste", 16), ["#forge:dusts/grains_of_infinity", "#forge:dusts/grains_of_infinity", "exnihilosequentia:porcelain_clay", 'minecraft:blaze_powder']);
+    event.shapeless(Item.of("powah:dielectric_paste", 8), ["#forge:dusts/grains_of_infinity", "#forge:dusts/grains_of_infinity", "exnihilosequentia:porcelain_clay", "minecraft:blaze_powder"]);
 
     //Tiny Capacitor
     event.remove({ output: "powah:capacitor_basic_tiny" });
@@ -21,23 +21,23 @@ ServerEvents.recipes((event) => {
 
     //Blazing Capacitor
     event.remove({ output: "powah:capacitor_blazing" });
-    event.shaped("powah:capacitor_blazing", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:steel_energized", C: "powah:capacitor_hardened" });
+    event.shaped("powah:capacitor_blazing", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:crystal_blazing", C: "powah:capacitor_hardened" });
 
     //Niotic Capacitor
     event.remove({ output: "powah:capacitor_niotic" });
-    event.shaped("powah:capacitor_niotic", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:steel_energized", C: "powah:capacitor_blazing" });
+    event.shaped("powah:capacitor_niotic", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:crystal_niotic", C: "powah:capacitor_blazing" });
 
     //Spirited Capacitor
     event.remove({ output: "powah:capacitor_spirited" });
-    event.shaped("powah:capacitor_spirited", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:steel_energized", C: "powah:capacitor_niotic" });
+    event.shaped("powah:capacitor_spirited", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:crystal_spirited", C: "powah:capacitor_niotic" });
 
     //Nitro Capacitor
     event.remove({ output: "powah:capacitor_nitro" });
-    event.shaped("powah:capacitor_nitro", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:steel_energized", C: "powah:capacitor_spirited" });
+    event.shaped("powah:capacitor_nitro", ["DID", "ICI", "DID"], { D: "powah:dielectric_paste", I: "powah:crystal_nitro", C: "powah:capacitor_spirited" });
 
     //Photoelectric Pane'
-    event.remove({output: 'powah:photoelectric_pane'})
-    event.shaped('powah:photoelectric_pane', ['ABA','BCB','ABA'], {A: "powah:dielectric_paste", B: 'projectred_core:electrotine_silicon',C: 'minecraft:glass_pane'});
+    event.remove({ output: "powah:photoelectric_pane" });
+    event.shaped("powah:photoelectric_pane", ["ABA", "BCB", "ABA"], { A: "powah:dielectric_paste", B: "projectred_core:electrotine_silicon", C: "minecraft:glass_pane" });
 
     //// # =================================================================================================== #
 

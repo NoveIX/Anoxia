@@ -27,6 +27,10 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "pneumaticcraft:advanced_air_compressor" });
     event.shaped("pneumaticcraft:advanced_air_compressor", ["AAA", "BCD", "AEA"], { A: "#forge:ingots/titanium", B: "createaddition:electric_motor", C: "advgenerators:turbine_rotor_tier4", D: "pneumaticcraft:pressure_tube", E: "pneumaticcraft:air_compressor" });
 
+    //Printed Circuit Board'
+    event.remove({ output: "pneumaticcraft:printed_circuit_board" });
+    event.shapeless("pneumaticcraft:printed_circuit_board", ["pneumaticcraft:printed_circuit_board", Item.of("pneumaticcraft:transistor", 4), Item.of("pneumaticcraft:capacitor", 4)]);
+
     //// # =================================================================================================== #
 
     //#region Chamber
@@ -34,7 +38,7 @@ ServerEvents.recipes((event) => {
     const ChamberPattern = [
         {
             get: [{ item: "pneumaticcraft:capacitor" }],
-            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { tag: "forge:ingots/red_alloy" }, { item: "oc2r:cpu_tier_4" }, { item: "powah:capacitor_spirited" }],
+            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { tag: "forge:ingots/red_alloy" }, { tag: "anoxia:coil/electrum" }, { item: "powah:capacitor_spirited" }],
             bar: 1.5,
         },
         {
@@ -72,7 +76,7 @@ ServerEvents.recipes((event) => {
         },
         {
             get: [{ item: "pneumaticcraft:transistor" }],
-            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { tag: "forge:ingots/red_alloy" }, { item: "oc2r:transistor" }],
+            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { tag: "forge:ingots/red_alloy" }, { item: "projectred_core:boule" }, { item: "oc2r:transistor" }],
             bar: 1.5,
         },
         {
@@ -93,8 +97,8 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
-    /* //#region Explosion
-    const ExplosionPattern = [];
+    //#region Explosion
+    /* const ExplosionPattern = [];
     ExplosionPattern.forEach((recipe) => {
         event.custom({
             type: "pneumaticcraft:explosion_crafting",
@@ -102,6 +106,6 @@ ServerEvents.recipes((event) => {
             results: recipe.get,
             loss_rate: recipe.lost,
         });
-    });
-    //#endregion */
+    }); */
+    //#endregion
 });

@@ -19,6 +19,10 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "mekanism:metallurgic_infuser" });
     event.shaped("mekanism:metallurgic_infuser", ["ABA", "CDC", "ABA"], { A: "#forge:ingots/redstone_alloy", B: "enderio:alloy_smelter", C: "#forge:ingots/osmium", D: "mekanism:steel_casing" });
 
+    //Tier Installer
+    event.remove({ output: "mekanism:basic_tier_installer" });
+    event.shaped("mekanism:basic_tier_installer", ["ABA", "CDC", "ABA"], { A: "redstone_arsenal:flux_gear", B: "mekanism:basic_control_circuit", C: "#forge:ingots/melodium", D: "actuallyadditions:empowered_void_crystal_block" });
+
     //// # =================================================================================================== #
 
     //Metallurgic Infusing

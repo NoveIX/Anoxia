@@ -9,33 +9,33 @@ ServerEvents.recipes((event) => {
 
     //CPU-1
     event.remove({ output: "oc2r:cpu_tier_1" });
-    event.shaped("oc2r:cpu_tier_1", ["FFF", "TWT", "CBC"], { F: "#forge:ingots/iron", T: "oc2r:transistor", W: "oc2r:silicon_wafer", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
+    event.shaped("oc2r:cpu_tier_1", ["FFF", "TWT", "CBC"], { F: "#forge:gears/iron", T: "oc2r:transistor", W: "oc2r:silicon_wafer", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
 
     //CPU-2
     event.remove({ output: "oc2r:cpu_tier_2" });
-    event.shaped("oc2r:cpu_tier_2", ["FFF", "TWT", "CBC"], { F: "#forge:ingots/gold", T: "oc2r:cpu_tier_1", W: "oc2r:cpu_tier_1", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
+    event.shaped("oc2r:cpu_tier_2", ["FFF", "TWT", "CBC"], { F: "#forge:gears/gold", T: "oc2r:cpu_tier_1", W: "oc2r:silicon_wafer", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
 
     //CPU-3
     event.remove({ output: "oc2r:cpu_tier_3" });
-    event.shaped("oc2r:cpu_tier_3", ["FFF", "TWT", "CBC"], { F: "#forge:gems/diamond", T: "oc2r:cpu_tier_2", W: "oc2r:cpu_tier_2", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
+    event.shaped("oc2r:cpu_tier_3", ["FFF", "TWT", "CBC"], { F: "#forge:gears/diamond", T: "oc2r:cpu_tier_2", W: "oc2r:silicon_wafer", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
 
     //CPU-4
     event.remove({ output: "oc2r:cpu_tier_4" });
-    event.shaped("oc2r:cpu_tier_4", ["FFF", "TWT", "CBC"], { F: "#forge:gems/emerald", T: "oc2r:cpu_tier_3", W: "oc2r:cpu_tier_2", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
+    event.shaped("oc2r:cpu_tier_4", ["FFF", "TWT", "CBC"], { F: "#forge:gears/emerald", T: "oc2r:cpu_tier_3", W: "oc2r:silicon_wafer", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
 
     //Memory-1
     event.remove({ output: "oc2r:memory_small" });
-    event.shaped("oc2r:memory_small", ["FTC", "FBC", "FTC"], { F: "#forge:ingots/iron", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
+    event.shaped("oc2r:memory_small", ["FBC", "FTC", "FBC"], { F: "#forge:gears/iron", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:circuit_board" });
 
     //Memory-2
     event.remove({ output: "oc2r:memory_medium" });
-    event.shaped("oc2r:memory_medium", ["FTC", "FBC", "FTC"], { F: "#forge:ingots/gold", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:memory_small" });
+    event.shaped("oc2r:memory_medium", ["FBC", "FTC", "FBC"], { F: "#forge:gears/gold", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:memory_small" });
 
     //Memory-3
     event.remove({ output: "oc2r:memory_large" });
-    event.shaped("oc2r:memory_large", ["FTC", "FBC", "FTC"], { F: "#forge:gems/diamond", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:memory_medium" });
+    event.shaped("oc2r:memory_large", ["FBC", "FTC", "FBC"], { F: "#forge:gears/diamond", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:memory_medium" });
 
     //Memory-4
     event.remove({ output: "oc2r:memory_extra_large" });
-    event.shaped("oc2r:memory_extra_large", ["FTC", "FBC", "FTC"], { F: "#forge:gems/emerald", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:memory_large" });
+    event.shaped("oc2r:memory_extra_large", ["FBC", "FTC", "FBC"], { F: "#forge:gears/emerald", T: "oc2r:transistor", C: "#anoxia:coil/electrum", B: "oc2r:memory_large" });
 });

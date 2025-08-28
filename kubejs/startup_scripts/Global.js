@@ -123,6 +123,7 @@ global.items.GAME_FullRm = [
 
     //Immersive Engineering
     "immersiveengineering:coal_coke",
+    "immersiveengineering:slag",
     "immersiveengineering:dust_wood",
     "immersiveengineering:plate_copper",
     "immersiveengineering:plate_aluminum",
@@ -314,6 +315,8 @@ global.items.GAME_FullRm = [
     "mysticalagriculture:neutronium_seeds",
     "mysticalagriculture:nitro_crystal_essence",
     "mysticalagriculture:nitro_crystal_seeds",
+    "mysticalagradditions:neutronium_crux",
+    "mysticalagradditions:nitro_crystal_crux",
 
     //OpenComputer
     "oc2r:silicon_blend",
