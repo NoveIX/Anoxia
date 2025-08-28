@@ -580,7 +580,8 @@ MMEvents.createProcesses((event) => {
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_netherrack", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
-        .output({ type: "mm:output/simple", chance: 0.017, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.02, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.12, ingredient: { type: "mm:item", item: "anoxia:demonite_pieces", count: 2 } });
 
     //Soul Sand
     event
@@ -612,7 +613,7 @@ MMEvents.createProcesses((event) => {
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "aethersteel:cobbled_aetherslate", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
-        .output({ type: "mm:output/simple", chance: 0.011, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.02, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 2 } });
 
     //Desh
     event
@@ -683,6 +684,7 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 4 } })
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 4 } })
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 4 } });
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 4 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "bloodmagic:dungeon_ore", count: 4 } });
     //#endregion
 });

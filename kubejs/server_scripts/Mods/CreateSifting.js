@@ -301,17 +301,26 @@ ServerEvents.recipes((event) => {
         {
             tier: "anoxia:create_emerald_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.011 }],
+            get: [
+                { item: "minecraft:ancient_debris", chance: 0.012 },
+                { item: "anoxia:demonite_pieces", chance: 0.04 },
+            ],
         },
         {
             tier: "anoxia:create_netherite_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.014 }],
+            get: [
+                { item: "minecraft:ancient_debris", chance: 0.016 },
+                { item: "anoxia:demonite_pieces", chance: 0.08 },
+            ],
         },
         {
             tier: "anoxia:create_aethersteel_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.017 }],
+            get: [
+                { item: "minecraft:ancient_debris", chance: 0.02 },
+                { item: "anoxia:demonite_pieces", chance: 0.12 },
+            ],
         },
         //#endregion
 
@@ -407,12 +416,12 @@ ServerEvents.recipes((event) => {
         {
             tier: "anoxia:create_netherite_mesh",
             put: { item: "aethersteel:cobbled_aetherslate" },
-            get: [{ item: "aethersteel:aether_debris", chance: 0.008 }],
+            get: [{ item: "aethersteel:aether_debris", chance: 0.01 }],
         },
         {
             tier: "anoxia:create_aethersteel_mesh",
             put: { item: "aethersteel:cobbled_aetherslate" },
-            get: [{ item: "aethersteel:aether_debris", chance: 0.011 }],
+            get: [{ item: "aethersteel:aether_debris", chance: 0.02 }],
         },
         //#endregion
 

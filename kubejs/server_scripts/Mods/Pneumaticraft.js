@@ -29,7 +29,7 @@ ServerEvents.recipes((event) => {
 
     //Printed Circuit Board'
     event.remove({ output: "pneumaticcraft:printed_circuit_board" });
-    event.shapeless("pneumaticcraft:printed_circuit_board", ["pneumaticcraft:printed_circuit_board", Item.of("pneumaticcraft:transistor", 4), Item.of("pneumaticcraft:capacitor", 4)]);
+    event.shaped("pneumaticcraft:printed_circuit_board", ["ABA", "BCB", "ABA"], { A: "pneumaticcraft:transistor", B: "pneumaticcraft:capacitor", C: "pneumaticcraft:unassembled_pcb" });
 
     //// # =================================================================================================== #
 

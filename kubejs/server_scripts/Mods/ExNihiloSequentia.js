@@ -363,8 +363,16 @@ ServerEvents.recipes((event) => {
             put: { item: "exnihilosequentia:crushed_netherrack" },
             drop: [
                 { chance: 0.008, mesh: "diamond" },
-                { chance: 0.011, mesh: "emerald" },
-                { chance: 0.014, mesh: "netherite" },
+                { chance: 0.012, mesh: "emerald" },
+                { chance: 0.016, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "anoxia:demonite_pieces" },
+            put: { item: "minecraft:sand" },
+            drop: [
+                { chance: 0.04, mesh: "emerald" },
+                { chance: 0.08, mesh: "netherite" },
             ],
         },
         //#endregion
@@ -437,7 +445,7 @@ ServerEvents.recipes((event) => {
         {
             get: { item: "aethersteel:aether_debris" },
             put: { item: "aethersteel:cobbled_aetherslate" },
-            drop: [{ chance: 0.008, mesh: "netherite" }],
+            drop: [{ chance: 0.01, mesh: "netherite" }],
         },
         //#endregion
 

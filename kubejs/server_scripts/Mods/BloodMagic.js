@@ -9,9 +9,9 @@ ServerEvents.recipes((event) => {
     //#region Altar
     const AltarPattern = [
         //Mekanism
-        { get: { item: "mekanism:advanced_tier_installer" }, put: { item: "mekanism:basic_tier_installer" }, syphon: 20000, consumption: 100, drain: 50, level: 2 },
-        { get: { item: "mekanism:elite_tier_installer" }, put: { item: "mekanism:advanced_tier_installer" }, syphon: 30000, consumption: 100, drain: 50, level: 3 },
-        { get: { item: "mekanism:ultimate_tier_installer" }, put: { item: "mekanism:elite_tier_installer" }, syphon: 40000, consumption: 100, drain: 50, level: 4 },
+        { get: { item: "mekanism:advanced_tier_installer" }, put: { item: "mekanism:basic_tier_installer" }, syphon: 20000, consumption: 200, drain: 20, level: 2 },
+        { get: { item: "mekanism:elite_tier_installer" }, put: { item: "mekanism:advanced_tier_installer" }, syphon: 30000, consumption: 300, drain: 30, level: 3 },
+        { get: { item: "mekanism:ultimate_tier_installer" }, put: { item: "mekanism:elite_tier_installer" }, syphon: 40000, consumption: 400, drain: 40, level: 4 },
 
         //Botania Floating Flower
         { get: { item: "botania:white_floating_flower" }, put: { item: "botania:white_shiny_flower" }, syphon: 500, consumption: 10, drain: 5, level: 0 },

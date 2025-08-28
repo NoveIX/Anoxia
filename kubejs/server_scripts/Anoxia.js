@@ -15,6 +15,7 @@ ServerEvents.recipes((event) => {
     event.shaped("ad_astra:raw_desh", ["AA", "AA"], { A: "anoxia:desh_pieces" });
     event.shaped("ad_astra:raw_ostrum", ["AA", "AA"], { A: "anoxia:ostrum_pieces" });
     event.shaped("ad_astra:raw_calorite", ["AA", "AA"], { A: "anoxia:calorite_pieces" });
+    event.shaped("bloodmagic:rawdemonite", ["AA", "AA"], { A: "anoxia:demonite_pieces" });
 
     //Obsidian Ingot
     event.shaped("anoxia:obsidian_with_iron", [" A ", "ABA", " A "], { A: "#forge:nuggets/iron", B: "minecraft:obsidian" });

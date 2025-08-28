@@ -7,6 +7,7 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:desh_pieces").displayName("Desh Pieces").texture("anoxia:item/desh_pieces");
     event.create("anoxia:ostrum_pieces").displayName("Ostrum Pieces").texture("anoxia:item/ostrum_pieces");
     event.create("anoxia:calorite_pieces").displayName("Calorite Pieces").texture("anoxia:item/calorite_pieces");
+    event.create("anoxia:demonite_pieces").displayName("Demonite Pieces").texture("anoxia:item/demonite_pieces");
     event.create("anoxia:modularium").displayName("Modularium").texture("anoxia:item/modularium");
     event.create("anoxia:amongus").displayName("Among Us").texture("anoxia:item/amongus");
     event.create("anoxia:sugoma").displayName("Sugoma").texture("anoxia:item/sugoma");
