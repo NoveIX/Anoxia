@@ -27,9 +27,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "pneumaticcraft:advanced_air_compressor" });
     event.shaped("pneumaticcraft:advanced_air_compressor", ["AAA", "BCD", "AEA"], { A: "#forge:ingots/titanium", B: "createaddition:electric_motor", C: "advgenerators:turbine_rotor_tier4", D: "pneumaticcraft:pressure_tube", E: "pneumaticcraft:air_compressor" });
 
-    //Explosion
-    //event.custom({ type: Explosion, input: { tag: "forge:ingots/iron" }, loss_rate: 20, results: [{ item: "pneumaticcraft:ingot_iron_compressed" }] });
-    //event.custom({ type: Explosion, input: { tag: "forge:storage_blocks/iron" }, loss_rate: 20, results: [{ item: "pneumaticcraft:compressed_iron_block" }] });
+    //// # =================================================================================================== #
 
     //#region Chamber
     event.remove({ type: "pneumaticcraft:pressure_chamber" });
@@ -82,11 +80,6 @@ ServerEvents.recipes((event) => {
             put: [{ tag: "forge:ingots/gold" }, { type: "pneumaticcraft:stacked_item", count: 2, tag: "forge:dusts/redstone" }],
             bar: 1.5,
         },
-        {
-            get: [{ item: "avaritia:neutron_pile" }],
-            put: [{ type: "pneumaticcraft:stacked_item", count: 9, item: "anoxia:octuple_compressed_cobblestone" }],
-            bar: 1.5,
-        },
     ];
     ChamberPattern.forEach((recipe) => {
         event.custom({
@@ -98,15 +91,17 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //#region Explosion
-    /*     const ExplosionPattern = [];
+    //// # =================================================================================================== #
+
+    /* //#region Explosion
+    const ExplosionPattern = [];
     ExplosionPattern.forEach((recipe) => {
         event.custom({
             type: "pneumaticcraft:explosion_crafting",
             input: recipe.put,
-            loss_rate: recipe.lost,
             results: recipe.get,
+            loss_rate: recipe.lost,
         });
-    }); */
-    //#endregion
+    });
+    //#endregion */
 });
