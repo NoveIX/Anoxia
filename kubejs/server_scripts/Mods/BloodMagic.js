@@ -1,7 +1,16 @@
 ServerEvents.recipes((event) => {
-    const RmRecipeID = ["botanicadds:flowers/floating/necroidus", "botanicadds:flowers/floating/apicaria", "botanicadds:flowers/floating/tempestea", "botanicadds:flowers/floating/rainute", "botanicadds:flowers/floating/glaciflora", "botanicadds:flowers/floating/vibrantia", "botanicadds:flowers/floating/energizera"];
+    const RmRecipeID = [
+        //Botania
+        "botanicadds:flowers/floating/necroidus",
+        "botanicadds:flowers/floating/apicaria",
+        "botanicadds:flowers/floating/tempestea",
+        "botanicadds:flowers/floating/rainute",
+        "botanicadds:flowers/floating/glaciflora",
+        "botanicadds:flowers/floating/vibrantia",
+        "botanicadds:flowers/floating/energizera",
+    ];
     RmRecipeID.forEach((id) => {
-        event.remove({ input: id });
+        event.remove({ id: id });
     });
 
     //// # =================================================================================================== #

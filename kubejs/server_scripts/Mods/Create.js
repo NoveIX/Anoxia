@@ -60,7 +60,6 @@ ServerEvents.recipes((event) => {
             get: [{ count: 10, item: "tacz_c:thin_copper_sheet" }],
             put: [{ tag: "forge:plates/copper" }],
         },
-
         {
             get: [{ count: 10, item: "tacz_c:thin_brass_sheet" }],
             put: [{ tag: "forge:plates/brass" }],
@@ -100,36 +99,6 @@ ServerEvents.recipes((event) => {
         //Misc
         { get: [{ item: "minecraft:sand" }], put: [{ item: "minecraft:gravel" }] },
         { get: [{ item: "exnihilosequentia:dust" }], put: [{ item: "minecraft:sand" }] },
-
-        //Ingot
-        { get: [{ item: "thermal:iron_dust" }], put: [{ tag: "forge:ingots/iron" }] },
-        { get: [{ item: "thermal:gold_dust" }], put: [{ tag: "forge:ingots/gold" }] },
-        { get: [{ item: "thermal:copper_dust" }], put: [{ tag: "forge:ingots/copper" }] },
-        { get: [{ item: "thermal:netherite_dust" }], put: [{ tag: "forge:ingots/netherite" }] },
-        { get: [{ item: "thermal:tin_dust" }], put: [{ tag: "forge:ingots/tin" }] },
-        { get: [{ item: "thermal:lead_dust" }], put: [{ tag: "forge:ingots/lead" }] },
-        { get: [{ item: "thermal:silver_dust" }], put: [{ tag: "forge:ingots/silver" }] },
-        { get: [{ item: "thermal:nickel_dust" }], put: [{ tag: "forge:ingots/nickel" }] },
-        { get: [{ item: "thermal:steel_dust" }], put: [{ tag: "forge:ingots/steel" }] },
-        { get: [{ item: "thermal:rose_gold_dust" }], put: [{ tag: "forge:ingots/rose_gold" }] },
-        { get: [{ item: "thermal:bronze_dust" }], put: [{ tag: "forge:ingots/bronze" }] },
-        { get: [{ item: "thermal:electrum_dust" }], put: [{ tag: "forge:ingots/electrum" }] },
-        { get: [{ item: "thermal:invar_dust" }], put: [{ tag: "forge:ingots/invar" }] },
-        { get: [{ item: "thermal:constantan_dust" }], put: [{ tag: "forge:ingots/constantan" }] },
-        { get: [{ item: "thermal:signalum_dust" }], put: [{ tag: "forge:ingots/signalum" }] },
-        { get: [{ item: "thermal:lumium_dust" }], put: [{ tag: "forge:ingots/lumium" }] },
-        { get: [{ item: "thermal:enderium_dust" }], put: [{ tag: "forge:ingots/enderium" }] },
-
-        //Gem
-        { get: [{ item: "mekanism:dust_coal" }], put: [{ item: "minecraft:coal" }] },
-        { get: [{ item: "mekanism:dust_charcoal" }], put: [{ item: "minecraft:charcoal" }] },
-        { get: [{ item: "immersiveengineering:dust_coke" }], put: [{ tag: "forge:coal_coke" }] },
-        { get: [{ item: "thermal:lapis_dust" }], put: [{ tag: "forge:gems/lapis" }] },
-        { get: [{ item: "thermal:diamond_dust" }], put: [{ tag: "forge:gems/diamond" }] },
-        { get: [{ item: "thermal:emerald_dust" }], put: [{ tag: "forge:gems/emerald" }] },
-        { get: [{ item: "thermal:quartz_dust" }], put: [{ tag: "forge:gems/quartz" }] },
-        { get: [{ item: "thermal:ruby_dust" }], put: [{ tag: "forge:gems/ruby" }] },
-        { get: [{ item: "thermal:sapphire_dust" }], put: [{ tag: "forge:gems/sapphire" }] },
     ];
     MillStonePattern.forEach((recipe) => {
         event.custom({

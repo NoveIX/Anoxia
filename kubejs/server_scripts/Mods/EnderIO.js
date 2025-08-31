@@ -2,6 +2,14 @@ ServerEvents.recipes((event) => {
     const RmRecipeID = [
         //Unification
         "enderio:sag_milling/sand", //Rm Silicon
+        "enderio:sag_milling/flower_pot", //Rm Powdered Coal
+        "enderio:sag_milling/coal_ore", //Rm Powdered Coal
+        "enderio:sag_milling/diamond_ore", //Rm Powdered Coal
+        "enderio:sag_milling/iron_ore", //Rm Powdered Iron
+        "enderio:sag_milling/gold_ore", //Rm Powdered Gold
+        "enderio:sag_milling/copper_ore", //Rm Powdered Copper
+        "enderio:sag_milling/lapis_ore", //Rm Powdered Lapis
+        "enderio:sag_milling/quartz_ore", //Rm Powdered Quartz
     ];
     RmRecipeID.forEach((id) => {
         event.remove({ id: id });
@@ -28,7 +36,7 @@ ServerEvents.recipes((event) => {
 
     //Bimetal Gear
     event.remove({ output: "enderio:iron_gear" });
-    event.shaped("enderio:iron_gear", ["NIN", "IGI", "NIN"], { N: "#forge:nuggets/iron", I: "#forge:ingots/iron", G: "enderio:stone_gear" });
+    event.shaped("enderio:iron_gear", ["NIN", "IGI", "NIN"], { N: "#forge:ingots/compressed_iron", I: "#forge:ingots/iron", G: "enderio:stone_gear" });
 
     //Energized Gear
     event.remove({ output: "enderio:energized_gear" });
@@ -64,7 +72,7 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Alloy
-/*     const AlloyPattern = [
+    /*     const AlloyPattern = [
         //Unification
         {
             //industrialforegoing:plastic => pneumaticcraft:plastic
@@ -105,16 +113,10 @@ ServerEvents.recipes((event) => {
         {
             //Dust
             get: [
-                { chance: 0.6, item: { item: "exnihilosequentia:dust" }, optional: false },
-                { chance: 0.4, item: { item: "exnihilosequentia:dust" }, optional: false },
+                { chance: 0.7, item: { item: "exnihilosequentia:dust" }, optional: false },
+                { chance: 0.3, item: { item: "exnihilosequentia:dust" }, optional: false },
             ],
             put: { item: "minecraft:sand" },
-            rsflux: 2400,
-        },
-        {
-            //Silicon
-            get: [{ chance: 0.5, item: { count: 1, item: "ae2:silicon" }, optional: false }],
-            put: { item: "exnihilosequentia:dust" },
             rsflux: 2400,
         },
         {
@@ -126,14 +128,121 @@ ServerEvents.recipes((event) => {
             put: { item: "anoxia:compressed_deepslate" },
             rsflux: 2400,
         },
+
+        //Unification
+        {
+            //Silicon
+            get: [{ chance: 0.5, item: { count: 1, item: "ae2:silicon" }, optional: false }],
+            put: { item: "exnihilosequentia:dust" },
+            rsflux: 2400,
+        },
+        {
+            //Coal Dust
+            get: [
+                { chance: 0.9, item: { item: "minecraft:brick" }, optional: false },
+                { chance: 0.3, item: { item: "minecraft:brick" }, optional: false },
+                { chance: 0.1, item: { item: "minecraft:brick" }, optional: false },
+                { chance: 0.05, item: { item: "mekanism:dust_coal" }, optional: false },
+            ],
+            put: { item: "minecraft:flower_pot" },
+            rsflux: 2400,
+        },
+        {
+            //Coal Dust
+            get: [
+                { chance: 1.0, item: { count: 3, item: "minecraft:coal" }, optional: false },
+                { chance: 0.6, item: { item: "mekanism:dust_coal" }, optional: false },
+                { chance: 0.005, item: { item: "minecraft:diamond" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:cobblestone" }, optional: false },
+            ],
+            put: { tag: "forge:ores/coal" },
+            rsflux: 2400,
+        },
+        {
+            //Coal Dust
+            get: [
+                { chance: 1.0, item: { count: 2, item: "minecraft:diamond" }, optional: false },
+                { chance: 0.25, item: { item: "minecraft:diamond" }, optional: false },
+                { chance: 0.1, item: { item: "mekanism:dust_coal" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:cobblestone" }, optional: false },
+            ],
+            put: { tag: "forge:ores/diamond" },
+            rsflux: 2400,
+        },
+        {
+            //Iron Dust
+            get: [
+                { chance: 1.0, item: { item: "thermal:iron_dust" }, optional: false },
+                { chance: 0.33, item: { item: "thermal:iron_dust" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:cobblestone" }, optional: false },
+            ],
+            put: { tag: "forge:ores/iron" },
+            rsflux: 2400,
+        },
+        {
+            //Gold Dust
+            get: [
+                { chance: 1.0, item: { item: "thermal:gold_dust" }, optional: false },
+                { chance: 0.33, item: { item: "thermal:gold_dust" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:cobblestone" }, optional: false },
+            ],
+            put: { tag: "forge:ores/gold" },
+            rsflux: 2400,
+        },
+        {
+            //Copper Dust
+            get: [
+                { chance: 1.0, item: { item: "thermal:copper_dust" }, optional: false },
+                { chance: 0.33, item: { item: "thermal:copper_dust" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:cobblestone" }, optional: false },
+            ],
+            put: { tag: "forge:ores/copper" },
+            rsflux: 2400,
+        },
+        {
+            //Obsidian Dust
+            get: [{ chance: 1.0, item: { count: 4, item: "mekanism:dust_obsidian" }, optional: false }],
+            put: { tag: "forge:obsidian" },
+            rsflux: 2400,
+        },
+        {
+            //LapisDust
+            get: [
+                { chance: 1.0, item: { item: "thermal:lapis_dust" }, optional: false },
+                { chance: 0.33, item: { item: "thermal:lapis_dust" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:cobblestone" }, optional: false },
+            ],
+            put: { tag: "forge:ores/lapis" },
+            rsflux: 2400,
+        },
+        {
+            //Quartz Dust
+            get: [
+                { chance: 1.0, item: { count: 2, item: "minecraft:quartz" }, optional: false },
+                { chance: 0.1, item: { item: "thermal:quartz_dust" }, optional: false },
+                { chance: 0.15, item: { item: "minecraft:netherrack" }, optional: false },
+            ],
+            put: { tag: "forge:ores/quartz" },
+            rsflux: 2400,
+        },
     ];
     SAGPattern.forEach((recipe) => {
-        event.custom({
-            type: "enderio:sag_milling",
-            input: recipe.put,
-            outputs: recipe.get,
-            energy: recipe.rsflux,
-        });
+        if (recipe.extra) {
+            event.custom({
+                type: "enderio:sag_milling",
+                input: recipe.put,
+                outputs: recipe.get,
+                energy: recipe.rsflux,
+                bonus: recipe.extra,
+            });
+        } else {
+            event.custom({
+                type: "enderio:sag_milling",
+                input: recipe.put,
+                outputs: recipe.get,
+                energy: recipe.rsflux,
+            });
+        }
     });
     //#endregion
 });

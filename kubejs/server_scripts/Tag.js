@@ -37,6 +37,10 @@ ServerEvents.tags("item", (event) => {
         { tag: "anoxia:fermenter", item: "minecraft:brown_mushroom" },
         { tag: "anoxia:fermenter", item: "minecraft:red_mushroom" },
         { tag: "anoxia:fermenter", item: "minecraft:nether_wart" },
+
+        //Gem
+        { tag: "anoxia:gems/coal", item: "minecraft:coal" },
+        { tag: "anoxia:gems/charcoal", item: "minecraft:charcoal" },
         //#endregion
 
         //// # =================================================================================================== #
@@ -84,7 +88,6 @@ ServerEvents.tags("item", (event) => {
         //Aethersteel integration ore
         { tag: "forge:ingots", item: "aethersteel:aethersteel_ingot" },
         { tag: "forge:ingots/aethersteel", item: "aethersteel:aethersteel_ingot" },
-        { tag: "theurgy:ores/mercury/high", item: "aethersteel:aether_debris" },
 
         //Create deco Unification
         { tag: "createdeco:internal/plates/iron_plates", item: "#forge:plates/iron" },

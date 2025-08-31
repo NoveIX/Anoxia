@@ -20,6 +20,9 @@ global.items.GAME_FullRm = [
     "actuallyadditions:tiny_charcoal",
     "actuallyadditions:tiny_torch",
 
+    //AE2
+    "ae2:ender_dust",
+
     //ChemLib
     "chemlib:iron_plate",
     "chemlib:gold_plate",

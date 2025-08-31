@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    event.remove({ output: "projecte:philosophers_stone" });
     event.custom({
         type: "extendedcrafting:compressor",
         powerCost: 50000000,
