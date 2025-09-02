@@ -152,8 +152,8 @@ MMEvents.createStructures((event) => {
                 .key("B", { block: "connectedglass:borderless_glass_purple_pane" })
 
                 //Port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false });
+                .key("1", { portType: "mm:portal_item", input: true })
+                .key("2", { portType: "mm:portal_item", input: false });
         });
     //#endregion
 

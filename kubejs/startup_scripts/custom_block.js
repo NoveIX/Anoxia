@@ -42,6 +42,9 @@ MMEvents.registerExtraBlocks((event) => {
 
     //Circuit
     event.create("machine_circuit").type("mm:circuit").name("Machine Circuit");
+
+    //Circuit
+    event.create("machine_casing").type("mm:base").name("Machine Casing");
     //#endregion
 });
 
@@ -116,6 +119,15 @@ MMEvents.registerPorts((event) => {
         .controllerId("mm:controller")
         .config("mm:item", (c) => {
             c.rows(5).columns(9);
+        });
+
+    //Artificial Portal
+    event
+        .create("portal_item_port")
+        .name("portal Item Port")
+        .controllerId("mm:controller")
+        .config("mm:portal_item", (c) => {
+            c.rows(3).columns(3);
         });
     //#endregion
 
