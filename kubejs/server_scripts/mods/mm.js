@@ -414,7 +414,11 @@ MMEvents.createProcesses((event) => {
         },
     ];
     ArtificialPortalPatter.forEach((recipe) => {
-        event.create(recipe.id).structureId("mm:portal").ticks(20).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
+        event.create(recipe.id)
+            .structureId("mm:portal")
+            .ticks(100)
+            .input({ type: "mm:input/consume", ingredient: recipe.put })
+            .output({ type: "mm:output/simple", ingredient: recipe.get });
     });
     //#endregion
 
@@ -617,7 +621,7 @@ MMEvents.createProcesses((event) => {
 
     //Desh
     event
-        .create("mm:sieve_moon")
+        .create("mm:sieve_moon_sand")
         .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:moon_sand", count: 1 } })
@@ -626,7 +630,7 @@ MMEvents.createProcesses((event) => {
 
     //Ostreum
     event
-        .create("mm:sieve_mars")
+        .create("mm:sieve_mars_sand")
         .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:mars_sand", count: 1 } })
@@ -635,7 +639,7 @@ MMEvents.createProcesses((event) => {
 
     //Desh
     event
-        .create("mm:sieve_venus")
+        .create("mm:sieve_venus_sand")
         .structureId("mm:sieve")
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:venus_sand", count: 1 } })
