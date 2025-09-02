@@ -1,14 +1,14 @@
-# 🌙 Moon Base 2
+# 🌙 Project Anoxia Lunar Ruins
 
-*The ultimate technical challenge: Only for the brave who dare to survive on the Moon*
+*Only for the brave who dare to survive on the Moon*
 
-![Moon Base 2 Banner](https://via.placeholder.com/800x200?text=Moon+Base+2)
+![Anoxia Banner](./kubejs/assets/anoxia/banner/anoxia.png)
 
-## 🚀 Welcome to Moon Base 2!
+## 🚀 Welcome to Project Anoxia Lunar Ruins!
 
-Moon Base 2 is an ultra-technical Minecraft modpack that pushes your engineering and survival skills to their limits. Build your lunar base, master complex technologies, and survive in one of the most hostile environments imaginable. This pack is NOT for everyone - only for those seeking a true challenge and have the courage to face the unforgiving lunar surface.
+Project Anoxia Lunar Ruins is an ultra-technical Minecraft modpack that pushes your engineering and survival skills to their limits. Build your lunar base, master complex technologies, and survive in one of the most hostile environments imaginable. This pack is NOT for everyone - only for those seeking a true challenge and have the courage to face the unforgiving lunar surface.
 
-**Moon Base 2 is the official sequel to [The Last Man on Moon](https://www.curseforge.com/minecraft/modpacks/tlmom)**, continuing the lunar survival experience with enhanced technology, deeper progression systems, and even greater challenges.
+**Project Anoxia Lunar Ruins is the official sequel to [The Last Man on Moon](https://www.curseforge.com/minecraft/modpacks/tlmom)**, continuing the lunar survival experience with enhanced technology, deeper progression systems, and even greater challenges.
 
 ## ✨ Key Features
 
@@ -23,7 +23,7 @@ Moon Base 2 is an ultra-technical Minecraft modpack that pushes your engineering
 
 ## 📚 Quest System
 
-Moon Base 2 features a comprehensive quest system that guides you through the modpack's progression:
+Project Anoxia Lunar Ruins features a comprehensive quest system that guides you through the modpack's progression:
 
 - **Tutorial Quests**: Learn the basics of lunar survival and initial technology setup
 - **Progression Chapters**: Structured chapters that follow the technological advancement path
@@ -63,13 +63,13 @@ Moon Base 2 features a comprehensive quest system that guides you through the mo
 
 ## 🔗 Download
 
-[![CurseForge](https://img.shields.io/badge/CurseForge-Moon%20Base%202-orange?style=for-the-badge&logo=curseforge)](https://curseforge.com/minecraft/modpacks/moon-base-2)
+[![CurseForge](https://img.shields.io/badge/CurseForge-Project%20Anoxia-orange?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/modpacks/anoxia)
 
-[![Modrinth](https://img.shields.io/badge/Modrinth-Moon%20Base%202-1bd96a?style=for-the-badge&logo=modrinth)](https://modrinth.com/modpack/moon-base-2)
+[![Join the Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/tuolink)
 
 ## 🤝 Contribute
 
-Have suggestions or found bugs? Open an issue on our GitHub page or contact us through Discord!
+Have suggestions or found bugs? Open an issue on our GitHub page or contact me through Discord!
 
 ## 📜 License
 
