@@ -5,9 +5,10 @@ ItemEvents.modification((event) => {
     event.modify("mekanism:sawdust", (item) => (item.burnTime = 100));
 
     //Vanilla maxStackSize
-    [Item.of("minecraft:potion"), Item.of("minecraft:splash_potion"), Item.of("minecraft:lingering_potion"), Item.of("minecraft:ender_pearl"), Item.of("minecraft:egg"), Item.of("minecraft:bucket")].forEach((item) => {
-        event.modify(item, (data) => {
-            data.maxStackSize = 64;
-        });
-    });
+    event.modify(Item.of("minecraft:potion"), (data) => { data.maxStackSize = 64; });
+    event.modify(Item.of("minecraft:splash_potion"), (data) => { data.maxStackSize = 64; });
+    event.modify(Item.of("minecraft:lingering_potion"), (data) => { data.maxStackSize = 64; });
+    event.modify(Item.of("minecraft:ender_pearl"), (data) => { data.maxStackSize = 64; });
+    event.modify(Item.of("minecraft:egg"), (data) => { data.maxStackSize = 64; });
+    event.modify(Item.of("minecraft:bucket"), (data) => { data.maxStackSize = 64; });
 });
