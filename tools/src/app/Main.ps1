@@ -95,8 +95,8 @@ else {
 [string]$ShellStartup = [Environment]::GetFolderPath("Startup")
 
 # Define %temp%\NoveLib
-[string]$LocalTemp = Join-Path -Path $env:TEMP -ChildPath $ModuleName
-[string]$AutoUpdateTXT = Join-Path -Path $LocalTemp -ChildPath $AutoUpdateTXT_Name
+[string]$UserDir = Join-Path -Path $env:USERPROFILE -ChildPath $ModuleName
+[string]$AutoUpdateTXT = Join-Path -Path $UserDir -ChildPath $AutoUpdateTXT_Name
 
 # Define update, file and path
 [string]$UpdateDir = Join-Path -Path $SrcDir -ChildPath "update"
@@ -326,8 +326,8 @@ function Invoke-AutoUpdateSetup {
 
     if ($ExitCode -eq 0) {
         # Create NoveLib dir in %Temp% if not exist
-        if (-not (Test-Path -Path $LocalTemp -PathType Container)) {
-            New-Item -Path $LocalTemp -ItemType Directory -Force | Out-Null
+        if (-not (Test-Path -Path $UserDir -PathType Container)) {
+            New-Item -Path $UserDir -ItemType Directory -Force | Out-Null
         }
 
         # Write update path in user local temp - Log
@@ -521,7 +521,7 @@ function Invoke-Remove {
     # ========= #
 
     # Remove NoveLib in local user temp - Log
-    Remove-Item -Path $LocalTemp -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $UserDir -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted NoveLib folder in %Temp% folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist NoveLib folder in %Temp% folder" -Level INFO }
 
