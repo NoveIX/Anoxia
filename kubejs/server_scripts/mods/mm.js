@@ -140,7 +140,7 @@ MMEvents.createStructures((event) => {
     //#region Portal
     event
         .create("mm:portal")
-        .controllerId("mm:machine_controller")
+        .controllerId("mm:portal_controller")
         .name("Artificial Portal")
         .layout((mech) => {
             mech.layer(["AAAAA"])
@@ -148,12 +148,12 @@ MMEvents.createStructures((event) => {
                 .layer(["ABBBA"])
                 .layer(["ABBBA"])
                 .layer(["A1C2A"])
-                .key("A", { block: "rechiseled:obsidian_dark_connecting" })
+                .key("A", { block: "minecraft:obsidian" })
                 .key("B", { block: "connectedglass:borderless_glass_purple_pane" })
 
                 //Port
-                .key("1", { portType: "mm:portal_item", input: true })
-                .key("2", { portType: "mm:portal_item", input: false });
+                .key("1", { portType: "mm:item", input: true })
+                .key("2", { portType: "mm:item", input: false });
         });
     //#endregion
 
