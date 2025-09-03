@@ -1,8 +1,10 @@
-opacity backgroun: 150
-Header Top: 200
-Header Bot: 175
-Footer Top: 200
-Footer Bot: 50
-Tab Left, Top: 200
-Tab Right: 215
-Tab: 150
+opacity
+options_background = texture.png
+light_dirt_background: 125
+Header Top: 175
+Header Bot: 150
+Footer Top: 175
+Footer Bot: 25
+Tab Left, Top: 175
+Tab Right: 200
+Tab: 125
