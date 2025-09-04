@@ -1,8 +1,6 @@
-# 🌙 Project Anoxia
+# 🌙 Welcome to Project Anoxia
 
 ![Anoxia Banner](https://github.com/NoveIX/Anoxia/blob/1.20/kubejs/assets/anoxia/banner/anoxia.png?raw=true)
-
-## 🚀 Welcome to Project Anoxia Lunar Ruins!
 
 Project Anoxia is an ultra-technical modpack for Minecraft that challenges your engineering and survival skills. This repository contains the source code and configurations for the modpack.
 
