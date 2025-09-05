@@ -2,6 +2,8 @@
 
 ![Anoxia Banner](https://github.com/NoveIX/Anoxia/blob/1.20/kubejs/assets/anoxia/banner/anoxia.png?raw=true)
 
+# 🚀 What is Project Anoxia
+
 Project Anoxia is an ultra-technical modpack for Minecraft that challenges your engineering and survival skills. This repository contains the source code and configurations for the modpack.
 
 ## 🌿 Branches
@@ -20,7 +22,7 @@ Download the latest version of the modpack:
 
 Join our community:
 
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/tuolink)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/JYTzsBhQU4)
 
 ## 📜 License
 
