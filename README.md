@@ -4,8 +4,6 @@
 
 ![Anoxia Banner](./kubejs/assets/anoxia/banner/anoxia.png)
 
-## 🚀 Welcome to Project Anoxia Lunar Ruins!
-
 Project Anoxia Lunar Ruins is an ultra-technical Minecraft modpack that pushes your engineering and survival skills to their limits. Build your lunar base, master complex technologies, and survive in one of the most hostile environments imaginable. This pack is NOT for everyone - only for those seeking a true challenge and have the courage to face the unforgiving lunar surface.
 
 **Project Anoxia Lunar Ruins is the official sequel to [The Last Man on Moon](https://www.curseforge.com/minecraft/modpacks/tlmom)**, continuing the lunar survival experience with enhanced technology, deeper progression systems, and even greater challenges.
