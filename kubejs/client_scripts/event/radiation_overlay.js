@@ -1,4 +1,4 @@
-const MAX_RADIATION = 100;
+/* const MAX_RADIATION = 100;
 
 // Creiamo l'overlay
 StartupEvents.init(event => {
@@ -23,3 +23,4 @@ ClientEvents.tick(event => {
     overlay.visible = rad > 0; // si vede solo se hai radiazioni
   }
 });
+ */

@@ -1,4 +1,4 @@
-const MAX_RADIATION = 100;
+/* const MAX_RADIATION = 100;
 
 // Aumenta radiazioni se sei sulla Luna
 ServerEvents.tick(event => {
@@ -32,3 +32,4 @@ ItemEvents.foodEaten(event => {
     }
   }
 });
+ */
