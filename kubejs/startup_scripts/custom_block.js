@@ -25,7 +25,7 @@ StartupEvents.registry("block", (event) => {
     event.create("anoxia:machine_casing").displayName("Machine Casing").soundType("metal").hardness(5.0).resistance(6.0).requiresTool(true).tagBlock("mineable/pickaxe").tagBlock("minecraft:needs_wooden_tool");
 });
 
-//#region Modular Machinery Port
+//#region Controller
 MMEvents.registerControllers((event) => {
     event
         .create("machine_controller") //ID
@@ -39,20 +39,16 @@ MMEvents.registerControllers((event) => {
 });
 //#endregion
 
+//#region Extra Block
 MMEvents.registerExtraBlocks((event) => {
-    //#region Extra Block
-    //Vent
     event.create("machine_vent").type("mm:vent").name("Machine Vent");
-
-    //Gearbox
     event.create("machine_gearbox").type("mm:gearbox").name("Machine Gearbox");
-
-    //Circuit
     event.create("machine_circuit").type("mm:circuit").name("Machine Circuit");
 });
+//#endregion
 
 MMEvents.registerPorts((event) => {
-    //#region Item
+    //#region Port item
     //Tiny
     event
         .create("tiny_item_port")
@@ -115,6 +111,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:item", (c) => {
             c.rows(4).columns(8);
         });
+
     //Ultimate
     event
         .create("ultimate_item_port")
@@ -142,6 +139,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:fluid", (c) => {
             c.rows(1).columns(1).slotCapacity(1000);
         });
+
     //small
     event
         .create("small_fluid_port")
@@ -150,6 +148,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:fluid", (c) => {
             c.rows(1).columns(1).slotCapacity(2000);
         });
+
     //Normal
     event
         .create("normal_fluid_port")
@@ -158,6 +157,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:fluid", (c) => {
             c.rows(1).columns(1).slotCapacity(4000);
         });
+
     //Reinforced
     event
         .create("reinforced_fluid_port")
@@ -166,6 +166,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:fluid", (c) => {
             c.rows(1).columns(1).slotCapacity(8000);
         });
+
     //Big
     event
         .create("big_fluid_port")
@@ -192,6 +193,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:fluid", (c) => {
             c.rows(1).columns(1).slotCapacity(64000);
         });
+
     //Ultimate
     event
         .create("ultimate_fluid_port")
@@ -211,6 +213,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(4000).maxReceive(500).maxExtract(500);
         });
+
     //Small
     event
         .create("small_energy_port")
@@ -219,6 +222,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(8000).maxReceive(1000).maxExtract(1000);
         });
+
     //Normal
     event
         .create("normal_energy_port")
@@ -227,6 +231,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(16000).maxReceive(2000).maxExtract(2000);
         });
+
     //Reinforced
     event
         .create("reinforced_energy_port")
@@ -235,6 +240,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(32000).maxReceive(4000).maxExtract(4000);
         });
+
     //Big
     event
         .create("big_energy_port")
@@ -243,6 +249,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(64000).maxReceive(8000).maxExtract(8000);
         });
+
     //Huge
     event
         .create("huge_energy_port")
@@ -251,6 +258,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(128000).maxReceive(16000).maxExtract(16000);
         });
+
     //ludicrous
     event
         .create("ludicrous_energy_port")
@@ -259,6 +267,7 @@ MMEvents.registerPorts((event) => {
         .config("mm:energy", (c) => {
             c.capacity(256000).maxReceive(32000).maxExtract(32000);
         });
+
     //Ultimate
     event
         .create("ultimate_energy_port")
@@ -269,4 +278,3 @@ MMEvents.registerPorts((event) => {
         });
     //#endregion
 });
-//#endregion
