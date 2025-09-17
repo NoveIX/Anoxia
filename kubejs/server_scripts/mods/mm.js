@@ -129,9 +129,9 @@ MMEvents.createStructures((event) => {
                 .key("E", { block: "actuallyadditions:empowerer" })
 
                 //port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false })
-                .key("5", { portType: "mm:energy", input: true });
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" })
+                .key("5", { tag: "mm:machine_input_energy_port" });
         });
     //#endregion
 
@@ -152,8 +152,8 @@ MMEvents.createStructures((event) => {
                 .key("B", { block: "connectedglass:borderless_glass_purple_pane" })
 
                 //Port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false });
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" });
         });
     //#endregion
 
@@ -181,9 +181,9 @@ MMEvents.createStructures((event) => {
                 .key("H", { block: "powah:energizing_orb" })
 
                 //Port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false })
-                .key("5", { portType: "mm:energy", input: true });
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" })
+                .key("5", { tag: "mm:machine_input_energy_port" });
         });
     //#endregion
 
@@ -210,9 +210,9 @@ MMEvents.createStructures((event) => {
                 .key("G", { block: "minecraft:hopper" })
 
                 //Port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false })
-                .key("5", { portType: "mm:energy", input: true });
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" })
+                .key("5", { tag: "mm:machine_input_energy_port" });
         });
     //#endregion
 
@@ -235,17 +235,35 @@ MMEvents.createStructures((event) => {
                 .key("E", { block: "actuallyadditions:crusher_double" })
 
                 //Port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false })
-                .key("3", { portType: "mm:fluid", input: true })
-                .key("4", { portType: "mm:fluid", input: false })
-                .key("5", { portType: "mm:energy", input: true });
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" })
+                .key("3", { tag: "mm:machine_input_fluid_port" })
+                .key("4", { tag: "mm:machine_output_fluid_port" })
+                .key("5", { tag: "mm:machine_input_energy_port" });
         });
 
     //// # =================================================================================================== #
 
     //#region Sawmill
-    //event.create("mm:sawmill").controllerId("mm:machine_controller").name("Nanometer Sawmill");
+    event
+        .create("mm:sawmill")
+        .controllerId("mm:machine_controller")
+        .name("Nanometer Sawmill")
+        .layout((mech) => {
+            mech.layer([" A   A ", "AE555EA", " A   A "])
+                .layer([" ABABA ", "2DDDDD1", " ABCBA "])
+                .layer([" AAAAA ", "AAAAAAA", " AAAAA "])
+
+                .key("A", { block: "anoxia:machine_casing" })
+                .key("B", { block: "mm:machine_gearbox" })
+                .key("D", { block: "ae2:quartz_glass" })
+                .key("E", { block: "mm:machine_circuit" })
+
+                //Port
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" })
+                .key("5", { tag: "mm:machine_input_energy_port" });
+        });
     //#endregion
 
     //// # =================================================================================================== #
@@ -274,160 +292,22 @@ MMEvents.createStructures((event) => {
                 .key("L", { block: "industrialforegoing:ore_laser_base" })
 
                 //Port
-                .key("1", { portType: "mm:item", input: true })
-                .key("2", { portType: "mm:item", input: false })
-                .key("3", { portType: "mm:fluid", input: true })
-                .key("5", { portType: "mm:energy", input: true });
+                .key("1", { tag: "mm:machine_input_item_port" })
+                .key("2", { tag: "mm:machine_output_item_port" })
+                .key("3", { tag: "mm:machine_input_fluid_port" })
+                .key("5", { tag: "mm:machine_input_energy_port" });
         });
     //#endregion
 });
 
+//// # =================================================================================================== #
+
 //Modular Machine Recipes
 MMEvents.createProcesses((event) => {
-    //#region Portal recipes
-    const ArtificialPortalPatter = [
-        {
-            //Chiseled Hadaline Brick
-            id: "mm:chiseled_hadaline_bricks",
-            get: { type: "mm:item", item: "architects_palette:chiseled_hadaline_bricks", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:chiseled_abyssaline_bricks", count: 1 },
-        },
-        {
-            //Craterstone
-            id: "mm:craterstone",
-            get: { type: "mm:item", item: "architects_palette:craterstone", count: 1 },
-            put: { type: "mm:item", item: "minecraft:cobblestone", count: 1 },
-        },
-        {
-            //Entrails
-            id: "mm:entrails",
-            get: { type: "mm:item", item: "architects_palette:entrails", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:rotten_flesh_block", count: 1 },
-        },
-        {
-            //Esoterrack
-            id: "mm:esoterrack",
-            get: { type: "mm:item", item: "architects_palette:esoterrack", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:rotten_flesh_block", count: 1 },
-        },
-        {
-            //Hadaline Bricks
-            id: "mm:hadaline_bricks",
-            get: { type: "mm:item", item: "architects_palette:hadaline_bricks", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:abyssaline_bricks", count: 1 },
-        },
-        {
-            //Hadaline
-            id: "mm:hadaline",
-            get: { type: "mm:item", item: "architects_palette:hadaline", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:abyssaline", count: 1 },
-        },
-        {
-            //Hadaline Lamp
-            id: "mm:hadaline_lamp",
-            get: { type: "mm:item", item: "architects_palette:hadaline_lamp", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:abyssaline_lamp", count: 1 },
-        },
-        {
-            //Hadaline Pillar
-            id: "mm:hadaline_pillar",
-            get: { type: "mm:item", item: "architects_palette:hadaline_pillar", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:abyssaline_pillar", count: 1 },
-        },
-        {
-            //Hadaline Plating
-            id: "mm:hadaline_plating",
-            get: { type: "mm:item", item: "architects_palette:hadaline_plating", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:abyssaline_plating", count: 1 },
-        },
-        {
-            //Hadaline Tiles
-            id: "mm:hadaline_tiles",
-            get: { type: "mm:item", item: "architects_palette:hadaline_tiles", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:abyssaline_tiles", count: 1 },
-        },
-        {
-            //Moonshale Bricks
-            id: "mm:moonshale_bricks",
-            get: { type: "mm:item", item: "architects_palette:moonshale_bricks", count: 1 },
-            put: { type: "mm:item", item: "minecraft:stone_bricks", count: 1 },
-        },
-        {
-            //Moonshale
-            id: "mm:moonshale",
-            get: { type: "mm:item", item: "architects_palette:moonshale", count: 1 },
-            put: { type: "mm:item", item: "minecraft:stone", count: 1 },
-        },
-        {
-            //Moonstone
-            id: "mm:moonstone",
-            get: { type: "mm:item", item: "architects_palette:moonstone", count: 1 },
-            put: { type: "mm:item", item: "architects_palette:sunstone", count: 1 },
-        },
-        {
-            //Nebulite
-            id: "mm:nebulite",
-            get: { type: "mm:item", item: "architects_palette:nebulite", count: 1 },
-            put: { type: "mm:item", item: "minecraft:diorite", count: 1 },
-        },
-        {
-            //Onyx
-            id: "mm:onyx",
-            get: { type: "mm:item", item: "architects_palette:onyx", count: 1 },
-            put: { type: "mm:item", item: "minecraft:granite", count: 1 },
-        },
-        {
-            //Twisted Leaves
-            id: "mm:twisted_leaves",
-            get: { type: "mm:item", item: "architects_palette:twisted_leaves", count: 1 },
-            put: { type: "mm:item", tag: "minecraft:leaves", count: 1 },
-        },
-        {
-            //Twisted Log
-            id: "mm:twisted_log",
-            get: { type: "mm:item", item: "architects_palette:twisted_log", count: 1 },
-            put: { type: "mm:item", tag: "minecraft:logs", count: 1 },
-        },
-        {
-            //Twisted Planks
-            id: "mm:twisted_planks",
-            get: { type: "mm:item", item: "architects_palette:twisted_planks", count: 1 },
-            put: { type: "mm:item", tag: "minecraft:planks", count: 1 },
-        },
-        {
-            //Twisted Sapling
-            id: "mm:twisted_sapling",
-            get: { type: "mm:item", item: "architects_palette:twisted_sapling", count: 1 },
-            put: { type: "mm:item", tag: "minecraft:saplings", count: 1 },
-        },
-        {
-            //Unobtanium
-            id: "mm:unobtanium",
-            get: { type: "mm:item", item: "architects_palette:unobtanium", count: 1 },
-            put: { type: "mm:item", item: "aethersteel:aethersteel_ingot", count: 3 },
-        },
-        {
-            //Warpstone
-            id: "mm:warpstone",
-            get: { type: "mm:item", item: "architects_palette:warpstone", count: 1 },
-            put: { type: "mm:item", item: "minecraft:clay", count: 1 },
-        },
-    ];
-    ArtificialPortalPatter.forEach((recipe) => {
-        event.create(recipe.id)
-            .structureId("mm:portal")
-            .ticks(100)
-            .input({ type: "mm:input/consume", ingredient: recipe.put })
-            .output({ type: "mm:output/simple", ingredient: recipe.get });
-    });
-    //#endregion
-
-    //// # =================================================================================================== #
-
     //#region Empowerer Recipes
     //Diamatine Block
     event
-        .create("mm:diamatine_block")
+        .create("mm:empowerer_diamatine_block")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:diamatine_crystal_block", count: 1 } })
@@ -439,7 +319,7 @@ MMEvents.createProcesses((event) => {
 
     //Emeradic Block
     event
-        .create("mm:emeradic_block")
+        .create("mm:empowerer_emeradic_block")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:emeradic_crystal_block", count: 1 } })
@@ -452,7 +332,7 @@ MMEvents.createProcesses((event) => {
 
     //Enori Block
     event
-        .create("mm:enori_block")
+        .create("mm:empowerer_enori_block")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:enori_crystal_block", count: 1 } })
@@ -465,7 +345,7 @@ MMEvents.createProcesses((event) => {
 
     //Palis Block
     event
-        .create("mm:palis_block")
+        .create("mm:empowerer_palis_block")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:palis_crystal_block", count: 1 } })
@@ -476,7 +356,7 @@ MMEvents.createProcesses((event) => {
 
     //Redstonia Block
     event
-        .create("mm:restonia_block")
+        .create("mm:empowerer_restonia_block")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:restonia_crystal_block", count: 1 } })
@@ -489,7 +369,7 @@ MMEvents.createProcesses((event) => {
 
     //Void Block
     event
-        .create("mm:void_block")
+        .create("mm:empowerer_void_block")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "actuallyadditions:void_crystal_block", count: 1 } })
@@ -502,7 +382,7 @@ MMEvents.createProcesses((event) => {
 
     //Double Layer Capacitor
     event
-        .create("mm:double_layer_capacitor")
+        .create("mm:empowerer_double_layer_capacitor")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "enderio:basic_capacitor", count: 2 } })
@@ -513,7 +393,7 @@ MMEvents.createProcesses((event) => {
 
     //Double Layer Capacitor
     event
-        .create("mm:octadic_capacitor")
+        .create("mm:empowerer_octadic_capacitor")
         .structureId("mm:empowerer")
         .ticks(10)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "enderio:double_layer_capacitor", count: 2 } })
@@ -521,6 +401,154 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:storage_blocks/glowstone", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 30000 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "enderio:octadic_capacitor", count: 1 } });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Portal recipes
+    const ArtificialPortalPatter = [
+        {
+            //Chiseled Hadaline Brick
+            id: "mm:portal_chiseled_hadaline_bricks",
+            get: { type: "mm:item", item: "architects_palette:chiseled_hadaline_bricks", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:chiseled_abyssaline_bricks", count: 1 },
+        },
+        {
+            //Craterstone
+            id: "mm:portal_craterstone",
+            get: { type: "mm:item", item: "architects_palette:craterstone", count: 1 },
+            put: { type: "mm:item", item: "minecraft:cobblestone", count: 1 },
+        },
+        {
+            //Entrails
+            id: "mm:portal_entrails",
+            get: { type: "mm:item", item: "architects_palette:entrails", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:rotten_flesh_block", count: 1 },
+        },
+        {
+            //Esoterrack
+            id: "mm:portal_esoterrack",
+            get: { type: "mm:item", item: "architects_palette:esoterrack", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:rotten_flesh_block", count: 1 },
+        },
+        {
+            //Hadaline Bricks
+            id: "mm:portal_hadaline_bricks",
+            get: { type: "mm:item", item: "architects_palette:hadaline_bricks", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_bricks", count: 1 },
+        },
+        {
+            //Hadaline
+            id: "mm:portal_hadaline",
+            get: { type: "mm:item", item: "architects_palette:hadaline", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline", count: 1 },
+        },
+        {
+            //Hadaline Lamp
+            id: "mm:portal_hadaline_lamp",
+            get: { type: "mm:item", item: "architects_palette:hadaline_lamp", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_lamp", count: 1 },
+        },
+        {
+            //Hadaline Pillar
+            id: "mm:portal_hadaline_pillar",
+            get: { type: "mm:item", item: "architects_palette:hadaline_pillar", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_pillar", count: 1 },
+        },
+        {
+            //Hadaline Plating
+            id: "mm:portal_hadaline_plating",
+            get: { type: "mm:item", item: "architects_palette:hadaline_plating", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_plating", count: 1 },
+        },
+        {
+            //Hadaline Tiles
+            id: "mm:portal_hadaline_tiles",
+            get: { type: "mm:item", item: "architects_palette:hadaline_tiles", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:abyssaline_tiles", count: 1 },
+        },
+        {
+            //Moonshale Bricks
+            id: "mm:portal_moonshale_bricks",
+            get: { type: "mm:item", item: "architects_palette:moonshale_bricks", count: 1 },
+            put: { type: "mm:item", item: "minecraft:stone_bricks", count: 1 },
+        },
+        {
+            //Moonshale
+            id: "mm:portal_moonshale",
+            get: { type: "mm:item", item: "architects_palette:moonshale", count: 1 },
+            put: { type: "mm:item", item: "minecraft:stone", count: 1 },
+        },
+        {
+            //Moonstone
+            id: "mm:portal_moonstone",
+            get: { type: "mm:item", item: "architects_palette:moonstone", count: 1 },
+            put: { type: "mm:item", item: "architects_palette:sunstone", count: 1 },
+        },
+        {
+            //Nebulite
+            id: "mm:portal_nebulite",
+            get: { type: "mm:item", item: "architects_palette:nebulite", count: 1 },
+            put: { type: "mm:item", item: "minecraft:diorite", count: 1 },
+        },
+        {
+            //Onyx
+            id: "mm:portal_onyx",
+            get: { type: "mm:item", item: "architects_palette:onyx", count: 1 },
+            put: { type: "mm:item", item: "minecraft:granite", count: 1 },
+        },
+        {
+            //Twisted Leaves
+            id: "mm:portal_twisted_leaves",
+            get: { type: "mm:item", item: "architects_palette:twisted_leaves", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:leaves", count: 1 },
+        },
+        {
+            //Twisted Log
+            id: "mm:portal_twisted_log",
+            get: { type: "mm:item", item: "architects_palette:twisted_log", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:logs", count: 1 },
+        },
+        {
+            //Twisted Planks
+            id: "mm:portal_twisted_planks",
+            get: { type: "mm:item", item: "architects_palette:twisted_planks", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:planks", count: 1 },
+        },
+        {
+            //Twisted Sapling
+            id: "mm:portal_twisted_sapling",
+            get: { type: "mm:item", item: "architects_palette:twisted_sapling", count: 1 },
+            put: { type: "mm:item", tag: "minecraft:saplings", count: 1 },
+        },
+        {
+            //Unobtanium
+            id: "mm:portal_unobtanium",
+            get: { type: "mm:item", item: "architects_palette:unobtanium", count: 1 },
+            put: { type: "mm:item", item: "aethersteel:aethersteel_ingot", count: 3 },
+        },
+        {
+            //Warpstone
+            id: "mm:portal_warpstone",
+            get: { type: "mm:item", item: "architects_palette:warpstone", count: 1 },
+            put: { type: "mm:item", item: "minecraft:clay", count: 1 },
+        },
+    ];
+    ArtificialPortalPatter.forEach((recipe) => {
+        event.create(recipe.id).structureId("mm:portal").ticks(100).input({ type: "mm:input/consume", ingredient: recipe.put }).output({ type: "mm:output/simple", ingredient: recipe.get });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Energizer Recipes
+    event
+        .create("mm:energizer")
+        .structureId("mm:energizer")
+        .ticks("40")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "botanicadds:gaiasteel_ingot", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 30000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:uraninite", count: 1 } });
     //#endregion
 
     //// # =================================================================================================== #
@@ -637,7 +665,7 @@ MMEvents.createProcesses((event) => {
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
         .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:ostrum_pieces", count: 2 } });
 
-    //Desh
+    //Calorite
     event
         .create("mm:sieve_venus_sand")
         .structureId("mm:sieve")
@@ -650,45 +678,312 @@ MMEvents.createProcesses((event) => {
 
     //// # =================================================================================================== #
 
+    //#region Crusher Recipes
+    //Gravel
+    event
+        .create("mm:crusher_gravel")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:cobblestone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Sand
+    event
+        .create("mm:crusher_sand")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:gravel", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "minecraft:sand", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Dust
+    event
+        .create("mm:crusher_dust")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:sand", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "exnihilosequentia:dust", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Netherrack
+    event
+        .create("mm:crusher_crushed_netherrack")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:netherrack", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_netherrack", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //End stone
+    event
+        .create("mm:crusher_crushed_end_stone")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:end_stone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_end_stone", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Aetherslate
+    event
+        .create("mm:crusher_cobbled_aetherslate")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "aethersteel:aetherslate", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "aethersteel:cobbled_aetherslate", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Moon
+    event
+        .create("mm:crusher_moon_cobblestone")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:moon_cobblestone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "ad_astra:moon_sand", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Moon
+    event
+        .create("mm:crusher_moon_cobblestone")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:mars_cobblestone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "ad_astra:mars_sand", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+
+    //Moon
+    event
+        .create("mm:crusher_moon_cobblestone")
+        .structureId("mm:crusher")
+        .ticks(1)
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "ad_astra:venus_cobblestone", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "minecraft:water", amount: 200 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "ad_astra:venus_sand", count: 1 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 180 } });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Sawmill Recipes
+    const NanometerSawmillPattern = [
+        //Minecraft
+        { id: "mm:sawmill_oak_planks", get: "minecraft:oak_planks", put: "minecraft:oak_logs" },
+        { id: "mm:sawmill_spruce_planks", get: "minecraft:spruce_planks", put: "minecraft:spruce_logs" },
+        { id: "mm:sawmill_birch_planks", get: "minecraft:birch_planks", put: "minecraft:birch_logs" },
+        { id: "mm:sawmill_jungle_planks", get: "minecraft:jungle_planks", put: "minecraft:jungle_logs" },
+        { id: "mm:sawmill_acacia_planks", get: "minecraft:acacia_planks", put: "minecraft:acacia_logs" },
+        { id: "mm:sawmill_dark_oak_planks", get: "minecraft:dark_oak_planks", put: "minecraft:dark_oak_logs" },
+        { id: "mm:sawmill_mangrove_planks", get: "minecraft:mangrove_planks", put: "minecraft:mangrove_logs" },
+        { id: "mm:sawmill_cherry_planks", get: "minecraft:cherry_planks", put: "minecraft:cherry_logs" },
+        { id: "mm:sawmill_crimson_planks", get: "minecraft:crimson_planks", put: "minecraft:crimson_stems" },
+        { id: "mm:sawmill_warped_planks", get: "minecraft:warped_planks", put: "minecraft:warped_stems" },
+
+        //Ad Astra
+        { id: "mm:sawmill_aeronos_planks", get: "ad_astra:aeronos_planks", put: "ad_astra:aeronos_caps" },
+        { id: "mm:sawmill_strophar_planks", get: "ad_astra:strophar_planks", put: "ad_astra:strophar_caps" },
+        { id: "mm:sawmill_glacian_planks", get: "ad_astra:glacian_planks", put: "ad_astra:glacian_logs" },
+
+        //Achitects
+        { id: "mm:sawmill_twisted_planks", get: "architects_palette:twisted_planks", put: "architects_palette:twisted_logs" },
+
+        //Ars
+        { id: "mm:sawmill_", get: "ars_nouveau:archwood_planks", put: "forge:logs/archwood" },
+
+        //Botania
+        { id: "mm:sawmill_", get: "botania:livingwood_planks", put: "botania:livingwood_logs" },
+        { id: "mm:sawmill_", get: "botania:dreamwood_planks", put: "botania:dreamwood_logs" },
+
+        //Ancient
+        { id: "mm:sawmill_", get: "quark:ancient_planks", put: "quark:ancient_logs" },
+        { id: "mm:sawmill_", get: "quark:azalea_planks", put: "quark:azalea_logs" },
+        { id: "mm:sawmill_", get: "quark:blossom_planks", put: "quark:blossom_logs" },
+
+        //Twilight
+        { id: "mm:sawmill_twilight_oak_planks", get: "twilightforest:twilight_oak_planks", put: "twilightforest:twilight_oak_logs" },
+        { id: "mm:sawmill_canopy_planks", get: "twilightforest:canopy_planks", put: "twilightforest:canopy_logs" },
+        { id: "mm:sawmill_mangrove_planks", get: "twilightforest:mangrove_planks", put: "twilightforest:mangrove_logs" },
+        { id: "mm:sawmill_dark_planks", get: "twilightforest:dark_planks", put: "twilightforest:darkwood_logs" },
+        { id: "mm:sawmill_time_planks", get: "twilightforest:time_planks", put: "twilightforest:timewood_logs" },
+        { id: "mm:sawmill_transformation_planks", get: "twilightforest:transformation_planks", put: "twilightforest:transwood_logs" },
+        { id: "mm:sawmill_mining_planks", get: "twilightforest:mining_planks", put: "twilightforest:mining_logs" },
+        { id: "mm:sawmill_sorting_planks", get: "twilightforest:sorting_planks", put: "twilightforest:sortwood_logs" },
+
+        //Thermal
+        { id: "mm:sawmill_rubberwood_planks", get: "thermal:rubberwood_planks", put: "forge:rubberwood_logs" },
+    ];
+    NanometerSawmillPattern.forEach((recipe) => {
+        event
+            .create(recipe.id)
+            .structureId("mm:sawmill")
+            .ticks(5)
+            .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: recipe.put, count: 1 } })
+            .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 2000 } })
+            .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: recipe.get, count: 10 } });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
     //#region Miner Recipe
     event
-        .create("mm:mine")
+        .create("mm:miner_mine")
         .structureId("mm:miner")
         .ticks(1200)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "chemlib:hydrogen", count: 16 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:fluid", fluid: "ad_astra:cryo_fuel", amount: 16000 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 250000 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:glowstone", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "immersiveengineering:deepslate_ore_aluminum", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_emerald_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_osmium_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_fluorite_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_redstone_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_calorite_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_cinnabar_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_sapphire_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:nether_quartz_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_silver_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:raw_platinum", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_copper_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_sulfur_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_nickel_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_iron_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_lead_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ostrum_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_tin_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_niter_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_uranium_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_diamond_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_gold_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_lapis_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_coal_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_desh_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 4 } })
-        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "bloodmagic:dungeon_ore", count: 4 } });
+
+        //20%
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:glowstone", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "immersiveengineering:deepslate_ore_aluminum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_emerald_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_osmium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_fluorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_redstone_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_calorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_cinnabar_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_sapphire_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:nether_quartz_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_silver_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:raw_platinum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_copper_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_sulfur_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_nickel_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_iron_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_lead_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ostrum_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_tin_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_niter_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "mekanism:deepslate_uranium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_diamond_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_gold_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_lapis_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "minecraft:deepslate_coal_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_desh_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "bloodmagic:dungeon_ore", count: 1 } })
+
+        //15%
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:glowstone", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "immersiveengineering:deepslate_ore_aluminum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_emerald_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "mekanism:deepslate_osmium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "mekanism:deepslate_fluorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_redstone_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "ad_astra:deepslate_calorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_cinnabar_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_sapphire_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:nether_quartz_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_silver_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "exnihilosequentia:raw_platinum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_copper_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_sulfur_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_nickel_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_iron_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_lead_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ostrum_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_tin_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_niter_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "mekanism:deepslate_uranium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_diamond_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_gold_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_lapis_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "minecraft:deepslate_coal_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "ad_astra:deepslate_desh_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.15, ingredient: { type: "mm:item", item: "bloodmagic:dungeon_ore", count: 1 } })
+
+        //10%
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:glowstone", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "immersiveengineering:deepslate_ore_aluminum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_emerald_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "mekanism:deepslate_osmium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "mekanism:deepslate_fluorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_redstone_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "ad_astra:deepslate_calorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_cinnabar_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_sapphire_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:nether_quartz_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_silver_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "exnihilosequentia:raw_platinum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_copper_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_sulfur_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_nickel_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_iron_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_lead_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ostrum_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_tin_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_niter_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "mekanism:deepslate_uranium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_diamond_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_gold_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_lapis_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "minecraft:deepslate_coal_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "ad_astra:deepslate_desh_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.1, ingredient: { type: "mm:item", item: "bloodmagic:dungeon_ore", count: 1 } })
+
+        //5%
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:glowstone", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "immersiveengineering:deepslate_ore_aluminum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_emerald_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "mekanism:deepslate_osmium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "mekanism:deepslate_fluorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_redstone_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "ad_astra:deepslate_calorite_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_cinnabar_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_sapphire_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:nether_quartz_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_silver_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "exnihilosequentia:raw_platinum", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_copper_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_sulfur_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_nickel_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_iron_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_lead_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ostrum_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_tin_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_niter_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "mekanism:deepslate_uranium_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_diamond_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_gold_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_lapis_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "minecraft:deepslate_coal_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "ad_astra:deepslate_desh_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:deepslate_ruby_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "ad_astra:moon_cheese_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "aethersteel:aether_debris", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "ad_astra:deepslate_ice_shard_ore", count: 1 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "bloodmagic:dungeon_ore", count: 1 } });
     //#endregion
 });

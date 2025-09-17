@@ -65,32 +65,32 @@ ServerEvents.recipes((event) => {
         {
             //Energized Steel
             get: { item: "powah:steel_energized" },
-            put: [{ tag: "forge:ingots/electrum" }, { tag: "forge:ingots/energetic_alloy" }],
+            put: [{ tag: "forge:ingots/electrum" }, { tag: "forge:ingots/electrum" }, { tag: "forge:ingots/energetic_alloy" }, { tag: "forge:ingots/energetic_alloy" }],
             rsflux: 100000,
         },
         {
             //Blazing Crystal
             get: { item: "powah:crystal_blazing" },
-            put: [{ item: "botania:blaze_block" }],
+            put: [{ item: "botania:blaze_block" }, { item: "botania:blaze_block" }, { item: "botania:blaze_block" }, { item: "botania:blaze_block" }],
             rsflux: 250000,
         },
         {
             //Niotic Crystal
             get: { item: "powah:crystal_niotic" },
-            put: [{ item: "botania:mana_diamond_block" }],
+            put: [{ item: "botania:manasteel_ingot" }, { item: "botania:manasteel_ingot" }, { item: "botania:manasteel_ingot" }, { item: "botania:manasteel_ingot" }],
             rsflux: 500000,
         },
         {
-            //Niotic Crystal
+            //Spirited Crystal
             get: { item: "powah:crystal_spirited" },
-            put: [{ tag: "forge:storage_blocks/terrasteel" }],
+            put: [{ item: "botania:terrasteel_ingot" }, { item: "botania:terrasteel_ingot" }, { item: "botania:terrasteel_ingot" }, { item: "botania:terrasteel_ingot" }],
             rsflux: 1000000,
         },
         {
             //Nitro Crystal
             get: { item: "powah:crystal_nitro" },
-            put: [{ tag: "forge:storage_blocks/gaiasteel" }],
-            rsflux: 20000000,
+            put: [{ item: "botanicadds:gaiasteel_ingot" }, { item: "botanicadds:gaiasteel_ingot" }, { item: "botanicadds:gaiasteel_ingot" }, { item: "botanicadds:gaiasteel_ingot" }],
+            rsflux: 2000000,
         },
         {
             //Uranite

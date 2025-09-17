@@ -679,10 +679,30 @@ ServerEvents.recipes((event) => {
     //#endregion
 
     //#region Crusher
-    event.custom({
-        type: "exnihilosequentia:crushing",
-        input: { item: "aethersteel:aetherslate" },
-        results: [{ chance: 1.0, count: 1, item: "aethersteel:cobbled_aetherslate" }],
+    const CrusherPattern = [
+        {
+            get: [{ chance: 1.0, count: 1, item: "aethersteel:cobbled_aetherslate" }],
+            put: { item: "aethersteel:aetherslate" },
+        },
+        {
+            get: [{ chance: 1.0, count: 1, item: "ad_astra:moon_sand" }],
+            put: { item: "ad_astra:moon_cobblestone" },
+        },
+        {
+            get: [{ chance: 1.0, count: 1, item: "ad_astra:mars_sand" }],
+            put: { item: "ad_astra:mars_cobblestone" },
+        },
+        {
+            get: [{ chance: 1.0, count: 1, item: "ad_astra:venus_sand" }],
+            put: { item: "ad_astra:venus_cobblestone" },
+        },
+    ];
+    CrusherPattern.forEach((recipe) => {
+        event.custom({
+            type: "exnihilosequentia:crushing",
+            input: recipe.put,
+            results: recipe.get,
+        });
     });
     //#endregion
 });

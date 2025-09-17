@@ -115,6 +115,76 @@ ServerEvents.tags("item", (event) => {
 
 //// # =================================================================================================== #
 
+ServerEvents.tags("block", (event) => {
+    const MasterfulMachineryPattern = [
+        ////MM
+        //Item input port
+        { tag: "mm:machine_input_item_port", block: "mm:tiny_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:small_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:normal_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:reinforced_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:big_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:huge_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:ludicrous_item_port_input" },
+        { tag: "mm:machine_input_item_port", block: "mm:ultimate_item_port_input" },
+
+        //Item output port
+        { tag: "mm:machine_output_item_port", block: "mm:tiny_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:small_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:normal_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:reinforced_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:big_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:huge_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:ludicrous_item_port_output" },
+        { tag: "mm:machine_output_item_port", block: "mm:ultimate_item_port_output" },
+
+        //Fluid input port
+        { tag: "mm:machine_input_fluid_port", block: "mm:tiny_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:small_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:normal_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:reinforced_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:big_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:huge_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:ludicrous_fluid_port_input" },
+        { tag: "mm:machine_input_fluid_port", block: "mm:ultimate_fluid_port_input" },
+
+        //Fluid output port
+        { tag: "mm:machine_output_fluid_port", block: "mm:tiny_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:small_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:normal_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:reinforced_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:big_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:huge_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:ludicrous_fluid_port_output" },
+        { tag: "mm:machine_output_fluid_port", block: "mm:ultimate_fluid_port_output" },
+
+        //Energy input port
+        { tag: "mm:machine_input_energy_port", block: "mm:tiny_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:small_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:normal_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:reinforced_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:big_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:huge_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:ludicrous_energy_port_input" },
+        { tag: "mm:machine_input_energy_port", block: "mm:ultimate_energy_port_input" },
+
+        //Energy output port
+        { tag: "mm:machine_output_energy_port", block: "mm:tiny_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:small_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:normal_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:reinforced_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:big_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:huge_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:ludicrous_energy_port_output" },
+        { tag: "mm:machine_output_energy_port", block: "mm:ultimate_energy_port_output" },
+    ];
+    MasterfulMachineryPattern.forEach((recipe) => {
+        event.add(recipe.tag, recipe.block);
+    });
+});
+
+//// # =================================================================================================== #
+
 ServerEvents.tags("fluid", (event) => {
     const TagPattern = [
         { tag: "anoxia:water", fluid: "minecraft:water" },
@@ -158,13 +228,13 @@ ServerEvents.tags("item", (event) => {
 });
 
 ServerEvents.tags("block", (event) => {
-    const TagsJAOPCAattern = [
+    const TagsJAOPCAPattern = [
         //JAOPCA Integration
         { tag: "forge:ores", item: "aethersteel:aether_debris" },
         { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
         { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
     ];
-    TagsJAOPCAattern.forEach((recipe) => {
+    TagsJAOPCAPattern.forEach((recipe) => {
         event.add(recipe.tag, recipe.item);
     });
 });
