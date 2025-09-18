@@ -12,4 +12,20 @@ ServerEvents.recipes((event) => {
     //Disk Drive
     event.remove({ output: "ae2:drive" });
     event.shaped("ae2:drive", ["ABA", "CDE", "FBF"], { A: "ae2:engineering_processor", B: "mekanism:advanced_control_circuit", C: "oc2r:memory_extra_large", D: "enderio:z_logic_controller", E: "ae2:fluix_smart_cable", F: "enderio:dark_bimetal_gear" });
+
+    //Mana disk
+    event.remove({ output: "appbot:mana_storage_cell_1k" });
+    event.shapeless("appbot:mana_storage_cell_1k", ["appbot:mana_cell_housing", "botanicalextramachinery:cell_component_1m"]);
+
+    event.remove({ output: "appbot:mana_storage_cell_4k" });
+    event.shapeless("appbot:mana_storage_cell_4k", ["appbot:mana_cell_housing", "botanicalextramachinery:cell_component_4m"]);
+
+    event.remove({ output: "appbot:mana_storage_cell_16k" });
+    event.shapeless("appbot:mana_storage_cell_16k", ["appbot:mana_cell_housing", "botanicalextramachinery:cell_component_16m"]);
+
+    event.remove({ output: "appbot:mana_storage_cell_64k" });
+    event.shapeless("appbot:mana_storage_cell_64k", ["appbot:mana_cell_housing", "botanicalextramachinery:cell_component_64m"]);
+
+    event.remove({ output: "appbot:mana_storage_cell_256k" });
+    event.shapeless("appbot:mana_storage_cell_256k", ["appbot:mana_cell_housing", "botanicalextramachinery:cell_component_256m"]);
 });

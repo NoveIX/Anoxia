@@ -23,6 +23,13 @@ global.items.GAME_FullRm = [
     //AE2
     "ae2:ender_dust",
 
+    //Botanical machinery extra
+    "botanicalextramachinery:mana_storage_cell_1m",
+    "botanicalextramachinery:mana_storage_cell_4m",
+    "botanicalextramachinery:mana_storage_cell_16m",
+    "botanicalextramachinery:mana_storage_cell_64m",
+    "botanicalextramachinery:mana_storage_cell_256m",
+
     //ChemLib
     "chemlib:iron_plate",
     "chemlib:gold_plate",
