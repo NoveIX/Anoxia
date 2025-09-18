@@ -835,7 +835,8 @@ MMEvents.createProcesses((event) => {
             .ticks(5)
             .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: recipe.put, count: 1 } })
             .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 2000 } })
-            .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: recipe.get, count: 10 } });
+            .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: recipe.get, count: 10 } })
+            .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "mekanism:sawdust", count: 2 } });
     });
     //#endregion
 
