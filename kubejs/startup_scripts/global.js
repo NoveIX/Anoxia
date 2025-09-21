@@ -23,7 +23,31 @@ global.items.GAME_FullRm = [
     //AE2
     "ae2:ender_dust",
 
+    //AppliedFlux
+    "appflux:sky_harden_insulating_resin",
+    "appflux:mega_fe_cell_housing",
+    "appflux:core_1m",
+    "appflux:core_4m",
+    "appflux:core_16m",
+    "appflux:core_64m",
+    "appflux:core_256m",
+    "appflux:fe_1m_cell",
+    "appflux:fe_4m_cell",
+    "appflux:fe_16m_cell",
+    "appflux:fe_64m_cell",
+    "appflux:fe_256m_cell",
+    "appflux:fe_1m_portable_cell",
+    "appflux:fe_4m_portable_cell",
+    "appflux:fe_16m_portable_cell",
+    "appflux:fe_64m_portable_cell",
+    "appflux:fe_256m_portable_cell",
+
     //Botanical machinery extra
+    "botanicalextramachinery:cell_component_1m",
+    "botanicalextramachinery:cell_component_4m",
+    "botanicalextramachinery:cell_component_16m",
+    "botanicalextramachinery:cell_component_64m",
+    "botanicalextramachinery:cell_component_256m",
     "botanicalextramachinery:mana_storage_cell_1m",
     "botanicalextramachinery:mana_storage_cell_4m",
     "botanicalextramachinery:mana_storage_cell_16m",

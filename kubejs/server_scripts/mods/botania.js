@@ -906,4 +906,23 @@ ServerEvents.recipes((event) => {
         }
     });
     //#endregion
+
+    //#region TerraPlate
+    event.remove({ output: "appbot:mana_cell_housing" });
+    const TerraPlatePattern = [
+        {
+            get: { item: "appbot:mana_cell_housing" },
+            put: [{ item: "ae2:fluid_cell_housing" }, { item: "botania:elf_glass" }, { item: "botania:manasteel_ingot" }, { item: "botania:mana_pearl" }, { item: "botania:mana_diamond" }],
+            magic: 1000000,
+        },
+    ];
+    TerraPlatePattern.forEach((recipe) => {
+        event.custom({
+            type: "botania:terra_plate",
+            ingredients: recipe.put,
+            mana: recipe.magic,
+            result: recipe.get,
+        });
+    });
+    //#endregion
 });
