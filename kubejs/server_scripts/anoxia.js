@@ -63,4 +63,17 @@ ServerEvents.recipes((event) => {
     //Aethersteel Mesh
     event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
     event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
+
+    //Storage component
+    event.shaped("anoxia:mana_cell_component_1k", ["ABA", "BCB", "ABA"], { A: "botania:mana_powder", B: "botania:quartz_mana", C: "ae2:logic_processor" });
+    event.shaped("anoxia:mana_cell_component_4k", ["ABA", "CDC", "ACA"], { A: "botania:manasteel_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_1k", D: "pneumaticcraft:capacitor" });
+    event.shaped("anoxia:mana_cell_component_16k", ["ABA", "CDC", "ACA"], { A: "botania:elementium_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_4k", D: "botania:elf_glass" });
+    event.shaped("anoxia:mana_cell_component_64k", ["ABA", "CDC", "ACA"], { A: "botania:terrasteel_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_16k", D: "botania:elf_glass" });
+    event.shaped("anoxia:mana_cell_component_256k", ["ABA", "CDC", "ACA"], { A: "botania:gaia_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_64k", D: "botania:elf_glass" });
+
+    event.shaped("anoxia:source_cell_component_1k", ["ABA", "BCB", "ABA"], { A: 'ars_nouveau:source_gem', B: '#forge:dusts/gold', C: "ae2:logic_processor" });
+    event.shaped("anoxia:source_cell_component_4k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_1k", D: "pneumaticcraft:capacitor" });
+    event.shaped("anoxia:source_cell_component_16k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_4k", D: '#forge:glass/magenta' });
+    event.shaped("anoxia:source_cell_component_64k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_16k", D: '#forge:glass/magenta' });
+    event.shaped("anoxia:source_cell_component_256k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_64k", D: '#forge:glass/magenta' });
 });

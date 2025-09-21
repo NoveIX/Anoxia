@@ -47,4 +47,7 @@ StartupEvents.registry("item", (event) => {
     //event.create("anoxia:source_cell_component_64m").displayName("64M ME Source Storage Component").texture("anoxia:item/source_cell_component_64m");
     event.create("anoxia:source_cell_component_256k").displayName("256k ME Source Storage Component").texture("anoxia:item/source_cell_component_256k");
     //event.create("anoxia:source_cell_component_256m").displayName("256M ME Source Storage Component").texture("anoxia:item/source_cell_component_256m");
+
+    event.create("anoxia:mana_integration_processor").displayName("Mana Integration Processor").texture("anoxia:item/mana_integration_processor");
+    event.create("anoxia:source_integration_processor").displayName("Source Integration Processor").texture("anoxia:item/source_integration_processor");
 });

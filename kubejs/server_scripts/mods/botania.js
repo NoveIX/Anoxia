@@ -46,6 +46,9 @@ ServerEvents.recipes((event) => {
         { get: { count: 2, item: "ad_astra:venus_stone" }, put: { item: "ad_astra:venus_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
         { get: { count: 2, item: "ad_astra:mercury_stone" }, put: { item: "ad_astra:mercury_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
         { get: { count: 2, item: "ad_astra:glacio_stone" }, put: { item: "ad_astra:glacio_stone" }, magic: 5000, alchemy: { type: "block", block: "botania:conjuration_catalyst" } },
+
+        //AE2
+        { get: { item: "anoxia:mana_integration_processor" }, put: { item: "ae2:engineering_processor" }, magic: 500000, alchemy: { type: "block", block: "ae2:dense_energy_cell" } },
     ];
     ManaInfusionPattern.forEach((recipe) => {
         if (recipe.alchemy) {

@@ -21,7 +21,7 @@ ServerEvents.recipes((event) => {
                 { item: "minecraft:gold_ingot" },
             ],
             catalyst: [{ item: "ae2:fluid_cell_housing" }],
-            magic: 1000,
+            magic: 20000,
         },
     ];
     ApparatusPattern.forEach((recipe) => {
@@ -32,6 +32,22 @@ ServerEvents.recipes((event) => {
             pedestalItems: recipe.put,
             reagent: recipe.catalyst,
             sourceCost: recipe.magic,
+        });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Imbuement
+    const ImbuementPattern = [{ get: "anoxia:source_integration_processor", put: { item: "ae2:engineering_processor" }, putN: 1, magic: 5000 }];
+    ImbuementPattern.forEach((recipe) => {
+        event.custom({
+            type: "ars_nouveau:imbuement",
+            count: recipe.putN,
+            input: recipe.put,
+            output: recipe.get,
+            pedestalItems: [],
+            source: recipe.magic,
         });
     });
     //#endregion
