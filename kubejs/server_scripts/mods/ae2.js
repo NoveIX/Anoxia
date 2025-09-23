@@ -201,4 +201,25 @@ ServerEvents.recipes((event) => {
     event.shapeless("arseng:portable_source_cell_64k", ["ae2:chest", "anoxia:source_cell_component_64k", "ae2:energy_cell", "arseng:source_cell_housing"]);
     event.remove({ output: "arseng:portable_source_cell_256k" });
     event.shapeless("arseng:portable_source_cell_256k", ["ae2:chest", "anoxia:source_cell_component_256k", "ae2:energy_cell", "arseng:source_cell_housing"]);
+
+    //ME Infinity
+    event.remove({ output: Item.of("expatternprovider:infinity_cell", '{record:{"#c":"ae2:i",id:"minecraft:cobblestone"}}') });
+    event.shaped(Item.of("expatternprovider:infinity_cell", '{record:{"#c":"ae2:i",id:"minecraft:cobblestone"}}'), ["ABA", "CDC", "EFE"], {
+        A: "ae2:quartz_vibrant_glass",
+        B: "compacter:cobbler",
+        C: "projectred_core:red_ingot",
+        D: "ae2:cell_component_256k",
+        E: "minecraft:iron_ingot",
+        F: "ae2:item_cell_housing",
+    });
+
+    event.remove({ output: Item.of("expatternprovider:infinity_cell", '{record:{"#c":"ae2:f",id:"minecraft:water"}}') });
+    event.shaped(Item.of("expatternprovider:infinity_cell", '{record:{"#c":"ae2:f",id:"minecraft:water"}}'), ["ABA", "CDC", "EFE"], {
+        A: "ae2:quartz_vibrant_glass",
+        B: "cookingforblockheads:sink",
+        C: "projectred_core:electrotine_ingot",
+        D: "ae2:cell_component_256k",
+        E: "minecraft:copper_ingot",
+        F: "ae2:fluid_cell_housing",
+    });
 });

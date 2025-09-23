@@ -39,6 +39,50 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "powah:photoelectric_pane" });
     event.shaped("powah:photoelectric_pane", ["ABA", "BCB", "ABA"], { A: "powah:dielectric_paste", B: "projectred_core:electrotine_silicon", C: "minecraft:glass_pane" });
 
+    ////Reactor
+    event.remove({ output: "powah:reactor_starter" });
+    event.shaped("powah:reactor_starter", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_basic", C: "powah:dielectric_casing" });
+
+    event.remove({ output: "powah:reactor_basic" });
+    event.shaped("powah:reactor_basic", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_basic_large", C: "powah:reactor_starter" });
+
+    event.remove({ output: "powah:reactor_hardened" });
+    event.shaped("powah:reactor_hardened", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_hardened", C: "powah:reactor_basic" });
+
+    event.remove({ output: "powah:reactor_blazing" });
+    event.shaped("powah:reactor_blazing", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_blazing", C: "powah:reactor_hardened" });
+
+    event.remove({ output: "powah:reactor_niotic" });
+    event.shaped("powah:reactor_niotic", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_niotic", C: "powah:reactor_blazing" });
+
+    event.remove({ output: "powah:reactor_spirited" });
+    event.shaped("powah:reactor_spirited", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_spirited", C: "powah:reactor_niotic" });
+
+    event.remove({ output: "powah:reactor_nitro" });
+    event.shaped("powah:reactor_nitro", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_nitro", C: "powah:reactor_spirited" });
+
+    ////Cable
+    event.remove({ output: "powah:energy_cable_starter" });
+    event.shaped(Item.of("powah:energy_cable_starter", 6), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "#forge:wires/iron", C: "powah:capacitor_basic" });
+
+    event.remove({ output: "powah:energy_cable_basic" });
+    event.shaped(Item.of("powah:energy_cable_basic", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_starter", C: "powah:capacitor_basic_large" });
+
+    event.remove({ output: "powah:energy_cable_hardened" });
+    event.shaped(Item.of("powah:energy_cable_hardened", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_basic", C: "powah:capacitor_hardened" });
+
+    event.remove({ output: "powah:energy_cable_blazing" });
+    event.shaped(Item.of("powah:energy_cable_blazing", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_hardened", C: "powah:capacitor_blazing" });
+
+    event.remove({ output: "powah:energy_cable_niotic" });
+    event.shaped(Item.of("powah:energy_cable_niotic", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_blazing", C: "powah:capacitor_niotic" });
+
+    event.remove({ output: "powah:energy_cable_spirited" });
+    event.shaped(Item.of("powah:energy_cable_spirited", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_niotic", C: "powah:capacitor_spirited" });
+
+    event.remove({ output: "powah:energy_cable_nitro" });
+    event.shaped(Item.of("powah:energy_cable_nitro", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_spirited", C: "powah:capacitor_nitro" });
+
     //// # =================================================================================================== #
 
     //#region Energizing

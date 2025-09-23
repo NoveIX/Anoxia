@@ -543,12 +543,71 @@ MMEvents.createProcesses((event) => {
 
     //#region Energizer Recipes
     event
-        .create("mm:energizer")
+        .create("mm:energizer_charged_snowball")
         .structureId("mm:energizer")
-        .ticks("40")
-        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "botanicadds:gaiasteel_ingot", count: 1 } })
-        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 30000 } })
-        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:uraninite", count: 1 } });
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:snowball", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:charged_snowball", count: 1 } });
+
+    event
+        .create("mm:energizer_dry_ice")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:blue_ice", count: 4 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 10000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:dry_ice", count: 1 } });
+
+    event
+        .create("mm:energizer_ender_core")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:ender_eye", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "powah:dielectric_casing", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "powah:capacitor_basic_tiny", count: 1 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 50000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:ender_core", count: 1 } });
+
+    event
+        .create("mm:energizer_steel_energized")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:ingots/electrum", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "forge:ingots/energetic_alloy", count: 2 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 100000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:steel_energized", count: 1 } });
+
+    event
+        .create("mm:energizer_crystal_blazing")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "botania:blaze_block", count: 4 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 250000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:crystal_blazing", count: 1 } });
+
+    event
+        .create("mm:energizer_crystal_niotic")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "botania:manasteel_ingot", count: 4 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 500000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:crystal_niotic", count: 1 } });
+
+    event
+        .create("mm:energizer_crystal_spirited")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "botania:terrasteel_ingot", count: 4 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 1000000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:crystal_spirited", count: 1 } });
+
+    event
+        .create("mm:energizer_crystal_nitro")
+        .structureId("mm:energizer")
+        .ticks("5")
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "botanicadds:gaiasteel_ingot", count: 4 } })
+        .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 2000000 } })
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "powah:crystal_nitro", count: 1 } });
     //#endregion
 
     //// # =================================================================================================== #
