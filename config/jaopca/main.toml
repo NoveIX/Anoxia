@@ -23,18 +23,47 @@
 #Configurations related to material overrides.
 [materialOverrides]
 	#List of materials that should be ingot.
-	ingot = ["aethersteel_scrap"]
+	ingot = [
+		"aethersteel_scrap"
+]
 	#List of materials that should be gems.
-	gem = ["diamond", "emerald", "lapis", "prismarine", "quartz"]
+	gem = [
+		"diamond",
+		"emerald",
+		"lapis",
+		"prismarine",
+		"quartz"
+]
 	#List of materials that should be crystals.
 	crystal = []
 	#List of materials that should be dusts.
-	dust = ["glowstone", "redstone"]
+	dust = [
+		"glowstone",
+		"redstone"
+]
 
 #Configurations related to item selection.
 [itemSelection]
 	#List of mods that are preferred when selecting items in recipes.
-	preferredMods = ["minecraft", "kubejs", "anoxia", "crafttweaker", "thermal", "mekanism", "chemlib", "immersiveengineering", "create", "ae2", "enderio", "hammerlib", "pamhc2foodcore", "pamhc2crops", "pamhc2trees", "pamhc2foodextended", "farmersdelight"]
+	preferredMods = [
+		"minecraft",
+		"kubejs",
+		"anoxia",
+		"crafttweaker",
+		"thermal",
+		"mekanism",
+		"chemlib",
+		"immersiveengineering",
+		"create",
+		"ae2",
+		"enderio",
+		"hammerlib",
+		"pamhc2foodcore",
+		"pamhc2crops",
+		"pamhc2trees",
+		"pamhc2foodextended",
+		"farmersdelight"
+]
 
 #Configurations related to block tags.
 [blockTags]
@@ -48,7 +77,10 @@
 	#List of item tags that should not be added.
 	blacklist = []
 	#List of item tags that should be considered as defined.
-	customDefined = ["forge:ores/aethersteel_scrap", "forge:ingots/aethersteel_scrap"]
+	customDefined = [
+		"forge:ores/aethersteel_scrap",
+		"forge:ingots/aethersteel_scrap"
+]
 
 #Configurations related to fluid tags.
 [fluidTags]
@@ -85,6 +117,8 @@
 [data]
 	#List of data modules that should not be registered.
 	moduleBlacklist = []
+	#List of custom tag entries to add. Use "item" as registry for item tags, "fluid" for fluid tags, etc. Format: "registry#namespace:entry=namespace:tag"
+	customTags = []
 
 #Configurations related to color generation.
 [colors]
