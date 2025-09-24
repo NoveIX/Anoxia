@@ -36,6 +36,11 @@ MMEvents.registerControllers((event) => {
         .create("portal_controller") //ID
         .name("Portal Controller")
         .type("mm:machine");
+
+    event
+        .create("coke_oven_controller") //ID
+        .name("Coke Oven Controller")
+        .type("mm:machine");
 });
 //#endregion
 
@@ -129,6 +134,15 @@ MMEvents.registerPorts((event) => {
         .config("mm:item", (c) => {
             c.rows(3).columns(3);
         });
+
+    //Coke Oven
+    event
+        .create("coke_oven_item_port")
+        .name("Coke Oven Item Port")
+        .controllerId("mm:coke_oven_controller")
+        .config("mm:item", (c) => {
+            c.rows(3).columns(3);
+        });
     //#endregion
 
     //#region Fluid
@@ -201,6 +215,15 @@ MMEvents.registerPorts((event) => {
         .controllerId("mm:machine_controller")
         .config("mm:fluid", (c) => {
             c.rows(1).columns(1).slotCapacity(2147483647);
+        });
+
+    //Coke Oven
+    event
+        .create("coke_oven_fluid_port")
+        .name("Coke Oven Fluid Port")
+        .controllerId("mm:coke_oven_controller")
+        .config("mm:fluid", (c) => {
+            c.rows(1).columns(1).slotCapacity(64000);
         });
     //#endregion
 

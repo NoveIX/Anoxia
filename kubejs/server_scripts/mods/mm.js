@@ -117,8 +117,8 @@ MMEvents.createStructures((event) => {
         .create("mm:empowerer")
         .controllerId("mm:machine_controller")
         .name("Autonomus Empowerer")
-        .layout((mech) => {
-            mech.layer(["         ", "         ", "         ", "         ", "    2    ", "         ", "         ", "         ", "         "])
+        .layout((mach) => {
+            mach.layer(["         ", "         ", "         ", "         ", "    2    ", "         ", "         ", "         ", "         "])
                 .layer(["         ", "         ", "         ", "         ", "    1    ", "         ", "         ", "         ", "         "])
                 .layer(["         ", "    1    ", "         ", "         ", " 1  5  1 ", "         ", "         ", "    1    ", "    C    "])
                 .layer(["    B    ", "   BDB   ", "   BAB   ", " BBBABBB ", "BDAAEAADB", " BBBABBB ", "   BAB   ", "   BDB   ", "    B    "])
@@ -129,9 +129,9 @@ MMEvents.createStructures((event) => {
                 .key("E", { block: "actuallyadditions:empowerer" })
 
                 //port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" })
-                .key("5", { tag: "mm:machine_input_energy_port" });
+                .key("1", { tag: "mm:machine_item_port_input" })
+                .key("2", { tag: "mm:machine_item_port_output" })
+                .key("5", { tag: "mm:machine_energy_port_input" });
         });
     //#endregion
 
@@ -142,8 +142,8 @@ MMEvents.createStructures((event) => {
         .create("mm:portal")
         .controllerId("mm:portal_controller")
         .name("Artificial Portal")
-        .layout((mech) => {
-            mech.layer(["AAAAA"])
+        .layout((mach) => {
+            mach.layer(["AAAAA"])
                 .layer(["ABBBA"])
                 .layer(["ABBBA"])
                 .layer(["ABBBA"])
@@ -152,8 +152,8 @@ MMEvents.createStructures((event) => {
                 .key("B", { block: "connectedglass:borderless_glass_purple_pane" })
 
                 //Port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" });
+                .key("1", { port: "mm:portal_item_port", input: true })
+                .key("2", { port: "mm:portal_item_port", input: false });
         });
     //#endregion
 
@@ -164,8 +164,8 @@ MMEvents.createStructures((event) => {
         .create("mm:energizer")
         .controllerId("mm:machine_controller")
         .name("Pulse energizer")
-        .layout((mech) => {
-            mech.layer(["AAAAA", "AADAA", "ADDDA", "AADAA", "AAAAA"])
+        .layout((mach) => {
+            mach.layer(["AAAAA", "AADAA", "ADDDA", "AADAA", "AAAAA"])
                 .layer(["AEEEA", "E F E", "EFFFE", "E F E", "AEEEA"])
                 .layer(["AEEEA", "E G E", "EGGGE", "E G E", "AEEEA"])
                 .layer(["AEEEA", "E   E", "E   E", "E   E", "AEEEA"])
@@ -181,9 +181,9 @@ MMEvents.createStructures((event) => {
                 .key("H", { block: "powah:energizing_orb" })
 
                 //Port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" })
-                .key("5", { tag: "mm:machine_input_energy_port" });
+                .key("1", { tag: "mm:machine_item_port_input" })
+                .key("2", { tag: "mm:machine_item_port_output" })
+                .key("5", { tag: "mm:machine_energy_port_input" });
         });
     //#endregion
 
@@ -194,13 +194,10 @@ MMEvents.createStructures((event) => {
         .create("mm:sieve")
         .controllerId("mm:machine_controller")
         .name("Quantum Sieve")
-        .layout((mech) => {
-            mech.layer(["AAAAA", "AAAAA", "AAAAA", "AAAAA", "AAAAA"])
-
+        .layout((mach) => {
+            mach.layer(["AAAAA", "AAAAA", "AAAAA", "AAAAA", "AAAAA"])
                 .layer(["AEEEA", "EDDDE", "EDGDE", "EDDDE", "AEEEA"])
-
                 .layer(["A2A1A", "BDDDB", "5DFD5", "BDDDB", "A1C2A"])
-
                 .layer(["AAAAA", "AAAAA", "AAAAA", "AAAAA", "AAAAA"])
                 .key("A", { block: "anoxia:machine_casing" })
                 .key("B", { block: "mm:machine_circuit" })
@@ -210,9 +207,9 @@ MMEvents.createStructures((event) => {
                 .key("G", { block: "minecraft:hopper" })
 
                 //Port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" })
-                .key("5", { tag: "mm:machine_input_energy_port" });
+                .key("1", { tag: "mm:machine_item_port_input" })
+                .key("2", { tag: "mm:machine_item_port_output" })
+                .key("5", { tag: "mm:machine_energy_port_input" });
         });
     //#endregion
 
@@ -223,8 +220,8 @@ MMEvents.createStructures((event) => {
         .create("mm:crusher")
         .controllerId("mm:machine_controller")
         .name("Collision Crusher")
-        .layout((mech) => {
-            mech.layer(["AAA", "AAA", "AAA"])
+        .layout((mach) => {
+            mach.layer(["AAA", "AAA", "AAA"])
                 .layer(["ADA", "3E4", "ADA"])
                 .layer(["ADA", "BEB", "ADA"])
                 .layer(["A5A", "2E1", "ACA"])
@@ -235,11 +232,11 @@ MMEvents.createStructures((event) => {
                 .key("E", { block: "actuallyadditions:crusher_double" })
 
                 //Port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" })
-                .key("3", { tag: "mm:machine_input_fluid_port" })
-                .key("4", { tag: "mm:machine_output_fluid_port" })
-                .key("5", { tag: "mm:machine_input_energy_port" });
+                .key("1", { tag: "mm:machine_item_port_input" })
+                .key("2", { tag: "mm:machine_item_port_output" })
+                .key("3", { tag: "mm:machine_fluid_port_input" })
+                .key("4", { tag: "mm:machine_fluid_port_output" })
+                .key("5", { tag: "mm:machine_energy_port_input" });
         });
 
     //// # =================================================================================================== #
@@ -249,8 +246,8 @@ MMEvents.createStructures((event) => {
         .create("mm:sawmill")
         .controllerId("mm:machine_controller")
         .name("Nanometer Sawmill")
-        .layout((mech) => {
-            mech.layer([" A   A ", "AE555EA", " A   A "])
+        .layout((mach) => {
+            mach.layer([" A   A ", "AE555EA", " A   A "])
                 .layer([" ABABA ", "2DDDDD1", " ABCBA "])
                 .layer([" AAAAA ", "AAAAAAA", " AAAAA "])
 
@@ -260,9 +257,9 @@ MMEvents.createStructures((event) => {
                 .key("E", { block: "mm:machine_circuit" })
 
                 //Port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" })
-                .key("5", { tag: "mm:machine_input_energy_port" });
+                .key("1", { tag: "mm:machine_item_port_input" })
+                .key("2", { tag: "mm:machine_item_port_output" })
+                .key("5", { tag: "mm:machine_energy_port_input" });
         });
     //#endregion
 
@@ -273,8 +270,8 @@ MMEvents.createStructures((event) => {
         .create("mm:miner")
         .controllerId("mm:machine_controller")
         .name("Fusion Interdimensional Miner")
-        .layout((mech) => {
-            mech.layer(["               ", "               ", "               ", "               ", "               ", "     AABAA     ", "     AABAA     ", "     BBHBB     ", "     AABAA     ", "     AABAA     ", "               ", "               ", "               ", "               ", "               "])
+        .layout((mach) => {
+            mach.layer(["               ", "               ", "               ", "               ", "               ", "     AABAA     ", "     AABAA     ", "     BBHBB     ", "     AABAA     ", "     AABAA     ", "               ", "               ", "               ", "               ", "               "])
                 .layer(["               ", "               ", "               ", "               ", "     ADBDA     ", "    AFFFFFA    ", "    DFFFFFD    ", "    BFFFFFB    ", "    DFFFFFD    ", "    AFFFFFA    ", "     ADBDA     ", "               ", "               ", "               ", "               "])
                 .layer(["      AAA      ", "      A5A      ", "      ABA      ", "      ABA      ", "     AAAAA     ", "    AFFFFFA    ", "AAAAAFFFFFAAAAA", "A5BBAFFGFFABB5A", "AAAAAFFFFFAAAAA", "    AFFFFFA    ", "     AAAAA     ", "      ABA      ", "      ABA      ", "      A5A      ", "      AAA      "])
                 .layer(["      A2A      ", "      BIB      ", "      BEB      ", "      BEB      ", "     3AEA1     ", "    1FFFFF3    ", "ABBBAFFGFFABBBA", "2IEEEFGLGFEEEI2", "ABBBAFFGFFABBBA", "    3FFFFF1    ", "     1AEA3     ", "      BEB      ", "      BEB      ", "      BIB      ", "      ACA      "])
@@ -292,10 +289,31 @@ MMEvents.createStructures((event) => {
                 .key("L", { block: "industrialforegoing:ore_laser_base" })
 
                 //Port
-                .key("1", { tag: "mm:machine_input_item_port" })
-                .key("2", { tag: "mm:machine_output_item_port" })
-                .key("3", { tag: "mm:machine_input_fluid_port" })
-                .key("5", { tag: "mm:machine_input_energy_port" });
+                .key("1", { tag: "mm:machine_item_port_input" })
+                .key("2", { tag: "mm:machine_item_port_output" })
+                .key("3", { tag: "mm:machine_fluid_port_input" })
+                .key("5", { tag: "mm:machine_energy_port_input" });
+        });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Industrial Coke Oven
+    event
+        .create("mm:oven")
+        .controllerId("mm:coke_oven_controller")
+        .name("Industrial Coke Oven")
+        .layout((mach) => {
+            mach.layer(["AAAAAAA", "AAAAAAA", "AAAAAAA", "AAAAAAA", "AAAAAAA"])
+                .layer(["AAAAAAA", "AAAAAAA", "AAAAAAA", "AAAAAAA", "AAAAAAA"])
+                .layer(["AAAAAAA", "AAAAAAA", "4AAAAA4", "AAAAAAA", "AAACAAA"])
+                .layer(["2A2A2A2", "AAAAAAA", "AAAAAAA", "AAAAAAA", "1A1A1A1"])
+                .key("A", { block: "immersiveengineering:cokebrick" })
+
+                //Port
+                .key("1", { port: "mm:coke_oven_item_port", input: true })
+                .key("2", { port: "mm:coke_oven_item_port", input: false })
+                .key("4", { port: "mm:coke_oven_fluid_port", input: false });
         });
     //#endregion
 });
