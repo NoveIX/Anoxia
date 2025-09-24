@@ -63,6 +63,7 @@ ServerEvents.recipes((event) => {
 
     ////Furnace
     //Coke Brick
+    event.remove({ output: "immersiveengineering:cokebrick" });
     event.shaped("immersiveengineering:cokebrick", ["PBP", "BSB", "PBP"], { P: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", S: "#forge:sandstone/colorless" });
 
     //Kiln Brick

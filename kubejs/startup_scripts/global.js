@@ -367,6 +367,18 @@ global.items.GAME_FullRm = [
     "oc2r:silicon_blend",
     "oc2r:silicon",
 
+    //Powah
+    "powah:ender_cell_starter",
+    "powah:ender_cell_basic",
+    "powah:ender_cell_hardened",
+    "powah:ender_cell_blazing",
+    "powah:ender_cell_niotic",
+    "powah:ender_cell_spirited",
+    "powah:ender_cell_nitro",
+
+    //Simple Storage
+    "storagenetwork:request_expanded",
+
     //Solar Panel
     "solarflux:twilightforest/twilight_cell_1",
     "solarflux:twilightforest/twilight_cell_2",

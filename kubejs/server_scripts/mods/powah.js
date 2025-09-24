@@ -83,6 +83,54 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "powah:energy_cable_nitro" });
     event.shaped(Item.of("powah:energy_cable_nitro", 2), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "powah:energy_cable_spirited", C: "powah:capacitor_nitro" });
 
+    //Energy Cell
+    event.remove({ output: "powah:energy_cell_starter" });
+    event.shaped("powah:energy_cell_starter", ["ABA", "BCB", "ABA"], { A: "#forge:ingots/iron", B: "powah:capacitor_basic", C: "powah:dielectric_casing" });
+    event.remove({ output: "powah:energy_cell_basic" });
+    event.shaped("powah:energy_cell_basic", ["ABA", "CDC", "ABA"], { A: "#forge:ingots/iron", B: "powah:capacitor_basic_large", C: "powah:energy_cell_starter", D: "powah:dielectric_casing" });
+
+    //Energizing rod
+    event.remove({ output: "powah:energizing_rod_starter" });
+    event.shaped("powah:energizing_rod_starter", [" A ", "BCB", " D "], { A: "minecraft:quartz", B: "powah:capacitor_basic", C: "powah:dielectric_casing", D: "powah:dielectric_rod" });
+    event.remove({ output: "powah:energizing_rod_basic" });
+    event.shaped("powah:energizing_rod_basic", [" A ", "BCB", " D "], { A: "#forge:storage_blocks/quartz", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing", D: "powah:energizing_rod_starter" });
+
+    //Furnator
+    event.remove({ output: "powah:furnator_starter" });
+    event.shaped("powah:furnator_starter", ["AAA", "BCB", "ADA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic", C: "powah:dielectric_casing", D: "#anoxia:furnaces" });
+    event.remove({ output: "powah:furnator_basic" });
+    event.shaped("powah:furnator_basic", ["AAA", "BCB", "ADA"], { A: "#forge:ingots/iron", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing", D: "powah:furnator_starter" });
+
+    //Magmator
+    event.remove({ output: "powah:magmator_starter" });
+    event.shaped("powah:magmator_starter", ["AAA", "BCB", "ADA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic", C: "powah:dielectric_casing", D: "minecraft:bucket" });
+    event.remove({ output: "powah:magmator_basic" });
+    event.shaped("powah:magmator_basic", ["AAA", "BCB", "ADA"], { A: "#forge:ingots/iron", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing", D: "powah:magmator_starter" });
+
+    //Thermo generator
+    event.remove({ output: "powah:thermo_generator_starter" });
+    event.shaped("powah:thermo_generator_starter", ["AAA", "BCB", "DDD"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic", C: "powah:dielectric_casing", D: "powah:thermoelectric_plate" });
+    event.remove({ output: "powah:thermo_generator_basic" });
+    event.shaped("powah:thermo_generator_basic", ["AEA", "BCB", "DFD"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing", D: "powah:thermoelectric_plate", E: "#forge:ingots/iron", F: "powah:thermo_generator_starter" });
+
+    //Player transimtter
+    event.remove({ output: "powah:player_transmitter_starter" });
+    event.shaped("powah:player_transmitter_starter", [" A ", "BCB", " D "], { A: "powah:player_aerial_pearl", B: "powah:capacitor_basic", C: "powah:dielectric_casing", D: "powah:dielectric_rod" });
+    event.remove({ output: "powah:player_transmitter_basic" });
+    event.shaped("powah:player_transmitter_basic", [" A ", "BCB", " D "], { A: "powah:player_transmitter_starter", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing", D: "powah:dielectric_rod" });
+
+    //Energy hopper
+    event.remove({ output: "powah:energy_hopper_starter" });
+    event.shaped("powah:energy_hopper_starter", ["AAA", "BCB", "ADA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic", C: "powah:dielectric_casing", D: "minecraft:hopper" });
+    event.remove({ output: "powah:energy_hopper_basic" });
+    event.shaped("powah:energy_hopper_basic", ["AAA", "BCB", "ADA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing", D: "powah:energy_hopper_starter" });
+
+    //Energy discharger
+    event.remove({ output: "powah:energy_discharger_starter" });
+    event.shaped("powah:energy_discharger_starter", ["ABA", "ACA", "ABA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic", C: "powah:dielectric_casing" });
+    event.remove({ output: "powah:energy_discharger_basic" });
+    event.shaped("powah:energy_discharger_basic", ["ABA", "ACA", "ABA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing" });
+
     //// # =================================================================================================== #
 
     //#region Energizing

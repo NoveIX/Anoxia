@@ -25,9 +25,6 @@
             "south": {
               "texture": "#overlay"
             },
-            "up": {
-              "texture": "#overlay"
-            },
             "west": {
               "texture": "#overlay"
             }
@@ -46,7 +43,7 @@
       ],
       "render_type": "minecraft:translucent",
       "textures": {
-        "overlay": "mm:block/base_ports/item_input_cutout"
+        "overlay": "mm:block/base_ports/normal_item_port_input"
       }
     }
   },
