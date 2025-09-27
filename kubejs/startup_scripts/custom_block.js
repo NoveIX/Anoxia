@@ -141,7 +141,7 @@ MMEvents.registerPorts((event) => {
         .name("Coke Oven Item Port")
         .controllerId("mm:coke_oven_controller")
         .config("mm:item", (c) => {
-            c.rows(3).columns(3);
+            c.rows(1).columns(1);
         });
     //#endregion
 
