@@ -38,12 +38,7 @@
 			tasks: [
 				{
 					id: "52AABF22A1FA54FE"
-					item: "mekanism:electrolytic_separator"
-					type: "item"
-				}
-				{
-					id: "14F25CC35127C1AC"
-					item: "mekanism:rotary_condensentrator"
+					item: "ad_astra:oxygen_loader"
 					type: "item"
 				}
 				{
