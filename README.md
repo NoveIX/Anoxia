@@ -22,7 +22,7 @@ Download the latest version of the modpack:
 
 Join our community:
 
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/JYTzsBhQU4)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/2bq996c5xF)
 
 ## 📜 License
 
