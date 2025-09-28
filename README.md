@@ -63,7 +63,7 @@ Project Anoxia Lunar Ruins features a comprehensive quest system that guides you
 
 [![CurseForge](https://img.shields.io/badge/CurseForge-Project%20Anoxia-orange?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/modpacks/anoxia)
 
-[![Join the Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/JYTzsBhQU4)
+[![Join the Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/2bq996c5xF)
 
 ## 🤝 Contribute
 
