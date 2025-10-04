@@ -235,7 +235,7 @@ function Invoke-AutoUpdateSetup {
 
     if ($Repair) { [bool]$SelfAutoUpdate = $((Test-Path -Path $StartupAutoUpCMDPath) -and (Test-Path -Path $AutoUpTXTPath)) }
     else {
-        Write-Host "`n# ==================== Auto update mode ===================== #`n"
+        Write-Host "`n# ===================[ Auto update mode ]==================== #`n"
         Write-Host "Enable auto update?"
         Write-Host "Every time your PC starts up with your user account, the system will check for updates to the modpack."
         $SelfAutoUpdate = Confirm-Selection -Message "Do you want to enable auto update mode?"
