@@ -365,8 +365,6 @@ function Invoke-Repair {
     if ($?) { Write-LogInfo "Deleted repo folder in mccm folder" }
     else { Write-LogWarn "Don't exist repo folder in mccm folder" }
 
-    Pause
-
     # Starting setup in repair mode - Log
     Write-LogInfo "Delete completed"
     Write-Host "`nStarting setup..." -NoNewline
