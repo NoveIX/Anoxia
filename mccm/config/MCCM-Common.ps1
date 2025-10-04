@@ -2,7 +2,7 @@
     [string]$Script:PSTitle = "Project Anoxia Lunar Ruins"
 
     # Repository info
-    [string]$Script:RepositoryUrl = "git@github.com:NoveIX/Anoxia.git" # "https://github.com/NoveIX/Anoxia.git"
+    [string]$Script:RepositoryUrl = "https://github.com/NoveIX/Anoxia.git"
     [string]$Script:RepositoryBranch = "1.20"
 
     # SSH key Url id
