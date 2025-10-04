@@ -310,13 +310,11 @@ function Invoke-AutoUpdateSetup {
         }
 
         Write-LogInfo "Setup completed."
-        Write-Host
-        Write-LogInfo "Auto update: ON"
+        Write-Host "`nAuto update: ON"
     }
     else {
         Write-LogInfo "Setup completed."
-        Write-Host
-        Write-LogInfo "Auto update: OFF"
+        Write-Host "`nAuto update: OFF"
     }
 }
 #endregion
