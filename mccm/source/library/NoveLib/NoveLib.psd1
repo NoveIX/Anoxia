@@ -79,7 +79,7 @@
         'Write-LogError'
         'Write-LogFatal'
         'Start-DownloadFile'
-        'Copy-FileFast'
+        'Copy-File'
         'Invoke-UIGitTop'
         'Invoke-UIGitBot'
         'Confirm-Selection'

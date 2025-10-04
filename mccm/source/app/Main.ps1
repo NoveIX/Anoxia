@@ -364,7 +364,7 @@ function Invoke-Update {
         }
     }
     else {
-        Write-LogInfo "can't find .git folder in Modpack folder"
+        Write-LogWarn "can't find .git folder in Modpack folder"
         $ExitCode = Confirm-Selection -Message "`nWould you like to proceed with the installation?"
         if ($ExitCode) {
             Write-Host "`nStarting setup..." -NoNewline
