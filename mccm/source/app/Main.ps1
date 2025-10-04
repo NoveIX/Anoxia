@@ -110,6 +110,7 @@ try {
     Import-Module -Name $ModuleManifest -Force -ErrorAction Stop
     Write-LogInfo "Inizialize..."
     Write-AsciiArt
+    $Script:DefaultLogSetting = Set-DefaultLogSetting -Filename "Anoxia_mccm" -Path $logsPath -DateLogName Date -LogFormat Time -ConsoleOutput Message
 }
 catch {
     Write-Host "`nError: Failed to import module: '$ModuleName'." -ForegroundColor Red
@@ -143,9 +144,6 @@ if (-not ($sshVer.TargetObject -like "OpenSSH_for_Windows_9*")) {
     Exit 1
 }
 #endregion
-
-# Log definition
-$Script:DefaultLogSetting = Set-DefaultLogSetting -Filename "Anoxia_mccm" -Path $logsPath -DateLogName Date -LogFormat Time -ConsoleOutput Message
 
 # ========================================[ Download ssh ]======================================== #
 
