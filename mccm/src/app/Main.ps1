@@ -266,7 +266,7 @@ function Invoke-Setup {
 
         # Copy file in modpack dir
         Write-LogHost -Message "Start copy repository file in modpack folder" -Level INFO
-        $ExitCode = Copy-FileFast -Source $RepoModpackDir -Destination $ModpackDir
+        $ExitCode = Copy-File -Source $RepoModpackDir -Destination $ModpackDir -Force
 
         # Log
         if ($ExitCode) {
