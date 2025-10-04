@@ -108,9 +108,9 @@ else {
 try {
     # Import module NoveLib
     Import-Module -Name $ModuleManifest -Force -ErrorAction Stop
+    $Script:DefaultLogSetting = Set-DefaultLogSetting -Filename "Anoxia_mccm" -Path $logsPath -DateLogName Date -LogFormat Time -ConsoleOutput Message
     Write-LogInfo "Inizialize..."
     Write-AsciiArt
-    $Script:DefaultLogSetting = Set-DefaultLogSetting -Filename "Anoxia_mccm" -Path $logsPath -DateLogName Date -LogFormat Time -ConsoleOutput Message
 }
 catch {
     Write-Host "`nError: Failed to import module: '$ModuleName'." -ForegroundColor Red
