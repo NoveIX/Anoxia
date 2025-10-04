@@ -1,5 +1,5 @@
 #region UI Git
-function Invoke-UIGitTop { Write-Host "`n# ===================== Git log message ===================== #`n" }
+function Invoke-UIGitTop { Write-Host "`n# ====================[ Git log message ]==================== #`n" }
 function Invoke-UIGitBot { Write-Host "`n# =========================================================== #`n" }
 #endregion
 
