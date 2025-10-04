@@ -23,56 +23,542 @@ By NoveIX
 }
 #endregion
 
-# =================================================================================================== #
+# ================================================================================================ #
+
+#region Log Class
+class LogSetting {
+    # Class properties
+    [string]$FilePath
+    [string]$LogMinLevel
+    [string]$LogFormat
+    [string]$ConsoleOutput
+    [bool]$useMillisecond
+    [bool]$useDotNET
+
+    # Constructor
+    LogSetting(
+        [string]$FilePath,
+        [string]$LogMinLevel,
+        [string]$LogFormat,
+        [string]$ConsoleOutput,
+        [bool]$useMillisecond,
+        [bool]$useDotNET
+    ) {
+        $this.FilePath = $FilePath
+        $this.LogMinLevel = $LogMinLevel
+        $this.LogFormat = $LogFormat
+        $this.ConsoleOutput = $ConsoleOutput
+        $this.useMillisecond = $useMillisecond
+        $this.useDotNET = $useDotNET
+    }
+}
+#endregion
+
+# ================================================================================================ #
 
 #region Log color map
-function Get-LogColorMap {
-    [CmdletBinding()]
+function Write-LogColorMap {
     param (
-        # Log level - restricted to specific set of valid values
         [Parameter(Mandatory = $true)]
-        [ValidateSet("TRACE", "DEBUG", "INFO", "WARN", "FAIL", "DONE")]
+        [ValidateSet("TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "DONE")]
         [string]$Level
     )
 
-    # Define a map from log levels to console colors
-    $colorMap = @{
+    # Define log color map
+    [hashtable]$colorMap = @{
         "TRACE" = 'DarkGray'
         "DEBUG" = 'Gray'
         "INFO"  = 'DarkCyan'
         "WARN"  = 'Yellow'
-        "FAIL"  = 'Red'
+        "ERROR" = 'Red'
+        "FATAL" = 'DarkRed'
         "DONE"  = 'Green'
     }
 
-    # Return the color corresponding to the log level
     return $colorMap[$Level]
 }
 #endregion
 
-# =================================================================================================== #
+# ================================================================================================ #
 
-#Region Log Host
-function Write-LogHost {
+#Region Default LogSetting
+function Set-DefaultLogSetting {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
-        [string]$Message,
-        [Parameter(Mandatory = $true)]
-        [ValidateSet("TRACE", "DEBUG", "INFO", "WARN", "FAIL", "DONE")]
-        [string]$Level
+        # Log Definition
+        [string]$Filename,
+        [string]$Path,
+        [ValidateSet('TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FATAL', 'DONE')]
+        [string]$LogMinLevel = "INFO",
+
+        # log User
+        [switch]$LogUser,
+        [switch]$LogUserSubPath,
+
+        # Insert date in the name
+        [ValidateSet('None', 'Date', 'Datetime')]
+        [string]$DateLogName = "None",
+        [ValidateSet('Time', 'Datetime')]
+        [string]$LogFormat = "Time",
+        [switch]$UseMillisecond,
+
+        # Print in console
+        [ValidateSet("None", "Message", "Timestamp")]
+        [string]$ConsoleOutput = "None",
+
+        # use .NET to write in the file
+        [bool]$UseDotNET = $true
     )
 
-    $color = Get-LogColorMap -Level $Level
-    Write-Host "[" -NoNewline
-    Write-Host "$Level" -ForegroundColor $color -NoNewline
-    Write-Host "]" -NoNewline
-    Write-Host " - $Message"
+    # Set Module scope default log setting
+    $Script:DefaultLogSetting = New-LogSetting -Filename $Filename -Path $Path -LogMinLevel $LogMinLevel -LogUser:$LogUser `
+        -LogUserSubPath:$LogUserSubPath -DateLogName $DateLogName -LogFormat $LogFormat -UseMillisecond:$UseMillisecond `
+        -ConsoleOutput $ConsoleOutput -UseDotNET:$UseDotNET
+
+    return $DefaultLogSetting
 }
 #endregion
 
-# =================================================================================================== #
+# ================================================================================================ #
+
+#region New LogSetting
+function New-LogSetting {
+    [CmdletBinding()]
+    param (
+        # Log Definition
+        [string]$Filename,
+        [string]$Path,
+        [ValidateSet('TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FATAL', 'DONE')]
+        [string]$LogMinLevel = "INFO",
+
+        # log User
+        [switch]$LogUser,
+        [switch]$LogUserSubPath,
+
+        # Insert log format
+        [ValidateSet('None', 'Date', 'Datetime')]
+        [string]$DateLogName = "None",
+        [ValidateSet('Time', 'Datetime')]
+        [string]$LogFormat = "Time",
+        [switch]$UseMillisecond,
+
+        # Console mode
+        [ValidateSet("None", "Message", "Timestamp")]
+        [string]$ConsoleOutput = "None",
+
+        # Write with .net
+        [bool]$UseDotNET = $true
+    )
+
+    # =======================================================[ Handle path ]======================================================== #
+
+    # Log Path
+    if (-not $Path) {
+        # If the script was not started from a file, use the current folder.
+        $basePath = if ($MyInvocation.ScriptName) { $PSScriptRoot } else { $PWD }
+        $Path = Join-Path -Path $basePath -ChildPath "logs"
+    }
+    elseif (-not ([System.IO.Path]::IsPathRooted($Path))) {
+        # Converts to absolute path if relative
+        $Path = (Resolve-Path -Path (Join-Path -Path $PWD -ChildPath $Path)).Path
+    }
+
+    # =====================================================[ Handle Filename ]====================================================== #
+
+    # Defines a log file name if missing
+    if (-not $Filename) {
+        $Filename = if ($MyInvocation.ScriptName) {
+            [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Path)
+        }
+        else { "log" }
+    }
+    else { $Filename = [System.IO.Path]::GetFileNameWithoutExtension($Filename) }
+
+    # ====================================================[ Construct log path ]==================================================== #
+
+    # Start dialing the filename
+    $file = $Filename
+
+    # Add username if required
+    if ($LogUser) { $file += "_$env:USERNAME" }
+
+    # Date management in file name
+    if ($DateLogName -eq "Date") { $file += "_$(Get-Date -Format "yyyy-MM-dd")" }
+    elseif ($DateLogName -eq "Datetime") { $file += "_$(Get-Date -Format "yyyy-MM-dd_hh-mm-ss")" }
+
+    # Add extension to file
+    $file += ".log"
+
+    # Construct the full path to the file
+    if ($LogUserSubPath) { $FilePath = Join-Path -Path $LogUserSubPath -ChildPath $file }
+    else { $FilePath = Join-Path -Path $Path -ChildPath $file }
+
+    # ================================================[ Return NoveLib.LogSetting ]================================================= #
+
+    # Create and return an instance of the NoveLib.LogSetting class with the provided configuration parameters
+    $logSettingObject = [LogSetting]::new(
+        $FilePath,
+        $LogMinLevel,
+        $LogFormat,
+        $ConsoleOutput,
+        $useMillisecond,
+        $UseDotNET
+    )
+
+    return $logSettingObject
+}
+#endregion
+
+# ================================================================================================ #
+
+#region Log
+function Write-Log {
+    [CmdletBinding()]
+    param (
+        # Log Parameter
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FATAL', 'DONE')]
+        [string]$Level,
+
+        [Parameter(Mandatory = $true)]
+        [LogSetting]$LogSetting,
+
+        # Force console print
+        [switch]$Print,
+        [switch]$PrintTime
+    )
+
+    # ========================================================[ Definition ]======================================================== #
+
+    # Separate LogSetting
+    [string]$FilePath = $LogSetting.FilePath
+    [string]$LogFormat = $LogSetting.LogFormat
+    [string]$ConsoleOutput = $LogSetting.ConsoleOutput
+    [bool]$useMilliseconds = $LogSetting.useMilliseconds
+    [bool]$useDotNET = $LogSetting.useDotNET
+
+    # =======================================================[ Console mode ]======================================================= #
+
+    # Console output configuration
+    [hashtable]$outMap = @{
+        "None"      = @{ msg = $false; time = $false }
+        "Message"   = @{ msg = $true; time = $false }
+        "Timestamp" = @{ msg = $true; time = $true }
+    }
+
+    # Return the corresponding mapping if the mode is valid
+    [hashtable]$consoleConfig = $outMap[$ConsoleOutput]
+
+    # Prepare time output
+    $format = switch ($LogFormat) {
+        "Time" { if ($useMilliseconds) { "HH:mm:ss.fff" } else { "HH:mm:ss" } }
+        "Datetime" { if ($useMilliseconds) { "yyyy-MM-dd HH:mm:ss.fff" } else { "yyyy-MM-dd HH:mm:ss" } }
+    }
+
+    $timeStamp = Get-Date -Format $format
+
+    # ======================================================[ Write console ]======================================================= #
+
+    # Print messages in Console
+    if ($consoleConfig.msg -or $Print) {
+
+        # Print Time
+        if ($consoleConfig.time -or $PrintTime) { Write-Host "[$timeStamp] " -NoNewline }
+
+        # Retrieves color for level, defaulting to no color
+        [string]$color = Write-LogColorMap -Level $Level
+
+        Write-Host "[" -NoNewline
+        Write-Host "$Level" -ForegroundColor $color -NoNewline
+        Write-Host "]" -NoNewline
+        Write-Host " - $Message"
+    }
+
+    # ======================================================[ Write log file ]====================================================== #
+
+    # Create file if not exist
+    if (-not (Test-Path -Path $FilePath)) { New-Item -Path $FilePath -ItemType File -Force | Out-Null }
+
+    # Log file output format
+    [string]$logFormat = "[$timeStamp] [$Level] - $Message"
+
+    # Write log format level and message to the log file, using .NET to enable file sharing
+    $fs = $null
+    $sw = $null
+
+    try {
+        if ($useDotNET) {
+            $fs = [System.IO.File]::Open($FilePath, [System.IO.FileMode]::Append, [System.IO.FileAccess]::Write, [System.IO.FileShare]::Read)
+            $sw = New-Object System.IO.StreamWriter($fs, [System.Text.Encoding]::UTF8)
+            $sw.WriteLine($logFormat)
+            $sw.Flush()
+        }
+
+        # Use Powershell Add-Content
+        else { Add-Content -Path $FilePath -Value $logFormat }
+    }
+    catch { Write-Error "Error while writing to log file: $($_.Exception.Message)" }
+    finally {
+        if ($sw) { $sw.Close() }
+        if ($fs) { $fs.Close() }
+    }
+}
+#endregion
+
+# ================================================================================================ #
+
+#region Log DONE
+function Write-LogDone {
+    [CmdletBinding()]
+    param(
+        # Log parameter
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        # Force console print
+        [switch]$Print,
+        [switch]$PrintTime,
+
+        # Force use another log setting
+        [LogSetting]$LogSetting = $DefaultLogSetting
+    )
+
+    # ======================================================[ Validate object ]===================================================== #
+
+    if (-not $LogSetting) {
+        [string]$functionName = $MyInvocation.MyCommand.Name
+        [int]$scriptLine = $MyInvocation.ScriptLineNumber
+
+        $sysMsg = "[$functionName] line [$scriptLine]: DefaultLogSetting is not defined. "
+        $sysMsg += "Use Set-DefaultLogSetting at the start of your script."
+        throw [System.InvalidOperationException]::new($sysMsg)
+    }
+
+    # ======================================================[ Break function ]====================================================== #
+
+    # Validate Level
+    [string]$MyLevel = "DONE"
+    [string]$LogMinLevel = $LogSetting.LogMinLevel
+    [array]$levelOrder = @("TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "DONE")
+    [int]$curIndex = $levelOrder.IndexOf($MyLevel)
+    [int]$minIndex = $levelOrder.IndexOf($LogMinLevel)
+
+    # Skip this log if its level is below the minimum
+    if ($curIndex -lt $minIndex) { return }
+
+    # ======================================================[ Core function ]======================================================= #
+
+    if ($Print -and $PrintTime) { $Print = $false }
+
+    # Call Main function
+    Write-Log -Message $Message -Level $MyLevel -LogSetting $LogSetting -Print:$Print -PrintTime:$PrintTime
+}
+#endregion
+
+# ================================================================================================ #
+
+#region Log INFO
+function Write-LogInfo {
+    [CmdletBinding()]
+    param(
+        # Log parameter
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        # Force console print
+        [switch]$Print,
+        [switch]$PrintTime,
+
+        # Force use another log setting
+        [LogSetting]$LogSetting = $DefaultLogSetting
+    )
+
+    # ======================================================[ Validate object ]===================================================== #
+
+    if (-not $LogSetting) {
+        [string]$functionName = $MyInvocation.MyCommand.Name
+        [int]$scriptLine = $MyInvocation.ScriptLineNumber
+
+        $sysMsg = "[$functionName] line [$scriptLine]: DefaultLogSetting is not defined. "
+        $sysMsg += "Use Set-DefaultLogSetting at the start of your script."
+        throw [System.InvalidOperationException]::new($sysMsg)
+    }
+
+    # ======================================================[ Break function ]====================================================== #
+
+    # Validate Level
+    [string]$MyLevel = "INFO"
+    [string]$LogMinLevel = $LogSetting.LogMinLevel
+    [array]$levelOrder = @("TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "DONE")
+    [int]$curIndex = $levelOrder.IndexOf($MyLevel)
+    [int]$minIndex = $levelOrder.IndexOf($LogMinLevel)
+
+    # Skip this log if its level is below the minimum
+    if ($curIndex -lt $minIndex) { return }
+
+    # ======================================================[ Core function ]======================================================= #
+
+    if ($Print -and $PrintTime) { $Print = $false }
+
+    # Call Main function
+    Write-Log -Message $Message -Level $MyLevel -LogSetting $LogSetting -Print:$Print -PrintTime:$PrintTime
+}
+#endregion
+
+# ================================================================================================ #
+
+#region Log WARN
+function Write-LogWarn {
+    [CmdletBinding()]
+    param(
+        # Log parameter
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        # Force console print
+        [switch]$Print,
+        [switch]$PrintTime,
+
+        # Force use another log setting
+        [LogSetting]$LogSetting = $DefaultLogSetting
+    )
+
+    # ======================================================[ Validate object ]===================================================== #
+
+    if (-not $LogSetting) {
+        [string]$functionName = $MyInvocation.MyCommand.Name
+        [int]$scriptLine = $MyInvocation.ScriptLineNumber
+
+        $sysMsg = "[$functionName] line [$scriptLine]: DefaultLogSetting is not defined. "
+        $sysMsg += "Use Set-DefaultLogSetting at the start of your script."
+        throw [System.InvalidOperationException]::new($sysMsg)
+    }
+
+    # ======================================================[ Break function ]====================================================== #
+
+    # Validate Level
+    [string]$MyLevel = "WARN"
+    [string]$LogMinLevel = $LogSetting.LogMinLevel
+    [array]$levelOrder = @("TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "DONE")
+    [int]$curIndex = $levelOrder.IndexOf($MyLevel)
+    [int]$minIndex = $levelOrder.IndexOf($LogMinLevel)
+
+    # Skip this log if its level is below the minimum
+    if ($curIndex -lt $minIndex) { return }
+
+    # ======================================================[ Core function ]======================================================= #
+
+    if ($Print -and $PrintTime) { $Print = $false }
+
+    # Call Main function
+    Write-Log -Message $Message -Level $MyLevel -LogSetting $LogSetting -Print:$Print -PrintTime:$PrintTime
+}
+#endregion
+
+# ================================================================================================ #
+
+#region Log ERROR
+function Write-LogError {
+    [CmdletBinding()]
+    param(
+        # Log parameter
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        # Force console print
+        [switch]$Print,
+        [switch]$PrintTime,
+
+        # Force use another log setting
+        [LogSetting]$LogSetting = $DefaultLogSetting
+    )
+
+    # ======================================================[ Validate object ]===================================================== #
+
+    if (-not $LogSetting) {
+        [string]$functionName = $MyInvocation.MyCommand.Name
+        [int]$scriptLine = $MyInvocation.ScriptLineNumber
+
+        $sysMsg = "[$functionName] line [$scriptLine]: DefaultLogSetting is not defined. "
+        $sysMsg += "Use Set-DefaultLogSetting at the start of your script."
+        throw [System.InvalidOperationException]::new($sysMsg)
+    }
+
+    # ======================================================[ Break function ]====================================================== #
+
+    # Validate Level
+    [string]$MyLevel = "ERROR"
+    [string]$LogMinLevel = $LogSetting.LogMinLevel
+    [array]$levelOrder = @("TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "DONE")
+    [int]$curIndex = $levelOrder.IndexOf($MyLevel)
+    [int]$minIndex = $levelOrder.IndexOf($LogMinLevel)
+
+    # Skip this log if its level is below the minimum
+    if ($curIndex -lt $minIndex) { return }
+
+    # ======================================================[ Core function ]======================================================= #
+
+    if ($Print -and $PrintTime) { $Print = $false }
+
+    # Call Main function
+    Write-Log -Message $Message -Level $MyLevel -LogSetting $LogSetting -Print:$Print -PrintTime:$PrintTime
+}
+#endregion
+
+# ================================================================================================ #
+
+#region Log FATAL
+function Write-LogFatal {
+    [CmdletBinding()]
+    param(
+        # Log parameter
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        # Force console print
+        [switch]$Print,
+        [switch]$PrintTime,
+
+        # Force use another log setting
+        [LogSetting]$LogSetting = $DefaultLogSetting
+    )
+
+    # ======================================================[ Validate object ]===================================================== #
+
+    if (-not $LogSetting) {
+        [string]$functionName = $MyInvocation.MyCommand.Name
+        [int]$scriptLine = $MyInvocation.ScriptLineNumber
+
+        $sysMsg = "[$functionName] line [$scriptLine]: DefaultLogSetting is not defined. "
+        $sysMsg += "Use Set-DefaultLogSetting at the start of your script."
+        throw [System.InvalidOperationException]::new($sysMsg)
+    }
+
+    # ======================================================[ Break function ]====================================================== #
+
+    # Validate Level
+    [string]$MyLevel = "FATAL"
+    [string]$LogMinLevel = $LogSetting.LogMinLevel
+    [array]$levelOrder = @("TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "DONE")
+    [int]$curIndex = $levelOrder.IndexOf($MyLevel)
+    [int]$minIndex = $levelOrder.IndexOf($LogMinLevel)
+
+    # Skip this log if its level is below the minimum
+    if ($curIndex -lt $minIndex) { return }
+
+    # ======================================================[ Core function ]======================================================= #
+
+    if ($Print -and $PrintTime) { $Print = $false }
+
+    # Call Main function
+    Write-Log -Message $Message -Level $MyLevel -LogSetting $LogSetting -Print:$Print -PrintTime:$PrintTime
+}
+#endregion
+
+# ================================================================================================ #
 
 #region Download File
 function Start-DownloadFile {
@@ -129,7 +615,7 @@ function Start-DownloadFile {
 }
 #endregion
 
-# =================================================================================================== #
+# ================================================================================================ #
 
 #region File Fast
 function Copy-File {
@@ -219,14 +705,14 @@ function Copy-File {
 
 #endregion
 
-# =================================================================================================== #
+# ================================================================================================ #
 
 #region UI Git
 function Invoke-UIGitTop { Write-Host "`n# ===================== Git log message ===================== #`n" }
 function Invoke-UIGitBot { Write-Host "`n# =========================================================== #`n" }
 #endregion
 
-# =================================================================================================== #
+# ================================================================================================ #
 
 #region Selection
 function Confirm-Selection {
