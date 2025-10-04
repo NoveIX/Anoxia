@@ -348,8 +348,9 @@ function Invoke-Repair {
         Remove-Item -Path $destPath -Recurse -Force
         if ($?) { Write-LogInfo "Deleted $destPath folder in modpak folder" }
         else { Write-LogWarn -Message "Don't exist $destPath folder in modpak folder" }
-
     }
+
+    Pause
 
     # Remove SSH key dir - Log
     Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
