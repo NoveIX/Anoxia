@@ -116,12 +116,12 @@ function Start-DownloadSSHKey {
         [string]$KeyType
     )
 
-    # Test key path and download if not exist - Log
+    # Test key path and download if not exist
     Write-LogInfo "Check SSH $KeyType key"
     if (-not (Test-Path -Path $KeyFullname)) {
 
         # Create key dir if not exist
-        New-Item -Path $KeyPath -ItemType Directory -Force | Out-Null
+        New-Item -Path $keyPath -ItemType Directory -Force | Out-Null
 
         # Donwload SSH key
         $Url = $CloudDirectUrl + $KeyUrlID
@@ -160,7 +160,7 @@ function Invoke-DownloadRepository {
         Invoke-DownloadSSHKey
     }
 
-    # Test repository path download if not exist - Log
+    # Test repository path download if not exist
     if (-not (Test-Path -Path $RepoPath)) {
 
         # Create Repository dir if not exist
@@ -193,14 +193,14 @@ function Invoke-Setup {
         [switch]$Repair
     )
 
-    # Set title - Log
+    # Set title
     [Console]::Title = "Setup $PSTitle"
     Write-LogInfo "Execute setup"
 
     # Ensure repository
     Invoke-DownloadRepository
 
-    # Test .git path in modpack dir copy file if not exist - Log
+    # Test .git path in modpack dir copy file if not exist
     if (-not (Test-Path -Path $GitPath)) {
 
         # Copy file in modpack dir
@@ -246,7 +246,7 @@ function Invoke-AutoUpdateSetup {
         # Create NoveLib dir in %Temp% if not exist
         New-Item -Path $UserModulePath -ItemType Directory -Force | Out-Null
 
-        # Write update path in user local temp - Log
+        # Write update path in user local temp
         $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
         [System.IO.File]::WriteAllText($AutoUpTXTPath, $MainPS1, $utf8NoBom)
 
@@ -282,7 +282,7 @@ function Invoke-Update {
         [string]$Location
     )
 
-    # Set title - Log
+    # Set title
     [Console]::Title = "Update $PSTitle"
     Write-LogInfo "Execute update"
 
@@ -291,7 +291,7 @@ function Invoke-Update {
         Invoke-DownloadSSHKey
     }
 
-    # Test .gir path in modpack dir copy file if not exist - Log
+    # Test .gir path in modpack dir copy file if not exist
     if (Test-Path -Path $gitPath -PathType Container) {
 
         # Update repository
@@ -328,7 +328,7 @@ function Invoke-Update {
 #region Repair
 function Invoke-Repair {
 
-    # Set title - Log
+    # Set title
     [Console]::Title = "Repair $PSTitle"
     Write-LogInfo "Execute Repair"
 
@@ -336,7 +336,7 @@ function Invoke-Repair {
     if (Test-Path -Path $RepoPath) { Invoke-Update -Location $RepoPath }
     else { Invoke-DownloadRepository }
 
-    # Get item from repository dir - Log
+    # Get item from repository dir
     $RepoModpackItems = Get-ChildItem -Path $RepoPath -Force -ErrorAction SilentlyContinue
     foreach ($repoModpackItem in $repoModpackItems) {
 
@@ -355,17 +355,17 @@ function Invoke-Repair {
         else { Write-LogInfo "Skip $destDir item in modpack folder" }
     }
 
-    # Remove SSH key dir - Log
-    Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
+    # Remove SSH key dir
+    Remove-Item -Path $keyPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo "Deleted key folder in mccm folder" }
     else { Write-LogWarn "Don't exist key folder in mccm folder" }
 
-    # Remove Repo dir - Log
+    # Remove Repo dir
     Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo "Deleted repo folder in mccm folder" }
     else { Write-LogWarn "Don't exist repo folder in mccm folder" }
 
-    # Starting setup in repair mode - Log
+    # Starting setup in repair mode
     Write-LogInfo "Delete completed"
     Write-Host "`nStarting setup..." -NoNewline
     Start-Sleep -Seconds 3
@@ -379,48 +379,31 @@ function Invoke-Repair {
 #region Remove
 function Invoke-Remove {
 
-    # Set title - Log
+    # Set title
     [Console]::Title = "Remove $PSTitle"
     Write-LogInfo "Execute Remove"
 
-    # ========= #
-
-    # Remove .git in modpack dir - Log
-    Remove-Item -Path $GitPath -Recurse -Force -ErrorAction SilentlyContinue
+    # Remove .git in modpack dir
+    Remove-Item -Path $gitPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo "Deleted .git folder in modpack folder" }
     else { Write-LogWarn "Don't exist .git folder in modpack folder" }
 
-    # ========= #
-
-    # Remove key dir - Log
-    Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
+    # Remove key dir
+    Remove-Item -Path $keyPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo -Message "Deleted key folder in mccm folder" }
     else { Write-LogWarn -Message "Don't exist key folder in mccm folder" }
 
-    # ========= #
-
-    # Remove repo dir - Log
-    Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
+    # Remove repo dir
+    Remove-Item -Path $repoPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo -Message "Deleted repo folder in mccm folder" }
     else { Write-LogWarn -Message "Don't exist repo folder in mccm folder" }
 
-    # ========= #
-
-    # Remove download dir - Log
-    Remove-Item -Path $DownloadPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo -Message "Deleted download folder in mccm folder" }
-    else { Write-LogWarn -Message "Don't exist download folder in mccm folder" }
-
-    # ========= #
-
-    # Remove NoveLib in local user temp - Log
+    # Remove NoveLib in local user temp
     Remove-Item -Path $UserModulePath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo -Message "Deleted NoveLib folder in %Temp% folder" }
     else { Write-LogWarn -Message "Don't exist NoveLib folder in %Temp% folder" }
 
-    # ========= #
-
-    # Remove auto update file in Shell:Startup - Log
+    # Remove auto update file in Shell:Startup
     Remove-Item -Path $StartupAutoUpCMDPath -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo -Message "Deleted $AutoUpdateCMD file in Shell:Starup folder" }
     else { Write-LogWarn -Message "Don't exist $AutoUpdateCMD file in Shell:Starup folder" }
@@ -432,7 +415,7 @@ function Invoke-Remove {
 #region Menu
 function Invoke-Menu {
 
-    # Set title - Log
+    # Set title
     [Console]::Title = "Menu $PSTitle"
     Write-LogInfo "Execute Menu"
     Start-Sleep -Seconds 2
