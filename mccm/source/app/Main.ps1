@@ -396,22 +396,22 @@ function Invoke-Remove {
 
     # Remove key dir - Log
     Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo -Message "Deleted key folder in src folder" }
-    else { Write-LogWarn -Message "Don't exist key folder in src folder" }
+    if ($?) { Write-LogInfo -Message "Deleted key folder in mccm folder" }
+    else { Write-LogWarn -Message "Don't exist key folder in mccm folder" }
 
     # ========= #
 
     # Remove repo dir - Log
     Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo -Message "Deleted repo folder in src folder" }
-    else { Write-LogWarn -Message "Don't exist repo folder in src folder" }
+    if ($?) { Write-LogInfo -Message "Deleted repo folder in mccm folder" }
+    else { Write-LogWarn -Message "Don't exist repo folder in mccm folder" }
 
     # ========= #
 
     # Remove download dir - Log
     Remove-Item -Path $DownloadPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo -Message "Deleted download folder in src folder" }
-    else { Write-LogWarn -Message "Don't exist download folder in src folder" }
+    if ($?) { Write-LogInfo -Message "Deleted download folder in mccm folder" }
+    else { Write-LogWarn -Message "Don't exist download folder in mccm folder" }
 
     # ========= #
 
