@@ -1,2 +1,2 @@
 @echo off
-powershell -ExecutionPolicy Bypass -File "%~dp0\..\src\app\Main.ps1" -Menu
+powershell -ExecutionPolicy Bypass -File "%~dp0\..\source\app\Main.ps1" -Menu
