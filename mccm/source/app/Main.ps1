@@ -238,7 +238,7 @@ function Invoke-AutoUpdateSetup {
         Write-Host "`n# ==================== Auto update mode ===================== #`n"
         Write-Host "Enable auto update?"
         Write-Host "Every time your PC starts up with your user account, the system will check for updates to the modpack."
-        $ExitCode = Confirm-Selection -Message "Do you want to enable auto update mode?"
+        $SelfAutoUpdate = Confirm-Selection -Message "Do you want to enable auto update mode?"
         Write-Host "`n# =========================================================== #`n"
     }
 
