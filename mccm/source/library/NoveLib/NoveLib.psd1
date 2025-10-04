@@ -71,7 +71,13 @@
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     FunctionsToExport = @(
         'Write-AsciiArt'
-        'Write-LogHost'
+        'Set-DefaultLogSetting'
+        'New-LogSetting'
+        'Write-LogDone'
+        'Write-LogInfo'
+        'Write-LogWarn'
+        'Write-LogError'
+        'Write-LogFatal'
         'Start-DownloadFile'
         'Copy-FileFast'
         'Invoke-UIGitTop'
