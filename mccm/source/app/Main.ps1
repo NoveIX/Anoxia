@@ -343,16 +343,12 @@ function Invoke-Repair {
         # Calculate the path relative to the repository folder
         [string]$relativePath = $repoModpackItem.FullName.Substring((Resolve-Path $RepoPath).Path.Length)
         [string]$destPath = Join-Path -Path $ModpackPath -ChildPath $relativePath
-        [string]$destPath = Split-Path $destPath -Leaf
 
         # If the folder exist in the modpack dir, remove it - Skip Tools
-        if ((Test-Path -Path $destPath) -and ($destPath -notlike "*Tools*")) {
-            Remove-Item -Path $destPath -Recurse -Force
+        Remove-Item -Path $destPath -Recurse -Force
+        if ($?) { Write-LogInfo "Deleted $destPath folder in modpak folder" }
+        else { Write-LogWarn -Message "Don't exist $destPath folder in modpak folder" }
 
-            if ($?) { Write-LogInfo "Deleted $destPath folder in modpak folder" }
-            else { Write-LogWarn -Message "Don't exist $destPath folder in modpak folder" }
-        }
-        else { Write-LogInfo "Skip $destDir folder in modpak folder" }
     }
 
     # Remove SSH key dir - Log
