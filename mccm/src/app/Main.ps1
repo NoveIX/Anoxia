@@ -34,8 +34,8 @@ Set-Location -Path $WokrDir
 
 # Define parent path
 [string]$SrcDir = Split-Path -Path $AppDir -Parent
-[string]$ToolsDir = Split-Path -Path $SrcDir -Parent
-[string]$ModpackDir = Split-Path -Path $ToolsDir -Parent
+[string]$MccmDir = Split-Path -Path $SrcDir -Parent
+[string]$ModpackDir = Split-Path -Path $MccmDir -Parent
 
 # Module name
 [string]$ModuleName = "NoveLib"
@@ -74,7 +74,7 @@ else {
 [string]$GitDir = Join-Path -Path $ModpackDir -ChildPath ".git"
 
 # Define key, file and path
-[string]$KeyDir = Join-Path -Path $SrcDir -ChildPath "key"
+[string]$KeyDir = Join-Path -Path $MccmDir -ChildPath "key"
 [string]$SSHKey_PrivatePath = Join-Path -Path $KeyDir -ChildPath $SSHKey_PrivateName
 [string]$SSHKey_PublicPath = Join-Path -Path $KeyDir -ChildPath $SSHKey_PublicName
 
