@@ -333,7 +333,7 @@ function Invoke-Repair {
     Write-LogInfo "Execute Repair"
 
     # Download update in repository dir
-    if (Test-Path -Path $RepoPath) { Invoke-Update -ModpackPath $RepoPath }
+    if (Test-Path -Path $RepoPath) { Invoke-Update -Location $RepoPath }
     else { Invoke-DownloadRepository }
 
     # Get item from repository dir - Log
