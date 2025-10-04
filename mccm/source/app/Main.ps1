@@ -155,7 +155,7 @@ function Invoke-DownloadSSHKey {
 #Region DL Repository
 function Invoke-DownloadRepository {
 
-    if ($RepoUrl -like "git@*") {
+    if ($RepositoryURL -like "git@*") {
         # Ensure SSH Key
         Invoke-DownloadSSHKey
     }
