@@ -173,7 +173,7 @@ function Start-DownloadSSHKey {
         $ExitCode = Start-DownloadFile -URL $URL -OutFile $OutFile
 
         # Log
-        if ($ExitCode -eq 0) {
+        if ($ExitCode) {
             Write-LogHost -Message "Download completed SSH $KeyType key" -Level DONE
         }
         else {
@@ -269,7 +269,7 @@ function Invoke-Setup {
         $ExitCode = Copy-FileFast -Source $RepoModpackDir -Destination $ModpackDir
 
         # Log
-        if ($ExitCode -eq 0) {
+        if ($ExitCode) {
             Write-LogHost -Message "Copy repository file in modpack folder completed" -Level DONE
             Invoke-AutoUpdateSetup -Repair:$Repair
         }
@@ -297,8 +297,6 @@ function Invoke-AutoUpdateSetup {
 
     if ($Repair) {
         [bool]$SelfAutoUpdate = $((Test-Path -Path $InShell_AutoUpdateCMD -PathType Leaf) -and (Test-Path -Path $AutoUpdateTXT -PathType Leaf))
-        if ($SelfAutoUpdate) { $ExitCode = 0 } # True
-        else { $ExitCode = 1 } # False
     }
     else {
         Write-Host "`n# ==================== Auto update mode ===================== #`n"
@@ -308,7 +306,7 @@ function Invoke-AutoUpdateSetup {
         Write-Host "`n# =========================================================== #`n"
     }
 
-    if ($ExitCode -eq 0) {
+    if ($SelfAutoUpdate) {
         # Create NoveLib dir in %Temp% if not exist
         if (-not (Test-Path -Path $UserDir -PathType Container)) {
             New-Item -Path $UserDir -ItemType Directory -Force | Out-Null
@@ -325,7 +323,7 @@ function Invoke-AutoUpdateSetup {
         $ExitCode = Copy-FileFast -Source $AutoUpdateCMD -Destination $ShellStartup
 
         # Log
-        if ($ExitCode -eq 0) {
+        if ($ExitCode) {
             Write-LogHost -Message "Copy $AutoUpdateCMD_Name in Shell:Starup completed" -Level DONE
         }
         else {

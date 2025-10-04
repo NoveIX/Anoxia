@@ -86,28 +86,28 @@ function Start-DownloadFile {
         [string]$OutFile
     )
 
-    # Try Start-BitsTransfer
-    try {
-        Start-BitsTransfer -Source $URL -Destination $OutFile -ErrorAction Stop
-        return 0 # 0 = Success
-    }
-    catch {
-        Write-LogHost -Message "Failed download with 'Start-BitsTransfer'" -Level WARN
-    }
-
     # Try Invoke-WebRequest
     try {
         Invoke-WebRequest -Uri $URL -OutFile $OutFile -ErrorAction Stop
-        return 0 # 0 = Success
+        return $true
     }
     catch {
         Write-LogHost -Message "Failed download with 'Invoke-WebRequest'" -Level WARN
     }
 
+    # Try Start-BitsTransfer
+    try {
+        Start-BitsTransfer -Source $URL -Destination $OutFile -ErrorAction Stop
+        return $true
+    }
+    catch {
+        Write-LogHost -Message "Failed download with 'Start-BitsTransfer'" -Level WARN
+    }
+
     # Try curl.exe
     & curl.exe --fail $URL -o $OutFile *> $null
     if ($LASTEXITCODE -eq 0) {
-        return 0 # 0 = Success
+        return $true
     }
     else {
         Write-LogHost -Message "Failed download with 'curl.exe'" -Level WARN
@@ -118,21 +118,21 @@ function Start-DownloadFile {
     try {
         $wc = New-Object System.Net.WebClient
         $wc.DownloadFile($URL, $OutFile)
-        return 0 # 0 = Success
+        return $true
     }
     catch {
         Write-LogHost -Message "Failed download with 'System.Net.WebClient'" -Level WARN
     }
 
     # all methods have failed
-    return 1 # 1 = Failed
+    return $false
 }
 #endregion
 
 # =================================================================================================== #
 
 #region File Fast
-function Copy-FileFast {
+function Copy-File {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
@@ -142,12 +142,25 @@ function Copy-FileFast {
 
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [string]$Destination
+        [string]$Destination,
+
+        # Overwrite files at the destination if they already exist
+        [switch]$Force,
+
+        [ValidateNotNullOrEmpty()]
+        [int]$decimalPlaces = 2
     )
 
     # Create the destination if it does not exist
     if (-not (Test-Path -Path $Destination -PathType Container)) {
-        New-Item -ItemType Directory -Path $Destination -Force | Out-Null
+        New-Item -Path $Destination -ItemType Directory -Force | Out-Null
+    }
+    else {
+        if ((Get-ChildItem -Path $Destination -Force).Count -gt 0 -and -not $Force) {
+            $sysMsg = "The path '$Destination' already exists and is not empty. "
+            $sysMsg += "Operation aborted to prevent data loss. Use the 'Force' parameter to overwrite the existing contents."
+            throw [System.InvalidOperationException]::new($sysMsg)
+        }
     }
 
     # Resolve full path
@@ -159,17 +172,21 @@ function Copy-FileFast {
 
     #Counter
     [int]$currentItem = 0
-    [int]$totalItem = $items.Count
-    [int]$decimalPlaces = 2
+    [int]$totalItems = $items.Count
+
+    [int]$currentByte = 0
+    [double]$totalBytes = 0
+    foreach ($item in $items) { $totalBytes += $item.Length }
 
     foreach ($item in $items) {
         # Progress bar
         $currentItem++
-        [double]$averagePercent = (($currentItem / $totalItem) * 100)
+        $currentByte += $item.Length
+        [double]$averagePercent = (((($currentItem / $totalItems) + ($currentByte / $totalBytes)) / 2) * 100)
         [double]$percentComplete = [math]::Round($averagePercent, $decimalPlaces)
         [string]$percentString = $percentComplete.ToString("N$decimalPlaces")
-        [string]$status = "Item $currentItem of $totalItem ($percentString `%) - $($item.Name)"
-        Write-Progress -Id 0 -Activity "Copy in progress..." -Status $status -PercentComplete $percentComplete
+        [string]$status = "Item $currentItem of $totalItems ($percentString `%) - $($item.Name)"
+        Write-Progress -Id 0 -Activity "Copy in item progress..." -Status $status -PercentComplete $percentComplete
 
         # Calculate path relative path on destination path
         [string]$SourceRelativePath = $item.FullName.Substring((Resolve-Path $Source).Path.Length)
@@ -190,39 +207,23 @@ function Copy-FileFast {
         [System.IO.FileSystemInfo]$sourceItem = Get-Item -LiteralPath $item.FullName -Force
         [System.IO.FileSystemInfo]$destinationItem = Get-Item -LiteralPath $DestinationFullPath -Force
         if ($sourceItem -and $destinationItem) {
-            try {
-                $destinationItem.Attributes = $sourceItem.Attributes
-            }
-            catch {
-                Write-LogHost -Message "($currentItem / $totalItem) Failed to set attributes on: $DestinationFullPath - $_" -Level FAIL
-            }
+            try { $destinationItem.Attributes = $sourceItem.Attributes }
+            catch { Write-Warning -Message "($currentItem / $totalItem) Failed to set attributes on: $DestinationFullPath - $($_.Exception.Message)" }
         }
     }
 
     Start-Sleep -Milliseconds 200
     Write-Progress -Id 0 -Activity "Copy completed" -Completed
-    return 0
+    return $true
 }
+
 #endregion
 
 # =================================================================================================== #
 
-#region UI Git Top
-function Invoke-UIGitTop {
-    [CmdletBinding()]
-    param ()
-    Write-Host "`n# ===================== Git log message ===================== #`n"
-}
-
-
-# =================================================================================================== #
-
-#region UI Git Bot
-function Invoke-UIGitBot {
-    [CmdletBinding()]
-    param ()
-    Write-Host "`n# =========================================================== #`n"
-}
+#region UI Git
+function Invoke-UIGitTop { Write-Host "`n# ===================== Git log message ===================== #`n" }
+function Invoke-UIGitBot { Write-Host "`n# =========================================================== #`n" }
 #endregion
 
 # =================================================================================================== #
@@ -244,37 +245,10 @@ function Confirm-Selection {
     }
 
     if ($Answer -eq "Y" -or [string]::IsNullOrWhiteSpace($Answer)) {
-        return 0
+        return $true
     }
     else {
-        return 1
-    }
-}
-#endregion
-
-# =================================================================================================== #
-
-#region Test JAVA
-function Test-JavaVersion {
-
-    # get java version
-    $output = & java --version 2>$null
-    if (-not $output) {
-        Write-Host "Java 11+ is not installed or is not in the PATH."
-        return 1
-    }
-
-    # Extract the first line (e.g., openjdk version “17.0.8” 2024-01-16)
-    $firstLine = $output | Select-Object -First 1
-
-    # Try extracting the major version from formats such as “17.0.8” or “21.0.2”
-    if ($firstLine -match '(\d+)\.\d+(\.\d+)?') {
-        $major = [int]$matches[1]
-        return $major
-    }
-    else {
-        Write-Host “Unable to determine Java version from string: $firstLine”
-        return 2
+        return $false
     }
 }
 #endregion
