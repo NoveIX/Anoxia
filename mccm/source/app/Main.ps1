@@ -343,14 +343,17 @@ function Invoke-Repair {
         # Calculate the path relative to the repository folder
         [string]$relativePath = $repoModpackItem.FullName.Substring((Resolve-Path $RepoPath).Path.Length)
         [string]$destPath = Join-Path -Path $ModpackPath -ChildPath $relativePath
+        [string]$destDir = Split-Path $destPath -Leaf
 
         # If the folder exist in the modpack dir, remove it - Skip Tools
-        Remove-Item -Path $destPath -Recurse -Force
-        if ($?) { Write-LogInfo "Deleted $destPath folder in modpak folder" }
-        else { Write-LogWarn -Message "Don't exist $destPath folder in modpak folder" }
-    }
+        if ((Test-Path -Path $destPath) -and ($destPath -notlike "*mccm*")) {
+            Remove-Item -Path $destPath -Recurse -Force
 
-    Pause
+            if ($?) { Write-LogInfo "Deleted $destPath folder in modpak folder" }
+            else { Write-LogWarn -Message "Don't exist $destPath folder in modpak folder" }
+        }
+        else { Write-LogInfo "Skip $destDir folder in modpak folder" }
+    }
 
     # Remove SSH key dir - Log
     Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
@@ -361,6 +364,8 @@ function Invoke-Repair {
     Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogInfo "Deleted repo folder in src folder" }
     else { Write-LogWarn "Don't exist repo folder in src folder" }
+
+    Pause
 
     # Starting setup in repair mode - Log
     Write-LogInfo "Delete completed"
