@@ -349,21 +349,21 @@ function Invoke-Repair {
         if ((Test-Path -Path $destPath) -and ($destPath -notlike "*mccm*")) {
             Remove-Item -Path $destPath -Recurse -Force
 
-            if ($?) { Write-LogInfo "Deleted $destPath folder in modpak folder" }
-            else { Write-LogWarn -Message "Don't exist $destPath folder in modpak folder" }
+            if ($?) { Write-LogInfo "Deleted $destPath item in modpack folder" }
+            else { Write-LogWarn -Message "Don't exist $destPath item in modpack folder" }
         }
-        else { Write-LogInfo "Skip $destDir folder in modpak folder" }
+        else { Write-LogInfo "Skip $destDir item in modpack folder" }
     }
 
     # Remove SSH key dir - Log
     Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo "Deleted key folder in src folder" }
-    else { Write-LogWarn "Don't exist key folder in src folder" }
+    if ($?) { Write-LogInfo "Deleted key folder in mccm folder" }
+    else { Write-LogWarn "Don't exist key folder in mccm folder" }
 
     # Remove Repo dir - Log
     Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo "Deleted repo folder in src folder" }
-    else { Write-LogWarn "Don't exist repo folder in src folder" }
+    if ($?) { Write-LogInfo "Deleted repo folder in mccm folder" }
+    else { Write-LogWarn "Don't exist repo folder in mccm folder" }
 
     Pause
 
