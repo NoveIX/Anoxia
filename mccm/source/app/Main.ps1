@@ -21,44 +21,42 @@ Clear-Host
 
 # =========================================[ Definition ]========================================= #
 
-### DEV
-# [string]$AppDir = "$env:USERPROFILE\Source\Repos\Anoxia\mccm\src\app"
-
 #region Definition
-
-# Locate script path
+# Define Script path
 [string]$MainPS1 = $MyInvocation.MyCommand.Path
-[string]$AppDir = $PSScriptRoot
-[string]$WokrDir = $AppDir
-Set-Location -Path $WokrDir
+[string]$appPath = $PSScriptRoot
 
-# Define parent path
-[string]$SrcDir = Split-Path -Path $AppDir -Parent
-[string]$MccmDir = Split-Path -Path $SrcDir -Parent
-[string]$ModpackDir = Split-Path -Path $MccmDir -Parent
+# Set work directory
+[string]$WorkPath = $appPath
+Set-Location -Path $WorkPath
 
-# Module name
+# Define modpack path
+[string]$sourcePath = Split-Path -Path $appPath -Parent
+[string]$mccmPath = Split-Path -Path $sourcePath -Parent
+[string]$ModpackPath = Split-Path -Path $mccmPath -Parent
+
+# Define constant
 [string]$ModuleName = "NoveLib"
-
-# Google direct link
 [string]$GoogleBaseURL = "https://drive.google.com/uc?export=download&id="
 
-# Find modpack name
-$ProjectName = Split-Path $ModpackDir -Leaf
+# Fine Modpack name
+$ProjectName = Split-Path $ModpackPath -Leaf
 if ($ProjectName -Like "*Anoxia*") {
-    # Title - GitHub repository name
-    [string]$PSTitle = "Project Anoxia - Lunar Ruins"
-    [string]$GitHub_RepositoryName = "Anoxia"
+    # Terminal Title
+    [string]$PSTitle = "Project Anoxia Lunar Ruins"
+    [string]$GitHubRepositoryName = "Anoxia"
 
-    # Moon Base ssh key
-    [string]$SSHKey_PrivateURLID = "16nw7QJfa-BxG74haagu6x4UO_gFlPv6a"
-    [string]$SSHKey_PrivateName = "anoxia_github_readonly"
-    [string]$SSHKey_PublicURLID = "1Q2nL9ulE3s12coUepO4HPcJ4ULsbPCFU"
-    [string]$SSHKey_PublicName = "anoxia_github_readonly.pub"
+    # SSH key url id
+    [string]$GitSSHPrivateKeyURLID = "16nw7QJfa-BxG74haagu6x4UO_gFlPv6a"
+    [string]$GitSSHPublicKeyURLID = "1Q2nL9ulE3s12coUepO4HPcJ4ULsbPCFU"
 
-    # Moon base auto update
-    [string]$AutoUpdateTXT_Name = "anoxia_modpack_path.txt"
-    [string]$AutoUpdateCMD_Name = "anoxia_modpack_auto_update.cmd"
+    # SSH key file name
+    [string]$GitSSHPrivateKeyName = "anoxia_github_readonly"
+    [string]$GitSSHPublicKeyName = "anoxia_github_readonly.pub"
+
+    # Auto update
+    [string]$AutoUpdateTXT = "anoxia_modpack_path.txt"
+    [string]$AutoUpdateCMD = "anoxia_modpack_auto_update.cmd"
 }
 else {
     Write-Host "`nError: No project was found with name '$ProjectName'" -ForegroundColor Red
@@ -69,38 +67,39 @@ else {
 
 # ============================================[ Path ]============================================ #
 
-### Universal path
 # Define .git path
-[string]$GitDir = Join-Path -Path $ModpackDir -ChildPath ".git"
+[string]$GitPath = Join-Path -Path $ModpackPath -ChildPath ".git"
+
+# Define logs path
+[string]$logs = Join-Path -Path $mccmPath -ChildPath "logs"
 
 # Define key, file and path
-[string]$KeyDir = Join-Path -Path $MccmDir -ChildPath "key"
-[string]$SSHKey_PrivatePath = Join-Path -Path $KeyDir -ChildPath $SSHKey_PrivateName
-[string]$SSHKey_PublicPath = Join-Path -Path $KeyDir -ChildPath $SSHKey_PublicName
+[string]$KeyPath = Join-Path -Path $mccmPath -ChildPath "key"
+[string]$GitSSHPrivateKeyPath = Join-Path -Path $KeyPath -ChildPath $GitSSHPrivateKeyName
+[string]$GitSSHPublicKeyPath = Join-Path -Path $KeyPath -ChildPath $GitSSHPublicKeyName
 
 # Define repository path
-[string]$RepoDir = Join-Path -Path $SrcDir -ChildPath "repo"
-[string]$RepoModpackDir = Join-Path -Path $RepoDir -ChildPath $GitHub_RepositoryName
+[string]$RepoPath = Join-Path -Path $mccmPath -ChildPath "repo"
+[string]$RepoModpackPath = Join-Path -Path $RepoPath -ChildPath $GitHubRepositoryName
 
 # Define library, file and path
-[string]$LibDir = Join-Path -Path $SrcDir -ChildPath "lib"
-[string]$NoveLibDir = Join-Path -Path $LibDir -ChildPath $ModuleName
-[string]$ModuleManifest = Join-Path -Path $NoveLibDir -ChildPath "$ModuleName.psd1"
+[string]$LibPath = Join-Path -Path $sourcePath -ChildPath "library"
+[string]$NoveLibPath = Join-Path -Path $LibPath -ChildPath $ModuleName
+[string]$ModuleManifest = Join-Path -Path $NoveLibPath -ChildPath "$ModuleName.psd1"
 
 # ========================================[ Auto update ]========================================= #
 
-### Auto update
-# Define Shell:Startup
+# Shell:Startup
 [string]$ShellStartup = [Environment]::GetFolderPath("Startup")
 
-# Define %temp%\NoveLib
-[string]$UserDir = Join-Path -Path $env:USERPROFILE -ChildPath $ModuleName
-[string]$AutoUpdateTXT = Join-Path -Path $UserDir -ChildPath $AutoUpdateTXT_Name
+# Temp\NoveLib
+[string]$UserPath = Join-Path -Path $env:USERPROFILE -ChildPath $ModuleName
+[string]$AutoUpdateTXTPath = Join-Path -Path $UserPath -ChildPath $AutoUpdateTXT
 
-# Define update, file and path
-[string]$UpdateDir = Join-Path -Path $SrcDir -ChildPath "update"
-[string]$AutoUpdateCMD = Join-Path -Path $UpdateDir -ChildPath $AutoUpdateCMD_Name
-[string]$InShell_AutoUpdateCMD = Join-Path -Path $ShellStartup -ChildPath $AutoUpdateCMD_Name
+# UpdateCMD
+[string]$UpdatePath = Join-Path -Path $sourcePath -ChildPath "update"
+[string]$AutoUpdateCMDPath = Join-Path -Path $UpdatePath -ChildPath $AutoUpdateCMD
+[string]$ShellStartupAutoUpdateCMDPath = Join-Path -Path $ShellStartup -ChildPath $AutoUpdateCMD
 
 
 # =======================================[ Import module ]======================================== #
@@ -150,26 +149,26 @@ if (-not ($sshVer.TargetObject -like "OpenSSH_for_Windows_9*")) {
 #region DL SSH Key
 function Start-DownloadSSHKey {
     param (
-        [string]$SSHKey_Path,
-        [string]$SSHKey_URLID,
-        [string]$SSHKey_Name,
+        [string]$SSHKeyPath,
+        [string]$SSHKeyURLID,
+        [string]$SSHKeyName,
         [ValidateSet("private", "public")]
         [string]$KeyType
     )
 
     # Test key path and download if not exist - Log
     Write-LogHost -Message "Check SSH $KeyType key" -Level INFO
-    if (-not (Test-Path -Path $SSHKey_Path -PathType Leaf)) {
+    if (-not (Test-Path -Path $SSHKeyPath -PathType Leaf)) {
 
         # Create key dir if not exist
-        if (-not (Test-Path -Path $KeyDir -PathType Container)) {
-            New-Item -Path $KeyDir -ItemType Directory -Force | Out-Null
+        if (-not (Test-Path -Path $KeyPath -PathType Container)) {
+            New-Item -Path $KeyPath -ItemType Directory -Force | Out-Null
         }
 
         # Download Key
         Write-LogHost -Message "Start download SSH $KeyType key" -Level INFO
-        $URL = $GoogleBaseURL + $SSHKey_URLID
-        $OutFile = Join-Path -Path $KeyDir -ChildPath $SSHKey_Name
+        $URL = $GoogleBaseURL + $SSHKeyURLID
+        $OutFile = Join-Path -Path $KeyPath -ChildPath $SSHKeyName
         $ExitCode = Start-DownloadFile -URL $URL -OutFile $OutFile
 
         # Log
@@ -194,12 +193,12 @@ function Start-DownloadSSHKey {
 function Invoke-DownloadSSHKey {
 
     # Ensure SSH private Key
-    Start-DownloadSSHKey -SSHKey_Path $SSHKey_PrivatePath -SSHKey_URLID $SSHKey_PrivateURLID `
-        -SSHKey_Name $SSHKey_PrivateName -KeyType private
+    Start-DownloadSSHKey -SSHKeyPath $GitSSHPrivateKeyPath -SSHKeyURLID $GitSSHPrivateKeyURLID `
+        -SSHKeyName $GitSSHPrivateKeyName -KeyType private
 
     # Ensure SSH public Key
-    Start-DownloadSSHKey -SSHKey_Path $SSHKey_PublicPath -SSHKey_URLID $SSHKey_PublicURLID `
-        -SSHKey_Name $SSHKey_PublicName -KeyType public
+    Start-DownloadSSHKey -SSHKeyPath $GitSSHPublicKeyPath -SSHKeyURLID $GitSSHPublicKeyURLID `
+        -SSHKeyName $GitSSHPublicKeyName -KeyType public
 }
 #endregion
 
@@ -213,18 +212,18 @@ function Invoke-DownloadRepository {
 
     # Test repository path download if not exist - Log
     Write-LogHost -Message "Check repositoy folder" -Level INFO
-    if (-not (Test-Path -Path $RepoModpackDir -PathType Container)) {
+    if (-not (Test-Path -Path $RepoModpackPath -PathType Container)) {
 
         # Create Repository dir if not exist
-        if (-not (Test-Path -Path $RepoDir -PathType Container)) {
-            New-Item -Path $RepoDir -ItemType Directory -Force | Out-Null
+        if (-not (Test-Path -Path $RepoPath -PathType Container)) {
+            New-Item -Path $RepoPath -ItemType Directory -Force | Out-Null
         }
 
         # Download repository with ssh - Log
         Write-LogHost -Message "Prepare SSH Command" -Level INFO
         Invoke-UIGitTop
-        $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
-        & git clone -b 1.20 --depth 1 --single-branch "git@github.com:NoveIX/$GitHub_RepositoryName.git" $RepoModpackDir
+        $env:GIT_SSH_COMMAND = "ssh -i `"$GitSSHPrivateKeyPath`""
+        & git clone -b 1.20 --depth 1 --single-branch "git@github.com:NoveIX/$GitHubRepositoryName.git" $RepoModpackPath
         $ExitCode = $LASTEXITCODE
         Invoke-UIGitBot
 
@@ -262,11 +261,11 @@ function Invoke-Setup {
 
     # Test .git path in modpack dir copy file if not exist - Log
     Write-LogHost -Message "Check .git folder" -Level INFO
-    if (-not (Test-Path -Path $GitDir -PathType Container)) {
+    if (-not (Test-Path -Path $GitPath -PathType Container)) {
 
         # Copy file in modpack dir
         Write-LogHost -Message "Start copy repository file in modpack folder" -Level INFO
-        $ExitCode = Copy-File -Source $RepoModpackDir -Destination $ModpackDir -Force
+        $ExitCode = Copy-File -Source $RepoModpackPath -Destination $ModpackPath -Force
 
         # Log
         if ($ExitCode) {
@@ -296,7 +295,7 @@ function Invoke-AutoUpdateSetup {
     )
 
     if ($Repair) {
-        [bool]$SelfAutoUpdate = $((Test-Path -Path $InShell_AutoUpdateCMD -PathType Leaf) -and (Test-Path -Path $AutoUpdateTXT -PathType Leaf))
+        [bool]$SelfAutoUpdate = $((Test-Path -Path $ShellStartupAutoUpdateCMDPath -PathType Leaf) -and (Test-Path -Path $AutoUpdateTXTPath -PathType Leaf))
     }
     else {
         Write-Host "`n# ==================== Auto update mode ===================== #`n"
@@ -308,26 +307,26 @@ function Invoke-AutoUpdateSetup {
 
     if ($SelfAutoUpdate) {
         # Create NoveLib dir in %Temp% if not exist
-        if (-not (Test-Path -Path $UserDir -PathType Container)) {
-            New-Item -Path $UserDir -ItemType Directory -Force | Out-Null
+        if (-not (Test-Path -Path $UserPath -PathType Container)) {
+            New-Item -Path $UserPath -ItemType Directory -Force | Out-Null
         }
 
         # Write update path in user local temp - Log
         $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-        [System.IO.File]::WriteAllText($AutoUpdateTXT, $MainPS1, $utf8NoBom)
+        [System.IO.File]::WriteAllText($AutoUpdateTXTPath, $MainPS1, $utf8NoBom)
         if ($?) { Write-LogHost -Message "Write modpack path in $AutoUpdateTXT" -Level DONE }
         else { Write-LogHost -Message "Failed to write modpack path in $AutoUpdateTXT" -Level FAIL }
 
         # Copy file execute update in Shell Startup
-        Write-LogHost -Message "Start copy $AutoUpdateCMD_Name file in Shell:Starup" -Level INFO
-        $ExitCode = Copy-FileFast -Source $AutoUpdateCMD -Destination $ShellStartup
+        Write-LogHost -Message "Start copy $AutoUpdateCMD file in Shell:Starup" -Level INFO
+        $ExitCode = Copy-FileFast -Source $AutoUpdateCMDPath -Destination $ShellStartup
 
         # Log
         if ($ExitCode) {
-            Write-LogHost -Message "Copy $AutoUpdateCMD_Name in Shell:Starup completed" -Level DONE
+            Write-LogHost -Message "Copy $AutoUpdateCMD in Shell:Starup completed" -Level DONE
         }
         else {
-            Write-LogHost -Message "Failed to copy $AutoUpdateCMD_Name in Shell:Starup" -Level FAIL
+            Write-LogHost -Message "Failed to copy $AutoUpdateCMD in Shell:Starup" -Level FAIL
             Write-Host "`nPress Enter to exit..." -NoNewline
             Read-Host
             Exit 1
@@ -361,7 +360,7 @@ function Invoke-Update {
 
     # Test .gir path in modpack dir copy file if not exist - Log
     Write-LogHost -Message "Check .git folder in modpack folder" -Level INFO
-    if (Test-Path -Path $gitDir -PathType Container) {
+    if (Test-Path -Path $gitPath -PathType Container) {
 
         # Log - Change directory to execute git pull
         Write-LogHost -Message "Change directory to: $Location" -Level INFO
@@ -370,10 +369,10 @@ function Invoke-Update {
         Invoke-UIGitTop
 
         # Download Update with ssh
-        $env:GIT_SSH_COMMAND = "ssh -i `"$SSHKey_PrivatePath`""
+        $env:GIT_SSH_COMMAND = "ssh -i `"$GitSSHPrivateKeyPath`""
         & git pull
         $ExitCode = $LASTEXITCODE
-        Set-Location -Path $WokrDir
+        Set-Location -Path $WorkPath
 
         # Log
         Invoke-UIGitBot
@@ -411,8 +410,8 @@ function Invoke-Repair {
     Write-LogHost -Message "Execute Repair" -Level INFO
 
     # Download update in repository dir
-    if (Test-Path -Path $RepoModpackDir -PathType Container) {
-        Invoke-Update -Location $RepoModpackDir
+    if (Test-Path -Path $RepoModpackPath -PathType Container) {
+        Invoke-Update -Location $RepoModpackPath
     }
     else {
         Invoke-DownloadRepository
@@ -420,19 +419,19 @@ function Invoke-Repair {
 
     # Get item from repository dir - Log
     Write-LogHost -Message "get items in repository modpack dir" -Level INFO
-    $RepoModpackItems = Get-ChildItem -Path $RepoModpackDir -Force -ErrorAction SilentlyContinue
+    $RepoModpackItems = Get-ChildItem -Path $RepoModpackPath -Force -ErrorAction SilentlyContinue
     foreach ($repoModpackItem in $repoModpackItems) {
 
         # Calculate the path relative to the repository folder
-        [string]$relativePath = $repoModpackItem.FullName.Substring((Resolve-Path $repoModpackDir).Path.Length)
-        [string]$destPath = Join-Path -Path $ModpackDir -ChildPath $relativePath
-        [string]$destDir = Split-Path $destPath -Leaf
+        [string]$relativePath = $repoModpackItem.FullName.Substring((Resolve-Path $repoModpackPath).Path.Length)
+        [string]$destPath = Join-Path -Path $ModpackPath -ChildPath $relativePath
+        [string]$destPath = Split-Path $destPath -Leaf
 
         # If the folder exist in the modpack dir, remove it - Skip Tools
         if ((Test-Path -Path $destPath) -and ($destPath -notlike "*Tools*")) {
             Remove-Item -Path $destPath -Recurse -Force
-            if ($?) { Write-LogHost -Message "Deleted $destDir folder in modpak folder" -Level DONE }
-            else { Write-LogHost -Message "Don't exist $destDir folder in modpak folder" -Level INFO }
+            if ($?) { Write-LogHost -Message "Deleted $destPath folder in modpak folder" -Level DONE }
+            else { Write-LogHost -Message "Don't exist $destPath folder in modpak folder" -Level INFO }
         }
         else {
             Write-LogHost -Message "Skip $destDir folder in modpak folder" -Level TRACE
@@ -440,12 +439,12 @@ function Invoke-Repair {
     }
 
     # Remove SSH key dir - Log
-    Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted key folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist key folder in src folder" -Level INFO }
 
     # Remove Repo dir - Log
-    Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
 
@@ -475,44 +474,44 @@ function Invoke-Remove {
     # ========= #
 
     # Remove .git in modpack dir - Log
-    Remove-Item -Path $GitDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $GitPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted .git folder in modpack folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist .git folder in modpack folder" -Level INFO }
 
     # ========= #
 
     # Remove key dir - Log
-    Remove-Item -Path $KeyDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $KeyPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted key folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist key folder in src folder" -Level INFO }
 
     # ========= #
 
     # Remove repo dir - Log
-    Remove-Item -Path $RepoDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted repo folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist repo folder in src folder" -Level INFO }
 
     # ========= #
 
     # Remove download dir - Log
-    Remove-Item -Path $DownloadDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $DownloadPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted download folder in src folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist download folder in src folder" -Level INFO }
 
     # ========= #
 
     # Remove NoveLib in local user temp - Log
-    Remove-Item -Path $UserDir -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path $UserPath -Recurse -Force -ErrorAction SilentlyContinue
     if ($?) { Write-LogHost -Message "Deleted NoveLib folder in %Temp% folder" -Level DONE }
     else { Write-LogHost -Message "Don't exist NoveLib folder in %Temp% folder" -Level INFO }
 
     # ========= #
 
     # Remove auto update file in Shell:Startup - Log
-    Remove-Item -Path $InShell_AutoUpdateCMD -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogHost -Message "Deleted $AutoUpdateCMD_Name file in Shell:Starup folder" -Level DONE }
-    else { Write-LogHost -Message "Don't exist $AutoUpdateCMD_Name file in Shell:Starup folder" -Level INFO }
+    Remove-Item -Path $ShellStartupAutoUpdateCMDPath -Force -ErrorAction SilentlyContinue
+    if ($?) { Write-LogHost -Message "Deleted $AutoUpdateCMD file in Shell:Starup folder" -Level DONE }
+    else { Write-LogHost -Message "Don't exist $AutoUpdateCMD file in Shell:Starup folder" -Level INFO }
 }
 #endregion
 
@@ -549,7 +548,7 @@ function Invoke-Menu {
                 Start-Sleep -Seconds 5
             }
             "2" {
-                Invoke-Update -Location $ModpackDir
+                Invoke-Update -Location $ModpackPath
                 Start-Sleep -Seconds 5
             }
             "3" {
@@ -577,7 +576,7 @@ function Invoke-Menu {
 
 #region Script code
 if ($Update) {
-    Invoke-Update -Location $ModpackDir
+    Invoke-Update -Location $ModpackPath
 }
 elseif ($Setup) {
     Invoke-Setup
