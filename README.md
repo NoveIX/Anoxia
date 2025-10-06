@@ -1,6 +1,6 @@
 # 🌙 Welcome to Project Anoxia
 
-![Anoxia Banner](https://github.com/NoveIX/Anoxia/blob/1.20/kubejs/assets/anoxia/banner/anoxia.png?raw=true)
+![Anoxia Banner](https://github.com/NoveIX/Anoxia/blob/e2193bed9d915ee61886c91f96a7fa96f0de48c2/.github/BANNER/anoxia.png)
 
 # 🚀 What is Project Anoxia
 
