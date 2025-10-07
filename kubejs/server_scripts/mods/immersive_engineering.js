@@ -122,15 +122,15 @@ ServerEvents.recipes((event) => {
 
     //LV Accumulator
     event.remove({ output: "immersiveengineering:capacitor_lv" });
-    event.shaped("immersiveengineering:capacitor_lv", ["AAA", "BCB", "DED"], { A: "#forge:plates/copper", B: "anoxia:coils/copper", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "industrialforegoing:machine_frame_simple" });
+    event.shaped("immersiveengineering:capacitor_lv", ["AAA", "BCB", "DED"], { A: "#forge:plates/copper", B: "#anoxia:coils/copper", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: 'industrialforegoing:machine_frame_pity' });
 
     //LM Accumulator
-    event.remove({ output: "immersiveengineering:capacitor_lm" });
-    event.shaped("immersiveengineering:capacitor_lm", ["AAA", "BCB", "DED"], { A: "#forge:plates/electrum", B: "anoxia:coils/electrum", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "immersiveengineering:capacitor_lv" });
+    event.remove({ output: 'immersiveengineering:capacitor_mv' });
+    event.shaped('immersiveengineering:capacitor_mv', ["AAA", "BCB", "DED"], { A: "#forge:plates/electrum", B: "#anoxia:coils/electrum", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "immersiveengineering:capacitor_lv" });
 
     //LH Accumulator
-    event.remove({ output: "immersiveengineering:capacitor_lh" });
-    event.shaped("immersiveengineering:capacitor_lh", ["AAA", "BCB", "DED"], { A: "#forge:plates/steel", B: "immersiveengineering:wirecoil_steel", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "immersiveengineering:capacitor_lm" });
+    event.remove({ output: 'immersiveengineering:capacitor_hv' });
+    event.shaped('immersiveengineering:capacitor_hv', ["AAA", "BCB", "DED"], { A: "#forge:plates/steel", B: "immersiveengineering:wirecoil_steel", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: 'immersiveengineering:capacitor_mv' });
 
     ////Storage Block
     const StorageBlockIE = [
