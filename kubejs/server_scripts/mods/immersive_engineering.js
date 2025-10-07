@@ -1,49 +1,136 @@
 ServerEvents.recipes((event) => {
+    const RmRecipeID = [
+        "immersiveengineering:crafting/slag_brick_from_slab",
+        "immersiveengineering:crafting/clinker_brick_from_slab",
+        "immersiveengineering:crafting/hempcrete_from_slab",
+        "immersiveengineering:crafting/hempcrete_brick_from_slab",
+        "immersiveengineering:crafting/concrete_from_slab",
+        "immersiveengineering:crafting/concrete_brick_from_slab",
+        "immersiveengineering:crafting/concrete_tile_from_slab",
+        "immersiveengineering:crafting/insulating_glass_from_slab",
+
+        //Sheetmetal
+        "immersiveengineering:crafting/sheetmetal_copper_from_slab",
+        "immersiveengineering:crafting/sheetmetal_aluminum_from_slab",
+        "immersiveengineering:crafting/sheetmetal_lead_from_slab",
+        "immersiveengineering:crafting/sheetmetal_silver_from_slab",
+        "immersiveengineering:crafting/sheetmetal_nickel_from_slab",
+        "immersiveengineering:crafting/sheetmetal_uranium_from_slab",
+        "immersiveengineering:crafting/sheetmetal_constantan_from_slab",
+        "immersiveengineering:crafting/sheetmetal_electrum_from_slab",
+        "immersiveengineering:crafting/sheetmetal_steel_from_slab",
+        "immersiveengineering:crafting/sheetmetal_iron_from_slab",
+        "immersiveengineering:crafting/sheetmetal_gold_from_slab",
+
+        //Sheetmetal
+        "immersiveengineering:crafting/sheetmetal_colored_white_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_orange_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_magenta_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_light_blue_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_yellow_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_lime_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_pink_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_gray_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_light_gray_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_cyan_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_purple_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_blue_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_brown_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_green_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_red_from_slab",
+        "immersiveengineering:crafting/sheetmetal_colored_black_from_slab",
+    ];
+    RmRecipeID.forEach((id) => {
+        event.remove({ id: id });
+    });
+
+    //// # =================================================================================================== #
+
     //Arc Recycling disable in OpenLoader
 
     //LV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_copper" });
     event.shapeless("immersiveengineering:wirecoil_copper", ["immersiveengineering:wirecoil_copper_ins", "#immersiveengineering:tools/wirecutters"]);
-    event.shaped("immersiveengineering:wirecoil_copper", ["CCC", "CSC", "CCC"], { C: "#forge:wires/copper", S: "createaddition:spool" });
+    event.shaped("immersiveengineering:wirecoil_copper", ["AAA", "ABA", "AAA"], { A: "#forge:wires/copper", B: "createaddition:spool" });
     event.shapeless("immersiveengineering:wirecoil_copper", ["createaddition:copper_spool"]);
 
     //LV Insulated Coil
     event.remove({ output: "immersiveengineering:wirecoil_copper_ins" });
-    event.shaped("immersiveengineering:wirecoil_copper_ins", [" T ", "TCT", " T "], { C: "immersiveengineering:wirecoil_copper", T: "immersiveengineering:hemp_fabric" });
+    event.shaped("immersiveengineering:wirecoil_copper_ins", [" A ", "ABA", " A "], { A: "immersiveengineering:hemp_fabric", B: "immersiveengineering:wirecoil_copper" });
 
     //MV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_electrum" });
     event.shapeless("immersiveengineering:wirecoil_electrum", ["immersiveengineering:wirecoil_electrum_ins", "#immersiveengineering:tools/wirecutters"]);
-    event.shaped("immersiveengineering:wirecoil_electrum", ["EEE", "ESE", "EEE"], { E: "#forge:wires/electrum", S: "createaddition:spool" });
+    event.shaped("immersiveengineering:wirecoil_electrum", ["AAA", "ABA", "AAA"], { A: "#forge:wires/electrum", B: "createaddition:spool" });
     event.shapeless("immersiveengineering:wirecoil_electrum", ["createaddition:electrum_spool"]);
 
     //MV Insulated Coil
     event.remove({ output: "immersiveengineering:wirecoil_electrum_ins" });
-    event.shaped("immersiveengineering:wirecoil_electrum_ins", [" T ", "TET", " T "], { E: "immersiveengineering:wirecoil_electrum", T: "immersiveengineering:hemp_fabric" });
+    event.shaped("immersiveengineering:wirecoil_electrum_ins", [" A ", "ABA", " A "], { A: "immersiveengineering:hemp_fabric", B: "immersiveengineering:wirecoil_electrum" });
 
     //HV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_steel" });
-    event.shaped("immersiveengineering:wirecoil_steel", ["AWA", "WSW", "AWA"], { A: "#forge:wires/aluminum", S: "createaddition:spool", W: "#forge:wires/steel" });
+    event.shaped("immersiveengineering:wirecoil_steel", ["ABA", "BCB", "ABA"], { A: "#forge:wires/aluminum", B: "#forge:wires/steel", C: "createaddition:spool" });
 
     //Structure Coil
     event.remove({ output: "immersiveengineering:wirecoil_structure_steel" });
-    event.shaped("immersiveengineering:wirecoil_structure_steel", ["WWW", "WSW", "WWW"], { S: "createaddition:spool", W: "#forge:wires/steel" });
+    event.shaped("immersiveengineering:wirecoil_structure_steel", ["AAA", "ABA", "AAA"], { A: "#forge:wires/steel", B: "createaddition:spool" });
 
     //Redstone Coil
     event.remove({ output: "immersiveengineering:wirecoil_redstone" });
-    event.shaped("immersiveengineering:wirecoil_redstone", ["AAA", "RSR", "AAA"], { A: "#forge:wires/aluminum", R: "#forge:ingots/red_alloy", S: "createaddition:spool" });
+    event.shaped("immersiveengineering:wirecoil_redstone", ["AAA", "BCB", "AAA"], { A: "#forge:wires/aluminum", B: "#forge:ingots/red_alloy", C: "createaddition:spool" });
 
     //Rope Coil
     event.remove({ output: "immersiveengineering:wirecoil_structure_rope" });
-    event.shaped("immersiveengineering:wirecoil_structure_rope", ["HHH", "HSH", "HHH"], { H: "immersiveengineering:hemp_fiber", S: "createaddition:spool" });
+    event.shaped("immersiveengineering:wirecoil_structure_rope", ["AAA", "ABA", "AAA"], { A: "immersiveengineering:hemp_fiber", B: "createaddition:spool" });
 
     //Saw Blade
     event.remove({ output: "immersiveengineering:sawblade" });
-    event.shaped("immersiveengineering:sawblade", [" P ", "PGP", " P "], { P: "#forge:plates/steel", G: "#forge:gears/steel" });
+    event.shaped("immersiveengineering:sawblade", [" A ", "ABA", " A "], { A: "#forge:plates/steel", B: "#forge:gears/steel" });
 
     //Sawdust Flooring
     event.remove({ output: "immersiveengineering:sawdust" });
-    event.shaped(Item.of("immersiveengineering:sawdust", 3), ["SSS"], { S: "#forge:dusts/wood" });
+    event.shaped(Item.of("immersiveengineering:sawdust", 3), ["AAA"], { S: "#forge:dusts/wood" });
+
+    //Mechanical Iron
+    event.remove({ output: "immersiveengineering:component_iron" });
+    event.shaped("immersiveengineering:component_iron", ["A A", " B ", "A A"], { A: "#forge:plates/iron", B: "#forge:gears/copper" });
+
+    //Mechanical Steel
+    event.remove({ output: "immersiveengineering:component_steel" });
+    event.shaped("immersiveengineering:component_steel", ["A A", " B ", "A A"], { A: "#forge:plates/steel", B: "#forge:gears/copper" });
+
+    //Slag Brick
+    event.remove({ output: "immersiveengineering:slag_brick" });
+    event.shaped(Item.of("immersiveengineering:slag_brick", 4), ["AA", "AA"], { A: "#forge:slag" });
+
+    //Scaffoling
+    event.remove({ output: "immersiveengineering:treated_scaffold" });
+    event.shaped(Item.of("immersiveengineering:treated_scaffold", 3), ["AAA", " B ", "B B"], { A: "#forge:treated_wood", B: "#forge:rods/wooden" });
+
+    //Scaffoling Steel
+    event.remove({ output: "immersiveengineering:steel_scaffolding_standard" });
+    event.shaped(Item.of("immersiveengineering:steel_scaffolding_standard", 3), ["AAA", " B ", "B B"], { A: "#forge:plates/steel", B: "#forge:rods/steel" });
+
+    //Scaffoling Aluminum
+    event.remove({ output: "immersiveengineering:alu_scaffolding_standard" });
+    event.shaped(Item.of("immersiveengineering:alu_scaffolding_standard", 3), ["AAA", " B ", "B B"], { A: "#forge:plates/aluminum", B: "#forge:rods/aluminum" });
+
+    //Concrete Leaded
+    event.remove({ output: "immersiveengineering:concrete_leaded" });
+    event.shaped("immersiveengineering:concrete_leaded", ["A A", " B ", "A A"], { A: "#forge:plates/lead", B: "immersiveengineering:concrete" });
+
+    //LV Accumulator
+    event.remove({ output: "immersiveengineering:capacitor_lv" });
+    event.shaped("immersiveengineering:capacitor_lv", ["AAA", "BCB", "DED"], { A: "#forge:plates/copper", B: "anoxia:coils/copper", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "industrialforegoing:machine_frame_simple" });
+
+    //LM Accumulator
+    event.remove({ output: "immersiveengineering:capacitor_lm" });
+    event.shaped("immersiveengineering:capacitor_lm", ["AAA", "BCB", "DED"], { A: "#forge:plates/electrum", B: "anoxia:coils/electrum", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "immersiveengineering:capacitor_lv" });
+
+    //LH Accumulator
+    event.remove({ output: "immersiveengineering:capacitor_lh" });
+    event.shaped("immersiveengineering:capacitor_lh", ["AAA", "BCB", "DED"], { A: "#forge:plates/steel", B: "immersiveengineering:wirecoil_steel", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "immersiveengineering:capacitor_lm" });
 
     ////Storage Block
     const StorageBlockIE = [
@@ -64,31 +151,19 @@ ServerEvents.recipes((event) => {
     ////Furnace
     //Coke Brick
     event.remove({ output: "immersiveengineering:cokebrick" });
-    event.shaped("immersiveengineering:cokebrick", ["PBP", "BSB", "PBP"], { P: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", S: "#forge:sandstone/colorless" });
+    event.shaped("immersiveengineering:cokebrick", ["ABA", "BCB", "ABA"], { A: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", C: "#forge:sandstone/colorless" });
 
     //Kiln Brick
     event.remove({ output: "immersiveengineering:alloybrick" });
-    event.shaped("immersiveengineering:alloybrick", ["RN", "NR"], { R: "#forge:sandstone/red", N: "#forge:ingots/brick" });
+    event.shaped("immersiveengineering:alloybrick", ["AB", "BA"], { A: "#forge:sandstone/red", B: "#forge:ingots/brick" });
 
     //Blast Brick
     event.remove({ output: "immersiveengineering:blastbrick" });
-    event.shaped("immersiveengineering:blastbrick", ["NBN", "BCB", "NBN"], { N: "#forge:ingots/nether_brick", B: "#forge:ingots/brick", C: "immersiveengineering:cokebrick" });
+    event.shaped("immersiveengineering:blastbrick", ["ABA", "BCB", "ABA"], { A: "#forge:ingots/nether_brick", B: "#forge:ingots/brick", C: "minecraft:blaze_powder" });
 
     //Blast Brick Reinforced
     event.remove({ output: "immersiveengineering:blastbrick_reinforced" });
-    event.shaped("immersiveengineering:blastbrick_reinforced", ["S S", " B ", "S S"], { S: "#forge:plates/steel", B: "immersiveengineering:blastbrick" });
-
-    //Scaffoling Steel
-    event.remove({ output: "immersiveengineering:steel_scaffolding_standard" });
-    event.shaped(Item.of("immersiveengineering:steel_scaffolding_standard", 3), ["PPP", " R ", "R R"], { P: "#forge:plates/steel", R: "#forge:rods/steel" });
-
-    //Scaffoling Aluminum
-    event.remove({ output: "immersiveengineering:alu_scaffolding_standard" });
-    event.shaped(Item.of("immersiveengineering:alu_scaffolding_standard", 3), ["PPP", " R ", "R R"], { P: "#forge:plates/aluminum", R: "#forge:rods/aluminum" });
-
-    //Concrete Leaded
-    event.remove({ output: "immersiveengineering:alu_scaffolding_standard" });
-    event.shaped("immersiveengineering:concrete_leaded", ["P P", " B ", "P P"], { P: "#forge:plates/lead", B: "immersiveengineering:concrete" });
+    event.shaped("immersiveengineering:blastbrick_reinforced", ["A A", " B ", "A A"], { A: "#forge:plates/steel", B: "immersiveengineering:blastbrick" });
 
     //// # =================================================================================================== #
 

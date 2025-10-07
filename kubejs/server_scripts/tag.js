@@ -4,10 +4,10 @@ ServerEvents.tags("item", (event) => {
     const TagAddPattern = [
         //#region Anoxia
         //Coil
-        { tag: "anoxia:coil/copper", item: "createaddition:copper_spool" },
-        { tag: "anoxia:coil/copper", item: "immersiveengineering:wirecoil_copper" },
-        { tag: "anoxia:coil/electrum", item: "createaddition:electrum_spool" },
-        { tag: "anoxia:coil/electrum", item: "immersiveengineering:wirecoil_electrum" },
+        { tag: "anoxia:coils/copper", item: "createaddition:copper_spool" },
+        { tag: "anoxia:coils/copper", item: "immersiveengineering:wirecoil_copper" },
+        { tag: "anoxia:coils/electrum", item: "createaddition:electrum_spool" },
+        { tag: "anoxia:coils/electrum", item: "immersiveengineering:wirecoil_electrum" },
 
         //Fertilizer
         { tag: "anoxia:fertilizers", item: "minecraft:bone_meal" },

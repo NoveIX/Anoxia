@@ -38,7 +38,7 @@ ServerEvents.recipes((event) => {
     const ChamberPattern = [
         {
             get: [{ item: "pneumaticcraft:capacitor" }],
-            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { tag: "forge:ingots/red_alloy" }, { tag: "anoxia:coil/electrum" }, { item: "powah:capacitor_spirited" }],
+            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { tag: "forge:ingots/red_alloy" }, { tag: "anoxia:coils/electrum" }, { item: "powah:capacitor_spirited" }],
             bar: 1.5,
         },
         {
@@ -58,7 +58,7 @@ ServerEvents.recipes((event) => {
         },
         {
             get: [{ item: "pneumaticcraft:empty_pcb" }],
-            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { item: "thermal:rf_coil" }, { tag: "forge:plates/copper" }, { tag: "anoxia:coil/copper" }],
+            put: [{ tag: "forge:plastic" }, { tag: "forge:ingots/compressed_iron" }, { item: "thermal:rf_coil" }, { tag: "forge:plates/copper" }, { tag: "anoxia:coils/copper" }],
             bar: 2,
         },
         {
