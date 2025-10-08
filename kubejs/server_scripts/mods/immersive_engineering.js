@@ -8,6 +8,13 @@ ServerEvents.recipes((event) => {
         "immersiveengineering:crafting/concrete_brick_from_slab",
         "immersiveengineering:crafting/concrete_tile_from_slab",
         "immersiveengineering:crafting/insulating_glass_from_slab",
+        "immersiveengineering:crafting/treated_wood_horizontal_from_slab",
+        "immersiveengineering:crafting/treated_wood_vertical_from_slab",
+        "immersiveengineering:crafting/treated_wood_packaged_from_slab",
+        "immersiveengineering:crafting/steel_scaffolding_grate_top_from_slab",
+        "immersiveengineering:crafting/alu_scaffolding_grate_top_from_slab",
+        "immersiveengineering:crafting/steel_scaffolding_wooden_top_from_slab",
+        "immersiveengineering:crafting/alu_scaffolding_wooden_top_from_slab",
 
         //Sheetmetal
         "immersiveengineering:crafting/sheetmetal_copper_from_slab",
@@ -90,7 +97,7 @@ ServerEvents.recipes((event) => {
 
     //Sawdust Flooring
     event.remove({ output: "immersiveengineering:sawdust" });
-    event.shaped(Item.of("immersiveengineering:sawdust", 3), ["AAA"], { S: "#forge:dusts/wood" });
+    event.shaped(Item.of("immersiveengineering:sawdust", 3), ["AAA"], { A: "#forge:dusts/wood" });
 
     //Mechanical Iron
     event.remove({ output: "immersiveengineering:component_iron" });
@@ -122,15 +129,49 @@ ServerEvents.recipes((event) => {
 
     //LV Accumulator
     event.remove({ output: "immersiveengineering:capacitor_lv" });
-    event.shaped("immersiveengineering:capacitor_lv", ["AAA", "BCB", "DED"], { A: "#forge:plates/copper", B: "#anoxia:coils/copper", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: 'industrialforegoing:machine_frame_pity' });
+    event.shaped("immersiveengineering:capacitor_lv", ["AAA", "BCB", "DED"], { A: "#forge:plates/copper", B: "immersiveengineering:wirecoil_copper", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", E: "industrialforegoing:machine_frame_pity" });
 
     //LM Accumulator
-    event.remove({ output: 'immersiveengineering:capacitor_mv' });
-    event.shaped('immersiveengineering:capacitor_mv', ["AAA", "BCB", "DED"], { A: "#forge:plates/electrum", B: "#anoxia:coils/electrum", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: "immersiveengineering:capacitor_lv" });
+    event.remove({ output: "immersiveengineering:capacitor_mv" });
+    event.shaped("immersiveengineering:capacitor_mv", ["AAA", "BCB", "DED"], { A: "#forge:plates/electrum", B: "immersiveengineering:wirecoil_electrum", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", E: "immersiveengineering:capacitor_lv" });
 
     //LH Accumulator
-    event.remove({ output: 'immersiveengineering:capacitor_hv' });
-    event.shaped('immersiveengineering:capacitor_hv', ["AAA", "BCB", "DED"], { A: "#forge:plates/steel", B: "immersiveengineering:wirecoil_steel", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", C: 'immersiveengineering:capacitor_mv' });
+    event.remove({ output: "immersiveengineering:capacitor_hv" });
+    event.shaped("immersiveengineering:capacitor_hv", ["AAA", "BCB", "DED"], { A: "#forge:plates/steel", B: "immersiveengineering:wirecoil_steel", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", E: "immersiveengineering:capacitor_mv" });
+
+    ////Machine Engineering Block
+
+    //Redstone
+    event.remove({ output: "immersiveengineering:rs_engineering" });
+    event.shaped(Item.of("immersiveengineering:rs_engineering", 2), ["ABA", "BCB", "ABA"], { A: "#forge:plates/invar", B: "immersiveengineering:wirecoil_redstone", C: "immersiveengineering:coil_mv" });
+
+    //Light
+    event.remove({ output: "immersiveengineering:light_engineering" });
+    event.shaped(Item.of("immersiveengineering:light_engineering", 2), ["ABA", "CDC", "ABA"], { A: "#forge:plates/aluminum", B: "immersiveengineering:component_iron", C: ["#forge:ingots/electrotine_alloy", "#forge:ingots/red_alloy"], D: "#forge:gears/rose_gold" });
+
+    //Heavy
+    event.remove({ output: "immersiveengineering:heavy_engineering" });
+    event.shaped(Item.of("immersiveengineering:heavy_engineering", 2), ["ABA", "CDC", "ABA"], { A: "#forge:plates/steel", B: "immersiveengineering:component_steel", C: ["#forge:ingots/electrotine_alloy", "#forge:ingots/red_alloy"], D: "#forge:gears/electrum" });
+
+    //Generator
+    event.remove({ output: "immersiveengineering:generator" });
+    event.shaped(Item.of("immersiveengineering:generator", 2), ["ABA", "BCB", "ABA"], { A: "immersiveengineering:sheetmetal_steel", B: "immersiveengineering:coil_mv", C: "immersiveengineering:dynamo" });
+
+    //Radiator
+    event.remove({ output: "immersiveengineering:radiator" });
+    event.shaped(Item.of("immersiveengineering:radiator", 2), ["ABA", "BCB", "ABA"], { A: "immersiveengineering:sheetmetal_steel", B: "#forge:plates/constantan", C: "minecraft:water_bucket" });
+
+    //External Heater
+    event.remove({ output: "immersiveengineering:furnace_heater" });
+    event.shaped("immersiveengineering:furnace_heater", ["ABA", "CDC", "AEA"], { A: "#forge:plates/invar", B: "anoxia:coils/copper", C: "#forge:ingots/graphite", D: "immersiveengineering:coil_lv", E: "#forge:ingots/red_alloy" });
+
+    //Kinetic
+    event.remove({ output: "immersiveengineering:dynamo" });
+    event.shaped("immersiveengineering:dynamo", ["ABA", "CDC"], { A: "#forge:ingots/red_alloy", B: "immersiveengineering:component_iron", C: "#forge:gears/iron", D: "immersiveengineering:coil_lv" });
+
+    //Thermoelectric
+    event.remove({ output: "immersiveengineering:thermoelectric_generator" });
+    event.shaped("immersiveengineering:thermoelectric_generator", ["ABA", "CDC", "AEA"], { A: "#forge:plates/constantan", B: "#forge:plates/steel", C: "#forge:ingots/red_alloy", D: "immersiveengineering:furnace_heater", E: "#forge:gears/constantan" });
 
     ////Storage Block
     const StorageBlockIE = [

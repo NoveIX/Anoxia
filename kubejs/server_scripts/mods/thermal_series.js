@@ -155,22 +155,56 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
-    //// # =================================================================================================== #
-
     //Flux Coil
     event.remove({ output: "thermal:rf_coil" });
-    event.shaped("thermal:rf_coil", ["  R", " E ", "R  "], { R: "#forge:ingots/red_alloy", E: "#forge:ingots/electrum" });
+    event.shaped("thermal:rf_coil", ["  A", " B ", "A  "], { A: "#forge:ingots/red_alloy", B: "#forge:ingots/electrum" });
 
     //Coal Coke
     event.shapeless(Item.of("thermal:coal_coke", 9), ["#forge:storage_blocks/coal_coke"]);
 
     //Machine Frame
     event.remove({ output: "thermal:machine_frame" });
-    event.shaped("thermal:machine_frame", ["GEG", "EFE", "GEG"], { G: "#forge:gears/enderium", E: "unstabletools:ethereal_glass", F: "industrialforegoing:machine_frame_supreme" });
+    event.shaped("thermal:machine_frame", ["ABA", "BCB", "ABA"], { A: "#forge:gears/netherite", B: "thermal:obsidian_glass", C: "industrialforegoing:machine_frame_advanced" });
 
-    //Smelter
+    //Energetic Infuser
+    event.remove({ output: "thermal:charge_bench" });
+    event.shaped("thermal:charge_bench", ["AAA", "BCB", "DED"], { A: "thermal:rf_coil", B: "thermal:energy_cell", C: "thermal:machine_frame", D: "#forge:gears/steel", E: "#forge:storage_blocks/redstone_alloy" });
+
+    //Redstone Furnace
+    event.remove({ output: "thermal:machine_furnace" });
+    event.shaped("thermal:machine_furnace", [" A ", "BCB", "DED"], { A: "#forge:ingots/electrotine_alloy", B: "ironfurnaces:diamond_furnace", C: "thermal:machine_frame", D: "#forge:gears/copper", E: "thermal:rf_coil" });
+
+    //Sawmill
+    event.remove({ output: "thermal:machine_sawmill" });
+    event.shaped("thermal:machine_sawmill", [" A ", "BCB", "DED"], { A: "#forge:sawblades", B: "#forge:treated_wood", C: "thermal:machine_frame", D: "#forge:gears/copper", E: "thermal:rf_coil" });
+
+    //Pulverizer
+    event.remove({ output: "thermal:machine_pulverizer" });
+    event.shaped("thermal:machine_pulverizer", [" A ", "BCB", "DED"], { A: "minecraft:piston", B: "create:crushing_wheel", C: "thermal:machine_frame", D: "#forge:gears/steel", E: "thermal:rf_coil" });
+
+    //Induction Smelter
     event.remove({ output: "thermal:machine_smelter" });
-    event.shaped("thermal:machine_smelter", [" A ", "SMS", "GRG"], { A: "enderio:alloy_smelter", S: "#forge:sand", M: "thermal:machine_frame", G: "#forge:gears/invar", R: "thermal:rf_coil" });
+    event.shaped("thermal:machine_smelter", [" A ", "BCB", "DED"], { A: "enderio:alloy_smelter", B: "#forge:sand", C: "thermal:machine_frame", D: "#forge:gears/invar", E: "thermal:rf_coil" });
+
+    //Phytogenic Insolator
+    event.remove({ output: "thermal:machine_insolator" });
+    event.shaped("thermal:machine_insolator", [" A ", "BCB", "DED"], { A: "minecraft:daylight_detector", B: "thermal:phytogro", C: "thermal:machine_frame", D: "#forge:gears/lumium", E: "thermal:rf_coil" });
+
+    //Centrifugal Separator
+    event.remove({ output: "thermal:machine_centrifuge" });
+    event.shaped("thermal:machine_centrifuge", [" A ", "BCB", "DED"], { A: "minecraft:compass", B: "#forge:plates/constantan", C: "thermal:machine_frame", D: "#forge:gears/rose_gold", E: "thermal:rf_coil" });
+
+    //Multiservo Press
+    event.remove({ output: "thermal:machine_press" });
+    event.shaped("thermal:machine_press", [" A ", "BCB", "DED"], { A: "minecraft:piston", B: "#forge:plates/copper", C: "thermal:machine_frame", D: "#forge:gears/constantan", E: "thermal:rf_coil" });
+
+    //Magma Crucible
+    event.remove({ output: "thermal:machine_crucible" });
+    event.shaped("thermal:machine_crucible", [" A ", "BCB", "DED"], { A: "thermal:obsidian_glass", B: "immersiveengineering:blastbrick_reinforced", C: "thermal:machine_frame", D: "#forge:gears/diamond", E: "thermal:rf_coil" });
+
+    //Blast Chiller
+    event.remove({ output: "thermal:machine_chiller" });
+    event.shaped("thermal:machine_chiller", [" A ", "BCB", "DED"], { A: "actuallyadditions:empowered_diamatine_crystal", B: "#forge:ices/dry", C: "thermal:machine_frame", D: "#forge:gears/sapphire", E: "thermal:rf_coil" });
 
     //// # =================================================================================================== #
 

@@ -18,7 +18,7 @@ ServerEvents.recipes((event) => {
     event.shaped("bloodmagic:rawdemonite", ["AA", "AA"], { A: "anoxia:demonite_pieces" });
 
     //Obsidian Ingot
-    event.shaped("anoxia:obsidian_with_iron", [" A ", "ABA", " A "], { A: "#forge:nuggets/iron", B: "minecraft:obsidian" });
+    event.shapeless("anoxia:obsidian_with_iron", ["#forge:dusts/obsidian", "#forge:dusts/obsidian", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron"]);
 
     //Press Rod Die
     event.shaped("anoxia:press_rod_die", [" A ", "ABA", " A "], { A: "#forge:plates/invar", B: "minecraft:blaze_rod" });
@@ -71,9 +71,9 @@ ServerEvents.recipes((event) => {
     event.shaped("anoxia:mana_cell_component_64k", ["ABA", "CDC", "ACA"], { A: "botania:terrasteel_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_16k", D: "botania:elf_glass" });
     event.shaped("anoxia:mana_cell_component_256k", ["ABA", "CDC", "ACA"], { A: "botania:gaia_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_64k", D: "botania:elf_glass" });
 
-    event.shaped("anoxia:source_cell_component_1k", ["ABA", "BCB", "ABA"], { A: 'ars_nouveau:source_gem', B: '#forge:dusts/gold', C: "ae2:logic_processor" });
-    event.shaped("anoxia:source_cell_component_4k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_1k", D: "pneumaticcraft:capacitor" });
-    event.shaped("anoxia:source_cell_component_16k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_4k", D: '#forge:glass/magenta' });
-    event.shaped("anoxia:source_cell_component_64k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_16k", D: '#forge:glass/magenta' });
-    event.shaped("anoxia:source_cell_component_256k", ["ABA", "CDC", "ACA"], { A: 'ars_nouveau:source_gem', B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_64k", D: '#forge:glass/magenta' });
+    event.shaped("anoxia:source_cell_component_1k", ["ABA", "BCB", "ABA"], { A: "ars_nouveau:source_gem", B: "#forge:dusts/gold", C: "ae2:logic_processor" });
+    event.shaped("anoxia:source_cell_component_4k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_1k", D: "pneumaticcraft:capacitor" });
+    event.shaped("anoxia:source_cell_component_16k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_4k", D: "#forge:glass/magenta" });
+    event.shaped("anoxia:source_cell_component_64k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_16k", D: "#forge:glass/magenta" });
+    event.shaped("anoxia:source_cell_component_256k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_64k", D: "#forge:glass/magenta" });
 });
