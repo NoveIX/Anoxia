@@ -19,62 +19,82 @@ ServerEvents.recipes((event) => {
         ////Thermal
         //Signalum
         "enderio:smelting/thermal/smelting/signalum_ingot_from_dust_smelting",
-        "thermal:machines/press/unpacking/press_signalum_unpacking",
-        "thermal:machines/press/packing3x3/press_signalum_nugget_packing",
+        "thermal:machines/press/packing3x3/press_signalum_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_signalum_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_signalum_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_signalum_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_signalum",
         "thermal:machines/smelter/smelter_signalum_dust",
         "thermal:machines/smelter/smelter_signalum_plate_to_ingot",
         //Lumium
         "enderio:smelting/thermal/smelting/lumium_ingot_from_dust_smelting",
-        "thermal:machines/press/unpacking/press_lumium_unpacking",
-        "thermal:machines/press/packing3x3/press_lumium_nugget_packing",
+        "thermal:machines/press/packing3x3/press_lumium_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_lumium_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_lumium_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_lumium_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_lumium",
         "thermal:machines/smelter/smelter_lumium_dust",
         "thermal:machines/smelter/smelter_lumium_plate_to_ingot",
         //Enderium
         "enderio:smelting/thermal/smelting/enderium_ingot_from_dust_smelting",
-        "thermal:machines/press/unpacking/press_enderium_unpacking",
-        "thermal:machines/press/packing3x3/press_enderium_nugget_packing",
+        "thermal:machines/press/packing3x3/press_enderium_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_enderium_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_enderium_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_enderium_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_enderium",
         "thermal:machines/smelter/smelter_enderium_dust",
         "thermal:machines/smelter/smelter_enderium_plate_to_ingot",
         //Steel
         "enderio:smelting/mekanism/processing/steel/ingot/from_dust_smelting",
-        "thermal:machines/press/unpacking/press_steel_unpacking",
-        "thermal:machines/press/packing/press_steel_nugget_packing",
+        "thermal:machines/press/packing3x3/press_steel_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_steel_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_steel_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_steel_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_steel",
         "thermal:machines/smelter/smelter_steel_dust",
+        "thermal:machines/smelter/smelter_steel_plate_to_ingot",
         //Rose Gold
         "enderio:smelting/thermal/smelting/rose_gold_ingot_from_dust_smelting",
-        "thermal:machines/press/unpacking/press_rose_gold_unpacking",
-        "thermal:machines/press/packing/press_rose_gold_nugget_packing",
+        "thermal:machines/press/packing3x3/press_rose_gold_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_rose_gold_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_rose_gold_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_rose_gold_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_rose_gold",
         "thermal:machines/smelter/smelter_rose_gold_dust",
+        "thermal:machines/smelter/smelter_rose_gold_plate_to_ingot",
         //Bronze
         "enderio:smelting/mekanism/processing/bronze/ingot/from_dust_smelting",
-        "thermal:machines/press/unpacking/press_bronze_unpacking",
-        "thermal:machines/press/packing3x3/press_bronze_nugget_packing",
+        "thermal:machines/press/packing3x3/press_bronze_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_bronze_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_bronze_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_bronze_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_bronze",
         "thermal:machines/smelter/smelter_bronze_dust",
         "thermal:machines/smelter/smelter_bronze_plate_to_ingot",
         //Electrum
         "enderio:smelting/immersiveengineering/smelting/ingot_electrum_from_dust",
-        "thermal:machines/press/unpacking/press_electrum_unpacking",
-        "thermal:machines/press/packing3x3/press_electrum_nugget_packing",
+        "thermal:machines/press/packing3x3/press_electrum_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_electrum_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_electrum_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_electrum_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_electrum",
         "thermal:machines/smelter/smelter_electrum_dust",
         "thermal:machines/smelter/smelter_electrum_plate_to_ingot",
         //Invar
         "enderio:smelting/thermal/smelting/invar_ingot_from_dust_smelting",
-        "thermal:machines/press/unpacking/press_invar_unpacking",
-        "thermal:machines/press/packing3x3/press_invar_nugget_packing",
+        "thermal:machines/press/packing3x3/press_invar_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_invar_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_invar_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_invar_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_invar",
         "thermal:machines/smelter/smelter_invar_dust",
         "thermal:machines/smelter/smelter_invar_plate_to_ingot",
         //Constantan
         "enderio:smelting/immersiveengineering/smelting/ingot_constantan_from_dust",
-        "thermal:machines/press/unpacking/press_constantan_unpacking",
-        "thermal:machines/press/packing3x3/press_constantan_nugget_packing",
+        "thermal:machines/press/packing3x3/press_constantan_packing", //Ingot to Block
+        "thermal:machines/press/packing3x3/press_constantan_nugget_packing", //Nugget to Ingot
+        "thermal:machines/press/unpacking/press_constantan_unpacking", //Block to Ingot
+        "thermal:machines/press/unpacking/press_constantan_nugget_unpacking", //Ingot to Nugget
         "thermal:machines/smelter/smelter_alloy_constantan",
         "thermal:machines/smelter/smelter_constantan_dust",
         "thermal:machines/smelter/smelter_constantan_plate_to_ingot",
@@ -82,15 +102,18 @@ ServerEvents.recipes((event) => {
         ////Thermal Endergy
         //Prismalium
         "enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
-        "thermalendergy:machine/press/unpacking/press_prismalium_unpacking",
+        "thermalendergy:machine/press/packing3x3/press_prismalium_packing", //Ingot to Block
+        "thermalendergy:machine/press/unpacking/press_prismalium_unpacking", //Block to Ingot
         "thermalendergy:machine/smelter/prismalium_ingot",
         //Melodium
         "enderio:smelting/thermalendergy/melodium_ingot_from_dust",
-        "thermalendergy:machine/press/unpacking/press_melodium_unpacking",
+        "thermalendergy:machine/press/packing3x3/press_melodium_packing", //Ingot to Block
+        "thermalendergy:machine/press/unpacking/press_melodium_unpacking", //Block to Ingot
         "thermalendergy:machine/smelter/melodium_ingot",
         //Stellarium
         "enderio:smelting/thermalendergy/stellarium_ingot_from_dust",
-        "thermalendergy:machine/press/unpacking/press_stellarium_unpacking",
+        "thermalendergy:machine/press/packing3x3/press_stellarium_packing", //Ingot to Block
+        "thermalendergy:machine/press/unpacking/press_stellarium_unpacking", //Block to Ingot
         "thermalendergy:machine/smelter/stellarium_ingot",
     ];
     RmAlloyID.forEach((id) => event.remove({ id: id }));
@@ -351,12 +374,12 @@ ServerEvents.recipes((event) => {
         if (recipe.dust) AlloySmelter(recipe);
 
         //Thermal - Press
-        //if (recipe.nugget) AlloyThermalPack(recipe.ingot, recipe.nugget); //Nugget to Ingot
-        //if (recipe.block) AlloyThermalPack(recipe.block, recipe.ingot); //Ingot to Block
+        if (recipe.nugget) AlloyThermalPack(recipe.ingot, recipe.nugget); //Nugget to Ingot
+        if (recipe.block) AlloyThermalPack(recipe.block, recipe.ingot); //Ingot to Block
 
         //Thermal - unPress
-        //if (recipe.nugget) AlloyThermalUnpack(recipe.nugget, recipe.ingot); //Ingot to Nugget
-        //if (recipe.block) AlloyThermalUnpack(recipe.ingot, recipe.block); //Block to Ingot
+        if (recipe.nugget) AlloyThermalUnpack(recipe.nugget, recipe.ingot); //Ingot to Nugget
+        if (recipe.block) AlloyThermalUnpack(recipe.ingot, recipe.block); //Block to Ingot
     });
     //#endregion
 });
