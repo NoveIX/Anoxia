@@ -56,18 +56,18 @@ ServerEvents.recipes((event) => {
         E: "#forge:ingots/ender_ingot",
         H: "immersiveengineering:connector_hv",
         B: "actuallyadditions:powered_furnace",
-        V: "enderio:void_chassis",
+        V: "industrialforegoing:machine_frame_simple",
         G: "#forge:gears/rose_gold",
         C: "thermal:energy_cell",
     });
 
     //Alloy
     event.remove({ output: "enderio:alloy_smelter" });
-    event.shaped("enderio:alloy_smelter", ["DAD", "AMA", "GBG"], { D: "#forge:ingots/dark_steel", A: "enderio:primitive_alloy_smelter", M: "thermal:machine_frame", G: "#forge:gears/dark_steel", B: "create:basin" });
+    event.shaped("enderio:alloy_smelter", ["DAD", "AMA", "GBG"], { D: "#forge:ingots/dark_steel", A: "enderio:primitive_alloy_smelter", M: "enderio:void_chassis", G: "#forge:gears/dark_steel", B: "create:basin" });
 
     //SAG
     event.remove({ output: "enderio:sag_mill" });
-    event.shaped("enderio:sag_mill", ["EEE", "DMD", "GCG"], { E: "#forge:ingots/energetic_alloy", D: "#forge:ingots/dark_steel", M: "thermal:machine_frame", G: "#forge:gears/dark_steel", C: "actuallyadditions:crusher_double" });
+    event.shaped("enderio:sag_mill", ["EEE", "DMD", "GCG"], { E: "#forge:ingots/energetic_alloy", D: "#forge:ingots/dark_steel", M: "enderio:void_chassis", G: "#forge:gears/dark_steel", C: "actuallyadditions:crusher_double" });
 
     //// # =================================================================================================== #
 

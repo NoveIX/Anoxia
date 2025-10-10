@@ -46,7 +46,10 @@ ServerEvents.recipes((event) => {
         { get: "pneumaticcraft:oil", put: "thermal:crude_oil" }, //Reverse
 
         { get: "immersiveengineering:biodiesel", put: "pneumaticcraft:biodiesel" },
-        { get: "pneumaticcraft:oil", put: "thermal:crude_oil" }, //Reverse
+        { get: "pneumaticcraft:biodiesel", put: "immersiveengineering:biodiesel" }, //Reverse
+
+        { get: "industrialforegoing:latex", put: "thermal:latex" },
+        { get: "thermal:latex", put: "industrialforegoing:latex" }, //Reverse
     ];
     RefineryPattern.forEach((recipe) => {
         event.custom({

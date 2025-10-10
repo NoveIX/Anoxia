@@ -155,6 +155,8 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
+    //#region Crafting
+
     //Flux Coil
     event.remove({ output: "thermal:rf_coil" });
     event.shaped("thermal:rf_coil", ["  A", " B ", "A  "], { A: "#forge:ingots/red_alloy", B: "#forge:ingots/electrum" });
@@ -162,17 +164,23 @@ ServerEvents.recipes((event) => {
     //Coal Coke
     event.shapeless(Item.of("thermal:coal_coke", 9), ["#forge:storage_blocks/coal_coke"]);
 
+    //Servo
+    event.remove({ output: "thermal:redstone_servo" });
+    event.shaped("thermal:redstone_servo", ["A A", " B ", "A A"], { A: "minecraft:redstone", B: "minecraft:iron_ingot" });
+
+    ////Machine
+
     //Machine Frame
     event.remove({ output: "thermal:machine_frame" });
     event.shaped("thermal:machine_frame", ["ABA", "BCB", "ABA"], { A: "#forge:gears/netherite", B: "thermal:obsidian_glass", C: "industrialforegoing:machine_frame_advanced" });
 
     //Energetic Infuser
     event.remove({ output: "thermal:charge_bench" });
-    event.shaped("thermal:charge_bench", ["AAA", "BCB", "DED"], { A: "thermal:rf_coil", B: "thermal:energy_cell", C: "thermal:machine_frame", D: "#forge:gears/steel", E: "#forge:storage_blocks/redstone_alloy" });
+    event.shaped("thermal:charge_bench", ["AAA", "BCB", "DED"], { A: "thermal:rf_coil", B: "thermal:energy_cell", C: "thermal:machine_frame", D: "#forge:gears/electrum", E: "#forge:storage_blocks/redstone_alloy" });
 
     //Redstone Furnace
     event.remove({ output: "thermal:machine_furnace" });
-    event.shaped("thermal:machine_furnace", [" A ", "BCB", "DED"], { A: "#forge:ingots/electrotine_alloy", B: "ironfurnaces:diamond_furnace", C: "thermal:machine_frame", D: "#forge:gears/copper", E: "thermal:rf_coil" });
+    event.shaped("thermal:machine_furnace", [" A ", "BCB", "DED"], { A: ["#forge:ingots/red_alloy", "#forge:ingots/electrotine_alloy"], B: "ironfurnaces:diamond_furnace", C: "thermal:machine_frame", D: "#forge:gears/gold", E: "thermal:rf_coil" });
 
     //Sawmill
     event.remove({ output: "thermal:machine_sawmill" });
@@ -180,11 +188,11 @@ ServerEvents.recipes((event) => {
 
     //Pulverizer
     event.remove({ output: "thermal:machine_pulverizer" });
-    event.shaped("thermal:machine_pulverizer", [" A ", "BCB", "DED"], { A: "minecraft:piston", B: "create:crushing_wheel", C: "thermal:machine_frame", D: "#forge:gears/steel", E: "thermal:rf_coil" });
+    event.shaped("thermal:machine_pulverizer", [" A ", "BCB", "DED"], { A: "minecraft:flint", B: "enderio:sag_mill", C: "thermal:machine_frame", D: "#forge:gears/steel", E: "thermal:rf_coil" });
 
     //Induction Smelter
     event.remove({ output: "thermal:machine_smelter" });
-    event.shaped("thermal:machine_smelter", [" A ", "BCB", "DED"], { A: "enderio:alloy_smelter", B: "#forge:sand", C: "thermal:machine_frame", D: "#forge:gears/invar", E: "thermal:rf_coil" });
+    event.shaped("thermal:machine_smelter", [" A ", "BCB", "DED"], { A: "minecraft:fire_charge", B: "enderio:alloy_smelter", C: "thermal:machine_frame", D: "#forge:gears/enderium", E: "thermal:rf_coil" });
 
     //Phytogenic Insolator
     event.remove({ output: "thermal:machine_insolator" });
@@ -192,7 +200,7 @@ ServerEvents.recipes((event) => {
 
     //Centrifugal Separator
     event.remove({ output: "thermal:machine_centrifuge" });
-    event.shaped("thermal:machine_centrifuge", [" A ", "BCB", "DED"], { A: "minecraft:compass", B: "#forge:plates/constantan", C: "thermal:machine_frame", D: "#forge:gears/rose_gold", E: "thermal:rf_coil" });
+    event.shaped("thermal:machine_centrifuge", [" A ", "BCB", "DED"], { A: "minecraft:compass", B: "#forge:plates/constantan", C: "thermal:machine_frame", D: "#forge:gears/tin", E: "thermal:rf_coil" });
 
     //Multiservo Press
     event.remove({ output: "thermal:machine_press" });
@@ -200,11 +208,115 @@ ServerEvents.recipes((event) => {
 
     //Magma Crucible
     event.remove({ output: "thermal:machine_crucible" });
-    event.shaped("thermal:machine_crucible", [" A ", "BCB", "DED"], { A: "thermal:obsidian_glass", B: "immersiveengineering:blastbrick_reinforced", C: "thermal:machine_frame", D: "#forge:gears/diamond", E: "thermal:rf_coil" });
+    event.shaped("thermal:machine_crucible", [" A ", "BCB", "DED"], { A: "thermal:obsidian_glass", B: "immersiveengineering:blastbrick_reinforced", C: "thermal:machine_frame", D: "#forge:gears/netherite", E: "thermal:rf_coil" });
 
     //Blast Chiller
     event.remove({ output: "thermal:machine_chiller" });
     event.shaped("thermal:machine_chiller", [" A ", "BCB", "DED"], { A: "actuallyadditions:empowered_diamatine_crystal", B: "#forge:ices/dry", C: "thermal:machine_frame", D: "#forge:gears/sapphire", E: "thermal:rf_coil" });
+
+    //Fractionating Still
+    event.remove({ output: "thermal:machine_refinery" });
+    event.shaped("thermal:machine_refinery", [" A ", "BCB", "DED"], { A: "minecraft:campfire", B: "portabletanks:basic_portable_tank", C: "thermal:machine_frame", D: "#forge:gears/diamond", E: "thermal:rf_coil" });
+
+    //Pyrolyzer
+    event.remove({ output: "thermal:machine_pyrolyzer" });
+    event.shaped("thermal:machine_pyrolyzer", [" A ", "BCB", "DED"], { A: "#forge:coal_coke", B: "immersiveengineering:cokebrick", C: "thermal:machine_frame", D: "#forge:gears/iron", E: "thermal:rf_coil" });
+
+    //Fluid Encapsulator
+    event.remove({ output: "thermal:machine_bottler" });
+    event.shaped("thermal:machine_bottler", [" A ", "BCB", "DED"], { A: "minecraft:piston", B: "minecraft:bucket", C: "thermal:machine_frame", D: "#forge:gears/bronze", E: "thermal:rf_coil" });
+
+    //Alchemical Imbuer
+    event.remove({ output: "thermal:machine_brewer" });
+    event.shaped("thermal:machine_brewer", [" A ", "BCB", "DED"], { A: "minecraft:brewing_stand", B: "minecraft:glass_bottle", C: "thermal:machine_frame", D: "#forge:gears/silver", E: "thermal:rf_coil" });
+
+    //Crystallizer
+    event.remove({ output: "thermal:machine_crystallizer" });
+    event.shaped("thermal:machine_crystallizer", [" A ", "BCB", "DED"], { A: "#create:polished_rose_quartz", B: "#forge:plates/iron", C: "thermal:machine_frame", D: "#forge:gears/ruby", E: "thermal:rf_coil" });
+
+    //Sequential Fabricator
+    event.remove({ output: "thermal:machine_crafter" });
+    event.shaped("thermal:machine_crafter", [" A ", "BCB", "DED"], { A: "quark:crafter", B: "enderio:crafter", C: "thermal:machine_frame", D: "#forge:gears/quartz", E: "thermal:rf_coil" });
+
+    ////Dynamo
+
+    //Stirling
+    event.remove({ output: "thermal:dynamo_stirling" });
+    event.shaped("thermal:dynamo_stirling", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/iron", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    //Compression
+    event.remove({ output: "thermal:dynamo_compression" });
+    event.shaped("thermal:dynamo_compression", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/bronze", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    //Magmatic
+    event.remove({ output: "thermal:dynamo_magmatic" });
+    event.shaped("thermal:dynamo_magmatic", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/invar", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    //Numismatic
+    event.remove({ output: "thermal:dynamo_numismatic" });
+    event.shaped("thermal:dynamo_numismatic", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/constantan", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    //Lapidary
+    event.remove({ output: "thermal:dynamo_lapidary" });
+    event.shaped("thermal:dynamo_lapidary", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/lapis", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    //Disenchantment
+    event.remove({ output: "thermal:dynamo_disenchantment" });
+    event.shaped("thermal:dynamo_disenchantment", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/emerald", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    //Gourmand
+    event.remove({ output: "thermal:dynamo_gourmand" });
+    event.shaped("thermal:dynamo_gourmand", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/gold", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
+
+    ////Component
+
+    //15X /MS
+    event.remove({ output: "thermal_more:15x_upgrade_augment" });
+    event.shaped("thermal_more:15x_upgrade_augment", ["ABA", "CDE", "FGF"], { A: "#forge:dyes/purple", B: "#forge:dyes/magenta", C: "thermal:upgrade_augment_1", D: "thermalendergy:endergy_upgrade_3", E: "thermal:upgrade_augment_2", F: "#forge:gears/melodium", G: "#forge:gears/stellarium" });
+    event.shaped("thermal_more:15x_upgrade_augment", ["ABC", "DEF", "GHG"], {
+        A: "#forge:dyes/purple",
+        B: "thermal:upgrade_augment_2",
+        C: "#forge:dyes/magenta",
+        D: "thermal:upgrade_augment_1",
+        E: "thermalendergy:endergy_upgrade_1",
+        F: "thermal:upgrade_augment_3",
+        G: "#forge:gears/melodium",
+        H: "#forge:gears/stellarium",
+    });
+
+    //20X
+    event.remove({ output: "thermal_more:20x_upgrade_augment" });
+    event.shaped("thermal_more:20x_upgrade_augment", ["ABA", "CDE", "FGF"], { A: "#forge:dyes/lime", B: "#forge:dyes/green", C: "thermal:upgrade_augment_1", D: "thermal_more:15x_upgrade_augment", E: "thermal:upgrade_augment_2", F: "#forge:gears/melodium", G: "#forge:gears/stellarium" });
+
+    //25X /S
+    event.remove({ output: "thermal_more:25x_upgrade_augment" });
+    event.shaped("thermal_more:25x_upgrade_augment", ["ABA", "CDE", "FFF"], { A: "#forge:dyes/lime", B: "#forge:dyes/green", C: "thermal:upgrade_augment_1", D: "thermal_more:20x_upgrade_augment", E: "thermal:upgrade_augment_2", F: "#forge:gears/stellarium" });
+
+    //30X
+    event.remove({ output: "thermal_more:30x_upgrade_augment" });
+    event.shaped("thermal_more:30x_upgrade_augment", ["AAA", "BCB", "BCB"], { A: "#forge:dyes/light_blue", B: "#forge:gears/stellarium", C: "thermal_more:15x_upgrade_augment" });
+
+    //35X /SN
+    event.remove({ output: "thermal_more:35x_upgrade_augment" });
+    event.shaped("thermal_more:35x_upgrade_augment", ["ABA", "CDC", "FEF"], { A: "#forge:dyes/pink", B: "#forge:dyes/magenta", C: "#forge:gears/stellarium", D: "thermal_more:15x_upgrade_augment", E: "thermal_more:20x_upgrade_augment", F: "avaritia:neutron_gear" });
+
+    //40X
+    event.remove({ output: "thermal_more:40x_upgrade_augment" });
+    event.shaped("thermal_more:40x_upgrade_augment", ["ABA", "CDC", "EDE"], { A: "#forge:dyes/red", B: "#forge:dyes/black", C: "#forge:gears/stellarium", D: "thermal_more:20x_upgrade_augment", E: "avaritia:neutron_gear" });
+    event.shaped("thermal_more:40x_upgrade_augment", ["ABA", "CDC", "EFE"], { A: "#forge:dyes/red", B: "#forge:dyes/black", C: "#forge:gears/stellarium", D: "thermal_more:15x_upgrade_augment", E: "avaritia:neutron_gear", F: "thermal_more:25x_upgrade_augment" });
+
+    //45X /N
+    event.remove({ output: "thermal_more:45x_upgrade_augment" });
+    event.shaped("thermal_more:45x_upgrade_augment", ["ABA", "CDC", "CEC"], { A: "#forge:dyes/green", B: "#forge:dyes/black", C: "avaritia:neutron_gear", D: "thermal_more:15x_upgrade_augment", E: "thermal_more:30x_upgrade_augment" });
+    event.shaped("thermal_more:45x_upgrade_augment", ["ABA", "CDC", "CEC"], { A: "#forge:dyes/green", B: "#forge:dyes/black", C: "avaritia:neutron_gear", D: "thermal_more:20x_upgrade_augment", E: "thermal_more:25x_upgrade_augment" });
+
+    //50X
+    event.remove({ output: "thermal_more:mega_upgrade_augment" });
+    event.shaped("thermal_more:mega_upgrade_augment", ["AAA", "BCB", "BCB"], { A: "#forge:dyes/yellow", B: "avaritia:neutron_gear", C: "thermal_more:25x_upgrade_augment" });
+    event.shaped("thermal_more:mega_upgrade_augment", ["AAA", "BCB", "BDB"], { A: "#forge:dyes/yellow", B: "avaritia:neutron_gear", C: "thermal_more:15x_upgrade_augment", D: "thermal_more:35x_upgrade_augment" });
+    event.shaped("thermal_more:mega_upgrade_augment", ["AAA", "BCB", "BDB"], { A: "#forge:dyes/yellow", B: "avaritia:neutron_gear", C: "thermal_more:20x_upgrade_augment", D: "thermal_more:30x_upgrade_augment" });
+
+    //#endregion
 
     //// # =================================================================================================== #
 

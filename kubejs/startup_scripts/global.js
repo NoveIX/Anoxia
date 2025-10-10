@@ -69,10 +69,7 @@ global.items.GAME_FullRm = [
     "create:golden_sheet",
 
     //Create Addition
-    "createaddition:copper_rod",
     "createaddition:iron_rod",
-    "createaddition:gold_rod",
-    "createaddition:electrum_rod",
     "create:copper_sheet",
     "create:iron_sheet",
     "create:golden_sheet",
@@ -126,6 +123,12 @@ global.items.GAME_FullRm = [
     "enderio:powdered_cobalt",
     "enderio:powdered_lapis_lazuli",
     "enderio:powdered_quartz",
+    "enderio:light",
+    "enderio:light_inverted",
+    "enderio:powered_light",
+    "enderio:powered_light_inverted",
+    "enderio:powered_light_wireless",
+    "enderio:powered_light_inverted_wireless",
 
     //ExNihilo Sequentia
     "exnihilosequentia:andesite_crook",
