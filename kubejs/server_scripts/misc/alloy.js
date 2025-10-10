@@ -201,14 +201,14 @@ ServerEvents.recipes((event) => {
 
     function AlloySmelter(recipe) {
         //Furnace
-        event.smelting(recipe.get, `#${recipe.dust}`);
+        event.smelting(recipe.ingot, `#${recipe.dust}`);
 
         //Immersive
         event.custom({
             type: "immersiveengineering:arc_furnace",
             additives: [],
             input: { tag: recipe.dust },
-            results: [{ item: recipe.get }],
+            results: [{ item: recipe.ingot }],
             energy: 2000,
             time: 100,
         });
@@ -317,44 +317,46 @@ ServerEvents.recipes((event) => {
     //#region Ingot
     const IngotPattern = [
         //Create
-        { get: "create:andesite_alloy", block: "forge:storage_blocks/andesite_alloy" },
+        { ingot: "create:andesite_alloy", block: "forge:storage_blocks/andesite_alloy" },
 
         //EnderIO
-        { get: "enderio:copper_alloy_ingot", nugget: "forge:nuggets/copper_alloy", block: "forge:storage_blocks/copper_alloy" },
-        { get: "enderio:energetic_alloy_ingot", nugget: "forge:nuggets/energetic_alloy", block: "forge:storage_blocks/energetic_alloy" },
-        { get: "enderio:vibrant_alloy_ingot", nugget: "forge:nuggets/vibrant_alloy", block: "forge:storage_blocks/vibrant_alloy" },
-        { get: "enderio:redstone_alloy_ingot", nugget: "forge:nuggets/redstone_alloy", block: "forge:storage_blocks/redstone_alloy" },
-        { get: "enderio:conductive_alloy_ingot", nugget: "forge:nuggets/conductive_alloy", block: "forge:storage_blocks/conductive_alloy" },
-        { get: "enderio:pulsating_alloy_ingot", nugget: "forge:nuggets/pulsating_alloy", block: "forge:storage_blocks/pulsating_alloy" },
-        { get: "enderio:dark_steel_ingot", nugget: "forge:nuggets/dark_steel", block: "forge:storage_blocks/dark_steel" },
-        { get: "enderio:soularium_ingot", nugget: "forge:nuggets/soularium", block: "forge:storage_blocks/soularium" },
-        { get: "enderio:end_steel_ingot", nugget: "forge:nuggets/end_steel", block: "forge:storage_blocks/end_steel" },
+        { ingot: "enderio:copper_alloy_ingot", nugget: "forge:nuggets/copper_alloy", block: "forge:storage_blocks/copper_alloy" },
+        { ingot: "enderio:energetic_alloy_ingot", nugget: "forge:nuggets/energetic_alloy", block: "forge:storage_blocks/energetic_alloy" },
+        { ingot: "enderio:vibrant_alloy_ingot", nugget: "forge:nuggets/vibrant_alloy", block: "forge:storage_blocks/vibrant_alloy" },
+        { ingot: "enderio:redstone_alloy_ingot", nugget: "forge:nuggets/redstone_alloy", block: "forge:storage_blocks/redstone_alloy" },
+        { ingot: "enderio:conductive_alloy_ingot", nugget: "forge:nuggets/conductive_alloy", block: "forge:storage_blocks/conductive_alloy" },
+        { ingot: "enderio:pulsating_alloy_ingot", nugget: "forge:nuggets/pulsating_alloy", block: "forge:storage_blocks/pulsating_alloy" },
+        { ingot: "enderio:dark_steel_ingot", nugget: "forge:nuggets/dark_steel", block: "forge:storage_blocks/dark_steel" },
+        { ingot: "enderio:soularium_ingot", nugget: "forge:nuggets/soularium", block: "forge:storage_blocks/soularium" },
+        { ingot: "enderio:end_steel_ingot", nugget: "forge:nuggets/end_steel", block: "forge:storage_blocks/end_steel" },
 
         //Thermal
-        { get: "thermal:signalum_ingot", dust: "forge:dusts/signalum", nugget: "forge:nuggets/signalum", block: "forge:storage_blocks/signalum" },
-        { get: "thermal:lumium_ingot", dust: "forge:dusts/lumium", nugget: "forge:nuggets/lumium", block: "forge:storage_blocks/lumium" },
-        { get: "thermal:enderium_ingot", dust: "forge:dusts/enderium", nugget: "forge:nuggets/enderium", block: "forge:storage_blocks/enderium" },
-        { get: "thermal:steel_ingot", dust: "forge:dusts/steel", nugget: "forge:nuggets/steel", block: "forge:storage_blocks/steel" },
-        { get: "thermal:rose_gold_ingot", dust: "forge:dusts/rose_gold", nugget: "forge:nuggets/rose_gold", block: "forge:storage_blocks/rose_gold" },
-        { get: "thermal:bronze_ingot", dust: "forge:dusts/bronze", nugget: "forge:nuggets/bronze", block: "forge:storage_blocks/bronze" },
-        { get: "thermal:electrum_ingot", dust: "forge:dusts/electrum", nugget: "forge:nuggets/electrum", block: "forge:storage_blocks/electrum" },
-        { get: "thermal:invar_ingot", dust: "forge:dusts/invar", nugget: "forge:nuggets/invar", block: "forge:storage_blocks/invar" },
-        { get: "thermal:constantan_ingot", dust: "forge:dusts/constantan", nugget: "forge:nuggets/constantan", block: "forge:storage_blocks/constantan" },
+        { ingot: "thermal:signalum_ingot", dust: "forge:dusts/signalum", nugget: "forge:nuggets/signalum", block: "forge:storage_blocks/signalum" },
+        { ingot: "thermal:lumium_ingot", dust: "forge:dusts/lumium", nugget: "forge:nuggets/lumium", block: "forge:storage_blocks/lumium" },
+        { ingot: "thermal:enderium_ingot", dust: "forge:dusts/enderium", nugget: "forge:nuggets/enderium", block: "forge:storage_blocks/enderium" },
+        { ingot: "thermal:steel_ingot", dust: "forge:dusts/steel", nugget: "forge:nuggets/steel", block: "forge:storage_blocks/steel" },
+        { ingot: "thermal:rose_gold_ingot", dust: "forge:dusts/rose_gold", nugget: "forge:nuggets/rose_gold", block: "forge:storage_blocks/rose_gold" },
+        { ingot: "thermal:bronze_ingot", dust: "forge:dusts/bronze", nugget: "forge:nuggets/bronze", block: "forge:storage_blocks/bronze" },
+        { ingot: "thermal:electrum_ingot", dust: "forge:dusts/electrum", nugget: "forge:nuggets/electrum", block: "forge:storage_blocks/electrum" },
+        { ingot: "thermal:invar_ingot", dust: "forge:dusts/invar", nugget: "forge:nuggets/invar", block: "forge:storage_blocks/invar" },
+        { ingot: "thermal:constantan_ingot", dust: "forge:dusts/constantan", nugget: "forge:nuggets/constantan", block: "forge:storage_blocks/constantan" },
 
         //Thermal Endergy
-        { get: "thermalendergy:prismalium_ingot", dust: "forge:dusts/prismalium", nugget: "forge:nuggets/prismalium", block: "forge:storage_blocks/prismalium" },
-        { get: "thermalendergy:melodium_ingot", dust: "forge:dusts/melodium", nugget: "forge:nuggets/melodium", block: "forge:storage_blocks/melodium" },
-        { get: "thermalendergy:stellarium_ingot", dust: "forge:dusts/stellarium", nugget: "forge:nuggets/stellarium", block: "forge:storage_blocks/stellarium" },
+        { ingot: "thermalendergy:prismalium_ingot", dust: "forge:dusts/prismalium", nugget: "forge:nuggets/prismalium", block: "forge:storage_blocks/prismalium" },
+        { ingot: "thermalendergy:melodium_ingot", dust: "forge:dusts/melodium", nugget: "forge:nuggets/melodium", block: "forge:storage_blocks/melodium" },
+        { ingot: "thermalendergy:stellarium_ingot", dust: "forge:dusts/stellarium", nugget: "forge:nuggets/stellarium", block: "forge:storage_blocks/stellarium" },
     ];
     IngotPattern.forEach((recipe) => {
         ////Smelting
-        if (recipe.dust && recipe.dust.startsWith("forge:dusts/")) AlloySmelter(recipe);
+        if (recipe.dust) AlloySmelter(recipe);
 
         //Thermal - Press
-        //if (recipe.nugget && recipe.nugget.startsWith("forge:nuggets/")) AlloyThermalPack(recipe);
+        //if (recipe.nugget) AlloyThermalPack(recipe.ingot, recipe.nugget); //Nugget to Ingot
+        //if (recipe.block) AlloyThermalPack(recipe.block, recipe.ingot); //Ingot to Block
 
         //Thermal - unPress
-        //if (recipe.block && recipe.block.startsWith("forge:storage_blocks/")) AlloyThermalUnpack(recipe);
+        //if (recipe.nugget) AlloyThermalUnpack(recipe.nugget, recipe.ingot); //Ingot to Nugget
+        //if (recipe.block) AlloyThermalUnpack(recipe.ingot, recipe.block); //Block to Ingot
     });
     //#endregion
 });
