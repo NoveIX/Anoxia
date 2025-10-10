@@ -45,7 +45,7 @@ ServerEvents.tags("item", (event) => {
 
         //// # =================================================================================================== #
 
-        ////Forge
+        //#region Forge
         { tag: "forge:plastic", item: "pneumaticcraft:plastic" },
         { tag: "forge:dust", item: "exnihilosequentia:dust" },
         { tag: "forge:flour", item: "enderio:flour" },
@@ -115,6 +115,7 @@ ServerEvents.tags("item", (event) => {
 
 //// # =================================================================================================== #
 
+//#region Block
 ServerEvents.tags("block", (event) => {
     const MasterfulMachineryPattern = [
         ////MM
@@ -182,16 +183,16 @@ ServerEvents.tags("block", (event) => {
         event.add(recipe.tag, recipe.block);
     });
 });
+//#endregion
 
 //// # =================================================================================================== #
 
+//#region Fluid
 ServerEvents.tags("fluid", (event) => {
     const TagPattern = [
         { tag: "anoxia:water", fluid: "minecraft:water" },
         { tag: "anoxia:refined_canola", fluid: "actuallyadditions:refined_canola_oil" },
         { tag: "anoxia:nutrient_distillation", fluid: "enderio:nutrient_distillation" },
-
-        //#region Anoxia
     ];
     TagPattern.forEach((recipe) => {
         event.add(recipe.tag, recipe.fluid);
@@ -211,9 +212,11 @@ ServerEvents.tags("fluid", (event) => {
         event.removeAllTagsFrom(id);
     });
 });
+//#endregion
 
 //// # =================================================================================================== #
 
+//#region Fluid
 ServerEvents.tags("item", (event) => {
     const TagsJAOPCAattern = [
         //JAOPCA Integration
@@ -238,3 +241,4 @@ ServerEvents.tags("block", (event) => {
         event.add(recipe.tag, recipe.item);
     });
 });
+//#endregion

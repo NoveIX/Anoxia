@@ -39,7 +39,13 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Imbuement
-    const ImbuementPattern = [{ get: "anoxia:source_integration_processor", put: { item: "ae2:engineering_processor" }, putN: 1, magic: 5000 }];
+    const ImbuementPattern = [
+        //AE 2
+        { get: "anoxia:source_integration_processor", put: { item: "ae2:engineering_processor" }, putN: 1, magic: 10000 },
+
+        //Mekanism
+        { get: "mekanism:advanced_tier_installer", put: { item: "mekanism:basic_tier_installer" }, putN: 1, magic: 20000 },
+    ];
     ImbuementPattern.forEach((recipe) => {
         event.custom({
             type: "ars_nouveau:imbuement",

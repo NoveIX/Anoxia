@@ -49,6 +49,9 @@ ServerEvents.recipes((event) => {
 
         //AE2
         { get: { item: "anoxia:mana_integration_processor" }, put: { item: "ae2:engineering_processor" }, magic: 500000, alchemy: { type: "block", block: "ae2:dense_energy_cell" } },
+
+        //Mekanism
+        { get: { item: "mekanism:elite_tier_installer" }, put: { item: "mekanism:advanced_tier_installer" }, magic: 1000000, alchemy: { type: "block", block: "mekanism:elite_energy_cube" } },
     ];
     ManaInfusionPattern.forEach((recipe) => {
         if (recipe.alchemy) {

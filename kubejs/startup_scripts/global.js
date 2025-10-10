@@ -488,6 +488,9 @@ global.items.JEI_Hide = [
     //Mekanism
     "mekanism:creative_chemical_tank",
     "mekanism:creative_fluid_tank",
+
+    //EnderIO
+    '#enderio:clear_glass_p',
 ];
 //#endregion
 
