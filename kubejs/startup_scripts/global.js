@@ -168,6 +168,8 @@ global.items.GAME_FullRm = [
     "hammerlib:gears/gold",
     "hammerlib:gears/diamond",
     "hammerlib:gears/netherite",
+    "hammerlib:test_machine",
+    "hammerlib:wrench",
 
     //Immersive Engineering
     "immersiveengineering:coal_coke",
@@ -239,6 +241,7 @@ global.items.GAME_FullRm = [
     "mekanism:ultimate_injecting_factory",
     "mekanism:ultimate_infusing_factory",
     "mekanism:ultimate_sawing_factory",
+    "mekanism:dust_quartz",
 
     //MysticalAgriculture
     "mysticalagriculture:machine_frame",
@@ -477,6 +480,51 @@ global.items.JEI_Add = [
     "immersiveengineering:storage_electrum",
     "immersiveengineering:storage_steel",
 
+    //EnderIO
+    "enderio:clear_glass",
+    "enderio:clear_glass_p",
+    "enderio:clear_glass_np",
+    "enderio:clear_glass_m",
+    "enderio:clear_glass_nm",
+    "enderio:clear_glass_a",
+    "enderio:clear_glass_na",
+    "enderio:clear_glass_d",
+    "enderio:clear_glass_dp",
+    "enderio:clear_glass_dnp",
+    "enderio:clear_glass_dm",
+    "enderio:clear_glass_dnm",
+    "enderio:clear_glass_da",
+    "enderio:clear_glass_dna",
+    "enderio:clear_glass_e",
+    "enderio:clear_glass_ep",
+    "enderio:clear_glass_enp",
+    "enderio:clear_glass_em",
+    "enderio:clear_glass_enm",
+    "enderio:clear_glass_ea",
+    "enderio:clear_glass_ena",
+
+    "enderio:fused_quartz",
+    "enderio:fused_quartz_p",
+    "enderio:fused_quartz_np",
+    "enderio:fused_quartz_m",
+    "enderio:fused_quartz_nm",
+    "enderio:fused_quartz_a",
+    "enderio:fused_quartz_na",
+    "enderio:fused_quartz_d",
+    "enderio:fused_quartz_dp",
+    "enderio:fused_quartz_dnp",
+    "enderio:fused_quartz_dm",
+    "enderio:fused_quartz_dnm",
+    "enderio:fused_quartz_da",
+    "enderio:fused_quartz_dna",
+    "enderio:fused_quartz_e",
+    "enderio:fused_quartz_ep",
+    "enderio:fused_quartz_enp",
+    "enderio:fused_quartz_em",
+    "enderio:fused_quartz_enm",
+    "enderio:fused_quartz_ea",
+    "enderio:fused_quartz_ena",
+
     //Mekanism
     "mekanism:creative_chemical_tank",
     "mekanism:creative_fluid_tank",
@@ -490,7 +538,8 @@ global.items.JEI_Hide = [
     "mekanism:creative_fluid_tank",
 
     //EnderIO
-    '#enderio:clear_glass_p',
+    "#enderio:clear_glass",
+    "#enderio:fused_quartz",
 ];
 //#endregion
 

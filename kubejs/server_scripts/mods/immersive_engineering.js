@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = [
         "immersiveengineering:crafting/slag_brick_from_slab",
         "immersiveengineering:crafting/clinker_brick_from_slab",
@@ -47,9 +48,8 @@ ServerEvents.recipes((event) => {
         "immersiveengineering:crafting/sheetmetal_colored_red_from_slab",
         "immersiveengineering:crafting/sheetmetal_colored_black_from_slab",
     ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 

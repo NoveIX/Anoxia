@@ -1,4 +1,34 @@
 ServerEvents.recipes((event) => {
+    //#region func Wire
+    function WireCrafting(recipe) {
+        event.shapeless(recipe.get, [`#${recipe.put}`, "immersiveengineering:wirecutter"]);
+    }
+
+    //// # =================================================================================================== #
+
+    function WireCreate(recipe) {
+        event.custom({
+            type: "createaddition:rolling",
+            input: { tag: recipe.put },
+            result: { item: recipe.get, count: 2 },
+        });
+    }
+
+    //// # =================================================================================================== #
+
+    function WireImmersive(recipe) {
+        event.custom({
+            type: "immersiveengineering:metal_press",
+            energy: recipe.rsflux,
+            input: { tag: recipe.put },
+            mold: "immersiveengineering:mold_wire",
+            result: { base_ingredient: { item: recipe.get }, count: 2 },
+        });
+    }
+    //#endregion
+
+    //// # =================================================================================================== #
+
     //#region Wire
     const WirePattern = [
         //Create
@@ -17,23 +47,13 @@ ServerEvents.recipes((event) => {
         event.remove({ output: recipe.get });
 
         //Crafting
-        event.shapeless(recipe.get, [`#${recipe.put}`, "immersiveengineering:wirecutter"]);
+        WireCrafting(recipe);
 
         //Create
-        event.custom({
-            type: "createaddition:rolling",
-            input: { tag: recipe.put },
-            result: { item: recipe.get, count: 2 },
-        });
+        WireCreate(recipe);
 
         //Immersive
-        event.custom({
-            type: "immersiveengineering:metal_press",
-            energy: recipe.rsflux,
-            input: { tag: recipe.put },
-            mold: "immersiveengineering:mold_wire",
-            result: { base_ingredient: { item: recipe.get }, count: 2 },
-        });
+        WireImmersive(recipe);
     });
     //#endregion
 });

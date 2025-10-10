@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = [
         //Unification
         "enderio:sag_milling/sand", //Rm Silicon
@@ -11,9 +12,8 @@ ServerEvents.recipes((event) => {
         "enderio:sag_milling/lapis_ore", //Rm Powdered Lapis
         "enderio:sag_milling/quartz_ore", //Rm Powdered Quartz
     ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 
@@ -23,7 +23,11 @@ ServerEvents.recipes((event) => {
 
     //Void Chassis
     event.remove({ output: "enderio:void_chassis" });
-    event.shaped("enderio:void_chassis", ["IEI", "ECE", "IEI"], { I: "minecraft:iron_bars", E: "#forge:ingots/electrotine_alloy", C: "powah:capacitor_basic_large" });
+    event.shaped("enderio:void_chassis", ["ABA", "BCB", "ABA"], { A: "minecraft:iron_bars", B: "#forge:ingots/electrotine_alloy", C: "industrialforegoing:machine_frame_simple" });
+
+    //Soul Chassis
+    event.remove({ output: "enderio:ensouled_chassis" });
+    event.shaped("enderio:ensouled_chassis", ["ABA", "BCB", "ABA"], { A: "enderio:ensouled_chassis", B: "#forge:ingots/soularium", C: "industrialforegoing:machine_frame_simple" });
 
     //Wooden Gear
     event.remove({ output: "enderio:wood_gear" });

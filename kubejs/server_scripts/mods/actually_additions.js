@@ -1,8 +1,10 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = ["actuallyadditions:pressing/canola"];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
+
+    //// # =================================================================================================== #
 
     //Powered Funrace
     event.remove({ output: "actuallyadditions:powered_furnace" });

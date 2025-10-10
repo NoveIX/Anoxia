@@ -1,12 +1,12 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = [
         //Unification
         "tacz_c:thin_brass_sheet_cutting",
         "tacz_c:thin_copper_sheet_cutting",
     ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 
@@ -49,6 +49,11 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "createaddition:electrum_spool" });
     event.shaped("createaddition:electrum_spool", ["AAA", "ABA", "AAA"], { A: "#forge:wires/electrum", B: "createaddition:spool" });
     event.shapeless("createaddition:electrum_spool", ["immersiveengineering:wirecoil_electrum"]);
+
+    //Capacitor
+    event.remove({ output: "createaddition:capacitor" });
+    event.shaped("createaddition:capacitor", ["ABC", "D D"], { A: "#forge:plates/copper", B: "minecraft:redstone_torch", C: "#forge:plates/zinc", D: "#forge:wires/iron" });
+    event.shaped("createaddition:capacitor", ["CBA", "D D"], { A: "#forge:plates/copper", B: "minecraft:redstone_torch", C: "#forge:plates/zinc", D: "#forge:wires/iron" });
     //#endregion
 
     //// # =================================================================================================== #

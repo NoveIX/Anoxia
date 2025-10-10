@@ -1,7 +1,9 @@
 {
     "version": 2,
     "active": {
-        "minecraft:smithing": {"hammerlib:gears/netherite": false},
+        "minecraft:smithing": {
+            "hammerlib:gears/netherite": false
+        },
         "minecraft:crafting": {
             "hammerlib:gears/wooden": false,
             "hammerlib:gears/stone": false,

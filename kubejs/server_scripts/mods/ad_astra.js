@@ -3,10 +3,10 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
+    //#region Remove ID
     const RmRecipeID = ["ad_astra:conversion/fuel_from_oil", "ad_astra:nasa_workbench/tier_1_rocket", "ad_astra:nasa_workbench/tier_2_rocket", "ad_astra:nasa_workbench/tier_3_rocket", "ad_astra:nasa_workbench/tier_4_rocket"];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 

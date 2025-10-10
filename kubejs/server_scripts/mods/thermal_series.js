@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = [
         //Unification
         "thermal:machines/pyrolyzer/pyrolyzer_logs", //Rm Creosote
@@ -149,9 +150,8 @@ ServerEvents.recipes((event) => {
         "thermal:compat/mysticalagriculture/insolator_mysticalag_neutronium_seeds",
         "thermal:compat/mysticalagriculture/insolator_mysticalag_nitro_crystal_seeds",
     ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 

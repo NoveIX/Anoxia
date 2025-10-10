@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmDustID = [
         ////Gem
         //Coal
@@ -68,8 +69,6 @@ ServerEvents.recipes((event) => {
         //Sapphire
         "jaopca:immersiveengineering.material_to_dust.sapphire",
         "jaopca:mekanism.material_to_dust.sapphire",
-
-        //// # =================================================================================================== #
 
         ////Metal
         //Iron
@@ -180,8 +179,6 @@ ServerEvents.recipes((event) => {
         "thermal:machines/pulverizer/pulverizer_constantan_ingot_to_dust",
         "thermal:machines/pulverizer/pulverizer_constantan_plate_to_dust",
 
-        //// # =================================================================================================== #
-
         ////Other
         //Ender
         "ae2:inscriber/ender_dust",
@@ -190,8 +187,6 @@ ServerEvents.recipes((event) => {
 
         //Obsidian
         "enderio:sag_milling/obsidian",
-
-        //// # =================================================================================================== #
 
         ////Mod
         //Redstone arsenal
@@ -203,12 +198,149 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/pulverizer/pulverizer_melodium_ingot_to_dust",
         "thermalendergy:machine/pulverizer/pulverizer_stellarium_ingot_to_dust",
     ];
-    RmDustID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmDustID.forEach((id) => event.remove({ id: id }));
+
+    //#endregion
 
     //// # =================================================================================================== #
 
+    //#region func Dust
+    function DustCrafting(recipe) {
+        if (recipe.put.startsWith("forge:ingots")) {
+            event.shapeless(recipe.get, [`#${recipe.put}`, "ae2:tiny_tnt"]);
+        } else {
+            event.shapeless(recipe.get, [`#${recipe.put}`, "immersiveengineering:hammer"]);
+        }
+
+        if (recipe.put === "forge:gems/ruby" || recipe.put === "forge:gems/sapphire") {
+            event.shapeless(recipe.get, [`#${recipe.put}`, "thermal:earth_charge"]);
+        }
+    }
+
+    //// # =================================================================================================== #
+
+    function DustBlood(recipe) {
+        if (recipe.ore) {
+            event.custom({
+                type: "bloodmagic:alchemytable",
+                input: [{ tag: recipe.ore }, { tag: "bloodmagic:arc/cuttingfluid" }],
+                output: { count: 2, item: recipe.get },
+                syphon: 400,
+                ticks: 200,
+                upgradeLevel: 1,
+            });
+        }
+
+        //Blood Magic Pulverizer
+        event.custom({
+            type: "bloodmagic:arc",
+            consumeingredient: false,
+            input: { tag: recipe.put },
+            inputsize: 1,
+            mainoutputchance: 0.0,
+            output: { item: recipe.get },
+            tool: { tag: "bloodmagic:arc/explosive" },
+        });
+    }
+
+    //// # =================================================================================================== #
+
+    function DustCreate(recipe) {
+        if (recipe.create) {
+            event.custom({
+                type: "create:milling",
+                ingredients: [{ tag: recipe.put }],
+                results: recipe.create.get,
+                processingTime: recipe.processing,
+            });
+        } else {
+            event.custom({
+                type: "create:milling",
+                ingredients: [{ tag: recipe.put }],
+                results: [{ item: recipe.get }],
+                processingTime: recipe.processing,
+            });
+        }
+    }
+
+    //// # =================================================================================================== #
+
+    function DustImmersive(recipe) {
+        if (recipe.immersive) {
+            event.custom({
+                type: "immersiveengineering:crusher",
+                input: { tag: recipe.put },
+                result: recipe.immersive.primary,
+                secondaries: recipe.immersive.secondary,
+                energy: recipe.rsflux,
+            });
+        } else {
+            event.custom({
+                type: "immersiveengineering:crusher",
+                input: { tag: recipe.put },
+                result: { base_ingredient: { item: recipe.get } },
+                secondaries: [],
+                energy: recipe.rsflux,
+            });
+        }
+    }
+
+    //// # =================================================================================================== #
+
+    function DustEnderIO(recipe) {
+        if (recipe.enderio) {
+            event.custom({
+                type: "enderio:sag_milling",
+                input: { tag: recipe.put },
+                outputs: recipe.enderio.get,
+                energy: recipe.rsflux,
+                bonus: "none",
+            });
+        } else {
+            event.custom({
+                type: "enderio:sag_milling",
+                input: { tag: recipe.put },
+                outputs: [{ item: recipe.get }],
+                energy: recipe.rsflux,
+                bonus: "none",
+            });
+        }
+    }
+
+    //// # =================================================================================================== #
+
+    function DustMekanism(recipe) {
+        event.custom({
+            type: "mekanism:crushing",
+            input: { ingredient: { tag: recipe.put } },
+            output: { item: recipe.get },
+        });
+    }
+
+    //// # =================================================================================================== #
+
+    function DustThermal(recipe) {
+        if (recipe.thermal) {
+            event.custom({
+                type: "thermal:pulverizer",
+                ingredient: { tag: recipe.put },
+                result: recipe.thermal.get,
+                energy: recipe.rsflux,
+            });
+        } else {
+            event.custom({
+                type: "thermal:pulverizer",
+                ingredient: { tag: recipe.put },
+                result: [{ item: recipe.get }],
+                energy: recipe.rsflux,
+            });
+        }
+    }
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Dust
     const DustPattern = [
         //Gem
         {
@@ -361,130 +493,26 @@ ServerEvents.recipes((event) => {
     ];
 
     DustPattern.forEach((recipe) => {
-        if (recipe.put.startsWith("forge:ingots")) {
-            event.shapeless(recipe.get, [`#${recipe.put}`, "ae2:tiny_tnt"]);
-        } else {
-            event.shapeless(recipe.get, [`#${recipe.put}`, "immersiveengineering:hammer"]);
-        }
-
-        if (recipe.put === "forge:gems/ruby" || recipe.put === "forge:gems/sapphire") {
-            event.shapeless(recipe.get, [`#${recipe.put}`, "thermal:earth_charge"]);
-        }
-
-        //// # =================================================================================================== #
+        //Crating
+        DustCrafting(recipe);
 
         //Blood Magic
-        if (recipe.ore) {
-            event.custom({
-                type: "bloodmagic:alchemytable",
-                input: [{ tag: recipe.ore }, { tag: "bloodmagic:arc/cuttingfluid" }],
-                output: { count: 2, item: recipe.get },
-                syphon: 400,
-                ticks: 200,
-                upgradeLevel: 1,
-            });
-        }
-
-        //Blood Magic Pulverizer
-        event.custom({
-            type: "bloodmagic:arc",
-            consumeingredient: false,
-            input: { tag: recipe.put },
-            inputsize: 1,
-            mainoutputchance: 0.0,
-            output: { item: recipe.get },
-            tool: { tag: "bloodmagic:arc/explosive" },
-        });
-
-        //// # =================================================================================================== #
+        DustBlood(recipe);
 
         //Create
-        if (recipe.create) {
-            event.custom({
-                type: "create:milling",
-                ingredients: [{ tag: recipe.put }],
-                results: recipe.create.get,
-                processingTime: recipe.processing,
-            });
-        } else {
-            event.custom({
-                type: "create:milling",
-                ingredients: [{ tag: recipe.put }],
-                results: [{ item: recipe.get }],
-                processingTime: recipe.processing,
-            });
-        }
-
-        //// # =================================================================================================== #
+        DustCreate(recipe);
 
         //Immersive
-        if (recipe.immersive) {
-            event.custom({
-                type: "immersiveengineering:crusher",
-                input: { tag: recipe.put },
-                result: recipe.immersive.primary,
-                secondaries: recipe.immersive.secondary,
-                energy: recipe.rsflux,
-            });
-        } else {
-            event.custom({
-                type: "immersiveengineering:crusher",
-                input: { tag: recipe.put },
-                result: { base_ingredient: { item: recipe.get } },
-                secondaries: [],
-                energy: recipe.rsflux,
-            });
-        }
+        DustImmersive(recipe);
 
-        //// # =================================================================================================== #
-
-        //EnderIO - Pulverizer
-        if (recipe.enderio) {
-            event.custom({
-                type: "enderio:sag_milling",
-                input: { tag: recipe.put },
-                outputs: recipe.enderio.get,
-                energy: recipe.rsflux,
-                bonus: "none",
-            });
-        } else {
-            event.custom({
-                type: "enderio:sag_milling",
-                input: { tag: recipe.put },
-                outputs: [{ item: recipe.get }],
-                energy: recipe.rsflux,
-                bonus: "none",
-            });
-        }
-
-        //// # =================================================================================================== #
+        //EnderIO
+        DustEnderIO(recipe);
 
         //Mekanism
-        if (recipe.put !== "forgeefaea") {
-            event.custom({
-                type: "mekanism:crushing",
-                input: { ingredient: { tag: recipe.put } },
-                output: { item: recipe.get },
-            });
-        }
-
-        //// # =================================================================================================== #
+        DustMekanism(recipe);
 
         //Thermal
-        if (recipe.thermal) {
-            event.custom({
-                type: "thermal:pulverizer",
-                ingredient: { tag: recipe.put },
-                result: recipe.thermal.get,
-                energy: recipe.rsflux,
-            });
-        } else {
-            event.custom({
-                type: "thermal:pulverizer",
-                ingredient: { tag: recipe.put },
-                result: [{ item: recipe.get }],
-                energy: recipe.rsflux,
-            });
-        }
+        DustThermal(recipe);
     });
+    //#endregion
 });

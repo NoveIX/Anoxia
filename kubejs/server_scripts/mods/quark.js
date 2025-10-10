@@ -17,7 +17,7 @@ ServerEvents.recipes((event) => {
     ];
     ChestPattern.forEach((recipe) => {
         event.remove({ output: recipe.get, input: recipe.put });
-        event.shaped(recipe.get, ["LLL", "L L", "LLL"], { L: recipe.put });
+        event.shaped(recipe.get, ["AAA", "A A", "AAA"], { A: recipe.put });
     });
 
     //// # =================================================================================================== #

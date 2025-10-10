@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmGearID = [
         //Thermal Compat
         "thermal:compat/redstone_arsenal/press_rsa_flux_ingot_to_gear",
@@ -27,55 +28,36 @@ ServerEvents.recipes((event) => {
         "thermal:machines/press/press_invar_ingot_to_gear",
         "thermal:machines/press/press_constantan_ingot_to_gear",
     ];
-    RmGearID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmGearID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 
     //#region Func Gear
-    function GearHardMetal({ get, put, rsflux }) {
-        //Immersive
+    function GearCreate(recipe, liquid) {
         event.custom({
-            type: "immersiveengineering:metal_press",
-            energy: rsflux,
-            input: { base_ingredient: { tag: put }, count: 4 },
-            mold: "immersiveengineering:mold_gear",
-            result: { item: get },
-        });
-
-        //Thermal
-        event.custom({
-            type: "thermal:press",
-            ingredients: [{ tag: put, count: 4 }, { item: "thermal:press_gear_die" }],
-            result: [{ item: get }],
-            energy: rsflux,
+            type: "create:compacting",
+            ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { tag: recipe.put }, { tag: recipe.put }, { amount: 1000, fluid: liquid, nbt: {} }],
+            results: [{ item: recipe.get }],
         });
     }
 
-    function Gear({ get, put, rsflux, liquid }) {
-        //Create
-        event.custom({
-            type: "create:compacting",
-            ingredients: [{ tag: put }, { tag: put }, { tag: put }, { tag: put }, { amount: 1000, fluid: liquid, nbt: {} }],
-            results: [{ item: get }],
-        });
-
-        //Immersive
+    function GearImmersive(recipe) {
         event.custom({
             type: "immersiveengineering:metal_press",
-            energy: rsflux,
-            input: { base_ingredient: { tag: put }, count: 4 },
+            energy: recipe.rsflux,
+            input: { base_ingredient: { tag: recipe.put }, count: 4 },
             mold: "immersiveengineering:mold_gear",
-            result: { item: get },
+            result: { item: recipe.get },
         });
+    }
 
-        //Thermal
+    function GearThermal(recipe) {
         event.custom({
             type: "thermal:press",
-            ingredients: [{ tag: put, count: 4 }, { item: "thermal:press_gear_die" }],
-            result: [{ item: get }],
-            energy: rsflux,
+            ingredients: [{ tag: recipe.put, count: 4 }, { item: "thermal:press_gear_die" }],
+            result: [{ item: recipe.get }],
+            energy: recipe.rsflux,
         });
     }
     //#endregion
@@ -131,25 +113,25 @@ ServerEvents.recipes((event) => {
 
         //Neutron
         if (recipe.metal === "special") {
-            event.custom({
-                type: "thermal:press",
-                ingredients: [{ tag: recipe.put, count: 4 }, { item: "thermal:press_gear_die" }],
-                result: [{ item: recipe.get }],
-                energy: recipe.rsflux,
-            });
+            GearThermal(recipe);
         }
 
         //Hard metal
         else if (recipe.metal === "hard") {
-            GearHardMetal({ get: recipe.get, put: recipe.put, rsflux: recipe.rsflux });
+            GearImmersive(recipe);
+            GearThermal(recipe);
         }
 
         //Other
         else {
             if (recipe.put.startsWith("forge:gems/")) {
-                Gear({ get: recipe.get, put: recipe.put, rsflux: recipe.rsflux, liquid: "minecraft:water" });
+                GearCreate(recipe, "minecraft:water");
+                GearImmersive(recipe);
+                GearThermal(recipe);
             } else {
-                Gear({ get: recipe.get, put: recipe.put, rsflux: recipe.rsflux, liquid: "minecraft:lava" });
+                GearCreate(recipe, "minecraft:lava");
+                GearImmersive(recipe);
+                GearThermal(recipe);
             }
         }
     });

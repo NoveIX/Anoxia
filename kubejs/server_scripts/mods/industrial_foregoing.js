@@ -1,19 +1,17 @@
 ServerEvents.recipes((event) => {
-    const RmRecipeID = [
-        "industrialforegoing:crusher/sand_silicon"//Rm Silicon
-    ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    //#region Remove ID
+    const RmRecipeID = ["industrialforegoing:crusher/sand_silicon"];
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 
     //Fertilizer
-    event.shaped("industrialforegoing:fertilizer", ["CCC", "CCC", "CCC"], { C: "minecolonies:compost" });
+    event.shaped("industrialforegoing:fertilizer", ["AAA", "AAA", "AAA"], { A: "minecolonies:compost" });
 
     //Dye Mixer
     event.remove({ output: "industrialforegoing:dye_mixer" });
-    event.shaped("industrialforegoing:dye_mixer", ["PGP", "RFB", "PAP"], { P: "#forge:plates/iron", F: "industrialforegoing:machine_frame_pity", A: "#forge:gears/gold", R: "minecraft:red_dye", G: "minecraft:green_dye", B: "minecraft:blue_dye" });
+    event.shaped("industrialforegoing:dye_mixer", ["ADA", "EBF", "ACA"], { A: "#forge:plates/iron", B: "industrialforegoing:machine_frame_pity", C: "#forge:gears/gold", D: "minecraft:green_dye", E: "minecraft:red_dye", F: "minecraft:blue_dye" });
 
     //// # =================================================================================================== #
 

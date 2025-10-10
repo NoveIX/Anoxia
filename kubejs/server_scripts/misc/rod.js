@@ -1,4 +1,45 @@
 ServerEvents.recipes((event) => {
+    //#region func Rod
+    function RodCrafting(recipe) {
+        event.shaped(Item.of(recipe.get, 2), ["  R", " R ", "R  "], { R: `#${recipe.put}` });
+    }
+
+    //// # =================================================================================================== #
+
+    function RodCreate(recipe) {
+        event.custom({
+            type: "createaddition:rolling",
+            input: { tag: recipe.put },
+            result: { item: recipe.get, count: 2 },
+        });
+    }
+
+    //// # =================================================================================================== #
+
+    function RodImmersive(recipe) {
+        event.custom({
+            type: "immersiveengineering:metal_press",
+            mold: "immersiveengineering:mold_rod",
+            input: { tag: recipe.put },
+            result: { base_ingredient: { item: recipe.get }, count: 2 },
+            energy: recipe.rsflux,
+        });
+    }
+
+    //// # =================================================================================================== #
+
+    function RodThermal(recipe) {
+        event.custom({
+            type: "thermal:press",
+            energy: recipe.rsflux,
+            ingredients: [{ tag: recipe.put, count: 1 }, { item: "anoxia:press_rod_die" }],
+            result: [{ count: 2, item: recipe.get }],
+        });
+    }
+    //#endregion
+
+    //// # =================================================================================================== #
+
     //#region Rod
     const RodPattern = [
         //Create
@@ -14,31 +55,16 @@ ServerEvents.recipes((event) => {
         event.remove({ output: recipe.get });
 
         //Crafting
-        event.shaped(Item.of(recipe.get, 2), ["  R", " R ", "R  "], { R: `#${recipe.put}` });
+        RodCrafting(recipe);
 
         //Create
-        event.custom({
-            type: "createaddition:rolling",
-            input: { tag: recipe.put },
-            result: { item: recipe.get, count: 2 },
-        });
+        RodCreate(recipe);
 
         //Immersive
-        event.custom({
-            type: "immersiveengineering:metal_press",
-            mold: "immersiveengineering:mold_rod",
-            input: { tag: recipe.put },
-            result: { base_ingredient: { item: recipe.get }, count: 2 },
-            energy: recipe.rsflux,
-        });
+        RodImmersive(recipe);
 
         //Thermal
-        event.custom({
-            type: "thermal:press",
-            energy: recipe.rsflux,
-            ingredients: [{ tag: recipe.put, count: 1 }, { item: "anoxia:press_rod_die" }],
-            result: [{ count: 2, item: recipe.get }],
-        });
+        RodThermal(recipe);
     });
     //#endregion
 });

@@ -33,7 +33,9 @@
             "botanicadds:mana_lapis_block": true,
             "botanicadds:gaia_shard": true
         },
-        "botania:pure_daisy": {"botanicadds:dreamwood_from_elvenwood": true},
+        "botania:pure_daisy": {
+            "botanicadds:dreamwood_from_elvenwood": true
+        },
         "minecraft:crafting": {
             "botanicadds:terra_catalyst": true,
             "botanicadds:mana_lapis_block_1": true,

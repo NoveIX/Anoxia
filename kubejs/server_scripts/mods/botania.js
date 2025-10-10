@@ -128,6 +128,7 @@ ServerEvents.recipes((event) => {
     const RuneLust = { item: "botania:rune_lust" };
     const RuneGluttony = { item: "botania:rune_gluttony" };
     const RuneSloth = { item: "botania:rune_sloth" };
+
     const RunicAltarPattern = [
         //#region Essence
         //T0

@@ -4,6 +4,7 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
+    //#region Remove ID
     const RmRecipeID = [
         //Mystical Seed
         ////Crafting
@@ -290,9 +291,8 @@ ServerEvents.recipes((event) => {
         "mysticalagriculture:seed/infusion/neutronium",
         "mysticalagriculture:seed/infusion/nitro_crystal",
     ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 

@@ -94,23 +94,21 @@ ServerEvents.tags("item", (event) => {
         { tag: "createdeco:internal/plates/copper_plates", item: "#forge:plates/copper" },
         { tag: "createdeco:internal/plates/zinc_plates", item: "#forge:plates/zinc" },
     ];
-    TagAddPattern.forEach((recipe) => {
-        event.add(recipe.tag, recipe.item);
-    });
+    TagAddPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
     //#endregion
 
     //// # =================================================================================================== #
 
     //remove Tag
     const TagRmPattern = [{ tag: "forge:sawdust", item: "chemlib:cellulose_dust" }];
-    TagRmPattern.forEach((recipe) => {
-        event.remove(recipe.tag, recipe.item);
-    });
+    TagRmPattern.forEach((recipe) => event.remove(recipe.tag, recipe.item));
+
+    //Remove all mod tag
+    const TagRmAllModPattern = ["hammerlib:gears/wooden", "hammerlib:gears/stone", "hammerlib:gears/copper", "hammerlib:gears/iron", "hammerlib:gears/gold", "hammerlib:gears/diamond", "hammerlib:gears/netherite"];
+    TagRmAllModPattern.forEach((id) => event.removeAllTagsFrom(id));
 
     //Game Remove
-    global.items.GAME_FullRm.forEach((id) => {
-        event.removeAllTagsFrom(id);
-    });
+    global.items.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
 });
 
 //// # =================================================================================================== #
@@ -179,9 +177,7 @@ ServerEvents.tags("block", (event) => {
         { tag: "mm:machine_energy_port_output", block: "mm:ludicrous_energy_port_output" },
         { tag: "mm:machine_energy_port_output", block: "mm:ultimate_energy_port_output" },
     ];
-    MasterfulMachineryPattern.forEach((recipe) => {
-        event.add(recipe.tag, recipe.block);
-    });
+    MasterfulMachineryPattern.forEach((recipe) => event.add(recipe.tag, recipe.block));
 });
 //#endregion
 
@@ -194,23 +190,17 @@ ServerEvents.tags("fluid", (event) => {
         { tag: "anoxia:refined_canola", fluid: "actuallyadditions:refined_canola_oil" },
         { tag: "anoxia:nutrient_distillation", fluid: "enderio:nutrient_distillation" },
     ];
-    TagPattern.forEach((recipe) => {
-        event.add(recipe.tag, recipe.fluid);
-    });
+    TagPattern.forEach((recipe) => event.add(recipe.tag, recipe.fluid));
 
     //Remove Single Tag
     const RmTag = ["forge:fuel"];
-    RmTag.forEach((tag) => {
-        event.removeAll(tag);
-    });
+    RmTag.forEach((tag) => event.removeAll(tag));
 
     //Add Tag
     event.add("forge:fuel", "ad_astra:fuel");
 
     //Game Remove
-    global.fluid.GAME_FullRm.forEach((id) => {
-        event.removeAllTagsFrom(id);
-    });
+    global.fluid.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
 });
 //#endregion
 
@@ -225,9 +215,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
         { tag: "forge:ingots/aethersteel_scrap", item: "aethersteel:aethersteel_scrap" },
     ];
-    TagsJAOPCAattern.forEach((recipe) => {
-        event.add(recipe.tag, recipe.item);
-    });
+    TagsJAOPCAattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
 });
 
 ServerEvents.tags("block", (event) => {
@@ -237,8 +225,6 @@ ServerEvents.tags("block", (event) => {
         { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
         { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
     ];
-    TagsJAOPCAPattern.forEach((recipe) => {
-        event.add(recipe.tag, recipe.item);
-    });
+    TagsJAOPCAPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
 });
 //#endregion

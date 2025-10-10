@@ -25,6 +25,6 @@ ServerEvents.recipes((event) => {
     ];
     FurnacePattern.forEach((recipe) => {
         event.remove({ output: recipe.get });
-        event.shaped(recipe.get, ["III", "IUI", "III"], { I: recipe.put, U: recipe.frame });
+        event.shaped(recipe.get, ["AAA", "ABA", "AAA"], { A: recipe.put, B: recipe.frame });
     });
 });

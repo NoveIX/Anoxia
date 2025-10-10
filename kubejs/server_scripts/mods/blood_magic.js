@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = [
         //Botania
         "botanicadds:flowers/floating/necroidus",
@@ -9,9 +10,8 @@ ServerEvents.recipes((event) => {
         "botanicadds:flowers/floating/vibrantia",
         "botanicadds:flowers/floating/energizera",
     ];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 

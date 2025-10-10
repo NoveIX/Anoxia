@@ -1,19 +1,19 @@
 ServerEvents.recipes((event) => {
     //Organic Compost
     event.remove({ output: "farmersdelight:organic_compost" });
-    event.shaped("farmersdelight:organic_compost", ["FFF", "FDF", "FFF"], { F: "#anoxia:fertilizers", D: "minecraft:dirt" });
+    event.shaped("farmersdelight:organic_compost", ["AAA", "ABA", "AAA"], { A: "#anoxia:fertilizers", B: "minecraft:dirt" });
 
     //Blackstone Furnace
     event.remove({ output: "nethersdelight:blackstone_furnace" });
-    event.shaped("nethersdelight:blackstone_furnace", ["CCC", "C C", "CCC"], { C: "anoxia:compressed_blackstone" });
+    event.shaped("nethersdelight:blackstone_furnace", ["AAA", "A A", "AAA"], { A: "anoxia:compressed_blackstone" });
 
     //Blackstone Blast Furnace
     event.remove({ output: "nethersdelight:blackstone_blast_furnace" });
-    event.shaped("nethersdelight:blackstone_blast_furnace", ["PPP", "PFP", "CCC"], { P: "#forge:plates/iron", F: "#anoxia:furnaces/blackstone", C: "minecraft:polished_blackstone" });
+    event.shaped("nethersdelight:blackstone_blast_furnace", ["AAA", "ABA", "CCC"], { A: "#forge:plates/iron", B: "#anoxia:furnaces/blackstone", C: "minecraft:polished_blackstone" });
 
     //Blackstone Smoker
     event.remove({ output: "nethersdelight:nether_brick_smoker" });
-    event.shaped("nethersdelight:nether_brick_smoker", ["CBC", "BFB", "CBC"], { C: "anoxia:compressed_cobblestone", B: "minecraft:nether_bricks", F: "#anoxia:furnaces/stone" });
+    event.shaped("nethersdelight:nether_brick_smoker", ["ABA", "BCB", "ABA"], { A: "anoxia:compressed_cobblestone", B: "minecraft:nether_bricks", C: "#anoxia:furnaces/stone" });
 
     //// # =================================================================================================== #
 

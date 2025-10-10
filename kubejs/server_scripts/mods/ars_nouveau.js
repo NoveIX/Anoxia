@@ -1,8 +1,8 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmRecipeID = ["arseng:source_cell_housing"];
-    RmRecipeID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
 

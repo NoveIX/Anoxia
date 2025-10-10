@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //#region Remove ID
     const RmPlateID = [
         //Ad Astra
         "jaopca:thermal_expansion.material_to_plate.desh",
@@ -39,18 +40,58 @@ ServerEvents.recipes((event) => {
         "thermal:machines/press/press_invar_ingot_to_plate",
         "thermal:machines/press/press_constantan_ingot_to_plate",
     ];
-    RmPlateID.forEach((id) => {
-        event.remove({ id: id });
-    });
+    RmPlateID.forEach((id) => event.remove({ id: id }));
+    //#endregion
 
     //// # =================================================================================================== #
+
+    //#region Func Plate
+    function PlateCrafting(recipe) {
+        event.shapeless(recipe.get, [`#${recipe.put}`, `#${recipe.put}`, "immersiveengineering:hammer"]);
+        event.custom({
+            type: "ad_astra:hammering",
+            ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { item: "ad_astra:hammer" }],
+            result: {
+                item: recipe.get,
+                count: 1,
+            },
+        });
+    }
+
+    function PlateCreate(recipe) {
+        event.custom({
+            type: "create:pressing",
+            ingredients: [{ tag: recipe.put }],
+            results: [{ item: recipe.get }],
+        });
+    }
+
+    function PlateImmersive(recipe) {
+        event.custom({
+            type: "immersiveengineering:metal_press",
+            mold: "immersiveengineering:mold_plate",
+            input: { tag: recipe.put },
+            result: { item: recipe.get },
+            energy: recipe.rsflux,
+        });
+    }
+
+    function PlateThermal(recipe) {
+        event.custom({
+            type: "thermal:press",
+            ingredient: { tag: recipe.put },
+            result: [{ item: recipe.get }],
+            energy: recipe.rsflux,
+        });
+    }
+    //#endregion
 
     //#region Plate
     const PlatePattern = [
         //Ad Astra
-        { get: "ad_astra:desh_plate", put: "forge:ingots/desh", rsflux: 24000 },
-        { get: "ad_astra:ostrum_plate", put: "forge:ingots/ostrum", rsflux: 28000 },
-        { get: "ad_astra:calorite_plate", put: "forge:ingots/calorite", rsflux: 32000 },
+        { get: "ad_astra:desh_plate", put: "forge:ingots/desh", rsflux: 24000, metal: "special" },
+        { get: "ad_astra:ostrum_plate", put: "forge:ingots/ostrum", rsflux: 28000, metal: "special" },
+        { get: "ad_astra:calorite_plate", put: "forge:ingots/calorite", rsflux: 32000, metal: "special" },
 
         //Create
         { get: "create:brass_sheet", put: "forge:ingots/brass", rsflux: 6000 },
@@ -121,14 +162,14 @@ ServerEvents.recipes((event) => {
         { get: "thermal:iron_plate", put: "forge:ingots/iron", rsflux: 4000 },
         { get: "thermal:gold_plate", put: "forge:ingots/gold", rsflux: 4000 },
         { get: "thermal:copper_plate", put: "forge:ingots/copper", rsflux: 4000 },
-        { get: "thermal:netherite_plate", put: "forge:ingots/netherite", rsflux: 12000 },
+        { get: "thermal:netherite_plate", put: "forge:ingots/netherite", rsflux: 12000, metal: "hard" },
         { get: "thermal:tin_plate", put: "forge:ingots/tin", rsflux: 4000 },
         { get: "thermal:lead_plate", put: "forge:ingots/lead", rsflux: 4000 },
         { get: "thermal:silver_plate", put: "forge:ingots/silver", rsflux: 4000 },
         { get: "thermal:nickel_plate", put: "forge:ingots/nickel", rsflux: 4000 },
-        { get: "thermal:signalum_plate", put: "forge:ingots/signalum", rsflux: 8000 },
-        { get: "thermal:lumium_plate", put: "forge:ingots/lumium", rsflux: 8000 },
-        { get: "thermal:enderium_plate", put: "forge:ingots/enderium", rsflux: 12000 },
+        { get: "thermal:signalum_plate", put: "forge:ingots/signalum", rsflux: 8000, metal: "hard" },
+        { get: "thermal:lumium_plate", put: "forge:ingots/lumium", rsflux: 8000, metal: "hard" },
+        { get: "thermal:enderium_plate", put: "forge:ingots/enderium", rsflux: 12000, metal: "hard" },
         { get: "thermal:steel_plate", put: "forge:ingots/steel", rsflux: 6000 },
         { get: "thermal:rose_gold_plate", put: "forge:ingots/rose_gold", rsflux: 6000 },
         { get: "thermal:bronze_plate", put: "forge:ingots/bronze", rsflux: 6000 },
@@ -137,48 +178,32 @@ ServerEvents.recipes((event) => {
         { get: "thermal:constantan_plate", put: "forge:ingots/constantan", rsflux: 6000 },
 
         //Thermal Endergy
-        { get: "thermalendergy:prismalium_plate", put: "forge:ingots/prismalium", rsflux: 16000 },
-        { get: "thermalendergy:melodium_plate", put: "forge:ingots/melodium", rsflux: 20000 },
-        { get: "thermalendergy:stellarium_plate", put: "forge:ingots/stellarium", rsflux: 24000 },
+        { get: "thermalendergy:prismalium_plate", put: "forge:ingots/prismalium", rsflux: 16000, metal: "hard" },
+        { get: "thermalendergy:melodium_plate", put: "forge:ingots/melodium", rsflux: 20000, metal: "hard" },
+        { get: "thermalendergy:stellarium_plate", put: "forge:ingots/stellarium", rsflux: 24000, metal: "hard" },
     ];
     PlatePattern.forEach((recipe) => {
         //Remove
         event.remove({ output: recipe.get });
 
-        //Crafting
-        event.shapeless(recipe.get, [`#${recipe.put}`, `#${recipe.put}`, "immersiveengineering:hammer"]);
-        event.custom({
-            type: "ad_astra:hammering",
-            ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { item: "ad_astra:hammer" }],
-            result: {
-                item: recipe.get,
-                count: 1,
-            },
-        });
+        //Ad Astra
+        if (recipe.metal === "special") {
+            PlateThermal(recipe);
+        }
 
-        //Create
-        event.custom({
-            type: "create:pressing",
-            ingredients: [{ tag: recipe.put }],
-            results: [{ item: recipe.get }],
-        });
+        //Hard Metal
+        else if (recipe.metal === "hard") {
+            PlateImmersive(recipe);
+            PlateThermal(recipe);
+        }
 
-        //Immersive
-        event.custom({
-            type: "immersiveengineering:metal_press",
-            mold: "immersiveengineering:mold_plate",
-            input: { tag: recipe.put },
-            result: { item: recipe.get },
-            energy: recipe.rsflux,
-        });
-
-        //Thermal
-        event.custom({
-            type: "thermal:press",
-            ingredient: { tag: recipe.put },
-            result: [{ item: recipe.get }],
-            energy: recipe.rsflux,
-        });
+        //Other
+        else {
+            PlateImmersive(recipe);
+            PlateThermal(recipe);
+            PlateCreate(recipe);
+            PlateCrafting(recipe);
+        }
     });
     //#endregion
 });
