@@ -6,7 +6,7 @@
   "breedingItem": "chemlib:thorium_ingot",
   "conditions": [
     {
-      "modid": "chemlib",
+      "modid": false,
       "type": "forge:mod_loaded"
     }
   ]

@@ -5,7 +5,7 @@
   "beeTexture": "productivebees:textures/entity/bee/yttrium/bee",
   "conditions": [
     {
-      "modid": "chemlib",
+      "modid": false,
       "type": "forge:mod_loaded"
     }
   ]

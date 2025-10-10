@@ -7,7 +7,7 @@
   "size": 0.8,
   "conditions": [
     {
-      "modid": "chemlib",
+      "modid": false,
       "type": "forge:mod_loaded"
     }
   ]

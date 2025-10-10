@@ -5,7 +5,7 @@
   "beeTexture": "productivebees:textures/entity/bee/mercury/bee",
   "conditions": [
     {
-      "modid": "chemlib",
+      "modid": false,
       "type": "forge:mod_loaded"
     }
   ]
