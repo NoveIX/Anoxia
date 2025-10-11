@@ -41,11 +41,11 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
-    const PressingPattern = [{ getFluid: "actuallyadditions:canola_oil", putItem: { tag: "forge:crops/canola" } }];
+    const PressingPattern = [{ getFluid: { Amount: 80, FluidName: "actuallyadditions:canola_oil" }, putItem: { tag: "forge:crops/canola" } }];
     PressingPattern.forEach((recipe) => {
         event.custom({
             type: "actuallyadditions:pressing",
-            fluid: { Amount: 80, FluidName: recipe.getFluid },
+            fluid: recipe.getFluid,
             ingredient: recipe.putItem,
         });
     });

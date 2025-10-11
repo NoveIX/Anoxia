@@ -60,7 +60,7 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/press/packing3x3/press_stellarium_packing", //Ingot to Block
         "thermalendergy:machine/press/unpacking/press_stellarium_unpacking", //Block to Ingot
     ];
-    //RmRecipeID.forEach((id) => event.remove({ id: id }));
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
     //// # =================================================================================================== #

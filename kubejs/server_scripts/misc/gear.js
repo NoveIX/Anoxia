@@ -105,7 +105,7 @@ ServerEvents.recipes((event) => {
         { get: "pneumaticcraft:compressed_iron_gear", put: "forge:ingots/compressed_iron", rsflux: 8000 },
 
         //Avaritia
-        { get: "avaritia:neutron_gear", put: "forge:ingots/neutron", rsflux: 500000, metal: "special" },
+        { get: "avaritia:neutron_gear", put: "forge:ingots/neutron", rsflux: 720000, metal: "special" },
     ];
     GearPattern.forEach((recipe) => {
         //Remove
