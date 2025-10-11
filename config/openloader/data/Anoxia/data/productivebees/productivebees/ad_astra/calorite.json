@@ -5,7 +5,6 @@
   "flowerTag": "forge:storage_blocks/calorite",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/calorite",
         "type": "forge:tag_empty"

@@ -5,7 +5,6 @@
   "flowerTag": "forge:storage_blocks/desh",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/desh",
         "type": "forge:tag_empty"
