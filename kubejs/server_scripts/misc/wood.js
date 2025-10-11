@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
     //// # =================================================================================================== #
 
     //#region Remove ID
-    const RmWoodID = [
+    const RmRecipeID = [
         //Oak
         "thermal:machines/sawmill/sawmill_oak_logs",
         "mekanism:sawing/log/oak",
@@ -66,7 +66,7 @@ ServerEvents.recipes((event) => {
         //Thermal
         "thermal:machines/sawmill/sawmill_rubberwood_logs",
     ];
-    RmWoodID.forEach((ID) => event.remove({ id: ID }));
+    RmRecipeID.forEach((ID) => event.remove({ id: ID }));
     //#endregion
 
     //// # =================================================================================================== #

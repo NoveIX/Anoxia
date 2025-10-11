@@ -52,19 +52,13 @@ ServerEvents.recipes((event) => {
     ];
     RodPattern.forEach((recipe) => {
         //Remove
-        event.remove({ output: recipe.get });
+        //event.remove({ output: recipe.get });
 
-        //Crafting
-        RodCrafting(recipe);
-
-        //Create
-        RodCreate(recipe);
-
-        //Immersive
-        RodImmersive(recipe);
-
-        //Thermal
-        RodThermal(recipe);
+        //Recipe
+        //RodCrafting(recipe);
+        //RodCreate(recipe);
+        //RodImmersive(recipe);
+        //RodThermal(recipe);
     });
     //#endregion
 });

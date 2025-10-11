@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
     //#region Remove ID
-    const RmPlateID = [
+    const RmRecipeID = [
         //Ad Astra
         "jaopca:thermal_expansion.material_to_plate.desh",
         "thermal:machines/press/press_desh_ingot_to_plate",
@@ -40,7 +40,7 @@ ServerEvents.recipes((event) => {
         "thermal:machines/press/press_invar_ingot_to_plate",
         "thermal:machines/press/press_constantan_ingot_to_plate",
     ];
-    RmPlateID.forEach((id) => event.remove({ id: id }));
+    //RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
     //// # =================================================================================================== #
@@ -85,6 +85,8 @@ ServerEvents.recipes((event) => {
         });
     }
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Plate
     const PlatePattern = [
@@ -184,26 +186,26 @@ ServerEvents.recipes((event) => {
     ];
     PlatePattern.forEach((recipe) => {
         //Remove
-        event.remove({ output: recipe.get });
+        //event.remove({ output: recipe.get });
 
         //Ad Astra
-        if (recipe.metal === "special") {
-            PlateThermal(recipe);
-        }
+        //if (recipe.metal === "special") {
+        //    PlateThermal(recipe);
+        //}
 
         //Hard Metal
-        else if (recipe.metal === "hard") {
-            PlateImmersive(recipe);
-            PlateThermal(recipe);
-        }
+        //else if (recipe.metal === "hard") {
+        //    PlateImmersive(recipe);
+        //    PlateThermal(recipe);
+        //}
 
         //Other
-        else {
-            PlateImmersive(recipe);
-            PlateThermal(recipe);
-            PlateCreate(recipe);
-            PlateCrafting(recipe);
-        }
+        //else {
+        //    PlateImmersive(recipe);
+        //    PlateThermal(recipe);
+        //    PlateCreate(recipe);
+        //    PlateCrafting(recipe);
+        //}
     });
     //#endregion
 });

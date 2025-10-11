@@ -3,20 +3,22 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "exnihilosequentia:stone_crook" });
     event.shaped("exnihilosequentia:stone_crook", ["AA", " A", " A"], { A: "#forge:pebble/stone" });
 
+    //// # =================================================================================================== #
+
     //#region Heat
     event.remove({ type: "exnihilosequentia:heat" });
     const HeatPattern = [
         { under: "minecraft:lava", multi: 3 },
-        { under: "minecraft:furnace", multi: 3, heat: "true" },
+        { under: "minecraft:furnace", multi: 3, heat: true },
         { under: "cobblefordays:tier_1", multi: 3 },
         { under: "cobblefordays:tier_2", multi: 4 },
         { under: "cobblefordays:tier_3", multi: 5 },
         { under: "cobblefordays:tier_4", multi: 6 },
         { under: "cobblefordays:tier_5", multi: 7 },
         { under: "minecraft:fire", multi: 4 },
-        { under: "minecraft:campfire", multi: 4, heat: "true" },
+        { under: "minecraft:campfire", multi: 4, heat: true },
         { under: "minecraft:soul_fire", multi: 4 },
-        { under: "minecraft:soul_campfire", multi: 4, heat: "true" },
+        { under: "minecraft:soul_campfire", multi: 4, heat: true },
         { under: "minecraft:magma_block", multi: 4 },
         { under: "botania:blaze_quartz", multi: 10 },
         { under: "botania:blaze_block", multi: 20 },
@@ -30,12 +32,12 @@ ServerEvents.recipes((event) => {
         { under: "avaritia:infinity", multi: 1000 },
     ];
     HeatPattern.forEach((recipe) => {
-        if (recipe.heat === "true") {
+        if (recipe.HeatPattern) {
             event.custom({
                 type: "exnihilosequentia:heat",
                 amount: recipe.multi,
                 block: recipe.under,
-                state: { lit: "true" },
+                state: { lit: true },
             });
         } else {
             event.custom({
@@ -46,6 +48,8 @@ ServerEvents.recipes((event) => {
         }
     });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Sieve
     event.remove({ type: "exnihilosequentia:sifting" });
@@ -677,6 +681,8 @@ ServerEvents.recipes((event) => {
         });
     });
     //#endregion
+
+    //// # =================================================================================================== #
 
     //#region Crusher
     const CrusherPattern = [

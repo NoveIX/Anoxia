@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
     //#region Remove ID
-    const RmDustID = [
+    const RmRecipeID = [
         ////Gem
         //Coal
         "immersiveengineering:crusher/coal",
@@ -198,7 +198,7 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/pulverizer/pulverizer_melodium_ingot_to_dust",
         "thermalendergy:machine/pulverizer/pulverizer_stellarium_ingot_to_dust",
     ];
-    RmDustID.forEach((id) => event.remove({ id: id }));
+    //RmRecipeID.forEach((id) => event.remove({ id: id }));
 
     //#endregion
 
@@ -493,26 +493,14 @@ ServerEvents.recipes((event) => {
     ];
 
     DustPattern.forEach((recipe) => {
-        //Crating
-        DustCrafting(recipe);
-
-        //Blood Magic
-        DustBlood(recipe);
-
-        //Create
-        DustCreate(recipe);
-
-        //Immersive
-        DustImmersive(recipe);
-
-        //EnderIO
-        DustEnderIO(recipe);
-
-        //Mekanism
-        DustMekanism(recipe);
-
-        //Thermal
-        DustThermal(recipe);
+        //Recipe
+        //DustCrafting(recipe);
+        //DustBlood(recipe);
+        //DustCreate(recipe);
+        //DustImmersive(recipe);
+        //DustEnderIO(recipe);
+        //DustMekanism(recipe);
+        //DustThermal(recipe);
     });
     //#endregion
 });
