@@ -4,7 +4,7 @@
   "flowerBlock": "powah:energized_steel_block",
   "conditions": [
     {
-      "modid": false,
+      "modid": "powah",
       "type": "forge:mod_loaded"
     }
   ]

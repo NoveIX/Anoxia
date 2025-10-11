@@ -5,7 +5,7 @@
   "beeTexture": "productivebees:textures/entity/bee/magnesium/bee",
   "conditions": [
     {
-      "modid": false,
+      "modid": "chemlib",
       "type": "forge:mod_loaded"
     }
   ]

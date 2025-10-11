@@ -9,7 +9,7 @@
   ],
   "conditions": [
     {
-      "modid": false,
+      "modid": "botania",
       "type": "forge:mod_loaded"
     }
   ]

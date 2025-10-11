@@ -4,7 +4,6 @@
   "flowerTag": "forge:storage_blocks/invar",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/invar",
         "type": "forge:tag_empty"

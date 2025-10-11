@@ -7,7 +7,6 @@
   "size": 0.7,
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/prismalium",
         "type": "forge:tag_empty"

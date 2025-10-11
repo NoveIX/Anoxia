@@ -8,7 +8,7 @@
   "selfbreed": false,
   "conditions": [
     {
-      "modid": false,
+      "modid": "chemlib",
       "type": "forge:mod_loaded"
     }
   ]

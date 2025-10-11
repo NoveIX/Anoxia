@@ -6,7 +6,6 @@
   "blinding": true,
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/lumium",
         "type": "forge:tag_empty"

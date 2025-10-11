@@ -6,7 +6,7 @@
   "beeTexture": "productivebees:textures/entity/bee/ruthenium/bee",
   "conditions": [
     {
-      "modid": false,
+      "modid": "chemlib",
       "type": "forge:mod_loaded"
     }
   ]

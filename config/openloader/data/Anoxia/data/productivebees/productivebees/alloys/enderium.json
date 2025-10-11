@@ -5,7 +5,6 @@
   "flowerTag": "forge:storage_blocks/enderium",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/enderium",
         "type": "forge:tag_empty"

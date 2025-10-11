@@ -11,7 +11,7 @@
   "breedingItem": "botania:blacker_lotus",
   "conditions": [
     {
-      "modid": false,
+      "modid": "botania",
       "type": "forge:mod_loaded"
     }
   ]

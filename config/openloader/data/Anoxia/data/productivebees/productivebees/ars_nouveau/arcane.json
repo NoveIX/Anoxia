@@ -12,7 +12,7 @@
   },
   "conditions": [
     {
-      "modid": false,
+      "modid": "ars_nouveau",
       "type": "forge:mod_loaded"
     }
   ]

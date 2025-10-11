@@ -5,7 +5,7 @@
   "selfbreed": false,
   "conditions": [
     {
-      "modid": false,
+      "modid": "powah",
       "type": "forge:mod_loaded"
     }
   ]

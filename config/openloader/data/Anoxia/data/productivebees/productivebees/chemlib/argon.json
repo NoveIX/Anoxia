@@ -8,7 +8,7 @@
   "translucent": true,
   "conditions": [
     {
-      "modid": false,
+      "modid": "chemlib",
       "type": "forge:mod_loaded"
     }
   ]

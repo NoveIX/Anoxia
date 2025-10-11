@@ -9,7 +9,6 @@
   "selfbreed": false,
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/melodium",
         "type": "forge:tag_empty"

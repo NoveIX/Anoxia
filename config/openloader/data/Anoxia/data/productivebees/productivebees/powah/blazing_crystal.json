@@ -5,7 +5,7 @@
   "description": "productivebees.ingredient.description.only_spawnegg",
   "conditions": [
     {
-      "modid": false,
+      "modid": "powah",
       "type": "forge:mod_loaded"
     }
   ]

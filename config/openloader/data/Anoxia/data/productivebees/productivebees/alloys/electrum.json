@@ -4,7 +4,6 @@
   "flowerTag": "forge:storage_blocks/electrum",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/electrum",
         "type": "forge:tag_empty"

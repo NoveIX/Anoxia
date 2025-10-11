@@ -7,7 +7,7 @@
   "size": 0.7,
   "conditions": [
     {
-      "modid": false,
+      "modid": "enderio",
       "type": "forge:mod_loaded"
     }
   ]

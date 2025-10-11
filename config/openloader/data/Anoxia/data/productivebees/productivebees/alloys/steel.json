@@ -4,7 +4,6 @@
   "flowerTag": "forge:storage_blocks/steel",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/steel",
         "type": "forge:tag_empty"

@@ -4,7 +4,6 @@
   "flowerTag": "forge:storage_blocks/constantan",
   "conditions": [
     {
-      "modid": false,
       "value": {
         "tag": "forge:storage_blocks/constantan",
         "type": "forge:tag_empty"
