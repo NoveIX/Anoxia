@@ -3,7 +3,7 @@ PlayerEvents.loggedIn((event) => {
     //#region Definition
     const AkashicTome = Item.of("akashictome:tome", '{"akashictome:data":{ftbquests:{Count:1b,id:"ftbquests:book"}}}');
     const Helmet = Item.of("ad_astra:space_helmet", "{Damage:0}");
-    const Suit = Item.of("ad_astra:space_suit", '{BotariumData:{StoredFluids:[{Amount:2500L,Fluid:"mekanism:oxygen"}]},Damage:0}');
+    const Suit = Item.of("ad_astra:space_suit", '{BotariumData:{StoredFluids:[{Amount:2500L,Fluid:"ad_astra:oxygen"}]},Damage:0}');
     const Pants = Item.of("ad_astra:space_pants", "{Damage:0}");
     const Boots = Item.of("ad_astra:space_boots", "{Damage:0}");
     //#endregion
