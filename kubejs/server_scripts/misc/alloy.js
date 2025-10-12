@@ -158,11 +158,11 @@ ServerEvents.recipes((event) => {
         { get: "enderio:end_steel_ingot", n0: 1, put1: "forge:end_stones", n1: 1, put2: "forge:ingots/dark_steel", n2: 1, put3: "forge:obsidian", n3: 1, rsflux: 36000, alloy: "complex" }, //EndSteel Ingot
 
         //Thermal
+        { get: "thermal:steel_ingot", n0: 1, put1: "forge:ingots/iron", n1: 1, put2: "forge:dusts/coal", n2: 8, rsflux: 18000, alloy: "simple" }, //Steel - Coal
+        { get: "thermal:rose_gold_ingot", n0: 2, put1: "forge:ingots/gold", n1: 1, put2: "forge:ingots/copper", n2: 1, rsflux: 18000, alloy: "simple" }, //Rose Gold
         { get: "thermal:signalum_ingot", n0: 4, put1: "forge:ingots/rose_gold", n1: 3, put2: "forge:ingots/silver", n2: 1, put3: "forge:dusts/redstone", n3: 10, rsflux: 24000, alloy: "complex" }, //Signalum
         { get: "thermal:lumium_ingot", n0: 4, put1: "forge:ingots/energetic_alloy", n1: 3, put2: "forge:ingots/silver", n2: 1, put3: "forge:dusts/glowstone", n3: 4, rsflux: 24000, alloy: "complex" }, //Lumium
         { get: "thermal:enderium_ingot", n0: 2, put1: "forge:ingots/vibrant_alloy", n1: 3, put2: "forge:ingots/silver", n2: 1, put3: "forge:dusts/ender_pearl", n3: 4, rsflux: 36000, alloy: "complex" }, //Enderium
-        { get: "thermal:steel_ingot", n0: 1, put1: "forge:ingots/iron", n1: 1, put2: "forge:dusts/coal", n2: 8, rsflux: 18000, alloy: "simple" }, //Steel - Coal
-        { get: "thermal:rose_gold_ingot", n0: 2, put1: "forge:ingots/gold", n1: 1, put2: "forge:ingots/copper", n2: 1, rsflux: 18000, alloy: "simple" }, //Rose Gold
         { get: "thermal:bronze_ingot", n0: 4, put1: "forge:ingots/copper", n1: 3, put2: "forge:ingots/tin", n2: 1, rsflux: 18000, alloy: "simple" }, //Bronze
         { get: "thermal:electrum_ingot", n0: 2, put1: "forge:ingots/gold", n1: 1, put2: "forge:ingots/silver", n2: 1, rsflux: 18000, alloy: "simple" }, //Electrum
         { get: "thermal:invar_ingot", n0: 3, put1: "forge:ingots/iron", n1: 2, put2: "forge:ingots/nickel", n2: 1, rsflux: 18000, alloy: "simple" }, //Invar

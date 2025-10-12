@@ -5,22 +5,26 @@ ServerEvents.recipes((event) => {
         "architects_palette:smelting/nether_brass_ingot_from_nether_brass_blend_blasting",
         "architects_palette:blasting/nether_brass_ingot_from_nether_brass_blend_blasting",
         "architects_palette:smelting/nether_brass_ingot_from_nether_brass_blend_smelting",
+        "enderio:smelting/architects_palette/smelting/nether_brass_ingot_from_nether_brass_blend_smelting",
+
+        //Industrial Foregoing
+        "enderio:smelting/industrialforegoing/plastic",
 
         //Thermal
         //Signalum
         "thermal:smelting/signalum_ingot_from_dust_blasting",
         "thermal:smelting/signalum_ingot_from_dust_smelting",
-        //"enderio:smelting/thermal/smelting/signalum_ingot_from_dust_smelting",
+        "enderio:smelting/thermal/smelting/signalum_ingot_from_dust_smelting",
         "thermal:machines/smelter/smelter_signalum_dust",
         //Lumium
         "thermal:smelting/lumium_ingot_from_dust_blasting",
         "thermal:smelting/lumium_ingot_from_dust_smelting",
-        //"enderio:smelting/thermal/smelting/lumium_ingot_from_dust_smelting",
+        "enderio:smelting/thermal/smelting/lumium_ingot_from_dust_smelting",
         "thermal:machines/smelter/smelter_lumium_dust",
         //Enderium
         "thermal:smelting/enderium_ingot_from_dust_blasting",
         "thermal:smelting/enderium_ingot_from_dust_smelting",
-        //"enderio:smelting/thermal/smelting/enderium_ingot_from_dust_smelting",
+        "enderio:smelting/thermal/smelting/enderium_ingot_from_dust_smelting",
         "thermal:machines/smelter/smelter_enderium_dust",
         //Steel
         //"thermal:smelting/steel_ingot_from_dust_blasting",
@@ -63,11 +67,11 @@ ServerEvents.recipes((event) => {
 
         ////Thermal Endergy
         "thermalendergy:prismalium_ingot_from_dust",
-        //"enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
+        "enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
         "thermalendergy:melodium_ingot_from_dust",
-        //"enderio:smelting/thermalendergy/melodium_ingot_from_dust",
+        "enderio:smelting/thermalendergy/melodium_ingot_from_dust",
         "thermalendergy:stellarium_ingot_from_dust",
-        //"enderio:smelting/thermalendergy/stellarium_ingot_from_dust",
+        "enderio:smelting/thermalendergy/stellarium_ingot_from_dust",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -80,17 +84,47 @@ ServerEvents.recipes((event) => {
             type: "immersiveengineering:arc_furnace",
             additives: [],
             input: { tag: recipe.put },
+            results: [{ tag: recipe.get }],
+            energy: 2000,
+            time: 100,
+        });
+    }
+
+    function FurnaceImmersiveID(recipe) {
+        event.custom({
+            type: "immersiveengineering:arc_furnace",
+            additives: [],
+            input: { item: recipe.put },
             results: [{ item: recipe.get }],
             energy: 2000,
             time: 100,
         });
     }
 
-/*     event.custom({
-        type: "enderio:alloy_smelting",
-        input: { item: "minecraft:nether_star" },
-        result: { item: "minecraft:nether_star" },
-    }); */
+    //// # =================================================================================================== #
+
+    function FurnaceEnderio(recipe) {
+        event.custom({
+            type: "enderio:alloy_smelting",
+            energy: 1500,
+            experience: 0.3,
+            inputs: [{ count: 1, ingredient: { tag: recipe.put } }],
+            result: { item: recipe.get },
+            is_smelting: true,
+        });
+    }
+
+    function FurnaceEnderioID(recipe) {
+        event.custom({
+            type: "enderio:alloy_smelting",
+            energy: 1500,
+            experience: 0.3,
+            inputs: [{ count: 1, ingredient: { item: recipe.put } }],
+            result: { item: recipe.get },
+            is_smelting: true,
+        });
+    }
+
     //#endregion
 
     //// # =================================================================================================== #
@@ -104,11 +138,11 @@ ServerEvents.recipes((event) => {
         { get: "architects_palette:nether_brass_ingot", put: "architects_palette:nether_brass_blend" },
 
         //Thermal
+        //{ get: "thermal:steel_ingot", put: "forge:dusts/steel", metal: true },
+        //{ get: "thermal:rose_gold_ingot", put: "forge:dusts/rose_gold", metal: true },
         { get: "thermal:signalum_ingot", put: "forge:dusts/signalum", metal: true },
         { get: "thermal:lumium_ingot", put: "forge:dusts/lumium", metal: true },
         { get: "thermal:enderium_ingot", put: "forge:dusts/enderium", metal: true },
-        //{ get: "thermal:steel_ingot", put: "forge:dusts/steel", metal: true },
-        //{ get: "thermal:rose_gold_ingot", put: "forge:dusts/rose_gold", metal: true },
         //{ get: "thermal:bronze_ingot", put: "forge:dusts/bronze", metal: true },
         //{ get: "thermal:electrum_ingot", put: "forge:dusts/electrum", metal: true },
         //{ get: "thermal:invar_ingot", put: "forge:dusts/invar", metal: true },
@@ -123,11 +157,12 @@ ServerEvents.recipes((event) => {
         //Furnace
         if (recipe.put.startsWith("forge:")) {
             event.smelting(recipe.get, `#${recipe.put}`);
+            FurnaceEnderio(recipe);
+            if (recipe.metal) FurnaceImmersive(recipe);
         } else {
             event.smelting(recipe.get, recipe.put);
+            FurnaceEnderioID(recipe);
+            if (recipe.metal) FurnaceImmersiveID(recipe);
         }
-
-        //Immersive
-        if (recipe.metal) FurnaceImmersive(recipe);
     });
 });

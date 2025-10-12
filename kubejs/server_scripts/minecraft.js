@@ -77,5 +77,5 @@ ServerEvents.recipes((event) => {
     event.smelting(Item.of("minecraft:cooked_beef", 8), "paimon:paimonmedal").id("genshin:emergency_food");
 
     //Bone Meal From Wither
-    event.shapeless(Item.of("minecraft:bone_meal", 9), ["minecraft:bone_meal"]);
+    event.shapeless(Item.of("minecraft:bone_meal", 9), ["bhc:wither_bone"]);
 });

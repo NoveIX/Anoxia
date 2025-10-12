@@ -621,7 +621,6 @@ global.recipe.GAME_Rmid = [
     "ad_astra:recipes/steel_ingot_from_blasting_iron_ingot",
 
     //EnderIO
-    "enderio:smelting/industrialforegoing/plastic", //Rm Plastic
     "enderio:smelting/oc2r/silicon", //Rm Silicon
     "enderio:iron_ingot_from_smelting",
     "enderio:iron_ingot_from_blasting",

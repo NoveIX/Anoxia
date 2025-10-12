@@ -322,9 +322,9 @@ ServerEvents.recipes((event) => {
         }
 
         if (recipe.id.ingot && recipe.tag.block) {
-            CompactThermalPack(recipe.id.ingot, recipe.tag.block, recipe.rsflux);
+            CompactThermalUnpack(recipe.id.ingot, recipe.tag.block, recipe.rsflux);
         } else {
-            CompactThermalPackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
+            CompactThermalUnpackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
         }
 
         if (recipe.id.nugget && recipe.tag.ingot) {
@@ -334,9 +334,9 @@ ServerEvents.recipes((event) => {
         }
 
         if (recipe.id.block && recipe.tag.ingot) {
-            CompactThermalUnpack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
+            CompactThermalPack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
         } else {
-            CompactThermalUnpackID(recipe.id.block, recipe.id.ingot, recipe.rsflux);
+            CompactThermalPack(recipe.id.block, recipe.id.ingot, recipe.rsflux);
         }
     });
     //#endregion
