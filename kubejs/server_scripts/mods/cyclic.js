@@ -10,4 +10,8 @@ ServerEvents.recipes((event) => {
     //Soul stone
     event.remove({ output: "cyclic:soulstone" });
     event.shaped("cyclic:soulstone", ["ABA", "BCB", "ABA"], { A: "#forge:storage_blocks/netherite", B: "minecraft:totem_of_undying", C: "#forge:nether_stars" });
+
+    //Item collector
+    event.remove({ output: "cyclic:collector" });
+    event.shaped("cyclic:collector", ["ABA", "CDC", "EEE"], { A: "forge:plates/iron", B: "itemcollectors:advanced_collector", C: "minecraft:observer", D: "forge:storage_blocks/flint", E: "minecraft:hopper" });
 });
