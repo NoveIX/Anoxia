@@ -86,11 +86,11 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    event.custom({
+/*     event.custom({
         type: "enderio:alloy_smelting",
         input: { item: "minecraft:nether_star" },
         result: { item: "minecraft:nether_star" },
-    });
+    }); */
     //#endregion
 
     //// # =================================================================================================== #
@@ -107,12 +107,12 @@ ServerEvents.recipes((event) => {
         { get: "thermal:signalum_ingot", put: "forge:dusts/signalum", metal: true },
         { get: "thermal:lumium_ingot", put: "forge:dusts/lumium", metal: true },
         { get: "thermal:enderium_ingot", put: "forge:dusts/enderium", metal: true },
-        { get: "thermal:steel_ingot", put: "forge:dusts/steel", metal: true },
-        { get: "thermal:rose_gold_ingot", put: "forge:dusts/rose_gold", metal: true },
-        { get: "thermal:bronze_ingot", put: "forge:dusts/bronze", metal: true },
-        { get: "thermal:electrum_ingot", put: "forge:dusts/electrum", metal: true },
-        { get: "thermal:invar_ingot", put: "forge:dusts/invar", metal: true },
-        { get: "thermal:constantan_ingot", put: "forge:dusts/constantan", metal: true },
+        //{ get: "thermal:steel_ingot", put: "forge:dusts/steel", metal: true },
+        //{ get: "thermal:rose_gold_ingot", put: "forge:dusts/rose_gold", metal: true },
+        //{ get: "thermal:bronze_ingot", put: "forge:dusts/bronze", metal: true },
+        //{ get: "thermal:electrum_ingot", put: "forge:dusts/electrum", metal: true },
+        //{ get: "thermal:invar_ingot", put: "forge:dusts/invar", metal: true },
+        //{ get: "thermal:constantan_ingot", put: "forge:dusts/constantan", metal: true },
 
         //Thermal Endergy
         { get: "thermalendergy:prismalium_ingot", put: "forge:dusts/prismalium", metal: true },
@@ -120,12 +120,12 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:stellarium_ingot", put: "forge:dusts/stellarium", metal: true },
     ];
     FurnacePattern.forEach((recipe) => {
-        ////Furnace
-        //if (recipe.put.startsWith("forge:")) {
-        //    event.smelting(recipe.get, `#${recipe.put}`);
-        //} else {
-        //    event.smelting(recipe.get, recipe.put);
-        //}
+        //Furnace
+        if (recipe.put.startsWith("forge:")) {
+            event.smelting(recipe.get, `#${recipe.put}`);
+        } else {
+            event.smelting(recipe.get, recipe.put);
+        }
 
         //Immersive
         if (recipe.metal) FurnaceImmersive(recipe);

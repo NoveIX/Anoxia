@@ -315,7 +315,7 @@ ServerEvents.recipes((event) => {
     ];
     CompactPattern.forEach((recipe) => {
         //Compacting
-        /*         if (recipe.id.ingot && recipe.tag.nugget) {
+        if (recipe.id.ingot && recipe.tag.nugget) {
             CompactThermalPack(recipe.id.ingot, recipe.tag.nugget, recipe.rsflux);
         } else {
             CompactThermalPackID(recipe.id.ingot, recipe.id.nugget, recipe.rsflux);
@@ -337,7 +337,7 @@ ServerEvents.recipes((event) => {
             CompactThermalUnpack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
         } else {
             CompactThermalUnpackID(recipe.id.block, recipe.id.ingot, recipe.rsflux);
-        } */
+        }
     });
     //#endregion
 });
