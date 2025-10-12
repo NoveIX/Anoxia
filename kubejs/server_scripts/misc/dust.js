@@ -198,7 +198,7 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/pulverizer/pulverizer_melodium_ingot_to_dust",
         "thermalendergy:machine/pulverizer/pulverizer_stellarium_ingot_to_dust",
     ];
-    //RmRecipeID.forEach((id) => event.remove({ id: id }));
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
 
     //#endregion
 
@@ -494,13 +494,13 @@ ServerEvents.recipes((event) => {
 
     DustPattern.forEach((recipe) => {
         //Recipe
-        //DustCrafting(recipe);
-        //DustBlood(recipe);
-        //DustCreate(recipe);
-        //DustImmersive(recipe);
-        //DustEnderIO(recipe);
-        //DustMekanism(recipe);
-        //DustThermal(recipe);
+        DustCrafting(recipe);
+        DustBlood(recipe);
+        DustCreate(recipe);
+        DustImmersive(recipe);
+        DustEnderIO(recipe);
+        DustMekanism(recipe);
+        DustThermal(recipe);
     });
     //#endregion
 });

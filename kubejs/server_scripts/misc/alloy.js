@@ -1,7 +1,13 @@
-// priority:995
+// priority:996
 ServerEvents.recipes((event) => {
     //#region Remove ID
     const RmRecipeID = [
+        //Minecraft
+        "minecraft:netherite_ingot",
+        "thermal:machines/smelter/smelter_alloy_netherite",
+
+        //Aethersteel
+
         //Create
         "thermal:compat/create/smelter_create_alloy_andesite_alloy",
 
@@ -17,14 +23,21 @@ ServerEvents.recipes((event) => {
         "enderio:alloy_smelting/end_steel_ingot",
 
         ////Thermal
+        "thermal:fire_charge/signalum_ingot_4",
         "thermal:machines/smelter/smelter_alloy_signalum",
+        "thermal:fire_charge/lumium_ingot_4",
         "thermal:machines/smelter/smelter_alloy_lumium",
+        "thermal:fire_charge/enderium_ingot_2",
         "thermal:machines/smelter/smelter_alloy_enderium",
         "thermal:machines/smelter/smelter_alloy_steel",
         "thermal:machines/smelter/smelter_alloy_rose_gold",
+        "thermal:fire_charge/bronze_ingot_4",
         "thermal:machines/smelter/smelter_alloy_bronze",
+        "thermal:fire_charge/electrum_ingot_2",
         "thermal:machines/smelter/smelter_alloy_electrum",
+        "thermal:fire_charge/invar_ingot_3",
         "thermal:machines/smelter/smelter_alloy_invar",
+        "thermal:fire_charge/constantan_ingot_2",
         "thermal:machines/smelter/smelter_alloy_constantan",
 
         ////Thermal Endergy
@@ -32,7 +45,7 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/smelter/melodium_ingot",
         "thermalendergy:machine/smelter/stellarium_ingot",
     ];
-    //RmRecipeID.forEach((id) => event.remove({ id: id }));
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
     //// # =================================================================================================== #
@@ -122,7 +135,13 @@ ServerEvents.recipes((event) => {
     //#region Alloy
     const AlloyPattern = [
         //Anoxia
-        { get: "anoxia:modularium", n0: 1, put1: "forge:ingots/vibrant_alloy", n1: 1, put2: "forge:ingots/enderium", n2: 1, put3: "forge:ingots/electrotine_alloy", n3: 1, rsflux: 48000, alloy: "complex" }, //Modularium
+        { get: "anoxia:modularium_ingot", n0: 1, put1: "forge:ingots/vibrant_alloy", n1: 1, put2: "forge:ingots/enderium", n2: 1, put3: "forge:ingots/electrotine_alloy", n3: 1, rsflux: 60000, alloy: "complex" }, //Modularium
+
+        //Minecraft
+        { get: "minecraft:netherite_ingot", n0: 1, put1: "forge:ingots/netherite_scrap", n1: 4, put2: "forge:ingots/gold", n2: 4, rsflux: 24000, alloy: "simple" }, //Netherite
+
+        //Aethersteel
+        { get: "aethersteel:aethersteel_ingot", n0: 1, put1: "forge:ingots/netherite", n1: 4, put2: "forge:ingots/aethersteel_scrap", n2: 4, rsflux: 48000, alloy: "ender" }, // Aetherstell
 
         //Create
         { get: "create:andesite_alloy", n0: 2, put1: "forge:ingots/platinum", n1: 1, put2: "anoxia:stone/polished_andesite", n2: 1, rsflux: 8000, alloy: "simple" }, //Andesite Alloy
@@ -156,7 +175,7 @@ ServerEvents.recipes((event) => {
     ];
     AlloyPattern.forEach((recipe) => {
         //Recipes
-/*         if (recipe.alloy === "simple") {
+        if (recipe.alloy === "simple") {
             AlloyImmersiveAlloy(recipe);
             AlloyImmersiveArc(recipe);
             AlloyEnderIO2(recipe);
@@ -173,7 +192,7 @@ ServerEvents.recipes((event) => {
         else if (recipe.alloy === "complex") {
             AlloyEnderIO3(recipe);
             AlloyThermal3(recipe);
-        } */
+        }
     });
     //#endregion
 
@@ -190,7 +209,7 @@ ServerEvents.recipes((event) => {
     ];
     AlloyAltPattern.forEach((recipe) => {
         //Recipes
-/*         if (recipe.alloy === "simple") {
+        if (recipe.alloy === "simple") {
             AlloyImmersiveAlloy(recipe);
             AlloyImmersiveArc(recipe);
             AlloyEnderIO2(recipe);
@@ -207,7 +226,7 @@ ServerEvents.recipes((event) => {
         else if (recipe.alloy === "complex") {
             AlloyEnderIO3(recipe);
             AlloyThermal3(recipe);
-        } */
+        }
     });
     //#endregion
 });

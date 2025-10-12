@@ -67,6 +67,10 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:ingots/andesite_alloy", item: "create:andesite_alloy" },
         { tag: "forge:ingots/obsidian", item: "anoxia:obsidian_ingot" },
 
+        //block
+        { tag: "forge:storage_blocks/hellforged", item: "bloodmagic:dungeon_metal" },
+        { tag: "forge:storage_blocks", item: "bloodmagic:dungeon_metal" },
+
         //Botania
         { tag: "botania:petals/flower", item: "botania:white_petal" },
         { tag: "botania:petals/flower", item: "botania:light_gray_petal" },
@@ -116,6 +120,10 @@ ServerEvents.tags("item", (event) => {
 //#region Block
 ServerEvents.tags("block", (event) => {
     const MasterfulMachineryPattern = [
+        //Forge
+        { tag: "forge:storage_blocks/hellforged", block: "bloodmagic:dungeon_metal" },
+        { tag: "forge:storage_blocks", block: "bloodmagic:dungeon_metal" },
+
         ////MM
         //Item input port
         { tag: "mm:machine_item_port_input", block: "mm:tiny_item_port_input" },
@@ -206,7 +214,7 @@ ServerEvents.tags("fluid", (event) => {
 
 //// # =================================================================================================== #
 
-//#region Fluid
+//#region JAOPCA
 ServerEvents.tags("item", (event) => {
     const TagsJAOPCAattern = [
         //JAOPCA Integration

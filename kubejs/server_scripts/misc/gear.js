@@ -28,7 +28,7 @@ ServerEvents.recipes((event) => {
         "thermal:machines/press/press_invar_ingot_to_gear",
         "thermal:machines/press/press_constantan_ingot_to_gear",
     ];
-    //RmRecipeID.forEach((id) => event.remove({ id: id }));
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
     //// # =================================================================================================== #
@@ -109,31 +109,31 @@ ServerEvents.recipes((event) => {
     ];
     GearPattern.forEach((recipe) => {
         //Remove
-        //event.remove({ output: recipe.get });
+        event.remove({ output: recipe.get });
 
         //Neutron
-        //if (recipe.metal === "special") {
-        //    GearThermal(recipe);
-        //}
+        if (recipe.metal === "special") {
+            GearThermal(recipe);
+        }
 
         //Hard metal
-        //else if (recipe.metal === "hard") {
-        //    GearImmersive(recipe);
-        //    GearThermal(recipe);
-        //}
+        else if (recipe.metal === "hard") {
+            GearImmersive(recipe);
+            GearThermal(recipe);
+        }
 
         //Other
-        //else {
-        //    if (recipe.put.startsWith("forge:gems/")) {
-        //        GearCreate(recipe, "minecraft:water");
-        //        GearImmersive(recipe);
-        //        GearThermal(recipe);
-        //    } else {
-        //        GearCreate(recipe, "minecraft:lava");
-        //        GearImmersive(recipe);
-        //        GearThermal(recipe);
-        //    }
-        //}
+        else {
+            if (recipe.put.startsWith("forge:gems/")) {
+                GearCreate(recipe, "minecraft:water");
+                GearImmersive(recipe);
+                GearThermal(recipe);
+            } else {
+                GearCreate(recipe, "minecraft:lava");
+                GearImmersive(recipe);
+                GearThermal(recipe);
+            }
+        }
     });
     //#endregion
 });

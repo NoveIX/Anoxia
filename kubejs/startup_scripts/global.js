@@ -81,6 +81,7 @@ global.items.GAME_FullRm = [
     //Create Deco
     "createdeco:zinc_sheet",
     "createdeco:netherite_sheet",
+    "createdeco:netherite_nugget",
 
     //Create Sifter
     "createsifter:brass_sifter",
@@ -616,9 +617,21 @@ global.recipe = {};
 
 //#region Rm recipeID
 global.recipe.GAME_Rmid = [
+    //Ad Astra
+    "ad_astra:recipes/steel_ingot_from_blasting_iron_ingot",
+
     //EnderIO
     "enderio:smelting/industrialforegoing/plastic", //Rm Plastic
     "enderio:smelting/oc2r/silicon", //Rm Silicon
+    "enderio:iron_ingot_from_smelting",
+    "enderio:iron_ingot_from_blasting",
+    "enderio:smelting/enderio/iron_ingot_from_smelting",
+    "enderio:gold_ingot_from_smelting",
+    "enderio:gold_ingot_from_blasting",
+    "enderio:smelting/enderio/gold_ingot_from_smelting",
+    "enderio:copper_ingot_from_smelting",
+    "enderio:copper_ingot_from_blasting",
+    "enderio:smelting/enderio/copper_ingot_from_smelting",
 
     //ClearLog
     "mysticalagriculture:essence/chisel/marble",

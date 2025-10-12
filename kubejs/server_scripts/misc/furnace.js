@@ -1,50 +1,75 @@
 ServerEvents.recipes((event) => {
     //#region RemoveID
     const RmRecipeID = [
-        ////Thermal
+        //Architect
+        "architects_palette:smelting/nether_brass_ingot_from_nether_brass_blend_blasting",
+        "architects_palette:blasting/nether_brass_ingot_from_nether_brass_blend_blasting",
+        "architects_palette:smelting/nether_brass_ingot_from_nether_brass_blend_smelting",
+
+        //Thermal
         //Signalum
-        "enderio:smelting/thermal/smelting/signalum_ingot_from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_signalum",
+        "thermal:smelting/signalum_ingot_from_dust_blasting",
+        "thermal:smelting/signalum_ingot_from_dust_smelting",
+        //"enderio:smelting/thermal/smelting/signalum_ingot_from_dust_smelting",
         "thermal:machines/smelter/smelter_signalum_dust",
         //Lumium
-        "enderio:smelting/thermal/smelting/lumium_ingot_from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_lumium",
+        "thermal:smelting/lumium_ingot_from_dust_blasting",
+        "thermal:smelting/lumium_ingot_from_dust_smelting",
+        //"enderio:smelting/thermal/smelting/lumium_ingot_from_dust_smelting",
         "thermal:machines/smelter/smelter_lumium_dust",
         //Enderium
-        "enderio:smelting/thermal/smelting/enderium_ingot_from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_enderium",
+        "thermal:smelting/enderium_ingot_from_dust_blasting",
+        "thermal:smelting/enderium_ingot_from_dust_smelting",
+        //"enderio:smelting/thermal/smelting/enderium_ingot_from_dust_smelting",
         "thermal:machines/smelter/smelter_enderium_dust",
         //Steel
-        "enderio:smelting/mekanism/processing/steel/ingot/from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_steel",
-        "thermal:machines/smelter/smelter_steel_dust",
+        //"thermal:smelting/steel_ingot_from_dust_blasting",
+        //"thermal:smelting/steel_ingot_from_dust_smelting",
+        //"mekanism:processing/steel/ingot/from_dust_blasting",
+        //"mekanism:processing/steel/ingot/from_dust_smelting",
+        //"enderio:smelting/mekanism/processing/steel/ingot/from_dust_smelting",
+        //"thermal:machines/smelter/smelter_steel_dust",
         //Rose Gold
-        "enderio:smelting/thermal/smelting/rose_gold_ingot_from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_rose_gold",
-        "thermal:machines/smelter/smelter_rose_gold_dust",
+        //"thermal:smelting/rose_gold_ingot_from_dust_blasting",
+        //"thermal:smelting/rose_gold_ingot_from_dust_smelting",
+        //"enderio:smelting/thermal/smelting/rose_gold_ingot_from_dust_smelting",
+        //"thermal:machines/smelter/smelter_rose_gold_dust",
         //Bronze
-        "enderio:smelting/mekanism/processing/bronze/ingot/from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_bronze",
-        "thermal:machines/smelter/smelter_bronze_dust",
+        //"thermal:smelting/signalum_ingot_from_dust_blasting",
+        //"thermal:smelting/signalum_ingot_from_dust_smelting",
+        //"mekanism:processing/bronze/ingot/from_dust_blasting",
+        //"mekanism:processing/bronze/ingot/from_dust_smelting",
+        //"enderio:smelting/mekanism/processing/bronze/ingot/from_dust_smelting",
+        //"thermal:machines/smelter/smelter_bronze_dust",
         //Electrum
-        "enderio:smelting/immersiveengineering/smelting/ingot_electrum_from_dust",
-        "thermal:machines/smelter/smelter_alloy_electrum",
-        "thermal:machines/smelter/smelter_electrum_dust",
+        //"thermal:smelting/signalum_ingot_from_dust_blasting",
+        //"thermal:smelting/signalum_ingot_from_dust_smelting",
+        //"immersiveengineering:smelting/ingot_electrum_from_dust_from_blasting",
+        //"immersiveengineering:smelting/ingot_electrum_from_dust",
+        //"enderio:smelting/immersiveengineering/smelting/ingot_electrum_from_dust",
+        //"thermal:machines/smelter/smelter_electrum_dust",
         //Invar
-        "enderio:smelting/thermal/smelting/invar_ingot_from_dust_smelting",
-        "thermal:machines/smelter/smelter_alloy_invar",
-        "thermal:machines/smelter/smelter_invar_dust",
+        //"thermal:smelting/invar_ingot_from_dust_blasting",
+        //"thermal:smelting/invar_ingot_from_dust_smelting",
+        //"enderio:smelting/thermal/smelting/invar_ingot_from_dust_smelting",
+        //"thermal:machines/smelter/smelter_invar_dust",
         //Constantan
-        "enderio:smelting/immersiveengineering/smelting/ingot_constantan_from_dust",
-        "thermal:machines/smelter/smelter_alloy_constantan",
-        "thermal:machines/smelter/smelter_constantan_dust",
+        //"thermal:smelting/signalum_ingot_from_dust_blasting",
+        //"thermal:smelting/signalum_ingot_from_dust_smelting",
+        //"immersiveengineering:smelting/ingot_constantan_from_dust_from_blasting",
+        //"immersiveengineering:smelting/ingot_constantan_from_dust",
+        //"enderio:smelting/immersiveengineering/smelting/ingot_constantan_from_dust",
+        //"thermal:machines/smelter/smelter_constantan_dust",
 
         ////Thermal Endergy
-        "enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
-        "enderio:smelting/thermalendergy/melodium_ingot_from_dust",
-        "enderio:smelting/thermalendergy/stellarium_ingot_from_dust",
+        "thermalendergy:prismalium_ingot_from_dust",
+        //"enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
+        "thermalendergy:melodium_ingot_from_dust",
+        //"enderio:smelting/thermalendergy/melodium_ingot_from_dust",
+        "thermalendergy:stellarium_ingot_from_dust",
+        //"enderio:smelting/thermalendergy/stellarium_ingot_from_dust",
     ];
-    //RmRecipeID.forEach((id) => event.remove({ id: id }));
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
     //// # =================================================================================================== #
@@ -60,15 +85,23 @@ ServerEvents.recipes((event) => {
             time: 100,
         });
     }
+
+    event.custom({
+        type: "enderio:alloy_smelting",
+        input: { item: "minecraft:nether_star" },
+        result: { item: "minecraft:nether_star" },
+    });
     //#endregion
 
     //// # =================================================================================================== #
 
     //#region Furnace
     const FurnacePattern = [
+        //Misc
         { get: "anoxia:obsidian_ingot", put: "anoxia:obsidian_with_iron" },
         { get: "actuallyadditions:black_quartz", put: "botania:quartz_dark" },
         { get: "pneumaticcraft:plastic", put: "industrialforegoing:dryrubber" },
+        { get: "architects_palette:nether_brass_ingot", put: "architects_palette:nether_brass_blend" },
 
         //Thermal
         { get: "thermal:signalum_ingot", put: "forge:dusts/signalum", metal: true },
@@ -87,11 +120,14 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:stellarium_ingot", put: "forge:dusts/stellarium", metal: true },
     ];
     FurnacePattern.forEach((recipe) => {
-        //Furnace
-/*         if (recipe.put.startsWith("forge:")) event.smelting(recipe.get, `#${recipe.put}`);
-        else event.smelting(recipe.get, recipe.put);
+        ////Furnace
+        //if (recipe.put.startsWith("forge:")) {
+        //    event.smelting(recipe.get, `#${recipe.put}`);
+        //} else {
+        //    event.smelting(recipe.get, recipe.put);
+        //}
 
         //Immersive
-        if (recipe.metal) FurnaceImmersive(recipe); */
+        if (recipe.metal) FurnaceImmersive(recipe);
     });
 });

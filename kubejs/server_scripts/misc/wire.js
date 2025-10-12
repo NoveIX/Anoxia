@@ -44,12 +44,12 @@ ServerEvents.recipes((event) => {
     ];
     WirePattern.forEach((recipe) => {
         //Remove
-        //event.remove({ output: recipe.get });
+        event.remove({ output: recipe.get });
 
         //Recipe
-        //WireCrafting(recipe);
-        //WireCreate(recipe);
-        //WireImmersive(recipe);
+        WireCrafting(recipe);
+        WireCreate(recipe);
+        WireImmersive(recipe);
     });
     //#endregion
 });

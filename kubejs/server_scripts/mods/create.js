@@ -12,6 +12,8 @@ ServerEvents.recipes((event) => {
 
     //#region Recipes
     //Andesite Alloy
+    event.remove({ id: "create:crafting/materials/andesite_alloy" });
+    event.remove({ id: "create:crafting/materials/andesite_alloy_from_zinc" });
     event.shaped("create:andesite_alloy", ["BA", "AB"], { A: "minecraft:polished_andesite", B: "#forge:ingots/lead" });
 
     //Millstone

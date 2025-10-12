@@ -1,10 +1,10 @@
 ServerEvents.recipes((event) => {
     //MM
     event.shaped("mm:machine_controller", [" A ", "BCB", "DBD"], { A: "computercraft:monitor_advanced", B: "#forge:storage_blocks/redstone_alloy", C: "anoxia:machine_casing", D: "ae2:logic_processor" });
-    event.shaped("anoxia:machine_casing", [" A ", "ABA", " A "], { A: "anoxia:modularium", B: "#forge:storage_blocks/redstone_alloy" });
-    event.shaped("mm:machine_vent", ["ABA", "BCB", "ABA"], { A: "anoxia:modularium", B: "enderio:dark_steel_bars", C: "anoxia:amongus" });
-    event.shaped("mm:machine_gearbox", ["ABA", "BCB", "ABA"], { A: "anoxia:modularium", B: "#forge:gears/steel", C: "create:gearbox" });
-    event.shaped("mm:machine_circuit", ["ABA", "B B", "ABA"], { A: "anoxia:modularium", B: "mekanism:basic_control_circuit" });
+    event.shaped("anoxia:machine_casing", [" A ", "ABA", " A "], { A: "anoxia:modularium_ingot", B: "#forge:storage_blocks/redstone_alloy" });
+    event.shaped("mm:machine_vent", ["ABA", "BCB", "ABA"], { A: "anoxia:modularium_ingot", B: "enderio:dark_steel_bars", C: "anoxia:amongus" });
+    event.shaped("mm:machine_gearbox", ["ABA", "BCB", "ABA"], { A: "anoxia:modularium_ingot", B: "#forge:gears/steel", C: "create:gearbox" });
+    event.shaped("mm:machine_circuit", ["ABA", "B B", "ABA"], { A: "anoxia:modularium_ingot", B: "mekanism:basic_control_circuit" });
 
     //// # =================================================================================================== #
 
@@ -21,7 +21,7 @@ ServerEvents.recipes((event) => {
         { get: "mm:ultimate_item_port_input", put: "mm:ludicrous_item_port_input" },
     ];
     ItemInPort.forEach((recipe) => {
-        event.shaped(recipe.get, [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "anoxia:modularium", C: recipe.put, D: "#forge:chests/wooden" });
+        event.shaped(recipe.get, [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "anoxia:modularium_ingot", C: recipe.put, D: "#forge:chests/wooden" });
     });
 
     const ItemOutPort = [
@@ -36,7 +36,7 @@ ServerEvents.recipes((event) => {
         { get: "mm:huge_item_port_output", put: "mm:huge_item_port_output" },
     ];
     ItemOutPort.forEach((recipe) => {
-        event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "anoxia:modularium", C: recipe.put, D: "#forge:chests/wooden" });
+        event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "anoxia:modularium_ingot", C: recipe.put, D: "#forge:chests/wooden" });
     });
     //#endregion
 
@@ -55,7 +55,7 @@ ServerEvents.recipes((event) => {
         { get: "mm:ultimate_fluid_port_input", put: "mm:ludicrous_fluid_port_input" },
     ];
     FluidInPort.forEach((recipe) => {
-        event.shaped(recipe.get, [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "anoxia:modularium", C: recipe.put, D: "minecraft:bucket" });
+        event.shaped(recipe.get, [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "anoxia:modularium_ingot", C: recipe.put, D: "minecraft:bucket" });
     });
 
     const FluidOutPort = [
@@ -70,7 +70,7 @@ ServerEvents.recipes((event) => {
         { get: "mm:ultimate_fluid_port_output", put: "mm:ludicrous_fluid_port_output" },
     ];
     FluidOutPort.forEach((recipe) => {
-        event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "anoxia:modularium", C: recipe.put, D: "minecraft:bucket" });
+        event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "anoxia:modularium_ingot", C: recipe.put, D: "minecraft:bucket" });
     });
     //#endregion
 
@@ -89,7 +89,7 @@ ServerEvents.recipes((event) => {
         { get: "mm:ultimate_energy_port_input", put: "mm:ludicrous_energy_port_input" },
     ];
     EnergyInPort.forEach((recipe) => {
-        event.shaped(recipe.get, [" A ", "BCB", "DBD"], { A: "pipez:energy_pipe", B: "anoxia:modularium", C: recipe.put, D: "#forge:ingots/red_alloy" });
+        event.shaped(recipe.get, [" A ", "BCB", "DBD"], { A: "pipez:energy_pipe", B: "anoxia:modularium_ingot", C: recipe.put, D: "#forge:ingots/red_alloy" });
     });
 
     const EnergyOutPort = [
