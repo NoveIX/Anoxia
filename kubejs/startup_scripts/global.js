@@ -160,6 +160,7 @@ global.items.GAME_FullRm = [
     "exnihilosequentia:red_nether_brick_hammer",
     "exnihilosequentia:terracotta_hammer",
     "exnihilosequentia:tuff_hammer",
+    'exnihilosequentia:end_cake',
 
     //Hammer Lib
     "hammerlib:gears/wooden",
