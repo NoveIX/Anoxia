@@ -1,7 +1,36 @@
 // priority:999
 ServerEvents.tags("item", (event) => {
+    //Game Remove
+    global.items.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
+
+    //// # =================================================================================================== #
+
+    //Remove all mod tag
+    const RmAllTagsFromID = [
+        "hammerlib:gears/wooden",
+        "hammerlib:gears/stone",
+        "hammerlib:gears/copper",
+        "hammerlib:gears/iron",
+        "hammerlib:gears/gold",
+        "hammerlib:gears/diamond",
+        "hammerlib:gears/netherite",
+
+        //Avaritia
+        "avaritia:neutron_pile",
+        "avaritia:neutron_nugget",
+        "avaritia:neutron_ingot",
+        "avaritia:neutron",
+    ];
+    RmAllTagsFromID.forEach((id) => event.removeAllTagsFrom(id));
+
+    //remove Tag
+    const RmTagPattern = [{ tag: "forge:sawdust", item: "chemlib:cellulose_dust" }];
+    RmTagPattern.forEach((recipe) => event.remove(recipe.tag, recipe.item));
+
+    //// # =================================================================================================== #
+
     //#region Tags
-    const TagAddPattern = [
+    const AddTagPattern = [
         //#region Anoxia
         //Coil
         { tag: "anoxia:coils/copper", item: "createaddition:copper_spool" },
@@ -59,6 +88,13 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:pebble/stone", item: "botania:pebble" },
         { tag: "forge:pebble/stone", item: "twigs:pebble" },
 
+        //dusts
+        { tag: "forge:dusts/neutronium", item: "avaritia:neutron_pile" },
+
+        //nuggets
+        { tag: "forge:nuggets/neutronium", item: "avaritia:neutron_nugget" },
+        { tag: "forge:nuggets/infinity", item: "avaritia:infinity_nugget" },
+
         //ingots
         { tag: "forge:ingots/flux", item: "redstone_arsenal:flux_ingot" },
         { tag: "forge:ingots/neutron", item: "avaritia:neutron_ingot" },
@@ -66,8 +102,12 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:ingots/cognitive_alloy", item: "experienceobelisk:cognitive_alloy" },
         { tag: "forge:ingots/andesite_alloy", item: "create:andesite_alloy" },
         { tag: "forge:ingots/obsidian", item: "anoxia:obsidian_ingot" },
+        { tag: "forge:ingots/neutronium", item: "avaritia:neutron_ingot" },
+        { tag: "forge:ingots/infinity", item: "avaritia:infinity_ingot" },
 
-        //block
+        //blocks
+        { tag: "forge:storage_blocks/neutronium", item: "avaritia:neutron" },
+        { tag: "forge:storage_blocks/infinity", item: "avaritia:infinity" },
         { tag: "forge:storage_blocks/hellforged", item: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks", item: "bloodmagic:dungeon_metal" },
 
@@ -98,28 +138,15 @@ ServerEvents.tags("item", (event) => {
         { tag: "createdeco:internal/plates/copper_plates", item: "#forge:plates/copper" },
         { tag: "createdeco:internal/plates/zinc_plates", item: "#forge:plates/zinc" },
     ];
-    TagAddPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
+    AddTagPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
     //#endregion
-
-    //// # =================================================================================================== #
-
-    //remove Tag
-    const TagRmPattern = [{ tag: "forge:sawdust", item: "chemlib:cellulose_dust" }];
-    TagRmPattern.forEach((recipe) => event.remove(recipe.tag, recipe.item));
-
-    //Remove all mod tag
-    const TagRmAllModPattern = ["hammerlib:gears/wooden", "hammerlib:gears/stone", "hammerlib:gears/copper", "hammerlib:gears/iron", "hammerlib:gears/gold", "hammerlib:gears/diamond", "hammerlib:gears/netherite"];
-    TagRmAllModPattern.forEach((id) => event.removeAllTagsFrom(id));
-
-    //Game Remove
-    global.items.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
 });
 
 //// # =================================================================================================== #
 
 //#region Block
 ServerEvents.tags("block", (event) => {
-    const MasterfulMachineryPattern = [
+    const AddTagPattern = [
         //Forge
         { tag: "forge:storage_blocks/hellforged", block: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks", block: "bloodmagic:dungeon_metal" },
@@ -185,7 +212,7 @@ ServerEvents.tags("block", (event) => {
         { tag: "mm:machine_energy_port_output", block: "mm:ludicrous_energy_port_output" },
         { tag: "mm:machine_energy_port_output", block: "mm:ultimate_energy_port_output" },
     ];
-    MasterfulMachineryPattern.forEach((recipe) => event.add(recipe.tag, recipe.block));
+    AddTagPattern.forEach((recipe) => event.add(recipe.tag, recipe.block));
 });
 //#endregion
 
@@ -193,22 +220,25 @@ ServerEvents.tags("block", (event) => {
 
 //#region Fluid
 ServerEvents.tags("fluid", (event) => {
-    const TagPattern = [
+    //Game Remove
+    global.fluid.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
+
+    //// # =================================================================================================== #
+
+    //Remove Single Tag
+    const RmTagFromEveryID = ["forge:fuel"];
+    RmTagFromEveryID.forEach((tag) => event.removeAll(tag));
+
+    //// # =================================================================================================== #
+
+    //Add Tag
+    const AddTagPattern = [
+        { tag: "forge:fuel", fluid: "ad_astra:fuel" },
         { tag: "anoxia:water", fluid: "minecraft:water" },
         { tag: "anoxia:refined_canola", fluid: "actuallyadditions:refined_canola_oil" },
         { tag: "anoxia:nutrient_distillation", fluid: "enderio:nutrient_distillation" },
     ];
-    TagPattern.forEach((recipe) => event.add(recipe.tag, recipe.fluid));
-
-    //Remove Single Tag
-    const RmTag = ["forge:fuel"];
-    RmTag.forEach((tag) => event.removeAll(tag));
-
-    //Add Tag
-    event.add("forge:fuel", "ad_astra:fuel");
-
-    //Game Remove
-    global.fluid.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
+    AddTagPattern.forEach((recipe) => event.add(recipe.tag, recipe.fluid));
 });
 //#endregion
 
@@ -222,6 +252,8 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
         { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
         { tag: "forge:ingots/aethersteel_scrap", item: "aethersteel:aethersteel_scrap" },
+        { tag: "forge:storage_blocks/raw", item: "bloodmagic:rawdemoniteblock" },
+        { tag: "forge:storage_blocks/raw_hellforged", item: "bloodmagic:rawdemoniteblock" },
     ];
     TagsJAOPCAattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
 });
@@ -232,6 +264,8 @@ ServerEvents.tags("block", (event) => {
         { tag: "forge:ores", item: "aethersteel:aether_debris" },
         { tag: "forge:ores/aethersteel_scrap", item: "aethersteel:aether_debris" },
         { tag: "forge:ore_rates/singular", item: "aethersteel:aether_debris" },
+        { tag: "forge:storage_blocks/raw", item: "bloodmagic:rawdemoniteblock" },
+        { tag: "forge:storage_blocks/raw_hellforged", item: "bloodmagic:rawdemoniteblock" },
     ];
     TagsJAOPCAPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
 });

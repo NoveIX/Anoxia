@@ -19,6 +19,7 @@ global.items.GAME_FullRm = [
     "actuallyadditions:tiny_coal",
     "actuallyadditions:tiny_charcoal",
     "actuallyadditions:tiny_torch",
+    "actuallyadditions:crafter_on_a_stick",
 
     //AE2
     "ae2:ender_dust",
@@ -160,7 +161,7 @@ global.items.GAME_FullRm = [
     "exnihilosequentia:red_nether_brick_hammer",
     "exnihilosequentia:terracotta_hammer",
     "exnihilosequentia:tuff_hammer",
-    'exnihilosequentia:end_cake',
+    "exnihilosequentia:end_cake",
 
     //Hammer Lib
     "hammerlib:gears/wooden",

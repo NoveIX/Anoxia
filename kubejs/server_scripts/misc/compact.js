@@ -129,7 +129,7 @@ ServerEvents.recipes((event) => {
         "thermal:machines/press/unpacking/press_enderium_nugget_unpacking", //ingot => nugget
         "thermal:machines/press/packing3x3/press_enderium_packing", //ingot => block
 
-        ////Thermal Endergy
+        //Thermal Endergy
         //Prismalium
         "thermalendergy:prismalium_ingot_from_nugget", //nugget => ingot
         "thermalendergy:prismalium_ingot", //block => ingot
@@ -151,6 +151,20 @@ ServerEvents.recipes((event) => {
         "thermalendergy:stellarium_block_from_ingot", //ingot => block
         "thermalendergy:machine/press/unpacking/press_stellarium_unpacking", //block => ingot
         "thermalendergy:machine/press/packing3x3/press_stellarium_packing", //ingot => block
+
+        //Avaritia
+        //neutron
+        "minecraft:neutron_ingot_from_nuggets", //nugget => ingot
+        "minecraft:neutron_ingot_from_neutron_block", //block => ingot
+        "minecraft:neutron_nugget", //ingot => nugget
+        "minecraft:neutron", //ingot => block
+        "minecraft:neutron_pile_from_ingots", //dust => nugget
+        "minecraft:neutron_pile", //nugget => dust
+        //infinity
+        "minecraft:infinity_ingot_from_infinity_nugget", //nugget => ingot
+        "minecraft:infinity_ingot", //block => ingot
+        "minecraft:infinity_nugget", //ingot => nugget
+        "minecraft:infinity_block_from_infinity_ingot", //ingot => block
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -311,6 +325,24 @@ ServerEvents.recipes((event) => {
             id: { ingot: "thermalendergy:stellarium_ingot", nugget: "thermalendergy:stellarium_nugget", block: "thermalendergy:stellarium_block" },
             tag: { ingot: "forge:ingots/stellarium", nugget: "forge:nuggets/stellarium", block: "forge:storage_blocks/stellarium" },
             rsflux: 7200,
+        },
+
+        //Avaritia
+        {
+            id: { ingot: "avaritia:neutron_ingot", nugget: "avaritia:neutron_nugget", block: "avaritia:neutron" },
+            tag: { ingot: "forge:ingots/neutronium", nugget: "forge:nuggets/neutronium", block: "forge:storage_blocks/neutronium" },
+            rsflux: 50000,
+        },
+        {
+            //dust => nugget
+            id: { ingot: "avaritia:neutron_nugget", nugget: "avaritia:neutron_pile" },
+            tag: { ingot: "forge:nuggets/neutronium", nugget: "forge:dusts/neutronium" },
+            rsflux: 50000,
+        },
+        {
+            id: { ingot: "avaritia:infinity_ingot", nugget: "avaritia:infinity_nugget", block: "avaritia:infinity" },
+            tag: { ingot: "forge:ingots/infinity", nugget: "forge:nuggets/infinity", block: "forge:storage_blocks/infinity" },
+            rsflux: 100000,
         },
     ];
     CompactPattern.forEach((recipe) => {

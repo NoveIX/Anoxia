@@ -1,4 +1,11 @@
 ServerEvents.recipes((event) => {
+//#region RemoveID
+const RmRecipeID = ["experienceobelisk:cognitive_alloy", "experienceobelisk:metamorpher/cognitive_alloy_metamorphosis"];
+RmRecipeID.forEach((id) => event.remove({ id: id }));
+//#endregion
+
+//// # =================================================================================================== #
+
     //Cognitive Alloy
     event.shapeless("experienceobelisk:cognitive_alloy", [
         "#forge:ingots/copper",

@@ -32,7 +32,7 @@ ServerEvents.recipes((event) => {
         { under: "bigreactors:ridiculite_block", multi: 60 },
         { under: "bigreactors:inanite_block", multi: 70 },
         { under: "bigreactors:insanite_block", multi: 80 },
-        { under: "avaritia:neutron", multi: 300 },
+        { under: "avaritia:neutron", multi: 250 },
         { under: "avaritia:infinity", multi: 1000 },
     ];
     HeatPattern.forEach((recipe) => {

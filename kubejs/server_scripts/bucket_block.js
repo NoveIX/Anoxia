@@ -1,9 +1,14 @@
 // priority:997
-ItemEvents.rightClicked("minecraft:water_bucket", (event) => {
-    let currentDimension = event.player.level.dimension;
-    // Sostituisci 'minecraft:the_nether' e 'minecraft:the_end' con le dimensioni che vuoi limitare
-    if (currentDimension === "minecraft:the_nether" || currentDimension === "minecraft:the_end") {
-        event.player.tell("Non puoi usare il secchio d'acqua in questa dimensione!");
-        event.cancel(); // Annulla l'azione del click destro
-    }
+const bucketList = ["exnihilosequentia:witch_water_bucket", "exnihilosequentia:sea_water_bucket"];
+const DimensionList = ["ad_astra:moon", "ad_astra:moon_orbit", "ad_astra:mars", "ad_astra:mars_orbit", "ad_astra:venus", "ad_astra:venus_orbit", "ad_astra:mercury", "ad_astra:mercury_orbit"];
+
+bucketList.forEach((bucket) => {
+    ItemEvents.rightClicked(bucket, (event) => {
+        const blockDimension = event.level.dimension.toString();
+
+        if (DimensionList.includes(blockDimension)) {
+            event.player.tell("You cannot use this bucket in this dimension!");
+            event.cancel();
+        }
+    });
 });

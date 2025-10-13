@@ -65,12 +65,12 @@ ServerEvents.recipes((event) => {
 
     //Hopper
     event.remove({ output: "minecraft:hopper" });
-    event.shaped("minecraft:hopper", ["A A", "ABA", " A "], { A: "#forge:plates/iron", B: "#forge:chests/wooden" });
+    event.shaped("minecraft:hopper", ["A A", "ABA", " A "], { A: "#forge:plates/iron", B: "cyclic:hopper" });
     event.shapeless("minecraft:hopper", ["uppers:upper"]);
 
     //Upper
     event.remove({ output: "uppers:upper" });
-    event.shaped("uppers:upper", [" A ", "ABA", "A A"], { A: "#forge:plates/iron", B: "#forge:chests/wooden" });
+    event.shaped("uppers:upper", [" A ", "ABA", "A A"], { A: "#forge:plates/iron", B: "cyclic:hopper" });
     event.shapeless("uppers:upper", ["minecraft:hopper"]);
 
     //Emergency Food
