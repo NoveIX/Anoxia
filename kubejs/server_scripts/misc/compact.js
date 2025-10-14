@@ -347,29 +347,17 @@ ServerEvents.recipes((event) => {
     ];
     CompactPattern.forEach((recipe) => {
         //Compacting
-        if (recipe.id.ingot && recipe.tag.nugget) {
-            CompactThermalPack(recipe.id.ingot, recipe.tag.nugget, recipe.rsflux);
-        } else {
-            CompactThermalPackID(recipe.id.ingot, recipe.id.nugget, recipe.rsflux);
-        }
+        if (recipe.id.ingot && recipe.tag.nugget) CompactThermalPack(recipe.id.ingot, recipe.tag.nugget, recipe.rsflux);
+        else if (recipe.id.block && recipe.id.nugget) CompactThermalPackID(recipe.id.ingot, recipe.id.nugget, recipe.rsflux);
 
-        if (recipe.id.ingot && recipe.tag.block) {
-            CompactThermalUnpack(recipe.id.ingot, recipe.tag.block, recipe.rsflux);
-        } else {
-            CompactThermalUnpackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
-        }
+        if (recipe.id.ingot && recipe.tag.block) CompactThermalUnpack(recipe.id.ingot, recipe.tag.block, recipe.rsflux);
+        else if (recipe.id.block && recipe.id.block) CompactThermalUnpackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
 
-        if (recipe.id.nugget && recipe.tag.ingot) {
-            CompactThermalUnpack(recipe.id.nugget, recipe.tag.ingot, recipe.rsflux);
-        } else {
-            CompactThermalUnpackID(recipe.id.nugget, recipe.id.ingot, recipe.rsflux);
-        }
+        if (recipe.id.nugget && recipe.tag.ingot) CompactThermalUnpack(recipe.id.nugget, recipe.tag.ingot, recipe.rsflux);
+        else if (recipe.id.block && recipe.id.ingot) CompactThermalUnpackID(recipe.id.nugget, recipe.id.ingot, recipe.rsflux);
 
-        if (recipe.id.block && recipe.tag.ingot) {
-            CompactThermalPack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
-        } else {
-            CompactThermalPack(recipe.id.block, recipe.id.ingot, recipe.rsflux);
-        }
+        if (recipe.id.block && recipe.tag.ingot) CompactThermalPack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
+        else if (recipe.id.block && recipe.id.ingot) CompactThermalPack(recipe.id.block, recipe.id.ingot, recipe.rsflux);
     });
     //#endregion
 });

@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
 
     //Advanced Magnet
     event.remove({ output: "simplemagnets:advancedmagnet" });
-    event.shaped("simplemagnets:advancedmagnet", ["AAB", "CD ", "AAE"], { A: "minecraft:gold_ingot", B: "#forge:ingots/electrotine_alloy", C: "simplemagnets:basicmagnet", D: "thermal:rf_coil", D: "#forge:ingots/red_alloy" });
+    event.shaped("simplemagnets:advancedmagnet", ["AAB", "CD ", "AAE"], { A: "minecraft:gold_ingot", B: "#forge:ingots/electrotine_alloy", C: "simplemagnets:basicmagnet", D: "thermal:rf_coil", E: "#forge:ingots/red_alloy" });
 
     //Demagnetization Coil
     event.remove({ output: "simplemagnets:basic_demagnetization_coil" });
