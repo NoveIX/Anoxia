@@ -175,7 +175,6 @@ global.items.GAME_FullRm = [
     "hammerlib:wrench",
 
     //Immersive Engineering
-    "immersiveengineering:coal_coke",
     "immersiveengineering:slag",
     "immersiveengineering:dust_wood",
     "immersiveengineering:plate_copper",
@@ -372,6 +371,9 @@ global.items.GAME_FullRm = [
     "mysticalagradditions:neutronium_crux",
     "mysticalagradditions:nitro_crystal_crux",
 
+    //MM
+    'mm:coke_oven_fluid_port_input',
+
     //OpenComputer
     "oc2r:silicon_blend",
     "oc2r:silicon",
@@ -474,6 +476,7 @@ global.items.GAME_RmIn = [
 //#region JEI add item
 global.items.JEI_Add = [
     //Immersive
+    "immersiveengineering:coal_coke",
     "immersiveengineering:storage_aluminum",
     "immersiveengineering:storage_lead",
     "immersiveengineering:storage_silver",

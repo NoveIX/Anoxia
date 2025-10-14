@@ -6,6 +6,10 @@ ServerEvents.recipes((event) => {
     event.shaped("mm:machine_gearbox", ["ABA", "BCB", "ABA"], { A: "anoxia:modularium_ingot", B: "#forge:gears/steel", C: "create:gearbox" });
     event.shaped("mm:machine_circuit", ["ABA", "B B", "ABA"], { A: "anoxia:modularium_ingot", B: "mekanism:basic_control_circuit" });
 
+    //Simple MM
+    event.shaped("mm:portal_controller", [" A ", "BCB", "DBD"], { A: "computercraft:monitor_normal", B: "minecraft:redstone_block", C: "minecraft:obsidian", D: "minecraft:comparator" });
+    event.shaped("mm:coke_oven_controller", [" A ", "BCB", "DBD"], { A: "computercraft:monitor_normal", B: "minecraft:redstone_block", C: "immersiveengineering:cokebrick", D: "minecraft:comparator" });
+
     //// # =================================================================================================== #
 
     //#region Item
@@ -38,6 +42,13 @@ ServerEvents.recipes((event) => {
     ItemOutPort.forEach((recipe) => {
         event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "anoxia:modularium_ingot", C: recipe.put, D: "#forge:chests/wooden" });
     });
+
+    //Simple MM
+    event.shaped("mm:portal_item_port_input", [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "minecraft:obsidian", D: "#forge:chests/wooden" });
+    event.shaped("mm:portal_item_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "minecraft:obsidian", D: "#forge:chests/wooden" });
+    event.shaped("mm:coke_oven_item_port_input", [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "immersiveengineering:cokebrick", D: "#forge:chests/wooden" });
+    event.shaped("mm:coke_oven_item_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "immersiveengineering:cokebrick", D: "#forge:chests/wooden" });
+    event.shaped("mm:coke_oven_fluid_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "immersiveengineering:cokebrick", D: "minecraft:bucket" });
     //#endregion
 
     //// # =================================================================================================== #
@@ -104,7 +115,7 @@ ServerEvents.recipes((event) => {
         { get: "mm:ultimate_energy_port_output", put: "mm:ludicrous_energy_port_output" },
     ];
     EnergyOutPort.forEach((recipe) => {
-        event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "pipez:energy_pipe", B: "moonbase:modularium", C: recipe.put, D: "#forge:ingots/red_alloy" });
+        event.shaped(recipe.get, ["DBD", "BCB", " A "], { A: "pipez:energy_pipe", B: "anoxia:modularium_ingot", C: recipe.put, D: "#forge:ingots/red_alloy" });
     });
 });
 
@@ -752,7 +763,7 @@ MMEvents.createProcesses((event) => {
         .ticks(900)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "minecraft:logs", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "minecraft:charcoal", count: 4 } })
-        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 1000 } });
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "immersiveengineering:creosote", amount: 1000 } });
 
     event
         .create("mm:oven_coke")
@@ -760,7 +771,7 @@ MMEvents.createProcesses((event) => {
         .ticks(1800)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:coal", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "thermal:coal_coke", count: 4 } })
-        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 2000 } });
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "immersiveengineering:creosote", amount: 4000 } });
 
     event
         .create("mm:oven_coke_block")
@@ -768,7 +779,7 @@ MMEvents.createProcesses((event) => {
         .ticks(16200)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:coal_block", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "thermal:coal_coke_block", count: 4 } })
-        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "industrialforegoing:sludge", amount: 18000 } });
+        .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "immersiveengineering:creosote", amount: 18000 } });
     //#endregion
 
     //// # =================================================================================================== #

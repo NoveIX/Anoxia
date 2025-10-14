@@ -55,6 +55,9 @@ ServerEvents.recipes((event) => {
 
     //Arc Recycling disable in OpenLoader
 
+    //Coal Coke Block
+    event.shaped("immersiveengineering:coal_coke", ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
+
     //LV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_copper" });
     event.shapeless("immersiveengineering:wirecoil_copper", ["immersiveengineering:wirecoil_copper_ins", "#immersiveengineering:tools/wirecutters"]);

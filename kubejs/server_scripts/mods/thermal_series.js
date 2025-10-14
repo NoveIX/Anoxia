@@ -162,7 +162,12 @@ ServerEvents.recipes((event) => {
     event.shaped("thermal:rf_coil", ["  A", " B ", "A  "], { A: "#forge:ingots/red_alloy", B: "#forge:ingots/electrum" });
 
     //Coal Coke
+    event.remove({ output: "thermal:coal_coke" });
     event.shapeless(Item.of("thermal:coal_coke", 9), ["#forge:storage_blocks/coal_coke"]);
+
+    //Coal Coke Block
+    event.remove({ output: "thermal:coal_coke_block" });
+    event.shaped("thermal:coal_coke_block", ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
 
     //Servo
     event.remove({ output: "thermal:redstone_servo" });
