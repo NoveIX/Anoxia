@@ -151,7 +151,7 @@ ServerEvents.tags("block", (event) => {
         { tag: "forge:storage_blocks/hellforged", block: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks", block: "bloodmagic:dungeon_metal" },
 
-        ////MM
+        //MM
         //Item input port
         { tag: "mm:machine_item_port_input", block: "mm:tiny_item_port_input" },
         { tag: "mm:machine_item_port_input", block: "mm:small_item_port_input" },
