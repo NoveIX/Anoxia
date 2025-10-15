@@ -1,4 +1,5 @@
 ServerEvents.recipes((event) => {
+    //Remove Aethersteel
     event.remove({ output: "aethersteel:aethersteel_ingot" });
 
     //Aethersteel Smithing Template

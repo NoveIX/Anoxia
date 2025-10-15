@@ -6,7 +6,8 @@ ServerEvents.recipes((event) => {
         "minecraft:netherite_ingot",
         "thermal:machines/smelter/smelter_alloy_netherite",
 
-        //Aethersteel
+        //Aetherstell
+        //aetherstell.js => rm output: aetherstell_ingot
 
         //Create
         "thermal:compat/create/smelter_create_alloy_andesite_alloy",

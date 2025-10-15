@@ -53,7 +53,7 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
-    //Arc Recycling disable in OpenLoader
+    //#region Recipe
 
     //Coal Coke Block
     event.shaped("immersiveengineering:coal_coke", ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
@@ -192,7 +192,7 @@ ServerEvents.recipes((event) => {
         event.shaped(recipe.get, ["AAA", "AAA", "AAA"], { A: recipe.put });
     });
 
-    ////Furnace
+    //Furnace
     //Coke Brick
     event.remove({ output: "immersiveengineering:cokebrick" });
     event.shaped("immersiveengineering:cokebrick", ["ABA", "BCB", "ABA"], { A: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", C: "#forge:sandstone/colorless" });
@@ -208,6 +208,8 @@ ServerEvents.recipes((event) => {
     //Blast Brick Reinforced
     event.remove({ output: "immersiveengineering:blastbrick_reinforced" });
     event.shaped("immersiveengineering:blastbrick_reinforced", ["A A", " B ", "A A"], { A: "#forge:plates/steel", B: "immersiveengineering:blastbrick" });
+
+    //#endregion
 
     //// # =================================================================================================== #
 

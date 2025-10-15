@@ -155,7 +155,7 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
-    //#region Crafting
+    //#region Recipe
 
     //Flux Coil
     event.remove({ output: "thermal:rf_coil" });
