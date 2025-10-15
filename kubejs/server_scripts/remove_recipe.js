@@ -11,8 +11,10 @@ ServerEvents.recipes((event) => {
 
     global.items.GAME_FullRm.forEach((item) => {
         event.remove({ output: item });
-        //event.remove({ input: item });
+        event.remove({ input: item });
     });
+
+    //// # =================================================================================================== #
 
     //Fluid
     global.fluid.GAME_RmOut.forEach((item) => {
@@ -22,7 +24,8 @@ ServerEvents.recipes((event) => {
     global.fluid.GAME_RmIn.forEach((item) => {
         event.remove({ input: item });
     });
-    //#endregion
+
+    //// # =================================================================================================== #
 
     //Recipe ID
     global.recipe.GAME_Rmid.forEach((id) => {
