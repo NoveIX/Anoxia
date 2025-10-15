@@ -51,8 +51,7 @@ ServerEvents.recipes((event) => {
 
     //Piston
     event.remove({ output: "minecraft:piston" });
-    event.shaped("minecraft:piston", ["AAA", "BCB", "BDB"], { A: "#minecraft:planks", B: "#forge:cobblestone", C: "#forge:ingots/iron", D: "#forge:ingots/red_alloy" });
-    event.shaped("minecraft:piston", ["AAA", "BCB", "BDB"], { A: "#minecraft:planks", B: "#forge:cobblestone", C: "#forge:ingots/iron", D: "#forge:ingots/electrotine_alloy" });
+    event.shaped("minecraft:piston", ["AAA", "BCB", "BDB"], { A: "#minecraft:planks", B: "#forge:cobblestone", C: "#forge:ingots/iron", D: ["#forge:ingots/red_alloy", "#forge:ingots/electrotine_alloy"] });
 
     //Sticky Piston
     event.remove({ output: "minecraft:sticky_piston" });
