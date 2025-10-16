@@ -46,9 +46,9 @@ ServerEvents.recipes((event) => {
     //Simple MM
     event.shaped("mm:portal_item_port_input", [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "minecraft:obsidian", D: "#forge:chests/wooden" });
     event.shaped("mm:portal_item_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "minecraft:obsidian", D: "#forge:chests/wooden" });
-    event.shaped("mm:coke_oven_item_port_input", [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "immersiveengineering:cokebrick", D: "#forge:chests/wooden" });
-    event.shaped("mm:coke_oven_item_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "immersiveengineering:cokebrick", D: "#forge:chests/wooden" });
-    event.shaped("mm:coke_oven_fluid_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "#forge:ingots/obsidian", C: "immersiveengineering:cokebrick", D: "minecraft:bucket" });
+    event.shaped("mm:coke_oven_item_port_input", [" A ", "BCB", "DBD"], { A: "minecraft:hopper", B: "exnihilosequentia:porcelain_clay", C: "immersiveengineering:cokebrick", D: "#forge:chests/wooden" });
+    event.shaped("mm:coke_oven_item_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "exnihilosequentia:porcelain_clay", C: "immersiveengineering:cokebrick", D: "#forge:chests/wooden" });
+    event.shaped("mm:coke_oven_fluid_port_output", ["DBD", "BCB", " A "], { A: "minecraft:hopper", B: "exnihilosequentia:porcelain_clay", C: "immersiveengineering:cokebrick", D: "minecraft:bucket" });
     //#endregion
 
     //// # =================================================================================================== #
@@ -760,7 +760,7 @@ MMEvents.createProcesses((event) => {
     event
         .create("mm:oven_charcoal")
         .structureId("mm:oven")
-        .ticks(900)
+        .ticks(900 * 0.5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", tag: "minecraft:logs", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "minecraft:charcoal", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "immersiveengineering:creosote", amount: 1000 } });
@@ -768,7 +768,7 @@ MMEvents.createProcesses((event) => {
     event
         .create("mm:oven_coke")
         .structureId("mm:oven")
-        .ticks(1800)
+        .ticks(1800 * 0.5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:coal", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "thermal:coal_coke", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "immersiveengineering:creosote", amount: 4000 } });
@@ -776,7 +776,7 @@ MMEvents.createProcesses((event) => {
     event
         .create("mm:oven_coke_block")
         .structureId("mm:oven")
-        .ticks(16200)
+        .ticks(16200 * 0.5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "minecraft:coal_block", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "thermal:coal_coke_block", count: 4 } })
         .output({ type: "mm:output/simple", ingredient: { type: "mm:fluid", fluid: "immersiveengineering:creosote", amount: 18000 } });

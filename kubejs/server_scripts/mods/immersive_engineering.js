@@ -56,7 +56,7 @@ ServerEvents.recipes((event) => {
     //#region Recipe
 
     //Coal Coke Block
-    event.shaped("immersiveengineering:coal_coke", ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
+    event.shaped('immersiveengineering:coke', ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
 
     //LV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_copper" });

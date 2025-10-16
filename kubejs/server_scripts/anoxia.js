@@ -10,12 +10,15 @@ ServerEvents.recipes((event) => {
     event.shapeless(Item.of("anoxia:tiny_coal", 8), "minecraft:coal");
     event.shapeless("minecraft:coal", Item.of("anoxia:tiny_coal", 8)); //Reverse
 
-    //Raw Osmium
-    event.shaped("mekanism:raw_osmium", ["AA", "AA"], { A: "anoxia:osmium_pieces" });
-    event.shaped("ad_astra:raw_desh", ["AA", "AA"], { A: "anoxia:desh_pieces" });
-    event.shaped("ad_astra:raw_ostrum", ["AA", "AA"], { A: "anoxia:ostrum_pieces" });
-    event.shaped("ad_astra:raw_calorite", ["AA", "AA"], { A: "anoxia:calorite_pieces" });
-    event.shaped("bloodmagic:rawdemonite", ["AA", "AA"], { A: "anoxia:demonite_pieces" });
+    //Raw ExNihilo
+    const RawExNihiloPattern = [
+        { get: "mekanism:raw_osmium", put: "anoxia:osmium_pieces" },
+        { get: "ad_astra:raw_desh", put: "anoxia:desh_pieces" },
+        { get: "ad_astra:raw_ostrum", put: "anoxia:ostrum_pieces" },
+        { get: "ad_astra:raw_calorite", put: "anoxia:calorite_pieces" },
+        { get: "bloodmagic:rawdemonite", put: "anoxia:demonite_pieces" },
+    ];
+    RawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ["AA", "AA"], { A: recipe.put }));
 
     //Obsidian Ingot
     event.shapeless("anoxia:obsidian_with_iron", ["#forge:dusts/obsidian", "#forge:dusts/obsidian", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron"]);

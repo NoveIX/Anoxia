@@ -476,7 +476,7 @@ global.items.GAME_RmIn = [
 //#region JEI add item
 global.items.JEI_Add = [
     //Immersive
-    "immersiveengineering:coal_coke",
+    'immersiveengineering:coke',
     "immersiveengineering:storage_aluminum",
     "immersiveengineering:storage_lead",
     "immersiveengineering:storage_silver",
