@@ -9,6 +9,7 @@ ServerEvents.recipes((event) => {
         ["thermal:saw_blade", "#forge:sawblades"],
         ["minecraft:smoker", "#anoxia:smokers"],
         ["minecraft:blast_furnace", "#anoxia:blastfurnaces"],
+        ["#forge:storage_blocks/cobblestone", "anoxia:compressed_cobblestone"],
 
         //Create Unification
         ["create:copper_sheet", "#forge:plates/copper"],

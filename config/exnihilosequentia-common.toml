@@ -37,7 +37,7 @@
 		maxSolidAmount = 1000
 		#Number of seconds to compost (Default: 10)
 		#Range: > 1
-		secondsToCompost = 10
+		secondsToCompost = 60
 
 	#Fluid Transform Configs
 	[barrel.fluid_transform]
