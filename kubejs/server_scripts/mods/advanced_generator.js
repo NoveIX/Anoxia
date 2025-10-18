@@ -48,13 +48,16 @@ ServerEvents.recipes((event) => {
     //#region Liquid fuel
     event.remove({ type: "advgenerators:liquid_fuel" });
     const LiquidFuelPattern = [
-        { rsflux: 1750, put: "ad_astra:fuel" },
-        { rsflux: 1024, put: "thermal:refined_fuel" },
+        { rsflux: 5000, put: "ad_astra:fuel" },
+        { rsflux: 4500, put: "thermal:refined_fuel" },
+        { rsflux: 3000, put: "thermal:light_oil" },
+        { rsflux: 3000, put: "thermal:heavy_oil" },
+        { rsflux: 2500, put: "thermal:crude_oil" },
         { rsflux: 1500, put: "thermal:creosote" },
         { rsflux: 1000, put: "advgenerators:syngas" },
-        { rsflux: 80, put: "mekanism:hydrogen" },
+        { rsflux: 11260, put: "mekanism:hydrogen" },
         { rsflux: 2000, put: "mekanism:ethene" },
-        { rsflux: 1024, put: "immersiveengineering:biodiesel" },
+        { rsflux: 1250, put: "immersiveengineering:biodiesel" },
     ];
     LiquidFuelPattern.forEach((recipe) =>
         event.custom({
