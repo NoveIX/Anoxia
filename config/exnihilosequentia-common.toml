@@ -14,7 +14,7 @@
 	barrelNumberOfBuckets = 1
 	#How much fluid rain will fill per iteration (Default: 2)
 	#Range: > 1
-	rainFillAmount = 2
+	rainFillAmount = 1
 	#The max temperature a barrel can accept; water is 300 (Default: 300)
 	#Range: > 0
 	woodBarrelMaxTemp = 300
@@ -28,7 +28,7 @@
 	[barrel.mob_spawn]
 		#Number of seconds to spawn mobs (Default: 10)
 		#Range: > 1
-		secondsToSpawnMobs = 10
+		secondsToSpawnMobs = 60
 
 	#Compost Configs
 	[barrel.compost]
@@ -43,7 +43,7 @@
 	[barrel.fluid_transform]
 		#Number of seconds to transform fluids (Default: 10)
 		#Range: > 1
-		secondsToTransformFluid = 10
+		secondsToTransformFluid = 60
 
 #Crook Configs
 [crook]

@@ -5,6 +5,70 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
+    //#region Compost
+    const CompostPattern = [
+        { put: { item: "rootsclassic:elderberry" }, compost: 40 },
+        { put: { item: "rootsclassic:nightshade" }, compost: 40 },
+        { put: { item: "rootsclassic:blackcurrant" }, compost: 40 },
+        { put: { item: "rootsclassic:redcurrant" }, compost: 40 },
+        { put: { item: "rootsclassic:whitecurrant" }, compost: 40 },
+        { put: { item: "delightful:green_tea_leaf" }, compost: 40 },
+    ];
+    CompostPattern.forEach((recipe) => {
+        event.custom({
+            type: "exnihilosequentia:compost",
+            amount: recipe.compost,
+            input: recipe.put,
+        });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region Crusher
+    const CrusherPattern = [
+        {
+            get: [{ chance: 1.0, count: 1, item: "aethersteel:cobbled_aetherslate" }],
+            put: { item: "aethersteel:aetherslate" },
+        },
+        {
+            get: [{ chance: 1.0, count: 1, item: "ad_astra:moon_sand" }],
+            put: { item: "ad_astra:moon_cobblestone" },
+        },
+        {
+            get: [{ chance: 1.0, count: 1, item: "ad_astra:mars_sand" }],
+            put: { item: "ad_astra:mars_cobblestone" },
+        },
+        {
+            get: [{ chance: 1.0, count: 1, item: "ad_astra:venus_sand" }],
+            put: { item: "ad_astra:venus_cobblestone" },
+        },
+    ];
+    CrusherPattern.forEach((recipe) => {
+        event.custom({
+            type: "exnihilosequentia:crushing",
+            input: recipe.put,
+            results: recipe.get,
+        });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
+    //#region FluidItem
+    const FluidItemPattern = [{ get: { item: "ae2:sky_stone_block" }, put: { item: "ae2:sky_dust" }, fluid: { fluid: "minecraft:lava" } }];
+    FluidItemPattern.forEach((recipe) => {
+        event.custom({
+            type: "exnihilosequentia:fluid_item",
+            fluid: recipe.fluid,
+            input: recipe.put,
+            result: recipe.get,
+        });
+    });
+    //#endregion
+
+    //// # =================================================================================================== #
+
     //#region Heat
     event.remove({ type: "exnihilosequentia:heat" });
     const HeatPattern = [
@@ -682,36 +746,6 @@ ServerEvents.recipes((event) => {
             input: recipe.put,
             result: recipe.get,
             rolls: recipe.drop,
-        });
-    });
-    //#endregion
-
-    //// # =================================================================================================== #
-
-    //#region Crusher
-    const CrusherPattern = [
-        {
-            get: [{ chance: 1.0, count: 1, item: "aethersteel:cobbled_aetherslate" }],
-            put: { item: "aethersteel:aetherslate" },
-        },
-        {
-            get: [{ chance: 1.0, count: 1, item: "ad_astra:moon_sand" }],
-            put: { item: "ad_astra:moon_cobblestone" },
-        },
-        {
-            get: [{ chance: 1.0, count: 1, item: "ad_astra:mars_sand" }],
-            put: { item: "ad_astra:mars_cobblestone" },
-        },
-        {
-            get: [{ chance: 1.0, count: 1, item: "ad_astra:venus_sand" }],
-            put: { item: "ad_astra:venus_cobblestone" },
-        },
-    ];
-    CrusherPattern.forEach((recipe) => {
-        event.custom({
-            type: "exnihilosequentia:crushing",
-            input: recipe.put,
-            results: recipe.get,
         });
     });
     //#endregion

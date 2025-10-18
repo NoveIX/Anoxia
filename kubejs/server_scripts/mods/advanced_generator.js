@@ -59,12 +59,12 @@ ServerEvents.recipes((event) => {
         { rsflux: 2000, put: "mekanism:ethene" },
         { rsflux: 1250, put: "immersiveengineering:biodiesel" },
     ];
-    LiquidFuelPattern.forEach((recipe) =>
+    LiquidFuelPattern.forEach((recipe) => {
         event.custom({
             type: "advgenerators:liquid_fuel",
             fuel: { fluid: recipe.put },
             fePerMb: recipe.rsflux,
-        })
-    );
+        });
+    });
     //#endregion
 });
