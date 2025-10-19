@@ -55,11 +55,11 @@ ServerEvents.recipes((event) => {
 
     //// # =================================================================================================== #
 
-    //#region FluidItem
-    const FluidItemPattern = [{ get: { item: "ae2:sky_stone_block" }, put: { item: "ae2:sky_dust" }, fluid: { fluid: "minecraft:lava" } }];
+    //#region Precipitate
+    const FluidItemPattern = [{ get: { count: 1, item: "ae2:sky_stone_block" }, put: { item: "ae2:sky_dust" }, fluid: { amount: 1000, fluid: "minecraft:lava" } }];
     FluidItemPattern.forEach((recipe) => {
         event.custom({
-            type: "exnihilosequentia:fluid_item",
+            type: "exnihilosequentia:precipitate",
             fluid: recipe.fluid,
             input: recipe.put,
             result: recipe.get,
