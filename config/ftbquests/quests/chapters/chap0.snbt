@@ -8,89 +8,201 @@
 	id: "60D472008118234D"
 	order_index: 0
 	quest_links: [ ]
-	quests: [{
-		id: "466985ED3651E3F5"
-		rewards: [
-			{
+	quests: [
+		{
+			id: "5D4C43976A069EF7"
+			rewards: [
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:mercury players blacklist add @p"
+					elevate_perms: true
+					id: "0772D79E8A0EB1E1"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:mercury_orbit players blacklist add @p"
+					elevate_perms: true
+					id: "4FE3FEE8AD173310"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:venus players blacklist add @p"
+					elevate_perms: true
+					id: "10F0096E4747A56F"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:venus_orbit players blacklist add @p"
+					elevate_perms: true
+					id: "41FE50D4FB0F2B31"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:earth_orbit players blacklist add @p"
+					elevate_perms: true
+					id: "7A46F96F9E374DAA"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:mars players blacklist add @p"
+					elevate_perms: true
+					id: "1E9298DD52EAD87B"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:mars_orbit players blacklist add @p"
+					elevate_perms: true
+					id: "02FC6E0966CA0F92"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:glacio players blacklist add @p"
+					elevate_perms: true
+					id: "6AFC1F10DE839A8D"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension ad_astra:glacio_orbit players blacklist add @p"
+					elevate_perms: true
+					id: "5589582D2EB45C3C"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+			]
+			tasks: [{
+				dimension: "ad_astra:moon"
+				id: "4BD4DD5BE864C36C"
+				title: "Moon"
+				type: "dimension"
+			}]
+			title: "Block Ad Astra Dimension"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			id: "434CB3FE53A988D0"
+			rewards: [{
 				auto: "invisible"
 				command: "/gamerule keepInventory true"
 				elevate_perms: true
-				exclude_from_claim_all: true
-				id: "5D8896A8AD447F70"
+				id: "4291450D5405CB17"
 				silent: true
-				team_reward: false
-				title: "Keep Inventory"
 				type: "command"
-			}
-			{
-				auto: "invisible"
-				count: 16
-				exclude_from_claim_all: true
-				id: "2E0E18C35242A009"
-				item: {
-					Count: 1
-					id: "minecraft:apple"
-					tag: { }
+			}]
+			tasks: [{
+				dimension: "ad_astra:moon"
+				id: "711D7D2E1B74B9F9"
+				title: "Gamerule"
+				type: "dimension"
+			}]
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			id: "5CFCDC7749DE7FE4"
+			rewards: [
+				{
+					auto: "invisible"
+					command: "/dimension minecraft:overworld players blacklist add @p"
+					elevate_perms: true
+					id: "7944ECBA8A6C9330"
+					silent: true
+					team_reward: false
+					type: "command"
 				}
-				team_reward: false
-				type: "item"
-			}
-			{
-				auto: "invisible"
-				exclude_from_claim_all: true
-				id: "5CEDBCAFD3DAF257"
-				item: {
-					Count: 1
-					id: "structurecompass:structure_compass"
-					tag: {
-						"structurecompass:structureName": "anoxia:hub"
-					}
+				{
+					auto: "invisible"
+					command: "/dimension minecraft:the_nether players blacklist add @p"
+					elevate_perms: true
+					id: "319B4A421EAB0181"
+					silent: true
+					team_reward: false
+					type: "command"
 				}
-				team_reward: false
-				type: "item"
-			}
-			{
-				auto: "invisible"
-				count: 2
-				exclude_from_claim_all: true
-				id: "222FB12AF6B3808A"
-				item: {
-					Count: 1
-					id: "ad_astra:oxygen_tank"
-					tag: {
-						BotariumData: {
-							StoredFluids: [{
-								Amount: 1000L
-								Fluid: "mekanism:oxygen"
-							}]
-						}
-					}
+				{
+					auto: "invisible"
+					command: "/dimension minecraft:the_end players blacklist add @p"
+					elevate_perms: true
+					id: "343C053CCAF7A9B6"
+					silent: true
+					team_reward: false
+					type: "command"
 				}
-				team_reward: false
-				type: "item"
-			}
-			{
-				auto: "invisible"
-				exclude_from_claim_all: true
-				id: "369D69E611D8BA65"
-				item: {
-					Count: 1
-					id: "tiab:time_in_a_bottle"
-					tag: { }
+			]
+			tasks: [{
+				dimension: "ad_astra:moon"
+				id: "6079D742555C6447"
+				title: "Block Minecraft Dimension"
+				type: "dimension"
+			}]
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			id: "2E192B8FA232709A"
+			rewards: [
+				{
+					auto: "invisible"
+					command: "/dimension ae2:spatial_storage players blacklist add @p"
+					elevate_perms: true
+					id: "06419E22BF972F6B"
+					silent: true
+					team_reward: false
+					type: "command"
 				}
-				team_reward: false
-				type: "item"
-			}
-		]
-		tasks: [{
-			dimension: "ad_astra:moon"
-			id: "37C6BA31907780F4"
-			title: "Moon"
-			type: "dimension"
-		}]
-		title: "Starting item"
-		x: 0.0d
-		y: 0.0d
-	}]
+				{
+					auto: "invisible"
+					command: "/dimension bloodmagic:dungeon players blacklist add @p"
+					elevate_perms: true
+					id: "4D2AA4ED70F1AF17"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/dimension twilightforest:twilight_forest players blacklist add @p"
+					elevate_perms: true
+					id: "2FDA318EFBAF18C2"
+					silent: true
+					team_reward: false
+					type: "command"
+				}
+			]
+			tasks: [{
+				dimension: "ad_astra:moon"
+				id: "73481B947D25BBC2"
+				type: "dimension"
+			}]
+			title: "Block Other Dimension"
+			x: 2.0d
+			y: 0.0d
+		}
+	]
 	title: "Invisible quest"
 }
