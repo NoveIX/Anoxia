@@ -5,7 +5,7 @@ global.items = {};
 
 //#region Rm full item
 //RmOut - RmIn - RmTags
-global.items.GAME_FullRm = [
+global.items.GAME_RmOut = [
     //Ad Astra
     "ad_astra:tier_1_rocket",
     "ad_astra:tier_2_rocket",
@@ -372,7 +372,7 @@ global.items.GAME_FullRm = [
     "mysticalagradditions:nitro_crystal_crux",
 
     //MM
-    'mm:coke_oven_fluid_port_input',
+    "mm:coke_oven_fluid_port_input",
 
     //OpenComputer
     "oc2r:silicon_blend",
@@ -407,10 +407,6 @@ global.items.GAME_FullRm = [
     //Twilight Forest
     "twilightforest:uncrafting_table",
 ];
-//#endregion
-
-//#region RmOut item
-global.items.GAME_RmOut = [];
 //#endregion
 
 //#region RmIn item
@@ -476,7 +472,7 @@ global.items.GAME_RmIn = [
 //#region JEI add item
 global.items.JEI_Add = [
     //Immersive
-    'immersiveengineering:coke',
+    "immersiveengineering:coke",
     "immersiveengineering:storage_aluminum",
     "immersiveengineering:storage_lead",
     "immersiveengineering:storage_silver",

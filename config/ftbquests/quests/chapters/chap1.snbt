@@ -10,11 +10,38 @@
 	quests: [
 		{
 			id: "7A68078C107F781B"
-			rewards: [{
-				id: "1CA8BD54449F611F"
-				item: "ftbquests:screen_1"
-				type: "item"
-			}]
+			rewards: [
+				{
+					count: 16
+					id: "7B452095986DF12D"
+					item: "minecraft:apple"
+					type: "item"
+				}
+				{
+					count: 2
+					id: "797211FAF17D604D"
+					item: {
+						Count: 1
+						id: "ad_astra:oxygen_tank"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "6198743DC1DC8F28"
+					item: {
+						Count: 1
+						id: "tiab:time_in_a_bottle"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "256704FC5F466853"
+					item: "ftbquests:screen_1"
+					type: "item"
+				}
+			]
 			shape: "hexagon"
 			size: 1.5d
 			tasks: [{
@@ -191,117 +218,6 @@
 			title: "Oxygen supply"
 			x: -3.0d
 			y: -0.5d
-		}
-		{
-			icon: "ad_astra:moon_globe"
-			id: "3DDB3D829D8EB4C4"
-			rewards: [
-				{
-					id: "440BD7566C07827D"
-					item: {
-						Count: 1
-						id: "ad_astra:space_helmet"
-						tag: {
-							Damage: 0
-						}
-					}
-					type: "item"
-				}
-				{
-					id: "39AB5FBA3EEB5ED4"
-					item: {
-						Count: 1
-						id: "ad_astra:space_suit"
-						tag: {
-							BotariumData: {
-								StoredFluids: [{
-									Amount: 2500L
-									Fluid: "mekanism:oxygen"
-								}]
-							}
-							Damage: 0
-						}
-					}
-					type: "item"
-				}
-				{
-					id: "27901F5AAA7F4AEF"
-					item: {
-						Count: 1
-						id: "ad_astra:space_pants"
-						tag: {
-							Damage: 0
-						}
-					}
-					type: "item"
-				}
-				{
-					id: "72D63AC9E696F3B9"
-					item: {
-						Count: 1
-						id: "ad_astra:space_boots"
-						tag: {
-							Damage: 0
-						}
-					}
-					type: "item"
-				}
-			]
-			tasks: [
-				{
-					id: "2BE550721C127700"
-					structure: "ad_astra:lunarian_village"
-					title: "Lunarian Village"
-					type: "structure"
-				}
-				{
-					id: "4F5A8E79BB22D61D"
-					structure: "ad_astra:lunar_tower"
-					title: "Lunar tower"
-					type: "structure"
-				}
-				{
-					id: "38E22A664C5DC095"
-					structure: "ad_astra:moon_dungeon"
-					title: "Moon dungeon"
-					type: "structure"
-				}
-			]
-			title: "Explore moon"
-			x: 3.0d
-			y: -5.0d
-		}
-		{
-			icon: "waystones:waystone"
-			id: "5DF34175126F2024"
-			rewards: [{
-				id: "0D289DC8A23A4D04"
-				item: "waystones:waystone"
-				type: "item"
-			}]
-			tasks: [{
-				id: "260E9BE8A3391B60"
-				type: "checkmark"
-			}]
-			title: "Waystone"
-			x: 6.0d
-			y: -5.0d
-		}
-		{
-			icon: "minecraft:book"
-			id: "426AD30C1FCDD959"
-			rewards: [{
-				id: "7D70A1F552F9431C"
-				item: "sophisticatedbackpacks:backpack"
-				type: "item"
-			}]
-			tasks: [{
-				id: "2A68D220C5BB80B8"
-				type: "checkmark"
-			}]
-			title: "Keep inventory"
-			x: 4.5d
-			y: -5.0d
 		}
 		{
 			dependencies: ["65F579372C3FF7BA"]

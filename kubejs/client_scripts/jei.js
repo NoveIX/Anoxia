@@ -1,10 +1,5 @@
 //#region Item
 JEIEvents.hideItems((event) => {
-    //Rm Full
-    global.items.GAME_FullRm.forEach((item) => {
-        event.hide(item);
-    });
-
     //Rm Out
     global.items.GAME_RmOut.forEach((item) => {
         event.hide(item);

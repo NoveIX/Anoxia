@@ -9,11 +9,6 @@ ServerEvents.recipes((event) => {
         event.remove({ input: item });
     });
 
-    global.items.GAME_FullRm.forEach((item) => {
-        event.remove({ output: item });
-        event.remove({ input: item });
-    });
-
     //// # =================================================================================================== #
 
     //Fluid

@@ -1,7 +1,7 @@
 // priority:999
 ServerEvents.tags("item", (event) => {
     //Game Remove
-    global.items.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
+    global.items.GAME_RmOut.forEach((id) => event.removeAllTagsFrom(id));
 
     //// # =================================================================================================== #
 
