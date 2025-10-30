@@ -9,6 +9,14 @@
 	quest_links: [ ]
 	quests: [
 		{
+			dependencies: ["268F1E0871E3F46F"]
+			description: [
+				"Use the &4compass&r to locate the nearest lunar research base. To activate the compass, hold it in your main hand and press the right mouse button. "
+				""
+				"The &4compass&r is also very useful for finding other structures. To change the search structure, hold the compass in your hand and press Shift (crouch) + right mouse button."
+				""
+				"&bOxygen&r is the most important resource on the moon. Always monitor your reserves in your suit. To refill your suit, you need a tank containing oxygen. Hold the &etank&r in your hand and press the right mouse button."
+			]
 			id: "7A68078C107F781B"
 			rewards: [
 				{
@@ -23,7 +31,14 @@
 					item: {
 						Count: 1
 						id: "ad_astra:oxygen_tank"
-						tag: { }
+						tag: {
+							BotariumData: {
+								StoredFluids: [{
+									Amount: 1000L
+									Fluid: "ad_astra:oxygen"
+								}]
+							}
+						}
 					}
 					type: "item"
 				}
@@ -51,11 +66,10 @@
 				title: "Selene Reseach Hub"
 				type: "structure"
 			}]
-			x: -4.5d
+			x: 3.75d
 			y: -3.75d
 		}
 		{
-			dependencies: ["101BE9723FD254C6"]
 			icon: {
 				Count: 1
 				id: "ad_astra:oxygen_tank"
@@ -92,13 +106,31 @@
 					}
 					type: "item"
 				}
+				{
+					id: "37FDAE75FA1B56B8"
+					item: "mekanism:basic_fluid_tank"
+					type: "item"
+				}
+				{
+					count: 3L
+					id: "633581350A8BB1DB"
+					item: { Count: 3, id: "pipez:energy_pipe" }
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "4F3586205A1DBDB9"
+					item: { Count: 2, id: "pipez:fluid_pipe" }
+					type: "item"
+				}
 			]
-			title: "Oxygen facility"
+			title: "Oxygen Facility"
 			x: -3.0d
-			y: 1.0d
+			y: -0.5d
 		}
 		{
 			dependencies: ["7A68078C107F781B"]
+			description: ["Inside the base, there are several useful and useless items. Search the remains of the base for &6machinery&r and &9tools&r that may be useful to you. "]
 			icon: {
 				Count: 1
 				id: "minecraft:iron_pickaxe"
@@ -182,13 +214,20 @@
 				item: {
 					Count: 1
 					id: "ad_astra:oxygen_tank"
-					tag: { }
+					tag: {
+						BotariumData: {
+							StoredFluids: [{
+								Amount: 1000L
+								Fluid: "ad_astra:oxygen"
+							}]
+						}
+					}
 				}
 				type: "item"
 			}]
 			tasks: [{
 				amount: 1000L
-				fluid: "mekanism:oxygen"
+				fluid: "ad_astra:oxygen"
 				id: "1BC16F14527092CC"
 				type: "fluid"
 			}]
@@ -198,6 +237,57 @@
 		{
 			dependencies: ["52F6E85EF3E25075"]
 			id: "713A57FD92747F33"
+			rewards: [
+				{
+					id: "22B19E693633CB7C"
+					item: {
+						Count: 1
+						id: "minecraft:written_book"
+						tag: {
+							author: "NoveIX"
+							filtered_title: "eaweaw"
+							pages: [
+								"{\"text\":\"dawdawdawdawdawdawdawdawdawdawdawdawdwaawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\"}"
+								"{\"text\":\"dawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaw\"}"
+							]
+							title: "eaweaw"
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "4583F59E26F178BE"
+					item: {
+						Count: 1
+						id: "minecraft:written_book"
+						tag: {
+							author: "NoveIX"
+							filtered_title: "dwada"
+							pages: [
+								"{\"text\":\"dawdawdawdawdaw\\ndaw\\nda\\nwd\\naw\\ndaw\\n\\nwawdawdawdawdawd\"}"
+								"{\"text\":\"dwadaw\"}"
+							]
+							resolved: 1b
+							title: "dwada"
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "5D448389AC9D7D22"
+					item: {
+						Count: 1
+						id: "minecraft:written_book"
+						tag: {
+							author: "NoveIX"
+							filtered_title: "awd"
+							pages: ["{\"text\":\"march\\n\\ndwaddwadawd\"}"]
+							title: "awd"
+						}
+					}
+					type: "item"
+				}
+			]
 			tasks: [{
 				id: "5418CAD2A50DF360"
 				item: "create:clipboard"
@@ -205,18 +295,6 @@
 			}]
 			title: "Read Ellie's notes"
 			x: -4.5d
-			y: -0.5d
-		}
-		{
-			dependencies: ["52F6E85EF3E25075"]
-			id: "101BE9723FD254C6"
-			tasks: [{
-				id: "318A2FF70070EFE8"
-				item: "mekanism:basic_chemical_tank"
-				type: "item"
-			}]
-			title: "Oxygen supply"
-			x: -3.0d
 			y: -0.5d
 		}
 		{
@@ -246,8 +324,8 @@
 				value: 10000L
 			}]
 			title: "Solar energy"
-			x: -4.5d
-			y: 2.5d
+			x: -3.0d
+			y: 1.0d
 		}
 		{
 			dependencies: ["52F6E85EF3E25075"]

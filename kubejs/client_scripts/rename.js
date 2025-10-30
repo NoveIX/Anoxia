@@ -7,6 +7,7 @@ ClientEvents.lang("en_us", (event) => {
         { item: "create:white_sail", new: "Solar Wind Sail" },
         { item: "create:sail_frame", new: "Solar Wind Sail Frame" },
         { item: "create:windmill_bearing", new: "Solar Wind Bearing" },
+        { item: "mekanismgenerators:wind_generator", new: "Solar Wind Generator" },
         { item: "thermal:coal_coke", new: "Coal Coke" },
         { item: "extendedcrafting:handheld_table", new: "Crafting Table On A Stick" },
 
