@@ -85,7 +85,7 @@
 				{
 					count: 2L
 					id: "112E50FA08497A70"
-					item: { Count: 2, id: "ad_astra:solar_panel" }
+					item: "ad_astra:solar_panel"
 					type: "item"
 				}
 				{
@@ -114,13 +114,13 @@
 				{
 					count: 3L
 					id: "633581350A8BB1DB"
-					item: { Count: 3, id: "pipez:energy_pipe" }
+					item: "pipez:energy_pipe"
 					type: "item"
 				}
 				{
 					count: 2L
 					id: "4F3586205A1DBDB9"
-					item: { Count: 2, id: "pipez:fluid_pipe" }
+					item: "pipez:fluid_pipe"
 					type: "item"
 				}
 			]
@@ -184,7 +184,7 @@
 			tasks: [{
 				count: 64L
 				id: "17FFBB1D9FAA41FE"
-				item: { Count: 64, id: "ad_astra:moon_sand" }
+				item: "ad_astra:moon_sand"
 				type: "item"
 			}]
 			title: "Clean the base"
@@ -897,7 +897,7 @@
 			tasks: [
 				{
 					id: "06A2F75544C2B047"
-					item: { Count: 64, id: "minecraft:gravel" }
+					item: "minecraft:gravel"
 					type: "item"
 				}
 				{
@@ -1202,5 +1202,5 @@
 			y: 4.0d
 		}
 	]
-	title: "Survivor"
+	title: "Lunar Wastelands"
 }

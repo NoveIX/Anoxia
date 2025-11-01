@@ -5,18 +5,18 @@
 	filename: "chap0"
 	group: ""
 	icon: "minecraft:command_block"
-	id: "60D472008118234D"
+	id: "2B998D4A1730908F"
 	order_index: 0
 	quest_links: [ ]
 	quests: [
 		{
-			id: "5D4C43976A069EF7"
+			id: "51AABB21B1E37AF0"
 			rewards: [
 				{
 					auto: "invisible"
 					command: "/dimension ad_astra:mercury players blacklist add @p"
 					elevate_perms: true
-					id: "0772D79E8A0EB1E1"
+					id: "7036D9F1375D88BF"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -25,7 +25,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:mercury_orbit players blacklist add @p"
 					elevate_perms: true
-					id: "4FE3FEE8AD173310"
+					id: "096C1184DC46F24A"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -34,7 +34,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:venus players blacklist add @p"
 					elevate_perms: true
-					id: "10F0096E4747A56F"
+					id: "10923F2B9EFC5A6D"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -43,7 +43,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:venus_orbit players blacklist add @p"
 					elevate_perms: true
-					id: "41FE50D4FB0F2B31"
+					id: "484EA6EC9E9344D7"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -52,7 +52,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:earth_orbit players blacklist add @p"
 					elevate_perms: true
-					id: "7A46F96F9E374DAA"
+					id: "7C3D81415432426E"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -61,7 +61,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:mars players blacklist add @p"
 					elevate_perms: true
-					id: "1E9298DD52EAD87B"
+					id: "7C0F07A61A5B0C85"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -70,7 +70,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:mars_orbit players blacklist add @p"
 					elevate_perms: true
-					id: "02FC6E0966CA0F92"
+					id: "10DD2C9C688B3809"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -79,7 +79,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:glacio players blacklist add @p"
 					elevate_perms: true
-					id: "6AFC1F10DE839A8D"
+					id: "6C13C1E864C3FDF7"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -88,7 +88,7 @@
 					auto: "invisible"
 					command: "/dimension ad_astra:glacio_orbit players blacklist add @p"
 					elevate_perms: true
-					id: "5589582D2EB45C3C"
+					id: "5BD1B3107234C48A"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -96,7 +96,7 @@
 			]
 			tasks: [{
 				dimension: "ad_astra:moon"
-				id: "4BD4DD5BE864C36C"
+				id: "22CDE262296E2EC0"
 				title: "Moon"
 				type: "dimension"
 			}]
@@ -105,18 +105,18 @@
 			y: 0.0d
 		}
 		{
-			id: "434CB3FE53A988D0"
+			id: "479679E40171E109"
 			rewards: [{
 				auto: "invisible"
 				command: "/gamerule keepInventory true"
 				elevate_perms: true
-				id: "4291450D5405CB17"
+				id: "6B9D16C2D8D6EF91"
 				silent: true
 				type: "command"
 			}]
 			tasks: [{
 				dimension: "ad_astra:moon"
-				id: "711D7D2E1B74B9F9"
+				id: "33C69FC02155514D"
 				title: "Gamerule"
 				type: "dimension"
 			}]
@@ -124,13 +124,13 @@
 			y: -2.0d
 		}
 		{
-			id: "5CFCDC7749DE7FE4"
+			id: "637BC21D2FA912F1"
 			rewards: [
 				{
 					auto: "invisible"
 					command: "/dimension minecraft:overworld players blacklist add @p"
 					elevate_perms: true
-					id: "7944ECBA8A6C9330"
+					id: "7D0495AC332B4AD1"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -139,7 +139,7 @@
 					auto: "invisible"
 					command: "/dimension minecraft:the_nether players blacklist add @p"
 					elevate_perms: true
-					id: "319B4A421EAB0181"
+					id: "55A3ABEA0AF262D6"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -148,7 +148,7 @@
 					auto: "invisible"
 					command: "/dimension minecraft:the_end players blacklist add @p"
 					elevate_perms: true
-					id: "343C053CCAF7A9B6"
+					id: "3D3A3C0C072D57B1"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -156,7 +156,7 @@
 			]
 			tasks: [{
 				dimension: "ad_astra:moon"
-				id: "6079D742555C6447"
+				id: "4FEB64EB8B9A236A"
 				title: "Block Minecraft Dimension"
 				type: "dimension"
 			}]
@@ -164,13 +164,13 @@
 			y: 0.0d
 		}
 		{
-			id: "2E192B8FA232709A"
+			id: "4E4EC33ECDABFE96"
 			rewards: [
 				{
 					auto: "invisible"
 					command: "/dimension ae2:spatial_storage players blacklist add @p"
 					elevate_perms: true
-					id: "06419E22BF972F6B"
+					id: "4D46175CAD3A195C"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -179,7 +179,7 @@
 					auto: "invisible"
 					command: "/dimension bloodmagic:dungeon players blacklist add @p"
 					elevate_perms: true
-					id: "4D2AA4ED70F1AF17"
+					id: "0B6B6DF7D33ECBF3"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -188,7 +188,7 @@
 					auto: "invisible"
 					command: "/dimension twilightforest:twilight_forest players blacklist add @p"
 					elevate_perms: true
-					id: "2FDA318EFBAF18C2"
+					id: "0E02FC4753FDBC75"
 					silent: true
 					team_reward: false
 					type: "command"
@@ -196,7 +196,7 @@
 			]
 			tasks: [{
 				dimension: "ad_astra:moon"
-				id: "73481B947D25BBC2"
+				id: "5DF7FBB7230CC4BA"
 				type: "dimension"
 			}]
 			title: "Block Other Dimension"

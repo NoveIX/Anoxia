@@ -1,0 +1,116 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "welcome"
+	group: "6AD3CA4E618085FE"
+	icon: "ad_astra:moon_globe"
+	id: "7EA8282C9BE604D9"
+	images: [{
+		height: 4.0d
+		image: "anoxia:textures/gui/anoxia_title.png"
+		rotation: 0.0d
+		width: 15.0d
+		x: 0.0d
+		y: -3.0d
+	}]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Welcome to &bProject Anoxia&r &4Lunar Ruins&r, the spiritual successor to &9The Last Man on Moon&r."
+				""
+				"This modpack brings the complexity and challenge of &2Project Ozone's Kappa Mode&r to a hostile lunar environment."
+				""
+				"Prepare yourself for a technical, difficult, and rewarding experience, where every step forward requires planning and ingenuity."
+			]
+			icon: "ad_astra:moon_globe"
+			id: "268F1E0871E3F46F"
+			rewards: [
+				{
+					id: "53C525E5FE60A2E0"
+					item: {
+						Count: 1
+						id: "structurecompass:structure_compass"
+						tag: {
+							"structurecompass:structureName": "anoxia:hub"
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "6C9F9CB50541AF7E"
+					item: {
+						Count: 1
+						id: "ad_astra:oxygen_tank"
+						tag: {
+							BotariumData: {
+								StoredFluids: [{
+									Amount: 1000L
+									Fluid: "ad_astra:oxygen"
+								}]
+							}
+						}
+					}
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "7D4E2CB03C50519C"
+				type: "checkmark"
+			}]
+			title: "Welcome"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["268F1E0871E3F46F"]
+			description: [
+				"&4NOTE!&r This modpack requires Keep Inventory to be enabled in order to function."
+				""
+				"This allows you to avoid losing your armor in the event of death and to die again immediately after respawning."
+				""
+				"&2Don't worry&r, it is already enabled by default when you first enter the world."
+			]
+			hide_dependency_lines: true
+			icon: "sophisticatedbackpacks:backpack"
+			id: "17253DCB6945D823"
+			rewards: [{
+				id: "6A95D53015FEB13F"
+				item: "sophisticatedbackpacks:backpack"
+				type: "item"
+			}]
+			tasks: [{
+				id: "236ACF1A8E577869"
+				type: "checkmark"
+			}]
+			title: "Keep Inventory"
+			x: -1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["268F1E0871E3F46F"]
+			description: [
+				"&5Waystones&r are generated within the dimensions of Ad Astra."
+				""
+				"Waystones are waypoints. Activate several of them to create a true rapid &atransport network&r."
+			]
+			hide_dependency_lines: true
+			icon: "waystones:waystone"
+			id: "3B3F4911B60FF5B0"
+			rewards: [{
+				id: "670717B1CD35006E"
+				item: "waystones:waystone"
+				type: "item"
+			}]
+			tasks: [{
+				id: "3F235D04E04A1208"
+				type: "checkmark"
+			}]
+			title: "Waystone"
+			x: 1.5d
+			y: 0.0d
+		}
+	]
+	title: "Welcome"
+}
