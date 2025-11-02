@@ -523,12 +523,12 @@ ServerEvents.recipes((event) => {
 
         //#region Stone drop
         {
-            get: { item: "exnihilosequentia:basalt_pebble" },
+            get: { item: "exnihilosequentia:andesite_pebble" },
             put: { item: "minecraft:stone" },
             drop: [{ chance: 0.2, mesh: "flint" }],
         },
         {
-            get: { item: "exnihilosequentia:andesite_pebble" },
+            get: { item: "exnihilosequentia:basalt_pebble" },
             put: { item: "minecraft:stone" },
             drop: [{ chance: 0.2, mesh: "flint" }],
         },
