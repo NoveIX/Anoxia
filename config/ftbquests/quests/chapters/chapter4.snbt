@@ -1,0 +1,11 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chapter4"
+	group: "6AD3CA4E618085FE"
+	id: "3E2C2DD3055C9586"
+	order_index: 4
+	quest_links: [ ]
+	quests: [ ]
+	title: "Flower Power"
+}

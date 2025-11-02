@@ -1,0 +1,12 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mechanical_rotations"
+	group: "6AD3CA4E618085FE"
+	icon: "create:wrench"
+	id: "591EE945FA25BC99"
+	order_index: 2
+	quest_links: [ ]
+	quests: [ ]
+	title: "Mechanical Rotations"
+}

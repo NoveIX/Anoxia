@@ -1,0 +1,1197 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chapter1"
+	group: "6AD3CA4E618085FE"
+	icon: "akashictome:tome"
+	id: "3332445691791350"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["268F1E0871E3F46F"]
+			description: [
+				"Use the &4compass&r to locate the nearest lunar research base. To activate the compass, hold it in your main hand and press the right mouse button. "
+				""
+				"The &4compass&r is also very useful for finding other structures. To change the search structure, hold the compass in your hand and press Shift (crouch) + right mouse button."
+				""
+				"&bOxygen&r is the most important resource on the moon. Always monitor your reserves in your suit. To refill your suit, you need a tank containing oxygen. Hold the &etank&r in your hand and press the right mouse button."
+			]
+			id: "7A68078C107F781B"
+			rewards: [
+				{
+					count: 16
+					id: "7B452095986DF12D"
+					item: "minecraft:apple"
+					type: "item"
+				}
+				{
+					count: 2
+					id: "797211FAF17D604D"
+					item: {
+						Count: 1
+						id: "ad_astra:oxygen_tank"
+						tag: {
+							BotariumData: {
+								StoredFluids: [{
+									Amount: 1000L
+									Fluid: "ad_astra:oxygen"
+								}]
+							}
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "6198743DC1DC8F28"
+					item: {
+						Count: 1
+						id: "tiab:time_in_a_bottle"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "256704FC5F466853"
+					item: "ftbquests:screen_1"
+					type: "item"
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			tasks: [{
+				icon: "minecraft:brewing_stand"
+				id: "12F14AE4D622E8E6"
+				structure: "anoxia:hub"
+				title: "Selene Reseach Hub"
+				type: "structure"
+			}]
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			description: ["Oxygen is consumed faster than it seems. I have to find a solution to the problem..."]
+			icon: {
+				Count: 1
+				id: "ad_astra:oxygen_tank"
+				tag: { }
+			}
+			id: "65F579372C3FF7BA"
+			tasks: [
+				{
+					id: "52AABF22A1FA54FE"
+					item: "ad_astra:oxygen_loader"
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "112E50FA08497A70"
+					item: "ad_astra:solar_panel"
+					type: "item"
+				}
+			]
+			title: "Oxygen Facility"
+			x: -1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7A68078C107F781B"]
+			description: ["Inside the base, there are several useful and useless items. Search the remains of the base for &6machinery&r and &9tools&r that may be useful to you. "]
+			icon: {
+				Count: 1
+				id: "minecraft:iron_pickaxe"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "52F6E85EF3E25075"
+			tasks: [
+				{
+					id: "6521A5F3AAA9C658"
+					item: {
+						Count: 1
+						id: "minecraft:iron_pickaxe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "2D0B21368A582174"
+					item: {
+						Count: 1
+						id: "minecraft:iron_axe"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "1D22A6DDE265E170"
+					item: {
+						Count: 1
+						id: "minecraft:iron_shovel"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Explore the hub"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			id: "713A57FD92747F33"
+			rewards: [
+				{
+					id: "22B19E693633CB7C"
+					item: {
+						Count: 1
+						id: "minecraft:written_book"
+						tag: {
+							author: "NoveIX"
+							filtered_title: "eaweaw"
+							pages: [
+								"{\"text\":\"dawdawdawdawdawdawdawdawdawdawdawdawdwaawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\"}"
+								"{\"text\":\"dawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaw\"}"
+							]
+							title: "eaweaw"
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "4583F59E26F178BE"
+					item: {
+						Count: 1
+						id: "minecraft:written_book"
+						tag: {
+							author: "NoveIX"
+							filtered_title: "dwada"
+							pages: [
+								"{\"text\":\"dawdawdawdawdaw\\ndaw\\nda\\nwd\\naw\\ndaw\\n\\nwawdawdawdawdawd\"}"
+								"{\"text\":\"dwadaw\"}"
+							]
+							resolved: 1b
+							title: "dwada"
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "5D448389AC9D7D22"
+					item: {
+						Count: 1
+						id: "minecraft:written_book"
+						tag: {
+							author: "NoveIX"
+							filtered_title: "awd"
+							pages: ["{\"text\":\"march\\n\\ndwaddwadawd\"}"]
+							title: "awd"
+						}
+					}
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "5418CAD2A50DF360"
+				item: "create:clipboard"
+				type: "item"
+			}]
+			title: "Read Ellie's notes"
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["52F6E85EF3E25075"]
+			id: "2510B8AC3BEEE1EB"
+			tasks: [{
+				id: "2119E25E7F6FF59E"
+				item: "minecraft:dirt"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["2510B8AC3BEEE1EB"]
+			icon: "minecraft:cobblestone"
+			id: "49E80E02BE47BA21"
+			tasks: [
+				{
+					id: "1CED336DDEA467DB"
+					item: "botania:pebble"
+					type: "item"
+				}
+				{
+					id: "571B9F4C72EC59C4"
+					item: "minecraft:cobblestone"
+					type: "item"
+				}
+				{
+					id: "3AE065F606839531"
+					item: "anoxia:compressed_cobblestone"
+					type: "item"
+				}
+			]
+			title: "Cobblestone"
+			x: 1.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["2510B8AC3BEEE1EB"]
+			icon: "botanypots:terracotta_botany_pot"
+			id: "77ECC0B46ABA0C11"
+			tasks: [{
+				icon: "botanypots:terracotta_botany_pot"
+				id: "3DBDC94A6A2F1EE4"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "botanypots:terracotta_botany_pot"
+							}
+							{
+								Count: 1b
+								id: "botanypots:terracotta_hopper_botany_pot"
+							}
+						]
+					}
+				}
+				title: "Botany Pot"
+				type: "item"
+			}]
+			title: "Botany Pot"
+			x: -1.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["77ECC0B46ABA0C11"]
+			id: "642BA928D9795596"
+			tasks: [{
+				id: "16E6D91B2EB351FE"
+				item: "minecraft:crafting_table"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["642BA928D9795596"]
+			id: "091413581908A3F6"
+			tasks: [{
+				id: "69CE6585271B4992"
+				item: "farmersdelight:cutting_board"
+				type: "item"
+			}]
+			x: -4.5d
+			y: 1.5d
+		}
+		{
+			dependencies: ["091413581908A3F6"]
+			icon: "farmersdelight:tree_bark"
+			id: "13273E7D0872E389"
+			tasks: [
+				{
+					id: "36C79AE2BE5EFDC7"
+					item: "farmersdelight:tree_bark"
+					type: "item"
+				}
+				{
+					id: "17D16DD9AF65BB3A"
+					item: "minecraft:oak_planks"
+					type: "item"
+				}
+			]
+			x: -6.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["49E80E02BE47BA21"]
+			id: "7DC063E7A7319E08"
+			tasks: [{
+				id: "130E920FE53E8D6C"
+				item: "minecraft:furnace"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["13273E7D0872E389"]
+			icon: "farmersdelight:rich_soil"
+			id: "2BAB332B57999217"
+			tasks: [
+				{
+					id: "4E4083D6EAF61658"
+					item: "farmersdelight:organic_compost"
+					type: "item"
+				}
+				{
+					id: "50E7AB70F6C0035A"
+					item: "farmersdelight:rich_soil"
+					type: "item"
+				}
+			]
+			title: "Rich Soil"
+			x: -6.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["642BA928D9795596"]
+			hide_dependency_lines: true
+			icon: "exnihilosequentia:oak_crucible"
+			id: "67CC234835A7EAF5"
+			tasks: [{
+				id: "7F8F7D58C7A288CC"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_crucible"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_crucible"
+							}
+						]
+					}
+				}
+				title: "Crucible"
+				type: "item"
+			}]
+			title: "Crucible"
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["642BA928D9795596"]
+			icon: "exnihilosequentia:oak_sieve"
+			id: "3DBA487F2E270807"
+			tasks: [{
+				id: "22A3946075AEC179"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_sieve"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_sieve"
+							}
+						]
+					}
+				}
+				title: "Sieve"
+				type: "item"
+			}]
+			title: "Sieve"
+			x: -3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: [
+				"3DBA487F2E270807"
+				"4A9F30F19E8338DC"
+			]
+			id: "2AA3AB6257B84E6E"
+			tasks: [{
+				id: "1181617B456491CA"
+				item: "exnihilosequentia:string_mesh"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["77ECC0B46ABA0C11"]
+			id: "4A9F30F19E8338DC"
+			tasks: [{
+				id: "2EB08B7B46A5D420"
+				item: "supplementaries:flax"
+				type: "item"
+			}]
+			x: -1.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["642BA928D9795596"]
+			hide_dependency_lines: true
+			id: "428D1313855FFC97"
+			tasks: [{
+				icon: "exnihilosequentia:oak_barrel"
+				id: "18D89A731ED1370A"
+				item: {
+					Count: 1
+					id: "itemfilters:or"
+					tag: {
+						items: [
+							{
+								Count: 1b
+								id: "exnihilosequentia:acacia_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:bamboo_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:birch_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:cherry_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:dark_oak_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:jungle_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:mangrove_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:oak_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:spruce_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:crimson_barrel"
+							}
+							{
+								Count: 1b
+								id: "exnihilosequentia:warped_barrel"
+							}
+						]
+					}
+				}
+				title: "Barrel"
+				type: "item"
+			}]
+			title: "Barrel"
+			x: 0.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["67CC234835A7EAF5"]
+			id: "593A57A191F0F2B9"
+			tasks: [{
+				id: "46CB67C6D4A838CC"
+				item: {
+					Count: 1
+					id: "minecraft:potion"
+					tag: {
+						Potion: "minecraft:water"
+					}
+				}
+				type: "item"
+			}]
+			x: 1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["49E80E02BE47BA21"]
+			icon: {
+				Count: 1
+				id: "exnihilosequentia:cherry_hammer"
+				tag: {
+					Damage: 0
+				}
+			}
+			id: "56B554DD94F7FBB2"
+			tasks: [
+				{
+					id: "2818B378B78F59B0"
+					item: {
+						Count: 1
+						id: "itemfilters:or"
+						tag: {
+							items: [
+								{
+									Count: 1b
+									id: "exnihilosequentia:wooden_hammer"
+									tag: {
+										Damage: 0
+									}
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:cherry_hammer"
+									tag: {
+										Damage: 0
+									}
+								}
+								{
+									Count: 1b
+									id: "exnihilosequentia:stone_hammer"
+									tag: {
+										Damage: 0
+									}
+								}
+							]
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "2F24DAF8CEE5436C"
+					item: "minecraft:gravel"
+					type: "item"
+				}
+				{
+					id: "0C40BCE4C20BD6E6"
+					item: "minecraft:sand"
+					type: "item"
+				}
+				{
+					id: "488C3D5D488DF06D"
+					item: "exnihilosequentia:dust"
+					type: "item"
+				}
+			]
+			title: "Crushing Hammer"
+			x: 1.5d
+			y: 3.0d
+		}
+		{
+			dependencies: [
+				"56B554DD94F7FBB2"
+				"428D1313855FFC97"
+				"593A57A191F0F2B9"
+			]
+			id: "6483E2CA0BA0B1EC"
+			tasks: [{
+				id: "3CC8C40A12C16297"
+				item: "minecraft:clay"
+				type: "item"
+			}]
+			x: 1.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["6483E2CA0BA0B1EC"]
+			icon: "exnihilosequentia:fired_crucible"
+			id: "144EA5D44E9BFC7A"
+			tasks: [
+				{
+					id: "3AC2953C510F90CF"
+					item: "exnihilosequentia:porcelain_clay"
+					type: "item"
+				}
+				{
+					id: "2C88B7160F084073"
+					item: "exnihilosequentia:unfired_crucible"
+					type: "item"
+				}
+				{
+					id: "3F75EDC0D6B98396"
+					item: "exnihilosequentia:fired_crucible"
+					type: "item"
+				}
+			]
+			title: "Fired Crucible"
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["144EA5D44E9BFC7A"]
+			id: "13BAC09EEEF4F49A"
+			tasks: [{
+				id: "6BECDAF49511990E"
+				item: "minecraft:lava_bucket"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 4.5d
+		}
+		{
+			dependencies: [
+				"13BAC09EEEF4F49A"
+				"593A57A191F0F2B9"
+			]
+			id: "65F1FE613ABA6BF2"
+			tasks: [{
+				id: "02784CC832329920"
+				item: "cobblefordays:tier_1"
+				type: "item"
+			}]
+			title: "Cobblestone Generator"
+			x: 3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["7DC063E7A7319E08"]
+			id: "0A3EC96E94E25368"
+			shape: "square"
+			tasks: [{
+				id: "57433742697A033D"
+				item: "ironfurnaces:copper_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 1.5d
+		}
+		{
+			dependencies: [
+				"2AA3AB6257B84E6E"
+				"091413581908A3F6"
+			]
+			icon: "projectred_core:silicon"
+			id: "7A8DC271E7B3601A"
+			tasks: [
+				{
+					id: "6BBE54A83703530E"
+					item: "projectred_core:boule"
+					type: "item"
+				}
+				{
+					id: "3DC0ADEC5C66ED51"
+					item: "projectred_core:silicon"
+					type: "item"
+				}
+			]
+			title: "Silicon"
+			x: -4.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["2BAB332B57999217"]
+			icon: "industrialforegoing:fertilizer"
+			id: "516F43B1D9A2803B"
+			tasks: [
+				{
+					id: "47A5253812505DF7"
+					item: "minecolonies:barrel_block"
+					type: "item"
+				}
+				{
+					id: "1D9ABFEBF7F6AD01"
+					item: "minecolonies:compost"
+					type: "item"
+				}
+				{
+					id: "3DF20DF1CC50D355"
+					item: "industrialforegoing:fertilizer"
+					type: "item"
+				}
+			]
+			title: "Fertilizer"
+			x: -6.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["0A3EC96E94E25368"]
+			id: "1A000FF2995AFDDD"
+			shape: "square"
+			tasks: [{
+				id: "6F517471A96CA2D2"
+				item: "ironfurnaces:iron_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 2.5d
+		}
+		{
+			dependencies: ["1A000FF2995AFDDD"]
+			id: "481247C2EB9C1564"
+			shape: "square"
+			tasks: [{
+				id: "4A6BC562FEC386E1"
+				item: "ironfurnaces:silver_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["516F43B1D9A2803B"]
+			id: "3BA74B2C03FC0492"
+			tasks: [{
+				id: "2A042A8C3D894474"
+				item: "twilightforest:uberous_soil"
+				type: "item"
+			}]
+			x: -6.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["7DC063E7A7319E08"]
+			icon: "ironfurnaces:upgrade_copper"
+			id: "2B44CF10A3B04B05"
+			tasks: [
+				{
+					id: "3BA786ECA3B74B10"
+					item: "ironfurnaces:upgrade_copper"
+					type: "item"
+				}
+				{
+					id: "7AD9A06261C735F3"
+					item: "ironfurnaces:upgrade_iron2"
+					type: "item"
+				}
+				{
+					id: "0099547B0CDD48EB"
+					item: "ironfurnaces:upgrade_silver2"
+					type: "item"
+				}
+				{
+					id: "38653E5269E9A799"
+					item: "ironfurnaces:upgrade_gold2"
+					type: "item"
+				}
+				{
+					id: "53EA27F16F664013"
+					item: "ironfurnaces:upgrade_diamond"
+					type: "item"
+				}
+				{
+					id: "15DA460D82DBBF01"
+					item: "ironfurnaces:upgrade_emerald"
+					type: "item"
+				}
+				{
+					id: "01101C4975D381E9"
+					item: "ironfurnaces:upgrade_obsidian"
+					type: "item"
+				}
+				{
+					id: "1258D3AECD5D504E"
+					item: "ironfurnaces:upgrade_netherite"
+					type: "item"
+				}
+			]
+			title: "Upgrade Furnace"
+			x: 4.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["481247C2EB9C1564"]
+			id: "2FF2B33A53A0B4B8"
+			shape: "square"
+			tasks: [{
+				id: "3B6342A2FBB24635"
+				item: "ironfurnaces:gold_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["2FF2B33A53A0B4B8"]
+			id: "058A70D7F0C4AC57"
+			shape: "square"
+			tasks: [{
+				id: "12DBA4D2647900B1"
+				item: "ironfurnaces:diamond_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 5.5d
+		}
+		{
+			dependencies: ["058A70D7F0C4AC57"]
+			id: "039B07EB2DC5EADD"
+			shape: "square"
+			tasks: [{
+				id: "40AE3E91F84FD59E"
+				item: "ironfurnaces:emerald_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 6.5d
+		}
+		{
+			dependencies: ["039B07EB2DC5EADD"]
+			id: "34E102CB13B894A9"
+			shape: "square"
+			tasks: [{
+				id: "04402BDCF267A60B"
+				item: "ironfurnaces:obsidian_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 7.5d
+		}
+		{
+			dependencies: ["34E102CB13B894A9"]
+			id: "23C814A4C8B986C2"
+			shape: "square"
+			tasks: [{
+				id: "2E00E2D6B4B1C1F7"
+				item: "ironfurnaces:netherite_furnace"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 8.5d
+		}
+		{
+			dependencies: ["0A3EC96E94E25368"]
+			id: "3FBED30813A1B56F"
+			tasks: [{
+				id: "5192ED99198F4535"
+				item: "ironfurnaces:item_heater"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["3FBED30813A1B56F"]
+			id: "5D21CD216D805A2A"
+			tasks: [{
+				id: "7FD9DDC6A22E109D"
+				item: "ironfurnaces:heater"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 4.5d
+		}
+		{
+			dependencies: ["0A3EC96E94E25368"]
+			hide_dependency_lines: true
+			id: "15F8D494F665F470"
+			tasks: [{
+				id: "7DD953A62526EF38"
+				item: "ironfurnaces:item_copy"
+				type: "item"
+			}]
+			x: 4.5d
+			y: 4.5d
+		}
+		{
+			dependencies: ["6C152B5502983291"]
+			icon: {
+				Count: 1
+				id: "tacz:ammo"
+				tag: {
+					AmmoId: "tacz:9mm"
+				}
+			}
+			id: "38D7361792B4559E"
+			tasks: [
+				{
+					id: "019F9CA58907333C"
+					item: "tacz:gun_smith_table"
+					type: "item"
+				}
+				{
+					id: "1CA74FC5310FC264"
+					item: {
+						Count: 1
+						id: "tacz:modern_kinetic_gun"
+						tag: {
+							GunCurrentAmmoCount: 17
+							GunFireMode: "SEMI"
+							GunId: "tacz:glock_17"
+							HasBulletInBarrel: 1b
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "234CB6267AC970C2"
+					item: {
+						Count: 1
+						id: "tacz:ammo_box"
+						tag: {
+							Level: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					count: 60L
+					id: "139ECD41631BA0D7"
+					item: {
+						Count: 60
+						id: "tacz:ammo"
+						tag: {
+							AmmoId: "tacz:9mm"
+						}
+					}
+					type: "item"
+				}
+			]
+			title: "Is dangerous to go alone Craft this"
+			x: -1.5d
+			y: 6.0d
+		}
+		{
+			dependencies: ["2AA3AB6257B84E6E"]
+			id: "6C152B5502983291"
+			tasks: [{
+				id: "1709BE93AC121E9F"
+				item: "exnihilosequentia:flint_mesh"
+				type: "item"
+			}]
+			x: -3.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["6C152B5502983291"]
+			icon: "exnihilosequentia:iron_mesh"
+			id: "0A4BEE312A1FC89A"
+			tasks: [
+				{
+					id: "482EB7254B07B38E"
+					item: "exnihilosequentia:iron_mesh"
+					type: "item"
+				}
+				{
+					id: "34333CC42A8084BB"
+					item: "exnihilosequentia:diamond_mesh"
+					type: "item"
+				}
+				{
+					id: "309E1F7941BFC43B"
+					item: "exnihilosequentia:emerald_mesh"
+					type: "item"
+				}
+				{
+					id: "5B0F66CDF079E64F"
+					item: "exnihilosequentia:netherite_mesh"
+					type: "item"
+				}
+			]
+			title: "Advanced Mesh"
+			x: -3.0d
+			y: 7.5d
+		}
+		{
+			dependencies: ["65F1FE613ABA6BF2"]
+			icon: "cobblefordays:tier_2"
+			id: "6400D6B575EE7DA6"
+			tasks: [
+				{
+					id: "6EF01115E5065002"
+					item: "cobblefordays:tier_2"
+					type: "item"
+				}
+				{
+					id: "45EB66492577CFC1"
+					item: "cobblefordays:tier_3"
+					type: "item"
+				}
+				{
+					id: "46EF5ED95DEF8285"
+					item: "cobblefordays:tier_4"
+					type: "item"
+				}
+				{
+					id: "0E7BEE0C0DAFAC8F"
+					item: "cobblefordays:tier_5"
+					type: "item"
+				}
+			]
+			title: "Cobblestone Generator+"
+			x: 3.0d
+			y: 7.5d
+		}
+		{
+			id: "54A245B5C131CD02"
+			rewards: [
+				{
+					id: "58FA3856C62BF79E"
+					item: {
+						Count: 1
+						id: "ad_astra:space_helmet"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "0B3518DEF168909F"
+					item: {
+						Count: 1
+						id: "ad_astra:space_suit"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "5415CDBC84319BCE"
+					item: {
+						Count: 1
+						id: "ad_astra:space_pants"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "666EC682DF78701F"
+					item: {
+						Count: 1
+						id: "ad_astra:space_boots"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+			]
+			tasks: [
+				{
+					id: "44863098707765CB"
+					structure: "ad_astra:lunar_tower"
+					type: "structure"
+				}
+				{
+					id: "1DE2C74D1A93C8C6"
+					structure: "ad_astra:lunarian_village"
+					type: "structure"
+				}
+				{
+					id: "492AC7F69EFB62A5"
+					structure: "ad_astra:moon_dungeon"
+					type: "structure"
+				}
+				{
+					id: "274BE5C9AB7A0FEF"
+					structure: "anoxia:hub"
+					type: "structure"
+				}
+			]
+			title: "Explore Lunar Wastelands"
+			x: -3.0d
+			y: 0.0d
+		}
+		{
+			icon: "minecraft:zombie_spawn_egg"
+			id: "5D9337148C0F7C9F"
+			tasks: [
+				{
+					entity: "minecraft:zombie"
+					id: "57AC176EE881B650"
+					type: "kill"
+					value: 20L
+				}
+				{
+					entity: "minecraft:stray"
+					id: "23BA5E49C2099847"
+					type: "kill"
+					value: 20L
+				}
+				{
+					entity: "ad_astra:corrupted_lunarian"
+					icon: "ad_astra:corrupted_lunarian_spawn_egg"
+					id: "73C0D966205311F1"
+					type: "kill"
+					value: 15L
+				}
+				{
+					entity: "ad_astra:star_crawler"
+					icon: "ad_astra:star_crawler_spawn_egg"
+					id: "1111EA46810BBD04"
+					type: "kill"
+					value: 10L
+				}
+			]
+			title: "Mob Hunter"
+			x: 3.0d
+			y: 0.0d
+		}
+	]
+	title: "Lunar Wastelands"
+}

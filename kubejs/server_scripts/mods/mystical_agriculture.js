@@ -316,6 +316,25 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "mysticalagriculture:essence_vessel" });
     event.shaped("mysticalagriculture:essence_vessel", ["ABA", " C ", " D "], { A: "#forge:ingots/gold", B: "supplementaries:jar", C: "mysticalagriculture:infusion_pedestal", D: "mysticalagriculture:soulstone" });
 
+    //Farmland
+    event.remove({ output: "mysticalagriculture:inferium_farmland" });
+    event.shapeless("mysticalagriculture:inferium_farmland", ["#minecraft:hoes", "mysticalagriculture:inferium_essence", "twilightforest:uberous_soil"]);
+
+    event.remove({ output: "mysticalagriculture:prudentium_farmland" });
+    event.shapeless("mysticalagriculture:prudentium_farmland", ["#minecraft:hoes", "mysticalagriculture:prudentium_essence", "twilightforest:uberous_soil"]);
+
+    event.remove({ output: "mysticalagriculture:tertium_farmland" });
+    event.shapeless("mysticalagriculture:tertium_farmland", ["#minecraft:hoes", "mysticalagriculture:tertium_essence", "twilightforest:uberous_soil"]);
+
+    event.remove({ output: "mysticalagriculture:imperium_farmland" });
+    event.shapeless("mysticalagriculture:imperium_farmland", ["#minecraft:hoes", "mysticalagriculture:imperium_essence", "twilightforest:uberous_soil"]);
+
+    event.remove({ output: "mysticalagriculture:supremium_farmland" });
+    event.shapeless("mysticalagriculture:supremium_farmland", ["#minecraft:hoes", "mysticalagriculture:supremium_essence", "twilightforest:uberous_soil"]);
+
+    event.remove({ output: "mysticalagradditions:insanium_farmland" });
+    event.shapeless("mysticalagradditions:insanium_farmland", ["#minecraft:hoes", "mysticalagradditions:insanium_essence", "twilightforest:uberous_soil"]);
+
     //// # =================================================================================================== #
 
     //#region Reprocessor

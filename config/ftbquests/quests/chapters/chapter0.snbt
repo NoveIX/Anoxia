@@ -1,7 +1,7 @@
 {
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
-	filename: "chapter0_welcome"
+	filename: "chapter0"
 	group: "6AD3CA4E618085FE"
 	icon: "ad_astra:moon_globe"
 	id: "7EA8282C9BE604D9"

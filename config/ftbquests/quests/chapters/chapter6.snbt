@@ -1,0 +1,11 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chapter4_industrial_machinery"
+	group: "6AD3CA4E618085FE"
+	id: "3ABE221C4ABF1824"
+	order_index: 6
+	quest_links: [ ]
+	quests: [ ]
+	title: "Industrial Machinery"
+}

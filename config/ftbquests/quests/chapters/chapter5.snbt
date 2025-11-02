@@ -1,0 +1,11 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "chapter5"
+	group: "6AD3CA4E618085FE"
+	id: "0431178E3945D46F"
+	order_index: 5
+	quest_links: [ ]
+	quests: [ ]
+	title: "Engineering Knowledge"
+}
