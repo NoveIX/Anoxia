@@ -2,7 +2,7 @@
 	always_invisible: true
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
-	filename: "chap0"
+	filename: "chapter0_command"
 	group: ""
 	icon: "minecraft:command_block"
 	id: "2B998D4A1730908F"
@@ -14,7 +14,7 @@
 			rewards: [
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:mercury players blacklist add @p"
+					command: "dimension ad_astra:mercury players blacklist add @p"
 					elevate_perms: true
 					id: "7036D9F1375D88BF"
 					silent: true
@@ -23,7 +23,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:mercury_orbit players blacklist add @p"
+					command: "dimension ad_astra:mercury_orbit players blacklist add @p"
 					elevate_perms: true
 					id: "096C1184DC46F24A"
 					silent: true
@@ -32,7 +32,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:venus players blacklist add @p"
+					command: "dimension ad_astra:venus players blacklist add @p"
 					elevate_perms: true
 					id: "10923F2B9EFC5A6D"
 					silent: true
@@ -41,7 +41,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:venus_orbit players blacklist add @p"
+					command: "dimension ad_astra:venus_orbit players blacklist add @p"
 					elevate_perms: true
 					id: "484EA6EC9E9344D7"
 					silent: true
@@ -50,7 +50,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:earth_orbit players blacklist add @p"
+					command: "dimension ad_astra:earth_orbit players blacklist add @p"
 					elevate_perms: true
 					id: "7C3D81415432426E"
 					silent: true
@@ -59,7 +59,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:mars players blacklist add @p"
+					command: "dimension ad_astra:mars players blacklist add @p"
 					elevate_perms: true
 					id: "7C0F07A61A5B0C85"
 					silent: true
@@ -68,7 +68,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:mars_orbit players blacklist add @p"
+					command: "dimension ad_astra:mars_orbit players blacklist add @p"
 					elevate_perms: true
 					id: "10DD2C9C688B3809"
 					silent: true
@@ -77,7 +77,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:glacio players blacklist add @p"
+					command: "dimension ad_astra:glacio players blacklist add @p"
 					elevate_perms: true
 					id: "6C13C1E864C3FDF7"
 					silent: true
@@ -86,7 +86,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension ad_astra:glacio_orbit players blacklist add @p"
+					command: "dimension ad_astra:glacio_orbit players blacklist add @p"
 					elevate_perms: true
 					id: "5BD1B3107234C48A"
 					silent: true
@@ -108,10 +108,11 @@
 			id: "479679E40171E109"
 			rewards: [{
 				auto: "invisible"
-				command: "/gamerule keepInventory true"
+				command: "gamerule keepInventory true"
 				elevate_perms: true
 				id: "6B9D16C2D8D6EF91"
 				silent: true
+				team_reward: false
 				type: "command"
 			}]
 			tasks: [{
@@ -128,7 +129,7 @@
 			rewards: [
 				{
 					auto: "invisible"
-					command: "/dimension minecraft:overworld players blacklist add @p"
+					command: "dimension minecraft:overworld players blacklist add @p"
 					elevate_perms: true
 					id: "7D0495AC332B4AD1"
 					silent: true
@@ -137,7 +138,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension minecraft:the_nether players blacklist add @p"
+					command: "dimension minecraft:the_nether players blacklist add @p"
 					elevate_perms: true
 					id: "55A3ABEA0AF262D6"
 					silent: true
@@ -146,7 +147,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension minecraft:the_end players blacklist add @p"
+					command: "dimension minecraft:the_end players blacklist add @p"
 					elevate_perms: true
 					id: "3D3A3C0C072D57B1"
 					silent: true
@@ -168,7 +169,7 @@
 			rewards: [
 				{
 					auto: "invisible"
-					command: "/dimension ae2:spatial_storage players blacklist add @p"
+					command: "dimension ae2:spatial_storage players blacklist add @p"
 					elevate_perms: true
 					id: "4D46175CAD3A195C"
 					silent: true
@@ -177,7 +178,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension bloodmagic:dungeon players blacklist add @p"
+					command: "dimension bloodmagic:dungeon players blacklist add @p"
 					elevate_perms: true
 					id: "0B6B6DF7D33ECBF3"
 					silent: true
@@ -186,7 +187,7 @@
 				}
 				{
 					auto: "invisible"
-					command: "/dimension twilightforest:twilight_forest players blacklist add @p"
+					command: "dimension twilightforest:twilight_forest players blacklist add @p"
 					elevate_perms: true
 					id: "0E02FC4753FDBC75"
 					silent: true

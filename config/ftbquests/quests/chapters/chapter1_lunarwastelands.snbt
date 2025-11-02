@@ -1,7 +1,7 @@
 {
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
-	filename: "chap1"
+	filename: "chapter1_lunarwastelands"
 	group: "6AD3CA4E618085FE"
 	icon: "akashictome:tome"
 	id: "3332445691791350"
