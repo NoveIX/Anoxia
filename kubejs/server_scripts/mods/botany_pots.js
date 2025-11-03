@@ -161,6 +161,7 @@ ServerEvents.recipes((event) => {
         //{ seed: "mysticalagriculture:lumium_seeds", essence: "mysticalagriculture:lumium_essence", crop: "mysticalagriculture:lumium_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:flux_infused_ingot_seeds", essence: "mysticalagriculture:flux_infused_ingot_essence", crop: "mysticalagriculture:flux_infused_ingot_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:hop_graphite_seeds", essence: "mysticalagriculture:hop_graphite_essence", crop: "mysticalagriculture:hop_graphite_crop", tier: T4Soil, growth: T4GrowthTicks },
+        { seed: "mysticalagriculture:cobalt_seeds", essence: "mysticalagriculture:cobalt_essence", crop: "mysticalagriculture:cobalt_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:rose_gold_seeds", essence: "mysticalagriculture:rose_gold_essence", crop: "mysticalagriculture:rose_gold_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:soularium_seeds", essence: "mysticalagriculture:soularium_essence", crop: "mysticalagriculture:soularium_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:dark_steel_seeds", essence: "mysticalagriculture:dark_steel_essence", crop: "mysticalagriculture:dark_steel_crop", tier: T4Soil, growth: T4GrowthTicks },

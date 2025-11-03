@@ -1,4 +1,25 @@
 ServerEvents.recipes((event) => {
+    //#region RemoveID
+    const RmRecipeID = [
+        //Infusion
+        "mekanism:infusion_conversion/carbon/from_coal",
+        "mekanism:infusion_conversion/carbon/from_coal_block",
+        "mekanism:infusion_conversion/carbon/from_charcoal",
+        "mekanism:infusion_conversion/carbon/from_charcoal_block",
+
+        //Metallurgic
+        "mekanism:control_circuit/basic",
+        "mekanism:metallurgic_infusing/alloy/infused",
+        "mekanism:metallurgic_infusing/alloy/reinforced",
+        "mekanism:metallurgic_infusing/alloy/atomic",
+        "mekanism:processing/iron/enriched",
+        "mekanism:processing/steel/enriched_iron_to_dust",
+    ];
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
+    //#endregion
+
+    //// # =================================================================================================== #
+
     //Advanced Circuit
     event.remove({ output: "mekanism:advanced_control_circuit" });
     event.shaped("mekanism:advanced_control_circuit", ["AAA", "BCB", "AAA"], { A: "#forge:ingots/signalum", B: "mekanism:alloy_infused", C: "mekanism:basic_control_circuit" });
@@ -13,7 +34,7 @@ ServerEvents.recipes((event) => {
 
     //Steel Casing
     event.remove({ output: "mekanism:steel_casing" });
-    event.shaped("mekanism:steel_casing", ["ABA", "BCB", "ABA"], { A: "#forge:ingots/dark_steel", B: 'pneumaticcraft:transistor', C: "thermal:machine_frame" });
+    event.shaped("mekanism:steel_casing", ["ABA", "BCB", "ABA"], { A: "#forge:ingots/dark_steel", B: "pneumaticcraft:transistor", C: "thermal:machine_frame" });
 
     //Tier Installer
     event.remove({ output: "mekanism:basic_tier_installer" });
@@ -31,9 +52,10 @@ ServerEvents.recipes((event) => {
         { get: "mekanism:alloy_infused", put: "pneumaticcraft:capacitor", chem: "mekanism:redstone", qty: 40 },
         { get: "mekanism:alloy_reinforced", put: "mekanism:alloy_infused", chem: "mekanism:diamond", qty: 80 },
         { get: "mekanism:alloy_atomic", put: "mekanism:alloy_reinforced", chem: "mekanism:refined_obsidian", qty: 160 },
+        { get: "mekanism:enriched_iron", put: "minecraft:iron_ingot", chem: "mekanism:carbon", qty: 20 },
+        { get: "thermal:steel_dust", put: "mekanism:enriched_iron", chem: "mekanism:carbon", qty: 20 },
     ];
     AlloyPattern.forEach((recipe) => {
-        event.remove({ output: recipe.get, type: "mekanism:metallurgic_infusing" });
         event.custom({
             type: "mekanism:metallurgic_infusing",
             itemInput: { ingredient: { item: recipe.put } },
@@ -41,4 +63,34 @@ ServerEvents.recipes((event) => {
             chemicalInput: { amount: recipe.qty, tag: recipe.chem },
         });
     });
+
+    // # =================================================================================================== #
+
+    //#region Infusion
+    const InfusionPattern = [
+        {
+            get: { amount: 10, infuse_type: "mekanism:carbon" },
+            put: { ingredient: [{ item: "minecraft:coal" }, { tag: "forge:dusts/coal" }, { item: "minecraft:charcoal" }, { tag: "forge:dusts/charcoal" }] },
+        },
+        {
+            get: { amount: 90, infuse_type: "mekanism:carbon" },
+            put: { ingredient: [{ tag: "forge:storage_blocks/coal" }, { tag: "forge:storage_blocks/charcoal" }] },
+        },
+        {
+            get: { amount: 20, infuse_type: "mekanism:carbon" },
+            put: { ingredient: [{ tag: "forge:coal_coke" }, { tag: "forge:dusts/coal_coke" }] },
+        },
+        {
+            get: { amount: 180, infuse_type: "mekanism:carbon" },
+            put: { ingredient: [{ tag: "forge:storage_blocks/coal_coke" }] },
+        },
+    ];
+    InfusionPattern.forEach((recipe) => {
+        event.custom({
+            type: "mekanism:infusion_conversion",
+            input: recipe.put,
+            output: recipe.get,
+        });
+    });
+    //#endregion
 });

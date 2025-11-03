@@ -446,6 +446,11 @@ ServerEvents.recipes((event) => {
             magic: ManaEssenceT4,
         },
         {
+            get: { count: 1, item: "mysticalagriculture:cobalt_essence" },
+            put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneFire, { tag: "forge:ingots/cobalt" }, { tag: "forge:ingots/cobalt" }, essenceT4, essenceT4],
+            magic: ManaEssenceT4,
+        },
+        {
             get: { count: 1, item: "mysticalagriculture:osmium_essence" },
             put: [BotaniaSeed, RuneMana, RuneEarth, RuneWinter, RuneWater, { tag: "forge:ingots/osmium" }, { tag: "forge:ingots/osmium" }, essenceT4, essenceT4],
             magic: ManaEssenceT4,
@@ -826,6 +831,11 @@ ServerEvents.recipes((event) => {
         {
             get: { count: 1, item: "mysticalagriculture:soulium_seeds" },
             put: [BaseSeed, RuneEnergy, { item: "mysticalagriculture:soulium_essence" }, { item: "mysticalagriculture:soulium_essence" }, { item: "mysticalagriculture:soulium_essence" }, { item: "mysticalagriculture:soulium_essence" }, essenceT4, essenceT4, essenceT4, essenceT4],
+            magic: ManaSeedT4,
+        },
+        {
+            get: { count: 1, item: "mysticalagriculture:cobalt_seeds" },
+            put: [BaseSeed, RuneEnergy, { item: "mysticalagriculture:cobalt_essence" }, { item: "mysticalagriculture:cobalt_essence" }, { item: "mysticalagriculture:cobalt_essence" }, { item: "mysticalagriculture:cobalt_essence" }, essenceT4, essenceT4, essenceT4, essenceT4],
             magic: ManaSeedT4,
         },
         {
