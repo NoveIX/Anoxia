@@ -13,6 +13,7 @@ ServerEvents.recipes((event) => {
     //Raw ExNihilo
     const RawExNihiloPattern = [
         { get: "mekanism:raw_osmium", put: "anoxia:osmium_pieces" },
+        { get: "tconstruct:raw_cobalt", put: "anoxia:cobalt_pieces" },
         { get: "ad_astra:raw_desh", put: "anoxia:desh_pieces" },
         { get: "ad_astra:raw_ostrum", put: "anoxia:ostrum_pieces" },
         { get: "ad_astra:raw_calorite", put: "anoxia:calorite_pieces" },

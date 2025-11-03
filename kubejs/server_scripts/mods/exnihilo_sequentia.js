@@ -431,6 +431,33 @@ ServerEvents.recipes((event) => {
 
         //#region Netherrack drop
         {
+            get: { item: "exnihilosequentia:gold_pieces" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [
+                { chance: 0.012, mesh: "iron" },
+                { chance: 0.016, mesh: "diamond" },
+                { chance: 0.02, mesh: "emerald" },
+                { chance: 0.024, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "anoxia:cobalt_pieces" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [
+                { chance: 0.04, mesh: "diamond" },
+                { chance: 0.08, mesh: "emerald" },
+                { chance: 0.012, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "anoxia:demonite_pieces" },
+            put: { item: "minecraft:sand" },
+            drop: [
+                { chance: 0.04, mesh: "emerald" },
+                { chance: 0.08, mesh: "netherite" },
+            ],
+        },
+        {
             get: { item: "minecraft:ancient_debris" },
             put: { item: "exnihilosequentia:crushed_netherrack" },
             drop: [
@@ -440,11 +467,39 @@ ServerEvents.recipes((event) => {
             ],
         },
         {
-            get: { item: "anoxia:demonite_pieces" },
-            put: { item: "minecraft:sand" },
+            get: { item: "mysticalagriculture:prosperity_shard" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
             drop: [
+                { chance: 0.1, mesh: "diamond" },
+                { chance: 0.15, mesh: "emerald" },
+                { chance: 0.2, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "thermal:ruby" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [
+                { chance: 0.02, mesh: "diamond" },
                 { chance: 0.04, mesh: "emerald" },
-                { chance: 0.08, mesh: "netherite" },
+                { chance: 0.06, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "thermal:sapphire" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [
+                { chance: 0.02, mesh: "diamond" },
+                { chance: 0.04, mesh: "emerald" },
+                { chance: 0.06, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "projectred_core:peridot" },
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            drop: [
+                { chance: 0.02, mesh: "diamond" },
+                { chance: 0.04, mesh: "emerald" },
+                { chance: 0.06, mesh: "netherite" },
             ],
         },
         //#endregion

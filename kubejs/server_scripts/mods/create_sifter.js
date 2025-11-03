@@ -294,32 +294,63 @@ ServerEvents.recipes((event) => {
 
         //#region Netherrack drop
         {
+            tier: "anoxia:create_iron_mesh",
+            put: { item: "exnihilosequentia:crushed_netherrack" },
+            get: [{ item: "exnihilosequentia:gold_pieces", chance: 0.12 }],
+        },
+        {
             tier: "anoxia:create_diamond_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
-            get: [{ item: "minecraft:ancient_debris", chance: 0.008 }],
+            get: [
+                { item: "exnihilosequentia:gold_pieces", chance: 0.16 },
+                { item: "anoxia:cobalt_pieces", chance: 0.04 },
+                { item: "minecraft:ancient_debris", chance: 0.008 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.1 },
+                { item: "thermal:ruby", chance: 0.02 },
+                { item: "thermal:sapphire", chance: 0.02 },
+                { item: "projectred_core:peridot", chance: 0.02 },
+            ],
         },
         {
             tier: "anoxia:create_emerald_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
             get: [
-                { item: "minecraft:ancient_debris", chance: 0.012 },
+                { item: "exnihilosequentia:gold_pieces", chance: 0.2 },
+                { item: "anoxia:cobalt_pieces", chance: 0.08 },
                 { item: "anoxia:demonite_pieces", chance: 0.04 },
+                { item: "minecraft:ancient_debris", chance: 0.012 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.15 },
+                { item: "thermal:ruby", chance: 0.04 },
+                { item: "thermal:sapphire", chance: 0.04 },
+                { item: "projectred_core:peridot", chance: 0.04 },
             ],
         },
         {
             tier: "anoxia:create_netherite_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
             get: [
-                { item: "minecraft:ancient_debris", chance: 0.016 },
+                { item: "exnihilosequentia:gold_pieces", chance: 0.24 },
+                { item: "anoxia:cobalt_pieces", chance: 0.12 },
                 { item: "anoxia:demonite_pieces", chance: 0.08 },
+                { item: "minecraft:ancient_debris", chance: 0.016 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.2 },
+                { item: "thermal:ruby", chance: 0.06 },
+                { item: "thermal:sapphire", chance: 0.06 },
+                { item: "projectred_core:peridot", chance: 0.06 },
             ],
         },
         {
             tier: "anoxia:create_aethersteel_mesh",
             put: { item: "exnihilosequentia:crushed_netherrack" },
             get: [
-                { item: "minecraft:ancient_debris", chance: 0.02 },
+                { item: "exnihilosequentia:gold_pieces", chance: 0.28 },
+                { item: "anoxia:cobalt_pieces", chance: 0.16 },
                 { item: "anoxia:demonite_pieces", chance: 0.12 },
+                { item: "minecraft:ancient_debris", chance: 0.02 },
+                { item: "mysticalagriculture:prosperity_shard", chance: 0.25 },
+                { item: "thermal:ruby", chance: 0.08 },
+                { item: "thermal:sapphire", chance: 0.08 },
+                { item: "projectred_core:peridot", chance: 0.08 },
             ],
         },
         //#endregion

@@ -979,8 +979,14 @@ MMEvents.createProcesses((event) => {
         .ticks(5)
         .input({ type: "mm:input/consume", ingredient: { type: "mm:item", item: "exnihilosequentia:crushed_netherrack", count: 1 } })
         .input({ type: "mm:input/consume", ingredient: { type: "mm:energy", amount: 6500 } })
+        .output({ type: "mm:output/simple", chance: 0.28, ingredient: { type: "mm:item", item: "exnihilosequentia:gold_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:cobalt_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.12, ingredient: { type: "mm:item", item: "anoxia:demonite_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.02, ingredient: { type: "mm:item", item: "minecraft:ancient_debris", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.12, ingredient: { type: "mm:item", item: "anoxia:demonite_pieces", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.25, ingredient: { type: "mm:item", item: "mysticalagriculture:prosperity_shard", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.08, ingredient: { type: "mm:item", item: "thermal:ruby", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.08, ingredient: { type: "mm:item", item: "thermal:sapphire", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.08, ingredient: { type: "mm:item", item: "projectred_core:peridot", count: 2 } });
 
     //Soul Sand
     event

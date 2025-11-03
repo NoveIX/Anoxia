@@ -1,5 +1,4 @@
 ServerEvents.recipes((event) => {
-    //event.remove({ mod: "botanypots" });
     event.remove({ type: "botanypots:soil" });
 
     //// # =================================================================================================== #
@@ -124,6 +123,9 @@ ServerEvents.recipes((event) => {
         { seed: "mysticalagriculture:blizz_seeds", essence: "mysticalagriculture:blizz_essence", crop: "mysticalagriculture:blizz_crop", tier: T3Soil, growth: T3GrowthTicks },
         { seed: "mysticalagriculture:blitz_seeds", essence: "mysticalagriculture:blitz_essence", crop: "mysticalagriculture:blitz_crop", tier: T3Soil, growth: T3GrowthTicks },
         { seed: "mysticalagriculture:basalz_seeds", essence: "mysticalagriculture:basalz_essence", crop: "mysticalagriculture:basalz_crop", tier: T3Soil, growth: T3GrowthTicks },
+        //{ seed: "mysticalagriculture:amethyst_bronze_seeds", essence: "mysticalagriculture:amethyst_bronze_essence", crop: "mysticalagriculture:amethyst_bronze_crop", tier: T3Soil, growth: T3GrowthTicks },
+        //{ seed: "mysticalagriculture:slimesteel_seeds", essence: "mysticalagriculture:slimesteel_essence", crop: "mysticalagriculture:slimesteel_crop", tier: T3Soil, growth: T3GrowthTicks },
+        //{ seed: "mysticalagriculture:pig_iron_seeds", essence: "mysticalagriculture:pig_iron_essence", crop: "mysticalagriculture:pig_iron_crop", tier: T3Soil, growth: T3GrowthTicks },
         //{ seed: "mysticalagriculture:copper_alloy_seeds", essence: "mysticalagriculture:copper_alloy_essence", crop: "mysticalagriculture:copper_alloy_crop", tier: T3Soil, growth: T3GrowthTicks },
         //{ seed: "mysticalagriculture:redstone_alloy_seeds", essence: "mysticalagriculture:redstone_alloy_essence", crop: "mysticalagriculture:redstone_alloy_crop", tier: T3Soil, growth: T3GrowthTicks },
         //{ seed: "mysticalagriculture:conductive_alloy_seeds", essence: "mysticalagriculture:conductive_alloy_essence", crop: "mysticalagriculture:conductive_alloy_crop", tier: T3Soil, growth: T3GrowthTicks },
@@ -159,6 +161,7 @@ ServerEvents.recipes((event) => {
         //{ seed: "mysticalagriculture:lumium_seeds", essence: "mysticalagriculture:lumium_essence", crop: "mysticalagriculture:lumium_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:flux_infused_ingot_seeds", essence: "mysticalagriculture:flux_infused_ingot_essence", crop: "mysticalagriculture:flux_infused_ingot_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:hop_graphite_seeds", essence: "mysticalagriculture:hop_graphite_essence", crop: "mysticalagriculture:hop_graphite_crop", tier: T4Soil, growth: T4GrowthTicks },
+        //{ seed: "mysticalagriculture:rose_gold_seeds", essence: "mysticalagriculture:rose_gold_essence", crop: "mysticalagriculture:rose_gold_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:soularium_seeds", essence: "mysticalagriculture:soularium_essence", crop: "mysticalagriculture:soularium_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:dark_steel_seeds", essence: "mysticalagriculture:dark_steel_essence", crop: "mysticalagriculture:dark_steel_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:pulsating_alloy_seeds", essence: "mysticalagriculture:pulsating_alloy_essence", crop: "mysticalagriculture:pulsating_alloy_crop", tier: T4Soil, growth: T4GrowthTicks },
@@ -184,6 +187,9 @@ ServerEvents.recipes((event) => {
         //{ seed: "mysticalagriculture:iridium_seeds", essence: "mysticalagriculture:iridium_essence", crop: "mysticalagriculture:iridium_crop", tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: "mysticalagriculture:enderium_seeds", essence: "mysticalagriculture:enderium_essence", crop: "mysticalagriculture:enderium_crop", tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: "mysticalagriculture:flux_infused_gem_seeds", essence: "mysticalagriculture:flux_infused_gem_essence", crop: "mysticalagriculture:flux_infused_gem_crop", tier: T5Soil, growth: T5GrowthTicks },
+        //{ seed: "mysticalagriculture:manyullyn_seeds", essence: "mysticalagriculture:manyullyn_essence", crop: "mysticalagriculture:manyullyn_crop", tier: T5Soil, growth: T5GrowthTicks },
+        //{ seed: "mysticalagriculture:queens_slime_seeds", essence: "mysticalagriculture:queens_slime_essence", crop: "mysticalagriculture:queens_slime_crop", tier: T5Soil, growth: T5GrowthTicks },
+        //{ seed: "mysticalagriculture:hepatizon_seeds", essence: "mysticalagriculture:hepatizon_essence", crop: "mysticalagriculture:hepatizon_crop", tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: "mysticalagriculture:vibrant_alloy_seeds", essence: "mysticalagriculture:vibrant_alloy_essence", crop: "mysticalagriculture:vibrant_alloy_crop", tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: "mysticalagriculture:end_steel_seeds", essence: "mysticalagriculture:end_steel_essence", crop: "mysticalagriculture:end_steel_crop", tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: "mysticalagriculture:terrasteel_seeds", essence: "mysticalagriculture:terrasteel_essence", crop: "mysticalagriculture:terrasteel_crop", tier: T5Soil, growth: T5GrowthTicks },
