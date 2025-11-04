@@ -1,4 +1,6 @@
 ServerEvents.recipes((event) => {
+    event.remove({ type: "createaddition:liquid_burning" });
+
     //#region Remove ID
     const RmRecipeID = [
         //Unification
@@ -96,6 +98,59 @@ ServerEvents.recipes((event) => {
             ingredients: recipe.put,
             results: recipe.get,
         });
+    });
+    //#endregion
+
+    // # =================================================================================================== #
+
+    //#region Liquid Burning
+    const LiquidBurningPattern = [
+        //Minecraft
+        { get: 2400, put: { fluid: "minecraft:lava", amount: 1000 } },
+
+        //Ad Astra
+        { get: 19200, put: { fluid: "ad_astra:fuel", amount: 1000 }, heat: true },
+
+        //Create
+        { get: 4800, put: { fluidTag: "forge:plantoil", amount: 1000 } },
+        { get: 8400, put: { fluidTag: "forge:crude_oil", amount: 1000 } },
+        { get: 9600, put: { fluidTag: "forge:biofuel", amount: 1000 }, heat: true },
+        { get: 10800, put: { fluidTag: "forge:biodiesel", amount: 1000 }, heat: true },
+
+        //Immersive
+        { get: 4800, put: { fluidTag: "forge:creosote", amount: 1000 } },
+
+        //Pneumaticcraft
+        { get: 3600, put: { fluidTag: "forge:ethanol", amount: 1000 } },
+        { get: 12000, put: { fluidTag: "forge:diesel", amount: 1000 }, heat: true },
+        { get: 14400, put: { fluid: "pneumaticcraft:kerosene", amount: 1000 }, heat: true },
+        { get: 16800, put: { fluid: "pneumaticcraft:gasoline", amount: 1000 }, heat: true },
+        { get: 19200, put: { fluid: "pneumaticcraft:lpg", amount: 1000 }, heat: true },
+
+        //Thermal
+        { get: 1200, put: { fluid: "thermal:tree_oil", amount: 1000 } },
+        { get: 10800, put: { fluid: "thermal:light_oil", amount: 1000 } },
+        { get: 12000, put: { fluid: "thermal:heavy_oil", amount: 1000 } },
+        { get: 15600, put: { fluid: "thermal:refined_fuel", amount: 1000 }, heat: true },
+
+        //Tinker
+        { get: 6000, put: { fluid: "tconstruct:blazing_blood", amount: 1000 }, heat: true },
+    ];
+    LiquidBurningPattern.forEach((recipe) => {
+        if (recipe.heat) {
+            event.custom({
+                type: "createaddition:liquid_burning",
+                input: recipe.put,
+                superheated: recipe.heat,
+                burnTime: recipe.get,
+            });
+        } else {
+            event.custom({
+                type: "createaddition:liquid_burning",
+                input: recipe.put,
+                burnTime: recipe.get,
+            });
+        }
     });
     //#endregion
 

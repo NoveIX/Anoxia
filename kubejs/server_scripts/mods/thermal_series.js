@@ -605,16 +605,22 @@ ServerEvents.recipes((event) => {
     // # =================================================================================================== #
 
     //#region Refinery
-    const RefineryPattern = [{ get: "ad_astra:fuel", put: "thermal:refined_fuel", extra: "thermal:sulfur_dust" }];
+    const RefineryPattern = [
+        {
+            get: [
+                { fluid: "ad_astra:fuel", amount: 50 },
+                { item: "thermal:sulfur_dust", chance: 0.25 },
+            ],
+            put: { fluid: "thermal:refined_fuel", amount: 100 },
+            rsflux: 6000,
+        },
+    ];
     RefineryPattern.forEach((recipe) => {
         event.custom({
             type: "thermal:refinery",
-            ingredient: { fluid: recipe.put, amount: 100 },
-            result: [
-                { fluid: recipe.get, amount: 100 },
-                { item: recipe.extra, chance: 0.2 },
-            ],
-            energy: 6000,
+            ingredient: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
             experience: 0.3,
         });
     });

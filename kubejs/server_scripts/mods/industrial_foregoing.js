@@ -15,6 +15,36 @@ ServerEvents.recipes((event) => {
 
     // # =================================================================================================== #
 
+    //#region Dissolution Chamber
+    const DissolutionChamberPattern = [
+        {
+            get: { count: 1, item: "industrialforegoing:speed_addon_1", nbt: "{TitaniumAugment:{Speed:2.0f}}" },
+            put: [
+                { item: "minecraft:redstone" }, //TL
+                { item: "minecraft:glass_pane" }, //T
+                { item: "minecraft:glass_pane" }, //TR
+                { tag: "forge:gears/gold" }, //L
+                { tag: "forge:gears/gold" }, //R
+                { item: "minecraft:sugar" }, //BL
+                { item: "minecraft:glass_pane" }, //B
+                { item: "minecraft:sugar" }, //BR
+            ],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+        },
+    ];
+    DissolutionChamberPattern.forEach((recipe) => {
+        event.custom({
+            type: "industrialforegoing:dissolution_chamber",
+            input: recipe.put,
+            inputFluid: recipe.fluid,
+            output: recipe.get,
+            processingTime: 200,
+        });
+    });
+    //#endregion
+
+    // # =================================================================================================== #
+
     //#region Crusher
     const CrusherPattern = [
         { get: { tag: "forge:dust" }, put: { tag: "forge:sand" } },
