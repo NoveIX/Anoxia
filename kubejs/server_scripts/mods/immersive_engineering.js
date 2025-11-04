@@ -51,12 +51,12 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Recipe
 
     //Coal Coke Block
-    event.shaped('immersiveengineering:coke', ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
+    event.shaped("immersiveengineering:coke", ["AAA", "AAA", "AAA"], { A: "#forge:coal_coke" });
 
     //LV Wire Coil
     event.remove({ output: "immersiveengineering:wirecoil_copper" });
@@ -195,7 +195,7 @@ ServerEvents.recipes((event) => {
     //Furnace
     //Coke Brick
     event.remove({ output: "immersiveengineering:cokebrick" });
-    event.shaped("immersiveengineering:cokebrick", ["ABA", "BCB", "ABA"], { A: "exnihilosequentia:porcelain_clay", B: "#forge:ingots/brick", C: "#forge:sandstone/colorless" });
+    event.shaped("immersiveengineering:cokebrick", ["ABA", "BCB", "ABA"], { A: "exnihilosequentia:porcelain_clay", B: "tconstruct:seared_brick", C: "#forge:sandstone/colorless" });
 
     //Kiln Brick
     event.remove({ output: "immersiveengineering:alloybrick" });
@@ -203,7 +203,7 @@ ServerEvents.recipes((event) => {
 
     //Blast Brick
     event.remove({ output: "immersiveengineering:blastbrick" });
-    event.shaped("immersiveengineering:blastbrick", ["ABA", "BCB", "ABA"], { A: "#forge:ingots/nether_brick", B: "#forge:ingots/brick", C: "minecraft:blaze_powder" });
+    event.shaped("immersiveengineering:blastbrick", ["ABA", "BCB", "ABA"], { A: "#forge:ingots/nether_brick", B: "tconstruct:scorched_brick", C: "minecraft:blaze_powder" });
 
     //Blast Brick Reinforced
     event.remove({ output: "immersiveengineering:blastbrick_reinforced" });
@@ -211,7 +211,7 @@ ServerEvents.recipes((event) => {
 
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Alloy
     const AlloyPattern = [
@@ -237,7 +237,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region ArcFurnace
     const ArcFurnacePattern = [
@@ -264,7 +264,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region BlastFurnace
     event.remove({ type: "immersiveengineering:blast_furnace" });
@@ -283,7 +283,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region BlastFurnace Fuel
     event.remove({ type: "immersiveengineering:blast_furnace_fuel" });
@@ -302,7 +302,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region CokeOven
     event.remove({ type: "immersiveengineering:coke_oven" });
@@ -337,7 +337,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Refinery
     const RefineryPattern = [

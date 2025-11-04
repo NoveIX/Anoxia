@@ -22,7 +22,7 @@ ServerEvents.recipes((event) => {
 
         //EnderIO
         "enderio:smelting/tconstruct/smeltery/seared/seared_brick",
-        "enderio:smelting/tconstruct/smeltery/seared/scorched_brick",
+        "enderio:smelting/tconstruct/smeltery/scorched/scorched_brick",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -30,9 +30,11 @@ ServerEvents.recipes((event) => {
     // # =================================================================================================== #
 
     event.remove({ output: "tconstruct:seared_brick" });
+    event.blasting("tconstruct:seared_brick", "tconstruct:grout");
     event.remove({ output: "tconstruct:scorched_brick" });
+    event.blasting("tconstruct:scorched_brick", "tconstruct:nether_grout");
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Alloy
     const AlloyPattern = [

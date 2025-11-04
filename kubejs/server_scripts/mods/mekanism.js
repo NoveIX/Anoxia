@@ -18,7 +18,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //Advanced Circuit
     event.remove({ output: "mekanism:advanced_control_circuit" });
@@ -44,7 +44,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "mekanism:metallurgic_infuser" });
     event.shaped("mekanism:metallurgic_infuser", ["ABA", "CDC", "ABA"], { A: "#forge:ingots/redstone_alloy", B: "enderio:alloy_smelter", C: "#forge:ingots/osmium", D: "mekanism:steel_casing" });
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //Metallurgic Infusing
     const AlloyPattern = [

@@ -4,7 +4,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //Fertilizer
     event.shaped("industrialforegoing:fertilizer", ["AAA", "AAA", "AAA"], { A: "minecolonies:compost" });
@@ -13,7 +13,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "industrialforegoing:dye_mixer" });
     event.shaped("industrialforegoing:dye_mixer", ["ADA", "EBF", "ACA"], { A: "#forge:plates/iron", B: "industrialforegoing:machine_frame_pity", C: "#forge:gears/gold", D: "minecraft:green_dye", E: "minecraft:red_dye", F: "minecraft:blue_dye" });
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Crusher
     const CrusherPattern = [

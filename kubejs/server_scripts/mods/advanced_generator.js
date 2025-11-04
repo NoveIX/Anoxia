@@ -43,7 +43,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "advgenerators:iron_wiring" });
     event.shaped(Item.of("advgenerators:iron_wiring", 8), ["  A", " B ", "A  "], { A: "#forge:rods/wooden", B: "#forge:ingots/red_alloy" });
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Liquid fuel
     event.remove({ type: "advgenerators:liquid_fuel" });

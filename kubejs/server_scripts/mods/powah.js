@@ -131,7 +131,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "powah:energy_discharger_basic" });
     event.shaped("powah:energy_discharger_basic", ["ABA", "ACA", "ABA"], { A: "powah:dielectric_paste", B: "powah:capacitor_basic_large", C: "powah:dielectric_casing" });
 
-    //// # =================================================================================================== #
+    // # =================================================================================================== #
 
     //#region Energizing
     event.remove({ type: "powah:energizing" });
