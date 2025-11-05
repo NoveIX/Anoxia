@@ -951,7 +951,11 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.24, ingredient: { type: "mm:item", item: "exnihilosequentia:copper_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:nickel_pieces", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.2, ingredient: { type: "mm:item", item: "exnihilosequentia:tin_pieces", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:osmium_pieces", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:osmium_pieces", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:apatite", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.05, ingredient: { type: "mm:item", item: "thermal:niter", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.04, ingredient: { type: "mm:item", item: "thermal:cinnabar", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.04, ingredient: { type: "mm:item", item: "thermal:sulfur", count: 2 } });
 
     //Dust
     event

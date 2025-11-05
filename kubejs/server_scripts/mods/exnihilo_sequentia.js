@@ -307,6 +307,44 @@ ServerEvents.recipes((event) => {
                 { chance: 0.12, mesh: "netherite" },
             ],
         },
+        {
+            get: { item: "thermal:apatite" },
+            put: { item: "minecraft:sand" },
+            drop: [
+                { chance: 0.01, mesh: "iron" },
+                { chance: 0.02, mesh: "diamond" },
+                { chance: 0.03, mesh: "emerald" },
+                { chance: 0.04, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "thermal:niter" },
+            put: { item: "minecraft:sand" },
+            drop: [
+                { chance: 0.01, mesh: "iron" },
+                { chance: 0.02, mesh: "diamond" },
+                { chance: 0.03, mesh: "emerald" },
+                { chance: 0.04, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "thermal:cinnabar" },
+            put: { item: "minecraft:sand" },
+            drop: [
+                { chance: 0.01, mesh: "diamond" },
+                { chance: 0.02, mesh: "emerald" },
+                { chance: 0.03, mesh: "netherite" },
+            ],
+        },
+        {
+            get: { item: "thermal:sulfur" },
+            put: { item: "minecraft:sand" },
+            drop: [
+                { chance: 0.01, mesh: "diamond" },
+                { chance: 0.02, mesh: "emerald" },
+                { chance: 0.03, mesh: "netherite" },
+            ],
+        },
         //#endregion
 
         //#region Dust drop

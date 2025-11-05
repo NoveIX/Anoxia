@@ -20,6 +20,18 @@ ServerEvents.recipes((event) => {
         "mifa:dissolution_chamber/speed_addon_2",
         "mifa:dissolution_chamber/speed_addon_3",
         "mifa:dissolution_chamber/speed_addon_4",
+        "industrialforegoing:dissolution_chamber/range_addon0",
+        "industrialforegoing:dissolution_chamber/range_addon1",
+        "industrialforegoing:dissolution_chamber/range_addon2",
+        "industrialforegoing:dissolution_chamber/range_addon3",
+        "industrialforegoing:dissolution_chamber/range_addon4",
+        "industrialforegoing:dissolution_chamber/range_addon5",
+        "industrialforegoing:dissolution_chamber/range_addon6",
+        "industrialforegoing:dissolution_chamber/range_addon7",
+        "industrialforegoing:dissolution_chamber/range_addon8",
+        "industrialforegoing:dissolution_chamber/range_addon9",
+        "industrialforegoing:dissolution_chamber/range_addon10",
+        "industrialforegoing:dissolution_chamber/range_addon11",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -119,7 +131,6 @@ ServerEvents.recipes((event) => {
         {
             get: { count: 1, item: "industrialforegoing:speed_addon_2", nbt: "{TitaniumAugment:{Speed:3.0f}}" },
             put: [{ tag: "forge:ingots/red_alloy" }, { item: "minecraft:sugar" }, { tag: "forge:ingots/red_alloy" }, { tag: "forge:glass_panes/colorless" }, { tag: "forge:glass_panes/colorless" }, { tag: "forge:gears/diamond" }, { item: "industrialforegoing:speed_addon_1" }, { tag: "forge:gears/diamond" }],
-
             fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
             time: 400,
         },
@@ -137,6 +148,78 @@ ServerEvents.recipes((event) => {
         },
 
         //Range
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon0", nbt: "{TitaniumAugment:{Range:0.0f}}" },
+            put: [{ item: "minecraft:cobblestone" }, { item: "minecraft:redstone" }, { item: "minecraft:cobblestone" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:cobblestone" }, { item: "minecraft:redstone" }, { item: "minecraft:cobblestone" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon1", nbt: "{TitaniumAugment:{Range:1.0f}}" },
+            put: [{ item: "minecraft:lapis_lazuli" }, { item: "minecraft:redstone" }, { item: "minecraft:lapis_lazuli" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:lapis_lazuli" }, { item: "minecraft:redstone" }, { item: "minecraft:lapis_lazuli" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon2", nbt: "{TitaniumAugment:{Range:2.0f}}" },
+            put: [{ item: "minecraft:bone_meal" }, { item: "minecraft:redstone" }, { item: "minecraft:bone_meal" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:bone_meal" }, { item: "minecraft:redstone" }, { item: "minecraft:bone_meal" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon3", nbt: "{TitaniumAugment:{Range:3.0f}}" },
+            put: [{ item: "minecraft:iron_nugget" }, { item: "minecraft:redstone" }, { item: "minecraft:iron_nugget" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:iron_nugget" }, { item: "minecraft:redstone" }, { item: "minecraft:iron_nugget" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon4", nbt: "{TitaniumAugment:{Range:4.0f}}" },
+            put: [{ tag: "forge:nuggets/copper" }, { item: "minecraft:redstone" }, { tag: "forge:nuggets/copper" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { tag: "forge:nuggets/copper" }, { item: "minecraft:redstone" }, { tag: "forge:nuggets/copper" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon5", nbt: "{TitaniumAugment:{Range:5.0f}}" },
+            put: [{ item: "minecraft:gold_nugget" }, { item: "minecraft:redstone" }, { item: "minecraft:gold_nugget" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:gold_nugget" }, { item: "minecraft:redstone" }, { item: "minecraft:gold_nugget" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon6", nbt: "{TitaniumAugment:{Range:6.0f}}" },
+            put: [{ item: "minecraft:iron_ingot" }, { item: "minecraft:redstone" }, { item: "minecraft:iron_ingot" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:iron_ingot" }, { item: "minecraft:redstone" }, { item: "minecraft:iron_ingot" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon7", nbt: "{TitaniumAugment:{Range:7.0f}}" },
+            put: [{ item: "minecraft:gold_ingot" }, { item: "minecraft:redstone" }, { item: "minecraft:gold_ingot" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:gold_ingot" }, { item: "minecraft:redstone" }, { item: "minecraft:gold_ingot" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon8", nbt: "{TitaniumAugment:{Range:8.0f}}" },
+            put: [{ item: "minecraft:quartz" }, { item: "minecraft:redstone" }, { item: "minecraft:quartz" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:quartz" }, { item: "minecraft:redstone" }, { item: "minecraft:quartz" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon9", nbt: "{TitaniumAugment:{Range:9.0f}}" },
+            put: [{ item: "minecraft:diamond" }, { item: "minecraft:redstone" }, { item: "minecraft:diamond" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:diamond" }, { item: "minecraft:redstone" }, { item: "minecraft:diamond" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon10", nbt: "{TitaniumAugment:{Range:10.0f}}" },
+            put: [{ item: "minecraft:popped_chorus_fruit" }, { item: "minecraft:redstone" }, { item: "minecraft:popped_chorus_fruit" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:popped_chorus_fruit" }, { item: "minecraft:redstone" }, { item: "minecraft:popped_chorus_fruit" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
+        {
+            get: { count: 1, item: "industrialforegoing:range_addon11", nbt: "{TitaniumAugment:{Range:11.0f}}" },
+            put: [{ item: "minecraft:emerald" }, { item: "minecraft:redstone" }, { item: "minecraft:emerald" }, { item: "minecraft:glass_pane" }, { item: "minecraft:glass_pane" }, { item: "minecraft:emerald" }, { item: "minecraft:redstone" }, { item: "minecraft:emerald" }],
+            fluid: '{Amount:1000,FluidName:"industrialforegoing:latex"}',
+            time: 200,
+        },
     ];
     DissolutionChamberPattern.forEach((recipe) => {
         event.custom({

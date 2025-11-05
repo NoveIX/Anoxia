@@ -133,6 +133,8 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:copper_pieces", chance: 0.08 },
                 { item: "exnihilosequentia:nickel_pieces", chance: 0.04 },
                 { item: "exnihilosequentia:tin_pieces", chance: 0.04 },
+                { item: "thermal:apatite", chance: 0.01 },
+                { item: "thermal:niter", chance: 0.01 },
             ],
         },
         {
@@ -145,6 +147,10 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:nickel_pieces", chance: 0.08 },
                 { item: "exnihilosequentia:tin_pieces", chance: 0.08 },
                 { item: "anoxia:osmium_pieces", chance: 0.04 },
+                { item: "thermal:apatite", chance: 0.02 },
+                { item: "thermal:niter", chance: 0.02 },
+                { item: "thermal:cinnabar", chance: 0.01 },
+                { item: "thermal:sulfur", chance: 0.01 },
             ],
         },
         {
@@ -157,6 +163,10 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:nickel_pieces", chance: 0.12 },
                 { item: "exnihilosequentia:tin_pieces", chance: 0.12 },
                 { item: "anoxia:osmium_pieces", chance: 0.08 },
+                { item: "thermal:apatite", chance: 0.03 },
+                { item: "thermal:niter", chance: 0.03 },
+                { item: "thermal:cinnabar", chance: 0.02 },
+                { item: "thermal:sulfur", chance: 0.02 },
             ],
         },
         {
@@ -169,6 +179,10 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:nickel_pieces", chance: 0.16 },
                 { item: "exnihilosequentia:tin_pieces", chance: 0.16 },
                 { item: "anoxia:osmium_pieces", chance: 0.12 },
+                { item: "thermal:apatite", chance: 0.04 },
+                { item: "thermal:niter", chance: 0.04 },
+                { item: "thermal:cinnabar", chance: 0.03 },
+                { item: "thermal:sulfur", chance: 0.03 },
             ],
         },
         {
@@ -181,6 +195,10 @@ ServerEvents.recipes((event) => {
                 { item: "exnihilosequentia:nickel_pieces", chance: 0.2 },
                 { item: "exnihilosequentia:tin_pieces", chance: 0.2 },
                 { item: "anoxia:osmium_pieces", chance: 0.16 },
+                { item: "thermal:apatite", chance: 0.05 },
+                { item: "thermal:niter", chance: 0.05 },
+                { item: "thermal:cinnabar", chance: 0.04 },
+                { item: "thermal:sulfur", chance: 0.04 },
             ],
         },
         //#endregion
