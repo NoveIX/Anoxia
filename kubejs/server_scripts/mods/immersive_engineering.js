@@ -337,6 +337,26 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
+    //#region Fertilizer
+    const FertilizerPattern = [
+        { put: { item: "create:tree_fertilizer" }, multi: 1.3 },
+
+        { put: { item: "industrialforegoing:fertilizer" }, multi: 1.2 },
+
+        { put: { item: "thermal:compost" }, multi: 1.1 },
+        { put: { item: "thermal:phytogro" }, multi: 1.6 },
+
+        { put: { item: "mysticalagriculture:mystical_fertilizer" }, multi: 5.0 },
+    ];
+    FertilizerPattern.forEach((recipe) => {
+        event.custom({
+            type: "immersiveengineering:fertilizer",
+            growthModifier: recipe.multi,
+            input: recipe.put,
+        });
+    });
+    //#endregion
+
     //# =================================================================================================== #
 
     //#region Refinery

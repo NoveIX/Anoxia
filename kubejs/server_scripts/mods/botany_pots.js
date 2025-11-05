@@ -319,7 +319,15 @@ ServerEvents.recipes((event) => {
 
     //#region Fertilizer
     const FertilizerPattern = [
-        { item: "minecraft:bone_meal", range: [200, 300] },
+        { item: "minecraft:bone_meal", range: [100, 300] },
+        { item: "create:tree_fertilizer", range: [400, 600] },
+
+        { item: "industrialforegoing:fertilizer", range: [300, 500] },
+        { item: "immersiveengineering:fertilizer", range: [800, 1000] },
+
+        { item: "thermal:phytogro", range: [700, 900] },
+        { item: "thermal:compost", range: [200, 400] },
+
         { item: "mysticalagriculture:mystical_fertilizer", range: [15000, 15000] },
     ];
     FertilizerPattern.forEach((recipe) => {
