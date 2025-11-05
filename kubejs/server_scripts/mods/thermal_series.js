@@ -181,6 +181,10 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "thermal:redstone_servo" });
     event.shaped("thermal:redstone_servo", ["A A", " B ", "A A"], { A: "minecraft:redstone", B: "minecraft:iron_ingot" });
 
+    //Vibrating Core
+    event.remove({ output: "thermalendergy:vibrating_core" });
+    event.shaped("thermalendergy:vibrating_core", ["A  ", " B ", "  A"], { A: "#forge:ingots/energetic_alloy", B: "minecraft:echo_shard" });
+
     ////Machine
 
     //Machine Frame
@@ -328,7 +332,6 @@ ServerEvents.recipes((event) => {
     event.shaped("thermal_more:mega_upgrade_augment", ["AAA", "BCB", "BCB"], { A: "#forge:dyes/yellow", B: "avaritia:neutron_gear", C: "thermal_more:25x_upgrade_augment" });
     event.shaped("thermal_more:mega_upgrade_augment", ["AAA", "BCB", "BDB"], { A: "#forge:dyes/yellow", B: "avaritia:neutron_gear", C: "thermal_more:15x_upgrade_augment", D: "thermal_more:35x_upgrade_augment" });
     event.shaped("thermal_more:mega_upgrade_augment", ["AAA", "BCB", "BDB"], { A: "#forge:dyes/yellow", B: "avaritia:neutron_gear", C: "thermal_more:20x_upgrade_augment", D: "thermal_more:30x_upgrade_augment" });
-
     //#endregion
 
     // # =================================================================================================== #
