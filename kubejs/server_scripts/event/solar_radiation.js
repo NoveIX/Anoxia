@@ -1,6 +1,6 @@
 /* const MAX_RADIATION = 100;
 
-// Aumenta radiazioni se sei sulla Luna
+//Aumenta radiazioni se sei sulla Luna
 ServerEvents.tick(event => {
   if (event.server.getTickCount() % 100 == 0) {
     event.server.players.forEach(player => {
@@ -11,14 +11,14 @@ ServerEvents.tick(event => {
         if (data.radiation > MAX_RADIATION) data.radiation = MAX_RADIATION;
 
         if (data.radiation >= MAX_RADIATION) {
-          player.attack(1); // danno mezzo cuore
+          player.attack(1); //danno mezzo cuore
         }
       }
     });
   }
 });
 
-// Bevendo pozione dimezza radiazioni
+//Bevendo pozione dimezza radiazioni
 ItemEvents.foodEaten(event => {
   let item = event.item.id;
   let player = event.player;

@@ -24,7 +24,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Fertilizer
     event.shaped("industrialforegoing:fertilizer", ["AAA", "AAA", "AAA"], { A: "minecolonies:compost" });
@@ -33,11 +33,11 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "industrialforegoing:dye_mixer" });
     event.shaped("industrialforegoing:dye_mixer", ["ADA", "EBF", "ACA"], { A: "#forge:plates/iron", B: "industrialforegoing:machine_frame_pity", C: "#forge:gears/gold", D: "minecraft:green_dye", E: "minecraft:red_dye", F: "minecraft:blue_dye" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Dissolution Chamber
     const DissolutionChamberPattern = [
-        // Machine Frame
+        //Machine Frame
         {
             get: { count: 1, item: "industrialforegoing:machine_frame_simple" },
             put: [{ tag: "forge:plastic" }, { item: "industrialforegoing:machine_frame_pity" }, { tag: "forge:plastic" }, { tag: "forge:gears/electrum" }, { tag: "forge:gears/electrum" }, { item: "minecraft:diamond" }, { item: "thermal:rf_coil" }, { item: "minecraft:diamond" }],
@@ -57,7 +57,7 @@ ServerEvents.recipes((event) => {
             time: 2400,
         },
 
-        // Efficiency Addon
+        //Efficiency Addon
         {
             get: { count: 1, item: "industrialforegoing:efficiency_addon_1", nbt: "{TitaniumAugment:{Efficiency:0.9f}}" },
             put: [{ tag: "forge:ingots/red_alloy" }, { item: "minecraft:blaze_rod" }, { tag: "forge:ingots/red_alloy" }, { tag: "forge:glass_panes/colorless" }, { tag: "forge:glass_panes/colorless" }, { tag: "forge:gears/gold" }, { item: "minecraft:blaze_rod" }, { tag: "forge:gears/gold" }],
@@ -83,7 +83,7 @@ ServerEvents.recipes((event) => {
             time: 800,
         },
 
-        // Processing Addon
+        //Processing Addon
         {
             get: { count: 1, item: "industrialforegoing:processing_addon_1", nbt: "{TitaniumAugment:{Processing:2.0f}}" },
             put: [{ tag: "forge:ingots/red_alloy" }, { item: "minecraft:furnace" }, { tag: "forge:ingots/red_alloy" }, { tag: "forge:glass_panes/colorless" }, { tag: "forge:glass_panes/colorless" }, { tag: "forge:gears/gold" }, { item: "minecraft:crafting_table" }, { tag: "forge:gears/gold" }],
@@ -149,7 +149,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Crusher
     const CrusherPattern = [

@@ -16,7 +16,7 @@ ServerEvents.recipes((event) => {
     event.shaped("rootsclassic:brazier", ["ABA", "ACA"], { A: "#forge:rods/iron", B: "minecraft:string", C: "minecraft:cauldron" });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Ritual
     //Flower

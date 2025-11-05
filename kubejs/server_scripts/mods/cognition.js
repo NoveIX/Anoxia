@@ -4,7 +4,7 @@ const RmRecipeID = ["experienceobelisk:cognitive_alloy", "experienceobelisk:meta
 RmRecipeID.forEach((id) => event.remove({ id: id }));
 //#endregion
 
-// # =================================================================================================== #
+//# =================================================================================================== #
 
     //Cognitive Alloy
     event.shapeless("experienceobelisk:cognitive_alloy", [
@@ -18,7 +18,7 @@ RmRecipeID.forEach((id) => event.remove({ id: id }));
         "experienceobelisk:cognitive_amalgam",
     ]);
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Metamorpher
     const MolecularMetamorphoerPattern = [

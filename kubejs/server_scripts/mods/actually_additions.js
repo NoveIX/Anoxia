@@ -4,7 +4,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Powered Funrace
     event.remove({ output: "actuallyadditions:powered_furnace" });
@@ -39,7 +39,7 @@ ServerEvents.recipes((event) => {
         F: "actuallyadditions:advanced_coil",
     });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     const PressingPattern = [{ getFluid: { Amount: 80, FluidName: "actuallyadditions:canola_oil" }, putItem: { tag: "forge:crops/canola" } }];
     PressingPattern.forEach((recipe) => {
@@ -50,7 +50,7 @@ ServerEvents.recipes((event) => {
         });
     });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Empowering
     event.remove({ output: "enderio:double_layer_capacitor" });

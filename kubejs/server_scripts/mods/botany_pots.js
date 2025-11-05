@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
     event.remove({ type: "botanypots:soil" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Definition Soil
     //Propriety All Seed
@@ -31,7 +31,7 @@ ServerEvents.recipes((event) => {
     const T6Soil = ["T6", "N", "I"];
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Soil
     //Soil Type
@@ -54,17 +54,17 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Mystical
     const MysticalPattern = [
-        // Tier 0
+        //Tier 0
         { seed: "mysticalagriculture:air_seeds", essence: "mysticalagriculture:air_essence", crop: "mysticalagriculture:air_crop", tier: T0Soil, growth: T0GrowthTicks },
         { seed: "mysticalagriculture:earth_seeds", essence: "mysticalagriculture:earth_essence", crop: "mysticalagriculture:earth_crop", tier: T0Soil, growth: T0GrowthTicks },
         { seed: "mysticalagriculture:water_seeds", essence: "mysticalagriculture:water_essence", crop: "mysticalagriculture:water_crop", tier: T0Soil, growth: T0GrowthTicks },
         { seed: "mysticalagriculture:fire_seeds", essence: "mysticalagriculture:fire_essence", crop: "mysticalagriculture:fire_crop", tier: T0Soil, growth: T0GrowthTicks },
 
-        // Tier 1
+        //Tier 1
         { seed: "mysticalagriculture:inferium_seeds", essence: "mysticalagriculture:inferium_essence", crop: "mysticalagriculture:inferium_crop", tier: T1Soil, growth: T1GrowthTicks },
         { seed: "mysticalagriculture:stone_seeds", essence: "mysticalagriculture:stone_essence", crop: "mysticalagriculture:stone_crop", tier: T1Soil, growth: T1GrowthTicks },
         { seed: "mysticalagriculture:dirt_seeds", essence: "mysticalagriculture:dirt_essence", crop: "mysticalagriculture:dirt_crop", tier: T1Soil, growth: T1GrowthTicks },
@@ -72,7 +72,7 @@ ServerEvents.recipes((event) => {
         { seed: "mysticalagriculture:ice_seeds", essence: "mysticalagriculture:ice_essence", crop: "mysticalagriculture:ice_crop", tier: T1Soil, growth: T1GrowthTicks },
         { seed: "mysticalagriculture:deepslate_seeds", essence: "mysticalagriculture:deepslate_essence", crop: "mysticalagriculture:deepslate_crop", tier: T1Soil, growth: T1GrowthTicks },
 
-        // Tier 2
+        //Tier 2
         { seed: "mysticalagriculture:nature_seeds", essence: "mysticalagriculture:nature_essence", crop: "mysticalagriculture:nature_crop", tier: T2Soil, growth: T2GrowthTicks },
         //{ seed: "mysticalagriculture:dye_seeds", essence: "mysticalagriculture:dye_essence", crop: "mysticalagriculture:dye_crop", tier: T2Soil, growth: T2GrowthTicks },
         { seed: "mysticalagriculture:nether_seeds", essence: "mysticalagriculture:nether_essence", crop: "mysticalagriculture:nether_crop", tier: T2Soil, growth: T2GrowthTicks },
@@ -100,7 +100,7 @@ ServerEvents.recipes((event) => {
         //{ seed: "mysticalagriculture:limestone_seeds", essence: "mysticalagriculture:limestone_essence", crop: "mysticalagriculture:limestone_crop", tier: T2Soil, growth: T2GrowthTicks },
         //{ seed: "mysticalagriculture:basalt_seeds", essence: "mysticalagriculture:basalt_essence", crop: "mysticalagriculture:basalt_crop", tier: T2Soil, growth: T2GrowthTicks },
 
-        // Tier 3
+        //Tier 3
         { seed: "mysticalagriculture:iron_seeds", essence: "mysticalagriculture:iron_essence", crop: "mysticalagriculture:iron_crop", tier: T3Soil, growth: T3GrowthTicks },
         { seed: "mysticalagriculture:copper_seeds", essence: "mysticalagriculture:copper_essence", crop: "mysticalagriculture:copper_crop", tier: T3Soil, growth: T3GrowthTicks },
         { seed: "mysticalagriculture:nether_quartz_seeds", essence: "mysticalagriculture:nether_quartz_essence", crop: "mysticalagriculture:nether_quartz_crop", tier: T3Soil, growth: T3GrowthTicks },
@@ -135,7 +135,7 @@ ServerEvents.recipes((event) => {
         { seed: "mysticalagriculture:sky_stone_seeds", essence: "mysticalagriculture:sky_stone_essence", crop: "mysticalagriculture:sky_stone_crop", tier: T3Soil, growth: T3GrowthTicks },
         { seed: "mysticalagriculture:certus_quartz_seeds", essence: "mysticalagriculture:certus_quartz_essence", crop: "mysticalagriculture:certus_quartz_crop", tier: T3Soil, growth: T3GrowthTicks },
 
-        // Tier 4
+        //Tier 4
         { seed: "mysticalagriculture:gold_seeds", essence: "mysticalagriculture:gold_essence", crop: "mysticalagriculture:gold_crop", tier: T4Soil, growth: T4GrowthTicks },
         { seed: "mysticalagriculture:lapis_lazuli_seeds", essence: "mysticalagriculture:lapis_lazuli_essence", crop: "mysticalagriculture:lapis_lazuli_crop", tier: T4Soil, growth: T4GrowthTicks },
         { seed: "mysticalagriculture:end_seeds", essence: "mysticalagriculture:end_essence", crop: "mysticalagriculture:end_crop", tier: T4Soil, growth: T4GrowthTicks },
@@ -179,7 +179,7 @@ ServerEvents.recipes((event) => {
         //{ seed: "mysticalagriculture:energized_steel_seeds", essence: "mysticalagriculture:energized_steel_essence", crop: "mysticalagriculture:energized_steel_crop", tier: T4Soil, growth: T4GrowthTicks },
         //{ seed: "mysticalagriculture:blazing_crystal_seeds", essence: "mysticalagriculture:blazing_crystal_essence", crop: "mysticalagriculture:blazing_crystal_crop", tier: T4Soil, growth: T4GrowthTicks },
 
-        // Tier 5
+        //Tier 5
         { seed: "mysticalagriculture:diamond_seeds", essence: "mysticalagriculture:diamond_essence", crop: "mysticalagriculture:diamond_crop", tier: T5Soil, growth: T5GrowthTicks },
         { seed: "mysticalagriculture:emerald_seeds", essence: "mysticalagriculture:emerald_essence", crop: "mysticalagriculture:emerald_crop", tier: T5Soil, growth: T5GrowthTicks },
         { seed: "mysticalagriculture:netherite_seeds", essence: "mysticalagriculture:netherite_essence", crop: "mysticalagriculture:netherite_crop", tier: T5Soil, growth: T5GrowthTicks },
@@ -200,7 +200,7 @@ ServerEvents.recipes((event) => {
         //{ seed: "mysticalagriculture:spirited_crystal_seeds", essence: "mysticalagriculture:spirited_crystal_essence", crop: "mysticalagriculture:spirited_crystal_crop", tier: T5Soil, growth: T5GrowthTicks },
         //{ seed: "mysticalagriculture:uraninite_seeds", essence: "mysticalagriculture:uraninite_essence", crop: "mysticalagriculture:uraninite_crop", tier: T5Soil, growth: T5GrowthTicks },
 
-        // Tier 6
+        //Tier 6
         { seed: "mysticalagriculture:nether_star_seeds", essence: "mysticalagriculture:nether_star_essence", crop: "mysticalagriculture:nether_star_crop", tier: T6Soil, growth: T6GrowthTicks },
         { seed: "mysticalagriculture:dragon_egg_seeds", essence: "mysticalagriculture:dragon_egg_essence", crop: "mysticalagriculture:dragon_egg_crop", tier: T6Soil, growth: T6GrowthTicks },
         { seed: "mysticalagriculture:gaia_spirit_seeds", essence: "mysticalagriculture:gaia_spirit_essence", crop: "mysticalagriculture:gaia_spirit_crop", tier: T6Soil, growth: T6GrowthTicks },
@@ -213,7 +213,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Tree
     const TreePattern = [
@@ -260,7 +260,7 @@ ServerEvents.recipes((event) => {
         { sapling: "thermal:rubberwood_sapling", log: "thermal:rubberwood_log", leaves: "thermal:rubberwood_leaves" },
     ];
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     const TwilightSapling = [
         "twilightforest:twilight_oak_sapling",
@@ -283,7 +283,7 @@ ServerEvents.recipes((event) => {
         Item.of("delightful:green_tea_leaf").withChance(0.05).withRolls(1, 2),
     ];
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     TreePattern.forEach((recipe) => {
         const drops = [Item.of(recipe.log).withChance(1).withRolls(2, 4), Item.of(recipe.sapling).withChance(0.15).withRolls(1, 2), Item.of(recipe.leaves).withChance(0.3).withRolls(1, 2)];
@@ -294,28 +294,28 @@ ServerEvents.recipes((event) => {
         if (recipe.sapling === "twilightforest:mining_sapling") drops.push(Item.of("twilightforest:mining_log_core").withChance(0.01).withRolls(1));
         if (recipe.sapling === "twilightforest:sorting_sapling") drops.push(Item.of("twilightforest:sorting_log_core").withChance(0.01).withRolls(1));
 
-        // Twigs
+        //Twigs
         drops.push(Item.of("twigs:twig").withChance(0.1).withRolls(1, 2));
 
-        // LivingRoot
+        //LivingRoot
         if (TwilightSapling.includes(recipe.sapling)) drops.push(Item.of("twilightforest:liveroot").withChance(0.05).withRolls(1, 2));
 
-        // Extra
+        //Extra
         if (recipe.extra) drops.push(recipe.extra);
 
-        // Rubber
+        //Rubber
         if (recipe.sapling === "thermal:rubberwood_sapling") drops.push(Item.of("industrialforegoing:tinydryrubber").withChance(0.05).withRolls(1, 2));
 
-        // Roots
+        //Roots
         RootsDrop.forEach((root) => drops.push(root));
 
-        // Create recipes
+        //Create recipes
         event.remove({ input: recipe.sapling, type: "botanypots:crop" });
         event.recipes.botanypots.crop(recipe.sapling, AllNotMagicalSoil, { block: recipe.sapling }, drops, TreeTicks, GrowthMod);
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Fertilizer
     const FertilizerPattern = [

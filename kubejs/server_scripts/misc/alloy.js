@@ -1,4 +1,4 @@
-// priority:996
+//priority:996
 ServerEvents.recipes((event) => {
     //#region Remove ID
     const RmRecipeID = [
@@ -49,7 +49,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Func Alloy
     function AlloyImmersiveAlloy(recipe) {
@@ -74,7 +74,7 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     function AlloyEnderIO2(recipe) {
         event.custom({
@@ -103,7 +103,7 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     function AlloyThermal2(recipe) {
         event.custom({
@@ -131,7 +131,7 @@ ServerEvents.recipes((event) => {
     }
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Alloy
     const AlloyPattern = [
@@ -142,7 +142,7 @@ ServerEvents.recipes((event) => {
         { get: "minecraft:netherite_ingot", n0: 1, put1: "forge:ingots/netherite_scrap", n1: 4, put2: "forge:ingots/gold", n2: 4, rsflux: 24000, alloy: "simple" }, //Netherite
 
         //Aethersteel
-        { get: "aethersteel:aethersteel_ingot", n0: 1, put1: "forge:ingots/netherite", n1: 4, put2: "forge:ingots/aethersteel_scrap", n2: 4, rsflux: 48000, alloy: "ender" }, // Aetherstell
+        { get: "aethersteel:aethersteel_ingot", n0: 1, put1: "forge:ingots/netherite", n1: 4, put2: "forge:ingots/aethersteel_scrap", n2: 4, rsflux: 48000, alloy: "ender" }, //Aetherstell
 
         //Create
         { get: "create:andesite_alloy", n0: 2, put1: "forge:ingots/platinum", n1: 1, put2: "anoxia:stone/polished_andesite", n2: 1, rsflux: 8000, alloy: "simple" }, //Andesite Alloy
@@ -197,7 +197,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Alloy Alt
     const AlloyAltPattern = [

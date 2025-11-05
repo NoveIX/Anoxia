@@ -127,9 +127,9 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "appflux:core_256k" });
     event.shaped("appflux:core_256k", ["ABA", "CDC", "ACA"], { A: "powah:steel_energized", B: "appflux:energy_processor", C: "appflux:core_64k", D: "ae2:quartz_vibrant_glass" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
-    //// Portable
+    ////Portable
     //Item
     event.remove({ output: "ae2:portable_item_cell_1k" });
     event.shapeless("ae2:portable_item_cell_1k", ["ae2:chest", "ae2:cell_component_1k", "ae2:energy_cell", "ae2:item_cell_housing"]);

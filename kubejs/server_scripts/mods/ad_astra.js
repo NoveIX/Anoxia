@@ -1,14 +1,14 @@
 ServerEvents.recipes((event) => {
     event.remove({ type: "ad_astra:compressing" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Remove ID
     const RmRecipeID = ["ad_astra:conversion/fuel_from_oil", "ad_astra:nasa_workbench/tier_1_rocket", "ad_astra:nasa_workbench/tier_2_rocket", "ad_astra:nasa_workbench/tier_3_rocket", "ad_astra:nasa_workbench/tier_4_rocket"];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Solar panel
     event.remove({ output: "ad_astra:solar_panel" });
@@ -34,7 +34,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "ad_astra:coal_generator" });
     event.shaped("ad_astra:coal_generator", ["AAA", "ABA", "ACA"], { A: "#forge:plates/iron", B: "#anoxia:furnaces/stone", C: "minecraft:campfire" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Refinery
     const RefineryPattern = [

@@ -9,7 +9,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region LogCore
     const LogCore = [
@@ -24,6 +24,6 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // Uberous Soil
+    //Uberous Soil
     event.shaped("twilightforest:uberous_soil", ["BBB", "BAB", "BBB"], { A: "farmersdelight:rich_soil", B: "industrialforegoing:fertilizer" });
 });

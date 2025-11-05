@@ -4,7 +4,7 @@ ServerEvents.recipes((event) => {
     event.shapeless("botania:fertilizer", ["minecraft:bone_meal", "#botania:petals/flower", "#botania:petals/flower", "#botania:petals/flower", "#botania:petals/flower"]);
     event.shapeless("botania:fertilizer", ["botania:living_root"]);
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Elven Trade
     const ElvenTradePattern = [
@@ -20,7 +20,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Mana Infusion
     event.remove({ output: "mysticalagriculture:prosperity_seed_base" });
@@ -73,7 +73,7 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region RunicAltar Essence
     //Magic
@@ -516,7 +516,7 @@ ServerEvents.recipes((event) => {
         },
         //#endregion
 
-        // # =================================================================================================== #
+        //# =================================================================================================== #
 
         //#region Seed
         //T0

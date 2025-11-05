@@ -102,14 +102,14 @@ ServerEvents.recipes((event) => {
         B: "bigreactors:basic_turbinerotorshaft",
     });
 
-    // Turbine Rotor
+    //Turbine Rotor
     event.remove({ output: "bigreactors:basic_turbinerotorshaft" });
     event.shaped("bigreactors:basic_turbinerotorshaft", [" A ", "ABA", " A "], {
         A: "advgenerators:turbine_blade",
         B: "create:shaft",
     });
 
-    // Turbine Blade
+    //Turbine Blade
     event.remove({ output: "bigreactors:basic_turbinerotorblade" });
     event.shaped("bigreactors:basic_turbinerotorblade", ["AAA"], {
         A: "advgenerators:turbine_blade",
@@ -253,14 +253,14 @@ ServerEvents.recipes((event) => {
         B: "bigreactors:reinforced_turbinerotorshaft",
     });
 
-    // Turbine Rotor
+    //Turbine Rotor
     event.remove({ output: "bigreactors:reinforced_turbinerotorshaft" });
     event.shaped("bigreactors:reinforced_turbinerotorshaft", [" A ", "ABA", " A "], {
         A: "bigreactors:basic_turbinerotorblade",
         B: "bigreactors:basic_turbinerotorshaft",
     });
 
-    // Turbine Blade
+    //Turbine Blade
     event.remove({ output: "bigreactors:reinforced_turbinerotorblade" });
     event.shaped("bigreactors:reinforced_turbinerotorblade", ["AAA"], {
         A: "bigreactors:basic_turbinerotorblade",

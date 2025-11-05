@@ -2,7 +2,7 @@ ServerEvents.recipes((event) => {
     event.remove({ type: "mysticalagriculture:soul_extraction" });
     event.remove({ type: "mysticalagriculture:reprocessor" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Remove ID
     const RmRecipeID = [
@@ -295,7 +295,7 @@ ServerEvents.recipes((event) => {
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Altar
     event.remove({ output: "mysticalagriculture:infusion_altar" });
@@ -336,7 +336,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "mysticalagradditions:insanium_farmland" });
     event.shapeless("mysticalagradditions:insanium_farmland", ["#minecraft:hoes", "mysticalagradditions:insanium_essence", "twilightforest:uberous_soil"]);
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Reprocessor
     const ReprocessorPattern = [
@@ -484,7 +484,7 @@ ServerEvents.recipes((event) => {
         //{ get: "mysticalagriculture:nitro_crystal_essence", put: "mysticalagriculture:nitro_crystal_seeds" },
         //#endregion
 
-        // # =================================================================================================== #
+        //# =================================================================================================== #
 
         //#region Pam
         //{get: ,put: },
