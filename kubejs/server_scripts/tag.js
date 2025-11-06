@@ -1,9 +1,10 @@
-// priority:999
+//priority:999
+//#region Item
 ServerEvents.tags("item", (event) => {
     //Game Remove
     global.items.GAME_RmOut.forEach((id) => event.removeAllTagsFrom(id));
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Remove all mod tag
     const RmAllTagsFromID = [
@@ -27,9 +28,8 @@ ServerEvents.tags("item", (event) => {
     const RmTagPattern = [{ tag: "forge:sawdust", item: "chemlib:cellulose_dust" }];
     RmTagPattern.forEach((recipe) => event.remove(recipe.tag, recipe.item));
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
-    //#region Tags
     const AddTagPattern = [
         //#region Anoxia
         //Coil
@@ -72,7 +72,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "anoxia:gems/charcoal", item: "minecraft:charcoal" },
         //#endregion
 
-        // # =================================================================================================== #
+        //# =================================================================================================== #
 
         //#region Forge
         { tag: "forge:plastic", item: "pneumaticcraft:plastic" },
@@ -110,6 +110,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:storage_blocks/infinity", item: "avaritia:infinity" },
         { tag: "forge:storage_blocks/hellforged", item: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks", item: "bloodmagic:dungeon_metal" },
+        //#endregion
 
         //Botania
         { tag: "botania:petals/flower", item: "botania:white_petal" },
@@ -139,10 +140,10 @@ ServerEvents.tags("item", (event) => {
         { tag: "createdeco:internal/plates/zinc_plates", item: "#forge:plates/zinc" },
     ];
     AddTagPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
-    //#endregion
 });
+//#endregion
 
-// # =================================================================================================== #
+//# =================================================================================================== #
 
 //#region Block
 ServerEvents.tags("block", (event) => {
@@ -216,20 +217,20 @@ ServerEvents.tags("block", (event) => {
 });
 //#endregion
 
-// # =================================================================================================== #
+//# =================================================================================================== #
 
 //#region Fluid
 ServerEvents.tags("fluid", (event) => {
     //Game Remove
     global.fluid.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Remove Single Tag
     const RmTagFromEveryID = ["forge:fuel"];
     RmTagFromEveryID.forEach((tag) => event.removeAll(tag));
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Add Tag
     const AddTagPattern = [
@@ -242,7 +243,7 @@ ServerEvents.tags("fluid", (event) => {
 });
 //#endregion
 
-// # =================================================================================================== #
+//# =================================================================================================== #
 
 //#region JAOPCA
 ServerEvents.tags("item", (event) => {

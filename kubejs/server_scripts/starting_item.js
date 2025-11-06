@@ -1,4 +1,4 @@
-// priority:1
+//priority:1
 PlayerEvents.loggedIn((event) => {
     //#region Definition
     const AkashicTome = Item.of("akashictome:tome", '{"akashictome:data":{ftbquests:{Count:1b,id:"ftbquests:book"}}}');
@@ -8,7 +8,7 @@ PlayerEvents.loggedIn((event) => {
     const Boots = Item.of("ad_astra:space_boots", "{Damage:0}");
     //#endregion
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //#region Recipes function
     //KubeJS

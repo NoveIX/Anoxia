@@ -27,7 +27,7 @@ ServerEvents.recipes((event) => {
     //Press Rod Die
     event.shaped("anoxia:press_rod_die", [" A ", "ABA", " A "], { A: "#forge:plates/invar", B: "minecraft:blaze_rod" });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Compressed
     const CompressPattern = [

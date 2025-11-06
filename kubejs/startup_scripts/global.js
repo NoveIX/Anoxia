@@ -3,8 +3,7 @@ global.items = {};
 
 //# =================================================================================================== #
 
-//#region Rm full item
-//RmOut - RmIn - RmTags
+//#region Remove out item
 global.items.GAME_RmOut = [
     //Ad Astra
     "ad_astra:tier_1_rocket",
@@ -423,7 +422,7 @@ global.items.GAME_RmOut = [
 ];
 //#endregion
 
-//#region RmIn item
+//#region Remove in item
 global.items.GAME_RmIn = [
     "mysticalagriculture:dye_essence",
     "mysticalagriculture:rubber_essence",
@@ -487,8 +486,6 @@ global.items.GAME_RmIn = [
     "mysticalagriculture:nitro_crystal_essence",
 ];
 //#endregion
-
-//# =================================================================================================== #
 
 //#region JEI add item
 global.items.JEI_Add = [
@@ -554,7 +551,7 @@ global.items.JEI_Add = [
 ];
 //#endregion
 
-//#region JEI hide iteme
+//#region JEI hide item
 global.items.JEI_Hide = [
     //Mekanism
     "mekanism:creative_chemical_tank",
@@ -582,6 +579,7 @@ global.items.JEI_Hide = [
     "#enderio:clear_glass_enm",
     "#enderio:clear_glass_ea",
     "#enderio:clear_glass_ena",
+
     "#enderio:fused_quartz",
     "#enderio:fused_quartz_p",
     "#enderio:fused_quartz_np",
@@ -610,9 +608,8 @@ global.items.JEI_Hide = [
 
 global.fluid = {};
 
-//#region Rm Full fluid
-//RmOut - RmIn - RmTags
-global.fluid.GAME_FullRm = [
+//#region Remove out fluid
+global.fluid.GAME_RmOut = [
     //EnderIO
     "enderio:dew_of_the_void",
     "enderio:vapor_of_levity",
@@ -624,12 +621,16 @@ global.fluid.GAME_FullRm = [
 ];
 //#endregion
 
-//#region RmOut fluid
-global.fluid.GAME_RmOut = [];
+//#region Remove in fluid
+global.fluid.GAME_RmIn = [];
 //#endregion
 
-//#region RmIn fluid
-global.fluid.GAME_RmIn = [];
+//#region JEI add fluid
+global.fluid.JEI_Add = [];
+//#endregion
+
+//#region JEI hide fluid
+global.fluid.JEI_Hide = [];
 //#endregion
 
 //# =================================================================================================== #

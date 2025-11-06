@@ -1,4 +1,4 @@
-// priority:1000
+//priority:1000
 ServerEvents.recipes((event) => {
     //Item
     global.items.GAME_RmOut.forEach((item) => {
@@ -9,7 +9,7 @@ ServerEvents.recipes((event) => {
         event.remove({ input: item });
     });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Fluid
     global.fluid.GAME_RmOut.forEach((item) => {
@@ -20,7 +20,7 @@ ServerEvents.recipes((event) => {
         event.remove({ input: item });
     });
 
-    // # =================================================================================================== #
+    //# =================================================================================================== #
 
     //Recipe ID
     global.recipe.GAME_Rmid.forEach((id) => {
