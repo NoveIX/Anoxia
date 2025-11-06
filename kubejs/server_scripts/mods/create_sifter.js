@@ -3,7 +3,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "createsifter:sifter" });
     event.shaped("createsifter:sifter", ["ABA", "CDC", "EEE"], { A: "#minecraft:planks", B: "#exnihilosequentia:sieves", C: "#forge:rods/wooden", D: "create:large_cogwheel", E: "anoxia:compressed_andesite" });
 
-    ////Sifting
+    //Sifting
     event.remove({ type: "createsifter:sifting" });
     const SifterPattern = [
         //#region Gravel drop

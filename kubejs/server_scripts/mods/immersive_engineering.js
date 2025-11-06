@@ -142,7 +142,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "immersiveengineering:capacitor_hv" });
     event.shaped("immersiveengineering:capacitor_hv", ["AAA", "BCB", "DED"], { A: "#forge:plates/steel", B: "immersiveengineering:wirecoil_steel", C: "immersiveengineering:redstone_acid_bucket", D: "#forge:treated_wood", E: "immersiveengineering:capacitor_mv" });
 
-    ////Machine Engineering Block
+    //Machine Engineering Block
 
     //Redstone
     event.remove({ output: "immersiveengineering:rs_engineering" });
@@ -176,7 +176,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "immersiveengineering:thermoelectric_generator" });
     event.shaped("immersiveengineering:thermoelectric_generator", ["ABA", "CDC", "AEA"], { A: "#forge:plates/constantan", B: "#forge:plates/steel", C: "#forge:ingots/red_alloy", D: "immersiveengineering:furnace_heater", E: "#forge:gears/constantan" });
 
-    ////Storage Block
+    //Storage Block
     const StorageBlockIE = [
         { get: "immersiveengineering:storage_aluminum", put: "#forge:ingots/aluminum" },
         { get: "immersiveengineering:storage_lead", put: "#forge:ingots/lead" },
@@ -258,7 +258,8 @@ ServerEvents.recipes((event) => {
             input: recipe.put,
             additives: recipe.add,
             results: recipe.get,
-            energy: 51200,
+            slag: { tag: "forge:slag" },
+            energy: 32000,
             time: 100,
         });
     });

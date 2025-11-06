@@ -157,6 +157,9 @@ ServerEvents.recipes((event) => {
         "thermal:compat/mysticalagriculture/insolator_mysticalag_gaia_spirit_seeds",
         "thermal:compat/mysticalagriculture/insolator_mysticalag_neutronium_seeds",
         "thermal:compat/mysticalagriculture/insolator_mysticalag_nitro_crystal_seeds",
+
+        //Redstone arsenal
+        "redstone_arsenal:materials/flux_gem"
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -185,7 +188,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "thermalendergy:vibrating_core" });
     event.shaped("thermalendergy:vibrating_core", ["A  ", " B ", "  A"], { A: "#forge:ingots/energetic_alloy", B: "minecraft:echo_shard" });
 
-    ////Machine
+    //Machine
 
     //Machine Frame
     event.remove({ output: "thermal:machine_frame" });
@@ -255,7 +258,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "thermal:machine_crafter" });
     event.shaped("thermal:machine_crafter", [" A ", "BCB", "DED"], { A: "quark:crafter", B: "enderio:crafter", C: "thermal:machine_frame", D: "#forge:gears/quartz", E: "thermal:rf_coil" });
 
-    ////Dynamo
+    //Dynamo
 
     //Stirling
     event.remove({ output: "thermal:dynamo_stirling" });
@@ -285,7 +288,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "thermal:dynamo_gourmand" });
     event.shaped("thermal:dynamo_gourmand", [" A ", "BCB", "DED"], { A: "thermal:rf_coil", B: "immersiveengineering:component_steel", C: "#forge:gears/gold", D: "immersiveengineering:capacitor_mv", E: "thermal:redstone_servo" });
 
-    ////Component
+    //Component
 
     //15X /MS
     event.remove({ output: "thermal_more:15x_upgrade_augment" });

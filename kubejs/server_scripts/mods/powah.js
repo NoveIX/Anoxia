@@ -39,7 +39,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "powah:photoelectric_pane" });
     event.shaped("powah:photoelectric_pane", ["ABA", "BCB", "ABA"], { A: "powah:dielectric_paste", B: "minecraft:redstone", C: "minecraft:glass_pane" });
 
-    ////Reactor
+    //Reactor
     event.remove({ output: "powah:reactor_starter" });
     event.shaped("powah:reactor_starter", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_basic", C: "powah:dielectric_casing" });
 
@@ -61,7 +61,7 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "powah:reactor_nitro" });
     event.shaped("powah:reactor_nitro", ["ABA", "BCB", "ABA"], { A: "#forge:plates/lead", B: "powah:capacitor_nitro", C: "powah:reactor_spirited" });
 
-    ////Cable
+    //Cable
     event.remove({ output: "powah:energy_cable_starter" });
     event.shaped(Item.of("powah:energy_cable_starter", 6), ["AAA", "BCB", "AAA"], { A: "powah:dielectric_rod_horizontal", B: "#forge:wires/iron", C: "powah:capacitor_basic" });
 

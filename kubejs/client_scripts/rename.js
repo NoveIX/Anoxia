@@ -146,7 +146,7 @@ ClientEvents.lang("en_us", (event) => {
      * @param {string} typeName - The display name for the pot type
      */
     function renameBotanyPots(event, materialId, materialName, colorId, colorName, typeId, typeName) {
-        ////Botany Pots
+        //Botany Pots
         //For default terracotta pots without color specification
         if (!colorId) {
             event.renameItem(`botanypots:${materialId}_${typeId}`, `${typeName}`);
@@ -190,7 +190,7 @@ ClientEvents.lang("en_us", (event) => {
      * @param {string} typeName - The display name for the pot type
      */
     function renameBotanyPotsTier(event, tierId, tierName, materialId, materialName, colorId, colorName, typeId, typeName) {
-        ////Botany Pots
+        //Botany Pots
         //For default terracotta pots without color specification
         if (!colorId) {
             event.renameItem(`botanypots:${tierId}_${materialId}_${typeId}`, `${tierName} ${typeName}`);
@@ -205,7 +205,7 @@ ClientEvents.lang("en_us", (event) => {
             event.renameItem(`botanypots:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${materialName} ${typeName}`);
         }
 
-        ////Botany Pots Tier
+        //Botany Pots Tier
         //For default terracotta pots without color specification
         if (!colorId) {
             event.renameItem(`botanypotstiers:${tierId}_${materialId}_${typeId}`, `${tierName} ${typeName}`);

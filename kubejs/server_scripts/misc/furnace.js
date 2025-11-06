@@ -65,7 +65,7 @@ ServerEvents.recipes((event) => {
         //"enderio:smelting/immersiveengineering/smelting/ingot_constantan_from_dust",
         //"thermal:machines/smelter/smelter_constantan_dust",
 
-        ////Thermal Endergy
+        //Thermal Endergy
         "thermalendergy:prismalium_ingot_from_dust",
         "enderio:smelting/thermalendergy/prismalium_ingot_from_dust",
         "thermalendergy:melodium_ingot_from_dust",

@@ -129,7 +129,7 @@ ServerEvents.recipes((event) => {
 
     //# =================================================================================================== #
 
-    ////Portable
+    //Portable
     //Item
     event.remove({ output: "ae2:portable_item_cell_1k" });
     event.shapeless("ae2:portable_item_cell_1k", ["ae2:chest", "ae2:cell_component_1k", "ae2:energy_cell", "ae2:item_cell_housing"]);

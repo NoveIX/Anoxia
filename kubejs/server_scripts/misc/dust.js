@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
     //#region Remove ID
     const RmRecipeID = [
-        ////Gem
+        //Gem
         //Coal
         "immersiveengineering:crusher/coal",
         "immersiveengineering:crusher/coal_block",
@@ -70,7 +70,7 @@ ServerEvents.recipes((event) => {
         "jaopca:immersiveengineering.material_to_dust.sapphire",
         "jaopca:mekanism.material_to_dust.sapphire",
 
-        ////Metal
+        //Metal
         //Iron
         "bloodmagic:arc/dustsfrom_ingot_iron",
         "immersiveengineering:crusher/ingot_iron",
@@ -179,7 +179,7 @@ ServerEvents.recipes((event) => {
         "thermal:machines/pulverizer/pulverizer_constantan_ingot_to_dust",
         "thermal:machines/pulverizer/pulverizer_constantan_plate_to_dust",
 
-        ////Other
+        //Other
         //Ender
         "ae2:inscriber/ender_dust",
         "enderio:sag_milling/ender_pearl",
@@ -188,7 +188,7 @@ ServerEvents.recipes((event) => {
         //Obsidian
         "enderio:sag_milling/obsidian",
 
-        ////Mod
+        //Mod
         //Redstone arsenal
         "redstone_arsenal:materials/flux_dust",
         "thermal:compat/redstone_arsenal/pulverizer_rsa_flux_ingot_to_dust",
@@ -459,7 +459,7 @@ ServerEvents.recipes((event) => {
         { get: "thermal:ruby_dust", put: "forge:gems/ruby", rsflux: 6000, processing: 600 },
         { get: "thermal:sapphire_dust", put: "forge:gems/sapphire", rsflux: 6000, processing: 600 },
 
-        ////Metal
+        //Metal
         { get: "thermal:iron_dust", put: "forge:ingots/iron", rsflux: 4000, processing: 400 },
         { get: "thermal:gold_dust", put: "forge:ingots/gold", rsflux: 4000, processing: 400 },
         { get: "thermal:copper_dust", put: "forge:ingots/copper", ore: "forge:ores/copper", rsflux: 4000, processing: 400 },

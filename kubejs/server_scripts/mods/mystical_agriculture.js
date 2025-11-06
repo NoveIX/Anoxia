@@ -7,7 +7,7 @@ ServerEvents.recipes((event) => {
     //#region Remove ID
     const RmRecipeID = [
         //Mystical Seed
-        ////Crafting
+        //Crafting
         //T0
         "mysticalagriculture:seed/crafting/air",
         "mysticalagriculture:seed/crafting/earth",
@@ -150,7 +150,7 @@ ServerEvents.recipes((event) => {
         "mysticalagriculture:seed/crafting/neutronium",
         "mysticalagriculture:seed/crafting/nitro_crystal",
 
-        ////Infusion
+        //Infusion
         //T0
         "mysticalagriculture:seed/infusion/air",
         "mysticalagriculture:seed/infusion/earth",
