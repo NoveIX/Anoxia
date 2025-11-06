@@ -224,7 +224,7 @@ ServerEvents.tags("block", (event) => {
 //#region Fluid
 ServerEvents.tags("fluid", (event) => {
     //Game Remove
-    global.fluid.GAME_FullRm.forEach((id) => event.removeAllTagsFrom(id));
+    global.fluid.GAME_RmOut.forEach((id) => event.removeAllTagsFrom(id));
 
     //# =================================================================================================== #
 

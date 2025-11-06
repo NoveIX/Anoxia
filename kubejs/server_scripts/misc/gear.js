@@ -99,10 +99,10 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:stellarium_gear", put: "forge:ingots/stellarium", rsflux: 24000, metal: "hard" },
 
         //Redstone Arsenal
-        { get: "redstone_arsenal:flux_gear", put: "forge:ingots/flux", rsflux: 8000 },
+        { get: "redstone_arsenal:flux_gear", put: "forge:ingots/flux", rsflux: 8000, metal: "hard" },
 
         //Pneumaticcraft
-        { get: "pneumaticcraft:compressed_iron_gear", put: "forge:ingots/compressed_iron", rsflux: 8000 },
+        { get: "pneumaticcraft:compressed_iron_gear", put: "forge:ingots/compressed_iron", rsflux: 8000, metal: "hard" },
 
         //Avaritia
         { get: "avaritia:neutron_gear", put: "forge:ingots/neutron", rsflux: 720000, metal: "special" },
