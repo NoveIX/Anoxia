@@ -1,5 +1,5 @@
 ClientEvents.lang("en_us", (event) => {
-    //Basic Items
+    //#region Rename Item
     const RenamePattern = [
         { item: "quark:sturdy_stone", new: "Stasis Stone (Za Warudo! Toki wo tomare!)" },
         { item: "thermal:coal_coke_block", new: "Block of Coal Coke" },
@@ -80,14 +80,14 @@ ClientEvents.lang("en_us", (event) => {
         { item: "arseng:portable_source_cell_64k", new: "64k Portable Source Disk Drive" },
         { item: "arseng:portable_source_cell_256k", new: "256k Portable Source Disk Drive" },
     ];
-    RenamePattern.forEach((name) => {
-        event.renameItem(name.item, name.new);
-    });
+    RenamePattern.forEach((name) => event.renameItem(name.item, name.new));
+    //#endregion
 
     //# =================================================================================================== #
 
-    //Biomes
+    //#region Biome
     event.renameBiome("hyperbox:hyperbox", "Hyperbox");
+    //#endregion
 
     //# =================================================================================================== #
 

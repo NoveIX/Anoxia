@@ -6,7 +6,7 @@ ServerEvents.tags("item", (event) => {
 
     //# =================================================================================================== #
 
-    //Remove all mod tag
+    //Remove all tag from id
     const RmAllTagsFromID = [
         "hammerlib:gears/wooden",
         "hammerlib:gears/stone",
@@ -23,6 +23,8 @@ ServerEvents.tags("item", (event) => {
         "avaritia:neutron",
     ];
     RmAllTagsFromID.forEach((id) => event.removeAllTagsFrom(id));
+
+    //# =================================================================================================== #
 
     //remove Tag
     const RmTagPattern = [{ tag: "forge:sawdust", item: "chemlib:cellulose_dust" }];
