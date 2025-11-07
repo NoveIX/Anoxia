@@ -8,14 +8,6 @@ ServerEvents.tags("item", (event) => {
 
     //Remove all tag from id
     const RmAllTagsFromID = [
-        "hammerlib:gears/wooden",
-        "hammerlib:gears/stone",
-        "hammerlib:gears/copper",
-        "hammerlib:gears/iron",
-        "hammerlib:gears/gold",
-        "hammerlib:gears/diamond",
-        "hammerlib:gears/netherite",
-
         //Avaritia
         "avaritia:neutron_pile",
         "avaritia:neutron_nugget",
@@ -89,8 +81,9 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:pebble/stone", item: "exnihilosequentia:stone_pebble" },
         { tag: "forge:pebble/stone", item: "botania:pebble" },
         { tag: "forge:pebble/stone", item: "twigs:pebble" },
+
+        //gems
         { tag: "forge:gems/flux_gem", item: "redstone_arsenal:flux_gem" },
-        { tag: "forge:storage_blocks/flux_gem", item: "redstone_arsenal:flux_gem_block" },
 
         //dusts
         { tag: "forge:dusts/neutronium", item: "avaritia:neutron_pile" },
@@ -117,6 +110,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:storage_blocks/hellforged", item: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks", item: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks/flux", item: "redstone_arsenal:flux_metal_block" },
+        { tag: "forge:storage_blocks/flux_gem", item: "redstone_arsenal:flux_gem_block" },
         //#endregion
 
         //Botania
