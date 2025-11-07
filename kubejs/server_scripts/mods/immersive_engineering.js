@@ -258,7 +258,6 @@ ServerEvents.recipes((event) => {
             input: recipe.put,
             additives: recipe.add,
             results: recipe.get,
-            slag: { tag: "forge:slag" },
             energy: 32000,
             time: 100,
         });

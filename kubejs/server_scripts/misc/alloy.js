@@ -65,7 +65,7 @@ ServerEvents.recipes((event) => {
 
         //Tinker
         "immersiveengineering:alloysmelter/manyullyn",
-        "immersiveengineering:arcfurnace/manyullyn"
+        "immersiveengineering:arcfurnace/alloy_manyullyn",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -89,7 +89,6 @@ ServerEvents.recipes((event) => {
             input: { base_ingredient: { tag: recipe.put1 }, count: recipe.n1 },
             additives: [{ base_ingredient: { tag: recipe.put2 }, count: recipe.n2 }],
             results: [{ base_ingredient: { item: recipe.get }, count: recipe.n0 }],
-            slag: { tag: "forge:slag" },
             energy: recipe.rsflux,
             time: 100,
         });
@@ -163,10 +162,10 @@ ServerEvents.recipes((event) => {
         { get: "minecraft:netherite_ingot", n0: 1, put1: "forge:ingots/netherite_scrap", n1: 4, put2: "forge:ingots/gold", n2: 4, rsflux: 24000, alloy: "simple" }, //Netherite
 
         //Aethersteel
-        { get: "aethersteel:aethersteel_ingot", n0: 1, put1: "forge:ingots/netherite", n1: 4, put2: "forge:ingots/aethersteel_scrap", n2: 4, rsflux: 48000, alloy: "ender" }, //Aetherstell
+        { get: "aethersteel:aethersteel_ingot", n0: 1, put1: "forge:ingots/aethersteel_scrap", n1: 4, put2: "forge:ingots/netherite", n2: 4, rsflux: 48000, alloy: "ender" }, //Aetherstell
 
         //Create
-        { get: "create:andesite_alloy", n0: 2, put1: "forge:ingots/platinum", n1: 1, put2: "anoxia:stone/polished_andesite", n2: 1, rsflux: 8000, alloy: "simple" }, //Andesite Alloy
+        { get: "create:andesite_alloy", n0: 1, put1: "anoxia:stone/polished_andesite", n1: 1, put2: "forge:ingots/platinum", n2: 1, rsflux: 8000, alloy: "simple" }, //Andesite Alloy
 
         //EnderIO
         { get: "enderio:copper_alloy_ingot", n0: 1, put1: "forge:ingots/copper", n1: 1, put2: "forge:silicon", n2: 1, rsflux: 4000, alloy: "ender" }, //Copper Alloy
@@ -180,7 +179,7 @@ ServerEvents.recipes((event) => {
         { get: "enderio:end_steel_ingot", n0: 1, put1: "forge:end_stones", n1: 1, put2: "forge:ingots/dark_steel", n2: 1, put3: "forge:obsidian", n3: 1, rsflux: 36000, alloy: "complex" }, //EndSteel Ingot
 
         //Redstone arsenal
-        {get: "redstone_arsenal:flux_ingot", n0: 1, put1: "forge:ingots/electrum", n1: 1, put2: "forge:dusts/redstone", n2: 4, rsflux: 24000, alloy: "ender"  },
+        { get: "redstone_arsenal:flux_ingot", n0: 1, put1: "forge:ingots/electrum", n1: 1, put2: "forge:dusts/redstone", n2: 4, rsflux: 24000, alloy: "ender" },
 
         //Thermal
         { get: "thermal:steel_ingot", n0: 1, put1: "forge:ingots/iron", n1: 1, put2: "forge:dusts/coal", n2: 8, rsflux: 18000, alloy: "simple" }, //Steel - Coal
@@ -199,7 +198,7 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:stellarium_ingot", n0: 2, put1: "forge:nether_stars", n1: 1, put2: "forge:ingots/melodium", n2: 1, put3: "forge:ingots/aethersteel", n3: 1, rsflux: 72000, alloy: "complex" },
 
         //Tinker
-        {get: "tconstruct:manyullyn_ingot", n0: 1, put1: "forge:ingots/cobalt", n1: 3, put2: "forge:ingots/netherite_scrap", n2: 1, rsflux: 24000, alloy: "simple"}
+        { get: "tconstruct:manyullyn_ingot", n0: 1, put1: "forge:ingots/netherite_scrap", n1: 3, put2: "forge:ingots/cobalt", n2: 1, rsflux: 24000, alloy: "simple" },
     ];
     AlloyPattern.forEach((recipe) => {
         //Recipes

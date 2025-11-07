@@ -3,6 +3,11 @@ ServerEvents.recipes((event) => {
 
     //#region Remove ID
     const RmRecipeID = [
+        "create:crafting/materials/andesite_alloy",
+        "create:crafting/materials/andesite_alloy_from_zinc",
+        "create:mixing/andesite_alloy",
+        "create:mixing/andesite_alloy_from_zinc",
+
         //Unification
         "tacz_c:thin_brass_sheet_cutting",
         "tacz_c:thin_copper_sheet_cutting",
@@ -13,11 +18,6 @@ ServerEvents.recipes((event) => {
     //# =================================================================================================== #
 
     //#region Recipes
-    //Andesite Alloy
-    event.remove({ id: "create:crafting/materials/andesite_alloy" });
-    event.remove({ id: "create:crafting/materials/andesite_alloy_from_zinc" });
-    event.shaped("create:andesite_alloy", ["BA", "AB"], { A: "minecraft:polished_andesite", B: "#forge:ingots/lead" });
-
     //Millstone
     event.remove({ output: "create:millstone" });
     event.shaped("create:millstone", [" A ", " B ", "CCC"], { A: "supplementaries:timber_frame", B: "create:large_cogwheel", C: "anoxia:compressed_andesite" });
@@ -180,6 +180,7 @@ ServerEvents.recipes((event) => {
             //Andesite Alloy
             get: [{ item: "create:andesite_alloy" }],
             put: [{ item: "minecraft:polished_andesite" }, { tag: "forge:ingots/platinum" }],
+            heat: "heated",
         },
         {
             //Restore Mixing Dough => PamHC Dought
@@ -188,11 +189,27 @@ ServerEvents.recipes((event) => {
         },
     ];
     MixingPattern.forEach((recipe) => {
-        event.custom({
-            type: "create:mixing",
-            ingredients: recipe.put,
-            results: recipe.get,
-        });
+        if (!recipe.heat) {
+            event.custom({
+                type: "create:mixing",
+                ingredients: recipe.put,
+                results: recipe.get,
+            });
+        } else if (recipe.heat === "heated") {
+            event.custom({
+                type: "create:mixing",
+                heatRequirement: "heated",
+                ingredients: recipe.put,
+                results: recipe.get,
+            });
+        } else if (recipe.heat === "superheated") {
+            event.custom({
+                type: "create:mixing",
+                heatRequirement: "superheated",
+                ingredients: recipe.put,
+                results: recipe.get,
+            });
+        }
     });
     //#endregion
 
