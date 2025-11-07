@@ -89,6 +89,8 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:pebble/stone", item: "exnihilosequentia:stone_pebble" },
         { tag: "forge:pebble/stone", item: "botania:pebble" },
         { tag: "forge:pebble/stone", item: "twigs:pebble" },
+        { tag: "forge:gems/flux_gem", item: "redstone_arsenal:flux_gem" },
+        { tag: "forge:storage_blocks/flux_gem", item: "redstone_arsenal:flux_gem_block" },
 
         //dusts
         { tag: "forge:dusts/neutronium", item: "avaritia:neutron_pile" },
@@ -96,6 +98,7 @@ ServerEvents.tags("item", (event) => {
         //nuggets
         { tag: "forge:nuggets/neutronium", item: "avaritia:neutron_nugget" },
         { tag: "forge:nuggets/infinity", item: "avaritia:infinity_nugget" },
+        { tag: "forge:nuggets/flux", item: "redstone_arsenal:flux_nugget" },
 
         //ingots
         { tag: "forge:ingots/flux", item: "redstone_arsenal:flux_ingot" },
@@ -106,12 +109,14 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:ingots/obsidian", item: "anoxia:obsidian_ingot" },
         { tag: "forge:ingots/neutronium", item: "avaritia:neutron_ingot" },
         { tag: "forge:ingots/infinity", item: "avaritia:infinity_ingot" },
+        { tag: "forge:ingots/flux", item: "redstone_arsenal:flux_ingot" },
 
         //blocks
         { tag: "forge:storage_blocks/neutronium", item: "avaritia:neutron" },
         { tag: "forge:storage_blocks/infinity", item: "avaritia:infinity" },
         { tag: "forge:storage_blocks/hellforged", item: "bloodmagic:dungeon_metal" },
         { tag: "forge:storage_blocks", item: "bloodmagic:dungeon_metal" },
+        { tag: "forge:storage_blocks/flux", item: "redstone_arsenal:flux_metal_block" },
         //#endregion
 
         //Botania

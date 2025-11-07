@@ -84,7 +84,7 @@ ServerEvents.recipes((event) => {
             type: "immersiveengineering:arc_furnace",
             additives: [],
             input: { tag: recipe.put },
-            results: [{ tag: recipe.get }],
+            results: [{ item: recipe.get }],
             energy: 2000,
             time: 100,
         });

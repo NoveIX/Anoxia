@@ -99,8 +99,24 @@ ServerEvents.recipes((event) => {
         "enderio:end_steel_nugget", //ingot => nugget
         "enderio:end_steel_block", //ingot => block
 
+        //Redstone Arsenal
+        "redstone_arsenal:storage/flux_ingot_from_block", //block => ingot
+        "redstone_arsenal:storage/flux_ingot_from_nuggets", //nugget => ingot
+        "redstone_arsenal:storage/flux_nugget_from_ingot", //ingot => nugget
+        "redstone_arsenal:storage/flux_metal_block", //ingot => block
+        "thermal:compat/redstone_arsenal/press_rsa_flux_metal_unpacking", //block => ingot
+        "thermal:compat/redstone_arsenal/press_rsa_flux_metal_packing", //ingot => block
+        "redstone_arsenal:storage/flux_gem_from_block", //block => ingot
+        "redstone_arsenal:storage/flux_gem_block", //ingot => block
+        "thermal:compat/redstone_arsenal/press_rsa_flux_gem_unpacking", //block => ingot
+        "thermal:compat/redstone_arsenal/press_rsa_flux_gem_packing", //ingot => block
+
         //Thermal
         "createaddition:crafting/electrum_ingot",
+        "tcintegrations:bronze_ingot_from_nuggets", //nugget => ingot
+        "tcintegrations:bronze_ingots_from_block", //block => ingot
+        "tcintegrations:bronze_nuggets_from_ingot", //ingot => nugget
+        "tcintegrations:bronze_block_from_ingots", //ingot => block
         //Signalum
         "thermal:storage/signalum_ingot_from_nuggets", //nugget => ingot
         "thermal:storage/signalum_ingot_from_block", //block => ingot
@@ -290,7 +306,19 @@ ServerEvents.recipes((event) => {
         {
             id: { ingot: "enderio:end_steel_ingot", nugget: "enderio:end_steel_nugget", block: "enderio:end_steel_block" },
             tag: { ingot: "forge:ingots/end_steel", nugget: "forge:nuggets/end_steel", block: "forge:storage_blocks/end_steel" },
-            rsflux: 36000,
+            rsflux: 3600,
+        },
+
+        //Redstone Arsenal
+        {
+            id: { ingot: "redstone_arsenal:flux_ingot", nugget: "redstone_arsenal:flux_nugget", block: "redstone_arsenal:flux_metal_block" },
+            tag: { ingot: "forge:ingots/flux", nugget: "forge:nuggets/flux", block: "forge:storage_blocks/flux" },
+            rsflux: 2400,
+        },
+        {
+            id: { ingot: "redstone_arsenal:flux_gem", block: "redstone_arsenal:flux_gem_block" },
+            tag: { ingot: "forge:gems/flux_gem", block: "forge:storage_blocks/flux_gem" },
+            rsflux: 2400,
         },
 
         //Thermal
@@ -348,13 +376,13 @@ ServerEvents.recipes((event) => {
     CompactPattern.forEach((recipe) => {
         //Compacting
         if (recipe.id.ingot && recipe.tag.nugget) CompactThermalPack(recipe.id.ingot, recipe.tag.nugget, recipe.rsflux);
-        else if (recipe.id.block && recipe.id.nugget) CompactThermalPackID(recipe.id.ingot, recipe.id.nugget, recipe.rsflux);
+        else if (recipe.id.ingot && recipe.id.nugget) CompactThermalPackID(recipe.id.ingot, recipe.id.nugget, recipe.rsflux);
 
         if (recipe.id.ingot && recipe.tag.block) CompactThermalUnpack(recipe.id.ingot, recipe.tag.block, recipe.rsflux);
-        else if (recipe.id.block && recipe.id.block) CompactThermalUnpackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
+        else if (recipe.id.ingot && recipe.id.block) CompactThermalUnpackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
 
         if (recipe.id.nugget && recipe.tag.ingot) CompactThermalUnpack(recipe.id.nugget, recipe.tag.ingot, recipe.rsflux);
-        else if (recipe.id.block && recipe.id.ingot) CompactThermalUnpackID(recipe.id.nugget, recipe.id.ingot, recipe.rsflux);
+        else if (recipe.id.nugget && recipe.id.ingot) CompactThermalUnpackID(recipe.id.nugget, recipe.id.ingot, recipe.rsflux);
 
         if (recipe.id.block && recipe.tag.ingot) CompactThermalPack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
         else if (recipe.id.block && recipe.id.ingot) CompactThermalPack(recipe.id.block, recipe.id.ingot, recipe.rsflux);
