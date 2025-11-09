@@ -1,7 +1,72 @@
 //priority:1001
-global.items = {};
+
+global.MeltPoint = {
+    //Primary Metal
+    Iron: 1538,
+    Gold: 1064,
+    Copper: 1085,
+    Netherite: 2255,
+    Tin: 231.9,
+    Lead: 327.5,
+    Silver: 961.8,
+    Nickel: 1455,
+    Platinum: 1768,
+    Aluminum: 660.3,
+    Desh: 1540,
+    Ostrum: 1825,
+    Calorite: 1950,
+
+    //Alloy
+    Steel: 1450,
+    RoseGold: 960,
+    Signalum: 1279,
+    Lumium: 1357,
+    Enderium: 1753,
+    Bronze: 913,
+    Electrum: 1064.18,
+    Invar: 1427,
+    Constantan: 1447,
+    Brass: 945,
+
+    //Gem
+    Lapis: 1533,
+    Diamond: 3557,
+    Emerald: 2852,
+    Quartz: 1713,
+    Ruby: 2047,
+    Sapphire: 2047,
+    Coal: 1126,
+
+    //Stone
+    Clay: 1129,
+    Stone: 1351,
+    Magma: 1511,
+    ScorchedStone: 1702,
+    Obsidian: 2132,
+};
+
+//Base Factors
+global.base_cooling_time = 60;
+global.base_melting_time = 400;
+global.heat_factor = 0.8;
+global.radiation_factor = 1.4;
+global.conduction_factor = 1.2;
+
+//Derived Factor
+global.ambient_factor = (global.radiation_factor + global.conduction_factor) / 2;
+
+//Utility functions
+global.GetCoolingTicks = (melting_point, ingots) => {
+    return Math.round(global.base_cooling_time * (melting_point / 900) * Math.sqrt(ingots) * global.ambient_factor);
+};
+
+global.GetMeltingTicks = (melting_point, ingots) => {
+    return Math.round((global.base_melting_time * (melting_point / 900) * Math.sqrt(ingots) * global.ambient_factor) / global.heat_factor);
+};
 
 //# =================================================================================================== #
+
+global.items = {};
 
 //#region Remove out item
 global.items.GAME_RmOut = [

@@ -1013,7 +1013,8 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.03, ingredient: { type: "mm:item", item: "minecraft:ender_pearl", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.003, ingredient: { type: "mm:item", item: "minecraft:ender_eye", count: 2 } })
         .output({ type: "mm:output/simple", chance: 0.03, ingredient: { type: "mm:item", item: "minecraft:chorus_fruit", count: 2 } })
-        .output({ type: "mm:output/simple", chance: 0.25, ingredient: { type: "mm:item", item: "mysticalagriculture:prosperity_shard", count: 2 } });
+        .output({ type: "mm:output/simple", chance: 0.25, ingredient: { type: "mm:item", item: "mysticalagriculture:prosperity_shard", count: 2 } })
+        .output({ type: "mm:output/simple", chance: 0.04, ingredient: { type: "mm:item", item: "anoxia:enderite_pieces", count: 2 } });
 
     //Aetherslate
     event
@@ -1052,8 +1053,6 @@ MMEvents.createProcesses((event) => {
         .output({ type: "mm:output/simple", chance: 0.16, ingredient: { type: "mm:item", item: "anoxia:calorite_pieces", count: 2 } });
 
     //#endregion
-
-    //# =================================================================================================== #
 
     //# =================================================================================================== #
 
@@ -1115,6 +1114,4 @@ MMEvents.createProcesses((event) => {
             .output({ type: "mm:output/simple", ingredient: { type: "mm:item", item: "mekanism:sawdust", count: 2 } });
     });
     //#endregion
-
-    //# =================================================================================================== #
 });

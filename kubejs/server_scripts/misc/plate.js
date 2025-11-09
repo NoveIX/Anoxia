@@ -84,6 +84,25 @@ ServerEvents.recipes((event) => {
             energy: recipe.rsflux,
         });
     }
+
+    function PlateTinker(recipe) {
+        event.custom({
+            type: "tconstruct:casting_table",
+            cast: { tag: "tconstruct:casts/single_use/plate" },
+            cast_consumed: true,
+            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
+            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+            result: recipe.get,
+        });
+
+        event.custom({
+            type: "tconstruct:casting_table",
+            cast: { tag: "tconstruct:casts/multi_use/plate" },
+            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
+            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+            result: recipe.get,
+        });
+    }
     //#endregion
 
     //# =================================================================================================== #
@@ -91,12 +110,12 @@ ServerEvents.recipes((event) => {
     //#region Plate
     const PlatePattern = [
         //Ad Astra
-        { get: "ad_astra:desh_plate", put: "forge:ingots/desh", rsflux: 24000, metal: "special" },
-        { get: "ad_astra:ostrum_plate", put: "forge:ingots/ostrum", rsflux: 28000, metal: "special" },
-        { get: "ad_astra:calorite_plate", put: "forge:ingots/calorite", rsflux: 32000, metal: "special" },
+        { get: "ad_astra:desh_plate", put: "forge:ingots/desh", molten: "desh", meltPoint: melt.Desh, rsflux: 24000, metal: "special" },
+        { get: "ad_astra:ostrum_plate", put: "forge:ingots/ostrum", molten: "ostrum", meltPoint: melt.Ostrum, rsflux: 28000, metal: "special" },
+        { get: "ad_astra:calorite_plate", put: "forge:ingots/calorite", molten: "calorite", meltPoint: melt.Calorite, rsflux: 32000, metal: "special" },
 
         //Create
-        { get: "create:brass_sheet", put: "forge:ingots/brass", rsflux: 6000 },
+        { get: "create:brass_sheet", put: "forge:ingots/brass", molten: "brass", meltPoint: melt.Brass, rsflux: 6000 },
         { get: "createdeco:andesite_sheet", put: "forge:ingots/andesite_alloy", rsflux: 4000 },
         { get: "createdeco:industrial_iron_sheet", put: "createdeco:internal/ingots/industrial_iron_ingots", rsflux: 8000 },
 
@@ -161,23 +180,23 @@ ServerEvents.recipes((event) => {
         { get: "chemlib:uranium_plate", put: "forge:ingots/uranium", rsflux: 8000 },
 
         //Thermal
-        { get: "thermal:iron_plate", put: "forge:ingots/iron", rsflux: 4000 },
-        { get: "thermal:gold_plate", put: "forge:ingots/gold", rsflux: 4000 },
-        { get: "thermal:copper_plate", put: "forge:ingots/copper", rsflux: 4000 },
-        { get: "thermal:netherite_plate", put: "forge:ingots/netherite", rsflux: 12000, metal: "hard" },
-        { get: "thermal:tin_plate", put: "forge:ingots/tin", rsflux: 4000 },
-        { get: "thermal:lead_plate", put: "forge:ingots/lead", rsflux: 4000 },
-        { get: "thermal:silver_plate", put: "forge:ingots/silver", rsflux: 4000 },
-        { get: "thermal:nickel_plate", put: "forge:ingots/nickel", rsflux: 4000 },
-        { get: "thermal:signalum_plate", put: "forge:ingots/signalum", rsflux: 8000, metal: "hard" },
-        { get: "thermal:lumium_plate", put: "forge:ingots/lumium", rsflux: 8000, metal: "hard" },
-        { get: "thermal:enderium_plate", put: "forge:ingots/enderium", rsflux: 12000, metal: "hard" },
-        { get: "thermal:steel_plate", put: "forge:ingots/steel", rsflux: 6000 },
-        { get: "thermal:rose_gold_plate", put: "forge:ingots/rose_gold", rsflux: 6000 },
-        { get: "thermal:bronze_plate", put: "forge:ingots/bronze", rsflux: 6000 },
-        { get: "thermal:electrum_plate", put: "forge:ingots/electrum", rsflux: 6000 },
-        { get: "thermal:invar_plate", put: "forge:ingots/invar", rsflux: 6000 },
-        { get: "thermal:constantan_plate", put: "forge:ingots/constantan", rsflux: 6000 },
+        { get: "thermal:iron_plate", put: "forge:ingots/iron", molten: "iron", meltPoint: melt.Iron, rsflux: 4000 },
+        { get: "thermal:gold_plate", put: "forge:ingots/gold", molten: "gold", meltPoint: melt.Gold, rsflux: 4000 },
+        { get: "thermal:copper_plate", put: "forge:ingots/copper", molten: "copper", meltPoint: melt.Copper, rsflux: 4000 },
+        { get: "thermal:netherite_plate", put: "forge:ingots/netherite", molten: "netherite", meltPoint: melt.Netherite, rsflux: 12000, metal: "hard" },
+        { get: "thermal:tin_plate", put: "forge:ingots/tin", molten: "tin", meltPoint: melt.Tin, rsflux: 4000 },
+        { get: "thermal:lead_plate", put: "forge:ingots/lead", molten: "lead", meltPoint: melt.Lead, rsflux: 4000 },
+        { get: "thermal:silver_plate", put: "forge:ingots/silver", molten: "silver", meltPoint: melt.Silver, rsflux: 4000 },
+        { get: "thermal:nickel_plate", put: "forge:ingots/nickel", molten: "nickel", meltPoint: melt.Nickel, rsflux: 4000 },
+        { get: "thermal:signalum_plate", put: "forge:ingots/signalum", molten: "signalum", meltPoint: melt.Signalum, rsflux: 8000, metal: "hard" },
+        { get: "thermal:lumium_plate", put: "forge:ingots/lumium", molten: "lumium", meltPoint: melt.Lumium, rsflux: 8000, metal: "hard" },
+        { get: "thermal:enderium_plate", put: "forge:ingots/enderium", molten: "enderium", meltPoint: melt.Enderium, rsflux: 12000, metal: "hard" },
+        { get: "thermal:steel_plate", put: "forge:ingots/steel", molten: "steel", meltPoint: melt.Steel, rsflux: 6000 },
+        { get: "thermal:rose_gold_plate", put: "forge:ingots/rose_gold", molten: "rose_gold", meltPoint: melt.RoseGold, rsflux: 6000 },
+        { get: "thermal:bronze_plate", put: "forge:ingots/bronze", molten: "bronze", meltPoint: melt.Bronze, rsflux: 6000 },
+        { get: "thermal:electrum_plate", put: "forge:ingots/electrum", molten: "electrum", meltPoint: melt.Electrum, rsflux: 6000 },
+        { get: "thermal:invar_plate", put: "forge:ingots/invar", molten: "invar", meltPoint: melt.Invar, rsflux: 6000 },
+        { get: "thermal:constantan_plate", put: "forge:ingots/constantan", molten: "constantan", meltPoint: melt.Constantan, rsflux: 6000 },
 
         //Thermal Endergy
         { get: "thermalendergy:prismalium_plate", put: "forge:ingots/prismalium", rsflux: 16000, metal: "hard" },

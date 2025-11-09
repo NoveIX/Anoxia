@@ -159,7 +159,7 @@ ServerEvents.recipes((event) => {
         "thermal:compat/mysticalagriculture/insolator_mysticalag_nitro_crystal_seeds",
 
         //Redstone arsenal
-        "redstone_arsenal:materials/flux_gem"
+        "redstone_arsenal:materials/flux_gem",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -751,7 +751,7 @@ ServerEvents.recipes((event) => {
     const SmelterPattern = [
         {
             //ProjectRED Integration => Red Ingot
-            get: [{ item: "projectred_core:red_ingot", count: 2 }],
+            get: [{ item: "projectred_core:red_ingot", count: 1 }],
             put: [
                 { tag: "forge:dusts/redstone", count: 2 },
                 { tag: "forge:ingots/osmium", count: 1 },
@@ -760,7 +760,7 @@ ServerEvents.recipes((event) => {
         },
         {
             //ProjectRED Integration => Electrotine Ingot
-            get: [{ item: "projectred_core:electrotine_ingot", count: 2 }],
+            get: [{ item: "projectred_core:electrotine_ingot", count: 1 }],
             put: [
                 { tag: "forge:dusts/electrotine", count: 2 },
                 { tag: "forge:ingots/osmium", count: 1 },

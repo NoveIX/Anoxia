@@ -18,16 +18,18 @@ ServerEvents.recipes((event) => {
         { get: "ad_astra:raw_ostrum", put: "anoxia:ostrum_pieces" },
         { get: "ad_astra:raw_calorite", put: "anoxia:calorite_pieces" },
         { get: "bloodmagic:rawdemonite", put: "anoxia:demonite_pieces" },
+        { get: "anoxia:raw_enderite", put: "anoxia:enderite_pieces" },
     ];
     RawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ["AA", "AA"], { A: recipe.put }));
+
+    //Enderite
+    event.blasting("anoxia:enderite_ingot", "anoxia:raw_enderite");
 
     //Obsidian Ingot
     event.shapeless("anoxia:obsidian_with_iron", ["#forge:dusts/obsidian", "#forge:dusts/obsidian", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron"]);
 
     //Press Rod Die
     event.shaped("anoxia:press_rod_die", [" A ", "ABA", " A "], { A: "#forge:plates/invar", B: "minecraft:blaze_rod" });
-
-    //# =================================================================================================== #
 
     //Compressed
     const CompressPattern = [

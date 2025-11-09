@@ -26,15 +26,17 @@ ServerEvents.recipes((event) => {
         //Immersive
         "immersiveengineering:arcfurnace/steel",
         "immersiveengineering:alloysmelter/rose_gold",
-        "immersiveengineering:arcfurnace/rose_gold",
+        "immersiveengineering:arcfurnace/alloy_rose_gold",
         "immersiveengineering:alloysmelter/bronze",
-        "immersiveengineering:arcfurnace/bronze",
+        "immersiveengineering:arcfurnace/alloy_bronze",
         "immersiveengineering:alloysmelter/electrum",
-        "immersiveengineering:arcfurnace/electrum",
+        "immersiveengineering:arcfurnace/alloy_electrum",
         "immersiveengineering:alloysmelter/invar",
-        "immersiveengineering:arcfurnace/invar",
+        "immersiveengineering:arcfurnace/alloy_invar",
         "immersiveengineering:alloysmelter/constantan",
-        "immersiveengineering:arcfurnace/constantan",
+        "immersiveengineering:arcfurnace/alloy_constantan",
+        "immersiveengineering:alloysmelter/manyullyn",
+        "immersiveengineering:arcfurnace/alloy_manyullyn",
 
         //Redstone Arsenal
         "redstone_arsenal:materials/flux_ingot_fire_charge_from_dust",
@@ -64,8 +66,9 @@ ServerEvents.recipes((event) => {
         "thermalendergy:machine/smelter/stellarium_ingot",
 
         //Tinker
-        "immersiveengineering:alloysmelter/manyullyn",
-        "immersiveengineering:arcfurnace/alloy_manyullyn",
+        "tconstruct:smeltery/alloys/molten_signalum",
+        "tconstruct:smeltery/alloys/molten_lumium",
+        "tconstruct:smeltery/alloys/molten_enderium",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
@@ -94,8 +97,6 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    //# =================================================================================================== #
-
     function AlloyEnderIO2(recipe) {
         event.custom({
             type: "enderio:alloy_smelting",
@@ -122,8 +123,6 @@ ServerEvents.recipes((event) => {
             energy: recipe.rsflux,
         });
     }
-
-    //# =================================================================================================== #
 
     function AlloyThermal2(recipe) {
         event.custom({
@@ -185,8 +184,8 @@ ServerEvents.recipes((event) => {
         { get: "thermal:steel_ingot", n0: 1, put1: "forge:ingots/iron", n1: 1, put2: "forge:dusts/coal", n2: 8, rsflux: 18000, alloy: "simple" }, //Steel - Coal
         { get: "thermal:rose_gold_ingot", n0: 2, put1: "forge:ingots/gold", n1: 1, put2: "forge:ingots/copper", n2: 1, rsflux: 18000, alloy: "simple" }, //Rose Gold
         { get: "thermal:signalum_ingot", n0: 4, put1: "forge:ingots/rose_gold", n1: 3, put2: "forge:ingots/silver", n2: 1, put3: "forge:dusts/redstone", n3: 10, rsflux: 24000, alloy: "complex" }, //Signalum
-        { get: "thermal:lumium_ingot", n0: 4, put1: "forge:ingots/energetic_alloy", n1: 3, put2: "forge:ingots/silver", n2: 1, put3: "forge:dusts/glowstone", n3: 4, rsflux: 24000, alloy: "complex" }, //Lumium
-        { get: "thermal:enderium_ingot", n0: 2, put1: "forge:ingots/vibrant_alloy", n1: 3, put2: "forge:ingots/silver", n2: 1, put3: "forge:dusts/ender_pearl", n3: 4, rsflux: 36000, alloy: "complex" }, //Enderium
+        { get: "thermal:lumium_ingot", n0: 4, put1: "forge:ingots/energetic_alloy", n1: 3, put2: "forge:ingots/lead", n2: 1, put3: "forge:dusts/glowstone", n3: 4, rsflux: 24000, alloy: "complex" }, //Lumium
+        { get: "thermal:enderium_ingot", n0: 2, put1: "forge:ingots/vibrant_alloy", n1: 3, put2: "forge:ingots/platinum", n2: 1, put3: "forge:dusts/ender_pearl", n3: 4, rsflux: 36000, alloy: "complex" }, //Enderium
         { get: "thermal:bronze_ingot", n0: 4, put1: "forge:ingots/copper", n1: 3, put2: "forge:ingots/tin", n2: 1, rsflux: 18000, alloy: "simple" }, //Bronze
         { get: "thermal:electrum_ingot", n0: 2, put1: "forge:ingots/gold", n1: 1, put2: "forge:ingots/silver", n2: 1, rsflux: 18000, alloy: "simple" }, //Electrum
         { get: "thermal:invar_ingot", n0: 3, put1: "forge:ingots/iron", n1: 2, put2: "forge:ingots/nickel", n2: 1, rsflux: 18000, alloy: "simple" }, //Invar
@@ -198,7 +197,7 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:stellarium_ingot", n0: 2, put1: "forge:nether_stars", n1: 1, put2: "forge:ingots/melodium", n2: 1, put3: "forge:ingots/aethersteel", n3: 1, rsflux: 72000, alloy: "complex" },
 
         //Tinker
-        { get: "tconstruct:manyullyn_ingot", n0: 1, put1: "forge:ingots/netherite_scrap", n1: 3, put2: "forge:ingots/cobalt", n2: 1, rsflux: 24000, alloy: "simple" },
+        { get: "tconstruct:manyullyn_ingot", n0: 1, put1: "forge:ingots/cobalt", n1: 3, put2: "forge:ingots/netherite_scrap", n2: 1, rsflux: 24000, alloy: "simple" },
     ];
     AlloyPattern.forEach((recipe) => {
         //Recipes

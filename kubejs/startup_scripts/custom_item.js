@@ -9,6 +9,9 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:ostrum_pieces").displayName("Ostrum Pieces").texture("anoxia:item/ostrum_pieces");
     event.create("anoxia:calorite_pieces").displayName("Calorite Pieces").texture("anoxia:item/calorite_pieces");
     event.create("anoxia:demonite_pieces").displayName("Demonite Pieces").texture("anoxia:item/demonite_pieces");
+    event.create("anoxia:enderite_pieces").displayName("Enderite Pieces").texture("anoxia:item/enderite_pieces");
+    event.create("anoxia:raw_enderite").displayName("Raw Enderite").texture("anoxia:item/raw_enderite");
+    event.create("anoxia:enderite_ingot").displayName("Enderite Ingot").texture("anoxia:item/enderite_ingot");
     event.create("anoxia:modularium_ingot").displayName("Modularium Ingot").texture("anoxia:item/modularium_ingot");
     event.create("anoxia:amongus").displayName("Among Us").texture("anoxia:item/amongus");
     event.create("anoxia:sugoma").displayName("Sugoma").texture("anoxia:item/sugoma");

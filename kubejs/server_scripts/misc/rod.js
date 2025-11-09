@@ -4,29 +4,23 @@ ServerEvents.recipes((event) => {
         event.shaped(Item.of(recipe.get, 2), ["  R", " R ", "R  "], { R: `#${recipe.put}` });
     }
 
-    //# =================================================================================================== #
-
     function RodCreate(recipe) {
         event.custom({
             type: "createaddition:rolling",
             input: { tag: recipe.put },
-            result: { item: recipe.get, count: 2 },
+            result: { item: recipe.get, count: 1 },
         });
     }
-
-    //# =================================================================================================== #
 
     function RodImmersive(recipe) {
         event.custom({
             type: "immersiveengineering:metal_press",
             mold: "immersiveengineering:mold_rod",
             input: { tag: recipe.put },
-            result: { base_ingredient: { item: recipe.get }, count: 2 },
+            result: { base_ingredient: { item: recipe.get }, count: 1 },
             energy: recipe.rsflux,
         });
     }
-
-    //# =================================================================================================== #
 
     function RodThermal(recipe) {
         event.custom({
@@ -36,6 +30,25 @@ ServerEvents.recipes((event) => {
             result: [{ count: 2, item: recipe.get }],
         });
     }
+
+    function RodTinker(recipe) {
+        event.custom({
+            type: "tconstruct:casting_table",
+            cast: { tag: "tconstruct:casts/single_use/rod" },
+            cast_consumed: true,
+            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
+            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+            result: recipe.get,
+        });
+
+        event.custom({
+            type: "tconstruct:casting_table",
+            cast: { tag: "tconstruct:casts/multi_use/rod" },
+            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
+            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+            result: recipe.get,
+        });
+    }
     //#endregion
 
     //# =================================================================================================== #
@@ -43,12 +56,15 @@ ServerEvents.recipes((event) => {
     //#region Rod
     const RodPattern = [
         //Create
-        { get: "createaddition:brass_rod", put: "forge:ingots/brass", rsflux: 6000 },
+        { get: "createaddition:copper_rod", put: "forge:ingots/copper", molten: "copper", meltPoint: melt.Copper, rsflux: 4000 },
+        { get: "createaddition:gold_rod", put: "forge:ingots/gold", molten: "gold", meltPoint: melt.Gold, rsflux: 4000 },
+        { get: "createaddition:electrum_rod", put: "forge:ingots/electrum", molten: "electrum", meltPoint: melt.Electrum, rsflux: 6000 },
+        { get: "createaddition:brass_rod", put: "forge:ingots/brass", molten: "brass", meltPoint: melt.Brass, rsflux: 6000 },
 
         //Immersive
-        { get: "immersiveengineering:stick_iron", put: "forge:ingots/iron", rsflux: 4000 },
-        { get: "immersiveengineering:stick_steel", put: "forge:ingots/steel", rsflux: 6000 },
-        { get: "immersiveengineering:stick_aluminum", put: "forge:ingots/aluminum", rsflux: 4000 },
+        { get: "immersiveengineering:stick_iron", put: "forge:ingots/iron", molten: "iron", meltPoint: melt.Iron, rsflux: 4000 },
+        { get: "immersiveengineering:stick_steel", put: "forge:ingots/steel", molten: "steel", meltPoint: melt.Steel, rsflux: 6000 },
+        { get: "immersiveengineering:stick_aluminum", put: "forge:ingots/aluminum", molten: "aluminum", meltPoint: melt.Aluminum, rsflux: 4000 },
     ];
     RodPattern.forEach((recipe) => {
         //Remove
@@ -59,6 +75,7 @@ ServerEvents.recipes((event) => {
         RodCreate(recipe);
         RodImmersive(recipe);
         RodThermal(recipe);
+        RodTinker(recipe);
     });
     //#endregion
 });

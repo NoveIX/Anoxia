@@ -1,6 +1,9 @@
 ServerEvents.recipes((event) => {
     //#region RemoveID
     const RmRecipeID = [
+        //Netherite
+        "tconstruct:smeltery/alloys/molten_netherite",
+
         //Create
         "createaddition:compat/tconstruct/amethyst_bronze",
         "createaddition:compat/tconstruct/slimesteel",
@@ -27,64 +30,12 @@ ServerEvents.recipes((event) => {
         //Tinker
         "tconstruct:compat/create/andesite_alloy_iron",
         "tconstruct:compat/create/andesite_alloy_zinc",
+
+        //Tinker - Machine
+        "tconstruct:smeltery/casting/seared/smeltery_controller",
     ];
     RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
-
-    //# =================================================================================================== #
-
-    //Melting Point
-    //Metal
-    const IronMeltPoint = 1538;
-    const GoldMeltPoint = 1064;
-    const CopperMeltPoint = 1085;
-    const CobaltMeltPoint = 1495;
-    const PlatinumMeltPoint = 1768;
-    const ZincMeltPoint = 420;
-
-    //Alloy
-    const BrassMeltPoint = 920;
-    const SteelMeltPoint = 1450;
-    const SlimesteelMeltPoint = 1436;
-    const AmethystBronzeMeltPoint = 1610;
-    const RoseGoldMeltPoint = 1050;
-    const PigIronMeltPoint = 1489;
-    const ManyullynMeltPoint = 2450;
-    const HepatizonMeltPoint = 1660;
-    const CinderslimeMeltPoint = 1605
-    const QueenSlimeMeltPoint = 1300
-    const NetheriteMeltPoint = 2250
-
-    //Other
-    const ClayMeltPoint = 450;
-    const GlassMeltPoint = 1500;
-    const obsidianMeltPoint = 1500;
-    const EnderMeltPoint = 1277;
-    const EmeraldMeltPoint = 1570;
-    const QuartzMeltPoint = 1710;
-    const AmethystMeltPoint = 1710;
-    const DiamondMeltPoint = 3550;
-    const AncientDebrisMeltPoint = 2500;
-
-    //Moon Factor
-    const base_cooling_time = 60;
-    const base_melting_time = 400;
-    const heat_factor = 0.8;
-    const radiation_factor = 1.4;
-    const conduction_factor = 1.2;
-    const ambient_factor = (radiation_factor + conduction_factor) / 2;
-
-    //Cooling time function
-    function GetCoolingTicks(melting_point, ingots) {
-        let ticks = base_cooling_time * (melting_point / 1000) * Math.sqrt(ingots) * ambient_factor;
-        return ticks;
-    }
-
-    //Melting time function
-    function GetMeltingTicks(melting_point, ingots) {
-        let ticks = (base_melting_time * (melting_point / 1000) * Math.sqrt(ingots) * ambient_factor) / heat_factor;
-        return ticks;
-    }
 
     //# =================================================================================================== #
 
@@ -98,12 +49,20 @@ ServerEvents.recipes((event) => {
     //#region Alloy
     const AlloyPattern = [
         {
-            get: { amount: 90, tag: "forge:molten_steel" },
+            get: { amount: 90, tag: "tconstruct:molten_steel" },
             put: [
                 { amount: 800, tag: "forge:molten_coal" },
-                { amount: 90, tag: "forge:molten_iron" },
+                { amount: 90, tag: "tconstruct:molten_iron" },
             ],
-            heat: SteelMeltPoint,
+            heat: 950,
+        },
+        {
+            get: { amount: 10, tag: "tconstruct:molten_netherite" },
+            put: [
+                { amount: 40, tag: "tconstruct:molten_gold" },
+                { amount: 40, tag: "tconstruct:molten_debris" },
+            ],
+            heat: 1250,
         },
     ];
     AlloyPattern.forEach((recipe) => {
@@ -125,8 +84,22 @@ ServerEvents.recipes((event) => {
             get: "create:andesite_alloy",
             put: { amount: 90, tag: "forge:molten_platinum" },
             consume: true,
-            cooling: GetCoolingTicks(PlatinumMeltPoint, 1),
+            cooling: global.GetCoolingTicks(melt.Platinum, 1),
             caster: { item: "minecraft:polished_andesite" },
+        },
+        {
+            get: "tconstruct:smeltery_controller",
+            put: { amount: 360, tag: "forge:molten_copper" },
+            consume: true,
+            cooling: global.GetCoolingTicks(melt.Copper, 4),
+            caster: { tag: "tconstruct:smeltery_bricks" },
+        },
+        {
+            get: "tconstruct:foundry_controller",
+            put: { amount: 1000, tag: "tconstruct:molten_obsidian" },
+            cast_consumed: true,
+            cooling: global.GetCoolingTicks(melt.Obsidian, 1),
+            caster: { tag: "tconstruct:foundry_bricks" },
         },
     ];
     CastingBasingPattern.forEach((recipe) => {
@@ -134,7 +107,7 @@ ServerEvents.recipes((event) => {
             type: "tconstruct:casting_basin",
             cast: recipe.caster,
             cast_consumed: recipe.consume,
-            cooling_time: Math.round(recipe.cooling),
+            cooling_time: recipe.cooling,
             fluid: recipe.put,
             result: recipe.get,
         });
@@ -149,21 +122,21 @@ ServerEvents.recipes((event) => {
         {
             get: "tconstruct:seared_brick",
             put: { amount: 125, tag: "tconstruct:molten_clay" },
-            cooling: 57,
+            cooling: global.GetCoolingTicks(melt.Clay, 0.5),
             consume: true,
             caster: { item: "minecraft:flint" },
         },
         {
             get: "tconstruct:seared_brick",
             put: { amount: 250, tag: "tconstruct:seared_stone" },
-            cooling: 89,
+            cooling: global.GetCoolingTicks(melt.Stone, 1),
             consume: true,
             caster: { tag: "tconstruct:casts/single_use/ingot" },
         },
         {
             get: "tconstruct:seared_brick",
             put: { amount: 250, tag: "tconstruct:seared_stone" },
-            cooling: 89,
+            cooling: global.GetCoolingTicks(melt.Stone, 1),
             caster: { tag: "tconstruct:casts/multi_use/ingot" },
         },
 
@@ -172,20 +145,20 @@ ServerEvents.recipes((event) => {
             get: "tconstruct:scorched_brick",
             put: { amount: 125, tag: "forge:magma" },
             consume: true,
-            cooling: 50,
+            cooling: global.GetCoolingTicks(melt.Magma, 0.5),
             caster: { item: "minecraft:flint" },
         },
         {
             get: "tconstruct:scorched_brick",
             put: { amount: 250, tag: "tconstruct:scorched_stone" },
             consume: true,
-            cooling: 83,
+            cooling: global.GetCoolingTicks(melt.ScorchedStone, 1),
             caster: { tag: "tconstruct:casts/single_use/ingot" },
         },
         {
             get: "tconstruct:scorched_brick",
             put: { amount: 250, tag: "tconstruct:scorched_stone" },
-            cooling: 83,
+            cooling: global.GetCoolingTicks(melt.ScorchedStone, 1),
             caster: { tag: "tconstruct:casts/multi_use/ingot" },
         },
 
@@ -197,7 +170,7 @@ ServerEvents.recipes((event) => {
                 type: "tconstruct:casting_table",
                 cast: recipe.caster,
                 cast_consumed: recipe.consume,
-                cooling_time: Math.round(recipe.cooling),
+                cooling_time: recipe.cooling,
                 fluid: recipe.put,
                 result: recipe.get,
             });
@@ -205,7 +178,7 @@ ServerEvents.recipes((event) => {
             event.custom({
                 type: "tconstruct:casting_table",
                 cast: recipe.caster,
-                cooling_time: Math.round(recipe.cooling),
+                cooling_time: recipe.cooling,
                 fluid: recipe.put,
                 result: recipe.get,
             });
@@ -213,32 +186,21 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
-    //#region Fuel
-    const FuelPattern = [{}];
-    FuelPattern.forEach((recipe) => {
-        event.custom({
-            type: "tconstruct:melting_fuel",
-            duration: 150,
-            fluid: { amount: 50, fluid: "tconstruct:blazing_blood" },
-            rate: 15,
-            temperature: 1500,
-        });
-    });
-    //#endregion
-
     //# =================================================================================================== #
 
-    //#region Molten
-    const MoltenPattern = [
-        //{ get: { amount: 90, tag: "forge:molten_brass" }, put: { tag: "forge:ingots/brass" }, heat: 605, second: 54 }
+    //#region Melting
+    const MeltingPattern = [
+        { get: { amount: 100, tag: "forge:molten_coal" }, put: { tag: "forge:coal_coke" }, degree: 900, meltTime: global.GetMeltingTicks(melt.Coal, 1) },
+        { get: { amount: 100, tag: "forge:molten_coal" }, put: { tag: "forge:dusts/coal_coke" }, degree: 900, meltTime: global.GetMeltingTicks(melt.Coal, 1) },
+        { get: { amount: 900, tag: "forge:molten_coal" }, put: { tag: "forge:storage_blocks/coal_coke" }, degree: 900, meltTime: global.GetMeltingTicks(melt.Coal, 9) },
     ];
-    MoltenPattern.forEach((recipe) => {
+    MeltingPattern.forEach((recipe) => {
         event.custom({
             type: "tconstruct:melting",
-            result: recipe.get,
             ingredient: recipe.put,
-            temperature: recipe.heat,
-            time: recipe.second,
+            result: recipe.get,
+            temperature: recipe.degree,
+            time: recipe.meltTime,
         });
     });
     //#endregion

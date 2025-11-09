@@ -4,17 +4,13 @@ ServerEvents.recipes((event) => {
         event.shapeless(recipe.get, [`#${recipe.put}`, "immersiveengineering:wirecutter"]);
     }
 
-    //# =================================================================================================== #
-
     function WireCreate(recipe) {
         event.custom({
             type: "createaddition:rolling",
             input: { tag: recipe.put },
-            result: { item: recipe.get, count: 2 },
+            result: { item: recipe.get, count: 1 },
         });
     }
-
-    //# =================================================================================================== #
 
     function WireImmersive(recipe) {
         event.custom({
@@ -22,7 +18,26 @@ ServerEvents.recipes((event) => {
             energy: recipe.rsflux,
             input: { tag: recipe.put },
             mold: "immersiveengineering:mold_wire",
-            result: { base_ingredient: { item: recipe.get }, count: 2 },
+            result: { base_ingredient: { item: recipe.get }, count: 1 },
+        });
+    }
+
+    function WireTinker(recipe) {
+        event.custom({
+            type: "tconstruct:casting_table",
+            cast: { tag: "tconstruct:casts/single_use/wire" },
+            cast_consumed: true,
+            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
+            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+            result: recipe.get,
+        });
+
+        event.custom({
+            type: "tconstruct:casting_table",
+            cast: { tag: "tconstruct:casts/multi_use/wire" },
+            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
+            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+            result: recipe.get,
         });
     }
     //#endregion
@@ -32,15 +47,15 @@ ServerEvents.recipes((event) => {
     //#region Wire
     const WirePattern = [
         //Create
-        { get: "createaddition:iron_wire", put: "forge:plates/iron", rsflux: 4000 },
-        { get: "createaddition:gold_wire", put: "forge:plates/gold", rsflux: 4000 },
+        { get: "createaddition:iron_wire", put: "forge:plates/iron", molten: "iron", meltPoint: melt.Iron, rsflux: 4000 },
+        { get: "createaddition:gold_wire", put: "forge:plates/gold", molten: "gold", meltPoint: melt.Gold, rsflux: 4000 },
 
         //Immersive
-        { get: "immersiveengineering:wire_copper", put: "forge:plates/copper", rsflux: 4000 },
-        { get: "immersiveengineering:wire_electrum", put: "forge:plates/electrum", rsflux: 6000 },
-        { get: "immersiveengineering:wire_aluminum", put: "forge:plates/aluminum", rsflux: 4000 },
-        { get: "immersiveengineering:wire_steel", put: "forge:plates/steel", rsflux: 6000 },
-        { get: "immersiveengineering:wire_lead", put: "forge:plates/lead", rsflux: 4000 },
+        { get: "immersiveengineering:wire_copper", put: "forge:plates/copper", molten: "copper", meltPoint: melt.Copper, rsflux: 4000 },
+        { get: "immersiveengineering:wire_electrum", put: "forge:plates/electrum", molten: "electrum", meltPoint: melt.Electrum, rsflux: 6000 },
+        { get: "immersiveengineering:wire_aluminum", put: "forge:plates/aluminum", molten: "aluminum", meltPoint: melt.Aluminum, rsflux: 4000 },
+        { get: "immersiveengineering:wire_steel", put: "forge:plates/steel", molten: "steel", meltPoint: melt.Steel, rsflux: 6000 },
+        { get: "immersiveengineering:wire_lead", put: "forge:plates/lead", molten: "lead", meltPoint: melt.Lead, rsflux: 4000 },
     ];
     WirePattern.forEach((recipe) => {
         //Remove
@@ -50,6 +65,7 @@ ServerEvents.recipes((event) => {
         WireCrafting(recipe);
         WireCreate(recipe);
         WireImmersive(recipe);
+        WireTinker(recipe);
     });
     //#endregion
 });

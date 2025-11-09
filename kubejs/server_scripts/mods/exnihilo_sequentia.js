@@ -581,6 +581,15 @@ ServerEvents.recipes((event) => {
             ],
         },
         {
+            get: { item: "anoxia:enderite_pieces" },
+            put: { item: "exnihilosequentia:crushed_end_stone" },
+            drop: [
+                { chance: 0.01, mesh: "diamond" },
+                { chance: 0.02, mesh: "emerald" },
+                { chance: 0.03, mesh: "netherite" },
+            ],
+        },
+        {
             get: { item: "minecraft:ender_pearl" },
             put: { item: "exnihilosequentia:crushed_end_stone" },
             drop: [
