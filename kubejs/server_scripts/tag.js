@@ -61,9 +61,15 @@ ServerEvents.tags("item", (event) => {
         { tag: "anoxia:fermenter", item: "minecraft:red_mushroom" },
         { tag: "anoxia:fermenter", item: "minecraft:nether_wart" },
 
-        //Gem
+        //Coal
         { tag: "anoxia:gems/coal", item: "minecraft:coal" },
         { tag: "anoxia:gems/charcoal", item: "minecraft:charcoal" },
+        { tag: "anoxia:coals", item: "minecraft:coal" },
+        { tag: "anoxia:coals", item: "minecraft:charcoal" },
+        { tag: "anoxia:storage_blocks/coal", item: "minecraft:coal_block" },
+        { tag: "anoxia:storage_blocks/charcoal", item: "thermal:charcoal_block" },
+        { tag: "anoxia:storage_blocks/coals", item: "minecraft:coal_block" },
+        { tag: "anoxia:storage_blocks/coals", item: "thermal:charcoal_block" },
         //#endregion
 
         //# =================================================================================================== #

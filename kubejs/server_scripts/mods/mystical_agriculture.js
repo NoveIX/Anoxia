@@ -336,6 +336,16 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "mysticalagradditions:insanium_farmland" });
     event.shapeless("mysticalagradditions:insanium_farmland", ["#minecraft:hoes", "mysticalagradditions:insanium_essence", "twilightforest:uberous_soil"]);
 
+    //Infusion Crystal
+    event.remove({ output: "matc:inferium_crystal" });
+    event.shaped("matc:inferium_crystal", ["ABA", "BCB", "ABA"], { A: "mysticalagriculture:prosperity_shard", B: "mysticalagriculture:inferium_essence", C: "#forge:gems/mana_diamond" });
+
+    event.remove({ output: "mysticalagriculture:infusion_crystal" });
+    event.shaped("mysticalagriculture:infusion_crystal", ["ABA", "BCB", "ABA"], { A: "mysticalagriculture:prosperity_shard", B: "mysticalagradditions:insanium_essence", C: Item.of("matc:supremium_crystal", "{Damage:0}") });
+
+    event.remove({ output: "mysticalagriculture:master_infusion_crystal" });
+    event.shaped("mysticalagriculture:master_infusion_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:endless_ingot_6", B: "mysticalagradditions:insanium_essence", C: Item.of("mysticalagriculture:infusion_crystal", "{Damage:0}") });
+
     //# =================================================================================================== #
 
     //#region Reprocessor

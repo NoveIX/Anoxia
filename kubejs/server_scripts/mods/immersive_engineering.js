@@ -1,4 +1,9 @@
 ServerEvents.recipes((event) => {
+    event.remove({ type: "immersiveengineering:blast_furnace_fuel" });
+    event.remove({ type: "immersiveengineering:blast_furnace" });
+
+    //# =================================================================================================== #
+
     //#region Remove ID
     const RmRecipeID = [
         "immersiveengineering:crafting/slag_brick_from_slab",
@@ -267,7 +272,6 @@ ServerEvents.recipes((event) => {
     //# =================================================================================================== #
 
     //#region BlastFurnace
-    event.remove({ type: "immersiveengineering:blast_furnace" });
     const BlastFurnacePattern = [
         { get: { item: "thermal:steel_ingot" }, put: { tag: "forge:ingots/iron" }, qty: 1, tick: 2400 },
         { get: { item: "thermal:steel_block" }, put: { tag: "forge:storage_blocks/iron" }, qty: 9, tick: 21600 },
@@ -286,10 +290,9 @@ ServerEvents.recipes((event) => {
     //# =================================================================================================== #
 
     //#region BlastFurnace Fuel
-    event.remove({ type: "immersiveengineering:blast_furnace_fuel" });
     const BlastFurnaceFuelPattern = [
-        { fuel: { tag: "forge:charcoal" }, tick: 300 },
-        { fuel: { tag: "forge:storage_blocks/charcoal" }, tick: 3000 },
+        { fuel: { tag: "anoxia:coals" }, tick: 300 },
+        { fuel: { tag: "anoxia:storage_blocks/coals" }, tick: 2700 },
         { fuel: { tag: "forge:coal_coke" }, tick: 1200 },
         { fuel: { tag: "forge:storage_blocks/coal_coke" }, tick: 10800 },
     ];
@@ -340,12 +343,9 @@ ServerEvents.recipes((event) => {
     //#region Fertilizer
     const FertilizerPattern = [
         { put: { item: "create:tree_fertilizer" }, multi: 1.3 },
-
         { put: { item: "industrialforegoing:fertilizer" }, multi: 1.2 },
-
         { put: { item: "thermal:compost" }, multi: 1.1 },
         { put: { item: "thermal:phytogro" }, multi: 1.6 },
-
         { put: { item: "mysticalagriculture:mystical_fertilizer" }, multi: 5.0 },
     ];
     FertilizerPattern.forEach((recipe) => {

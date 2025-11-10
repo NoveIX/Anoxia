@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
     //#region func Rod
     function RodCrafting(recipe) {
-        event.shaped(Item.of(recipe.get, 2), ["  R", " R ", "R  "], { R: `#${recipe.put}` });
+        event.shaped(recipe.get, ["R", "R"], { R: `#${recipe.put}` });
     }
 
     function RodCreate(recipe) {
@@ -27,7 +27,7 @@ ServerEvents.recipes((event) => {
             type: "thermal:press",
             energy: recipe.rsflux,
             ingredients: [{ tag: recipe.put, count: 1 }, { item: "anoxia:press_rod_die" }],
-            result: [{ count: 2, item: recipe.get }],
+            result: [{ count: 1, item: recipe.get }],
         });
     }
 

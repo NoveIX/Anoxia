@@ -312,7 +312,6 @@ global.items.GAME_RmOut = [
     //MysticalAgriculture
     "mysticalagriculture:machine_frame",
     "mysticalagriculture:soul_extractor",
-    "mysticalagriculture:infusion_crystals",
     "mysticalagriculture:soul_jar",
     "mysticalagriculture:air_agglomeratio",
     "mysticalagriculture:earth_agglomeratio",
