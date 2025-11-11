@@ -19,19 +19,19 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:press_rod_die").displayName("Rod Die").texture("anoxia:item/press_rod_die");
     event.create("anoxia:obsidian_with_iron").displayName("Obsidian With Iron").texture("anoxia:item/obsidian_with_iron");
     event.create("anoxia:obsidian_ingot").displayName("Obsidian Ingot").texture("anoxia:item/obsidian_ingot");
-    event.create("anoxia:endless_ingot_1").displayName("Enderless Ingot of the First Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_2").displayName("Enderless Ingot of the Second Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_3").displayName("Enderless Ingot of the Third Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_4").displayName("Enderless Ingot of the Fourth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_5").displayName("Enderless Ingot of the Fifth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_6").displayName("Enderless Ingot of the Sixth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_7").displayName("Enderless Ingot of the Seventh Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_8").displayName("Enderless Ingot of the Eighth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_9").displayName("Enderless Ingot of the Ninth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_10").displayName("Enderless Ingot of the Tenth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_11").displayName("Enderless Ingot of the Eleventh Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_12").displayName("Enderless Ingot of the Twelfth Stage").texture("anoxia:item/endless_ingot");
-    event.create("anoxia:endless_ingot_13").displayName("Enderless Ingot of the Thirteenth Stage").texture("anoxia:item/endless_ingot");
+    event.create("anoxia:enderless_ingot_1").displayName("Enderless Ingot of the First Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_2").displayName("Enderless Ingot of the Second Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_3").displayName("Enderless Ingot of the Third Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_4").displayName("Enderless Ingot of the Fourth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_5").displayName("Enderless Ingot of the Fifth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_6").displayName("Enderless Ingot of the Sixth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_7").displayName("Enderless Ingot of the Seventh Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_8").displayName("Enderless Ingot of the Eighth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_9").displayName("Enderless Ingot of the Ninth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_10").displayName("Enderless Ingot of the Tenth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_11").displayName("Enderless Ingot of the Eleventh Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_12").displayName("Enderless Ingot of the Twelfth Stage").texture("anoxia:item/enderless_ingot");
+    event.create("anoxia:enderless_ingot_13").displayName("Enderless Ingot of the Thirteenth Stage").texture("anoxia:item/enderless_ingot");
 
     //Create Sifter
     event.create("anoxia:create_string_mesh", "createsifter:mesh").displayName("String Mesh").parentModel("createsifter:block/meshes/mesh").texture("mesh", "anoxia:item/create_string_mesh");
