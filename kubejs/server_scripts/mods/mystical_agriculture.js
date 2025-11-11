@@ -338,13 +338,41 @@ ServerEvents.recipes((event) => {
 
     //Infusion Crystal
     event.remove({ output: "matc:inferium_crystal" });
-    event.shaped("matc:inferium_crystal", ["ABA", "BCB", "ABA"], { A: "mysticalagriculture:prosperity_shard", B: "mysticalagriculture:inferium_essence", C: "#forge:gems/mana_diamond" });
+    event.shaped("matc:inferium_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_1", B: "mysticalagriculture:inferium_essence", C: "#forge:gems/mana_diamond" });
+
+    event.remove({ output: "matc:prudentium_crystal" });
+    event.shaped("matc:prudentium_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_2", B: "mysticalagriculture:prudentium_essence", C: Item.of("matc:inferium_crystal", "{Damage:0}") });
+
+    event.remove({ output: "matc:tertium_crystal" });
+    event.shaped("matc:tertium_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_3", B: "mysticalagriculture:tertium_essence", C: Item.of("matc:prudentium_crystal", "{Damage:0}") });
+
+    event.remove({ output: "matc:imperium_crystal" });
+    event.shaped("matc:imperium_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_4", B: "mysticalagriculture:imperium_essence", C: Item.of("matc:tertium_crystal", "{Damage:0}") });
+
+    event.remove({ output: "matc:supremium_crystal" });
+    event.shaped("matc:supremium_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_5", B: "mysticalagriculture:supremium_essence", C: Item.of("matc:imperium_crystal", "{Damage:0}") });
 
     event.remove({ output: "mysticalagriculture:infusion_crystal" });
-    event.shaped("mysticalagriculture:infusion_crystal", ["ABA", "BCB", "ABA"], { A: "mysticalagriculture:prosperity_shard", B: "mysticalagradditions:insanium_essence", C: Item.of("matc:supremium_crystal", "{Damage:0}") });
+    event.shaped("mysticalagriculture:infusion_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_6", B: "mysticalagradditions:insanium_essence", C: Item.of("matc:supremium_crystal", "{Damage:0}") });
 
     event.remove({ output: "mysticalagriculture:master_infusion_crystal" });
-    event.shaped("mysticalagriculture:master_infusion_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:endless_ingot_6", B: "mysticalagradditions:insanium_essence", C: Item.of("mysticalagriculture:infusion_crystal", "{Damage:0}") });
+    event.shaped("mysticalagriculture:master_infusion_crystal", ["ABA", "BCB", "ABA"], { A: "anoxia:enderless_ingot_7", B: "mysticalagriculture:awakened_supremium_essence", C: Item.of("mysticalagriculture:infusion_crystal", "{Damage:0}") });
+
+    //Essence
+    event.remove({ output: "mysticalagriculture:prudentium_essence" });
+    event.shaped("mysticalagriculture:prudentium_essence", [" A ", "ABA", " A "], { A: "mysticalagriculture:inferium_essence", B: ["matc:inferium_crystal", "mysticalagriculture:infusion_crystal", "mysticalagriculture:master_infusion_crystal"] });
+
+    event.remove({ output: "mysticalagriculture:tertium_essence" });
+    event.shaped("mysticalagriculture:tertium_essence", [" A ", "ABA", " A "], { A: "mysticalagriculture:prudentium_essence", B: ["matc:prudentium_crystal", "mysticalagriculture:infusion_crystal", "mysticalagriculture:master_infusion_crystal"] });
+
+    event.remove({ output: "mysticalagriculture:imperium_essence" });
+    event.shaped("mysticalagriculture:imperium_essence", [" A ", "ABA", " A "], { A: "mysticalagriculture:tertium_essence", B: ["matc:tertium_crystal", "mysticalagriculture:infusion_crystal", "mysticalagriculture:master_infusion_crystal"] });
+
+    event.remove({ output: "mysticalagriculture:supremium_essence" });
+    event.shaped("mysticalagriculture:supremium_essence", [" A ", "ABA", " A "], { A: "mysticalagriculture:imperium_essence", B: ["matc:imperium_crystal", "mysticalagriculture:infusion_crystal", "mysticalagriculture:master_infusion_crystal"] });
+
+    event.remove({ output: "mysticalagradditions:insanium_essence" });
+    event.shaped("mysticalagradditions:insanium_essence", [" A ", "ABA", " A "], { A: "mysticalagriculture:supremium_essence", B: ["matc:supremium_crystal", "mysticalagriculture:infusion_crystal", "mysticalagriculture:master_infusion_crystal"] });
 
     //# =================================================================================================== #
 

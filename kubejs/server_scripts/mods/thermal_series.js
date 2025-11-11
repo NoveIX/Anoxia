@@ -339,6 +339,36 @@ ServerEvents.recipes((event) => {
 
     //# =================================================================================================== #
 
+    //#region Bottle
+    const BottlePattern = [
+        {
+            get: [{ item: "anoxia:enderless_ingot_1" }],
+            put: [{ item: "anoxia:enderite_ingot" }, { fluid: "tconstruct:molten_signalum", amount: 2880 }],
+            rsflux: 5000,
+        },
+        {
+            get: [{ item: "anoxia:enderless_ingot_2" }],
+            put: [{ item: "anoxia:enderless_ingot_1", count: 3 }, { fluid: "tconstruct:molten_lumium", amount: 2880 }],
+            rsflux: 5000,
+        },
+        {
+            get: [{ item: "anoxia:enderless_ingot_3" }],
+            put: [{ item: "anoxia:enderless_ingot_2", count: 3 }, { fluid: "tconstruct:molten_enderium", amount: 2880 }],
+            rsflux: 5000,
+        },
+    ];
+    BottlePattern.forEach((recipe) => {
+        event.custom({
+            type: "thermal:bottler",
+            ingredients: recipe.put,
+            result: recipe.get,
+            energy: recipe.rsflux,
+        });
+    });
+    //#endregion
+
+    //# =================================================================================================== #
+
     //#region Insolator
     const InsolatorPattern = [
         //T0
@@ -614,6 +644,8 @@ ServerEvents.recipes((event) => {
         }
     });
     //#endregion
+
+    //# =================================================================================================== #
 
     //#region Press
     const PressPattern = [
