@@ -152,10 +152,10 @@ ServerEvents.recipes((event) => {
                 GearImmersive(recipe);
                 GearThermal(recipe);
             }
+        }
 
-            if (recipe.molten) {
-                GearTinker(recipe);
-            }
+        if (recipe.molten) {
+            GearTinker(recipe);
         }
     });
     //#endregion

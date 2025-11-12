@@ -22,6 +22,15 @@ ServerEvents.recipes((event) => {
         });
     }
 
+    function WireThermal(recipe) {
+        event.custom({
+            type: "thermal:press",
+            energy: recipe.rsflux,
+            ingredients: [{ tag: recipe.put, count: 1 }, { item: "anoxia:press_wire_die" }],
+            result: [{ count: 1, item: recipe.get }],
+        });
+    }
+
     function WireTinker(recipe) {
         event.custom({
             type: "tconstruct:casting_table",

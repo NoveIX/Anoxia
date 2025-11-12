@@ -225,6 +225,10 @@ ServerEvents.recipes((event) => {
             PlateCreate(recipe);
             PlateCrafting(recipe);
         }
+
+        if (recipe.molten) {
+            PlateTinker(recipe);
+        }
     });
     //#endregion
 });
