@@ -24,7 +24,9 @@
 [materialOverrides]
 	#List of materials that should be ingot.
 	ingot = [
-		"aethersteel_scrap"
+		"prosperity",
+		"inferium",
+		"soulium"
 ]
 	#List of materials that should be gems.
 	gem = [
@@ -35,7 +37,11 @@
 		"quartz"
 ]
 	#List of materials that should be crystals.
-	crystal = []
+	crystal = [
+		"prosperity",
+		"inferium",
+		"soulium"
+]
 	#List of materials that should be dusts.
 	dust = [
 		"glowstone",
