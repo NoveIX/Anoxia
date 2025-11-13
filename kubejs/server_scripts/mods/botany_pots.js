@@ -331,7 +331,7 @@ ServerEvents.recipes((event) => {
         { item: "mysticalagriculture:mystical_fertilizer", range: [15000, 15000] },
     ];
     FertilizerPattern.forEach((recipe) => {
-        event.recipes.botanypots.fertilizer(recipe.item, recipe.range[0], recipe.range[0]);
+        event.recipes.botanypots.fertilizer(recipe.item, recipe.range[0], recipe.range[1]);
     });
     //#endregion
 });

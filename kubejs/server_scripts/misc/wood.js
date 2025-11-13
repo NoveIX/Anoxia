@@ -66,7 +66,7 @@ ServerEvents.recipes((event) => {
         //Thermal
         "thermal:machines/sawmill/sawmill_rubberwood_logs",
     ];
-    RmRecipeID.forEach((ID) => event.remove({ id: ID }));
+    RmRecipeID.forEach((id) => event.remove({ id: id }));
     //#endregion
 
     //# =================================================================================================== #
