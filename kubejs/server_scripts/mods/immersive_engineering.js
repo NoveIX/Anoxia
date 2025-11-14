@@ -340,6 +340,30 @@ ServerEvents.recipes((event) => {
     });
     //#endregion
 
+    //# =================================================================================================== #
+
+    //#region Crusher
+    const CrusherPattern = [
+        {
+            //JAOPCA Integration
+            get: { base_ingredient: { item: "actuallyadditions:black_quartz" }, count: 2 },
+            put: { tag: "forge:ores/black_quartz" },
+            rsflux: 6000,
+        },
+    ];
+    CrusherPattern.forEach((recipe) => {
+        event.custom({
+            type: "immersiveengineering:crusher",
+            energy: recipe.rsflux,
+            input: recipe.put,
+            result: recipe.get,
+            secondaries: [],
+        });
+    });
+    //#endregion
+
+    //# =================================================================================================== #
+
     //#region Fertilizer
     const FertilizerPattern = [
         { put: { item: "create:tree_fertilizer" }, multi: 1.3 },

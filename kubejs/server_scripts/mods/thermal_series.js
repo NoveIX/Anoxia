@@ -343,17 +343,26 @@ ServerEvents.recipes((event) => {
     const BottlePattern = [
         {
             get: [{ item: "anoxia:enderless_ingot_1" }],
-            put: [{ item: "anoxia:enderite_ingot" }, { fluid: "tconstruct:molten_signalum", amount: 2880 }],
+            put: [
+                { item: "anoxia:enderite_ingot", count: 1 },
+                { fluid: "tconstruct:molten_signalum", amount: 2880 },
+            ],
             rsflux: 5000,
         },
         {
             get: [{ item: "anoxia:enderless_ingot_2" }],
-            put: [{ item: "anoxia:enderless_ingot_1", count: 3 }, { fluid: "tconstruct:molten_lumium", amount: 2880 }],
+            put: [
+                { item: "anoxia:enderless_ingot_1", count: 3 },
+                { fluid: "tconstruct:molten_lumium", amount: 2880 },
+            ],
             rsflux: 5000,
         },
         {
             get: [{ item: "anoxia:enderless_ingot_3" }],
-            put: [{ item: "anoxia:enderless_ingot_2", count: 3 }, { fluid: "tconstruct:molten_enderium", amount: 2880 }],
+            put: [
+                { item: "anoxia:enderless_ingot_2", count: 3 },
+                { fluid: "tconstruct:molten_enderium", amount: 2880 },
+            ],
             rsflux: 5000,
         },
     ];
@@ -683,6 +692,15 @@ ServerEvents.recipes((event) => {
             get: [{ item: "mekanism:sawdust", count: 8 }],
             put: { tag: "minecraft:logs" },
             rsflux: 1000,
+        },
+        {
+            //JAOPCA Integration
+            get: [
+                { item: "actuallyadditions:black_quartz", chance: 2.5 },
+                { item: "minecraft:gravel", chance: 0.2 },
+            ],
+            put: { tag: "forge:ores/black_quartz" },
+            rsflux: 4000,
         },
     ];
     PulverizerPattern.forEach((recipe) => {

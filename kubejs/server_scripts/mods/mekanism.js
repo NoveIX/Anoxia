@@ -66,6 +66,25 @@ ServerEvents.recipes((event) => {
 
     //# =================================================================================================== #
 
+    //#region Enriching
+    const EnrichingPattern = [
+        {
+            //JAOPCA Integration
+            get: { count: 2, item: "actuallyadditions:black_quartz" },
+            put: { ingredient: { tag: "forge:ores/black_quartz" } },
+        },
+    ];
+    EnrichingPattern.forEach((recipe) => {
+        event.custom({
+            type: "mekanism:enriching",
+            input: recipe.put,
+            output: recipe.get,
+        });
+    });
+    //#endregion
+
+    //# =================================================================================================== #
+
     //#region Infusion
     const InfusionPattern = [
         {
