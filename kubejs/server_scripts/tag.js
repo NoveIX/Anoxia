@@ -87,6 +87,7 @@ ServerEvents.tags("item", (event) => {
         { tag: "forge:pebble/stone", item: "exnihilosequentia:stone_pebble" },
         { tag: "forge:pebble/stone", item: "botania:pebble" },
         { tag: "forge:pebble/stone", item: "twigs:pebble" },
+        { tag: "forge:deepslate/normal", item: "minecraft:deepslate" },
 
         //gems
         { tag: "forge:gems/flux_gem", item: "redstone_arsenal:flux_gem" },

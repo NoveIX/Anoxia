@@ -22,6 +22,26 @@ ServerEvents.recipes((event) => {
 
     //# =================================================================================================== #
 
+    //#region Orechid
+    const OrechidPattern = [
+        {
+            get: { type: "block", block: "aethersteel:aether_debris" },
+            put: { type: "block", block: "minecraft:deepslate" },
+            perc: 1,
+        },
+    ];
+    OrechidPattern.forEach((recipe) => {
+        event.custom({
+            type: "botania:orechid",
+            input: recipe.put,
+            output: recipe.get,
+            weight: recipe.perc,
+        });
+    });
+    //#endregion
+
+    //# =================================================================================================== #
+
     //#region Mana Infusion
     event.remove({ output: "mysticalagriculture:prosperity_seed_base" });
     const ManaInfusionPattern = [
@@ -923,6 +943,8 @@ ServerEvents.recipes((event) => {
         }
     });
     //#endregion
+
+    //# =================================================================================================== #
 
     //#region TerraPlate
     event.remove({ output: "appbot:mana_cell_housing" });

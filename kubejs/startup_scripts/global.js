@@ -704,6 +704,9 @@ global.recipe = {};
 
 //#region Rm recipeID
 global.recipe.GAME_Rmid = [
+    //Minecraft
+    "minecraft:ens_ancient_debris",
+
     //Ad Astra
     "ad_astra:recipes/steel_ingot_from_blasting_iron_ingot",
 

@@ -85,4 +85,25 @@ ServerEvents.recipes((event) => {
         });
     });
     //#endregion
+
+    //# =================================================================================================== #
+
+    //#region MiningLens
+    const MiningLensPattern = [
+        {
+            get: { item: "aethersteel:aether_debris" },
+            put: { item: "minecraft:deepslate" },
+            perc: 1,
+        },
+    ];
+    MiningLensPattern.forEach((recipe) => {
+        event.custom({
+            type: "actuallyadditions:mining_lens",
+            ingredient: recipe.put,
+            output_type: "item",
+            result: recipe.get,
+            weight: recipe.perc,
+        });
+    });
+    //#endregion
 });
