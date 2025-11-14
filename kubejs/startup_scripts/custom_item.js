@@ -3,11 +3,11 @@ StartupEvents.registry("item", (event) => {
     event.create("anoxia:tiny_coal").displayName("Tiny Coal").texture("anoxia:item/tiny_coal");
     event.create("anoxia:tiny_charcoal").displayName("Tiny Charcoal").texture("anoxia:item/tiny_charcoal");
     //event.create("anoxia:aethersteel_mesh").displayName("Aethersteel Mesh").texture("anoxia:item/aethersteel_mesh");
-    event.create("anoxia:osmium_pieces").displayName("Osmium Pieces").texture("anoxia:item/osmium_pieces");
-    event.create("anoxia:cobalt_pieces").displayName("Cobalt Pieces").texture("anoxia:item/cobalt_pieces");
     event.create("anoxia:desh_pieces").displayName("Desh Pieces").texture("anoxia:item/desh_pieces");
     event.create("anoxia:ostrum_pieces").displayName("Ostrum Pieces").texture("anoxia:item/ostrum_pieces");
     event.create("anoxia:calorite_pieces").displayName("Calorite Pieces").texture("anoxia:item/calorite_pieces");
+    event.create("anoxia:osmium_pieces").displayName("Osmium Pieces").texture("anoxia:item/osmium_pieces");
+    event.create("anoxia:cobalt_pieces").displayName("Cobalt Pieces").texture("anoxia:item/cobalt_pieces");
     event.create("anoxia:demonite_pieces").displayName("Demonite Pieces").texture("anoxia:item/demonite_pieces");
     event.create("anoxia:enderite_pieces").displayName("Enderite Pieces").texture("anoxia:item/enderite_pieces");
     event.create("anoxia:raw_enderite").displayName("Raw Enderite").texture("anoxia:item/raw_enderite");
