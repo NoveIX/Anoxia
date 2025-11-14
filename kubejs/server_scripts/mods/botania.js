@@ -27,7 +27,7 @@ ServerEvents.recipes((event) => {
         {
             get: { type: "block", block: "aethersteel:aether_debris" },
             put: { type: "block", block: "minecraft:deepslate" },
-            perc: 1,
+            perc: 3,
         },
     ];
     OrechidPattern.forEach((recipe) => {

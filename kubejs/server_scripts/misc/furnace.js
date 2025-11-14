@@ -101,8 +101,6 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    //# =================================================================================================== #
-
     function FurnaceEnderio(recipe) {
         event.custom({
             type: "enderio:alloy_smelting",
