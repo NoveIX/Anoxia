@@ -345,7 +345,7 @@ ServerEvents.recipes((event) => {
             get: [{ item: "anoxia:enderless_ingot_1" }],
             put: [
                 { item: "anoxia:enderite_ingot", count: 1 },
-                { fluid: "tconstruct:molten_signalum", amount: 2880 },
+                { fluid: "tconstruct:molten_manasteel", amount: 5760 },
             ],
             rsflux: 5000,
         },
@@ -353,7 +353,7 @@ ServerEvents.recipes((event) => {
             get: [{ item: "anoxia:enderless_ingot_2" }],
             put: [
                 { item: "anoxia:enderless_ingot_1", count: 3 },
-                { fluid: "tconstruct:molten_lumium", amount: 2880 },
+                { fluid: "tconstruct:molten_signalum", amount: 5760 },
             ],
             rsflux: 5000,
         },
@@ -361,7 +361,15 @@ ServerEvents.recipes((event) => {
             get: [{ item: "anoxia:enderless_ingot_3" }],
             put: [
                 { item: "anoxia:enderless_ingot_2", count: 3 },
-                { fluid: "tconstruct:molten_enderium", amount: 2880 },
+                { fluid: "tconstruct:molten_lumium", amount: 5760 },
+            ],
+            rsflux: 5000,
+        },
+        {
+            get: [{ item: "anoxia:enderless_ingot_4" }],
+            put: [
+                { item: "anoxia:enderless_ingot_3", count: 3 },
+                { fluid: "tconstruct:molten_enderium", amount: 5760 },
             ],
             rsflux: 5000,
         },
