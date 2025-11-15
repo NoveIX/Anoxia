@@ -208,7 +208,7 @@ ServerEvents.recipes((event) => {
             AlloyThermal2(recipe);
         }
 
-        //EnderIO Sup
+        //EnderIO support
         else if (recipe.alloy === "ender") {
             AlloyEnderIO2(recipe);
             AlloyThermal2(recipe);
@@ -242,7 +242,7 @@ ServerEvents.recipes((event) => {
             AlloyThermal2(recipe);
         }
 
-        //EnderIO Sup
+        //EnderIO support
         else if (recipe.alloy === "ender") {
             AlloyEnderIO2(recipe);
             AlloyThermal2(recipe);

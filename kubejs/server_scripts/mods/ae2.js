@@ -19,89 +19,61 @@ ServerEvents.recipes((event) => {
     event.remove({ output: "ae2things:disk_housing" });
     event.smithing("ae2things:disk_housing", "minecraft:netherite_upgrade_smithing_template", "ae2:item_cell_housing", "#forge:ingots/netherite");
 
-    //Item
-    event.remove({ output: "ae2:item_storage_cell_1k" });
-    event.shapeless("ae2:item_storage_cell_1k", ["ae2:item_cell_housing", "ae2:cell_component_1k"]);
-    event.remove({ output: "ae2:item_storage_cell_4k" });
-    event.shapeless("ae2:item_storage_cell_4k", ["ae2:item_cell_housing", "ae2:cell_component_4k"]);
-    event.remove({ output: "ae2:item_storage_cell_16k" });
-    event.shapeless("ae2:item_storage_cell_16k", ["ae2:item_cell_housing", "ae2:cell_component_16k"]);
-    event.remove({ output: "ae2:item_storage_cell_64k" });
-    event.shapeless("ae2:item_storage_cell_64k", ["ae2:item_cell_housing", "ae2:cell_component_64k"]);
-    event.remove({ output: "ae2:item_storage_cell_256k" });
-    event.shapeless("ae2:item_storage_cell_256k", ["ae2:item_cell_housing", "ae2:cell_component_256k"]);
+    //Disk Size
+    const diskSize = ["1k", "4k", "16k", "64k", "256k"];
+    diskSize.forEach((size) => {
+        //Item disk
+        event.remove({ output: `ae2:item_storage_cell_${size}` });
+        event.shapeless(`ae2:item_storage_cell_${size}`, ["ae2:item_cell_housing", `ae2:cell_component_${size}`]);
 
-    //Fluid
-    event.remove({ output: "ae2:fluid_storage_cell_1k" });
-    event.shapeless("ae2:fluid_storage_cell_1k", ["ae2:fluid_cell_housing", "ae2:cell_component_1k"]);
-    event.remove({ output: "ae2:fluid_storage_cell_4k" });
-    event.shapeless("ae2:fluid_storage_cell_4k", ["ae2:fluid_cell_housing", "ae2:cell_component_4k"]);
-    event.remove({ output: "ae2:fluid_storage_cell_16k" });
-    event.shapeless("ae2:fluid_storage_cell_16k", ["ae2:fluid_cell_housing", "ae2:cell_component_16k"]);
-    event.remove({ output: "ae2:fluid_storage_cell_64k" });
-    event.shapeless("ae2:fluid_storage_cell_64k", ["ae2:fluid_cell_housing", "ae2:cell_component_64k"]);
-    event.remove({ output: "ae2:fluid_storage_cell_256k" });
-    event.shapeless("ae2:fluid_storage_cell_256k", ["ae2:fluid_cell_housing", "ae2:cell_component_256k"]);
+        //Fluid disk
+        event.remove({ output: `ae2:fluid_storage_cell_${size}` });
+        event.shapeless(`ae2:fluid_storage_cell_${size}`, ["ae2:fluid_cell_housing", `ae2:cell_component_${size}`]);
 
-    //Mekanism
-    event.remove({ output: "appmek:chemical_storage_cell_1k" });
-    event.shapeless("appmek:chemical_storage_cell_1k", ["appmek:chemical_cell_housing", "ae2:cell_component_1k"]);
-    event.remove({ output: "appmek:chemical_storage_cell_4k" });
-    event.shapeless("appmek:chemical_storage_cell_4k", ["appmek:chemical_cell_housing", "ae2:cell_component_4k"]);
-    event.remove({ output: "appmek:chemical_storage_cell_16k" });
-    event.shapeless("appmek:chemical_storage_cell_16k", ["appmek:chemical_cell_housing", "ae2:cell_component_16k"]);
-    event.remove({ output: "appmek:chemical_storage_cell_64k" });
-    event.shapeless("appmek:chemical_storage_cell_64k", ["appmek:chemical_cell_housing", "ae2:cell_component_64k"]);
-    event.remove({ output: "appmek:chemical_storage_cell_256k" });
-    event.shapeless("appmek:chemical_storage_cell_256k", ["appmek:chemical_cell_housing", "ae2:cell_component_256k"]);
+        //Chemical disk
+        event.remove({ output: `appmek:chemical_storage_cell_${size}` });
+        event.shapeless(`appmek:chemical_storage_cell_${size}`, ["appmek:chemical_cell_housing", `ae2:cell_component_${size}`]);
 
-    //Energy
-    event.remove({ output: "appflux:fe_1k_cell" });
-    event.shapeless("appflux:fe_1k_cell", ["appflux:fe_cell_housing", "appflux:core_1k"]);
-    event.remove({ output: "appflux:fe_4k_cell" });
-    event.shapeless("appflux:fe_4k_cell", ["appflux:fe_cell_housing", "appflux:core_4k"]);
-    event.remove({ output: "appflux:fe_16k_cell" });
-    event.shapeless("appflux:fe_16k_cell", ["appflux:fe_cell_housing", "appflux:core_16k"]);
-    event.remove({ output: "appflux:fe_64k_cell" });
-    event.shapeless("appflux:fe_64k_cell", ["appflux:fe_cell_housing", "appflux:core_64k"]);
-    event.remove({ output: "appflux:fe_256k_cell" });
-    event.shapeless("appflux:fe_256k_cell", ["appflux:fe_cell_housing", "appflux:core_256k"]);
+        //Energy disk
+        event.remove({ output: `appflux:fe_${size}_cell` });
+        event.shapeless(`appflux:fe_${size}_cell`, ["appflux:fe_cell_housing", `appflux:core_${size}`]);
 
-    //Mana
-    event.remove({ output: "appbot:mana_storage_cell_1k" });
-    event.shapeless("appbot:mana_storage_cell_1k", ["appbot:mana_cell_housing", "anoxia:mana_cell_component_1k"]);
-    event.remove({ output: "appbot:mana_storage_cell_4k" });
-    event.shapeless("appbot:mana_storage_cell_4k", ["appbot:mana_cell_housing", "anoxia:mana_cell_component_4k"]);
-    event.remove({ output: "appbot:mana_storage_cell_16k" });
-    event.shapeless("appbot:mana_storage_cell_16k", ["appbot:mana_cell_housing", "anoxia:mana_cell_component_16k"]);
-    event.remove({ output: "appbot:mana_storage_cell_64k" });
-    event.shapeless("appbot:mana_storage_cell_64k", ["appbot:mana_cell_housing", "anoxia:mana_cell_component_64k"]);
-    event.remove({ output: "appbot:mana_storage_cell_256k" });
-    event.shapeless("appbot:mana_storage_cell_256k", ["appbot:mana_cell_housing", "anoxia:mana_cell_component_256k"]);
+        //Mana disk
+        event.remove({ output: `appbot:mana_storage_cell_${size}` });
+        event.shapeless(`appbot:mana_storage_cell_${size}`, ["appbot:mana_cell_housing", `anoxia:mana_cell_component_${size}`]);
 
-    //Source
-    event.remove({ output: "arseng:source_storage_cell_1k" });
-    event.shapeless("arseng:source_storage_cell_1k", ["arseng:source_cell_housing", "anoxia:source_cell_component_1k"]);
-    event.remove({ output: "arseng:source_storage_cell_4k" });
-    event.shapeless("arseng:source_storage_cell_4k", ["arseng:source_cell_housing", "anoxia:source_cell_component_4k"]);
-    event.remove({ output: "arseng:source_storage_cell_16k" });
-    event.shapeless("arseng:source_storage_cell_16k", ["arseng:source_cell_housing", "anoxia:source_cell_component_16k"]);
-    event.remove({ output: "arseng:source_storage_cell_64k" });
-    event.shapeless("arseng:source_storage_cell_64k", ["arseng:source_cell_housing", "anoxia:source_cell_component_64k"]);
-    event.remove({ output: "arseng:source_storage_cell_256k" });
-    event.shapeless("arseng:source_storage_cell_256k", ["arseng:source_cell_housing", "anoxia:source_cell_component_256k"]);
+        //Source disk
+        event.remove({ output: `arseng:source_storage_cell_${size}` });
+        event.shapeless(`arseng:source_storage_cell_${size}`, ["arseng:source_cell_housing", `anoxia:source_cell_component_${size}`]);
 
-    //DISK
-    event.remove({ output: "ae2things:disk_drive_1k" });
-    event.shapeless("ae2things:disk_drive_1k", ["ae2things:disk_housing", "ae2:cell_component_1k"]);
-    event.remove({ output: "ae2things:disk_drive_4k" });
-    event.shapeless("ae2things:disk_drive_4k", ["ae2things:disk_housing", "ae2:cell_component_4k"]);
-    event.remove({ output: "ae2things:disk_drive_16k" });
-    event.shapeless("ae2things:disk_drive_16k", ["ae2things:disk_housing", "ae2:cell_component_16k"]);
-    event.remove({ output: "ae2things:disk_drive_64k" });
-    event.shapeless("ae2things:disk_drive_64k", ["ae2things:disk_housing", "ae2:cell_component_64k"]);
-    event.remove({ output: "ae2things:disk_drive_256k" });
-    event.shapeless("ae2things:disk_drive_256k", ["ae2things:disk_housing", "ae2:cell_component_256k"]);
+        //DISK
+        event.remove({ output: `ae2things:disk_drive_${size}` });
+        event.shapeless(`ae2things:disk_drive_${size}`, ["ae2things:disk_housing", `ae2:cell_component_${size}`]);
+
+        //Item portable
+        event.remove({ output: `ae2:portable_item_cell_${size}` });
+        event.shapeless(`ae2:portable_item_cell_${size}`, ["ae2:chest", `ae2:cell_component_${size}`, "ae2:energy_cell", "ae2:item_cell_housing"]);
+
+        //Fluid portable
+        event.remove({ output: `ae2:portable_fluid_cell_${size}` });
+        event.shapeless(`ae2:portable_fluid_cell_${size}`, ["ae2:chest", `ae2:cell_component_${size}`, "ae2:energy_cell", "ae2:fluid_cell_housing"]);
+
+        //Chemical portable
+        event.remove({ output: `appmek:portable_chemical_storage_cell_${size}` });
+        event.shapeless(`appmek:portable_chemical_storage_cell_${size}`, ["ae2:chest", `ae2:cell_component_${size}`, "ae2:energy_cell", "appmek:chemical_cell_housing"]);
+
+        //Energy portable
+        event.remove({ output: `appflux:fe_${size}_portable_cell` });
+        event.shapeless(`appflux:fe_${size}_portable_cell`, ["ae2:chest", `appflux:core_${size}`, "ae2:energy_cell", "appflux:fe_cell_housing"]);
+
+        //Mana portable
+        event.remove({ output: `appbot:portable_mana_storage_cell_${size}` });
+        event.shapeless(`appbot:portable_mana_storage_cell_${size}`, ["ae2:chest", `anoxia:mana_cell_component_${size}`, "ae2:energy_cell", "appbot:mana_cell_housing"]);
+
+        //Source portable
+        event.remove({ output: `arseng:portable_source_cell_${size}` });
+        event.shapeless(`arseng:portable_source_cell_${size}`, ["ae2:chest", `anoxia:source_cell_component_${size}`, "ae2:energy_cell", "arseng:source_cell_housing"]);
+    });
 
     //Storage
     event.remove({ output: "ae2:cell_component_1k" });
@@ -128,79 +100,6 @@ ServerEvents.recipes((event) => {
     event.shaped("appflux:core_256k", ["ABA", "CDC", "ACA"], { A: "powah:steel_energized", B: "appflux:energy_processor", C: "appflux:core_64k", D: "ae2:quartz_vibrant_glass" });
 
     //# =================================================================================================== #
-
-    //Portable
-    //Item
-    event.remove({ output: "ae2:portable_item_cell_1k" });
-    event.shapeless("ae2:portable_item_cell_1k", ["ae2:chest", "ae2:cell_component_1k", "ae2:energy_cell", "ae2:item_cell_housing"]);
-    event.remove({ output: "ae2:portable_item_cell_4k" });
-    event.shapeless("ae2:portable_item_cell_4k", ["ae2:chest", "ae2:cell_component_4k", "ae2:energy_cell", "ae2:item_cell_housing"]);
-    event.remove({ output: "ae2:portable_item_cell_16k" });
-    event.shapeless("ae2:portable_item_cell_16k", ["ae2:chest", "ae2:cell_component_16k", "ae2:energy_cell", "ae2:item_cell_housing"]);
-    event.remove({ output: "ae2:portable_item_cell_64k" });
-    event.shapeless("ae2:portable_item_cell_64k", ["ae2:chest", "ae2:cell_component_64k", "ae2:energy_cell", "ae2:item_cell_housing"]);
-    event.remove({ output: "ae2:portable_item_cell_256k" });
-    event.shapeless("ae2:portable_item_cell_256k", ["ae2:chest", "ae2:cell_component_256k", "ae2:energy_cell", "ae2:item_cell_housing"]);
-
-    //Fluid
-    event.remove({ output: "ae2:portable_fluid_cell_1k" });
-    event.shapeless("ae2:portable_fluid_cell_1k", ["ae2:chest", "ae2:cell_component_1k", "ae2:energy_cell", "ae2:fluid_cell_housing"]);
-    event.remove({ output: "ae2:portable_fluid_cell_4k" });
-    event.shapeless("ae2:portable_fluid_cell_4k", ["ae2:chest", "ae2:cell_component_4k", "ae2:energy_cell", "ae2:fluid_cell_housing"]);
-    event.remove({ output: "ae2:portable_fluid_cell_16k" });
-    event.shapeless("ae2:portable_fluid_cell_16k", ["ae2:chest", "ae2:cell_component_16k", "ae2:energy_cell", "ae2:fluid_cell_housing"]);
-    event.remove({ output: "ae2:portable_fluid_cell_64k" });
-    event.shapeless("ae2:portable_fluid_cell_64k", ["ae2:chest", "ae2:cell_component_64k", "ae2:energy_cell", "ae2:fluid_cell_housing"]);
-    event.remove({ output: "ae2:portable_fluid_cell_256k" });
-    event.shapeless("ae2:portable_fluid_cell_256k", ["ae2:chest", "ae2:cell_component_256k", "ae2:energy_cell", "ae2:fluid_cell_housing"]);
-
-    //Mekanism
-    event.remove({ output: "appmek:portable_chemical_storage_cell_1k" });
-    event.shapeless("appmek:portable_chemical_storage_cell_1k", ["ae2:chest", "ae2:cell_component_1k", "ae2:energy_cell", "appmek:chemical_cell_housing"]);
-    event.remove({ output: "appmek:portable_chemical_storage_cell_4k" });
-    event.shapeless("appmek:portable_chemical_storage_cell_4k", ["ae2:chest", "ae2:cell_component_4k", "ae2:energy_cell", "appmek:chemical_cell_housing"]);
-    event.remove({ output: "appmek:portable_chemical_storage_cell_16k" });
-    event.shapeless("appmek:portable_chemical_storage_cell_16k", ["ae2:chest", "ae2:cell_component_16k", "ae2:energy_cell", "appmek:chemical_cell_housing"]);
-    event.remove({ output: "appmek:portable_chemical_storage_cell_64k" });
-    event.shapeless("appmek:portable_chemical_storage_cell_64k", ["ae2:chest", "ae2:cell_component_64k", "ae2:energy_cell", "appmek:chemical_cell_housing"]);
-    event.remove({ output: "appmek:portable_chemical_storage_cell_256k" });
-    event.shapeless("appmek:portable_chemical_storage_cell_256k", ["ae2:chest", "ae2:cell_component_256k", "ae2:energy_cell", "appmek:chemical_cell_housing"]);
-
-    //Energy
-    event.remove({ output: "appflux:fe_1k_portable_cell" });
-    event.shapeless("appflux:fe_1k_portable_cell", ["ae2:chest", "appflux:core_1k", "ae2:energy_cell", "appflux:fe_cell_housing"]);
-    event.remove({ output: "appflux:fe_4k_portable_cell" });
-    event.shapeless("appflux:fe_4k_portable_cell", ["ae2:chest", "appflux:core_4k", "ae2:energy_cell", "appflux:fe_cell_housing"]);
-    event.remove({ output: "appflux:fe_16k_portable_cell" });
-    event.shapeless("appflux:fe_16k_portable_cell", ["ae2:chest", "appflux:core_16k", "ae2:energy_cell", "appflux:fe_cell_housing"]);
-    event.remove({ output: "appflux:fe_64k_portable_cell" });
-    event.shapeless("appflux:fe_64k_portable_cell", ["ae2:chest", "appflux:core_64k", "ae2:energy_cell", "appflux:fe_cell_housing"]);
-    event.remove({ output: "appflux:fe_256k_portable_cell" });
-    event.shapeless("appflux:fe_256k_portable_cell", ["ae2:chest", "appflux:core_256k", "ae2:energy_cell", "appflux:fe_cell_housing"]);
-
-    //Mana
-    event.remove({ output: "appbot:portable_mana_storage_cell_1k" });
-    event.shapeless("appbot:portable_mana_storage_cell_1k", ["ae2:chest", "anoxia:mana_cell_component_1k", "ae2:energy_cell", "appbot:mana_cell_housing"]);
-    event.remove({ output: "appbot:portable_mana_storage_cell_4k" });
-    event.shapeless("appbot:portable_mana_storage_cell_4k", ["ae2:chest", "anoxia:mana_cell_component_4k", "ae2:energy_cell", "appbot:mana_cell_housing"]);
-    event.remove({ output: "appbot:portable_mana_storage_cell_16k" });
-    event.shapeless("appbot:portable_mana_storage_cell_16k", ["ae2:chest", "anoxia:mana_cell_component_16k", "ae2:energy_cell", "appbot:mana_cell_housing"]);
-    event.remove({ output: "appbot:portable_mana_storage_cell_64k" });
-    event.shapeless("appbot:portable_mana_storage_cell_64k", ["ae2:chest", "anoxia:mana_cell_component_64k", "ae2:energy_cell", "appbot:mana_cell_housing"]);
-    event.remove({ output: "appbot:portable_mana_storage_cell_256k" });
-    event.shapeless("appbot:portable_mana_storage_cell_256k", ["ae2:chest", "anoxia:mana_cell_component_256k", "ae2:energy_cell", "appbot:mana_cell_housing"]);
-
-    //Source
-    event.remove({ output: "arseng:portable_source_cell_1k" });
-    event.shapeless("arseng:portable_source_cell_1k", ["ae2:chest", "anoxia:source_cell_component_1k", "ae2:energy_cell", "arseng:source_cell_housing"]);
-    event.remove({ output: "arseng:portable_source_cell_4k" });
-    event.shapeless("arseng:portable_source_cell_4k", ["ae2:chest", "anoxia:source_cell_component_4k", "ae2:energy_cell", "arseng:source_cell_housing"]);
-    event.remove({ output: "arseng:portable_source_cell_16k" });
-    event.shapeless("arseng:portable_source_cell_16k", ["ae2:chest", "anoxia:source_cell_component_16k", "ae2:energy_cell", "arseng:source_cell_housing"]);
-    event.remove({ output: "arseng:portable_source_cell_64k" });
-    event.shapeless("arseng:portable_source_cell_64k", ["ae2:chest", "anoxia:source_cell_component_64k", "ae2:energy_cell", "arseng:source_cell_housing"]);
-    event.remove({ output: "arseng:portable_source_cell_256k" });
-    event.shapeless("arseng:portable_source_cell_256k", ["ae2:chest", "anoxia:source_cell_component_256k", "ae2:energy_cell", "arseng:source_cell_housing"]);
 
     //ME Infinity
     event.remove({ output: Item.of("expatternprovider:infinity_cell", '{record:{"#c":"ae2:i",id:"minecraft:cobblestone"}}') });

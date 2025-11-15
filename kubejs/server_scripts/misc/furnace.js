@@ -152,7 +152,7 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:stellarium_ingot", put: "forge:dusts/stellarium", metal: true },
     ];
     FurnacePattern.forEach((recipe) => {
-        //Furnace
+        //Recipe
         if (recipe.put.startsWith("forge:")) {
             event.smelting(recipe.get, `#${recipe.put}`);
             FurnaceEnderio(recipe);

@@ -217,8 +217,6 @@ ServerEvents.recipes((event) => {
         }
     }
 
-    //# =================================================================================================== #
-
     function DustBlood(recipe) {
         if (recipe.ore) {
             event.custom({
@@ -243,8 +241,6 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    //# =================================================================================================== #
-
     function DustCreate(recipe) {
         if (recipe.create) {
             event.custom({
@@ -262,8 +258,6 @@ ServerEvents.recipes((event) => {
             });
         }
     }
-
-    //# =================================================================================================== #
 
     function DustImmersive(recipe) {
         if (recipe.immersive) {
@@ -285,8 +279,6 @@ ServerEvents.recipes((event) => {
         }
     }
 
-    //# =================================================================================================== #
-
     function DustEnderIO(recipe) {
         if (recipe.enderio) {
             event.custom({
@@ -307,8 +299,6 @@ ServerEvents.recipes((event) => {
         }
     }
 
-    //# =================================================================================================== #
-
     function DustMekanism(recipe) {
         event.custom({
             type: "mekanism:crushing",
@@ -316,8 +306,6 @@ ServerEvents.recipes((event) => {
             output: { item: recipe.get },
         });
     }
-
-    //# =================================================================================================== #
 
     function DustThermal(recipe) {
         if (recipe.thermal) {
@@ -491,7 +479,6 @@ ServerEvents.recipes((event) => {
         { get: "thermalendergy:melodium_dust", put: "forge:ingots/melodium", rsflux: 20000, processing: 2000 },
         { get: "thermalendergy:stellarium_dust", put: "forge:ingots/stellarium", rsflux: 24000, processing: 2400 },
     ];
-
     DustPattern.forEach((recipe) => {
         //Recipe
         DustCrafting(recipe);

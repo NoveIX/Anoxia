@@ -208,9 +208,7 @@ ServerEvents.recipes((event) => {
         event.remove({ output: recipe.get });
 
         //Ad Astra
-        if (recipe.metal === "special") {
-            PlateThermal(recipe);
-        }
+        if (recipe.metal === "special") PlateThermal(recipe);
 
         //Hard Metal
         else if (recipe.metal === "hard") {
@@ -226,9 +224,8 @@ ServerEvents.recipes((event) => {
             PlateCrafting(recipe);
         }
 
-        if (recipe.molten) {
-            PlateTinker(recipe);
-        }
+        //Molten
+        if (recipe.molten) PlateTinker(recipe);
     });
     //#endregion
 });

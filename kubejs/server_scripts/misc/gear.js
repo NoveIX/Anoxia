@@ -131,9 +131,7 @@ ServerEvents.recipes((event) => {
         event.remove({ output: recipe.get });
 
         //Neutron
-        if (recipe.metal === "special") {
-            GearThermal(recipe);
-        }
+        if (recipe.metal === "special") GearThermal(recipe);
 
         //Hard metal
         else if (recipe.metal === "hard") {
@@ -154,9 +152,8 @@ ServerEvents.recipes((event) => {
             }
         }
 
-        if (recipe.molten) {
-            GearTinker(recipe);
-        }
+        //Molten
+        if (recipe.molten) GearTinker(recipe);
     });
     //#endregion
 });

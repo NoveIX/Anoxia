@@ -1,48 +1,73 @@
 ServerEvents.recipes((event) => {
-    //Remove type
-    event.remove({ type: "immersiveengineering:sawmill" });
-
-    //# =================================================================================================== #
-
     //#region Remove ID
     const RmRecipeID = [
         //Oak
+        "immersiveengineering:sawmill/oak_log",
+        "immersiveengineering:sawmill/oak_wood",
+        "immersiveengineering:sawmill/stripped_oak_log",
         "thermal:machines/sawmill/sawmill_oak_logs",
         "mekanism:sawing/log/oak",
 
         //Spruce
+        "immersiveengineering:sawmill/spruce_log",
+        "immersiveengineering:sawmill/spruce_wood",
+        "immersiveengineering:sawmill/stripped_spruce_log",
         "thermal:machines/sawmill/sawmill_spruce_logs",
         "mekanism:sawing/log/spruce",
 
         //Birch
+        "immersiveengineering:sawmill/birch_log",
+        "immersiveengineering:sawmill/birch_wood",
+        "immersiveengineering:sawmill/stripped_birch_log",
         "thermal:machines/sawmill/sawmill_birch_logs",
         "mekanism:sawing/log/birch",
 
         //Jungle
+        "immersiveengineering:sawmill/jungle_log",
+        "immersiveengineering:sawmill/jungle_wood",
+        "immersiveengineering:sawmill/stripped_jungle_log",
         "thermal:machines/sawmill/sawmill_jungle_logs",
         "mekanism:sawing/log/jungle",
 
         //Acacia
+        "immersiveengineering:sawmill/acacia_log",
+        "immersiveengineering:sawmill/acacia_wood",
+        "immersiveengineering:sawmill/stripped_acacia_log",
         "thermal:machines/sawmill/sawmill_acacia_logs",
         "mekanism:sawing/log/acacia",
 
-        //DarkOak
+        //Dark oak
+        "immersiveengineering:sawmill/dark_oak_log",
+        "immersiveengineering:sawmill/dark_oak_wood",
+        "immersiveengineering:sawmill/stripped_dark_oak_log",
         "thermal:machines/sawmill/sawmill_dark_oak_logs",
         "mekanism:sawing/log/dark_oak",
 
         //Mangrove
+        "immersiveengineering:sawmill/mangrove_log",
+        "immersiveengineering:sawmill/mangrove_wood",
+        "immersiveengineering:sawmill/stripped_mangrove_log",
         "thermal:machines/sawmill/sawmill_mangrove_logs",
         "mekanism:sawing/log/mangrove",
 
         //Cherry
+        "immersiveengineering:sawmill/cherry_log",
+        "immersiveengineering:sawmill/cherry_wood",
+        "immersiveengineering:sawmill/stripped_cherry_log",
         "thermal:machines/sawmill/sawmill_cherry_logs",
         "mekanism:sawing/log/cherry",
 
         //Crimson
+        "immersiveengineering:sawmill/crimson_log",
+        "immersiveengineering:sawmill/crimson_wood",
+        "immersiveengineering:sawmill/stripped_crimson_log",
         "thermal:machines/sawmill/sawmill_crimson_stems",
         "mekanism:sawing/log/crimson",
 
         //Warped
+        "immersiveengineering:sawmill/warped_log",
+        "immersiveengineering:sawmill/warped_wood",
+        "immersiveengineering:sawmill/stripped_warped_log",
         "thermal:machines/sawmill/sawmill_warped_stems",
         "mekanism:sawing/log/warped",
 
@@ -97,8 +122,6 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    //# =================================================================================================== #
-
     function WoodCreateStrip(get, put) {
         event.custom({
             type: "create:cutting",
@@ -116,8 +139,6 @@ ServerEvents.recipes((event) => {
             results: [{ count: 4, item: get }],
         });
     }
-
-    //# =================================================================================================== #
 
     function WoodImmersiveOneStrip(get, srp) {
         event.custom({
@@ -153,8 +174,6 @@ ServerEvents.recipes((event) => {
         });
     }
 
-    //# =================================================================================================== #
-
     function WoodThermalSaw(get, put) {
         event.custom({
             type: "thermal:sawmill",
@@ -167,8 +186,6 @@ ServerEvents.recipes((event) => {
             experience: 0.15,
         });
     }
-
-    //# =================================================================================================== #
 
     function WoodMekanismSaw(get, put) {
         event.custom({
@@ -317,106 +334,6 @@ ServerEvents.recipes((event) => {
             //Mekanism
             WoodMekanismSaw(recipe.plank, recipe.logTag);
         }
-    });
-    //#endregion
-
-    //# =================================================================================================== #
-
-    //#region ImmSaw restore
-    const ImmersiveSawmillRestorePattern = [
-        //Acacia
-        { get: { item: "minecraft:acacia_planks" }, put: { item: "minecraft:acacia_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:acacia_slab" }, put: { item: "minecraft:acacia_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:acacia_planks" }, put: { item: "minecraft:acacia_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Bamboo
-        { get: { item: "minecraft:bamboo_planks" }, put: { item: "minecraft:bamboo_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:bamboo_slab" }, put: { item: "minecraft:bamboo_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:bamboo_planks" }, put: { item: "minecraft:bamboo_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        {
-            get: { count: 3, item: "minecraft:bamboo_planks" },
-            put: { item: "minecraft:bamboo_block" },
-            rsflux: 1600,
-            extra: [
-                { output: { item: "mekanism:sawdust" }, stripping: true },
-                { output: { item: "mekanism:sawdust" }, stripping: false },
-            ],
-            stripped: { item: "minecraft:stripped_bamboo_block" },
-        },
-        { get: { count: 3, item: "minecraft:bamboo_planks" }, put: { item: "minecraft:stripped_bamboo_block" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Birch
-        { get: { item: "minecraft:birch_planks" }, put: { item: "minecraft:birch_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:birch_slab" }, put: { item: "minecraft:birch_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:birch_planks" }, put: { item: "minecraft:birch_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Bookshelf
-        {
-            get: { count: 4, item: "minecraft:oak_planks" },
-            put: { item: "minecraft:bookshelf" },
-            rsflux: 1600,
-            extra: [
-                { output: { item: "mekanism:sawdust" }, stripping: false },
-                { output: { count: 3, item: "minecraft:book" }, stripping: false },
-            ],
-        },
-
-        //Cherry
-        { get: { item: "minecraft:cherry_planks" }, put: { item: "minecraft:cherry_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:cherry_slab" }, put: { item: "minecraft:cherry_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:cherry_planks" }, put: { item: "minecraft:cherry_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Crimson
-        { get: { item: "minecraft:crimson_planks" }, put: { item: "minecraft:crimson_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:crimson_slab" }, put: { item: "minecraft:crimson_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:crimson_planks" }, put: { item: "minecraft:crimson_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //DarkOak
-        { get: { item: "minecraft:dark_oak_planks" }, put: { item: "minecraft:dark_oak_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:dark_oak_slab" }, put: { item: "minecraft:dark_oak_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:dark_oak_planks" }, put: { item: "minecraft:dark_oak_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Jungle
-        { get: { item: "minecraft:jungle_planks" }, put: { item: "minecraft:jungle_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:jungle_slab" }, put: { item: "minecraft:jungle_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:jungle_planks" }, put: { item: "minecraft:jungle_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Mangrove
-        { get: { item: "minecraft:mangrove_planks" }, put: { item: "minecraft:mangrove_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:mangrove_slab" }, put: { item: "minecraft:mangrove_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:mangrove_planks" }, put: { item: "minecraft:mangrove_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Oak
-        { get: { item: "minecraft:oak_planks" }, put: { item: "minecraft:oak_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:oak_slab" }, put: { item: "minecraft:oak_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:oak_planks" }, put: { item: "minecraft:oak_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Spruce
-        { get: { item: "minecraft:spruce_planks" }, put: { item: "minecraft:spruce_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:spruce_slab" }, put: { item: "minecraft:spruce_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:spruce_planks" }, put: { item: "minecraft:spruce_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Treated
-        { get: { count: 2, item: "immersiveengineering:slab_treated_wood_horizontal" }, put: { item: "immersiveengineering:treated_wood_horizontal" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "immersiveengineering:treated_wood_horizontal" }, put: { item: "immersiveengineering:stairs_treated_wood_horizontal" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "immersiveengineering:slab_treated_wood_packaged" }, put: { item: "immersiveengineering:treated_wood_packaged" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "immersiveengineering:treated_wood_packaged" }, put: { item: "immersiveengineering:stairs_treated_wood_packaged" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "immersiveengineering:slab_treated_wood_vertical" }, put: { item: "immersiveengineering:treated_wood_vertical" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "immersiveengineering:treated_wood_vertical" }, put: { item: "immersiveengineering:stairs_treated_wood_vertical" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-
-        //Warped
-        { get: { item: "minecraft:warped_planks" }, put: { item: "minecraft:warped_door" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { count: 2, item: "minecraft:warped_slab" }, put: { item: "minecraft:warped_planks" }, rsflux: 800, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-        { get: { item: "minecraft:warped_planks" }, put: { item: "minecraft:warped_stairs" }, rsflux: 1600, extra: [{ output: { item: "mekanism:sawdust" }, stripping: false }] },
-    ];
-    ImmersiveSawmillRestorePattern.forEach((recipe) => {
-        event.custom({
-            type: "immersiveengineering:sawmill",
-            energy: recipe.rsflux,
-            input: recipe.put,
-            result: recipe.get,
-            secondaries: recipe.extra,
-        });
     });
     //#endregion
 });
