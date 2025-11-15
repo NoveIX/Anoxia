@@ -89,21 +89,12 @@ ServerEvents.recipes((event) => {
     //# =================================================================================================== #
 
     //#region MiningLens
-    const MiningLensPattern = [
-        {
-            get: { item: "aethersteel:aether_debris" },
-            put: { item: "minecraft:deepslate" },
-            perc: 1,
-        },
-    ];
-    MiningLensPattern.forEach((recipe) => {
-        event.custom({
-            type: "actuallyadditions:mining_lens",
-            ingredient: recipe.put,
-            output_type: "item",
-            result: recipe.get,
-            weight: recipe.perc,
-        });
+    event.custom({
+        type: "actuallyadditions:mining_lens",
+        ingredient: { item: "minecraft:deepslate" },
+        output_type: "item",
+        result: { item: "aethersteel:aether_debris" },
+        weight: 1,
     });
     //#endregion
 });
