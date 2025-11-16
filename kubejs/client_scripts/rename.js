@@ -10,77 +10,43 @@ ClientEvents.lang("en_us", (event) => {
         { item: "mekanismgenerators:wind_generator", new: "Solar Wind Generator" },
         { item: "thermal:coal_coke", new: "Coal Coke" },
         { item: "extendedcrafting:handheld_table", new: "Crafting Table On A Stick" },
-
-        //Drive
-        { item: "ae2:item_storage_cell_1k", new: "1k ME Item Disk Drive" },
-        { item: "ae2:item_storage_cell_4k", new: "4k ME Item Disk Drive" },
-        { item: "ae2:item_storage_cell_16k", new: "16k ME Item Disk Drive" },
-        { item: "ae2:item_storage_cell_64k", new: "64k ME Item Disk Drive" },
-        { item: "ae2:item_storage_cell_256k", new: "256k ME Item Disk Drive" },
-        { item: "ae2:fluid_storage_cell_1k", new: "1k ME Fluid Disk Drive" },
-        { item: "ae2:fluid_storage_cell_4k", new: "4k ME Fluid Disk Drive" },
-        { item: "ae2:fluid_storage_cell_16k", new: "16k ME Fluid Disk Drive" },
-        { item: "ae2:fluid_storage_cell_64k", new: "64k ME Fluid Disk Drive" },
-        { item: "ae2:fluid_storage_cell_256k", new: "256k ME Fluid Disk Drive" },
-        { item: "appmek:chemical_storage_cell_1k", new: "1k ME Chemical Disk Drive" },
-        { item: "appmek:chemical_storage_cell_4k", new: "4k ME Chemical Disk Drive" },
-        { item: "appmek:chemical_storage_cell_16k", new: "16k ME Chemical Disk Drive" },
-        { item: "appmek:chemical_storage_cell_64k", new: "64k ME Chemical Disk Drive" },
-        { item: "appmek:chemical_storage_cell_256k", new: "256k ME Chemical Disk Drive" },
-        { item: "appflux:fe_1k_cell", new: "1k ME Energy Disk Drive" },
-        { item: "appflux:fe_4k_cell", new: "4k ME Energy Disk Drive" },
-        { item: "appflux:fe_16k_cell", new: "16k ME Energy Disk Drive" },
-        { item: "appflux:fe_64k_cell", new: "64k ME Energy Disk Drive" },
-        { item: "appflux:fe_256k_cell", new: "256k ME Energy Disk Drive" },
-        { item: "appbot:mana_storage_cell_1k", new: "1k ME Mana Disk Drive" },
-        { item: "appbot:mana_storage_cell_4k", new: "4k ME Mana Disk Drive" },
-        { item: "appbot:mana_storage_cell_16k", new: "16k ME Mana Disk Drive" },
-        { item: "appbot:mana_storage_cell_64k", new: "64k ME Mana Disk Drive" },
-        { item: "appbot:mana_storage_cell_256k", new: "256k ME Mana Disk Drive" },
-        { item: "arseng:source_storage_cell_1k", new: "1k ME Source Disk Drive" },
-        { item: "arseng:source_storage_cell_4k", new: "4k ME Source Disk Drive" },
-        { item: "arseng:source_storage_cell_16k", new: "16k ME Source Disk Drive" },
-        { item: "arseng:source_storage_cell_64k", new: "64k ME Source Disk Drive" },
-        { item: "arseng:source_storage_cell_256k", new: "256k ME Source Disk Drive" },
-        { item: "ae2things:disk_drive_1k", new: "1k ME DISK Drive" },
-        { item: "ae2things:disk_drive_4k", new: "4k ME DISK Drive" },
-        { item: "ae2things:disk_drive_16k", new: "16k ME DISK Drive" },
-        { item: "ae2things:disk_drive_64k", new: "64k ME DISK Drive" },
-        { item: "ae2things:disk_drive_256k", new: "256k ME DISK Drive" },
-
-        //Portable
-        { item: "ae2:portable_item_cell_1k", new: "1k Portable Item Disk Drive" },
-        { item: "ae2:portable_item_cell_4k", new: "4k Portable Item Disk Drive" },
-        { item: "ae2:portable_item_cell_16k", new: "16k Portable Item Disk Drive" },
-        { item: "ae2:portable_item_cell_64k", new: "64k Portable Item Disk Drive" },
-        { item: "ae2:portable_item_cell_256k", new: "256k Portable Item Disk Drive" },
-        { item: "ae2:portable_fluid_cell_1k", new: "1k Portable Fluid Disk Drive" },
-        { item: "ae2:portable_fluid_cell_4k", new: "4k Portable Fluid Disk Drive" },
-        { item: "ae2:portable_fluid_cell_16k", new: "16k Portable Fluid Disk Drive" },
-        { item: "ae2:portable_fluid_cell_64k", new: "64k Portable Fluid Disk Drive" },
-        { item: "ae2:portable_fluid_cell_256k", new: "256k Portable Fluid Disk Drive" },
-        { item: "appmek:portable_chemical_storage_cell_1k", new: "1k Portable Chemical Disk Drive" },
-        { item: "appmek:portable_chemical_storage_cell_4k", new: "4k Portable Chemical Disk Drive" },
-        { item: "appmek:portable_chemical_storage_cell_16k", new: "16k Portable Chemical Disk Drive" },
-        { item: "appmek:portable_chemical_storage_cell_64k", new: "64k Portable Chemical Disk Drive" },
-        { item: "appmek:portable_chemical_storage_cell_256k", new: "256k Portable Chemical Disk Drive" },
-        { item: "appflux:fe_1k_portable_cell", new: "1k Portable Energy Disk Drive" },
-        { item: "appflux:fe_4k_portable_cell", new: "4k Portable Energy Disk Drive" },
-        { item: "appflux:fe_16k_portable_cell", new: "16k Portable Energy Disk Drive" },
-        { item: "appflux:fe_64k_portable_cell", new: "64k Portable Energy Disk Drive" },
-        { item: "appflux:fe_256k_portable_cell", new: "256k Portable Energy Disk Drive" },
-        { item: "appbot:portable_mana_storage_cell_1k", new: "1k Portable Mana Disk Drive" },
-        { item: "appbot:portable_mana_storage_cell_4k", new: "4k Portable Mana Disk Drive" },
-        { item: "appbot:portable_mana_storage_cell_16k", new: "16k Portable Mana Disk Drive" },
-        { item: "appbot:portable_mana_storage_cell_64k", new: "64k Portable Mana Disk Drive" },
-        { item: "appbot:portable_mana_storage_cell_256k", new: "256k Portable Mana Disk Drive" },
-        { item: "arseng:portable_source_cell_1k", new: "1k Portable Source Disk Drive" },
-        { item: "arseng:portable_source_cell_4k", new: "4k Portable Source Disk Drive" },
-        { item: "arseng:portable_source_cell_16k", new: "16k Portable Source Disk Drive" },
-        { item: "arseng:portable_source_cell_64k", new: "64k Portable Source Disk Drive" },
-        { item: "arseng:portable_source_cell_256k", new: "256k Portable Source Disk Drive" },
     ];
     RenamePattern.forEach((name) => event.renameItem(name.item, name.new));
+    //#endregion
+
+    //#region Rename Disk
+    const SizePattern = ["1k", "4k", "16k", "64k", "256k"];
+
+    const DiskTypePattern = [
+        //Drive
+        { prefix: "ae2:item_storage_cell_", new: "ME Item Disk Drive" },
+        { prefix: "ae2:fluid_storage_cell_", new: "ME Fluid Disk Drive" },
+        { prefix: "appmek:chemical_storage_cell_", new: "ME Chemical Disk Drive" },
+        { prefix: "appflux:fe_", new: "ME Energy Disk Drive", suffix: "_cell" },
+        { prefix: "appbot:mana_storage_cell_", new: "ME Mana Disk Drive" },
+        { prefix: "arseng:source_storage_cell_", new: "ME Source Disk Drive" },
+        { prefix: "ae2things:disk_drive_", new: "ME DISK Drive" },
+
+        //Portable
+        { prefix: "ae2:portable_item_cell_", new: "Portable Item Disk Drive" },
+        { prefix: "ae2:portable_fluid_cell_", new: "Portable Fluid Disk Drive" },
+        { prefix: "appmek:portable_chemical_storage_cell_", new: "Portable Chemical Disk Drive" },
+        { prefix: "appflux:fe_", new: "Portable Energy Disk Drive", suffix: "_portable_cell" },
+        { prefix: "appbot:portable_mana_storage_cell_", new: "Portable Mana Disk Drive" },
+        { prefix: "arseng:portable_source_cell_", new: "Portable Source Disk Drive" },
+    ];
+
+    const DiskRaname = [];
+
+    DiskTypePattern.forEach((type) => {
+        SizePattern.forEach((size) => {
+            const itemID = type.prefix + size + (type.suffix ?? "");
+            const newName = size + " " + type.label;
+            DiskRaname.push({ item: itemID, new: newName });
+        });
+    });
+
+    DiskRaname.forEach((name) => event.renameItem(name.item, name.new));
     //#endregion
 
     //# =================================================================================================== #

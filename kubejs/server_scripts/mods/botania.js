@@ -45,7 +45,7 @@ ServerEvents.recipes((event) => {
     //#region Mana Infusion
     event.remove({ output: "mysticalagriculture:prosperity_seed_base" });
     const ManaInfusionPattern = [
-        { get: "mysticalagriculture:prosperity_seed_base", put: { tag: "forge:seeds" }, magic: 5000 },
+        { get: "mysticalagriculture:prosperity_seed_base", put: "forge:seeds", magic: 5000 },
 
         //Ad Astra Transmutation
         { get: "ad_astra:moon_sand", put: "ad_astra:mars_sand", magic: 500, alchemy: "botania:alchemy_catalyst" },
@@ -74,54 +74,21 @@ ServerEvents.recipes((event) => {
         { get: "mekanism:elite_tier_installer", put: "mekanism:advanced_tier_installer", magic: 1000000, alchemy: "mekanism:elite_energy_cube" },
     ];
     ManaInfusionPattern.forEach((recipe) => {
-        /*         if (recipe.n0) {
-            if (recipe.alchemy) {
-                event.custom({
-                    type: "botania:mana_infusion",
-                    catalyst: recipe.alchemy,
-                    input: recipe.put,
-                    output: { count: recipe.n0, item: recipe.get },
-                    mana: recipe.magic,
-                });
-            } else {
-                event.custom({
-                    type: "botania:mana_infusion",
-                    input: recipe.put,
-                    output: { count: recipe.n0, item: recipe.get },
-                    mana: recipe.magic,
-                });
-            }
-        } else {
-            if (recipe.alchemy) {
-                event.custom({
-                    type: "botania:mana_infusion",
-                    catalyst: recipe.alchemy,
-                    input: recipe.put,
-                    output: { item: recipe.get },
-                    mana: recipe.magic,
-                });
-            } else {
-                event.custom({
-                    type: "botania:mana_infusion",
-                    input: recipe.put,
-                    output: { item: recipe.get },
-                    mana: recipe.magic,
-                });
-            }
-        } */
-    });
-    ManaInfusionPattern.forEach((recipe) => {
         const data = {
             type: "botania:mana_infusion",
-            output: { item: recipe.get },
             mana: recipe.magic,
+            output: { item: recipe.get },
         };
 
-        if (recipe.put.startsWith("forge:")) data.input = { tag: recipe.put };
-        else data.input = { item: recipe.put };
+        // input: tag o item
+        if (recipe.put.startsWith("forge:")) data.input = { item: recipe.put };
+        else data.input = { tag: recipe.put };
 
+        // output count
         if (recipe.n0) data.output.count = recipe.n0;
-        if (recipe.alchemy) data.catalyst = { type: "block", block: recipe.alchemy };
+
+        // catalyst
+        if (recipe.alchemy) data.catalyst = recipe.alchemy;
 
         event.custom(data);
     });
@@ -961,7 +928,7 @@ ServerEvents.recipes((event) => {
     ];
     RunicAltarPattern.forEach((recipe) => {
         if (recipe.put[0].item === "mysticalagriculture:prosperity_seed_base" && recipe.put[0].item === "mysticalagriculture:soulium_seed_base") {
-            event.remove({ output: recipe.get });
+            event.remove({ output: recipe.get.item });
             event.custom({
                 type: "botania:runic_altar",
                 ingredients: recipe.put,
