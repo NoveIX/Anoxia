@@ -18,6 +18,19 @@ ServerEvents.recipes((event) => {
     //# =================================================================================================== #
 
     //#region Recipes
+    //Shaft
+    event.remove({ output: "create:shaft" });
+    event.shaped(Item.of("create:shaft", 4), ["A", "A"], { A: "create:andesite_alloy" });
+
+    //Cogwheel
+    event.remove({ output: "create:cogwheel" });
+    event.shapeless("create:cogwheel", ["create:shaft", "#forge:gears/wood"]);
+
+    //Large cogwheel
+    event.remove({ output: "create:large_cogwheel" });
+    event.shapeless("create:large_cogwheel", ["create:cogwheel", "#forge:gears/wood"]);
+    event.shapeless("create:large_cogwheel", ["create:shaft", "#forge:gears/wood", "#forge:gears/wood"]);
+
     //Millstone
     event.remove({ output: "create:millstone" });
     event.shaped("create:millstone", [" A ", " B ", "CCC"], { A: "supplementaries:timber_frame", B: "create:large_cogwheel", C: "anoxia:compressed_andesite" });
@@ -34,7 +47,7 @@ ServerEvents.recipes((event) => {
 
     //Sawmill
     event.remove({ output: "create:mechanical_saw" });
-    event.shaped("create:mechanical_saw", [" A ", "BCB", "BBB"], { A: "#forge:sawblades", B: "create:andesite_casing", C: "create:shaft" });
+    event.shaped("create:mechanical_saw", ["A", "B"], { A: "#forge:sawblades", B: "create:andesite_casing" });
 
     //Spool
     event.remove({ output: "createaddition:spool" });
@@ -64,15 +77,8 @@ ServerEvents.recipes((event) => {
 
     const CuttingPatern = [
         //Unification
-        {
-            //create:copper_plate => "forge:plates/copper"
-            get: [{ count: 10, item: "tacz_c:thin_copper_sheet" }],
-            put: [{ tag: "forge:plates/copper" }],
-        },
-        {
-            get: [{ count: 10, item: "tacz_c:thin_brass_sheet" }],
-            put: [{ tag: "forge:plates/brass" }],
-        },
+        { get: [{ count: 10, item: "tacz_c:thin_copper_sheet" }], put: [{ tag: "forge:plates/copper" }] },
+        { get: [{ count: 10, item: "tacz_c:thin_brass_sheet" }], put: [{ tag: "forge:plates/brass" }] },
     ];
     CuttingPatern.forEach((recipe) => {
         event.custom({
@@ -85,16 +91,40 @@ ServerEvents.recipes((event) => {
     //# =================================================================================================== #
 
     //#region Compacting
-    const CompactingPattern = [
-        {
-            //Restore CakeBase => accept Forge:Dough (PamHC)
-            get: [{ item: "createaddition:cake_base" }],
-            put: [{ tag: "forge:eggs" }, { item: "minecraft:sugar" }, { item: "minecraft:sugar" }, { tag: "forge:dough" }],
-        },
-    ];
+    const CompactingPattern = [{ get: [{ item: "createaddition:cake_base" }], put: [{ tag: "forge:eggs" }, { item: "minecraft:sugar" }, { item: "minecraft:sugar" }, { tag: "forge:dough" }] }];
     CompactingPattern.forEach((recipe) => {
         event.custom({
             type: "create:compacting",
+            ingredients: recipe.put,
+            results: recipe.get,
+        });
+    });
+    //#endregion
+
+    //# =================================================================================================== #
+
+    //#region Cutting
+    const CuttingPattern = [{ get: [{ count: 3, item: "create:shaft" }], put: [{ item: "create:andesite_alloy" }] }];
+    CuttingPattern.forEach((recipe) => {
+        event.custom({
+            type: "create:cutting",
+            ingredients: recipe.put,
+            processingTime: 200,
+            results: recipe.get,
+        });
+    });
+    //#endregion
+
+    //# =================================================================================================== #
+
+    //#region Deploy
+    const DeployPattern = [
+        { get: [{ item: "create:cogwheel" }], put: [{ item: "create:shaft" }, { tag: "forge:gears/wood" }] },
+        { get: [{ item: "create:large_cogwheel" }], put: [{ item: "create:cogwheel" }, { tag: "forge:gears/wood" }] },
+    ];
+    DeployPattern.forEach((recipe) => {
+        event.custom({
+            type: "create:deploying",
             ingredients: recipe.put,
             results: recipe.get,
         });
@@ -137,20 +167,15 @@ ServerEvents.recipes((event) => {
         { get: 6000, put: { fluid: "tconstruct:blazing_blood", amount: 1000 }, heat: true },
     ];
     LiquidBurningPattern.forEach((recipe) => {
-        if (recipe.heat) {
-            event.custom({
-                type: "createaddition:liquid_burning",
-                input: recipe.put,
-                superheated: recipe.heat,
-                burnTime: recipe.get,
-            });
-        } else {
-            event.custom({
-                type: "createaddition:liquid_burning",
-                input: recipe.put,
-                burnTime: recipe.get,
-            });
-        }
+        const data = {
+            type: "createaddition:liquid_burning",
+            input: recipe.put,
+            burnTime: recipe.get,
+        };
+
+        if (recipe.heat) data.superheated = recipe.heat;
+
+        event.custom(data);
     });
     //#endregion
 
@@ -189,29 +214,33 @@ ServerEvents.recipes((event) => {
         },
     ];
     MixingPattern.forEach((recipe) => {
-        if (!recipe.heat) {
-            event.custom({
-                type: "create:mixing",
-                ingredients: recipe.put,
-                results: recipe.get,
-            });
-        } else if (recipe.heat === "heated") {
-            event.custom({
-                type: "create:mixing",
-                heatRequirement: "heated",
-                ingredients: recipe.put,
-                results: recipe.get,
-            });
-        } else if (recipe.heat === "superheated") {
-            event.custom({
-                type: "create:mixing",
-                heatRequirement: "superheated",
-                ingredients: recipe.put,
-                results: recipe.get,
-            });
-        }
+        const data = {
+            type: "create:mixing",
+            ingredients: recipe.put,
+            results: recipe.get,
+        };
+
+        if (recipe.heat) data.heatRequirement = recipe.heat;
+
+        event.custom(data);
     });
     //#endregion
+
+    //# =================================================================================================== #
+
+    //#region Mechanical Crafting
+    event.remove({ output: "create:crushing_wheel" });
+    event.custom({
+        type: "create:mechanical_crafting",
+        acceptMirrored: false,
+        key: {
+            A: { item: "create:andesite_alloy" },
+            P: { tag: "minecraft:planks" },
+            S: { item: "anoxia:compressed_andesite" },
+        },
+        pattern: [" AAA ", "AAPAA", "APSPA", "AAPAA", " AAA "],
+        result: { count: 1, item: "create:crushing_wheel" },
+    });
 
     //# =================================================================================================== #
 

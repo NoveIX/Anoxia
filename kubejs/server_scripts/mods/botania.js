@@ -81,14 +81,14 @@ ServerEvents.recipes((event) => {
         };
 
         // input: tag o item
-        if (recipe.put.startsWith("forge:")) data.input = { item: recipe.put };
-        else data.input = { tag: recipe.put };
+        if (recipe.put.startsWith("forge:")) data.input = { tag: recipe.put };
+        else data.input = { item: recipe.put };
 
         // output count
         if (recipe.n0) data.output.count = recipe.n0;
 
         // catalyst
-        if (recipe.alchemy) data.catalyst = recipe.alchemy;
+        if (recipe.alchemy) data.catalyst = { type: "block", block: recipe.alchemy };
 
         event.custom(data);
     });
