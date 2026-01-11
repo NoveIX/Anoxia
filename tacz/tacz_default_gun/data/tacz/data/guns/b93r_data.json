@@ -83,7 +83,7 @@
   },
   "fire_mode_adjust": {
     "semi": {
-      "head_shot_multiplier": 0.25,
+      "head_shot_multiplier": 0.0,
       "aim_inaccuracy": -0.06,
       "other_inaccuracy": -0.25
     }

@@ -84,9 +84,9 @@
   "fire_mode_adjust": {
     "semi": {
       // 加算
-      "damage": 1,
+      "damage": 2,
       "rpm": -400,
-      "head_shot_multiplier": 0.2,
+      "head_shot_multiplier": 0,
       "aim_inaccuracy": -0.05,
       "other_inaccuracy": -0.5
     }

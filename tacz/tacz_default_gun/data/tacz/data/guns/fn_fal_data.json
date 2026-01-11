@@ -38,9 +38,9 @@
       "armor_ignore": 0.4,
       "head_shot_multiplier": 1.35,
       "damage_adjust": [
-        {"distance": 35, "damage": 13},
-        {"distance": 50, "damage": 11},
-        {"distance": 65, "damage": 9},
+        {"distance": 42, "damage": 13},
+        {"distance": 57, "damage": 11},
+        {"distance": 72, "damage": 9},
         {"distance": "infinite", "damage": 7}
       ]
     },
@@ -92,8 +92,8 @@
       "rpm": 300,
       "speed": 0,
       "knockback": 0,
-      "armor_ignore": -0.2,
-      "head_shot_multiplier": -0.3,
+      "armor_ignore": 0.0,
+      "head_shot_multiplier": 0.0,
       "aim_inaccuracy": 0.1,
       "other_inaccuracy": 0.3
     }
