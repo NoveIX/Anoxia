@@ -28,7 +28,7 @@
 /schematics
 /screenshots
 /shaderpacks
-#/tacz*
+/tacz_*
 /tools
 .curseclient
 knownkeys.txt

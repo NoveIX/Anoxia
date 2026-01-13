@@ -4,7 +4,7 @@ ItemEvents.modification((event) => {
     event.modify("thermal:sawdust", (item) => (item.burnTime = 100));
     event.modify("mekanism:sawdust", (item) => (item.burnTime = 100));
 
-    //Vanilla maxStackSize
+    //Vanilla Max Stack Size
     event.modify(Item.of("minecraft:potion"), (data) => { data.maxStackSize = 64; });
     event.modify(Item.of("minecraft:splash_potion"), (data) => { data.maxStackSize = 64; });
     event.modify(Item.of("minecraft:lingering_potion"), (data) => { data.maxStackSize = 64; });

@@ -1,17 +1,15 @@
 //priority:1
 PlayerEvents.loggedIn((event) => {
-    //#region Definition
+    //Definition
     const AkashicTome = Item.of("akashictome:tome", '{"akashictome:data":{ftbquests:{Count:1b,id:"ftbquests:book"}}}');
     const Helmet = Item.of("ad_astra:space_helmet", "{Damage:0}");
     const Suit = Item.of("ad_astra:space_suit", '{BotariumData:{StoredFluids:[{Amount:2500L,Fluid:"ad_astra:oxygen"}]},Damage:0}');
     const Pants = Item.of("ad_astra:space_pants", "{Damage:0}");
     const Boots = Item.of("ad_astra:space_boots", "{Damage:0}");
-    //#endregion
 
     //# =================================================================================================== #
 
-    //#region Recipes function
-    //KubeJS
+    //Starting Item
     if (!event.player.stages.has("starting_item")) {
         event.player.stages.add("starting_item");
         event.entity.setItemSlot(5, Helmet);
@@ -20,5 +18,4 @@ PlayerEvents.loggedIn((event) => {
         event.entity.setItemSlot(2, Boots);
         event.player.give(AkashicTome);
     }
-    //#endregion
 });
