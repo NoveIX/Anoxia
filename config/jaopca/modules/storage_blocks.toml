@@ -4,6 +4,7 @@
 	materialBlacklist = [
 		"netherite_scrap",
 		"aethersteel_scrap",
-		"hellforged"
+		"hellforged",
+		"mithril"
 ]
 
