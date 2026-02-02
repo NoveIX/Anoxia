@@ -1,4 +1,5 @@
-//priority:999
+//priority:980
+
 //#region Item
 ServerEvents.tags("item", (event) => {
     //Game Remove

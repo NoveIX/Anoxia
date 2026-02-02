@@ -1,4 +1,5 @@
-//priority:1000
+//priority:990
+
 ServerEvents.recipes((event) => {
     //Item
     global.items.GAME_RmOut.forEach((item) => event.remove({ output: item }));

@@ -1,5 +1,3 @@
-//priority:1001
-
 global.MeltPoint = {
     //Primary Metal
     Iron: 1538,

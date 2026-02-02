@@ -1,4 +1,5 @@
-//priority:996
+//priority:950
+
 ServerEvents.recipes((event) => {
     //#region Remove ID
     const RmRecipeID = [
