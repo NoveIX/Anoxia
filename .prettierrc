@@ -1,5 +1,29 @@
 {
-  "printWidth": 320,
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "printWidth": 40,
+        "bracketSpacing": true,
+        "bracketSameLine": false
+      }
+    },
+    {
+      "files": ["*.js", "*.cjs", "*.mjs"],
+      "options": {
+        "printWidth": 320,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": true,
+        "bracketSpacing": true,
+        "bracketSameLine": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+        "endOfLine": "lf"
+      }
+    }
+  ]
 }
