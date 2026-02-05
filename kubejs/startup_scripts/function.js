@@ -35,11 +35,15 @@ Anoxia.Function.Tinker = {
     return (RadiationFact + ConductionFact) / 2;
   },
 
-  getCoolingTicks(meltPoint, ingot) {
-    return Math.round(CoolingTime * (meltPoint / 900) * Math.sqrt(ingot) * this.getAmbientFactor());
+  getBaseFactor(meltPoint, ingot) {
+    return (meltPoint / 900) * Math.sqrt(ingot) * this.getAmbientFactor();
   },
 
-  getMeltingTicks(meltPoint, ingot) {
-    return Math.round((MeltTime * (meltPoint / 900) * Math.sqrt(ingot) * this.getAmbientFactor()) / HeatFact);
+  getCoolingTick(meltPoint, ingot) {
+    return Math.round(CoolingTime * this.getBaseFactor(meltPoint, ingot));
+  },
+
+  getMeltingTick(meltPoint, ingot) {
+    return Math.round((MeltTime * this.getBaseFactor(meltPoint, ingot)) / HeatFact);
   },
 };

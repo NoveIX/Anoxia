@@ -11,13 +11,18 @@ Anoxia.Constant.Tinker = Anoxia.Constant.Tinker || {};
 Anoxia.Function = Anoxia.Function || {};
 Anoxia.Function.Generic = Anoxia.Function.Generic || {};
 Anoxia.Function.Tinker = Anoxia.Function.Tinker || {};
+Anoxia.Function.Tinker2 = Anoxia.Function.Tinker2 || {};
+
+//Game Namespace
+Anoxia.Game = Anoxia.Game || {};
+Anoxia.Game.Item = Anoxia.Game.Item || {};
+Anoxia.Game.Fluid = Anoxia.Game.Fluid || {};
+Anoxia.Game.Recipe = Anoxia.Game.Recipe || {};
 
 //# =================================================================================================== #
 
-global.items = {};
-
-//#region Remove out item
-global.items.GAME_RmOut = [
+//#region RmOut item
+Anoxia.Game.Item.RmOut = [
   //Ad Astra
   'ad_astra:tier_1_rocket',
   'ad_astra:tier_2_rocket',
@@ -434,8 +439,8 @@ global.items.GAME_RmOut = [
 ];
 //#endregion
 
-//#region Remove in item
-global.items.GAME_RmIn = [
+//#region RmIn item
+Anoxia.Game.Item.RmIn = [
   'mysticalagriculture:dye_essence',
   'mysticalagriculture:rubber_essence',
   'mysticalagriculture:silicon_essence',
@@ -499,8 +504,8 @@ global.items.GAME_RmIn = [
 ];
 //#endregion
 
-//#region JEI add item
-global.items.JEI_Add = [
+//#region Jei add item
+Anoxia.Game.Item.JeiAdd = [
   //Immersive
   'immersiveengineering:coke',
   'immersiveengineering:storage_aluminum',
@@ -563,8 +568,8 @@ global.items.JEI_Add = [
 ];
 //#endregion
 
-//#region JEI hide item
-global.items.JEI_Hide = [
+//#region Jei hide item
+Anoxia.Game.Item.JeiHide = [
   //Mekanism
   'mekanism:creative_chemical_tank',
   'mekanism:creative_fluid_tank',
@@ -618,10 +623,8 @@ global.items.JEI_Hide = [
 
 //# =================================================================================================== #
 
-global.fluid = {};
-
-//#region Remove out fluid
-global.fluid.GAME_RmOut = [
+//#region RmOut fluid
+Anoxia.Game.Fluid.RmOut = [
   //EnderIO
   'enderio:dew_of_the_void',
   'enderio:vapor_of_levity',
@@ -633,25 +636,22 @@ global.fluid.GAME_RmOut = [
 ];
 //#endregion
 
-//#region Remove in fluid
-global.fluid.GAME_RmIn = [];
+//#region RmIn fluid
+Anoxia.Game.Fluid.RmIn = [];
 //#endregion
 
-//#region JEI add fluid
-global.fluid.JEI_Add = [];
+//#region Jei add fluid
+Anoxia.Game.Fluid.JeiAdd = [];
 //#endregion
 
-//#region JEI hide fluid
-global.fluid.JEI_Hide = [];
+//#region Jei hide fluid
+Anoxia.Game.Fluid.JeiHide = [];
 //#endregion
 
 //# =================================================================================================== #
 
-//#region Rm recipeID
-global.recipe = {};
-
-//#region Rm recipeID
-global.recipe.GAME_Rmid = [
+//#region RmID
+Anoxia.Game.Recipe.RmId = [
   //Minecraft
   'minecraft:ens_ancient_debris',
 
