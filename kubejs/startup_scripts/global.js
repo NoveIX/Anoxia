@@ -1,18 +1,19 @@
 //priority:1000
 
-//Main namespace
-const Anoxia = Anoxia || {};
+// Main namespace (GLOBAL)
+global.Anoxia = global.Anoxia || {};
+const Anoxia = global.Anoxia; // alias locale comodo
 
-//Constant Namespace
+// Constant Namespace
 Anoxia.Constant = Anoxia.Constant || {};
 Anoxia.Constant.Tinker = Anoxia.Constant.Tinker || {};
 
-//Function Namespace
+// Function Namespace
 Anoxia.Function = Anoxia.Function || {};
 Anoxia.Function.Generic = Anoxia.Function.Generic || {};
 Anoxia.Function.Tinker = Anoxia.Function.Tinker || {};
 
-//Game Namespace
+// Game Namespace
 Anoxia.Game = Anoxia.Game || {};
 Anoxia.Game.Item = Anoxia.Game.Item || {};
 Anoxia.Game.Fluid = Anoxia.Game.Fluid || {};

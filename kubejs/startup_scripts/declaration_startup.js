@@ -1,9 +1,9 @@
 //priority:940
 
 //Constant
-const Item = Anoxia.Game.Item;
-const Fluid = Anoxia.Game.Fluid;
-const Recipe = Anoxia.Game.Recipe;
+const GameItem = Anoxia.Game.Item;
+const GameFluid = Anoxia.Game.Fluid;
+const GameRecipe = Anoxia.Game.Recipe;
 const Material = Anoxia.Constant.Tinker.Material;
 
 //region Fx Generic

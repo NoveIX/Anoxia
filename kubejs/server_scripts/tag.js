@@ -3,7 +3,7 @@
 //#region Item
 ServerEvents.tags('item', (event) => {
   //Game Remove
-  Item.RmOut.forEach((id) => event.removeAllTagsFrom(id));
+  Anoxia.Game.Item.RmOut.forEach((id) => event.removeAllTagsFrom(id));
 
   //# =================================================================================================== #
 
@@ -230,7 +230,7 @@ ServerEvents.tags('block', (event) => {
 //#region Fluid
 ServerEvents.tags('fluid', (event) => {
   //Game Remove
-  Item.RmOut.forEach((id) => event.removeAllTagsFrom(id));
+  Anoxia.Game.Fluid.RmOut.forEach((id) => event.removeAllTagsFrom(id));
 
   //# =================================================================================================== #
 
