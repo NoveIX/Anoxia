@@ -1,81 +1,81 @@
 ServerEvents.recipes((event) => {
-    //#region func Rod
-    function RodCrafting(recipe) {
-        event.shaped(recipe.get, ["R", "R"], { R: `#${recipe.put}` });
-    }
+  //#region func Rod
+  function RodCrafting(recipe) {
+    event.shaped(recipe.get, ['R', 'R'], { R: `#${recipe.put}` });
+  }
 
-    function RodCreate(recipe) {
-        event.custom({
-            type: "createaddition:rolling",
-            input: { tag: recipe.put },
-            result: { item: recipe.get, count: 1 },
-        });
-    }
-
-    function RodImmersive(recipe) {
-        event.custom({
-            type: "immersiveengineering:metal_press",
-            mold: "immersiveengineering:mold_rod",
-            input: { tag: recipe.put },
-            result: { base_ingredient: { item: recipe.get }, count: 1 },
-            energy: recipe.rsflux,
-        });
-    }
-
-    function RodThermal(recipe) {
-        event.custom({
-            type: "thermal:press",
-            energy: recipe.rsflux,
-            ingredients: [{ tag: recipe.put, count: 1 }, { item: "anoxia:press_rod_die" }],
-            result: [{ count: 1, item: recipe.get }],
-        });
-    }
-
-    function RodTinker(recipe) {
-        event.custom({
-            type: "tconstruct:casting_table",
-            cast: { tag: "tconstruct:casts/single_use/rod" },
-            cast_consumed: true,
-            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
-            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
-            result: recipe.get,
-        });
-
-        event.custom({
-            type: "tconstruct:casting_table",
-            cast: { tag: "tconstruct:casts/multi_use/rod" },
-            cooling_time: global.GetCoolingTicks(recipe.meltPoint, 1),
-            fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
-            result: recipe.get,
-        });
-    }
-    //#endregion
-
-    //# =================================================================================================== #
-
-    //#region Rod
-    const RodPattern = [
-        //Create
-        { get: "createaddition:copper_rod", put: "forge:ingots/copper", molten: "copper", meltPoint: melt.Copper, rsflux: 4000 },
-        { get: "createaddition:gold_rod", put: "forge:ingots/gold", molten: "gold", meltPoint: melt.Gold, rsflux: 4000 },
-        { get: "createaddition:electrum_rod", put: "forge:ingots/electrum", molten: "electrum", meltPoint: melt.Electrum, rsflux: 6000 },
-        { get: "createaddition:brass_rod", put: "forge:ingots/brass", molten: "brass", meltPoint: melt.Brass, rsflux: 6000 },
-
-        //Immersive
-        { get: "immersiveengineering:stick_iron", put: "forge:ingots/iron", molten: "iron", meltPoint: melt.Iron, rsflux: 4000 },
-        { get: "immersiveengineering:stick_steel", put: "forge:ingots/steel", molten: "steel", meltPoint: melt.Steel, rsflux: 6000 },
-        { get: "immersiveengineering:stick_aluminum", put: "forge:ingots/aluminum", molten: "aluminum", meltPoint: melt.Aluminum, rsflux: 4000 },
-    ];
-    RodPattern.forEach((recipe) => {
-        //Remove
-        event.remove({ output: recipe.get });
-
-        //Recipe
-        RodCrafting(recipe);
-        RodCreate(recipe);
-        RodImmersive(recipe);
-        RodThermal(recipe);
-        RodTinker(recipe);
+  function RodCreate(recipe) {
+    event.custom({
+      type: 'createaddition:rolling',
+      input: { tag: recipe.put },
+      result: { item: recipe.get, count: 1 },
     });
-    //#endregion
+  }
+
+  function RodImmersive(recipe) {
+    event.custom({
+      type: 'immersiveengineering:metal_press',
+      mold: 'immersiveengineering:mold_rod',
+      input: { tag: recipe.put },
+      result: { base_ingredient: { item: recipe.get }, count: 1 },
+      energy: recipe.rsflux,
+    });
+  }
+
+  function RodThermal(recipe) {
+    event.custom({
+      type: 'thermal:press',
+      energy: recipe.rsflux,
+      ingredients: [{ tag: recipe.put, count: 1 }, { item: 'anoxia:press_rod_die' }],
+      result: [{ count: 1, item: recipe.get }],
+    });
+  }
+
+  function RodTinker(recipe) {
+    event.custom({
+      type: 'tconstruct:casting_table',
+      cast: { tag: 'tconstruct:casts/single_use/rod' },
+      cast_consumed: true,
+      cooling_time: getCoolingTick(recipe.material, 1),
+      fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+      result: recipe.get,
+    });
+
+    event.custom({
+      type: 'tconstruct:casting_table',
+      cast: { tag: 'tconstruct:casts/multi_use/rod' },
+      cooling_time: getCoolingTick(recipe.material, 1),
+      fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
+      result: recipe.get,
+    });
+  }
+  //#endregion
+
+  //# =================================================================================================== #
+
+  //#region Rod
+  const RodPattern = [
+    //Create
+    { get: 'createaddition:copper_rod', put: 'forge:ingots/copper', molten: 'copper', material: Material.Copper, rsflux: 4000 },
+    { get: 'createaddition:gold_rod', put: 'forge:ingots/gold', molten: 'gold', material: Material.Gold, rsflux: 4000 },
+    { get: 'createaddition:electrum_rod', put: 'forge:ingots/electrum', molten: 'electrum', material: Material.Electrum, rsflux: 6000 },
+    { get: 'createaddition:brass_rod', put: 'forge:ingots/brass', molten: 'brass', material: Material.Brass, rsflux: 6000 },
+
+    //Immersive
+    { get: 'immersiveengineering:stick_iron', put: 'forge:ingots/iron', molten: 'iron', material: Material.Iron, rsflux: 4000 },
+    { get: 'immersiveengineering:stick_steel', put: 'forge:ingots/steel', molten: 'steel', material: Material.Steel, rsflux: 6000 },
+    { get: 'immersiveengineering:stick_aluminum', put: 'forge:ingots/aluminum', molten: 'aluminum', material: Material.Aluminum, rsflux: 4000 },
+  ];
+  RodPattern.forEach((recipe) => {
+    //Remove
+    event.remove({ output: recipe.get });
+
+    //Recipe
+    RodCrafting(recipe);
+    RodCreate(recipe);
+    RodImmersive(recipe);
+    RodThermal(recipe);
+    RodTinker(recipe);
+  });
+  //#endregion
 });

@@ -1,14 +1,20 @@
 //priority:940
 
+//Constant
+const Item = Anoxia.Game.Item;
+const Fluid = Anoxia.Game.Fluid;
+const Recipe = Anoxia.Game.Recipe;
+const Material = Anoxia.Constant.Tinker.Material;
+
 //region Fx Generic
-var toPascalCase = Anoxia.Function.Generic.toPascalCase.bind(Anoxia.Function);
-var toDisplayName = Anoxia.Function.Generic.toDisplayName.bind(Anoxia.Function);
-var toDisplayNameFromId = Anoxia.Function.Generic.toDisplayNameFromId.bind(Anoxia.Function);
+const Generic = Anoxia.Function.Generic;
+const toPascalCase = Generic.toPascalCase.bind(Generic);
+const toDisplayName = Generic.toDisplayName.bind(Generic);
+const toDisplayNameFromId = Generic.toDisplayNameFromId.bind(Generic);
 //#endregion
 
 //region Fx Tinker
-fxTink = Anoxia.Function.Tinker;
-var getCoolingTicks = fxTink.getCoolingTicks.bind(fxTink);
+const Tinker = Anoxia.Function.Tinker;
+const getCoolingTick = Tinker.getCoolingTick.bind(Tinker);
+const getMeltingTick = Tinker.getMeltingTick.bind(Tinker);
 //#endregion
-
-const melt = global.MeltPoint;

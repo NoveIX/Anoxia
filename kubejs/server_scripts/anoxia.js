@@ -1,85 +1,85 @@
 ServerEvents.recipes((event) => {
-    //Amongus
-    event.shaped("anoxia:amongus", ["BBB", "BAB", "BBB"], { A: "minecraft:rotten_flesh", B: "minecraft:red_wool" });
+  //Amongus
+  event.shaped('anoxia:amongus', ['BBB', 'BAB', 'BBB'], { A: 'minecraft:rotten_flesh', B: 'minecraft:red_wool' });
 
-    //Tiny Charcoal
-    event.shapeless(Item.of("anoxia:tiny_charcoal", 8), "minecraft:charcoal");
-    event.shapeless("minecraft:charcoal", Item.of("anoxia:tiny_charcoal", 8)); //Reverse
+  //Tiny Charcoal
+  event.shapeless(Item.of('anoxia:tiny_charcoal', 8), 'minecraft:charcoal');
+  event.shapeless('minecraft:charcoal', Item.of('anoxia:tiny_charcoal', 8)); //Reverse
 
-    //Tiny Coal
-    event.shapeless(Item.of("anoxia:tiny_coal", 8), "minecraft:coal");
-    event.shapeless("minecraft:coal", Item.of("anoxia:tiny_coal", 8)); //Reverse
+  //Tiny Coal
+  event.shapeless(Item.of('anoxia:tiny_coal', 8), 'minecraft:coal');
+  event.shapeless('minecraft:coal', Item.of('anoxia:tiny_coal', 8)); //Reverse
 
-    //Raw ExNihilo
-    const RawExNihiloPattern = [
-        { get: "mekanism:raw_osmium", put: "anoxia:osmium_pieces" },
-        { get: "tconstruct:raw_cobalt", put: "anoxia:cobalt_pieces" },
-        { get: "ad_astra:raw_desh", put: "anoxia:desh_pieces" },
-        { get: "ad_astra:raw_ostrum", put: "anoxia:ostrum_pieces" },
-        { get: "ad_astra:raw_calorite", put: "anoxia:calorite_pieces" },
-        { get: "bloodmagic:rawdemonite", put: "anoxia:demonite_pieces" },
-        { get: "anoxia:raw_enderite", put: "anoxia:enderite_pieces" },
-    ];
-    RawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ["AA", "AA"], { A: recipe.put }));
+  //Raw ExNihilo
+  const RawExNihiloPattern = [
+    { get: 'mekanism:raw_osmium', put: 'anoxia:osmium_pieces' },
+    { get: 'tconstruct:raw_cobalt', put: 'anoxia:cobalt_pieces' },
+    { get: 'ad_astra:raw_desh', put: 'anoxia:desh_pieces' },
+    { get: 'ad_astra:raw_ostrum', put: 'anoxia:ostrum_pieces' },
+    { get: 'ad_astra:raw_calorite', put: 'anoxia:calorite_pieces' },
+    { get: 'bloodmagic:rawdemonite', put: 'anoxia:demonite_pieces' },
+    { get: 'anoxia:raw_enderite', put: 'anoxia:enderite_pieces' },
+  ];
+  RawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ['AA', 'AA'], { A: recipe.put }));
 
-    //Enderite
-    event.blasting("anoxia:enderite_ingot", "anoxia:raw_enderite");
+  //Enderite
+  event.blasting('anoxia:enderite_ingot', 'anoxia:raw_enderite');
 
-    //Obsidian Ingot
-    event.shapeless("anoxia:obsidian_with_iron", ["#forge:dusts/obsidian", "#forge:dusts/obsidian", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron", "#forge:nuggets/iron"]);
+  //Obsidian Ingot
+  event.shapeless('anoxia:obsidian_with_iron', ['#forge:dusts/obsidian', '#forge:dusts/obsidian', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron']);
 
-    //Press Rod Die
-    event.shaped("anoxia:press_rod_die", [" A ", "ABA", " A "], { A: "#forge:plates/invar", B: "minecraft:blaze_rod" });
+  //Press Rod Die
+  event.shaped('anoxia:press_rod_die', [' A ', 'ABA', ' A '], { A: '#forge:plates/invar', B: 'minecraft:blaze_rod' });
 
-    //Compressed
-    const CompressPattern = [
-        { get: "anoxia:compressed_cobblestone", put: "minecraft:cobblestone" },
-        { get: "anoxia:double_compressed_cobblestone", put: "anoxia:compressed_cobblestone" },
-        { get: "anoxia:triple_compressed_cobblestone", put: "anoxia:double_compressed_cobblestone" },
-        { get: "anoxia:quadruple_compressed_cobblestone", put: "anoxia:triple_compressed_cobblestone" },
-        { get: "anoxia:quintuple_compressed_cobblestone", put: "anoxia:quadruple_compressed_cobblestone" },
-        { get: "anoxia:sextuple_compressed_cobblestone", put: "anoxia:quintuple_compressed_cobblestone" },
-        { get: "anoxia:septuple_compressed_cobblestone", put: "anoxia:sextuple_compressed_cobblestone" },
-        { get: "anoxia:octuple_compressed_cobblestone", put: "anoxia:septuple_compressed_cobblestone" },
-        { get: "anoxia:compressed_deepslate", put: "minecraft:deepslate" },
-        { get: "anoxia:compressed_cobbled_deepslate", put: "minecraft:cobbled_deepslate" },
-        { get: "anoxia:compressed_blackstone", put: "minecraft:blackstone" },
-        { get: "anoxia:compressed_andesite", put: "minecraft:andesite" },
-    ];
-    CompressPattern.forEach((recipe) => {
-        event.remove({ output: recipe.get });
-        event.shaped(recipe.get, ["AAA", "AAA", "AAA"], { A: recipe.put });
-        event.shapeless(Item.of(recipe.put, 9), [recipe.get]);
-    });
+  //Compressed
+  const CompressPattern = [
+    { get: 'anoxia:compressed_cobblestone', put: 'minecraft:cobblestone' },
+    { get: 'anoxia:double_compressed_cobblestone', put: 'anoxia:compressed_cobblestone' },
+    { get: 'anoxia:triple_compressed_cobblestone', put: 'anoxia:double_compressed_cobblestone' },
+    { get: 'anoxia:quadruple_compressed_cobblestone', put: 'anoxia:triple_compressed_cobblestone' },
+    { get: 'anoxia:quintuple_compressed_cobblestone', put: 'anoxia:quadruple_compressed_cobblestone' },
+    { get: 'anoxia:sextuple_compressed_cobblestone', put: 'anoxia:quintuple_compressed_cobblestone' },
+    { get: 'anoxia:septuple_compressed_cobblestone', put: 'anoxia:sextuple_compressed_cobblestone' },
+    { get: 'anoxia:octuple_compressed_cobblestone', put: 'anoxia:septuple_compressed_cobblestone' },
+    { get: 'anoxia:compressed_deepslate', put: 'minecraft:deepslate' },
+    { get: 'anoxia:compressed_cobbled_deepslate', put: 'minecraft:cobbled_deepslate' },
+    { get: 'anoxia:compressed_blackstone', put: 'minecraft:blackstone' },
+    { get: 'anoxia:compressed_andesite', put: 'minecraft:andesite' },
+  ];
+  CompressPattern.forEach((recipe) => {
+    event.remove({ output: recipe.get });
+    event.shaped(recipe.get, ['AAA', 'AAA', 'AAA'], { A: recipe.put });
+    event.shapeless(Item.of(recipe.put, 9), [recipe.get]);
+  });
 
-    //Create Mesh from ExNihilo
-    event.shaped("anoxia:create_string_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:string_mesh" });
-    event.shaped("anoxia:create_flint_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:flint_mesh" });
-    event.shaped("anoxia:create_iron_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:iron_mesh" });
-    event.shaped("anoxia:create_diamond_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:diamond_mesh" });
-    event.shaped("anoxia:create_emerald_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:emerald_mesh" });
-    event.shaped("anoxia:create_netherite_mesh", ["A", "B"], { A: "supplementaries:timber_frame", B: "exnihilosequentia:netherite_mesh" });
+  //Create Mesh from ExNihilo
+  event.shaped('anoxia:create_string_mesh', ['A', 'B'], { A: 'supplementaries:timber_frame', B: 'exnihilosequentia:string_mesh' });
+  event.shaped('anoxia:create_flint_mesh', ['A', 'B'], { A: 'supplementaries:timber_frame', B: 'exnihilosequentia:flint_mesh' });
+  event.shaped('anoxia:create_iron_mesh', ['A', 'B'], { A: 'supplementaries:timber_frame', B: 'exnihilosequentia:iron_mesh' });
+  event.shaped('anoxia:create_diamond_mesh', ['A', 'B'], { A: 'supplementaries:timber_frame', B: 'exnihilosequentia:diamond_mesh' });
+  event.shaped('anoxia:create_emerald_mesh', ['A', 'B'], { A: 'supplementaries:timber_frame', B: 'exnihilosequentia:emerald_mesh' });
+  event.shaped('anoxia:create_netherite_mesh', ['A', 'B'], { A: 'supplementaries:timber_frame', B: 'exnihilosequentia:netherite_mesh' });
 
-    //Upgrade Mesh
-    event.shaped("anoxia:create_flint_mesh", ["A A", "ABA", "A A"], { A: "minecraft:flint", B: "anoxia:create_string_mesh" });
-    event.shaped("anoxia:create_iron_mesh", ["A A", "ABA", "A A"], { A: "#forge:ingots/iron", B: "anoxia:create_flint_mesh" });
-    event.shaped("anoxia:create_diamond_mesh", ["A A", "ABA", "A A"], { A: "#forge:gems/diamond", B: "anoxia:create_iron_mesh" });
-    event.shaped("anoxia:create_emerald_mesh", ["A A", "ABA", "A A"], { A: "#forge:gems/emerald", B: "anoxia:create_diamond_mesh" });
+  //Upgrade Mesh
+  event.shaped('anoxia:create_flint_mesh', ['A A', 'ABA', 'A A'], { A: 'minecraft:flint', B: 'anoxia:create_string_mesh' });
+  event.shaped('anoxia:create_iron_mesh', ['A A', 'ABA', 'A A'], { A: '#forge:ingots/iron', B: 'anoxia:create_flint_mesh' });
+  event.shaped('anoxia:create_diamond_mesh', ['A A', 'ABA', 'A A'], { A: '#forge:gems/diamond', B: 'anoxia:create_iron_mesh' });
+  event.shaped('anoxia:create_emerald_mesh', ['A A', 'ABA', 'A A'], { A: '#forge:gems/emerald', B: 'anoxia:create_diamond_mesh' });
 
-    //Aethersteel Mesh
-    event.smithing("anoxia:create_netherite_mesh", "minecraft:netherite_upgrade_smithing_template", "anoxia:create_emerald_mesh", "#forge:ingots/netherite");
-    event.smithing("anoxia:create_aethersteel_mesh", "aethersteel:aethersteel_upgrade_smithing_template", "anoxia:create_netherite_mesh", "#forge:ingots/aethersteel");
+  //Aethersteel Mesh
+  event.smithing('anoxia:create_netherite_mesh', 'minecraft:netherite_upgrade_smithing_template', 'anoxia:create_emerald_mesh', '#forge:ingots/netherite');
+  event.smithing('anoxia:create_aethersteel_mesh', 'aethersteel:aethersteel_upgrade_smithing_template', 'anoxia:create_netherite_mesh', '#forge:ingots/aethersteel');
 
-    //Storage component
-    event.shaped("anoxia:mana_cell_component_1k", ["ABA", "BCB", "ABA"], { A: "botania:mana_powder", B: "botania:quartz_mana", C: "ae2:logic_processor" });
-    event.shaped("anoxia:mana_cell_component_4k", ["ABA", "CDC", "ACA"], { A: "botania:manasteel_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_1k", D: "pneumaticcraft:capacitor" });
-    event.shaped("anoxia:mana_cell_component_16k", ["ABA", "CDC", "ACA"], { A: "botania:elementium_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_4k", D: "botania:elf_glass" });
-    event.shaped("anoxia:mana_cell_component_64k", ["ABA", "CDC", "ACA"], { A: "botania:terrasteel_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_16k", D: "botania:elf_glass" });
-    event.shaped("anoxia:mana_cell_component_256k", ["ABA", "CDC", "ACA"], { A: "botania:gaia_ingot", B: "anoxia:mana_integration_processor", C: "anoxia:mana_cell_component_64k", D: "botania:elf_glass" });
+  //Storage component
+  event.shaped('anoxia:mana_cell_component_1k', ['ABA', 'BCB', 'ABA'], { A: 'botania:mana_powder', B: 'botania:quartz_mana', C: 'ae2:logic_processor' });
+  event.shaped('anoxia:mana_cell_component_4k', ['ABA', 'CDC', 'ACA'], { A: 'botania:manasteel_ingot', B: 'anoxia:mana_integration_processor', C: 'anoxia:mana_cell_component_1k', D: 'pneumaticcraft:capacitor' });
+  event.shaped('anoxia:mana_cell_component_16k', ['ABA', 'CDC', 'ACA'], { A: 'botania:elementium_ingot', B: 'anoxia:mana_integration_processor', C: 'anoxia:mana_cell_component_4k', D: 'botania:elf_glass' });
+  event.shaped('anoxia:mana_cell_component_64k', ['ABA', 'CDC', 'ACA'], { A: 'botania:terrasteel_ingot', B: 'anoxia:mana_integration_processor', C: 'anoxia:mana_cell_component_16k', D: 'botania:elf_glass' });
+  event.shaped('anoxia:mana_cell_component_256k', ['ABA', 'CDC', 'ACA'], { A: 'botania:gaia_ingot', B: 'anoxia:mana_integration_processor', C: 'anoxia:mana_cell_component_64k', D: 'botania:elf_glass' });
 
-    event.shaped("anoxia:source_cell_component_1k", ["ABA", "BCB", "ABA"], { A: "ars_nouveau:source_gem", B: "#forge:dusts/gold", C: "ae2:logic_processor" });
-    event.shaped("anoxia:source_cell_component_4k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_1k", D: "pneumaticcraft:capacitor" });
-    event.shaped("anoxia:source_cell_component_16k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_4k", D: "#forge:glass/magenta" });
-    event.shaped("anoxia:source_cell_component_64k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_16k", D: "#forge:glass/magenta" });
-    event.shaped("anoxia:source_cell_component_256k", ["ABA", "CDC", "ACA"], { A: "ars_nouveau:source_gem", B: "anoxia:source_integration_processor", C: "anoxia:source_cell_component_64k", D: "#forge:glass/magenta" });
+  event.shaped('anoxia:source_cell_component_1k', ['ABA', 'BCB', 'ABA'], { A: 'ars_nouveau:source_gem', B: '#forge:dusts/gold', C: 'ae2:logic_processor' });
+  event.shaped('anoxia:source_cell_component_4k', ['ABA', 'CDC', 'ACA'], { A: 'ars_nouveau:source_gem', B: 'anoxia:source_integration_processor', C: 'anoxia:source_cell_component_1k', D: 'pneumaticcraft:capacitor' });
+  event.shaped('anoxia:source_cell_component_16k', ['ABA', 'CDC', 'ACA'], { A: 'ars_nouveau:source_gem', B: 'anoxia:source_integration_processor', C: 'anoxia:source_cell_component_4k', D: '#forge:glass/magenta' });
+  event.shaped('anoxia:source_cell_component_64k', ['ABA', 'CDC', 'ACA'], { A: 'ars_nouveau:source_gem', B: 'anoxia:source_integration_processor', C: 'anoxia:source_cell_component_16k', D: '#forge:glass/magenta' });
+  event.shaped('anoxia:source_cell_component_256k', ['ABA', 'CDC', 'ACA'], { A: 'ars_nouveau:source_gem', B: 'anoxia:source_integration_processor', C: 'anoxia:source_cell_component_64k', D: '#forge:glass/magenta' });
 });

@@ -1,13 +1,13 @@
 //priority:960
 
 //Constant
-var BaseFactor = Anoxia.Constant.Tinker.BaseFactor;
+const BaseFactor = Anoxia.Constant.Tinker.BaseFactor;
 
-var RadiationFact = BaseFactor.radiation_factor;
-var ConductionFact = BaseFactor.conduction_factor;
-var HeatFact = BaseFactor.heat_factor;
-var CoolingTime = BaseFactor.base_cooling_time;
-var MeltTime = BaseFactor.base_melting_time;
+const RadiationFact = BaseFactor.radiation_factor;
+const ConductionFact = BaseFactor.conduction_factor;
+const HeatFact = BaseFactor.heat_factor;
+const CoolingTime = BaseFactor.base_cooling_time;
+const MeltTime = BaseFactor.base_melting_time;
 
 //# =================================================================================================== #
 
@@ -23,7 +23,7 @@ Anoxia.Function.Generic = {
       .join(' ');
   },
 
-  toDisplayNameFromId: function (id) {
+  toDisplayNameFromId(id) {
     return this.toDisplayName(id.split(':').pop());
   },
 };
@@ -35,15 +35,15 @@ Anoxia.Function.Tinker = {
     return (RadiationFact + ConductionFact) / 2;
   },
 
-  getBaseFactor(meltPoint, ingot) {
-    return (meltPoint / 900) * Math.sqrt(ingot) * this.getAmbientFactor();
+  getBaseFactor(material, ingot) {
+    return (material.meltPoint / 900) * Math.sqrt(ingot) * this.getAmbientFactor();
   },
 
-  getCoolingTick(meltPoint, ingot) {
-    return Math.round(CoolingTime * this.getBaseFactor(meltPoint, ingot));
+  getCoolingTick(material, ingot) {
+    return Math.round(CoolingTime * this.getBaseFactor(material, ingot));
   },
 
-  getMeltingTick(meltPoint, ingot) {
-    return Math.round((MeltTime * this.getBaseFactor(meltPoint, ingot)) / HeatFact);
+  getMeltingTick(material, ingot) {
+    return Math.round((MeltTime * this.getBaseFactor(material, ingot)) / HeatFact);
   },
 };

@@ -1,7 +1,7 @@
 //priority:1000
 
 //Main namespace
-Anoxia = Anoxia || {};
+const Anoxia = Anoxia || {};
 
 //Constant Namespace
 Anoxia.Constant = Anoxia.Constant || {};
@@ -11,7 +11,6 @@ Anoxia.Constant.Tinker = Anoxia.Constant.Tinker || {};
 Anoxia.Function = Anoxia.Function || {};
 Anoxia.Function.Generic = Anoxia.Function.Generic || {};
 Anoxia.Function.Tinker = Anoxia.Function.Tinker || {};
-Anoxia.Function.Tinker2 = Anoxia.Function.Tinker2 || {};
 
 //Game Namespace
 Anoxia.Game = Anoxia.Game || {};
