@@ -88,7 +88,7 @@ ServerEvents.recipes((event) => {
       caster: { item: 'minecraft:polished_andesite' },
     },
     {
-      get: 'tconstruct:sery_controller',
+      get: 'tconstruct:smeltery_controller',
       put: { amount: 360, tag: 'forge:molten_copper' },
       consume: true,
       cooling: GetCoolingTick(Material.Copper, 4),
