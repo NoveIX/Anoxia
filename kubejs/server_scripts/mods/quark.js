@@ -10,8 +10,8 @@ ServerEvents.recipes((event) => {
     { get: 'quark:jungle_chest', put: '#minecraft:jungle_logs' },
     { get: 'quark:acacia_chest', put: '#minecraft:acacia_logs' },
     { get: 'quark:dark_oak_chest', put: '#minecraft:dark_oak_logs' },
-    { get: 'quark:crimson_chest', put: '#minecraft:crimson_stem' },
-    { get: 'quark:warped_chest', put: '#minecraft:warped_stem' },
+    { get: 'quark:crimson_chest', put: '#minecraft:crimson_stems' },
+    { get: 'quark:warped_chest', put: '#minecraft:warped_stems' },
     { get: 'quark:mangrove_chest', put: '#minecraft:mangrove_logs' },
     { get: 'quark:cherry_chest', put: '#minecraft:cherry_logs' },
   ];
