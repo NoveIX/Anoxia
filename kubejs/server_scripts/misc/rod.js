@@ -36,7 +36,7 @@ ServerEvents.recipes((event) => {
       type: 'tconstruct:casting_table',
       cast: { tag: 'tconstruct:casts/single_use/rod' },
       cast_consumed: true,
-      cooling_time: getCoolingTick(recipe.material, 1),
+      cooling_time: GetCoolingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
     });
@@ -44,7 +44,7 @@ ServerEvents.recipes((event) => {
     event.custom({
       type: 'tconstruct:casting_table',
       cast: { tag: 'tconstruct:casts/multi_use/rod' },
-      cooling_time: getCoolingTick(recipe.material, 1),
+      cooling_time: GetCoolingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
     });

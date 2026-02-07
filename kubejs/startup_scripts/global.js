@@ -2,7 +2,7 @@
 
 // Main namespace (GLOBAL)
 global.Anoxia = global.Anoxia || {};
-const Anoxia = global.Anoxia; // alias locale comodo
+const Anoxia = global.Anoxia; // local alias
 
 // Constant Namespace
 Anoxia.Constant = Anoxia.Constant || {};

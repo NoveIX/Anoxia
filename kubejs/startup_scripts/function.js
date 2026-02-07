@@ -1,49 +1,48 @@
 //priority:960
 
 //Constant
-const BaseFactor = Anoxia.Constant.Tinker.BaseFactor;
+const SmeltingFactor = Anoxia.Constant.Tinker.SmeltingFactor;
 
-const RadiationFact = BaseFactor.radiation_factor;
-const ConductionFact = BaseFactor.conduction_factor;
-const HeatFact = BaseFactor.heat_factor;
-const CoolingTime = BaseFactor.base_cooling_time;
-const MeltTime = BaseFactor.base_melting_time;
+const BaseTime = SmeltingFactor.BaseTime;
+const Furnace = SmeltingFactor.Furnace;
+const Env = SmeltingFactor.Environment;
+const EnvWeight = SmeltingFactor.Environment;
 
 //# =================================================================================================== #
 
 Anoxia.Function.Generic = {
-  toPascalCase(str) {
+  ToPascalCase(str) {
     return str.replace(/^./, (c) => c.toUpperCase());
   },
 
-  toDisplayName(id) {
+  ToDisplayName(id) {
     return id
       .split('_')
-      .map((word) => this.toPascalCase(word))
+      .map((word) => this.ToPascalCase(word))
       .join(' ');
   },
 
-  toDisplayNameFromId(id) {
-    return this.toDisplayName(id.split(':').pop());
+  ToDisplayNameFromId(id) {
+    return this.ToDisplayName(id.split(':').pop());
   },
 };
 
 //# =================================================================================================== #
 
 Anoxia.Function.Tinker = {
-  getAmbientFactor() {
-    return (RadiationFact + ConductionFact) / 2;
+  GetAmbientFactor() {
+    return Env.Conduction * EnvWeight.Conduction + Env.Convection * EnvWeight.Convection + Env.Radiation * EnvWeight.Radiation;
   },
 
-  getBaseFactor(material, ingot) {
-    return (material.meltPoint / 900) * Math.sqrt(ingot) * this.getAmbientFactor();
+  GetBaseFactor(material, ingot) {
+    return (material.MeltPoint / 900) * Math.sqrt(ingot) * this.GetAmbientFactor();
   },
 
-  getCoolingTick(material, ingot) {
-    return Math.round(CoolingTime * this.getBaseFactor(material, ingot));
+  GetCoolingTick(material, ingot) {
+    return Math.round(BaseTime.Cooling * this.GetBaseFactor(material, ingot));
   },
 
-  getMeltingTick(material, ingot) {
-    return Math.round((MeltTime * this.getBaseFactor(material, ingot)) / HeatFact);
+  GetMeltingTick(material, ingot) {
+    return Math.round((BaseTime.Melting * this.GetBaseFactor(material, ingot)) / Furnace.Heat);
   },
 };

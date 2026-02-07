@@ -66,7 +66,7 @@ ServerEvents.recipes((event) => {
       type: 'tconstruct:casting_table',
       cast: { tag: 'tconstruct:casts/single_use/gear' },
       cast_consumed: true,
-      cooling_time: getCoolingTick(recipe.material, 4),
+      cooling_time: GetCoolingTick(recipe.material, 4),
       fluid: { amount: 360, tag: `forge:molten_${recipe.molten}` },
       result: { item: recipe.get },
     });
@@ -74,7 +74,7 @@ ServerEvents.recipes((event) => {
     event.custom({
       type: 'tconstruct:casting_table',
       cast: { tag: 'tconstruct:casts/multi_use/gear' },
-      cooling_time: getCoolingTick(recipe.material, 4),
+      cooling_time: GetCoolingTick(recipe.material, 4),
       fluid: { amount: 360, tag: `forge:molten_${recipe.molten}` },
       result: { item: recipe.get },
     });

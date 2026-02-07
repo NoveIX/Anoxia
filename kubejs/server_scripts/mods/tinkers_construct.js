@@ -84,21 +84,21 @@ ServerEvents.recipes((event) => {
       get: 'create:andesite_alloy',
       put: { amount: 90, tag: 'forge:molten_platinum' },
       consume: true,
-      cooling: getCoolingTick(Material.Platinum, 1),
+      cooling: GetCoolingTick(Material.Platinum, 1),
       caster: { item: 'minecraft:polished_andesite' },
     },
     {
       get: 'tconstruct:sery_controller',
       put: { amount: 360, tag: 'forge:molten_copper' },
       consume: true,
-      cooling: getCoolingTick(Material.Copper, 4),
+      cooling: GetCoolingTick(Material.Copper, 4),
       caster: { tag: 'tconstruct:smeltery_bricks' },
     },
     {
       get: 'tconstruct:foundry_controller',
       put: { amount: 1000, tag: 'tconstruct:molten_obsidian' },
       cast_consumed: true,
-      cooling: getCoolingTick(Material.Obsidian, 1),
+      cooling: GetCoolingTick(Material.Obsidian, 1),
       caster: { tag: 'tconstruct:foundry_bricks' },
     },
   ];
@@ -122,21 +122,21 @@ ServerEvents.recipes((event) => {
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 125, tag: 'tconstruct:molten_clay' },
-      cooling: getCoolingTick(Material.Clay, 0.5),
+      cooling: GetCoolingTick(Material.Clay, 0.5),
       consume: true,
       caster: { item: 'minecraft:flint' },
     },
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 250, tag: 'tconstruct:seared_stone' },
-      cooling: getCoolingTick(Material.Stone, 1),
+      cooling: GetCoolingTick(Material.Stone, 1),
       consume: true,
       caster: { tag: 'tconstruct:casts/single_use/ingot' },
     },
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 250, tag: 'tconstruct:seared_stone' },
-      cooling: getCoolingTick(Material.Stone, 1),
+      cooling: GetCoolingTick(Material.Stone, 1),
       caster: { tag: 'tconstruct:casts/multi_use/ingot' },
     },
 
@@ -145,20 +145,20 @@ ServerEvents.recipes((event) => {
       get: 'tconstruct:scorched_brick',
       put: { amount: 125, tag: 'forge:magma' },
       consume: true,
-      cooling: getCoolingTick(Material.Magma, 0.5),
+      cooling: GetCoolingTick(Material.Magma, 0.5),
       caster: { item: 'minecraft:flint' },
     },
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 250, tag: 'tconstruct:scorched_stone' },
       consume: true,
-      cooling: getCoolingTick(Material.ScorchedStone, 1),
+      cooling: GetCoolingTick(Material.ScorchedStone, 1),
       caster: { tag: 'tconstruct:casts/single_use/ingot' },
     },
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 250, tag: 'tconstruct:scorched_stone' },
-      cooling: getCoolingTick(Material.ScorchedStone, 1),
+      cooling: GetCoolingTick(Material.ScorchedStone, 1),
       caster: { tag: 'tconstruct:casts/multi_use/ingot' },
     },
 
@@ -190,9 +190,9 @@ ServerEvents.recipes((event) => {
 
   //#region Melting
   const MeltingPattern = [
-    { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'forge:coal_coke' }, degree: 900, meltTime: getMeltingTick(Material.Coal, 1) },
-    { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'forge:dusts/coal_coke' }, degree: 900, meltTime: getMeltingTick(Material.Coal, 1) },
-    { get: { amount: 900, tag: 'forge:molten_coal' }, put: { tag: 'forge:storage_blocks/coal_coke' }, degree: 900, meltTime: getMeltingTick(Material.Coal, 9) },
+    { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'forge:coal_coke' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, 1) },
+    { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'forge:dusts/coal_coke' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, 1) },
+    { get: { amount: 900, tag: 'forge:molten_coal' }, put: { tag: 'forge:storage_blocks/coal_coke' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, 9) },
   ];
   MeltingPattern.forEach((recipe) => {
     event.custom({
