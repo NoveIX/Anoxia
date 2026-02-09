@@ -23,7 +23,7 @@ ServerEvents.recipes((event) => {
   RawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ['AA', 'AA'], { A: recipe.put }));
 
   //Enderite
-  event.blasting('anoxia:enderite_ingot', 'anoxia:raw_enderite');
+  event.blasting('anoxia:enderite_ingot', 'anoxia:raw_enderite', 0, 1200);
 
   //Obsidian Ingot
   event.shapeless('anoxia:obsidian_with_iron', ['#forge:dusts/obsidian', '#forge:dusts/obsidian', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron']);

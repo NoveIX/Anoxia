@@ -40,9 +40,9 @@ ServerEvents.recipes((event) => {
   //# =================================================================================================== #
 
   event.remove({ output: 'tconstruct:seared_brick' });
-  event.blasting('tconstruct:seared_brick', 'tconstruct:grout');
+  event.blasting('tconstruct:seared_brick', 'tconstruct:grout', 0, 400);
   event.remove({ output: 'tconstruct:scorched_brick' });
-  event.blasting('tconstruct:scorched_brick', 'tconstruct:nether_grout');
+  event.blasting('tconstruct:scorched_brick', 'tconstruct:nether_grout', 0, 600);
 
   //# =================================================================================================== #
 
