@@ -1,12 +1,1 @@
-{
-  "primaryColor": "#9a9aa2",
-  "particleColor": "#d6d5dc",
-  "flowerItem": "chemlib:silicon",
-  "beeTexture": "productivebees:textures/entity/bee/silicium/bee",
-  "conditions": [
-    {
-      "modid": "chemlib",
-      "type": "forge:mod_loaded"
-    }
-  ]
-}
+{"conditions":[{"modid":false,"type":"forge:mod_loaded"}]}

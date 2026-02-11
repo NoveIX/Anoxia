@@ -1,12 +1,1 @@
-{
-  "primaryColor": "#bccddb",
-  "particleColor": "#c6dadf",
-  "flowerBlock": "chemlib:manganese_metal_block",
-  "beeTexture": "productivebees:textures/entity/bee/manganese/bee",
-  "conditions": [
-    {
-      "modid": "chemlib",
-      "type": "forge:mod_loaded"
-    }
-  ]
-}
+{"conditions":[{"modid":false,"type":"forge:mod_loaded"}]}

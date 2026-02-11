@@ -670,15 +670,9 @@ Anoxia.Game.Recipe.RmId = [
   'enderio:copper_ingot_from_blasting',
   'enderio:smelting/enderio/copper_ingot_from_smelting',
 
-  //ClearLog
-  'mysticalagriculture:essence/chisel/marble',
-  'pamhc2foodcore:caramelcupcakeitem_x4',
-  'mysticalagriculture:essence/chisel/basalt',
-  'pamhc2foodcore:melonpieitem',
-  'mysticalagriculture:essence/chisel/limestone',
-  'pamhc2foodcore:honeymuffinitem',
+  //Productive bee
+  'productivebees:block_conversion/pams/lemon/stage1',
+  'productivebees:/tconstruct/honeycomb/cobalt',
 ];
 
-/* ServerEvents.recipes((event) => {
-    event.remove({ id:  });
-}); */
+//ServerEvents.recipes((event) => event.remove({ id: '' }));

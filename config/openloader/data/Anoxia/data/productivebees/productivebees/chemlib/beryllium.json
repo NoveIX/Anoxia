@@ -1,12 +1,1 @@
-{
-  "primaryColor": "#a7dbb4",
-  "particleColor": "#b1e6be",
-  "flowerBlock": "chemlib:beryllium_metal_block",
-  "beeTexture": "productivebees:textures/entity/bee/beryllium/bee",
-  "conditions": [
-    {
-      "modid": "chemlib",
-      "type": "forge:mod_loaded"
-    }
-  ]
-}
+{"conditions":[{"modid":false,"type":"forge:mod_loaded"}]}

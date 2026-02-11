@@ -8,6 +8,9 @@ ServerEvents.recipes((event) => {
     'create:mixing/andesite_alloy',
     'create:mixing/andesite_alloy_from_zinc',
 
+    //Productive bee
+    'productivebees:create/mixing/tconstruct/honeycomb_cobalt',
+
     //Unification
     'tacz_c:thin_brass_sheet_cutting',
     'tacz_c:thin_copper_sheet_cutting',
@@ -205,6 +208,11 @@ ServerEvents.recipes((event) => {
       //Andesite Alloy
       get: [{ item: 'create:andesite_alloy' }],
       put: [{ item: 'minecraft:polished_andesite' }, { tag: 'forge:ingots/platinum' }],
+      heat: 'heated',
+    },
+    {
+      get: [{ item: 'tconstruct:raw_cobalt', chance: 0.39 }, { item: 'productivebees:wax' }, { fluid: 'productivebees:honey', amount: 50 }],
+      put: [{ type: 'forge:nbt', item: 'productivebees:configurable_honeycomb', nbt: { EntityTag: { type: 'productivebees:cobalt' } } }],
       heat: 'heated',
     },
     {

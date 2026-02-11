@@ -36,8 +36,8 @@ ServerEvents.recipes((event) => {
 
   //# =================================================================================================== #
 
-  //#region Refinery
-  const RefineryPattern = [
+  //#region Fuel Conversion
+  const FuelConversionPattern = [
     { get: 'thermal:creosote', put: 'immersiveengineering:creosote' },
     { get: 'immersiveengineering:creosote', put: 'thermal:creosote' }, //Reverse
 
@@ -51,7 +51,7 @@ ServerEvents.recipes((event) => {
     { get: 'industrialforegoing:latex', put: 'thermal:latex' },
     { get: 'thermal:latex', put: 'industrialforegoing:latex' }, //Reverse
   ];
-  RefineryPattern.forEach((recipe) => {
+  FuelConversionPattern.forEach((recipe) => {
     event.custom({
       type: 'ad_astra:fuel_conversion',
       input: recipe.put,
