@@ -46,24 +46,15 @@ Anoxia.Constant.Tinker.Material = {
 };
 
 Anoxia.Constant.Tinker.SmeltingFactor = {
-  BaseTime: {
-    Cooling: 60,
-    Melting: 400,
+  Furnace: {
+    Heat: 0.6,
   },
 
-  Furnace: {
-    Heat: 0.8,
+  Dimension: {
+    Moon: -190,
   },
 
   Environment: {
-    Conduction: 0.6, // Contact
-    Convection: 0.0, // air / liquid / wind
-    Radiation: 2.2, // IR / vuoto
-  },
-
-  EnvironmentWeight: {
-    Conduction: 0.4,
-    Convection: 0.0,
-    Radiation: 2.8,
+    Value: 6,
   },
 };

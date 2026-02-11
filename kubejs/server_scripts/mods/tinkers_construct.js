@@ -57,12 +57,20 @@ ServerEvents.recipes((event) => {
       heat: 950,
     },
     {
+      get: { amount: 90, tag: 'tconstruct:molten_steel' },
+      put: [
+        { amount: 4000, fluid: 'mekanism:oxygen' },
+        { amount: 90, tag: 'tconstruct:molten_iron' },
+      ],
+      heat: 950,
+    },
+    {
       get: { amount: 10, tag: 'tconstruct:molten_netherite' },
       put: [
         { amount: 40, tag: 'tconstruct:molten_gold' },
         { amount: 40, tag: 'tconstruct:molten_debris' },
       ],
-      heat: 1250,
+      heat: 1175,
     },
   ];
   AlloyPattern.forEach((recipe) => {

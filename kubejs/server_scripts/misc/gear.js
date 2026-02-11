@@ -139,6 +139,7 @@ ServerEvents.recipes((event) => {
     }
 
     //Other
+    /*
     else {
       if (recipe.put.startsWith('forge:gems/')) {
         GearCreate(recipe, 'minecraft:water');
@@ -150,6 +151,7 @@ ServerEvents.recipes((event) => {
         GearThermal(recipe);
       }
     }
+    */
 
     //Molten
     if (recipe.molten) GearTinker(recipe);

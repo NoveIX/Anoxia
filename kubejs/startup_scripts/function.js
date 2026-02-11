@@ -3,10 +3,9 @@
 //Constant
 const SmeltingFactor = Anoxia.Constant.Tinker.SmeltingFactor;
 
-const BaseTime = SmeltingFactor.BaseTime;
 const Furnace = SmeltingFactor.Furnace;
-const Env = SmeltingFactor.Environment;
-const EnvWeight = SmeltingFactor.Environment;
+const Dimension = SmeltingFactor.Dimension;
+const Environment = SmeltingFactor.Environment;
 
 //# =================================================================================================== #
 
@@ -30,19 +29,13 @@ Anoxia.Function.Generic = {
 //# =================================================================================================== #
 
 Anoxia.Function.Tinker = {
-  GetAmbientFactor() {
-    return Env.Conduction * EnvWeight.Conduction + Env.Convection * EnvWeight.Convection + Env.Radiation * EnvWeight.Radiation;
-  },
-
-  GetBaseFactor(material, ingot) {
-    return (material.MeltPoint / 900) * Math.sqrt(ingot) * this.GetAmbientFactor();
-  },
-
   GetCoolingTick(material, ingot) {
-    return Math.round(BaseTime.Cooling * this.GetBaseFactor(material, ingot));
+    const base = ((material.MeltPoint - Dimension.Moon) / Environment.Value) * ingot;
+    return Math.ceil(base / 20) * 20; // rounded to the nearest multiple of 20
   },
 
   GetMeltingTick(material, ingot) {
-    return Math.round((BaseTime.Melting * this.GetBaseFactor(material, ingot)) / Furnace.Heat);
+    const base = ((material.MeltPoint - Dimension.Moon) / (Environment.Value * Furnace.Heat)) * ingot;
+    return Math.ceil(base / 20) * 20; // rounded to the nearest multiple of 20
   },
 };
