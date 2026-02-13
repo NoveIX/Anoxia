@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region RemoveID
-  const RmRecipeID = ['productivebees:centrifuge/tconstruct/honeycomb_cobalt', 'productivebees:centrifuge/tconstruct/honeycomb_cobalt_block'];
+  const RmRecipeID = ['productivebees:centrifuge/tconstruct/honeycomb_cobalt', 'productivebees:centrifuge/tconstruct/honeycomb_cobalt_block', 'productivebees:/tconstruct/honeycomb/cobalt'];
   RmRecipeID.forEach((id) => event.remove({ id: id }));
   //#endregion
 
