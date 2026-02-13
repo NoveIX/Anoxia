@@ -139,19 +139,17 @@ ServerEvents.recipes((event) => {
     }
 
     //Other
-    /*
     else {
       if (recipe.put.startsWith('forge:gems/')) {
-        GearCreate(recipe, 'minecraft:water');
+        //GearCreate(recipe, 'minecraft:water');
         GearImmersive(recipe);
         GearThermal(recipe);
       } else {
-        GearCreate(recipe, 'minecraft:lava');
+        //GearCreate(recipe, 'minecraft:lava');
         GearImmersive(recipe);
         GearThermal(recipe);
       }
     }
-    */
 
     //Molten
     if (recipe.molten) GearTinker(recipe);

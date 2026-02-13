@@ -672,7 +672,7 @@ Anoxia.Game.Recipe.RmId = [
 
   //Productive bee
   'productivebees:block_conversion/pams/lemon/stage1',
-  //'productivebees:/tconstruct/honeycomb/cobalt', // => Disabled in Openloader
+  //'productivebees:/tconstruct/honeycomb/*', // => Disabled in Openloader
 ];
 
 //ServerEvents.recipes((event) => event.remove({ id: '' }));

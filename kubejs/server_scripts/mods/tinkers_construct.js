@@ -173,24 +173,17 @@ ServerEvents.recipes((event) => {
     //Brass
   ];
   CastingTablePattern.forEach((recipe) => {
-    if (recipe.consume) {
-      event.custom({
-        type: 'tconstruct:casting_table',
-        cast: recipe.caster,
-        cast_consumed: recipe.consume,
-        cooling_time: recipe.cooling,
-        fluid: recipe.put,
-        result: recipe.get,
-      });
-    } else {
-      event.custom({
-        type: 'tconstruct:casting_table',
-        cast: recipe.caster,
-        cooling_time: recipe.cooling,
-        fluid: recipe.put,
-        result: recipe.get,
-      });
-    }
+    const data = {
+      type: 'tconstruct:casting_table',
+      cast: recipe.caster,
+      cooling_time: recipe.cooling,
+      fluid: recipe.put,
+      result: recipe.get,
+    };
+
+    if (recipe.consume) data.cast_consumed = recipe.consume;
+
+    event.custom(data);
   });
   //#endregion
 
