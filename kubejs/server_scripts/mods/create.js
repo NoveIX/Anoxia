@@ -170,15 +170,15 @@ ServerEvents.recipes((event) => {
     { get: 6000, put: { fluid: 'tconstruct:blazing_blood', amount: 1000 }, heat: true },
   ];
   LiquidBurningPattern.forEach((recipe) => {
-    const data = {
+    const json = {
       type: 'createaddition:liquid_burning',
       input: recipe.put,
       burnTime: recipe.get,
     };
 
-    if (recipe.heat) data.superheated = recipe.heat;
+    if (recipe.heat) json.superheated = recipe.heat;
 
-    event.custom(data);
+    event.custom(json);
   });
   //#endregion
 
@@ -222,15 +222,15 @@ ServerEvents.recipes((event) => {
     },
   ];
   MixingPattern.forEach((recipe) => {
-    const data = {
+    const json = {
       type: 'create:mixing',
       ingredients: recipe.put,
       results: recipe.get,
     };
 
-    if (recipe.heat) data.heatRequirement = recipe.heat;
+    if (recipe.heat) json.heatRequirement = recipe.heat;
 
-    event.custom(data);
+    event.custom(json);
   });
   //#endregion
 

@@ -192,6 +192,7 @@ Anoxia.Game.Item.RmOut = [
   'hammerlib:wrench',
 
   //Immersive Engineering
+  'immersiveengineering:coal_coke',
   'immersiveengineering:slag',
   'immersiveengineering:dust_wood',
   'immersiveengineering:plate_copper',

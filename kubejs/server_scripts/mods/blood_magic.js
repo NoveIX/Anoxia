@@ -101,7 +101,7 @@ ServerEvents.recipes((event) => {
   AltarPattern.forEach((recipe) => {
     event.remove({ output: recipe.get });
 
-    const data = {
+    const json = {
       type: 'bloodmagic:altar',
       altarSyphon: recipe.syphon,
       consumptionRate: recipe.consumption,
@@ -110,10 +110,10 @@ ServerEvents.recipes((event) => {
       upgradeLevel: recipe.level,
     };
 
-    if (recipe.put.startsWith('forge:')) data.input = { tag: recipe.put };
-    else data.input = { item: recipe.put };
+    if (recipe.put.startsWith('forge:')) json.input = { tag: recipe.put };
+    else json.input = { item: recipe.put };
 
-    event.custom(data);
+    event.custom(json);
   });
   //#endregion
 });

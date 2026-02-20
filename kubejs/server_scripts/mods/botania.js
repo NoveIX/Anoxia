@@ -74,23 +74,23 @@ ServerEvents.recipes((event) => {
     { get: 'mekanism:elite_tier_installer', put: 'mekanism:advanced_tier_installer', magic: 1000000, alchemy: 'mekanism:elite_energy_cube' },
   ];
   ManaInfusionPattern.forEach((recipe) => {
-    const data = {
+    const json = {
       type: 'botania:mana_infusion',
       mana: recipe.magic,
       output: { item: recipe.get },
     };
 
     // input: tag o item
-    if (recipe.put.startsWith('forge:')) data.input = { tag: recipe.put };
-    else data.input = { item: recipe.put };
+    if (recipe.put.startsWith('forge:')) json.input = { tag: recipe.put };
+    else json.input = { item: recipe.put };
 
     // output count
-    if (recipe.n0) data.output.count = recipe.n0;
+    if (recipe.n0) json.output.count = recipe.n0;
 
     // catalyst
-    if (recipe.alchemy) data.catalyst = { type: 'block', block: recipe.alchemy };
+    if (recipe.alchemy) json.catalyst = { type: 'block', block: recipe.alchemy };
 
-    event.custom(data);
+    event.custom(json);
   });
 
   //#endregion

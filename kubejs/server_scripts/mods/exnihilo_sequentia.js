@@ -100,15 +100,15 @@ ServerEvents.recipes((event) => {
     { under: 'avaritia:infinity', multi: 1000 },
   ];
   HeatPattern.forEach((recipe) => {
-    const data = {
+    const json = {
       type: 'exnihilosequentia:heat',
       amount: recipe.multi,
       block: recipe.under,
     };
 
-    if (recipe.heat) data.state = { lit: true };
+    if (recipe.heat) json.state = { lit: true };
 
-    event.custom(data);
+    event.custom(json);
   });
   //#endregion
 
