@@ -11,6 +11,9 @@ ServerEvents.recipes((event) => {
     ['minecraft:smoker', '#anoxia:smokers'],
     ['minecraft:blast_furnace', '#anoxia:blastfurnaces'],
     ['#forge:storage_blocks/cobblestone', 'anoxia:compressed_cobblestone'],
+    ['tconstruct:rose_gold_nugget', 'thermal:rose_gold_nugget'],
+    ['tconstruct:rose_gold_ingot', 'thermal:rose_gold_ingot'],
+    ['tconstruct:rose_gold_block', 'thermal:rose_gold_block'],
 
     //Create Unification
     ['create:copper_sheet', '#forge:plates/copper'],
