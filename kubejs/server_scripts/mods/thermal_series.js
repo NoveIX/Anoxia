@@ -763,7 +763,7 @@ ServerEvents.recipes((event) => {
       rsflux: 4000,
     },
     {
-      get: [{ item: 'thermal:coal_coke_block' }, { item: 'thermal:tar', chance: 0.25 }, { fluid: 'thermal:creosote', amount: 4500 }],
+      get: [{ item: 'thermal:coal_coke_block' }, { item: 'thermal:tar', chance: 2.25 }, { fluid: 'thermal:creosote', amount: 4500 }],
       put: { item: 'minecraft:coal_block' },
       rsflux: 36000,
     },

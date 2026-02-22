@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
   //#region func Rod
   function RodCrafting(recipe) {
-    event.shaped(recipe.get, ['R', 'R'], { R: `#${recipe.put}` });
+    event.shaped(recipe.get, ['R', 'R'], { R: ToTag(recipe.put) });
   }
 
   function RodCreate(recipe) {

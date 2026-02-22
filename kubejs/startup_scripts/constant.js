@@ -12,9 +12,9 @@ Anoxia.Constant.Tinker.Material = {
   Nickel: { MeltPoint: 1455 },
   Platinum: { MeltPoint: 1768 },
   Aluminum: { MeltPoint: 660 },
-  Desh: { MeltPoint: 1540 },
-  Ostrum: { MeltPoint: 1825 },
-  Calorite: { MeltPoint: 1950 },
+  Desh: { MeltPoint: 1267 },
+  Ostrum: { MeltPoint: 1952 },
+  Calorite: { MeltPoint: 2937 },
 
   //Alloy
   Steel: { MeltPoint: 1450 },
@@ -43,18 +43,31 @@ Anoxia.Constant.Tinker.Material = {
   Magma: { MeltPoint: 1511 },
   ScorchedStone: { MeltPoint: 1702 },
   Obsidian: { MeltPoint: 2132 },
+
+  //Essence
+  Inferium: { MeltPoint: 850 },
+  Prudentium: { MeltPoint: 1100 },
+  Tertium: { MeltPoint: 1350 },
+  Imperium: { MeltPoint: 1600 },
+  Supremium: { MeltPoint: 1850 },
+  Soulium: { MeltPoint: 1200 },
+
+  //Magic Metal
+  ManaSteel: { MeltPoint: 1440 },
+
+  //Magic Gem
+  Source: { MeltPoint: 1623 },
 };
 
 Anoxia.Constant.Tinker.SmeltingFactor = {
-  Furnace: {
-    Heat: 0.6,
-  },
+  Furnace: { Heat: 0.8 },
+  Dimension: { Moon: -190 },
+  Environment: { Value: 6 },
+};
 
-  Dimension: {
-    Moon: -190,
-  },
-
-  Environment: {
-    Value: 6,
-  },
+Anoxia.Constant.Tinker.AmountType = {
+  Block: 810,
+  Ingot: 90,
+  Nugget: 10,
+  Gem: 100,
 };

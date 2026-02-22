@@ -324,9 +324,9 @@ ServerEvents.recipes((event) => {
     //Tag
     if (recipe.logTag) {
       //Crafting
-      event.remove({ output: recipe.plank, input: `#${recipe.logTag}`, type: 'minecraft:crafting_shaped' });
-      event.remove({ output: recipe.plank, input: `#${recipe.logTag}`, type: 'minecraft:crafting_shapeless' });
-      event.shapeless(recipe.plank, [`#${recipe.logTag}`]);
+      event.remove({ output: recipe.plank, input: ToTag(recipe.logTag), type: 'minecraft:crafting_shaped' });
+      event.remove({ output: recipe.plank, input: ToTag(recipe.logTag), type: 'minecraft:crafting_shapeless' });
+      event.shapeless(recipe.plank, [ToTag(recipe.logTag)]);
 
       //Thermal
       WoodThermalSaw(recipe.plank, recipe.logTag);

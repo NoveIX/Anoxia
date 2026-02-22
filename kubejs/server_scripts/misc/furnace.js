@@ -154,7 +154,7 @@ ServerEvents.recipes((event) => {
   FurnacePattern.forEach((recipe) => {
     //Recipe
     if (recipe.put.startsWith('forge:')) {
-      event.smelting(recipe.get, `#${recipe.put}`);
+      event.smelting(recipe.get, ToTag(recipe.put));
       FurnaceEnderio(recipe);
       if (recipe.metal) FurnaceImmersive(recipe);
     } else {

@@ -16,6 +16,8 @@ ServerEvents.recipes((event) => {
     //Coke
     'createaddition:compat/immersiveengineering/crushing/coal_coke',
     'createaddition:compat/immersiveengineering/crushing/coke_block',
+    'create:crushing/compat/immersiveengineering/coal_coke',
+    'create:crushing/compat/immersiveengineering/coke_block',
     'immersiveengineering:crusher/coke',
     'immersiveengineering:crusher/coke_block',
 
@@ -207,13 +209,13 @@ ServerEvents.recipes((event) => {
   //#region func Dust
   function DustCrafting(recipe) {
     if (recipe.put.startsWith('forge:ingots')) {
-      event.shapeless(recipe.get, [`#${recipe.put}`, 'ae2:tiny_tnt']);
+      event.shapeless(recipe.get, [ToTag(recipe.put), 'ae2:tiny_tnt']);
     } else {
-      event.shapeless(recipe.get, [`#${recipe.put}`, 'immersiveengineering:hammer']);
+      event.shapeless(recipe.get, [ToTag(recipe.put), 'immersiveengineering:hammer']);
     }
 
     if (recipe.put === 'forge:gems/ruby' || recipe.put === 'forge:gems/sapphire') {
-      event.shapeless(recipe.get, [`#${recipe.put}`, 'thermal:earth_charge']);
+      event.shapeless(recipe.get, [ToTag(recipe.put), 'thermal:earth_charge']);
     }
   }
 
@@ -360,7 +362,7 @@ ServerEvents.recipes((event) => {
     },
     {
       get: 'mekanism:dust_charcoal',
-      put: 'anoxia:gems/charcoal',
+      put: 'anoxia:charcoal',
       extra: 'thermal:sulfur_dust',
       create: {
         get: [{ item: 'mekanism:dust_charcoal' }, { chance: 0.1, item: 'thermal:sulfur_dust' }],

@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
   //#region func Wire
   function WireCrafting(recipe) {
-    event.shapeless(recipe.get, [`#${recipe.put}`, 'immersiveengineering:wirecutter']);
+    event.shapeless(recipe.get, [ToTag(recipe.put), 'immersiveengineering:wirecutter']);
   }
 
   function WireCreate(recipe) {

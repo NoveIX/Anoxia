@@ -21,6 +21,8 @@ ServerEvents.recipes((event) => {
       n2: 2,
       put3: [],
       n3: 0,
+      exp: 32,
+      time: 100,
     },
   ];
   MolecularMetamorphoerPattern.forEach((recipe) => {
@@ -33,8 +35,8 @@ ServerEvents.recipes((event) => {
       ingredient3: recipe.put3,
       count3: recipe.n3,
       result: recipe.get,
-      cost: 32,
-      processTime: 40,
+      cost: recipe.exp,
+      processTime: recipe.time,
     });
   });
   //#endregion

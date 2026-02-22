@@ -47,7 +47,7 @@ ServerEvents.recipes((event) => {
 
   //#region Func Plate
   function PlateCrafting(recipe) {
-    event.shapeless(recipe.get, [`#${recipe.put}`, `#${recipe.put}`, 'immersiveengineering:hammer']);
+    event.shapeless(recipe.get, [ToTag(recipe.put), ToTag(recipe.put), 'immersiveengineering:hammer']);
     event.custom({
       type: 'ad_astra:hammering',
       ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { item: 'ad_astra:hammer' }],

@@ -7,9 +7,19 @@ const Furnace = SmeltingFactor.Furnace;
 const Dimension = SmeltingFactor.Dimension;
 const Environment = SmeltingFactor.Environment;
 
+const AmountType = Anoxia.Constant.Tinker.AmountType;
+
 //# =================================================================================================== #
 
 Anoxia.Function.Generic = {
+  ToTag(str) {
+    return `#${str}`;
+  },
+
+  FromTag(str) {
+    return str.startsWith('#') ? str.slice(1) : str;
+  },
+
   ToPascalCase(str) {
     return str.replace(/^./, (c) => c.toUpperCase());
   },
@@ -29,6 +39,14 @@ Anoxia.Function.Generic = {
 //# =================================================================================================== #
 
 Anoxia.Function.Tinker = {
+  FromAmount(qty) {
+    return qty / 90;
+  },
+
+  GetIngot(amount, type) {
+    return amount * (AmountType[type] / AmountType.Ingot);
+  },
+
   GetCoolingTick(material, ingot) {
     const base = ((material.MeltPoint - Dimension.Moon) / Environment.Value) * ingot;
     return Math.ceil(base / 20) * 20; // rounded to the nearest multiple of 20

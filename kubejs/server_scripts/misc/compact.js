@@ -99,6 +99,25 @@ ServerEvents.recipes((event) => {
     'enderio:end_steel_nugget', //ingot => nugget
     'enderio:end_steel_block', //ingot => block
 
+    //Mekanism
+    'mekanism:processing/refined_glowstone/ingot/from_nuggets', //nugget => ingot
+    'mekanism:processing/refined_glowstone/ingot/from_block', //block => ingot
+    'mekanism:nuggets/refined_glowstone', //ingot => nugget
+    'mekanism:storage_blocks/refined_glowstone', //ingot => block
+    'thermal:compat/mekanism/press_mek_refined_glowstone_nugget_packing', //nugget => ingot
+    'thermal:compat/mekanism/press_mek_refined_glowstone_unpacking', //block => ingot
+    'thermal:compat/mekanism/press_mek_refined_glowstone_nugget_unpacking', //ingot => nugget
+    'thermal:compat/mekanism/press_mek_refined_glowstone_packing', //ingot => block
+
+    'mekanism:processing/refined_obsidian/ingot/from_nuggets', //nugget => ingot
+    'mekanism:processing/refined_obsidian/ingot/from_block', //block => ingot
+    'mekanism:nuggets/refined_obsidian', //ingot => nugget
+    'mekanism:storage_blocks/refined_obsidian', //ingot => block
+    'thermal:compat/mekanism/press_mek_refined_obsidian_nugget_packing', //nugget => ingot
+    'thermal:compat/mekanism/press_mek_refined_obsidian_unpacking', //block => ingot
+    'thermal:compat/mekanism/press_mek_refined_obsidian_nugget_unpacking', //ingot => nugget
+    'thermal:compat/mekanism/press_mek_refined_obsidian_packing', //ingot => block
+
     //Redstone Arsenal
     'redstone_arsenal:storage/flux_ingot_from_block', //block => ingot
     'redstone_arsenal:storage/flux_ingot_from_nuggets', //nugget => ingot
@@ -306,6 +325,18 @@ ServerEvents.recipes((event) => {
     {
       id: { ingot: 'enderio:end_steel_ingot', nugget: 'enderio:end_steel_nugget', block: 'enderio:end_steel_block' },
       tag: { ingot: 'forge:ingots/end_steel', nugget: 'forge:nuggets/end_steel', block: 'forge:storage_blocks/end_steel' },
+      rsflux: 3600,
+    },
+
+    //Mekanism
+    {
+      id: { ingot: 'mekanism:ingot_refined_glowstone', nugget: 'mekanism:nugget_refined_glowstone', block: 'mekanism:block_refined_glowstone' },
+      tag: { ingot: 'forge:ingots/refined_glowstone', nugget: 'forge:nuggets/refined_glowstone', block: 'forge:storage_blocks/refined_glowstone' },
+      rsflux: 2400,
+    },
+    {
+      id: { ingot: 'mekanism:ingot_refined_obsidian', nugget: 'mekanism:nugget_refined_obsidian', block: 'mekanism:block_refined_obsidian' },
+      tag: { ingot: 'forge:ingots/refined_obsidian', nugget: 'forge:nuggets/refined_obsidian', block: 'forge:nuggets/refined_obsidian' },
       rsflux: 3600,
     },
 
