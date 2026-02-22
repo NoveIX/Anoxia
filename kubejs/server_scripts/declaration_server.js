@@ -7,12 +7,20 @@ const GameFluid = Anoxia.Game.Fluid;
 const GameRecipe = Anoxia.Game.Recipe;
 //#endregion
 
+//#region Func Generic
+const FuncGeneric = Anoxia.Function.Generic;
+const ToTag = FuncGeneric.ToTag.bind(FuncGeneric);
+const FromTag = FuncGeneric.FromTag.bind(FuncGeneric);
+//#endregion
+
 //#region Const Tinker
 const Material = Anoxia.Constant.Tinker.Material;
 //#endregion
 
 //#region Func Tinker
 const FuncTinker = Anoxia.Function.Tinker;
+const GetIngot = FuncTinker.GetIngot.bind(FuncTinker);
+const FromAmount = FuncTinker.FromAmount.bind(FuncTinker);
 const GetCoolingTick = FuncTinker.GetCoolingTick.bind(FuncTinker);
 const GetMeltingTick = FuncTinker.GetMeltingTick.bind(FuncTinker);
 //#endregion
