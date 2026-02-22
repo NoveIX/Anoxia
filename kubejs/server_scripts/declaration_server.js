@@ -11,6 +11,8 @@ const GameRecipe = Anoxia.Game.Recipe;
 const FuncGeneric = Anoxia.Function.Generic;
 const ToTag = FuncGeneric.ToTag.bind(FuncGeneric);
 const FromTag = FuncGeneric.FromTag.bind(FuncGeneric);
+const GetItem = FuncGeneric.GetItem.bind(FuncGeneric);
+const GetTag = FuncGeneric.GetTag.bind(FuncGeneric);
 //#endregion
 
 //#region Const Tinker

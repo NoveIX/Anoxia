@@ -20,6 +20,16 @@ Anoxia.Function.Generic = {
     return str.startsWith('#') ? str.slice(1) : str;
   },
 
+  GetItem(put, count) {
+    if (count != null) return { item: put, count: count };
+    return { item: put };
+  },
+
+  GetTag(put, count) {
+    if (count != null) return { tag: put, count: count };
+    return { tag: put };
+  },
+
   ToPascalCase(str) {
     return str.replace(/^./, (c) => c.toUpperCase());
   },

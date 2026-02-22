@@ -15,6 +15,7 @@ Anoxia.Constant.Tinker.Material = {
   Desh: { MeltPoint: 1267 },
   Ostrum: { MeltPoint: 1952 },
   Calorite: { MeltPoint: 2937 },
+  Osmium: { MeltPoint: 3033 },
 
   //Alloy
   Steel: { MeltPoint: 1450 },
@@ -27,6 +28,8 @@ Anoxia.Constant.Tinker.Material = {
   Invar: { MeltPoint: 1427 },
   Constantan: { MeltPoint: 1447 },
   Brass: { MeltPoint: 945 },
+  RefinedGlowstone: { MeltPoint: 1929 },
+  RefinedObsidian: { MeltPoint: 2844 },
 
   //Gem
   Lapis: { MeltPoint: 1533 },
