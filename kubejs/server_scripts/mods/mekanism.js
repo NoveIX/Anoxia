@@ -14,6 +14,10 @@ ServerEvents.recipes((event) => {
     'mekanism:metallurgic_infusing/alloy/atomic',
     'mekanism:processing/iron/enriched',
     'mekanism:processing/steel/enriched_iron_to_dust',
+
+    //Osmium Compressor
+    'mekanism:processing/refined_glowstone/ingot/from_dust',
+    'mekanism:processing/refined_obsidian/ingot/from_dust',
   ];
   RmRecipeID.forEach((id) => event.remove({ id: id }));
   //#endregion
@@ -46,23 +50,49 @@ ServerEvents.recipes((event) => {
 
   //# =================================================================================================== #
 
-  //Metallurgic Infusing
-  const AlloyPattern = [
-    { get: 'mekanism:basic_control_circuit', put: 'pneumaticcraft:transistor', chem: 'mekanism:redstone', qty: 40 },
-    { get: 'mekanism:alloy_infused', put: 'pneumaticcraft:capacitor', chem: 'mekanism:redstone', qty: 40 },
-    { get: 'mekanism:alloy_reinforced', put: 'mekanism:alloy_infused', chem: 'mekanism:diamond', qty: 80 },
-    { get: 'mekanism:alloy_atomic', put: 'mekanism:alloy_reinforced', chem: 'mekanism:refined_obsidian', qty: 160 },
-    { get: 'mekanism:enriched_iron', put: 'minecraft:iron_ingot', chem: 'mekanism:carbon', qty: 20 },
-    { get: 'thermal:steel_dust', put: 'mekanism:enriched_iron', chem: 'mekanism:carbon', qty: 20 },
+  //#region Compressing
+  const CompressingPattern = [
+    {
+      get: { item: 'mekanism:ingot_refined_glowstone' },
+      put: { ingredient: { tag: 'forge:dusts/glowstone' } },
+      gas: { amount: 5, gas: 'mekanism:osmium' },
+    },
+    {
+      get: { item: 'mekanism:ingot_refined_obsidian' },
+      put: { ingredient: { tag: 'forge:dusts/refined_obsidian' } },
+      gas: { amount: 5, gas: 'mekanism:osmium' },
+    },
   ];
-  AlloyPattern.forEach((recipe) => {
+  CompressingPattern.forEach((recipe) => {
+    event.custom({
+      type: 'mekanism:compressing',
+      chemicalInput: recipe.gas,
+      itemInput: recipe.put,
+      output: recipe.get,
+    });
+  });
+  //#endregion
+
+  //# =================================================================================================== #
+
+  //#region Metallurgic Infusing
+  const MetallurgicPattern = [
+    { get: 'mekanism:basic_control_circuit', put: GetItem('pneumaticcraft:transistor'), chem: 'mekanism:redstone', qty: 40 },
+    { get: 'mekanism:alloy_infused', put: GetItem('pneumaticcraft:capacitor'), chem: 'mekanism:redstone', qty: 40 },
+    { get: 'mekanism:alloy_reinforced', put: GetItem('mekanism:alloy_infused'), chem: 'mekanism:diamond', qty: 80 },
+    { get: 'mekanism:alloy_atomic', put: GetItem('mekanism:alloy_reinforced'), chem: 'mekanism:refined_obsidian', qty: 160 },
+    { get: 'mekanism:enriched_iron', put: GetItem('minecraft:iron_ingot'), chem: 'mekanism:carbon', qty: 20 },
+    { get: 'thermal:steel_dust', put: GetItem('mekanism:enriched_iron'), chem: 'mekanism:carbon', qty: 20 },
+  ];
+  MetallurgicPattern.forEach((recipe) => {
     event.custom({
       type: 'mekanism:metallurgic_infusing',
-      itemInput: { ingredient: { item: recipe.put } },
+      itemInput: { ingredient: recipe.put },
       output: { item: recipe.get },
       chemicalInput: { amount: recipe.qty, tag: recipe.chem },
     });
   });
+  //#endregion
 
   //# =================================================================================================== #
 
@@ -70,11 +100,11 @@ ServerEvents.recipes((event) => {
   const InfusionPattern = [
     {
       get: { amount: 10, infuse_type: 'mekanism:carbon' },
-      put: { ingredient: [{ item: 'minecraft:coal' }, { tag: 'forge:dusts/coal' }, { item: 'minecraft:charcoal' }, { tag: 'forge:dusts/charcoal' }] },
+      put: { ingredient: [GetTag('anoxia:materials/coal')] },
     },
     {
       get: { amount: 90, infuse_type: 'mekanism:carbon' },
-      put: { ingredient: [{ tag: 'forge:storage_blocks/coal' }, { tag: 'forge:storage_blocks/charcoal' }] },
+      put: { ingredient: [GetTag('anoxia:storage_blocks/coals')] },
     },
     {
       get: { amount: 20, infuse_type: 'mekanism:carbon' },

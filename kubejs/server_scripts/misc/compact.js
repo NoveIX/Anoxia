@@ -336,7 +336,7 @@ ServerEvents.recipes((event) => {
     },
     {
       id: { ingot: 'mekanism:ingot_refined_obsidian', nugget: 'mekanism:nugget_refined_obsidian', block: 'mekanism:block_refined_obsidian' },
-      tag: { ingot: 'forge:ingots/refined_obsidian', nugget: 'forge:nuggets/refined_obsidian', block: 'forge:nuggets/refined_obsidian' },
+      tag: { ingot: 'forge:ingots/refined_obsidian', nugget: 'forge:nuggets/refined_obsidian', block: 'forge:storage_blocks/refined_obsidian' },
       rsflux: 3600,
     },
 

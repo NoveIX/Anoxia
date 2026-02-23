@@ -431,6 +431,11 @@ Anoxia.Game.Item.RmOut = [
   //Summoning Altar
   'summoningrituals:indestructible_altar',
 
+  //Tinker Construct
+  'tconstruct:rose_gold_nugget',
+  'tconstruct:rose_gold_ingot',
+  'tconstruct:rose_gold_block',
+
   //Thermal Series
   'thermal:sawdust',
   'thermal:saw_blade',
@@ -634,11 +639,30 @@ Anoxia.Game.Fluid.RmOut = [
   'enderio:liquid_sunshine',
   'enderio:cloud_seed',
   'enderio:cloud_seed_concentrated',
+
+  //Tinker
+  'tconstruct:molten_nicrosil',
+  'tconstruct:molten_pewter',
+  'tconstruct:molten_chromium',
 ];
 //#endregion
 
 //#region RmIn fluid
-Anoxia.Game.Fluid.RmIn = [];
+Anoxia.Game.Fluid.RmIn = [
+  //EnderIO
+  'enderio:dew_of_the_void',
+  'enderio:vapor_of_levity',
+  'enderio:hootch',
+  'enderio:rocket_fuel',
+  'enderio:liquid_sunshine',
+  'enderio:cloud_seed',
+  'enderio:cloud_seed_concentrated',
+
+  //Tinker
+  'tconstruct:molten_nicrosil',
+  'tconstruct:molten_pewter',
+  'tconstruct:molten_chromium',
+];
 //#endregion
 
 //#region Jei add fluid
@@ -671,6 +695,14 @@ Anoxia.Game.Recipe.RmId = [
   'enderio:copper_ingot_from_blasting',
   'enderio:smelting/enderio/copper_ingot_from_smelting',
 
+  //Mekanism
+  'mekanismtools:refined_glowstone/nugget_from_smelting',
+  'mekanismtools:refined_glowstone/nugget_from_blasting',
+  'enderio:smelting/mekanismtools/refined_glowstone/nugget_from_smelting',
+  'mekanismtools:refined_obsidian/nugget_from_smelting',
+  'mekanismtools:refined_obsidian/nugget_from_blasting',
+  'enderio:smelting/mekanismtools/refined_obsidian/nugget_from_smelting',
+
   //Productive bees
   'productivebees:block_conversion/pams/lemon/stage1',
   //'productivebees:/tconstruct/honeycomb/*', // => Disabled in Openloader
@@ -679,6 +711,8 @@ Anoxia.Game.Recipe.RmId = [
   'productivebees:centrifuge/ars_nouveau/honeycomb_arcane',
   'productivebees:centrifuge/industrialforegoing/honeycomb_pink_slimy',
   'productivebees:centrifuge/materials/honeycomb_plastic',
+  'productivebees:centrifuge/mekanism/honeycomb_refined_glowstone',
+  'productivebees:centrifuge/mekanism/honeycomb_refined_obsidian',
   'productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium',
   'productivebees:centrifuge/mysticalagriculture/honeycomb_insanium',
   'productivebees:centrifuge/mysticalagriculture/honeycomb_supremium',
@@ -724,7 +758,9 @@ Anoxia.Game.Recipe.RmId = [
   'productivebees:create/mixing/ars_nouveau/honeycomb_arcane',
   'productivebees:create/mixing/honeycomb_ether_gas',
   'productivebees:create/mixing/irons_spellbooks/honeycomb_arcane_debris',
-  'productivebees:create/mixing/mysticalagriculture/honeycomb_awakened_supremium',
+  'productivebees:create/mixing/irons_spellbooks/honeycomb_arcane_debris',
+  'productivebees:create/mixing/mekanism/honeycomb_refined_glowstone',
+  'productivebees:create/mixing/mekanism/honeycomb_refined_obsidian',
   //'productivebees:create/mixing/mysticalagriculture/honeycomb_insanium',
   //'productivebees:create/mixing/mysticalagriculture/honeycomb_supremium',
   //'productivebees:create/mixing/mysticalagriculture/honeycomb_imperium',
@@ -755,6 +791,23 @@ Anoxia.Game.Recipe.RmId = [
   'productivebees:create/mixing/tconstruct/honeycomb_sky_slimy',
   'productivebees:create/mixing/tconstruct/honeycomb_slimesteel',
   'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
+
+  //Tinker Construct
+  'tconstruct:smeltery/alloys/molten_pewter',
+  'tconstruct:smeltery/melting/metal/pewter/raw',
+  'tconstruct:smeltery/melting/metal/pewter/raw_block',
+  'tconstruct:smeltery/alloys/molten_nicrosil',
+  'tconstruct:smeltery/melting/metal/nicrosil/raw',
+  'tconstruct:smeltery/melting/metal/nicrosil/raw_block',
+  'tconstruct:smeltery/melting/metal/choromium/raw',
+  'tconstruct:smeltery/melting/metal/choromium/raw_block',
+  'tconstruct:smeltery/melting/metal/choromium/ore_dense',
+  'tconstruct:smeltery/melting/metal/choromium/ore_singular',
+  'tconstruct:smeltery/melting/metal/choromium/ore_sparse',
+  'tconstruct:smeltery/melting/metal/choromium/nugget',
+  'tconstruct:smeltery/melting/metal/choromium/ingot',
+  'tconstruct:smeltery/melting/metal/choromium/block',
+  'tconstruct:smeltery/melting/metal/choromium/dust',
 ];
 
 //ServerEvents.recipes((event) => event.remove({ id: '' }));

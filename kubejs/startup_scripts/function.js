@@ -21,13 +21,11 @@ Anoxia.Function.Generic = {
   },
 
   GetItem(put, count) {
-    if (count != null) return { item: put, count: count };
-    return { item: put };
+    return count !== undefined ? { item: put, count: count } : { item: put };
   },
 
   GetTag(put, count) {
-    if (count != null) return { tag: put, count: count };
-    return { tag: put };
+    return count !== undefined ? { tag: put, count: count } : { tag: put };
   },
 
   ToPascalCase(str) {
