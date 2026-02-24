@@ -120,9 +120,9 @@ ServerEvents.recipes((event) => {
   //# =================================================================================================== #
 
   event.remove({ output: 'tconstruct:seared_brick' });
-  event.blasting('tconstruct:seared_brick', 'tconstruct:grout', 0, 400);
+  event.blasting('tconstruct:seared_brick', 'tconstruct:grout', 0, 600);
   event.remove({ output: 'tconstruct:scorched_brick' });
-  event.blasting('tconstruct:scorched_brick', 'tconstruct:nether_grout', 0, 600);
+  event.blasting('tconstruct:scorched_brick', 'tconstruct:nether_grout', 0, 1200);
 
   //# =================================================================================================== #
 
@@ -284,23 +284,23 @@ ServerEvents.recipes((event) => {
     {
       get: 'create:andesite_alloy',
       put: { amount: 90, tag: 'forge:molten_platinum' },
-      consume: true,
       cooling: GetCoolingTick(Material.Platinum, 1),
       caster: { item: 'minecraft:polished_andesite' },
+      consume: true,
     },
     {
       get: 'tconstruct:smeltery_controller',
       put: { amount: 360, tag: 'forge:molten_copper' },
-      consume: true,
       cooling: GetCoolingTick(Material.Copper, 4),
       caster: { tag: 'tconstruct:smeltery_bricks' },
+      consume: true,
     },
     {
       get: 'tconstruct:foundry_controller',
       put: { amount: 1000, tag: 'tconstruct:molten_obsidian' },
-      consume: true,
       cooling: GetCoolingTick(Material.Obsidian, 1),
       caster: { tag: 'tconstruct:foundry_bricks' },
+      consume: true,
     },
   ];
   CastingBasinPattern.forEach((recipe) => {
@@ -313,7 +313,7 @@ ServerEvents.recipes((event) => {
       result: recipe.get,
     };
 
-    if (!recipe.consume) json.cast_consumed = recipe.consume;
+    //if (!recipe.consume) json.cast_consumed = recipe.consume;
 
     event.custom(json);
   });
@@ -333,9 +333,9 @@ ServerEvents.recipes((event) => {
     {
       get: 'anoxia:obsidian_ingot',
       put: { amount: 250, tag: 'tconstruct:molten_obsidian' },
-      consume: true,
       cooling: GetCoolingTick(Material.Obsidian, 1),
       caster: { tag: 'tconstruct:casts/single_use/ingot' },
+      consume: true,
     },
 
     //Seared Brick
@@ -348,16 +348,16 @@ ServerEvents.recipes((event) => {
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 250, tag: 'tconstruct:seared_stone' },
-      consume: true,
       cooling: GetCoolingTick(Material.Stone, 1),
       caster: { tag: 'tconstruct:casts/single_use/ingot' },
+      consume: true,
     },
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 125, tag: 'tconstruct:molten_clay' },
-      consume: true,
       cooling: GetCoolingTick(Material.Clay, 0.5),
       caster: { item: 'minecraft:flint' },
+      consume: true,
     },
 
     //Scorched Brick

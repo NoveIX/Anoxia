@@ -761,6 +761,7 @@ Anoxia.Game.Recipe.RmId = [
   'productivebees:create/mixing/irons_spellbooks/honeycomb_arcane_debris',
   'productivebees:create/mixing/mekanism/honeycomb_refined_glowstone',
   'productivebees:create/mixing/mekanism/honeycomb_refined_obsidian',
+  'productivebees:create/mixing/mysticalagriculture/honeycomb_awakened_supremium',
   //'productivebees:create/mixing/mysticalagriculture/honeycomb_insanium',
   //'productivebees:create/mixing/mysticalagriculture/honeycomb_supremium',
   //'productivebees:create/mixing/mysticalagriculture/honeycomb_imperium',
