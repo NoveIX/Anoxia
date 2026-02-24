@@ -33,7 +33,16 @@ ServerEvents.recipes((event) => {
     'tconstruct:smeltery/casting/scorched/foundry_controller',
 
     //Mekanism
-    'tconstruct:smeltery/casting/metal/refined_glowstone',
+    'tconstruct:smeltery/casting/metal/refined_glowstone/block',
+    'tconstruct:smeltery/casting/metal/refined_glowstone/ingot_gold_cast',
+    'tconstruct:smeltery/casting/metal/refined_glowstone/ingot_sand_cast',
+    'tconstruct:smeltery/casting/metal/refined_glowstone/nugget_gold_cast',
+    'tconstruct:smeltery/casting/metal/refined_glowstone/nugget_sand_cast',
+    'tconstruct:smeltery/casting/metal/refined_obsidian/block',
+    'tconstruct:smeltery/casting/metal/refined_obsidian/ingot_gold_cast',
+    'tconstruct:smeltery/casting/metal/refined_obsidian/ingot_sand_cast',
+    'tconstruct:smeltery/casting/metal/refined_obsidian/nugget_gold_cast',
+    'tconstruct:smeltery/casting/metal/refined_obsidian/nugget_sand_cast',
 
     //Tinker Construct
     'jaopca:tconstruct.dust_to_molten.coal',
@@ -49,6 +58,16 @@ ServerEvents.recipes((event) => {
     'tconstruct:smeltery/alloys/molten_invar',
     'tconstruct:smeltery/alloys/molten_manyullyn',
     'tconstruct:smeltery/alloys/molten_rose_gold',
+    //Metal
+    'tconstruct:smeltery/alloys/molten_amethyst_bronze',
+    'tconstruct:smeltery/alloys/molten_cinderslime',
+    'tconstruct:smeltery/alloys/molten_hepatizon',
+    'tconstruct:smeltery/alloys/molten_pig_iron',
+    'tconstruct:smeltery/alloys/molten_queens_slime',
+    'tconstruct:smeltery/alloys/molten_slimesteel',
+    'tconstruct:smeltery/alloys/molten_refined_obsidian',
+    //Fuel
+    'tconstruct:smeltery/melting/fuel/blaze',
 
     //TC Integrations
     //Inferium
@@ -128,13 +147,13 @@ ServerEvents.recipes((event) => {
 
   //#region Alloy
   const AlloyPattern = [
-    /*  {
+    {
       get: { amount: 10, tag: 'tconstruct:molten_steel' },
       put: [
         { amount: 100, tag: 'forge:molten_coal' }, // 9 Coal = 1 Ingot
         { amount: 10, tag: 'tconstruct:molten_iron' },
       ],
-      heat: 950,
+      degree: 950,
     },
     {
       get: { amount: 10, tag: 'tconstruct:molten_steel' },
@@ -142,7 +161,7 @@ ServerEvents.recipes((event) => {
         { amount: 3000, fluid: 'mekanism:oxygen' },
         { amount: 10, tag: 'tconstruct:molten_iron' },
       ],
-      heat: 950,
+      degree: 950,
     },
     {
       get: { amount: 10, tag: 'tconstruct:molten_netherite' },
@@ -150,7 +169,7 @@ ServerEvents.recipes((event) => {
         { amount: 40, tag: 'tconstruct:molten_gold' },
         { amount: 40, tag: 'tconstruct:molten_debris' },
       ],
-      heat: 1175,
+      degree: 1175,
     },
     {
       get: { amount: 20, tag: 'forge:molten_brass' },
@@ -158,7 +177,7 @@ ServerEvents.recipes((event) => {
         { amount: 10, tag: 'forge:molten_copper' },
         { amount: 10, tag: 'forge:molten_zinc' },
       ],
-      heat: 605,
+      degree: 605,
     },
     {
       get: { amount: 40, tag: 'forge:molten_bronze' },
@@ -166,7 +185,7 @@ ServerEvents.recipes((event) => {
         { amount: 30, tag: 'forge:molten_copper' },
         { amount: 10, tag: 'forge:molten_tin' },
       ],
-      heat: 700,
+      degree: 700,
     },
     {
       get: { amount: 20, tag: 'forge:molten_constantan' },
@@ -174,7 +193,7 @@ ServerEvents.recipes((event) => {
         { amount: 10, tag: 'forge:molten_copper' },
         { amount: 10, tag: 'forge:molten_nickel' },
       ],
-      heat: 920,
+      degree: 920,
     },
     {
       get: { amount: 20, tag: 'forge:molten_electrum' },
@@ -182,7 +201,7 @@ ServerEvents.recipes((event) => {
         { amount: 10, tag: 'forge:molten_gold' },
         { amount: 10, tag: 'forge:molten_silver' },
       ],
-      heat: 760,
+      degree: 760,
     },
     {
       get: { amount: 30, tag: 'forge:molten_invar' },
@@ -190,7 +209,7 @@ ServerEvents.recipes((event) => {
         { amount: 20, tag: 'forge:molten_iron' },
         { amount: 10, tag: 'forge:molten_nickel' },
       ],
-      heat: 900,
+      degree: 900,
     },
     {
       put: [
@@ -198,7 +217,7 @@ ServerEvents.recipes((event) => {
         { amount: 10, tag: 'tconstruct:molten_debris' },
       ],
       get: { amount: 40, tag: 'forge:molten_manyullyn' },
-      heat: 1200,
+      degree: 1200,
     },
     {
       get: { amount: 10, tag: 'tconstruct:molten_obsidian' },
@@ -206,36 +225,28 @@ ServerEvents.recipes((event) => {
         { amount: 10, fluid: 'minecraft:water' },
         { amount: 10, fluid: 'minecraft:lava' },
       ],
-      heat: 1000,
-    }, */
-    //Mekanism
-    //Tinker Metal
-    /*
-    {
-      get: { amount: 180, fluid: 'tconstruct:molten_slimesteel' },
-      put: [
-        { amount: 90, tag: 'forge:molten_iron' },
-        { amount: 250, tag: 'tconstruct:sky_slime' },
-        { amount: 250, tag: 'tconstruct:seared_stone' },
-      ],
-      heat: 900,
+      degree: 1000,
     },
+
+    //Mekanism
+    {
+      get: { amount: 90, tag: 'forge:molten_refined_obsidian' },
+      put: [
+        { amount: 250, tag: 'tconstruct:molten_obsidian' },
+        { amount: 400, tag: 'tconstruct:molten_diamond' },
+        { amount: 450, tag: 'forge:molten_osmium' },
+      ],
+      degree: 1475,
+    },
+
+    //Tinker Metal
     {
       get: { amount: 90, tag: 'forge:molten_amethyst_bronze' },
       put: [
         { amount: 90, tag: 'forge:molten_bronze' },
         { amount: 100, tag: 'tconstruct:molten_amethyst' },
       ],
-      heat: 820,
-    },
-    {
-      get: { amount: 180, fluid: 'tconstruct:molten_pig_iron' },
-      put: [
-        { amount: 90, tag: 'forge:molten_iron' },
-        { amount: 500, tag: 'tconstruct:meat_soup' },
-        { amount: 250, tag: 'forge:honey' },
-      ],
-      heat: 811,
+      degree: 820,
     },
     {
       get: { amount: 90, fluid: 'tconstruct:molten_cinderslime' },
@@ -244,7 +255,26 @@ ServerEvents.recipes((event) => {
         { amount: 250, tag: 'tconstruct:ichor' },
         { amount: 250, tag: 'tconstruct:scorched_stone' },
       ],
-      heat: 1050,
+      degree: 1050,
+    },
+
+    {
+      get: { amount: 180, tag: 'forge:molten_hepatizon' },
+      put: [
+        { amount: 180, tag: 'forge:molten_copper' },
+        { amount: 90, tag: 'forge:molten_cobalt' },
+        { amount: 100, tag: 'tconstruct:molten_quartz' },
+      ],
+      degree: 1400,
+    },
+    {
+      get: { amount: 180, fluid: 'tconstruct:molten_pig_iron' },
+      put: [
+        { amount: 90, tag: 'forge:molten_iron' },
+        { amount: 500, tag: 'tconstruct:meat_soup' },
+        { amount: 250, tag: 'forge:honey' },
+      ],
+      degree: 811,
     },
     {
       get: { amount: 180, fluid: 'tconstruct:molten_queens_slime' },
@@ -253,25 +283,24 @@ ServerEvents.recipes((event) => {
         { amount: 90, tag: 'forge:molten_gold' },
         { amount: 250, tag: 'forge:magma' },
       ],
-      heat: 1150,
+      degree: 1150,
     },
     {
-      get: { amount: 180, tag: 'forge:molten_hepatizon' },
+      get: { amount: 180, fluid: 'tconstruct:molten_slimesteel' },
       put: [
-        { amount: 180, tag: 'forge:molten_copper' },
-        { amount: 90, tag: 'forge:molten_cobalt' },
-        { amount: 100, tag: 'tconstruct:molten_quartz' },
+        { amount: 90, tag: 'forge:molten_iron' },
+        { amount: 250, tag: 'tconstruct:sky_slime' },
+        { amount: 250, tag: 'tconstruct:seared_stone' },
       ],
-      heat: 1400,
+      degree: 900,
     },
-    */
   ];
   AlloyPattern.forEach((recipe) => {
     event.custom({
       type: 'tconstruct:alloy',
       inputs: recipe.put,
       result: recipe.get,
-      temperature: recipe.heat,
+      temperature: recipe.degree,
     });
   });
   //#endregion
@@ -284,34 +313,49 @@ ServerEvents.recipes((event) => {
     {
       get: 'create:andesite_alloy',
       put: { amount: 90, tag: 'forge:molten_platinum' },
-      cooling: GetCoolingTick(Material.Platinum, 1),
+      cooling: GetCoolingTick(Material.Platinum, GetIngot(1, 'Ingot')),
       caster: { item: 'minecraft:polished_andesite' },
+      consume: true,
     },
     {
       get: 'tconstruct:smeltery_controller',
       put: { amount: 360, tag: 'forge:molten_copper' },
-      cooling: GetCoolingTick(Material.Copper, 4),
+      cooling: GetCoolingTick(Material.Copper, GetIngot(4, 'Ingot')),
       caster: { tag: 'tconstruct:smeltery_bricks' },
+      consume: true,
     },
     {
       get: 'tconstruct:foundry_controller',
       put: { amount: 1000, tag: 'tconstruct:molten_obsidian' },
       cooling: GetCoolingTick(Material.Obsidian, 1),
       caster: { tag: 'tconstruct:foundry_bricks' },
+      consume: true,
+    },
+
+    //Refined Glowstone
+    {
+      get: { tag: 'forge:storage_blocks/refined_glowstone' },
+      put: { amount: 810, tag: 'forge:molten_refined_glowstone' },
+      cooling: GetCoolingTick(Material.RefinedGlowstone, GetIngot(1, 'Block')),
+    },
+    {
+      get: { tag: 'forge:storage_blocks/refined_obsidian' },
+      put: { amount: 810, tag: 'forge:molten_refined_obsidian' },
+      cooling: GetCoolingTick(Material.RefinedObsidian, GetIngot(1, 'Block')),
     },
   ];
   CastingBasinPattern.forEach((recipe) => {
-    event.custom({
+    const json = {
       type: 'tconstruct:casting_basin',
-      cast: recipe.caster,
-      cast_consumed: true,
       cooling_time: recipe.cooling,
       fluid: recipe.put,
       result: recipe.get,
-    });
+    };
 
-    //if (!recipe.consume) json.cast_consumed = recipe.consume;
-    //event.custom(json);
+    if (recipe.cast) json.cast = recipe.caster;
+    if (recipe.consume) json.cast_consumed = recipe.consume;
+
+    event.custom(json);
   });
   //#endregion
 
@@ -324,30 +368,10 @@ ServerEvents.recipes((event) => {
       get: 'anoxia:obsidian_ingot',
       put: { amount: 250, tag: 'tconstruct:molten_obsidian' },
       cooling: GetCoolingTick(Material.Obsidian, 1),
-      caster: { tag: 'tconstruct:casts/multi_use/ingot' },
-    },
-    {
-      get: 'anoxia:obsidian_ingot',
-      put: { amount: 250, tag: 'tconstruct:molten_obsidian' },
-      cooling: GetCoolingTick(Material.Obsidian, 1),
-      caster: { tag: 'tconstruct:casts/single_use/ingot' },
-      consume: true,
+      ingot: true,
     },
 
     //Seared Brick
-    {
-      get: 'tconstruct:seared_brick',
-      put: { amount: 250, tag: 'tconstruct:seared_stone' },
-      cooling: GetCoolingTick(Material.Stone, 1),
-      caster: { tag: 'tconstruct:casts/multi_use/ingot' },
-    },
-    {
-      get: 'tconstruct:seared_brick',
-      put: { amount: 250, tag: 'tconstruct:seared_stone' },
-      cooling: GetCoolingTick(Material.Stone, 1),
-      caster: { tag: 'tconstruct:casts/single_use/ingot' },
-      consume: true,
-    },
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 125, tag: 'tconstruct:molten_clay' },
@@ -355,21 +379,14 @@ ServerEvents.recipes((event) => {
       caster: { item: 'minecraft:flint' },
       consume: true,
     },
+    {
+      get: 'tconstruct:seared_brick',
+      put: { amount: 250, tag: 'tconstruct:seared_stone' },
+      cooling: GetCoolingTick(Material.Stone, 1),
+      ingot: true,
+    },
 
     //Scorched Brick
-    {
-      get: 'tconstruct:scorched_brick',
-      put: { amount: 250, tag: 'tconstruct:scorched_stone' },
-      cooling: GetCoolingTick(Material.ScorchedStone, 1),
-      caster: { tag: 'tconstruct:casts/multi_use/ingot' },
-    },
-    {
-      get: 'tconstruct:scorched_brick',
-      put: { amount: 250, tag: 'tconstruct:scorched_stone' },
-      cooling: GetCoolingTick(Material.ScorchedStone, 1),
-      caster: { tag: 'tconstruct:casts/single_use/ingot' },
-      consume: true,
-    },
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 125, tag: 'forge:magma' },
@@ -377,35 +394,89 @@ ServerEvents.recipes((event) => {
       caster: { item: 'minecraft:flint' },
       consume: true,
     },
+    {
+      get: 'tconstruct:scorched_brick',
+      put: { amount: 250, tag: 'tconstruct:scorched_stone' },
+      cooling: GetCoolingTick(Material.ScorchedStone, 1),
+      ingot: true,
+    },
 
-    //Mekanism
+    //Refined Glowstone
+    {
+      get: { tag: 'forge:nuggets/refined_glowstone' },
+      put: { amount: 10, tag: 'forge:molten_refined_glowstone' },
+      cooling: GetCoolingTick(Material.RefinedGlowstone, GetIngot(1, 'Nugget')),
+      nugget: true,
+    },
     {
       get: { tag: 'forge:ingots/refined_glowstone' },
       put: { amount: 450, tag: 'forge:molten_osmium' },
-      cooling: GetCoolingTick(Material.Osmium, 5),
+      cooling: GetCoolingTick(Material.Osmium, GetIngot(5, 'Ingot')),
       caster: { tag: 'forge:dusts/glowstone' },
       consume: true,
     },
     {
+      get: { tag: 'forge:ingots/refined_glowstone' },
+      put: { amount: 90, tag: 'forge:molten_refined_glowstone' },
+      cooling: GetCoolingTick(Material.RefinedGlowstone, GetIngot(1, 'Ingot')),
+      ingot: true,
+    },
+
+    //Refined Obsidian
+    {
+      get: { tag: 'forge:nuggets/refined_obsidian' },
+      put: { amount: 10, tag: 'forge:molten_refined_obsidian' },
+      cooling: GetCoolingTick(Material.RefinedObsidian, GetIngot(1, 'Nugget')),
+      nugget: true,
+    },
+    {
       get: { tag: 'forge:ingots/refined_obsidian' },
       put: { amount: 450, tag: 'forge:molten_osmium' },
-      cooling: GetCoolingTick(Material.Osmium, 5),
+      cooling: GetCoolingTick(Material.Osmium, GetIngot(5, 'Ingot')),
       caster: { tag: 'forge:dusts/refined_obsidian' },
       consume: true,
+    },
+    {
+      get: { tag: 'forge:ingots/refined_obsidian' },
+      put: { amount: 90, tag: 'forge:molten_refined_obsidian' },
+      cooling: GetCoolingTick(Material.RefinedObsidian, GetIngot(1, 'Ingot')),
+      ingot: true,
     },
   ];
   CastingTablePattern.forEach((recipe) => {
     const json = {
       type: 'tconstruct:casting_table',
-      cast: recipe.caster,
       cooling_time: recipe.cooling,
       fluid: recipe.put,
       result: recipe.get,
     };
 
-    if (recipe.consume) json.cast_consumed = recipe.consume;
+    if (recipe.nugget) {
+      for (let i = 0; i < 2; i++) {
+        if (i === 0) {
+          json.cast = { tag: 'tconstruct:casts/multi_use/nugget' };
+        } else {
+          json.cast = { tag: 'tconstruct:casts/single_use/nugget' };
+          json.cast_consumed = true;
+        }
 
-    event.custom(json);
+        event.custom(json);
+      }
+    } else if (recipe.ingot) {
+      for (let i = 0; i < 2; i++) {
+        if (i === 0) {
+          json.cast = { tag: 'tconstruct:casts/multi_use/ingot' };
+        } else {
+          json.cast = { tag: 'tconstruct:casts/single_use/ingot' };
+          json.cast_consumed = true;
+        }
+
+        event.custom(json);
+      }
+    } else {
+      ((json.cast = recipe.caster), (json.cast_consumed = recipe.consume));
+      event.custom(json);
+    }
   });
   //#endregion
 
@@ -501,41 +572,46 @@ ServerEvents.recipes((event) => {
 
   //# =================================================================================================== #
 
-  //#region TinkerCompating
-  const TinkerCompatingPattern = [
-    //Mekanism
+  //#region MeltingFuel
+  const MeltingFuelPattern = [
     {
-      get: { tag: 'forge:storage_blocks/refined_glowstone' },
-      put: { amount: 810, tag: 'forge:molten_refined_glowstone' },
-      cooling: GetCoolingTick(Material.RefinedGlowstone, FromAmount(810)),
+      put: { amount: 50, fluid: 'immersiveengineering:biodiesel' },
+      tick: 12,
+      speed: 12,
+      degree: 1250,
+    },
+    {
+      put: { amount: 50, fluid: 'tconstruct:blazing_blood' },
+      tick: 14,
+      speed: 14,
+      degree: 1500,
+    },
+    {
+      put: { amount: 50, fluid: 'thermal:crude_oil' },
+      tick: 16,
+      speed: 16,
+      degree: 1750,
+    },
+    {
+      put: { amount: 50, fluid: 'pneumaticcraft:kerosene' },
+      tick: 18,
+      speed: 18,
+      degree: 2000,
+    },
+    {
+      put: { amount: 50, fluid: 'ad_astra:fuel' },
+      tick: 20,
+      speed: 20,
+      degree: 2500,
     },
   ];
-  TinkerCompatingPattern.forEach((recipe) => {
-    //ingot
+  MeltingFuelPattern.forEach((recipe) => {
     event.custom({
-      type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/multi_use/ingot' },
-      cooling_time: 61,
-      fluid: { amount: 90, tag: 'forge:molten_refined_glowstone' },
-      result: { tag: 'forge:ingots/refined_glowstone' },
-    });
-
-    //Ingot
-    event.custom({
-      type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/single_use/ingot' },
-      cast_consumed: true,
-      cooling_time: 61,
-      fluid: { amount: 90, tag: 'forge:molten_refined_glowstone' },
-      result: { tag: 'forge:ingots/refined_glowstone' },
-    });
-
-    //Block
-    event.custom({
-      type: 'tconstruct:casting_basin',
-      cooling_time: recipe.cooling,
+      type: 'tconstruct:melting_fuel',
+      duration: recipe.tick, // Tick time for fluid amount
       fluid: recipe.put,
-      result: recipe.get,
+      rate: recipe.speed, // Speed multiplier 1.5
+      temperature: recipe.degree,
     });
   });
   //#endregion

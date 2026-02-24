@@ -77,11 +77,14 @@ ServerEvents.recipes((event) => {
 
   //#region Metallurgic Infusing
   const MetallurgicPattern = [
+    //Circuit
     {
       get: { item: 'mekanism:basic_control_circuit' },
       put: { ingredient: { item: 'pneumaticcraft:transistor' } },
       chem: { tag: 'mekanism:redstone', amount: 40 },
     },
+
+    //Alloy
     {
       get: { item: 'mekanism:alloy_infused' },
       put: { ingredient: { item: 'pneumaticcraft:capacitor' } },
@@ -97,6 +100,8 @@ ServerEvents.recipes((event) => {
       put: { ingredient: { item: 'mekanism:alloy_reinforced' } },
       chem: { tag: 'mekanism:refined_obsidian', amount: 160 },
     },
+
+    //Steel
     {
       get: { item: 'mekanism:enriched_iron' },
       put: { ingredient: { item: 'minecraft:iron_ingot' } },
@@ -106,6 +111,13 @@ ServerEvents.recipes((event) => {
       get: { item: 'thermal:steel_dust' },
       put: { ingredient: { item: 'mekanism:enriched_iron' } },
       chem: { tag: 'mekanism:carbon', amount: 20 },
+    },
+
+    //Refined Obsidian
+    {
+      get: { item: 'mekanism:dust_refined_obsidian' },
+      put: { ingredient: { tag: 'forge:dusts/obsidian' } },
+      chem: { amount: 40, tag: 'mekanism:diamond' },
     },
   ];
   MetallurgicPattern.forEach((recipe) => {
