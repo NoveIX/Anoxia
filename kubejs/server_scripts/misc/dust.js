@@ -208,17 +208,15 @@ ServerEvents.recipes((event) => {
 
   //#region func Dust
   function DustCrafting(recipe) {
-    if (recipe.put.startsWith('forge:ingots')) {
-      event.shapeless(recipe.get, [ToTag(recipe.put), 'ae2:tiny_tnt']);
-    } else {
-      event.shapeless(recipe.get, [ToTag(recipe.put), 'immersiveengineering:hammer']);
-    }
+    // Hammer and tiny tnt
+    if (recipe.put.startsWith('forge:ingots')) event.shapeless(recipe.get, [ToTag(recipe.put), 'ae2:tiny_tnt']);
+    else event.shapeless(recipe.get, [ToTag(recipe.put), 'immersiveengineering:hammer']);
 
-    if (recipe.put === 'forge:gems/ruby' || recipe.put === 'forge:gems/sapphire') {
-      event.shapeless(recipe.get, [ToTag(recipe.put), 'thermal:earth_charge']);
-    }
+    //Earth Charge
+    if (['forge:gems/ruby', 'forge:gems/sapphire'].includes(recipe.put)) event.shapeless(recipe.get, [ToTag(recipe.put), 'thermal:earth_charge']);
   }
 
+  // Blood Magic
   function DustBlood(recipe) {
     if (recipe.ore) {
       event.custom({
@@ -243,7 +241,20 @@ ServerEvents.recipes((event) => {
     });
   }
 
+  // Create
   function DustCreate(recipe) {
+    const json = {
+      type: 'create:milling',
+      ingredients: [{ tag: recipe.put }],
+      processingTime: recipe.processing,
+    };
+
+    // add result
+    json.results = recipe.create ? recipe.create.get : [{ item: recipe.get }];
+
+    event.custom(json);
+
+    /*
     if (recipe.create) {
       event.custom({
         type: 'create:milling',
@@ -259,9 +270,26 @@ ServerEvents.recipes((event) => {
         processingTime: recipe.processing,
       });
     }
+      */
   }
 
+  // Immersive
   function DustImmersive(recipe) {
+    const json = {
+      type: 'immersiveengineering:crusher',
+      input: { tag: recipe.put },
+      energy: recipe.rsflux,
+    };
+
+    // add result
+    json.result = recipe.immersive ? recipe.immersive.primary : { base_ingredient: { item: recipe.get } };
+
+    // add secondaries
+    json.secondaries = recipe.immersive ? recipe.immersive.secondary : [];
+
+    event.custom(json);
+
+    /*
     if (recipe.immersive) {
       event.custom({
         type: 'immersiveengineering:crusher',
@@ -279,9 +307,24 @@ ServerEvents.recipes((event) => {
         energy: recipe.rsflux,
       });
     }
+    */
   }
 
+  // EnderIO
   function DustEnderIO(recipe) {
+    const json = {
+      type: 'enderio:sag_milling',
+      input: { tag: recipe.put },
+      energy: recipe.rsflux,
+      bonus: 'none',
+    };
+
+    // add outputs
+    json.outputs = recipe.enderio ? recipe.enderio.get : [{ item: recipe.get }];
+
+    event.custom(json);
+
+    /*
     if (recipe.enderio) {
       event.custom({
         type: 'enderio:sag_milling',
@@ -299,8 +342,10 @@ ServerEvents.recipes((event) => {
         bonus: 'none',
       });
     }
+    */
   }
 
+  // Mekanism
   function DustMekanism(recipe) {
     event.custom({
       type: 'mekanism:crushing',
@@ -309,7 +354,20 @@ ServerEvents.recipes((event) => {
     });
   }
 
+  // Thermal
   function DustThermal(recipe) {
+    const json = {
+      type: 'thermal:pulverizer',
+      ingredient: { tag: recipe.put },
+      energy: recipe.rsflux,
+    };
+
+    // add result
+    json.result = recipe.thermal ? recipe.thermal.get : [{ item: recipe.get }];
+
+    event.custom(json);
+
+    /*
     if (recipe.thermal) {
       event.custom({
         type: 'thermal:pulverizer',
@@ -325,6 +383,7 @@ ServerEvents.recipes((event) => {
         energy: recipe.rsflux,
       });
     }
+    */
   }
   //#endregion
 
@@ -337,13 +396,8 @@ ServerEvents.recipes((event) => {
       get: 'mekanism:dust_coal',
       put: 'anoxia:gems/coal',
       extra: 'thermal:sulfur_dust',
-      create: {
-        get: [{ item: 'mekanism:dust_coal' }, { chance: 0.1, item: 'thermal:sulfur_dust' }],
-      },
-      immersive: {
-        primary: { item: 'mekanism:dust_coal' },
-        secondary: [{ chance: 0.1, output: { item: 'thermal:sulfur_dust' } }],
-      },
+      create: { get: [{ item: 'mekanism:dust_coal' }, { chance: 0.1, item: 'thermal:sulfur_dust' }] },
+      immersive: { primary: { item: 'mekanism:dust_coal' }, secondary: [{ chance: 0.1, output: { item: 'thermal:sulfur_dust' } }] },
       enderio: {
         get: [
           { chance: 1.0, item: { item: 'mekanism:dust_coal' }, optional: false },
@@ -364,13 +418,8 @@ ServerEvents.recipes((event) => {
       get: 'mekanism:dust_charcoal',
       put: 'anoxia:charcoal',
       extra: 'thermal:sulfur_dust',
-      create: {
-        get: [{ item: 'mekanism:dust_charcoal' }, { chance: 0.1, item: 'thermal:sulfur_dust' }],
-      },
-      immersive: {
-        primary: { item: 'mekanism:dust_charcoal' },
-        secondary: [{ chance: 0.1, output: { item: 'thermal:sulfur_dust' } }],
-      },
+      create: { get: [{ item: 'mekanism:dust_charcoal' }, { chance: 0.1, item: 'thermal:sulfur_dust' }] },
+      immersive: { primary: { item: 'mekanism:dust_charcoal' }, secondary: [{ chance: 0.1, output: { item: 'thermal:sulfur_dust' } }] },
       enderio: {
         get: [
           { chance: 1.0, item: { item: 'mekanism:dust_charcoal' }, optional: false },
@@ -391,13 +440,8 @@ ServerEvents.recipes((event) => {
       get: 'immersiveengineering:dust_coke',
       put: 'forge:coal_coke',
       extra: 'thermal:sulfur_dust',
-      create: {
-        get: [{ item: 'immersiveengineering:dust_coke' }, { chance: 0.1, count: 2, item: 'thermal:sulfur_dust' }],
-      },
-      immersive: {
-        primary: { item: 'immersiveengineering:dust_coke' },
-        secondary: [{ chance: 0.1, output: { count: 2, item: 'thermal:sulfur_dust' } }],
-      },
+      create: { get: [{ item: 'immersiveengineering:dust_coke' }, { chance: 0.1, count: 2, item: 'thermal:sulfur_dust' }] },
+      immersive: { primary: { item: 'immersiveengineering:dust_coke' }, secondary: [{ chance: 0.1, output: { count: 2, item: 'thermal:sulfur_dust' } }] },
       enderio: {
         get: [
           { chance: 1.0, item: { item: 'immersiveengineering:dust_coke' }, optional: false },
@@ -424,13 +468,8 @@ ServerEvents.recipes((event) => {
     {
       get: 'thermal:quartz_dust',
       put: 'forge:gems/quartz',
-      create: {
-        get: [{ item: 'thermal:quartz_dust' }, { chance: 0.1, item: 'thermal:quartz_dust' }],
-      },
-      immersive: {
-        primary: { item: 'thermal:quartz_dust' },
-        secondary: [{ chance: 0.1, output: { item: 'thermal:quartz_dust' } }],
-      },
+      create: { get: [{ item: 'thermal:quartz_dust' }, { chance: 0.1, item: 'thermal:quartz_dust' }] },
+      immersive: { primary: { item: 'thermal:quartz_dust' }, secondary: [{ chance: 0.1, output: { item: 'thermal:quartz_dust' } }] },
       enderio: {
         get: [
           { chance: 1.0, item: { item: 'thermal:quartz_dust' }, optional: false },

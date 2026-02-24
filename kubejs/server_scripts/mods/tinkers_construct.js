@@ -286,36 +286,32 @@ ServerEvents.recipes((event) => {
       put: { amount: 90, tag: 'forge:molten_platinum' },
       cooling: GetCoolingTick(Material.Platinum, 1),
       caster: { item: 'minecraft:polished_andesite' },
-      consume: true,
     },
     {
       get: 'tconstruct:smeltery_controller',
       put: { amount: 360, tag: 'forge:molten_copper' },
       cooling: GetCoolingTick(Material.Copper, 4),
       caster: { tag: 'tconstruct:smeltery_bricks' },
-      consume: true,
     },
     {
       get: 'tconstruct:foundry_controller',
       put: { amount: 1000, tag: 'tconstruct:molten_obsidian' },
       cooling: GetCoolingTick(Material.Obsidian, 1),
       caster: { tag: 'tconstruct:foundry_bricks' },
-      consume: true,
     },
   ];
   CastingBasinPattern.forEach((recipe) => {
-    const json = {
+    event.custom({
       type: 'tconstruct:casting_basin',
       cast: recipe.caster,
-      cast_consumed: recipe.consume,
+      cast_consumed: true,
       cooling_time: recipe.cooling,
       fluid: recipe.put,
       result: recipe.get,
-    };
+    });
 
     //if (!recipe.consume) json.cast_consumed = recipe.consume;
-
-    event.custom(json);
+    //event.custom(json);
   });
   //#endregion
 
@@ -370,32 +366,32 @@ ServerEvents.recipes((event) => {
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 250, tag: 'tconstruct:scorched_stone' },
-      consume: true,
       cooling: GetCoolingTick(Material.ScorchedStone, 1),
       caster: { tag: 'tconstruct:casts/single_use/ingot' },
+      consume: true,
     },
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 125, tag: 'forge:magma' },
-      consume: true,
       cooling: GetCoolingTick(Material.Magma, 0.5),
       caster: { item: 'minecraft:flint' },
+      consume: true,
     },
 
     //Mekanism
     {
       get: { tag: 'forge:ingots/refined_glowstone' },
       put: { amount: 450, tag: 'forge:molten_osmium' },
-      consume: true,
       cooling: GetCoolingTick(Material.Osmium, 5),
       caster: { tag: 'forge:dusts/glowstone' },
+      consume: true,
     },
     {
       get: { tag: 'forge:ingots/refined_obsidian' },
       put: { amount: 450, tag: 'forge:molten_osmium' },
-      consume: true,
       cooling: GetCoolingTick(Material.Osmium, 5),
       caster: { tag: 'forge:dusts/refined_obsidian' },
+      consume: true,
     },
   ];
   CastingTablePattern.forEach((recipe) => {

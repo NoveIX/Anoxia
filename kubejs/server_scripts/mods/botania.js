@@ -80,14 +80,13 @@ ServerEvents.recipes((event) => {
       output: { item: recipe.get },
     };
 
-    // input: tag o item
-    if (recipe.put.startsWith('forge:')) json.input = { tag: recipe.put };
-    else json.input = { item: recipe.put };
+    // Input: tag o item
+    json.input = recipe.put.startsWith('forge:') ? { tag: recipe.put } : { item: recipe.put };
 
-    // output count
+    // Add output count
     if (recipe.n0) json.output.count = recipe.n0;
 
-    // catalyst
+    // Add catalyst
     if (recipe.alchemy) json.catalyst = { type: 'block', block: recipe.alchemy };
 
     event.custom(json);
