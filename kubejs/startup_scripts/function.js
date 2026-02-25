@@ -65,7 +65,7 @@ Anoxia.Function.Tinker = {
     return Math.ceil(base / 20) * 20; // rounded to the nearest multiple of 20
   },
 
-  addDualCastRecipe(castType, json, event) {
+  AddDualCastRecipe(castType, json, event) {
     const castMaterial = [
       { type: 'multi_use', consumed: false },
       { type: 'single_use', consumed: true },

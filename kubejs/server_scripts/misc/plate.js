@@ -93,7 +93,7 @@ ServerEvents.recipes((event) => {
     };
 
     // Add single and multi Cast
-    addDualCastRecipe('plate', json, this);
+    AddDualCastRecipe('plate', json, this);
   }
   //#endregion
 
