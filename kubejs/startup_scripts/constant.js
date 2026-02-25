@@ -1,6 +1,6 @@
 //priority:980
 
-Anoxia.Constant.Tinker.Material = {
+Anoxia.Constant.TinkerConstruct.Material = {
   //Metal
   Iron: { MeltPoint: 1538 },
   Gold: { MeltPoint: 1064 },
@@ -62,13 +62,13 @@ Anoxia.Constant.Tinker.Material = {
   Source: { MeltPoint: 1623 },
 };
 
-Anoxia.Constant.Tinker.SmeltingFactor = {
+Anoxia.Constant.TinkerConstruct.SmeltingFactor = {
   Furnace: { Heat: 0.8 },
   Dimension: { Moon: -190 },
   Environment: { Value: 6 },
 };
 
-Anoxia.Constant.Tinker.AmountType = {
+Anoxia.Constant.TinkerConstruct.AmountType = {
   Block: 810,
   Ingot: 90,
   Nugget: 10,

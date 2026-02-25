@@ -645,11 +645,11 @@ ServerEvents.recipes((event) => {
       energy: recipe.rsflux,
     };
 
-    if (put.startsWith('mysticalagriculture')) json.result = [{ item: recipe.get }, { item: put }];
-    else if (put.startsWith('pamhc2crops')) {
+    if (recipe.put.startsWith('mysticalagriculture')) json.result = [{ item: recipe.get }, { item: recipe.put }];
+    else if (recipe.put.startsWith('pamhc2crops')) {
       json.result = [
         { item: recipe.get, chance: 2.0 },
-        { item: put, chance: 0.1 },
+        { item: recipe.put, chance: 0.1 },
       ];
     }
 

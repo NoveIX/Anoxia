@@ -452,8 +452,8 @@ ServerEvents.recipes((event) => {
       result: recipe.get,
     };
 
-    if (recipe.nugget) AddDualCastRecipe('nugget', json, this);
-    else if (recipe.ingot) AddDualCastRecipe('ingot', json, this);
+    if (recipe.nugget) AddDualCastRecipe('nugget', json, event);
+    else if (recipe.ingot) AddDualCastRecipe('ingot', json, event);
     else {
       ((json.cast = recipe.caster), (json.cast_consumed = recipe.consume));
       event.custom(json);

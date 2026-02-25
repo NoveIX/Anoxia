@@ -15,12 +15,29 @@ const GetItem = FuncGeneric.GetItem.bind(FuncGeneric);
 const GetTag = FuncGeneric.GetTag.bind(FuncGeneric);
 //#endregion
 
+//#region Func EnderIO
+const FuncEnderIO = Anoxia.Function.EnderIO;
+const EnderIOSmelter = FuncEnderIO.EnderIOSmelter.bind(FuncEnderIO);
+//#endregion
+
+//#region Func Immersive
+const FuncImmersive = Anoxia.Function.ImmersiveEngineering;
+const ImmersiveAlloyKiln = FuncImmersive.ImmersiveAlloyKiln.bind(FuncImmersive);
+const ImmersiveArcFurnace = FuncImmersive.ImmersiveArcFurnace.bind(FuncImmersive);
+//#endregion
+
+//#region Func Thermal
+const FuncThermal = Anoxia.Function.ThermalSeries;
+const ThermalAlloySmelter = FuncThermal.ThermalAlloySmelter.bind(FuncThermal);
+const ThermalPress = FuncThermal.ThermalPress.bind(FuncThermal);
+//#endregion
+
 //#region Const Tinker
-const Material = Anoxia.Constant.Tinker.Material;
+const Material = Anoxia.Constant.TinkerConstruct.Material;
 //#endregion
 
 //#region Func Tinker
-const FuncTinker = Anoxia.Function.Tinker;
+const FuncTinker = Anoxia.Function.TinkerConstruct;
 const GetIngot = FuncTinker.GetIngot.bind(FuncTinker);
 const FromAmount = FuncTinker.FromAmount.bind(FuncTinker);
 const GetCoolingTick = FuncTinker.GetCoolingTick.bind(FuncTinker);
