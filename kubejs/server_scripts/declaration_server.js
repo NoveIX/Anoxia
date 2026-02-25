@@ -25,4 +25,5 @@ const GetIngot = FuncTinker.GetIngot.bind(FuncTinker);
 const FromAmount = FuncTinker.FromAmount.bind(FuncTinker);
 const GetCoolingTick = FuncTinker.GetCoolingTick.bind(FuncTinker);
 const GetMeltingTick = FuncTinker.GetMeltingTick.bind(FuncTinker);
+const addDualCastRecipe = FuncTinker.addDualCastRecipe.bind(FuncTinker);
 //#endregion

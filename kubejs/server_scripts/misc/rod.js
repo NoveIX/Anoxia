@@ -32,22 +32,15 @@ ServerEvents.recipes((event) => {
   }
 
   function RodTinker(recipe) {
-    event.custom({
+    const json = {
       type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/single_use/rod' },
-      cast_consumed: true,
       cooling_time: GetCoolingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
-    });
+    };
 
-    event.custom({
-      type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/multi_use/rod' },
-      cooling_time: GetCoolingTick(recipe.material, 1),
-      fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
-      result: recipe.get,
-    });
+    // Add single and multi Cast
+    addDualCastRecipe('rod', json, this);
   }
   //#endregion
 

@@ -252,25 +252,8 @@ ServerEvents.recipes((event) => {
     // add result
     json.results = recipe.create ? recipe.create.get : [{ item: recipe.get }];
 
+    // Add recipe
     event.custom(json);
-
-    /*
-    if (recipe.create) {
-      event.custom({
-        type: 'create:milling',
-        ingredients: [{ tag: recipe.put }],
-        results: recipe.create.get,
-        processingTime: recipe.processing,
-      });
-    } else {
-      event.custom({
-        type: 'create:milling',
-        ingredients: [{ tag: recipe.put }],
-        results: [{ item: recipe.get }],
-        processingTime: recipe.processing,
-      });
-    }
-      */
   }
 
   // Immersive
@@ -287,27 +270,8 @@ ServerEvents.recipes((event) => {
     // add secondaries
     json.secondaries = recipe.immersive ? recipe.immersive.secondary : [];
 
+    // Add recipe
     event.custom(json);
-
-    /*
-    if (recipe.immersive) {
-      event.custom({
-        type: 'immersiveengineering:crusher',
-        input: { tag: recipe.put },
-        result: recipe.immersive.primary,
-        secondaries: recipe.immersive.secondary,
-        energy: recipe.rsflux,
-      });
-    } else {
-      event.custom({
-        type: 'immersiveengineering:crusher',
-        input: { tag: recipe.put },
-        result: { base_ingredient: { item: recipe.get } },
-        secondaries: [],
-        energy: recipe.rsflux,
-      });
-    }
-    */
   }
 
   // EnderIO
@@ -322,27 +286,8 @@ ServerEvents.recipes((event) => {
     // add outputs
     json.outputs = recipe.enderio ? recipe.enderio.get : [{ item: recipe.get }];
 
+    // Add recipe
     event.custom(json);
-
-    /*
-    if (recipe.enderio) {
-      event.custom({
-        type: 'enderio:sag_milling',
-        input: { tag: recipe.put },
-        outputs: recipe.enderio.get,
-        energy: recipe.rsflux,
-        bonus: 'none',
-      });
-    } else {
-      event.custom({
-        type: 'enderio:sag_milling',
-        input: { tag: recipe.put },
-        outputs: [{ item: recipe.get }],
-        energy: recipe.rsflux,
-        bonus: 'none',
-      });
-    }
-    */
   }
 
   // Mekanism
@@ -365,25 +310,8 @@ ServerEvents.recipes((event) => {
     // add result
     json.result = recipe.thermal ? recipe.thermal.get : [{ item: recipe.get }];
 
+    // Add Recipe
     event.custom(json);
-
-    /*
-    if (recipe.thermal) {
-      event.custom({
-        type: 'thermal:pulverizer',
-        ingredient: { tag: recipe.put },
-        result: recipe.thermal.get,
-        energy: recipe.rsflux,
-      });
-    } else {
-      event.custom({
-        type: 'thermal:pulverizer',
-        ingredient: { tag: recipe.put },
-        result: [{ item: recipe.get }],
-        energy: recipe.rsflux,
-      });
-    }
-    */
   }
   //#endregion
 

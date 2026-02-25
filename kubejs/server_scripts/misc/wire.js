@@ -32,22 +32,15 @@ ServerEvents.recipes((event) => {
   }
 
   function WireTinker(recipe) {
-    event.custom({
+    const json = {
       type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/single_use/wire' },
-      cast_consumed: true,
       cooling_time: GetMeltingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
-    });
+    };
 
-    event.custom({
-      type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/multi_use/wire' },
-      cooling_time: GetMeltingTick(recipe.material, 1),
-      fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
-      result: recipe.get,
-    });
+    // Add single and multi Cast
+    addDualCastRecipe('wire', json, this);
   }
   //#endregion
 

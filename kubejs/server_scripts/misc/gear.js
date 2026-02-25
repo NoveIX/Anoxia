@@ -62,22 +62,15 @@ ServerEvents.recipes((event) => {
   }
 
   function GearTinker(recipe) {
-    event.custom({
+    const json = {
       type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/single_use/gear' },
-      cast_consumed: true,
       cooling_time: GetCoolingTick(recipe.material, 4),
       fluid: { amount: 360, tag: `forge:molten_${recipe.molten}` },
       result: { item: recipe.get },
-    });
+    };
 
-    event.custom({
-      type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/multi_use/gear' },
-      cooling_time: GetCoolingTick(recipe.material, 4),
-      fluid: { amount: 360, tag: `forge:molten_${recipe.molten}` },
-      result: { item: recipe.get },
-    });
+    // Add single and multi Cast
+    addDualCastRecipe('gear', json, this);
   }
   //#endregion
 
@@ -124,31 +117,20 @@ ServerEvents.recipes((event) => {
     { get: 'pneumaticcraft:compressed_iron_gear', put: 'forge:ingots/compressed_iron', rsflux: 8000, metal: 'hard' },
 
     //Avaritia
-    { get: 'avaritia:neutron_gear', put: 'forge:ingots/neutron', rsflux: 720000, metal: '' },
+    { get: 'avaritia:neutron_gear', put: 'forge:ingots/neutron', rsflux: 720000, metal: 'special' },
   ];
   GearPattern.forEach((recipe) => {
     //Remove
     event.remove({ output: recipe.get });
 
-    //Neutron
+    // Gear Press
     if (recipe.metal === 'special') GearThermal(recipe);
-    //Hard metal
-    else if (recipe.metal === 'hard') {
+    else if (recipe.metal === 'hard') (GearImmersive(recipe), GearThermal(recipe));
+    else {
+      //const fluidId = recipe.put.startsWith('forge:gems/') ? 'minecraft:water' : 'minecraft:water';
+      //GearCreate(recipe, fluidId);
       GearImmersive(recipe);
       GearThermal(recipe);
-    }
-
-    //Other
-    else {
-      if (recipe.put.startsWith('forge:gems/')) {
-        //GearCreate(recipe, 'minecraft:water');
-        GearImmersive(recipe);
-        GearThermal(recipe);
-      } else {
-        //GearCreate(recipe, 'minecraft:lava');
-        GearImmersive(recipe);
-        GearThermal(recipe);
-      }
     }
 
     //Molten

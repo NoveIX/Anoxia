@@ -80,47 +80,37 @@ ServerEvents.recipes((event) => {
 
   //#region func Furnace
   function FurnaceImmersive(recipe) {
-    event.custom({
+    const json = {
       type: 'immersiveengineering:arc_furnace',
       additives: [],
-      input: { tag: recipe.put },
       results: [{ item: recipe.get }],
       energy: 2000,
       time: 100,
-    });
+    };
+
+    // Add input
+    json.input = recipe.put.startsWith('forge:') ? { tag: recipe.put } : { item: recipe.put };
+
+    // Add recipe
+    event.custom(json);
   }
 
-  function FurnaceImmersiveID(recipe) {
-    event.custom({
-      type: 'immersiveengineering:arc_furnace',
-      additives: [],
-      input: { item: recipe.put },
-      results: [{ item: recipe.get }],
-      energy: 2000,
-      time: 100,
-    });
-  }
-
-  function FurnaceEnderio(recipe) {
-    event.custom({
+  function FurnaceEnderIO(recipe) {
+    const json = {
       type: 'enderio:alloy_smelting',
       energy: 1500,
       experience: 0.3,
       inputs: [{ count: 1, ingredient: { tag: recipe.put } }],
       result: { item: recipe.get },
       is_smelting: true,
-    });
-  }
+    };
 
-  function FurnaceEnderioID(recipe) {
-    event.custom({
-      type: 'enderio:alloy_smelting',
-      energy: 1500,
-      experience: 0.3,
-      inputs: [{ count: 1, ingredient: { item: recipe.put } }],
-      result: { item: recipe.get },
-      is_smelting: true,
-    });
+    // Add Inputs
+    var itemOrTag = recipe.put.startsWith('forge:') ? { tag: recipe.put } : { item: recipe.put };
+    json.inputs = [{ count: 1, ingredient: itemOrTag }];
+
+    // Add recipe
+    event.custom(json);
   }
 
   //#endregion
@@ -152,15 +142,11 @@ ServerEvents.recipes((event) => {
     { get: 'thermalendergy:stellarium_ingot', put: 'forge:dusts/stellarium', metal: true },
   ];
   FurnacePattern.forEach((recipe) => {
-    //Recipe
-    if (recipe.put.startsWith('forge:')) {
-      event.smelting(recipe.get, ToTag(recipe.put));
-      FurnaceEnderio(recipe);
-      if (recipe.metal) FurnaceImmersive(recipe);
-    } else {
-      event.smelting(recipe.get, recipe.put);
-      FurnaceEnderioID(recipe);
-      if (recipe.metal) FurnaceImmersiveID(recipe);
-    }
+    const itemOrTag = recipe.put.startsWith('forge:') ? ToTag(recipe.put) : recipe.put;
+
+    // Add Recipe
+    event.smelting(recipe.get, itemOrTag);
+    FurnaceEnderIO(recipe);
+    if (recipe.metal) FurnaceImmersive(recipe);
   });
 });

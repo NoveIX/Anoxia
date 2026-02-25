@@ -175,6 +175,8 @@ ServerEvents.recipes((event) => {
     { get: 'enderio:conductive_alloy_ingot', n0: 1, put1: 'forge:ingots/redstone_alloy', n1: 1, put2: 'forge:ingots/iron', n2: 1, put3: 'forge:ingots/copper_alloy', n3: 1, rsflux: 8000, alloy: 'complex' }, //Conductive Alloy
     { get: 'enderio:pulsating_alloy_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:ender_pearls', n2: 1, rsflux: 18000, alloy: 'ender' }, //Pulsating Alloy
     { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'anoxia:dusts/coal', n2: 8, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot
+    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot - Coke
+    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/steel', n1: 1, put2: 'forge:obsidian', n2: 1, rsflux: 24000, alloy: 'ender' }, //DarkSteel Ingot - Steel Alternative
     { get: 'enderio:soularium_ingot', n0: 1, put1: 'forge:ingots/cognitive_alloy', n1: 1, put2: 'forge:ingots/gold', n2: 1, rsflux: 24000, alloy: 'ender' }, //Soularium Ingot
     { get: 'enderio:end_steel_ingot', n0: 1, put1: 'forge:end_stones', n1: 1, put2: 'forge:ingots/dark_steel', n2: 1, put3: 'forge:obsidian', n3: 1, rsflux: 36000, alloy: 'complex' }, //EndSteel Ingot
 
@@ -183,6 +185,7 @@ ServerEvents.recipes((event) => {
 
     //Thermal
     { get: 'thermal:steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal', n2: 8, rsflux: 18000, alloy: 'simple' }, //Steel - Coal
+    { get: 'thermal:steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, rsflux: 18000, alloy: 'simple' }, //Steel - Coke
     { get: 'thermal:rose_gold_ingot', n0: 2, put1: 'forge:ingots/gold', n1: 1, put2: 'forge:ingots/copper', n2: 1, rsflux: 18000, alloy: 'simple' }, //Rose Gold
     { get: 'thermal:signalum_ingot', n0: 4, put1: 'forge:ingots/rose_gold', n1: 3, put2: 'forge:ingots/silver', n2: 1, put3: 'forge:dusts/redstone', n3: 10, rsflux: 24000, alloy: 'complex' }, //Signalum
     { get: 'thermal:lumium_ingot', n0: 4, put1: 'forge:ingots/energetic_alloy', n1: 3, put2: 'forge:ingots/lead', n2: 1, put3: 'forge:dusts/glowstone', n3: 4, rsflux: 24000, alloy: 'complex' }, //Lumium
@@ -201,59 +204,9 @@ ServerEvents.recipes((event) => {
     { get: 'tconstruct:manyullyn_ingot', n0: 1, put1: 'forge:ingots/cobalt', n1: 3, put2: 'forge:ingots/netherite_scrap', n2: 1, rsflux: 24000, alloy: 'simple' },
   ];
   AlloyPattern.forEach((recipe) => {
-    //Recipes
-    if (recipe.alloy === 'simple') {
-      AlloyImmersiveAlloy(recipe);
-      AlloyImmersiveArc(recipe);
-      AlloyEnderIO2(recipe);
-      AlloyThermal2(recipe);
-    }
-
-    //EnderIO support
-    else if (recipe.alloy === 'ender') {
-      AlloyEnderIO2(recipe);
-      AlloyThermal2(recipe);
-    }
-
-    //Complex
-    else if (recipe.alloy === 'complex') {
-      AlloyEnderIO3(recipe);
-      AlloyThermal3(recipe);
-    }
-  });
-  //#endregion
-
-  //# =================================================================================================== #
-
-  //#region Alloy Alt
-  const AlloyAltPattern = [
-    //EnderIO
-    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot - Coke
-    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/steel', n1: 1, put2: 'forge:obsidian', n2: 1, rsflux: 24000, alloy: 'ender' }, //DarkSteel Ingot - Steel Alternative
-
-    //Thermal
-    { get: 'thermal:steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, rsflux: 18000, alloy: 'simple' }, //Steel - Coke
-  ];
-  AlloyAltPattern.forEach((recipe) => {
-    //Recipes
-    if (recipe.alloy === 'simple') {
-      AlloyImmersiveAlloy(recipe);
-      AlloyImmersiveArc(recipe);
-      AlloyEnderIO2(recipe);
-      AlloyThermal2(recipe);
-    }
-
-    //EnderIO support
-    else if (recipe.alloy === 'ender') {
-      AlloyEnderIO2(recipe);
-      AlloyThermal2(recipe);
-    }
-
-    //Complex
-    else if (recipe.alloy === 'complex') {
-      AlloyEnderIO3(recipe);
-      AlloyThermal3(recipe);
-    }
+    if (recipe.alloy === 'simple') (AlloyImmersiveAlloy(recipe), AlloyImmersiveArc(recipe), AlloyEnderIO2(recipe), AlloyThermal2(recipe));
+    else if (recipe.alloy === 'ender') (AlloyEnderIO2(recipe), AlloyThermal2(recipe));
+    else if (recipe.alloy === 'complex') (AlloyEnderIO3(recipe), AlloyThermal3(recipe));
   });
   //#endregion
 });

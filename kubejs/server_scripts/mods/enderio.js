@@ -75,29 +75,6 @@ ServerEvents.recipes((event) => {
 
   //# =================================================================================================== #
 
-  //#region Alloy
-  /*     const AlloyPattern = [
-        //Unification
-        {
-            //industrialforegoing:plastic => pneumaticcraft:plastic
-            get: { item: "pneumaticcraft:plastic" },
-            put: [{ count: 1, ingredient: { item: "industrialforegoing:dryrubber" } }],
-            rsflux: 2000,
-        },
-    ];
-    AlloyPattern.forEach((recipe) => {
-        event.custom({
-            type: "enderio:alloy_smelting",
-            experience: 0.3,
-            inputs: recipe.put,
-            result: recipe.get,
-            energy: recipe.rsflux,
-        });
-    }); */
-  //#endregion
-
-  //# =================================================================================================== #
-
   //#region Fire
   event.remove({ type: 'enderio:fire_crafting' });
   event.custom({

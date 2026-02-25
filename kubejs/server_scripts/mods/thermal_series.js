@@ -639,26 +639,22 @@ ServerEvents.recipes((event) => {
     { get: 'pamhc2crops:sunchokeitem', put: 'pamhc2crops:sunchokeseeditem', rsflux: 20000 },
   ];
   InsolatorPattern.forEach((recipe) => {
-    if (recipe.put.startsWith('mysticalagriculture')) {
-      event.custom({
-        type: 'thermal:insolator',
-        ingredient: { item: recipe.put },
-        result: [{ item: recipe.get }, { item: recipe.put }],
-        energy: recipe.rsflux,
-      });
+    const json = {
+      type: 'thermal:insolator',
+      ingredient: { item: recipe.put },
+      energy: recipe.rsflux,
+    };
+
+    if (put.startsWith('mysticalagriculture')) json.result = [{ item: recipe.get }, { item: put }];
+    else if (put.startsWith('pamhc2crops')) {
+      json.result = [
+        { item: recipe.get, chance: 2.0 },
+        { item: put, chance: 0.1 },
+      ];
     }
 
-    if (recipe.put.startsWith('pamhc2crops')) {
-      event.custom({
-        type: 'thermal:insolator',
-        ingredient: { item: recipe.put },
-        result: [
-          { item: recipe.get, chance: 2.0 },
-          { item: recipe.put, chance: 0.1 },
-        ],
-        energy: recipe.rsflux,
-      });
-    }
+    // Add recipe
+    event.custom(json);
   });
   //#endregion
 

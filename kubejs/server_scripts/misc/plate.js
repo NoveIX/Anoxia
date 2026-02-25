@@ -48,13 +48,12 @@ ServerEvents.recipes((event) => {
   //#region Func Plate
   function PlateCrafting(recipe) {
     event.shapeless(recipe.get, [ToTag(recipe.put), ToTag(recipe.put), 'immersiveengineering:hammer']);
+
+    // Ad Astra Hammer
     event.custom({
       type: 'ad_astra:hammering',
       ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { item: 'ad_astra:hammer' }],
-      result: {
-        item: recipe.get,
-        count: 1,
-      },
+      result: { item: recipe.get, count: 1 },
     });
   }
 
@@ -86,22 +85,15 @@ ServerEvents.recipes((event) => {
   }
 
   function PlateTinker(recipe) {
-    event.custom({
+    const json = {
       type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/single_use/plate' },
-      cast_consumed: true,
       cooling_time: GetMeltingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
-    });
+    };
 
-    event.custom({
-      type: 'tconstruct:casting_table',
-      cast: { tag: 'tconstruct:casts/multi_use/plate' },
-      cooling_time: GetMeltingTick(recipe.material, 1),
-      fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
-      result: recipe.get,
-    });
+    // Add single and multi Cast
+    addDualCastRecipe('plate', json, this);
   }
   //#endregion
 
@@ -207,21 +199,10 @@ ServerEvents.recipes((event) => {
     //Remove
     event.remove({ output: recipe.get });
 
-    //Ad Astra
+    // Plate Press
     if (recipe.metal === 'special') PlateThermal(recipe);
-    //Hard Metal
-    else if (recipe.metal === 'hard') {
-      PlateImmersive(recipe);
-      PlateThermal(recipe);
-    }
-
-    //Other
-    else {
-      PlateImmersive(recipe);
-      PlateThermal(recipe);
-      PlateCreate(recipe);
-      PlateCrafting(recipe);
-    }
+    else if (recipe.metal === 'hard') (PlateImmersive(recipe), PlateThermal(recipe));
+    else (PlateImmersive(recipe), PlateThermal(recipe), PlateCreate(recipe), PlateCrafting(recipe));
 
     //Molten
     if (recipe.molten) PlateTinker(recipe);

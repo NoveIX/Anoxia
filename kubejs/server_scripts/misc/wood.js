@@ -103,10 +103,7 @@ ServerEvents.recipes((event) => {
       ingredients: [{ item: put }],
       result: [{ item: get }, { item: 'farmersdelight:tree_bark' }],
       sound: 'minecraft:item.axe.strip',
-      tool: {
-        type: 'farmersdelight:tool_action',
-        action: 'axe_strip',
-      },
+      tool: { type: 'farmersdelight:tool_action', action: 'axe_strip' },
     });
   }
 
@@ -115,10 +112,7 @@ ServerEvents.recipes((event) => {
       type: 'farmersdelight:cutting',
       ingredients: [{ item: put }],
       result: [{ count: 2, item: get }],
-      tool: {
-        type: 'farmersdelight:tool_action',
-        action: 'axe_dig',
-      },
+      tool: { type: 'farmersdelight:tool_action', action: 'axe_dig' },
     });
   }
 
@@ -318,7 +312,7 @@ ServerEvents.recipes((event) => {
       WoodImmersiveStrip(recipe.plank, recipe.srpLog, recipe.srpWood);
 
       //Ad Astra
-      if (recipe.log.startsWith('ad_astra') && recipe.wood.startsWith('ad_astra')) WoodImmersiveStrip(recipe.plank, recipe.log, recipe.wood);
+      if ([recipe.log, recipe.wood].every((i) => i.startsWith('ad_astra'))) WoodImmersiveStrip(recipe.plank, recipe.log, recipe.wood);
     }
 
     //Tag

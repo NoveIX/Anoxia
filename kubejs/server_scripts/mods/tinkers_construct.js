@@ -33,6 +33,7 @@ ServerEvents.recipes((event) => {
     'tconstruct:smeltery/casting/scorched/foundry_controller',
 
     //Mekanism
+    'tconstruct:compat/refined_glowstone_ingot',
     'tconstruct:smeltery/casting/metal/refined_glowstone/block',
     'tconstruct:smeltery/casting/metal/refined_glowstone/ingot_gold_cast',
     'tconstruct:smeltery/casting/metal/refined_glowstone/ingot_sand_cast',
@@ -451,29 +452,9 @@ ServerEvents.recipes((event) => {
       result: recipe.get,
     };
 
-    if (recipe.nugget) {
-      for (let i = 0; i < 2; i++) {
-        if (i === 0) {
-          json.cast = { tag: 'tconstruct:casts/multi_use/nugget' };
-        } else {
-          json.cast = { tag: 'tconstruct:casts/single_use/nugget' };
-          json.cast_consumed = true;
-        }
-
-        event.custom(json);
-      }
-    } else if (recipe.ingot) {
-      for (let i = 0; i < 2; i++) {
-        if (i === 0) {
-          json.cast = { tag: 'tconstruct:casts/multi_use/ingot' };
-        } else {
-          json.cast = { tag: 'tconstruct:casts/single_use/ingot' };
-          json.cast_consumed = true;
-        }
-
-        event.custom(json);
-      }
-    } else {
+    if (recipe.nugget) addDualCastRecipe('nugget', json, this);
+    else if (recipe.ingot) addDualCastRecipe('ingot', json, this);
+    else {
       ((json.cast = recipe.caster), (json.cast_consumed = recipe.consume));
       event.custom(json);
     }

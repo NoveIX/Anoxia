@@ -64,4 +64,20 @@ Anoxia.Function.Tinker = {
     const base = ((material.MeltPoint - Dimension.Moon) / (Environment.Value * Furnace.Heat)) * ingot;
     return Math.ceil(base / 20) * 20; // rounded to the nearest multiple of 20
   },
+
+  addDualCastRecipe(castType, json, event) {
+    const castMaterial = [
+      { type: 'multi_use', consumed: false },
+      { type: 'single_use', consumed: true },
+    ];
+
+    castMaterial.forEach((variant) => {
+      // Check cast type
+      json.cast = { tag: `tconstruct:casts/${variant.type}/${castType}` };
+      if (variant.consumed) json.cast_consumed = true;
+
+      // Ad recipe
+      event.custom(json);
+    });
+  },
 };

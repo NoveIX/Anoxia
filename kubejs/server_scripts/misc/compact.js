@@ -206,43 +206,35 @@ ServerEvents.recipes((event) => {
 
   //# =================================================================================================== #
 
-  //#region Func Compact
+  //#region Compact Thermal
   function CompactThermalPack(get, put, rsflux) {
-    event.custom({
+    const json = {
       type: 'thermal:press',
-      ingredients: [{ tag: put, count: 9 }, { item: 'thermal:press_packing_3x3_die' }],
       result: [{ item: get }],
       energy: rsflux,
-    });
-  }
+    };
 
-  function CompactThermalPackID(get, put, rsflux) {
-    event.custom({
-      type: 'thermal:press',
-      ingredients: [{ item: put, count: 9 }, { item: 'thermal:press_packing_3x3_die' }],
-      result: [{ item: get }],
-      energy: rsflux,
-    });
-  }
+    // Use tag or id
+    const itemOrTag = put.startsWith('forge:') ? { tag: put, count: 9 } : { item: put, count: 9 };
+    json.ingredients = [itemOrTag, { item: 'thermal:press_packing_3x3_die' }];
 
-  //# =================================================================================================== #
+    // Add recipe
+    event.custom(json);
+  }
 
   function CompactThermalUnpack(get, put, rsflux) {
-    event.custom({
+    const json = {
       type: 'thermal:press',
-      ingredients: [{ tag: put, count: 1 }, { item: 'thermal:press_unpacking_die' }],
       result: [{ item: get, count: 9 }],
       energy: rsflux,
-    });
-  }
+    };
 
-  function CompactThermalUnpackID(get, put, rsflux) {
-    event.custom({
-      type: 'thermal:press',
-      ingredients: [{ item: put, count: 1 }, { item: 'thermal:press_unpacking_die' }],
-      result: [{ item: get, count: 9 }],
-      energy: rsflux,
-    });
+    // Use tag or id
+    const itemOrTag = put.startsWith('forge:') ? { tag: put, count: 1 } : { item: put, count: 1 };
+    json.ingredients = [itemOrTag, { item: 'thermal:press_unpacking_die' }];
+
+    // Add recipe
+    event.custom(json);
   }
   //#endregion
 
@@ -405,18 +397,17 @@ ServerEvents.recipes((event) => {
     },
   ];
   CompactPattern.forEach((recipe) => {
-    //Compacting
-    if (recipe.id.ingot && recipe.tag.nugget) CompactThermalPack(recipe.id.ingot, recipe.tag.nugget, recipe.rsflux);
-    else if (recipe.id.ingot && recipe.id.nugget) CompactThermalPackID(recipe.id.ingot, recipe.id.nugget, recipe.rsflux);
+    // From Nugget To Ingot
+    if (recipe.id.ingot && (recipe.tag?.nugget || recipe.id.nugget)) CompactThermalPack(recipe.id.ingot, recipe.tag?.nugget || recipe.id.nugget, recipe.rsflux);
 
-    if (recipe.id.ingot && recipe.tag.block) CompactThermalUnpack(recipe.id.ingot, recipe.tag.block, recipe.rsflux);
-    else if (recipe.id.ingot && recipe.id.block) CompactThermalUnpackID(recipe.id.ingot, recipe.id.block, recipe.rsflux);
+    // From Block To Ingot
+    if (recipe.id.ingot && (recipe.tag?.block || recipe.id.block)) CompactThermalUnpack(recipe.id.ingot, recipe.tag?.block || recipe.id.block, recipe.rsflux);
 
-    if (recipe.id.nugget && recipe.tag.ingot) CompactThermalUnpack(recipe.id.nugget, recipe.tag.ingot, recipe.rsflux);
-    else if (recipe.id.nugget && recipe.id.ingot) CompactThermalUnpackID(recipe.id.nugget, recipe.id.ingot, recipe.rsflux);
+    // From Ingot To Nugget
+    if (recipe.id.nugget && (recipe.tag?.ingot || recipe.id.ingot)) CompactThermalUnpack(recipe.id.nugget, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
 
-    if (recipe.id.block && recipe.tag.ingot) CompactThermalPack(recipe.id.block, recipe.tag.ingot, recipe.rsflux);
-    else if (recipe.id.block && recipe.id.ingot) CompactThermalPack(recipe.id.block, recipe.id.ingot, recipe.rsflux);
+    // From Ingot To Block
+    if (recipe.id.block && (recipe.tag?.ingot || recipe.id.ingot)) CompactThermalPack(recipe.id.block, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
   });
   //#endregion
 });
