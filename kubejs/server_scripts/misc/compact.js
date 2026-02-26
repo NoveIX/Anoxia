@@ -208,11 +208,33 @@ ServerEvents.recipes((event) => {
 
   //#region Compact Thermal
   function CompactThermalPack(get, put, rsflux) {
-    ThermalPress(event).input(put, 9).pressDie('thermal:press_packing_3x3_die').output(get).energy(rsflux).build();
+    const json = {
+      type: 'thermal:press',
+      result: [{ item: get }],
+      energy: rsflux,
+    };
+
+    // Use tag or id
+    const itemOrTag = put.startsWith('forge:') ? { tag: put, count: 9 } : { item: put, count: 9 };
+    json.ingredients = [itemOrTag, { item: 'thermal:press_packing_3x3_die' }];
+
+    // Add recipe
+    event.custom(json);
   }
 
   function CompactThermalUnpack(get, put, rsflux) {
-    ThermalPress(event).input(put).pressDie('thermal:press_unpacking_die').output(get, 9).energy(rsflux).build();
+    const json = {
+      type: 'thermal:press',
+      result: [{ item: get, count: 9 }],
+      energy: rsflux,
+    };
+
+    // Use tag or id
+    const itemOrTag = put.startsWith('forge:') ? { tag: put, count: 1 } : { item: put, count: 1 };
+    json.ingredients = [itemOrTag, { item: 'thermal:press_unpacking_die' }];
+
+    // Add recipe
+    event.custom(json);
   }
   //#endregion
 

@@ -78,27 +78,76 @@ ServerEvents.recipes((event) => {
 
   //#region Func Alloy
   function AlloyImmersiveAlloy(recipe) {
-    ImmersiveAlloyKiln(event).input0(recipe.put1, recipe.p1).input1(recipe.put2, recipe.p2).output(recipe.get, recipe.g0).time(200).build();
+    event.custom({
+      type: 'immersiveengineering:alloy',
+      input0: { base_ingredient: { tag: recipe.put1 }, count: recipe.n1 },
+      input1: { base_ingredient: { tag: recipe.put2 }, count: recipe.n2 },
+      result: { base_ingredient: { item: recipe.get }, count: recipe.n0 },
+      time: 200,
+    });
   }
 
   function AlloyImmersiveArc(recipe) {
-    ImmersiveArcFurnace(event).input(recipe.put1, recipe.p1).additives(recipe.put2, recipe.p2).output(recipe.get, recipe.g0).energy(recipe.rsflux).time(100).build();
+    event.custom({
+      type: 'immersiveengineering:arc_furnace',
+      input: { base_ingredient: { tag: recipe.put1 }, count: recipe.n1 },
+      additives: [{ base_ingredient: { tag: recipe.put2 }, count: recipe.n2 }],
+      results: [{ base_ingredient: { item: recipe.get }, count: recipe.n0 }],
+      energy: recipe.rsflux,
+      time: 100,
+    });
   }
 
   function AlloyEnderIO2(recipe) {
-    EnderIOSmelter(event).input(recipe.put1, recipe.p1).input(recipe.put2, recipe.p2).output(recipe.get, recipe.g0).experience(0.3).energy(recipe.rsflux).build();
+    event.custom({
+      type: 'enderio:alloy_smelting',
+      inputs: [
+        { count: recipe.n1, ingredient: { tag: recipe.put1 } },
+        { count: recipe.n2, ingredient: { tag: recipe.put2 } },
+      ],
+      result: { item: recipe.get, count: recipe.n0 },
+      experience: 0.3,
+      energy: recipe.rsflux,
+    });
   }
 
   function AlloyEnderIO3(recipe) {
-    EnderIOSmelter(event).input(recipe.put1, recipe.p1).input(recipe.put2, recipe.p2).input(recipe.put3, recipe.p3).output(recipe.get, recipe.g0).experience(0.3).energy(recipe.rsflux).build();
+    event.custom({
+      type: 'enderio:alloy_smelting',
+      inputs: [
+        { count: recipe.n1, ingredient: { tag: recipe.put1 } },
+        { count: recipe.n2, ingredient: { tag: recipe.put2 } },
+        { count: recipe.n3, ingredient: { tag: recipe.put3 } },
+      ],
+      result: { item: recipe.get, count: recipe.n0 },
+      experience: 0.3,
+      energy: recipe.rsflux,
+    });
   }
 
   function AlloyThermal2(recipe) {
-    ThermalAlloySmelter(event).input(recipe.put1, recipe.p1).input(recipe.put2, recipe.p2).output(recipe.get, recipe.g0).energy(recipe.rsflux).build();
+    event.custom({
+      type: 'thermal:smelter',
+      ingredients: [
+        { tag: recipe.put2, count: recipe.n2 },
+        { tag: recipe.put1, count: recipe.n1 },
+      ],
+      result: [{ item: recipe.get, count: recipe.n0 }],
+      energy: recipe.rsflux,
+    });
   }
 
   function AlloyThermal3(recipe) {
-    ThermalAlloySmelter(event).input(recipe.put1, recipe.p1).input(recipe.put2, recipe.p2).input(recipe.put3, recipe.p3).output(recipe.get, recipe.g0).energy(recipe.rsflux).build();
+    event.custom({
+      type: 'thermal:smelter',
+      ingredients: [
+        { tag: recipe.put2, count: recipe.n2 },
+        { tag: recipe.put1, count: recipe.n1 },
+        { tag: recipe.put3, count: recipe.n3 },
+      ],
+      result: [{ item: recipe.get, count: recipe.n0 }],
+      energy: recipe.rsflux,
+    });
   }
   //#endregion
 
@@ -107,57 +156,57 @@ ServerEvents.recipes((event) => {
   //#region Alloy
   const AlloyPattern = [
     //Anoxia
-    { get: 'anoxia:modularium_ingot', g0: 1, put1: 'forge:ingots/vibrant_alloy', p1: 1, put2: 'forge:ingots/enderium', p2: 1, put3: 'forge:ingots/electrotine_alloy', p3: 1, rsflux: 60000, alloy: 'complex' }, //Modularium
+    { get: 'anoxia:modularium_ingot', n0: 1, put1: 'forge:ingots/vibrant_alloy', n1: 1, put2: 'forge:ingots/enderium', n2: 1, put3: 'forge:ingots/electrotine_alloy', n3: 1, rsflux: 60000, alloy: 'complex' }, //Modularium
 
     //Minecraft
-    { get: 'minecraft:netherite_ingot', g0: 1, put1: 'forge:ingots/netherite_scrap', p1: 4, put2: 'forge:ingots/gold', p2: 4, rsflux: 24000, alloy: 'simple' }, //Netherite
+    { get: 'minecraft:netherite_ingot', n0: 1, put1: 'forge:ingots/netherite_scrap', n1: 4, put2: 'forge:ingots/gold', n2: 4, rsflux: 24000, alloy: 'simple' }, //Netherite
 
     //Aethersteel
-    { get: 'aethersteel:aethersteel_ingot', g0: 1, put1: 'forge:ingots/aethersteel_scrap', p1: 4, put2: 'forge:ingots/netherite', p2: 4, rsflux: 48000, alloy: 'ender' }, //Aetherstell
+    { get: 'aethersteel:aethersteel_ingot', n0: 1, put1: 'forge:ingots/aethersteel_scrap', n1: 4, put2: 'forge:ingots/netherite', n2: 4, rsflux: 48000, alloy: 'ender' }, //Aetherstell
 
     //Create
-    { get: 'create:andesite_alloy', g0: 1, put1: 'anoxia:stone/polished_andesite', p1: 1, put2: 'forge:ingots/platinum', p2: 1, rsflux: 8000, alloy: 'simple' }, //Andesite Alloy
+    { get: 'create:andesite_alloy', n0: 1, put1: 'anoxia:stone/polished_andesite', n1: 1, put2: 'forge:ingots/platinum', n2: 1, rsflux: 8000, alloy: 'simple' }, //Andesite Alloy
 
     //EnderIO
-    { get: 'enderio:copper_alloy_ingot', g0: 1, put1: 'forge:ingots/copper', p1: 1, put2: 'forge:silicon', p2: 1, rsflux: 4000, alloy: 'ender' }, //Copper Alloy
-    { get: 'enderio:energetic_alloy_ingot', g0: 1, put1: 'forge:dusts/redstone', p1: 1, put2: 'forge:ingots/electrum', p2: 1, put3: 'forge:dusts/glowstone', p3: 1, rsflux: 18000, alloy: 'complex' }, //Energetic Alloy
-    { get: 'enderio:vibrant_alloy_ingot', g0: 1, put1: 'forge:ingots/energetic_alloy', p1: 1, put2: 'forge:ender_pearls', p2: 1, put3: 'forge:ingots/rose_gold', p3: 1, rsflux: 24000, alloy: 'complex' }, //Vibrant Alloy
-    { get: 'enderio:redstone_alloy_ingot', g0: 1, put1: 'forge:ingots/red_alloy', p1: 1, put2: 'forge:silicon', p2: 1, put3: 'forge:ingots/graphite', p3: 1, rsflux: 4000, alloy: 'complex' }, //Redstone Alloy
-    { get: 'enderio:conductive_alloy_ingot', g0: 1, put1: 'forge:ingots/redstone_alloy', p1: 1, put2: 'forge:ingots/iron', p2: 1, put3: 'forge:ingots/copper_alloy', p3: 1, rsflux: 8000, alloy: 'complex' }, //Conductive Alloy
-    { get: 'enderio:pulsating_alloy_ingot', g0: 1, put1: 'forge:ingots/iron', p1: 1, put2: 'forge:ender_pearls', p2: 1, rsflux: 18000, alloy: 'ender' }, //Pulsating Alloy
-    { get: 'enderio:dark_steel_ingot', g0: 1, put1: 'forge:ingots/iron', p1: 1, put2: 'anoxia:dusts/coal', p2: 8, put3: 'forge:obsidian', p3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot
-    { get: 'enderio:dark_steel_ingot', g0: 1, put1: 'forge:ingots/iron', p1: 1, put2: 'forge:dusts/coal_coke', p2: 4, put3: 'forge:obsidian', p3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot - Coke
-    { get: 'enderio:dark_steel_ingot', g0: 1, put1: 'forge:ingots/steel', p1: 1, put2: 'forge:obsidian', p2: 1, rsflux: 24000, alloy: 'ender' }, //DarkSteel Ingot - Steel Alternative
-    { get: 'enderio:soularium_ingot', g0: 1, put1: 'forge:ingots/cognitive_alloy', p1: 1, put2: 'forge:ingots/gold', p2: 1, rsflux: 24000, alloy: 'ender' }, //Soularium Ingot
-    { get: 'enderio:end_steel_ingot', g0: 1, put1: 'forge:end_stones', p1: 1, put2: 'forge:ingots/dark_steel', p2: 1, put3: 'forge:obsidian', p3: 1, rsflux: 36000, alloy: 'complex' }, //EndSteel Ingot
+    { get: 'enderio:copper_alloy_ingot', n0: 1, put1: 'forge:ingots/copper', n1: 1, put2: 'forge:silicon', n2: 1, rsflux: 4000, alloy: 'ender' }, //Copper Alloy
+    { get: 'enderio:energetic_alloy_ingot', n0: 1, put1: 'forge:dusts/redstone', n1: 1, put2: 'forge:ingots/electrum', n2: 1, put3: 'forge:dusts/glowstone', n3: 1, rsflux: 18000, alloy: 'complex' }, //Energetic Alloy
+    { get: 'enderio:vibrant_alloy_ingot', n0: 1, put1: 'forge:ingots/energetic_alloy', n1: 1, put2: 'forge:ender_pearls', n2: 1, put3: 'forge:ingots/rose_gold', n3: 1, rsflux: 24000, alloy: 'complex' }, //Vibrant Alloy
+    { get: 'enderio:redstone_alloy_ingot', n0: 1, put1: 'forge:ingots/red_alloy', n1: 1, put2: 'forge:silicon', n2: 1, put3: 'forge:ingots/graphite', n3: 1, rsflux: 4000, alloy: 'complex' }, //Redstone Alloy
+    { get: 'enderio:conductive_alloy_ingot', n0: 1, put1: 'forge:ingots/redstone_alloy', n1: 1, put2: 'forge:ingots/iron', n2: 1, put3: 'forge:ingots/copper_alloy', n3: 1, rsflux: 8000, alloy: 'complex' }, //Conductive Alloy
+    { get: 'enderio:pulsating_alloy_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:ender_pearls', n2: 1, rsflux: 18000, alloy: 'ender' }, //Pulsating Alloy
+    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'anoxia:dusts/coal', n2: 8, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot
+    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot - Coke
+    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/steel', n1: 1, put2: 'forge:obsidian', n2: 1, rsflux: 24000, alloy: 'ender' }, //DarkSteel Ingot - Steel Alternative
+    { get: 'enderio:soularium_ingot', n0: 1, put1: 'forge:ingots/cognitive_alloy', n1: 1, put2: 'forge:ingots/gold', n2: 1, rsflux: 24000, alloy: 'ender' }, //Soularium Ingot
+    { get: 'enderio:end_steel_ingot', n0: 1, put1: 'forge:end_stones', n1: 1, put2: 'forge:ingots/dark_steel', n2: 1, put3: 'forge:obsidian', n3: 1, rsflux: 36000, alloy: 'complex' }, //EndSteel Ingot
 
     //Redstone arsenal
-    { get: 'redstone_arsenal:flux_ingot', g0: 1, put1: 'forge:ingots/electrum', p1: 1, put2: 'forge:dusts/redstone', p2: 4, rsflux: 24000, alloy: 'ender' },
+    { get: 'redstone_arsenal:flux_ingot', n0: 1, put1: 'forge:ingots/electrum', n1: 1, put2: 'forge:dusts/redstone', n2: 4, rsflux: 24000, alloy: 'ender' },
 
     //Thermal
-    { get: 'thermal:steel_ingot', g0: 1, put1: 'forge:ingots/iron', p1: 1, put2: 'forge:dusts/coal', p2: 8, rsflux: 18000, alloy: 'simple' }, //Steel - Coal
-    { get: 'thermal:steel_ingot', g0: 1, put1: 'forge:ingots/iron', p1: 1, put2: 'forge:dusts/coal_coke', p2: 4, rsflux: 18000, alloy: 'simple' }, //Steel - Coke
-    { get: 'thermal:rose_gold_ingot', g0: 2, put1: 'forge:ingots/gold', p1: 1, put2: 'forge:ingots/copper', p2: 1, rsflux: 18000, alloy: 'simple' }, //Rose Gold
-    { get: 'thermal:signalum_ingot', g0: 4, put1: 'forge:ingots/rose_gold', p1: 3, put2: 'forge:ingots/silver', p2: 1, put3: 'forge:dusts/redstone', p3: 10, rsflux: 24000, alloy: 'complex' }, //Signalum
-    { get: 'thermal:lumium_ingot', g0: 4, put1: 'forge:ingots/energetic_alloy', p1: 3, put2: 'forge:ingots/lead', p2: 1, put3: 'forge:dusts/glowstone', p3: 4, rsflux: 24000, alloy: 'complex' }, //Lumium
-    { get: 'thermal:enderium_ingot', g0: 2, put1: 'forge:ingots/vibrant_alloy', p1: 3, put2: 'forge:ingots/platinum', p2: 1, put3: 'forge:dusts/ender_pearl', p3: 4, rsflux: 36000, alloy: 'complex' }, //Enderium
-    { get: 'thermal:bronze_ingot', g0: 4, put1: 'forge:ingots/copper', p1: 3, put2: 'forge:ingots/tin', p2: 1, rsflux: 18000, alloy: 'simple' }, //Bronze
-    { get: 'thermal:electrum_ingot', g0: 2, put1: 'forge:ingots/gold', p1: 1, put2: 'forge:ingots/silver', p2: 1, rsflux: 18000, alloy: 'simple' }, //Electrum
-    { get: 'thermal:invar_ingot', g0: 3, put1: 'forge:ingots/iron', p1: 2, put2: 'forge:ingots/nickel', p2: 1, rsflux: 18000, alloy: 'simple' }, //Invar
-    { get: 'thermal:constantan_ingot', g0: 2, put1: 'forge:ingots/copper', p1: 1, put2: 'forge:ingots/nickel', p2: 1, rsflux: 18000, alloy: 'simple' }, //Constantan
+    { get: 'thermal:steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal', n2: 8, rsflux: 18000, alloy: 'simple' }, //Steel - Coal
+    { get: 'thermal:steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, rsflux: 18000, alloy: 'simple' }, //Steel - Coke
+    { get: 'thermal:rose_gold_ingot', n0: 2, put1: 'forge:ingots/gold', n1: 1, put2: 'forge:ingots/copper', n2: 1, rsflux: 18000, alloy: 'simple' }, //Rose Gold
+    { get: 'thermal:signalum_ingot', n0: 4, put1: 'forge:ingots/rose_gold', n1: 3, put2: 'forge:ingots/silver', n2: 1, put3: 'forge:dusts/redstone', n3: 10, rsflux: 24000, alloy: 'complex' }, //Signalum
+    { get: 'thermal:lumium_ingot', n0: 4, put1: 'forge:ingots/energetic_alloy', n1: 3, put2: 'forge:ingots/lead', n2: 1, put3: 'forge:dusts/glowstone', n3: 4, rsflux: 24000, alloy: 'complex' }, //Lumium
+    { get: 'thermal:enderium_ingot', n0: 2, put1: 'forge:ingots/vibrant_alloy', n1: 3, put2: 'forge:ingots/platinum', n2: 1, put3: 'forge:dusts/ender_pearl', n3: 4, rsflux: 36000, alloy: 'complex' }, //Enderium
+    { get: 'thermal:bronze_ingot', n0: 4, put1: 'forge:ingots/copper', n1: 3, put2: 'forge:ingots/tin', n2: 1, rsflux: 18000, alloy: 'simple' }, //Bronze
+    { get: 'thermal:electrum_ingot', n0: 2, put1: 'forge:ingots/gold', n1: 1, put2: 'forge:ingots/silver', n2: 1, rsflux: 18000, alloy: 'simple' }, //Electrum
+    { get: 'thermal:invar_ingot', n0: 3, put1: 'forge:ingots/iron', n1: 2, put2: 'forge:ingots/nickel', n2: 1, rsflux: 18000, alloy: 'simple' }, //Invar
+    { get: 'thermal:constantan_ingot', n0: 2, put1: 'forge:ingots/copper', n1: 1, put2: 'forge:ingots/nickel', n2: 1, rsflux: 18000, alloy: 'simple' }, //Constantan
 
     //Thermal Endergy
-    { get: 'thermalendergy:prismalium_ingot', g0: 2, put1: 'forge:dusts/prismarine', p1: 4, put2: 'forge:ingots/enderium', p2: 1, put3: 'forge:ingots/end_steel', p3: 1, rsflux: 48000, alloy: 'complex' },
-    { get: 'thermalendergy:melodium_ingot', g0: 2, put1: 'forge:fruits/chorusfruit', p1: 4, put2: 'forge:ingots/prismalium', p2: 1, put3: 'forge:ingots/netherite', p3: 1, rsflux: 60000, alloy: 'complex' },
-    { get: 'thermalendergy:stellarium_ingot', g0: 2, put1: 'forge:nether_stars', p1: 1, put2: 'forge:ingots/melodium', p2: 1, put3: 'forge:ingots/aethersteel', p3: 1, rsflux: 72000, alloy: 'complex' },
+    { get: 'thermalendergy:prismalium_ingot', n0: 2, put1: 'forge:dusts/prismarine', n1: 4, put2: 'forge:ingots/enderium', n2: 1, put3: 'forge:ingots/end_steel', n3: 1, rsflux: 48000, alloy: 'complex' },
+    { get: 'thermalendergy:melodium_ingot', n0: 2, put1: 'forge:fruits/chorusfruit', n1: 4, put2: 'forge:ingots/prismalium', n2: 1, put3: 'forge:ingots/netherite', n3: 1, rsflux: 60000, alloy: 'complex' },
+    { get: 'thermalendergy:stellarium_ingot', n0: 2, put1: 'forge:nether_stars', n1: 1, put2: 'forge:ingots/melodium', n2: 1, put3: 'forge:ingots/aethersteel', n3: 1, rsflux: 72000, alloy: 'complex' },
 
     //Tinker
-    { get: 'tconstruct:manyullyn_ingot', g0: 1, put1: 'forge:ingots/cobalt', p1: 3, put2: 'forge:ingots/netherite_scrap', p2: 1, rsflux: 24000, alloy: 'simple' },
+    { get: 'tconstruct:manyullyn_ingot', n0: 1, put1: 'forge:ingots/cobalt', n1: 3, put2: 'forge:ingots/netherite_scrap', n2: 1, rsflux: 24000, alloy: 'simple' },
   ];
   AlloyPattern.forEach((recipe) => {
-    if (recipe.alloy === 'simple') (AlloyImmersiveAlloy(recipe), AlloyImmersiveArc(recipe));
-    if (recipe.alloy === 'simple' || recipe.alloy === 'ender') (AlloyEnderIO2(recipe), AlloyThermal2(recipe));
-    if (recipe.alloy === 'complex') (AlloyEnderIO3(recipe), AlloyThermal3(recipe));
+    if (recipe.alloy === 'simple') (AlloyImmersiveAlloy(recipe), AlloyImmersiveArc(recipe), AlloyEnderIO2(recipe), AlloyThermal2(recipe));
+    else if (recipe.alloy === 'ender') (AlloyEnderIO2(recipe), AlloyThermal2(recipe));
+    else if (recipe.alloy === 'complex') (AlloyEnderIO3(recipe), AlloyThermal3(recipe));
   });
   //#endregion
 });

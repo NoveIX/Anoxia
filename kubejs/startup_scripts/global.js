@@ -6,16 +6,12 @@ const Anoxia = global.Anoxia; // local alias
 
 // Constant Namespace
 Anoxia.Constant = Anoxia.Constant || {};
-Anoxia.Constant.TinkerConstruct = Anoxia.Constant.TinkerConstruct || {};
+Anoxia.Constant.Tinker = Anoxia.Constant.Tinker || {};
 
 // Function Namespace
 Anoxia.Function = Anoxia.Function || {};
 Anoxia.Function.Generic = Anoxia.Function.Generic || {};
-Anoxia.Function.Create = Anoxia.Function.Create || {};
-Anoxia.Function.EnderIO = Anoxia.Function.EnderIO || {};
-Anoxia.Function.ImmersiveEngineering = Anoxia.Function.ImmersiveEngineering || {};
-Anoxia.Function.ThermalSeries = Anoxia.Function.ThermalSeries || {};
-Anoxia.Function.TinkerConstruct = Anoxia.Function.TinkerConstruct || {};
+Anoxia.Function.Tinker = Anoxia.Function.Tinker || {};
 
 // Game Namespace
 Anoxia.Game = Anoxia.Game || {};
@@ -205,7 +201,7 @@ Anoxia.Game.Item.RmOut = [
   'immersiveengineering:plate_silver',
   'immersiveengineering:plate_nickel',
   'immersiveengineering:plate_uranium',
-  'immersiveengineering:plate_Constantan',
+  'immersiveengineering:plate_constantan',
   'immersiveengineering:plate_electrum',
   'immersiveengineering:plate_steel',
   'immersiveengineering:plate_iron',
@@ -325,8 +321,8 @@ Anoxia.Game.Item.RmOut = [
   'mysticalagriculture:experience_seeds',
   'mysticalagriculture:steel_essence',
   'mysticalagriculture:steel_seeds',
-  'mysticalagriculture:Constantan_essence',
-  'mysticalagriculture:Constantan_seeds',
+  'mysticalagriculture:constantan_essence',
+  'mysticalagriculture:constantan_seeds',
   'mysticalagriculture:electrum_essence',
   'mysticalagriculture:electrum_seeds',
   'mysticalagriculture:invar_essence',
@@ -472,7 +468,7 @@ Anoxia.Game.Item.RmIn = [
   'mysticalagriculture:ironwood_essence',
   'mysticalagriculture:experience_essence',
   'mysticalagriculture:steel_essence',
-  'mysticalagriculture:Constantan_essence',
+  'mysticalagriculture:constantan_essence',
   'mysticalagriculture:electrum_essence',
   'mysticalagriculture:invar_essence',
   'mysticalagriculture:mithril_essence',
@@ -523,7 +519,7 @@ Anoxia.Game.Item.JeiAdd = [
   'immersiveengineering:storage_silver',
   'immersiveengineering:storage_nickel',
   'immersiveengineering:storage_uranium',
-  'immersiveengineering:storage_Constantan',
+  'immersiveengineering:storage_constantan',
   'immersiveengineering:storage_electrum',
   'immersiveengineering:storage_steel',
 
@@ -753,7 +749,7 @@ Anoxia.Game.Recipe.RmId = [
   'productivebees:create/mixing/ae2/honeycomb_silicon',
   'productivebees:create/mixing/alloys/honeycomb_brazen',
   'productivebees:create/mixing/alloys/honeycomb_bronze',
-  'productivebees:create/mixing/alloys/honeycomb_Constantan',
+  'productivebees:create/mixing/alloys/honeycomb_constantan',
   'productivebees:create/mixing/alloys/honeycomb_electrum',
   'productivebees:create/mixing/alloys/honeycomb_enderium',
   'productivebees:create/mixing/alloys/honeycomb_invar',

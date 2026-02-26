@@ -70,7 +70,7 @@ ServerEvents.recipes((event) => {
     };
 
     // Add single and multi Cast
-    AddDualCastRecipe('gear', json, event);
+    AddDualCastRecipe('gear', json, this);
   }
   //#endregion
 
@@ -127,7 +127,7 @@ ServerEvents.recipes((event) => {
     if (recipe.metal === 'special') GearThermal(recipe);
     else if (recipe.metal === 'hard') (GearImmersive(recipe), GearThermal(recipe));
     else {
-      //const fluidId = recipe.put.startsWith('forge:gems/') ? 'minecraft:water' : 'minecraft:lava';
+      //const fluidId = recipe.put.startsWith('forge:gems/') ? 'minecraft:water' : 'minecraft:water';
       //GearCreate(recipe, fluidId);
       GearImmersive(recipe);
       GearThermal(recipe);
