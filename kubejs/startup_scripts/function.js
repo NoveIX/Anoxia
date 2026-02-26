@@ -15,33 +15,6 @@ Anoxia.Function.Generic = {
   ToTag(str) {
     return `#${str}`;
   },
-
-  FromTag(str) {
-    return str.startsWith('#') ? str.slice(1) : str;
-  },
-
-  GetItem(put, count) {
-    return count !== undefined ? { item: put, count: count } : { item: put };
-  },
-
-  GetTag(put, count) {
-    return count !== undefined ? { tag: put, count: count } : { tag: put };
-  },
-
-  ToPascalCase(str) {
-    return str.replace(/^./, (c) => c.toUpperCase());
-  },
-
-  ToDisplayName(id) {
-    return id
-      .split('_')
-      .map((word) => this.ToPascalCase(word))
-      .join(' ');
-  },
-
-  ToDisplayNameFromId(id) {
-    return this.ToDisplayName(id.split(':').pop());
-  },
 };
 
 //# =================================================================================================== #

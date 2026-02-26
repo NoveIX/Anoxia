@@ -40,7 +40,7 @@ ServerEvents.recipes((event) => {
     };
 
     // Add single and multi Cast
-    AddDualCastRecipe('wire', json, this);
+    AddDualCastRecipe('wire', json, event);
   }
   //#endregion
 
