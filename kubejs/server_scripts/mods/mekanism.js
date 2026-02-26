@@ -136,11 +136,11 @@ ServerEvents.recipes((event) => {
   const InfusionPattern = [
     {
       get: { amount: 10, infuse_type: 'mekanism:carbon' },
-      put: { ingredient: [GetTag('anoxia:materials/coal')] },
+      put: { ingredient: [{ tag: 'anoxia:materials/coal' }] },
     },
     {
       get: { amount: 90, infuse_type: 'mekanism:carbon' },
-      put: { ingredient: [GetTag('anoxia:storage_blocks/coals')] },
+      put: { ingredient: [{ tag: 'anoxia:storage_blocks/coals' }] },
     },
     {
       get: { amount: 20, infuse_type: 'mekanism:carbon' },

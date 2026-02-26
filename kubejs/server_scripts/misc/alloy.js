@@ -98,8 +98,8 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function AlloyEnderIO2(recipe) {
-    event.custom({
+  function AlloyEnderIO(recipe) {
+    const json = {
       type: 'enderio:alloy_smelting',
       inputs: [
         { count: recipe.n1, ingredient: { tag: recipe.put1 } },
@@ -108,25 +108,15 @@ ServerEvents.recipes((event) => {
       result: { item: recipe.get, count: recipe.n0 },
       experience: 0.3,
       energy: recipe.rsflux,
-    });
+    };
+
+    if (recipe.put3 && recipe.n3) json.inputs.push({ count: recipe.n3, ingredient: { tag: recipe.put3 } });
+
+    event.custom(json);
   }
 
-  function AlloyEnderIO3(recipe) {
-    event.custom({
-      type: 'enderio:alloy_smelting',
-      inputs: [
-        { count: recipe.n1, ingredient: { tag: recipe.put1 } },
-        { count: recipe.n2, ingredient: { tag: recipe.put2 } },
-        { count: recipe.n3, ingredient: { tag: recipe.put3 } },
-      ],
-      result: { item: recipe.get, count: recipe.n0 },
-      experience: 0.3,
-      energy: recipe.rsflux,
-    });
-  }
-
-  function AlloyThermal2(recipe) {
-    event.custom({
+  function AlloyThermal(recipe) {
+    const json = {
       type: 'thermal:smelter',
       ingredients: [
         { tag: recipe.put2, count: recipe.n2 },
@@ -134,20 +124,11 @@ ServerEvents.recipes((event) => {
       ],
       result: [{ item: recipe.get, count: recipe.n0 }],
       energy: recipe.rsflux,
-    });
-  }
+    };
 
-  function AlloyThermal3(recipe) {
-    event.custom({
-      type: 'thermal:smelter',
-      ingredients: [
-        { tag: recipe.put2, count: recipe.n2 },
-        { tag: recipe.put1, count: recipe.n1 },
-        { tag: recipe.put3, count: recipe.n3 },
-      ],
-      result: [{ item: recipe.get, count: recipe.n0 }],
-      energy: recipe.rsflux,
-    });
+    if (recipe.put3 && recipe.n3) json.ingredients.push({ tag: recipe.put3, count: recipe.n3 });
+
+    event.custom(json);
   }
   //#endregion
 
@@ -204,9 +185,9 @@ ServerEvents.recipes((event) => {
     { get: 'tconstruct:manyullyn_ingot', n0: 1, put1: 'forge:ingots/cobalt', n1: 3, put2: 'forge:ingots/netherite_scrap', n2: 1, rsflux: 24000, alloy: 'simple' },
   ];
   AlloyPattern.forEach((recipe) => {
-    if (recipe.alloy === 'simple') (AlloyImmersiveAlloy(recipe), AlloyImmersiveArc(recipe), AlloyEnderIO2(recipe), AlloyThermal2(recipe));
-    else if (recipe.alloy === 'ender') (AlloyEnderIO2(recipe), AlloyThermal2(recipe));
-    else if (recipe.alloy === 'complex') (AlloyEnderIO3(recipe), AlloyThermal3(recipe));
+    if (recipe.alloy === 'simple') (AlloyImmersiveAlloy(recipe), AlloyImmersiveArc(recipe));
+    else if (recipe.alloy === 'ender' || recipe.alloy === 'simple') (AlloyEnderIO(recipe), AlloyThermal(recipe));
+    else if (recipe.alloy === 'complex') (AlloyEnderIO(recipe), AlloyThermal(recipe));
   });
   //#endregion
 });
