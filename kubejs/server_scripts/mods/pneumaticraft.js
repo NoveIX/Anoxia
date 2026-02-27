@@ -31,7 +31,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'pneumaticcraft:printed_circuit_board' });
   event.shaped('pneumaticcraft:printed_circuit_board', ['ABA', 'BCB', 'ABA'], { A: 'pneumaticcraft:transistor', B: 'pneumaticcraft:capacitor', C: 'pneumaticcraft:unassembled_pcb' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Chamber
   event.remove({ type: 'pneumaticcraft:pressure_chamber' });
@@ -95,7 +95,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Explosion
   /* const ExplosionPattern = [];

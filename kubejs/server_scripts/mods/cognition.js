@@ -4,12 +4,12 @@ ServerEvents.recipes((event) => {
   RmRecipeID.forEach((id) => event.remove({ id: id }));
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //Cognitive Alloy
   event.shapeless('experienceobelisk:cognitive_alloy', ['#forge:ingots/copper', '#forge:ingots/copper', '#forge:ingots/copper', '#forge:ingots/copper', 'experienceobelisk:cognitive_amalgam', 'experienceobelisk:cognitive_amalgam', 'experienceobelisk:cognitive_amalgam', 'experienceobelisk:cognitive_amalgam']);
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Metamorpher
   const MolecularMetamorphoerPattern = [

@@ -2,7 +2,7 @@ ServerEvents.recipes((event) => {
   event.remove({ type: 'mysticalagriculture:soul_extraction' });
   event.remove({ type: 'mysticalagriculture:reprocessor' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Remove ID
   const RmRecipeID = [
@@ -295,7 +295,7 @@ ServerEvents.recipes((event) => {
   RmRecipeID.forEach((id) => event.remove({ id: id }));
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //Altar
   event.remove({ output: 'mysticalagriculture:infusion_altar' });
@@ -374,7 +374,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'mysticalagradditions:insanium_essence' });
   event.shaped('mysticalagradditions:insanium_essence', [' A ', 'ABA', ' A '], { A: 'mysticalagriculture:supremium_essence', B: ['matc:supremium_crystal', 'mysticalagriculture:infusion_crystal', 'mysticalagriculture:master_infusion_crystal'] });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Reprocessor
   const ReprocessorPattern = [

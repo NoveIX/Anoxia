@@ -15,7 +15,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'nethersdelight:nether_brick_smoker' });
   event.shaped('nethersdelight:nether_brick_smoker', ['ABA', 'BCB', 'ABA'], { A: 'anoxia:compressed_cobblestone', B: 'minecraft:nether_bricks', C: '#anoxia:furnaces/stone' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Cutting
   event.remove({ output: 'projectred_core:silicon' });

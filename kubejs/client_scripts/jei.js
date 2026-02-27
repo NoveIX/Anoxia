@@ -7,7 +7,7 @@ JEIEvents.hideItems((event) => {
 
 JEIEvents.addItems((event) => GameItem.JeiAdd.forEach((item) => event.add(item)));
 
-//# =================================================================================================== #
+//# ====================================================================================== #
 
 //Fluid
 JEIEvents.hideFluids((event) => {

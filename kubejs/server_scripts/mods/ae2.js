@@ -99,7 +99,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'appflux:core_256k' });
   event.shaped('appflux:core_256k', ['ABA', 'CDC', 'ACA'], { A: 'powah:steel_energized', B: 'appflux:energy_processor', C: 'appflux:core_64k', D: 'ae2:quartz_vibrant_glass' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //ME Infinity
   event.remove({ output: Item.of('expatternprovider:infinity_cell', '{record:{"#c":"ae2:i",id:"minecraft:cobblestone"}}') });

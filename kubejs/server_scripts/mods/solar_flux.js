@@ -14,7 +14,7 @@ ServerEvents.recipes((event) => {
   event.shaped('solarflux:ender_glass', ['A', 'B', 'C'], { A: '#forge:glass_panes/colorless', B: 'thermal:ender_pearl_dust', C: 'solarflux:mirror' });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Panel
   event.shaped('solarflux:sp_1', ['AAA', 'BBB', 'CCC'], { A: '#forge:glass_panes/colorless', B: '#forge:ingots/redstone_ingot', C: 'minecraft:daylight_detector' });

@@ -15,7 +15,7 @@ ServerEvents.recipes((event) => {
   RmRecipeID.forEach((id) => event.remove({ id: id }));
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //Basic Capacitor
   event.remove({ output: 'enderio:basic_capacitor' });
@@ -73,7 +73,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'enderio:sag_mill' });
   event.shaped('enderio:sag_mill', ['EEE', 'DMD', 'GCG'], { E: '#forge:ingots/energetic_alloy', D: '#forge:ingots/dark_steel', M: 'enderio:void_chassis', G: '#forge:gears/dark_steel', C: 'actuallyadditions:crusher_double' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Fire
   event.remove({ type: 'enderio:fire_crafting' });
@@ -86,7 +86,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region SAG
   //Restore

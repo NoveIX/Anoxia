@@ -3,7 +3,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'exnihilosequentia:stone_crook' });
   event.shaped('exnihilosequentia:stone_crook', ['AA', ' A', ' A'], { A: '#forge:pebble/stone' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Compost
   const CompostPattern = [
@@ -23,7 +23,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Crusher
   const CrusherPattern = [
@@ -53,7 +53,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Precipitate
   const FluidItemPattern = [{ get: { count: 1, item: 'ae2:sky_stone_block' }, put: { item: 'ae2:sky_dust' }, fluid: { amount: 1000, fluid: 'minecraft:lava' } }];
@@ -67,7 +67,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Heat
   event.remove({ type: 'exnihilosequentia:heat' });
@@ -112,7 +112,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Sieve
   event.remove({ type: 'exnihilosequentia:sifting' });

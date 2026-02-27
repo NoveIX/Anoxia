@@ -49,13 +49,13 @@ ClientEvents.lang('en_us', (event) => {
   DiskRaname.forEach((name) => event.renameItem(name.item, name.new));
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Biome
   event.renameBiome('hyperbox:hyperbox', 'Hyperbox');
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Pots definition
   //Define tiers with their display names

@@ -10,7 +10,7 @@ ServerEvents.recipes((event) => {
   event.shaped('mm:portal_controller', [' A ', 'BCB', 'DBD'], { A: 'computercraft:monitor_normal', B: 'minecraft:redstone_block', C: 'minecraft:obsidian', D: 'minecraft:comparator' });
   event.shaped('mm:coke_oven_controller', [' A ', 'BCB', 'DBD'], { A: 'computercraft:monitor_normal', B: 'minecraft:redstone_block', C: 'immersiveengineering:cokebrick', D: 'minecraft:comparator' });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Item
   const ItemInPort = [
@@ -51,7 +51,7 @@ ServerEvents.recipes((event) => {
   event.shaped('mm:coke_oven_fluid_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: 'minecraft:bucket' });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Fluid
   const FluidInPort = [
@@ -85,7 +85,7 @@ ServerEvents.recipes((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Energy
   const EnergyInPort = [
@@ -119,7 +119,7 @@ ServerEvents.recipes((event) => {
   });
 });
 
-//# =================================================================================================== #
+//# ====================================================================================== #
 
 //Modular Machine Structure
 MMEvents.createStructures((event) => {
@@ -148,7 +148,7 @@ MMEvents.createStructures((event) => {
         .key('5', { tag: 'mm:machine_energy_port_input' });
     });
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Empowerer
   event
@@ -174,7 +174,7 @@ MMEvents.createStructures((event) => {
     });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Energizer
   event
@@ -205,7 +205,7 @@ MMEvents.createStructures((event) => {
     });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Miner
   event
@@ -239,7 +239,7 @@ MMEvents.createStructures((event) => {
     });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Coke Oven
   event
@@ -261,7 +261,7 @@ MMEvents.createStructures((event) => {
     });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Portal
   event
@@ -284,7 +284,7 @@ MMEvents.createStructures((event) => {
     });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Sieve
   event
@@ -311,7 +311,7 @@ MMEvents.createStructures((event) => {
     });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Sawmill
   event
@@ -337,7 +337,7 @@ MMEvents.createStructures((event) => {
   //#endregion
 });
 
-//# =================================================================================================== #
+//# ====================================================================================== #
 
 //Modular Machine Recipes
 MMEvents.createProcesses((event) => {
@@ -442,7 +442,7 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'industrialforegoing:sludge', amount: 180 } });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Empowerer Recipes
   //Diamatine Block
@@ -543,7 +543,7 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'enderio:octadic_capacitor', count: 1 } });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Energizer Recipes
   event
@@ -614,7 +614,7 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'powah:crystal_nitro', count: 1 } });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Miner Recipe
   event
@@ -762,7 +762,7 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', chance: 0.05, ingredient: { type: 'mm:item', item: 'bloodmagic:dungeon_ore', count: 1 } });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Coke Oven Recipes
   event
@@ -790,7 +790,7 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 18000 } });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Portal recipes
   const ArtificialPortalPatter = [
@@ -926,7 +926,7 @@ MMEvents.createProcesses((event) => {
   });
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Sieve Recipes
   //Gravel
@@ -1062,7 +1062,7 @@ MMEvents.createProcesses((event) => {
 
   //#endregion
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //#region Sawmill Recipes
   const NanometerSawmillPattern = [

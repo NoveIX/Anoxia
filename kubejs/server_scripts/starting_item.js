@@ -8,7 +8,7 @@ PlayerEvents.loggedIn((event) => {
   const Pants = Item.of('ad_astra:space_pants', '{Damage:0}');
   const Boots = Item.of('ad_astra:space_boots', '{Damage:0}');
 
-  //# =================================================================================================== #
+  //# ====================================================================================== #
 
   //Starting Item
   if (!event.player.stages.has('starting_item')) {
