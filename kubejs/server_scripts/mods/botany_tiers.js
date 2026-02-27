@@ -1,6 +1,6 @@
 ServerEvents.tags('item', (event) => {
   //#region Botany Tag
-  const BotanyTiersTag = [
+  /*   const BotanyTiersTag = [
     { tag: 'botanypots:pots/t1', item: 'botanypots:terracotta_botany_pot' },
     { tag: 'botanypots:pots/t1', item: 'botanypots:white_terracotta_botany_pot' },
     { tag: 'botanypots:pots/t1', item: 'botanypots:white_concrete_botany_pot' },
@@ -394,7 +394,46 @@ ServerEvents.tags('item', (event) => {
     { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_black_concrete_hopper_botany_pot' },
     { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_black_glazed_terracotta_hopper_botany_pot' },
   ];
-  BotanyTiersTag.forEach((recipe) => event.add(recipe.tag, recipe.item));
+  BotanyTiersTag.forEach((recipe) => event.add(recipe.tag, recipe.item)); */
+
+  //#region Configurazione
+  const colors = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black'];
+
+  const materials = ['terracotta', 'concrete', 'glazed_terracotta'];
+
+  const tiers = [
+    { id: 't1', namespace: 'botanypots', prefix: '', tagBase: 'botanypots:pots/t1' },
+    { id: 't2', namespace: 'botanypotstiers', prefix: 'elite_', tagBase: 'botanypotstiers:pots/t2' },
+    { id: 't3', namespace: 'botanypotstiers', prefix: 'ultra_', tagBase: 'botanypotstiers:pots/t3' },
+    { id: 't4', namespace: 'botanypotstiers', prefix: 'creative_', tagBase: 'botanypotstiers:pots/t4' },
+  ];
+  //#endregion
+
+  //#region Generazione Tag
+  tiers.forEach((tier) => {
+    // Itera per tipo: Vaso normale e Vaso con Hopper
+    [false, true].forEach((isHopper) => {
+      const hopperSuffix = isHopper ? '/hopper' : '';
+      const hopperItemPart = isHopper ? '_hopper_' : '_';
+
+      const tag = `${tier.tagBase}${hopperSuffix}`;
+
+      materials.forEach((material) => {
+        // 1. Genera variante senza colore (Solo per terracotta base, come nell'originale)
+        if (material === 'terracotta') {
+          const itemId = `${tier.namespace}:${tier.prefix}${material}${hopperItemPart}botany_pot`;
+          event.add(tag, itemId);
+        }
+
+        // 2. Genera varianti colorate per tutti i materiali
+        colors.forEach((color) => {
+          const itemId = `${tier.namespace}:${tier.prefix}${color}_${material}${hopperItemPart}botany_pot`;
+          event.add(tag, itemId);
+        });
+      });
+    });
+  });
+  //#endregion
 });
 //#endregion
 
@@ -403,7 +442,7 @@ ServerEvents.tags('item', (event) => {
 //#region Botany Tier
 ServerEvents.recipes((event) => {
   //Botany Tiers
-  const PotsPattern = [
+  /*   const PotsPattern = [
     {
       //Terracotta
       frame: 'minecraft:terracotta',
@@ -992,8 +1031,56 @@ ServerEvents.recipes((event) => {
       t4pots: 'botanypotstiers:creative_black_glazed_terracotta_botany_pot',
       t4hprpots: 'botanypotstiers:creative_black_glazed_terracotta_hopper_botany_pot',
     },
+  ]; */
+
+  //#region Configurazione
+  const colors = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black'];
+
+  const materials = ['terracotta', 'concrete', 'glazed_terracotta'];
+
+  const tiers = [
+    { id: 't1', namespace: 'botanypots', prefix: '' },
+    { id: 't2', namespace: 'botanypotstiers', prefix: 'elite_' },
+    { id: 't3', namespace: 'botanypotstiers', prefix: 'ultra_' },
+    { id: 't4', namespace: 'botanypotstiers', prefix: 'creative_' },
   ];
-  PotsPattern.forEach((recipe) => {
+  //#endregion
+
+  //#region Helper Functions
+  function buildItemId(namespace, prefix, color, material, isHopper) {
+    const colorPart = color ? `${color}_` : '';
+    const hopperPart = isHopper ? '_hopper' : '';
+    return `${namespace}:${prefix}${colorPart}${material}${hopperPart}_botany_pot`;
+  }
+
+  function createPotEntry(frameColor, material) {
+    const entry = {
+      frame: `minecraft:${frameColor ? `${frameColor}_` : ''}${material}`,
+    };
+
+    tiers.forEach((tier) => {
+      entry[`${tier.id}pots`] = buildItemId(tier.namespace, tier.prefix, frameColor, material, false);
+      entry[`${tier.id}hprpots`] = buildItemId(tier.namespace, tier.prefix, frameColor, material, true);
+    });
+
+    return entry;
+  }
+  //#endregion
+
+  //#region Generazione PotsPattern
+  const PotsPattern = [];
+
+  // Caso speciale: terracotta senza colore (solo per materiale 'terracotta')
+  PotsPattern.push(createPotEntry(null, 'terracotta'));
+
+  // Tutte le combinazioni colore + materiale
+  colors.forEach((color) => {
+    materials.forEach((material) => {
+      PotsPattern.push(createPotEntry(color, material));
+    });
+  });
+  //#endregion
+  /*   PotsPattern.forEach((recipe) => {
     //pots
     event.remove({ output: recipe.t1pots });
     event.remove({ output: recipe.t2pots });
@@ -1034,16 +1121,109 @@ ServerEvents.recipes((event) => {
     event.shaped(recipe.t2hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t2/hopper', B: recipe.frame });
     event.shaped(recipe.t3hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t3/hopper', B: recipe.frame });
     event.shaped(recipe.t4hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t4/hopper', B: recipe.frame });
-  });
+  }); */
 
   //Clear Pot
-  event.shapeless('botanypots:terracotta_botany_pot', ['#botanypots:pots/t1', 'supplementaries:soap']); //insert by Supplementary
+  /* event.shapeless('botanypots:terracotta_botany_pot', ['#botanypots:pots/t1', 'supplementaries:soap']); //insert by Supplementary
   event.shapeless('botanypotstiers:elite_terracotta_botany_pot', ['#botanypotstiers:pots/t2', 'supplementaries:soap']);
   event.shapeless('botanypotstiers:ultra_terracotta_botany_pot', ['#botanypotstiers:pots/t3', 'supplementaries:soap']);
   event.shapeless('botanypotstiers:creative_terracotta_botany_pot', ['#botanypotstiers:pots/t4', 'supplementaries:soap']);
   event.shapeless('botanypots:terracotta_hopper_botany_pot', ['#botanypots:pots/t1/hopper', 'supplementaries:soap']); //insert by Supplementary
   event.shapeless('botanypotstiers:elite_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t2/hopper', 'supplementaries:soap']);
   event.shapeless('botanypotstiers:ultra_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t3/hopper', 'supplementaries:soap']);
-  event.shapeless('botanypotstiers:creative_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t4/hopper', 'supplementaries:soap']);
+  event.shapeless('botanypotstiers:creative_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t4/hopper', 'supplementaries:soap']); */
+
+  //#region Configurazione Upgrade
+  const UPGRADE_INGOTS = {
+    t1_to_t2: 'botanicalextramachinery:saffron_ingot',
+    t2_to_t3: 'botanicalextramachinery:shadow_ingot',
+    t3_to_t4: 'botanicalextramachinery:crimson_ingot',
+  };
+  const TIER_KEYS = ['t1', 't2', 't3', 't4'];
+  //#endregion
+
+  //#region Helper Functions
+  function addBasePot(event, frame, tier, isHopper, recipe) {
+    const key = `${tier}${isHopper ? 'hpr' : ''}pots`;
+    const pattern = isHopper ? ['ABA', 'AAA', ' C '] : ['ABA', 'AAA'];
+    const ingredients = {
+      A: frame,
+      B: 'minecraft:flower_pot',
+      ...(isHopper && { C: 'minecraft:hopper' }),
+    };
+    event.shaped(recipe[key], pattern, ingredients);
+  }
+
+  function addUpgrade(event, recipe, fromTier, toTier, ingot, isHopper) {
+    const fromKey = `${fromTier}${isHopper ? 'hpr' : ''}pots`;
+    const toKey = `${toTier}${isHopper ? 'hpr' : ''}pots`;
+    event.shaped(recipe[toKey], ['ABA'], { A: ingot, B: recipe[fromKey] });
+  }
+
+  function addHopperConvert(event, recipe, tier) {
+    const potKey = `${tier}pots`;
+    const hopKey = `${tier}hprpots`;
+    event.shaped(recipe[hopKey], ['A', 'B'], { A: recipe[potKey], B: 'minecraft:hopper' });
+  }
+
+  function addColorRecipe(event, recipe, tier, isHopper) {
+    const key = `${tier}${isHopper ? 'hpr' : ''}pots`;
+    const tagBase = tier === 't1' ? 'botanypots' : 'botanypotstiers';
+    const tag = `${tagBase}:pots/${tier}${isHopper ? '/hopper' : ''}`;
+    event.shaped(recipe[key], ['BAB', 'BBB'], { A: `#${tag}`, B: recipe.frame });
+  }
+  //#endregion
+
+  //#region Generazione Ricette Principali
+  PotsPattern.forEach((recipe) => {
+    // 1. Rimuovi ricette vanilla/esistenti
+    TIER_KEYS.forEach((t) => {
+      event.remove({ output: recipe[`${t}pots`] });
+      event.remove({ output: recipe[`${t}hprpots`] });
+    });
+
+    // 2. Ricette base T1 (con e senza hopper)
+    addBasePot(event, recipe.frame, 't1', false, recipe);
+    addBasePot(event, recipe.frame, 't1', true, recipe);
+
+    // 3. Upgrade tra tier + variante con hopper in crafting
+    Object.entries(UPGRADE_INGOTS).forEach(([key, ingot]) => {
+      const [from, to] = key.split('_to_');
+      // Upgrade standard
+      addUpgrade(event, recipe, from, to, ingot, false);
+      addUpgrade(event, recipe, from, to, ingot, true);
+      // Upgrade + hopper in crafting (3-slot recipe)
+      event.shaped(recipe[`${to}hprpots`], ['ABA', ' C '], {
+        A: recipe[`${from}pots`],
+        B: ingot,
+        C: 'minecraft:hopper',
+      });
+    });
+
+    // 4. Conversione diretta: pot già craftato + hopper = hopper version
+    TIER_KEYS.forEach((tier) => addHopperConvert(event, recipe, tier));
+
+    // 5. Ricette per cambio colore usando i tag
+    TIER_KEYS.forEach((tier) => {
+      addColorRecipe(event, recipe, tier, false);
+      addColorRecipe(event, recipe, tier, true);
+    });
+  });
+  //#endregion
+
+  //#region Ricette "Clear Pot" con sapone
+  const CLEAR_CONFIG = [
+    { tier: 't1', namespace: 'botanypots', prefix: '' },
+    { tier: 't2', namespace: 'botanypotstiers', prefix: 'elite_' },
+    { tier: 't3', namespace: 'botanypotstiers', prefix: 'ultra_' },
+    { tier: 't4', namespace: 'botanypotstiers', prefix: 'creative_' },
+  ];
+
+  CLEAR_CONFIG.forEach((cfg) => {
+    const tagBase = cfg.tier === 't1' ? 'botanypots' : 'botanypotstiers';
+    event.shapeless(`${cfg.namespace}:${cfg.prefix}terracotta_botany_pot`, [`#${tagBase}:pots/${cfg.tier}`, 'supplementaries:soap']);
+    event.shapeless(`${cfg.namespace}:${cfg.prefix}terracotta_hopper_botany_pot`, [`#${tagBase}:pots/${cfg.tier}/hopper`, 'supplementaries:soap']);
+  });
+  //#endregion
 });
 //#endregion
