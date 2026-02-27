@@ -1,10 +1,10 @@
 ServerEvents.recipes((event) => {
   //#region func Rod
-  function RodCrafting(recipe) {
-    event.shaped(recipe.get, ['R', 'R'], { R: ToTag(recipe.put) });
+  function rodCrafting(recipe) {
+    event.shaped(recipe.get, ['R', 'R'], { R: toTag(recipe.put) });
   }
 
-  function RodCreate(recipe) {
+  function rodCreate(recipe) {
     event.custom({
       type: 'createaddition:rolling',
       input: { tag: recipe.put },
@@ -12,7 +12,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function RodImmersive(recipe) {
+  function rodImmersive(recipe) {
     event.custom({
       type: 'immersiveengineering:metal_press',
       mold: 'immersiveengineering:mold_rod',
@@ -22,7 +22,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function RodThermal(recipe) {
+  function rodThermal(recipe) {
     event.custom({
       type: 'thermal:press',
       energy: recipe.rsflux,
@@ -31,44 +31,44 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function RodTinker(recipe) {
+  function rodTinker(recipe) {
     const json = {
       type: 'tconstruct:casting_table',
-      cooling_time: GetCoolingTick(recipe.material, 1),
+      cooling_time: getCoolingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
     };
 
     // Add single and multi Cast
-    AddDualCastRecipe('rod', json, event);
+    addDualCastRecipe('rod', json, event);
   }
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Rod
-  const RodPattern = [
+  const rodPattern = [
     //Create
-    { get: 'createaddition:copper_rod', put: 'forge:ingots/copper', molten: 'copper', material: Material.Copper, rsflux: 4000 },
-    { get: 'createaddition:gold_rod', put: 'forge:ingots/gold', molten: 'gold', material: Material.Gold, rsflux: 4000 },
-    { get: 'createaddition:electrum_rod', put: 'forge:ingots/electrum', molten: 'electrum', material: Material.Electrum, rsflux: 6000 },
-    { get: 'createaddition:brass_rod', put: 'forge:ingots/brass', molten: 'brass', material: Material.Brass, rsflux: 6000 },
+    { get: 'createaddition:copper_rod', put: 'forge:ingots/copper', molten: 'copper', material: material.copper, rsflux: 4000 },
+    { get: 'createaddition:gold_rod', put: 'forge:ingots/gold', molten: 'gold', material: material.gold, rsflux: 4000 },
+    { get: 'createaddition:electrum_rod', put: 'forge:ingots/electrum', molten: 'electrum', material: material.electrum, rsflux: 6000 },
+    { get: 'createaddition:brass_rod', put: 'forge:ingots/brass', molten: 'brass', material: material.brass, rsflux: 6000 },
 
     //Immersive
-    { get: 'immersiveengineering:stick_iron', put: 'forge:ingots/iron', molten: 'iron', material: Material.Iron, rsflux: 4000 },
-    { get: 'immersiveengineering:stick_steel', put: 'forge:ingots/steel', molten: 'steel', material: Material.Steel, rsflux: 6000 },
-    { get: 'immersiveengineering:stick_aluminum', put: 'forge:ingots/aluminum', molten: 'aluminum', material: Material.Aluminum, rsflux: 4000 },
+    { get: 'immersiveengineering:stick_iron', put: 'forge:ingots/iron', molten: 'iron', material: material.iron, rsflux: 4000 },
+    { get: 'immersiveengineering:stick_steel', put: 'forge:ingots/steel', molten: 'steel', material: material.steel, rsflux: 6000 },
+    { get: 'immersiveengineering:stick_aluminum', put: 'forge:ingots/aluminum', molten: 'aluminum', material: material.aluminum, rsflux: 4000 },
   ];
-  RodPattern.forEach((recipe) => {
+  rodPattern.forEach((recipe) => {
     //Remove
     event.remove({ output: recipe.get });
 
     //Recipe
-    RodCrafting(recipe);
-    RodCreate(recipe);
-    RodImmersive(recipe);
-    RodThermal(recipe);
-    RodTinker(recipe);
+    rodCrafting(recipe);
+    rodCreate(recipe);
+    rodImmersive(recipe);
+    rodThermal(recipe);
+    rodTinker(recipe);
   });
   //#endregion
 });

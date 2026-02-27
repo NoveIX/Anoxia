@@ -135,7 +135,7 @@ ServerEvents.recipes((event) => {
 
   //#region Energizing
   event.remove({ type: 'powah:energizing' });
-  const EnergizingPattern = [
+  const energizingPattern = [
     {
       //Charged Snowball
       get: { item: 'powah:charged_snowball' },
@@ -191,7 +191,7 @@ ServerEvents.recipes((event) => {
       rsflux: 30000,
     },
   ];
-  EnergizingPattern.forEach((recipe) => {
+  energizingPattern.forEach((recipe) => {
     event.custom({
       type: 'powah:energizing',
       ingredients: recipe.put,

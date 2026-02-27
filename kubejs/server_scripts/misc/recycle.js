@@ -4,7 +4,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region RemoveID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Thermal
     'thermal:machines/smelter/smelter_iron_plate_to_ingot',
     'thermal:machines/smelter/smelter_gold_plate_to_ingot',
@@ -24,7 +24,7 @@ ServerEvents.recipes((event) => {
     'thermal:machines/smelter/smelter_invar_plate_to_ingot',
     'thermal:machines/smelter/smelter_constantan_plate_to_ingot',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #

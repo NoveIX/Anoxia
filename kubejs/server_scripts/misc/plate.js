@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Ad Astra
     'jaopca:thermal_expansion.material_to_plate.desh',
     'thermal:machines/press/press_desh_ingot_to_plate',
@@ -40,14 +40,14 @@ ServerEvents.recipes((event) => {
     'thermal:machines/press/press_invar_ingot_to_plate',
     'thermal:machines/press/press_constantan_ingot_to_plate',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Func Plate
-  function PlateCrafting(recipe) {
-    event.shapeless(recipe.get, [ToTag(recipe.put), ToTag(recipe.put), 'immersiveengineering:hammer']);
+  function plateCrafting(recipe) {
+    event.shapeless(recipe.get, [toTag(recipe.put), toTag(recipe.put), 'immersiveengineering:hammer']);
 
     // Ad Astra Hammer
     event.custom({
@@ -57,7 +57,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function PlateCreate(recipe) {
+  function plateCreate(recipe) {
     event.custom({
       type: 'create:pressing',
       ingredients: [{ tag: recipe.put }],
@@ -65,7 +65,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function PlateImmersive(recipe) {
+  function plateImmersive(recipe) {
     event.custom({
       type: 'immersiveengineering:metal_press',
       mold: 'immersiveengineering:mold_plate',
@@ -75,7 +75,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function PlateThermal(recipe) {
+  function plateThermal(recipe) {
     event.custom({
       type: 'thermal:press',
       ingredient: { tag: recipe.put },
@@ -84,30 +84,30 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function PlateTinker(recipe) {
+  function plateTinker(recipe) {
     const json = {
       type: 'tconstruct:casting_table',
-      cooling_time: GetMeltingTick(recipe.material, 1),
+      cooling_time: getCoolingTick(recipe.material, 1),
       fluid: { amount: 90, tag: `tconstruct:molten_${recipe.molten}` },
       result: recipe.get,
     };
 
     // Add single and multi Cast
-    AddDualCastRecipe('plate', json, event);
+    addDualCastRecipe('plate', json, event);
   }
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Plate
-  const PlatePattern = [
+  const platePattern = [
     //Ad Astra
-    { get: 'ad_astra:desh_plate', put: 'forge:ingots/desh', molten: 'desh', material: Material.Desh, rsflux: 24000, metal: 'special' },
-    { get: 'ad_astra:ostrum_plate', put: 'forge:ingots/ostrum', molten: 'ostrum', material: Material.Ostrum, rsflux: 28000, metal: 'special' },
-    { get: 'ad_astra:calorite_plate', put: 'forge:ingots/calorite', molten: 'calorite', material: Material.Calorite, rsflux: 32000, metal: 'special' },
+    { get: 'ad_astra:desh_plate', put: 'forge:ingots/desh', molten: 'desh', material: material.desh, rsflux: 24000, metal: 'special' },
+    { get: 'ad_astra:ostrum_plate', put: 'forge:ingots/ostrum', molten: 'ostrum', material: material.ostrum, rsflux: 28000, metal: 'special' },
+    { get: 'ad_astra:calorite_plate', put: 'forge:ingots/calorite', molten: 'calorite', material: material.calorite, rsflux: 32000, metal: 'special' },
 
     //Create
-    { get: 'create:brass_sheet', put: 'forge:ingots/brass', molten: 'brass', material: Material.Brass, rsflux: 6000 },
+    { get: 'create:brass_sheet', put: 'forge:ingots/brass', molten: 'brass', material: material.brass, rsflux: 6000 },
     { get: 'createdeco:andesite_sheet', put: 'forge:ingots/andesite_alloy', rsflux: 4000 },
     { get: 'createdeco:industrial_iron_sheet', put: 'createdeco:internal/ingots/industrial_iron_ingots', rsflux: 8000 },
 
@@ -172,40 +172,40 @@ ServerEvents.recipes((event) => {
     { get: 'chemlib:uranium_plate', put: 'forge:ingots/uranium', rsflux: 8000 },
 
     //Thermal
-    { get: 'thermal:iron_plate', put: 'forge:ingots/iron', molten: 'iron', material: Material.Iron, rsflux: 4000 },
-    { get: 'thermal:gold_plate', put: 'forge:ingots/gold', molten: 'gold', material: Material.Gold, rsflux: 4000 },
-    { get: 'thermal:copper_plate', put: 'forge:ingots/copper', molten: 'copper', material: Material.Copper, rsflux: 4000 },
-    { get: 'thermal:netherite_plate', put: 'forge:ingots/netherite', molten: 'netherite', material: Material.Netherite, rsflux: 12000, metal: 'hard' },
-    { get: 'thermal:tin_plate', put: 'forge:ingots/tin', molten: 'tin', material: Material.Tin, rsflux: 4000 },
-    { get: 'thermal:lead_plate', put: 'forge:ingots/lead', molten: 'lead', material: Material.Lead, rsflux: 4000 },
-    { get: 'thermal:silver_plate', put: 'forge:ingots/silver', molten: 'silver', material: Material.Silver, rsflux: 4000 },
-    { get: 'thermal:nickel_plate', put: 'forge:ingots/nickel', molten: 'nickel', material: Material.Nickel, rsflux: 4000 },
-    { get: 'thermal:signalum_plate', put: 'forge:ingots/signalum', molten: 'signalum', material: Material.Signalum, rsflux: 8000, metal: 'hard' },
-    { get: 'thermal:lumium_plate', put: 'forge:ingots/lumium', molten: 'lumium', material: Material.Lumium, rsflux: 8000, metal: 'hard' },
-    { get: 'thermal:enderium_plate', put: 'forge:ingots/enderium', molten: 'enderium', material: Material.Enderium, rsflux: 12000, metal: 'hard' },
-    { get: 'thermal:steel_plate', put: 'forge:ingots/steel', molten: 'steel', material: Material.Steel, rsflux: 6000 },
-    { get: 'thermal:rose_gold_plate', put: 'forge:ingots/rose_gold', molten: 'rose_gold', material: Material.RoseGold, rsflux: 6000 },
-    { get: 'thermal:bronze_plate', put: 'forge:ingots/bronze', molten: 'bronze', material: Material.Bronze, rsflux: 6000 },
-    { get: 'thermal:electrum_plate', put: 'forge:ingots/electrum', molten: 'electrum', material: Material.Electrum, rsflux: 6000 },
-    { get: 'thermal:invar_plate', put: 'forge:ingots/invar', molten: 'invar', material: Material.Invar, rsflux: 6000 },
-    { get: 'thermal:constantan_plate', put: 'forge:ingots/constantan', molten: 'constantan', material: Material.Constantan, rsflux: 6000 },
+    { get: 'thermal:iron_plate', put: 'forge:ingots/iron', molten: 'iron', material: material.iron, rsflux: 4000 },
+    { get: 'thermal:gold_plate', put: 'forge:ingots/gold', molten: 'gold', material: material.gold, rsflux: 4000 },
+    { get: 'thermal:copper_plate', put: 'forge:ingots/copper', molten: 'copper', material: material.copper, rsflux: 4000 },
+    { get: 'thermal:netherite_plate', put: 'forge:ingots/netherite', molten: 'netherite', material: material.netherite, rsflux: 12000, metal: 'hard' },
+    { get: 'thermal:tin_plate', put: 'forge:ingots/tin', molten: 'tin', material: material.tin, rsflux: 4000 },
+    { get: 'thermal:lead_plate', put: 'forge:ingots/lead', molten: 'lead', material: material.lead, rsflux: 4000 },
+    { get: 'thermal:silver_plate', put: 'forge:ingots/silver', molten: 'silver', material: material.silver, rsflux: 4000 },
+    { get: 'thermal:nickel_plate', put: 'forge:ingots/nickel', molten: 'nickel', material: material.nickel, rsflux: 4000 },
+    { get: 'thermal:signalum_plate', put: 'forge:ingots/signalum', molten: 'signalum', material: material.signalum, rsflux: 8000, metal: 'hard' },
+    { get: 'thermal:lumium_plate', put: 'forge:ingots/lumium', molten: 'lumium', material: material.lumium, rsflux: 8000, metal: 'hard' },
+    { get: 'thermal:enderium_plate', put: 'forge:ingots/enderium', molten: 'enderium', material: material.enderium, rsflux: 12000, metal: 'hard' },
+    { get: 'thermal:steel_plate', put: 'forge:ingots/steel', molten: 'steel', material: material.steel, rsflux: 6000 },
+    { get: 'thermal:rose_gold_plate', put: 'forge:ingots/rose_gold', molten: 'rose_gold', material: material.roseGold, rsflux: 6000 },
+    { get: 'thermal:bronze_plate', put: 'forge:ingots/bronze', molten: 'bronze', material: material.bronze, rsflux: 6000 },
+    { get: 'thermal:electrum_plate', put: 'forge:ingots/electrum', molten: 'electrum', material: material.electrum, rsflux: 6000 },
+    { get: 'thermal:invar_plate', put: 'forge:ingots/invar', molten: 'invar', material: material.invar, rsflux: 6000 },
+    { get: 'thermal:constantan_plate', put: 'forge:ingots/constantan', molten: 'constantan', material: material.constantan, rsflux: 6000 },
 
     //Thermal Endergy
     { get: 'thermalendergy:prismalium_plate', put: 'forge:ingots/prismalium', rsflux: 16000, metal: 'hard' },
     { get: 'thermalendergy:melodium_plate', put: 'forge:ingots/melodium', rsflux: 20000, metal: 'hard' },
     { get: 'thermalendergy:stellarium_plate', put: 'forge:ingots/stellarium', rsflux: 24000, metal: 'hard' },
   ];
-  PlatePattern.forEach((recipe) => {
+  platePattern.forEach((recipe) => {
     //Remove
     event.remove({ output: recipe.get });
 
     // Plate Press
-    if (recipe.metal === 'special') PlateThermal(recipe);
-    else if (recipe.metal === 'hard') (PlateImmersive(recipe), PlateThermal(recipe));
-    else (PlateImmersive(recipe), PlateThermal(recipe), PlateCreate(recipe), PlateCrafting(recipe));
+    if (recipe.metal === 'special') plateThermal(recipe);
+    else if (recipe.metal === 'hard') (plateImmersive(recipe), plateThermal(recipe));
+    else (plateImmersive(recipe), plateThermal(recipe), plateCreate(recipe), plateCrafting(recipe));
 
     //Molten
-    if (recipe.molten) PlateTinker(recipe);
+    if (recipe.molten) plateTinker(recipe);
   });
   //#endregion
 });

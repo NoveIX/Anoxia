@@ -2,7 +2,7 @@
 
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Minecraft
     'minecraft:netherite_ingot',
     'thermal:machines/smelter/smelter_alloy_netherite',
@@ -71,13 +71,13 @@ ServerEvents.recipes((event) => {
     'tconstruct:smeltery/alloys/molten_lumium',
     'tconstruct:smeltery/alloys/molten_enderium',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Func Alloy
-  function AlloyImmersiveAlloy(recipe) {
+  function alloyImmersiveAlloy(recipe) {
     event.custom({
       type: 'immersiveengineering:alloy',
       input0: { base_ingredient: { tag: recipe.put1 }, count: recipe.n1 },
@@ -87,7 +87,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function AlloyImmersiveArc(recipe) {
+  function alloyImmersiveArc(recipe) {
     event.custom({
       type: 'immersiveengineering:arc_furnace',
       input: { base_ingredient: { tag: recipe.put1 }, count: recipe.n1 },
@@ -98,7 +98,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function AlloyEnderIO(recipe) {
+  function alloyEnderIO(recipe) {
     const json = {
       type: 'enderio:alloy_smelting',
       inputs: [
@@ -115,7 +115,7 @@ ServerEvents.recipes((event) => {
     event.custom(json);
   }
 
-  function AlloyThermal(recipe) {
+  function alloyThermal(recipe) {
     const json = {
       type: 'thermal:smelter',
       ingredients: [
@@ -135,7 +135,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Alloy
-  const AlloyPattern = [
+  const alloyPattern = [
     //Anoxia
     { get: 'anoxia:modularium_ingot', n0: 1, put1: 'forge:ingots/vibrant_alloy', n1: 1, put2: 'forge:ingots/enderium', n2: 1, put3: 'forge:ingots/electrotine_alloy', n3: 1, rsflux: 60000, alloy: 'complex' }, //Modularium
 
@@ -184,10 +184,10 @@ ServerEvents.recipes((event) => {
     //Tinker
     { get: 'tconstruct:manyullyn_ingot', n0: 1, put1: 'forge:ingots/cobalt', n1: 3, put2: 'forge:ingots/netherite_scrap', n2: 1, rsflux: 24000, alloy: 'simple' },
   ];
-  AlloyPattern.forEach((recipe) => {
-    if (recipe.alloy === 'simple') (AlloyImmersiveAlloy(recipe), AlloyImmersiveArc(recipe));
-    else if (recipe.alloy === 'ender' || recipe.alloy === 'simple') (AlloyEnderIO(recipe), AlloyThermal(recipe));
-    else if (recipe.alloy === 'complex') (AlloyEnderIO(recipe), AlloyThermal(recipe));
+  alloyPattern.forEach((recipe) => {
+    if (recipe.alloy === 'simple') (alloyImmersiveAlloy(recipe), alloyImmersiveArc(recipe));
+    else if (recipe.alloy === 'ender' || recipe.alloy === 'simple') (alloyEnderIO(recipe), alloyThermal(recipe));
+    else if (recipe.alloy === 'complex') (alloyEnderIO(recipe), alloyThermal(recipe));
   });
   //#endregion
 });

@@ -4,8 +4,8 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Remove ID
-  const RmRecipeID = ['ad_astra:conversion/fuel_from_oil', 'ad_astra:nasa_workbench/tier_1_rocket', 'ad_astra:nasa_workbench/tier_2_rocket', 'ad_astra:nasa_workbench/tier_3_rocket', 'ad_astra:nasa_workbench/tier_4_rocket'];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  const rmRecipeId = ['ad_astra:conversion/fuel_from_oil', 'ad_astra:nasa_workbench/tier_1_rocket', 'ad_astra:nasa_workbench/tier_2_rocket', 'ad_astra:nasa_workbench/tier_3_rocket', 'ad_astra:nasa_workbench/tier_4_rocket'];
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -37,7 +37,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Fuel Conversion
-  const FuelConversionPattern = [
+  const fuelConversionPattern = [
     { get: 'thermal:creosote', put: 'immersiveengineering:creosote' },
     { get: 'immersiveengineering:creosote', put: 'thermal:creosote' }, //Reverse
 
@@ -51,7 +51,7 @@ ServerEvents.recipes((event) => {
     { get: 'industrialforegoing:latex', put: 'thermal:latex' },
     { get: 'thermal:latex', put: 'industrialforegoing:latex' }, //Reverse
   ];
-  FuelConversionPattern.forEach((recipe) => {
+  fuelConversionPattern.forEach((recipe) => {
     event.custom({
       type: 'ad_astra:fuel_conversion',
       input: recipe.put,

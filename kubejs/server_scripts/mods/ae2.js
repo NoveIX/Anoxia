@@ -20,8 +20,8 @@ ServerEvents.recipes((event) => {
   event.smithing('ae2things:disk_housing', 'minecraft:netherite_upgrade_smithing_template', 'ae2:item_cell_housing', '#forge:ingots/netherite');
 
   //Disk Size
-  const SizeDiskPattern = ['1k', '4k', '16k', '64k', '256k'];
-  SizeDiskPattern.forEach((size) => {
+  const sizeDiskPattern = ['1k', '4k', '16k', '64k', '256k'];
+  sizeDiskPattern.forEach((size) => {
     //Item disk
     event.remove({ output: `ae2:item_storage_cell_${size}` });
     event.shapeless(`ae2:item_storage_cell_${size}`, ['ae2:item_cell_housing', `ae2:cell_component_${size}`]);

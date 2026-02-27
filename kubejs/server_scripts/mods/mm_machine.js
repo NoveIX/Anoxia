@@ -13,7 +13,14 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Item
-  const ItemInPort = [
+  // //Simple MM
+  event.shaped('mm:portal_item_port_input', [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: '#forge:ingots/obsidian', C: 'minecraft:obsidian', D: '#forge:chests/wooden' });
+  event.shaped('mm:portal_item_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: '#forge:ingots/obsidian', C: 'minecraft:obsidian', D: '#forge:chests/wooden' });
+  event.shaped('mm:coke_oven_item_port_input', [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: '#forge:chests/wooden' });
+  event.shaped('mm:coke_oven_item_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: '#forge:chests/wooden' });
+  event.shaped('mm:coke_oven_fluid_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: 'minecraft:bucket' });
+
+  const itemInPort = [
     //Input
     { get: 'mm:tiny_item_port_input', put: 'anoxia:machine_casing' },
     { get: 'mm:small_item_port_input', put: 'mm:tiny_item_port_input' },
@@ -24,11 +31,9 @@ ServerEvents.recipes((event) => {
     { get: 'mm:ludicrous_item_port_input', put: 'mm:huge_item_port_input' },
     { get: 'mm:ultimate_item_port_input', put: 'mm:ludicrous_item_port_input' },
   ];
-  ItemInPort.forEach((recipe) => {
-    event.shaped(recipe.get, [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:chests/wooden' });
-  });
+  itemInPort.forEach((recipe) => event.shaped(recipe.get, [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:chests/wooden' }));
 
-  const ItemOutPort = [
+  const itemOutPort = [
     //Output
     { get: 'mm:tiny_item_port_output', put: 'anoxia:machine_casing' },
     { get: 'mm:small_item_port_output', put: 'mm:tiny_item_port_output' },
@@ -39,22 +44,13 @@ ServerEvents.recipes((event) => {
     { get: 'mm:huge_item_port_output', put: 'mm:huge_item_port_output' },
     { get: 'mm:huge_item_port_output', put: 'mm:huge_item_port_output' },
   ];
-  ItemOutPort.forEach((recipe) => {
-    event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:chests/wooden' });
-  });
-
-  //Simple MM
-  event.shaped('mm:portal_item_port_input', [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: '#forge:ingots/obsidian', C: 'minecraft:obsidian', D: '#forge:chests/wooden' });
-  event.shaped('mm:portal_item_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: '#forge:ingots/obsidian', C: 'minecraft:obsidian', D: '#forge:chests/wooden' });
-  event.shaped('mm:coke_oven_item_port_input', [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: '#forge:chests/wooden' });
-  event.shaped('mm:coke_oven_item_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: '#forge:chests/wooden' });
-  event.shaped('mm:coke_oven_fluid_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: 'minecraft:bucket' });
+  itemOutPort.forEach((recipe) => event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:chests/wooden' }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Fluid
-  const FluidInPort = [
+  const fluidInPort = [
     //input
     { get: 'mm:tiny_fluid_port_input', put: 'anoxia:machine_casing' },
     { get: 'mm:small_fluid_port_input', put: 'mm:tiny_fluid_port_input' },
@@ -65,11 +61,9 @@ ServerEvents.recipes((event) => {
     { get: 'mm:ludicrous_fluid_port_input', put: 'mm:huge_fluid_port_input' },
     { get: 'mm:ultimate_fluid_port_input', put: 'mm:ludicrous_fluid_port_input' },
   ];
-  FluidInPort.forEach((recipe) => {
-    event.shaped(recipe.get, [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: 'minecraft:bucket' });
-  });
+  fluidInPort.forEach((recipe) => event.shaped(recipe.get, [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: 'minecraft:bucket' }));
 
-  const FluidOutPort = [
+  const fluidOutPort = [
     //Output
     { get: 'mm:tiny_fluid_port_output', put: 'anoxia:machine_casing' },
     { get: 'mm:small_fluid_port_output', put: 'mm:tiny_fluid_port_output' },
@@ -80,15 +74,13 @@ ServerEvents.recipes((event) => {
     { get: 'mm:ludicrous_fluid_port_output', put: 'mm:huge_fluid_port_output' },
     { get: 'mm:ultimate_fluid_port_output', put: 'mm:ludicrous_fluid_port_output' },
   ];
-  FluidOutPort.forEach((recipe) => {
-    event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: 'minecraft:bucket' });
-  });
+  fluidOutPort.forEach((recipe) => event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: 'minecraft:bucket' }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Energy
-  const EnergyInPort = [
+  const energyInPort = [
     //input
     { get: '#forge:chests/wooden', put: 'anoxia:machine_casing' },
     { get: 'mm:small_energy_port_input', put: '#forge:chests/wooden' },
@@ -99,11 +91,9 @@ ServerEvents.recipes((event) => {
     { get: 'mm:ludicrous_energy_port_input', put: 'mm:huge_energy_port_input' },
     { get: 'mm:ultimate_energy_port_input', put: 'mm:ludicrous_energy_port_input' },
   ];
-  EnergyInPort.forEach((recipe) => {
-    event.shaped(recipe.get, [' A ', 'BCB', 'DBD'], { A: 'pipez:energy_pipe', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:ingots/red_alloy' });
-  });
+  energyInPort.forEach((recipe) => event.shaped(recipe.get, [' A ', 'BCB', 'DBD'], { A: 'pipez:energy_pipe', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:ingots/red_alloy' }));
 
-  const EnergyOutPort = [
+  const energyOutPort = [
     //Output
     { get: 'mm:tiny_energy_port_output', put: 'anoxia:machine_casing' },
     { get: 'mm:small_energy_port_output', put: 'mm:tiny_energy_port_output' },
@@ -114,9 +104,7 @@ ServerEvents.recipes((event) => {
     { get: 'mm:ludicrous_energy_port_output', put: 'mm:huge_energy_port_output' },
     { get: 'mm:ultimate_energy_port_output', put: 'mm:ludicrous_energy_port_output' },
   ];
-  EnergyOutPort.forEach((recipe) => {
-    event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'pipez:energy_pipe', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:ingots/red_alloy' });
-  });
+  energyOutPort.forEach((recipe) => event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'pipez:energy_pipe', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:ingots/red_alloy' }));
 });
 
 //# ====================================================================================== #

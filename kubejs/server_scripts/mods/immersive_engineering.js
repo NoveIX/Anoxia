@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     'immersiveengineering:crafting/slag_brick_from_slab',
     'immersiveengineering:crafting/clinker_brick_from_slab',
     'immersiveengineering:crafting/hempcrete_from_slab',
@@ -53,7 +53,7 @@ ServerEvents.recipes((event) => {
     'immersiveengineering:crafting/sheetmetal_colored_red_from_slab',
     'immersiveengineering:crafting/sheetmetal_colored_black_from_slab',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -182,7 +182,7 @@ ServerEvents.recipes((event) => {
   event.shaped('immersiveengineering:thermoelectric_generator', ['ABA', 'CDC', 'AEA'], { A: '#forge:plates/constantan', B: '#forge:plates/steel', C: '#forge:ingots/red_alloy', D: 'immersiveengineering:furnace_heater', E: '#forge:gears/constantan' });
 
   //Storage Block
-  const StorageBlockIE = [
+  const storageBlockIE = [
     { get: 'immersiveengineering:storage_aluminum', put: '#forge:ingots/aluminum' },
     { get: 'immersiveengineering:storage_lead', put: '#forge:ingots/lead' },
     { get: 'immersiveengineering:storage_silver', put: '#forge:ingots/silver' },
@@ -192,7 +192,7 @@ ServerEvents.recipes((event) => {
     { get: 'immersiveengineering:storage_electrum', put: '#forge:ingots/electrum' },
     { get: 'immersiveengineering:storage_steel', put: '#forge:ingots/steel' },
   ];
-  StorageBlockIE.forEach((recipe) => {
+  storageBlockIE.forEach((recipe) => {
     event.remove({ output: recipe.get });
     event.shaped(recipe.get, ['AAA', 'AAA', 'AAA'], { A: recipe.put });
   });
@@ -219,7 +219,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Alloy
-  const AlloyPattern = [
+  const alloyPattern = [
     {
       get: { base_ingredient: { item: 'projectred_core:red_ingot' }, count: 1 },
       put: { base_ingredient: { tag: 'forge:ingots/copper' }, count: 1 },
@@ -231,7 +231,7 @@ ServerEvents.recipes((event) => {
       add: { base_ingredient: { tag: 'forge:dusts/electrotine' }, count: 4 },
     },
   ];
-  AlloyPattern.forEach((recipe) => {
+  alloyPattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:alloy',
       input0: recipe.put,
@@ -245,7 +245,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region ArcFurnace
-  const ArcFurnacePattern = [
+  const arcFurnacePattern = [
     {
       get: [{ base_ingredient: { item: 'projectred_core:red_ingot' }, count: 1 }],
       put: { base_ingredient: { tag: 'forge:ingots/copper' }, count: 1 },
@@ -257,7 +257,7 @@ ServerEvents.recipes((event) => {
       add: [{ base_ingredient: { tag: 'forge:dusts/electrotine' }, count: 4 }],
     },
   ];
-  ArcFurnacePattern.forEach((recipe) => {
+  arcFurnacePattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:arc_furnace',
       input: recipe.put,
@@ -272,11 +272,11 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region BlastFurnace
-  const BlastFurnacePattern = [
+  const blastFurnacePattern = [
     { get: { item: 'thermal:steel_ingot' }, put: { tag: 'forge:ingots/iron' }, qty: 1, tick: 2400 },
     { get: { item: 'thermal:steel_block' }, put: { tag: 'forge:storage_blocks/iron' }, qty: 9, tick: 21600 },
   ];
-  BlastFurnacePattern.forEach((recipe) => {
+  blastFurnacePattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:blast_furnace',
       input: recipe.put,
@@ -290,13 +290,13 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region BlastFurnace Fuel
-  const BlastFurnaceFuelPattern = [
+  const blastFurnaceFuelPattern = [
     { fuel: { tag: 'anoxia:gems/coals' }, tick: 300 },
     { fuel: { tag: 'anoxia:storage_blocks/coals' }, tick: 2700 },
     { fuel: { tag: 'forge:coal_coke' }, tick: 1200 },
     { fuel: { tag: 'forge:storage_blocks/coal_coke' }, tick: 10800 },
   ];
-  BlastFurnaceFuelPattern.forEach((recipe) => {
+  blastFurnaceFuelPattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:blast_furnace_fuel',
       input: recipe.fuel,
@@ -309,7 +309,7 @@ ServerEvents.recipes((event) => {
 
   //#region CokeOven
   event.remove({ type: 'immersiveengineering:coke_oven' });
-  const CokeOvenPattern = [
+  const cokeOvenPattern = [
     {
       get: { item: 'minecraft:charcoal' },
       put: { tag: 'minecraft:logs' },
@@ -329,7 +329,7 @@ ServerEvents.recipes((event) => {
       tick: 16200,
     },
   ];
-  CokeOvenPattern.forEach((recipe) => {
+  cokeOvenPattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:coke_oven',
       input: recipe.put,
@@ -343,7 +343,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Crusher
-  const CrusherPattern = [
+  const crusherPattern = [
     {
       //JAOPCA Integration
       get: { base_ingredient: { item: 'actuallyadditions:black_quartz' }, count: 2 },
@@ -351,7 +351,7 @@ ServerEvents.recipes((event) => {
       rsflux: 6000,
     },
   ];
-  CrusherPattern.forEach((recipe) => {
+  crusherPattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:crusher',
       energy: recipe.rsflux,
@@ -365,14 +365,14 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Fertilizer
-  const FertilizerPattern = [
+  const fertilizerPattern = [
     { put: { item: 'create:tree_fertilizer' }, multi: 1.3 },
     { put: { item: 'industrialforegoing:fertilizer' }, multi: 1.2 },
     { put: { item: 'thermal:compost' }, multi: 1.1 },
     { put: { item: 'thermal:phytogro' }, multi: 1.6 },
     { put: { item: 'mysticalagriculture:mystical_fertilizer' }, multi: 5.0 },
   ];
-  FertilizerPattern.forEach((recipe) => {
+  fertilizerPattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:fertilizer',
       growthModifier: recipe.multi,
@@ -384,7 +384,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Refinery
-  const RefineryPattern = [
+  const refineryPattern = [
     {
       get: { amount: 16, fluid: 'enderio:nutrient_distillation' },
       put1: { amount: 8, tag: 'anoxia:water' },
@@ -398,7 +398,7 @@ ServerEvents.recipes((event) => {
       mixer: { tag: 'forge:dusts/coal' },
     },
   ];
-  RefineryPattern.forEach((recipe) => {
+  refineryPattern.forEach((recipe) => {
     event.custom({
       type: 'immersiveengineering:refinery',
       catalyst: recipe.mixer,

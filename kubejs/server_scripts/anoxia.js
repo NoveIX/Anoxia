@@ -11,7 +11,7 @@ ServerEvents.recipes((event) => {
   event.shapeless('minecraft:coal', Item.of('anoxia:tiny_coal', 8)); //Reverse
 
   //Raw ExNihilo
-  const RawExNihiloPattern = [
+  const rawExNihiloPattern = [
     { get: 'mekanism:raw_osmium', put: 'anoxia:osmium_pieces' },
     { get: 'tconstruct:raw_cobalt', put: 'anoxia:cobalt_pieces' },
     { get: 'ad_astra:raw_desh', put: 'anoxia:desh_pieces' },
@@ -20,7 +20,7 @@ ServerEvents.recipes((event) => {
     { get: 'bloodmagic:rawdemonite', put: 'anoxia:demonite_pieces' },
     { get: 'anoxia:raw_enderite', put: 'anoxia:enderite_pieces' },
   ];
-  RawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ['AA', 'AA'], { A: recipe.put }));
+  rawExNihiloPattern.forEach((recipe) => event.shaped(recipe.get, ['AA', 'AA'], { A: recipe.put }));
 
   //Enderite
   event.blasting('anoxia:enderite_ingot', 'anoxia:raw_enderite', 0, 1200);
@@ -32,7 +32,7 @@ ServerEvents.recipes((event) => {
   event.shaped('anoxia:press_rod_die', [' A ', 'ABA', ' A '], { A: '#forge:plates/invar', B: 'minecraft:blaze_rod' });
 
   //Compressed
-  const CompressPattern = [
+  const compressPattern = [
     { get: 'anoxia:compressed_cobblestone', put: 'minecraft:cobblestone' },
     { get: 'anoxia:double_compressed_cobblestone', put: 'anoxia:compressed_cobblestone' },
     { get: 'anoxia:triple_compressed_cobblestone', put: 'anoxia:double_compressed_cobblestone' },
@@ -46,7 +46,7 @@ ServerEvents.recipes((event) => {
     { get: 'anoxia:compressed_blackstone', put: 'minecraft:blackstone' },
     { get: 'anoxia:compressed_andesite', put: 'minecraft:andesite' },
   ];
-  CompressPattern.forEach((recipe) => {
+  compressPattern.forEach((recipe) => {
     event.remove({ output: recipe.get });
     event.shaped(recipe.get, ['AAA', 'AAA', 'AAA'], { A: recipe.put });
     event.shapeless(Item.of(recipe.put, 9), [recipe.get]);

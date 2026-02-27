@@ -1,7 +1,7 @@
 //priority:970
 
 ServerEvents.recipes((event) => {
-  const IngredientReplacements = [
+  const ingredientReplacements = [
     //Input	//Output
     ['industrialforegoing:plastic', '#forge:plastic'],
     ['immersiveengineering:coal_coke', '#forge:coal_coke'],
@@ -25,11 +25,6 @@ ServerEvents.recipes((event) => {
     ['createdeco:netherite_sheet', '#forge:plates/netherite'],
   ];
 
-  IngredientReplacements.forEach((replacement) => {
-    event.replaceOutput({}, replacement[0], replacement[1]);
-  });
-
-  IngredientReplacements.forEach((replacement) => {
-    event.replaceInput({}, replacement[0], replacement[1]);
-  });
+  ingredientReplacements.forEach((replace) => event.replaceOutput({}, replace[0], replace[1]));
+  ingredientReplacements.forEach((replace) => event.replaceInput({}, replace[0], replace[1]));
 });

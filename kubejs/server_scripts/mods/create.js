@@ -2,7 +2,7 @@ ServerEvents.recipes((event) => {
   event.remove({ type: 'createaddition:liquid_burning' });
 
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     'create:crafting/materials/andesite_alloy',
     'create:crafting/materials/andesite_alloy_from_zinc',
     'create:mixing/andesite_alloy',
@@ -15,7 +15,7 @@ ServerEvents.recipes((event) => {
     'tacz_c:thin_brass_sheet_cutting',
     'tacz_c:thin_copper_sheet_cutting',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -78,12 +78,12 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
-  const CuttingPatern = [
+  const cuttingPatern = [
     //Unification
     { get: [{ count: 10, item: 'tacz_c:thin_copper_sheet' }], put: [{ tag: 'forge:plates/copper' }] },
     { get: [{ count: 10, item: 'tacz_c:thin_brass_sheet' }], put: [{ tag: 'forge:plates/brass' }] },
   ];
-  CuttingPatern.forEach((recipe) => {
+  cuttingPatern.forEach((recipe) => {
     event.custom({
       type: 'create:cutting',
       ingredients: recipe.put,
@@ -94,8 +94,8 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Compacting
-  const CompactingPattern = [{ get: [{ item: 'createaddition:cake_base' }], put: [{ tag: 'forge:eggs' }, { item: 'minecraft:sugar' }, { item: 'minecraft:sugar' }, { tag: 'forge:dough' }] }];
-  CompactingPattern.forEach((recipe) => {
+  const compactingPattern = [{ get: [{ item: 'createaddition:cake_base' }], put: [{ tag: 'forge:eggs' }, { item: 'minecraft:sugar' }, { item: 'minecraft:sugar' }, { tag: 'forge:dough' }] }];
+  compactingPattern.forEach((recipe) => {
     event.custom({
       type: 'create:compacting',
       ingredients: recipe.put,
@@ -107,8 +107,8 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Cutting
-  const CuttingPattern = [{ get: [{ count: 3, item: 'create:shaft' }], put: [{ item: 'create:andesite_alloy' }] }];
-  CuttingPattern.forEach((recipe) => {
+  const cuttingPattern = [{ get: [{ count: 3, item: 'create:shaft' }], put: [{ item: 'create:andesite_alloy' }] }];
+  cuttingPattern.forEach((recipe) => {
     event.custom({
       type: 'create:cutting',
       ingredients: recipe.put,
@@ -121,11 +121,11 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Deploy
-  const DeployPattern = [
+  const deployPattern = [
     { get: [{ item: 'create:cogwheel' }], put: [{ item: 'create:shaft' }, { tag: 'forge:gears/wood' }] },
     { get: [{ item: 'create:large_cogwheel' }], put: [{ item: 'create:cogwheel' }, { tag: 'forge:gears/wood' }] },
   ];
-  DeployPattern.forEach((recipe) => {
+  deployPattern.forEach((recipe) => {
     event.custom({
       type: 'create:deploying',
       ingredients: recipe.put,
@@ -137,7 +137,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Liquid Burning
-  const LiquidBurningPattern = [
+  const liquidBurningPattern = [
     //Minecraft
     { get: 2400, put: { fluid: 'minecraft:lava', amount: 1000 } },
 
@@ -169,7 +169,7 @@ ServerEvents.recipes((event) => {
     //Tinker
     { get: 6000, put: { fluid: 'tconstruct:blazing_blood', amount: 1000 }, heat: true },
   ];
-  LiquidBurningPattern.forEach((recipe) => {
+  liquidBurningPattern.forEach((recipe) => {
     const json = {
       type: 'createaddition:liquid_burning',
       input: recipe.put,
@@ -185,12 +185,12 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Milling
-  const MillStonePattern = [
+  const millStonePattern = [
     //Misc
     { get: [{ item: 'minecraft:sand' }], put: [{ item: 'minecraft:gravel' }] },
     { get: [{ item: 'exnihilosequentia:dust' }], put: [{ item: 'minecraft:sand' }] },
   ];
-  MillStonePattern.forEach((recipe) => {
+  millStonePattern.forEach((recipe) => {
     event.custom({
       type: 'create:milling',
       ingredients: recipe.put,
@@ -203,7 +203,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Mixing
-  const MixingPattern = [
+  const mixingPattern = [
     {
       //Andesite Alloy
       get: [{ item: 'create:andesite_alloy' }],
@@ -221,7 +221,7 @@ ServerEvents.recipes((event) => {
       put: [{ tag: 'forge:flour/wheat' }, { amount: 1000, fluid: 'minecraft:water', nbt: {} }],
     },
   ];
-  MixingPattern.forEach((recipe) => {
+  mixingPattern.forEach((recipe) => {
     const json = {
       type: 'create:mixing',
       ingredients: recipe.put,
@@ -253,14 +253,14 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Splashing
-  const SplashingPattern = [
+  const splashingPattern = [
     {
       //Restore Splash Dough => PamHC Dought
       get: [{ item: 'pamhc2foodcore:doughitem' }],
       put: [{ tag: 'forge:flour/wheat' }],
     },
   ];
-  SplashingPattern.forEach((recipe) => {
+  splashingPattern.forEach((recipe) => {
     event.custom({
       type: 'create:splashing',
       ingredients: recipe.put,

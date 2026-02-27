@@ -20,7 +20,7 @@ ServerEvents.recipes((event) => {
 
   //#region Ritual
   //Flower
-  const FlowerPattern = [
+  const flowerPattern = [
     //Flower
     {
       get: { item: 'botania:white_mystical_flower' },
@@ -249,7 +249,7 @@ ServerEvents.recipes((event) => {
       level: 2,
     },
   ];
-  FlowerPattern.forEach((recipe) => {
+  flowerPattern.forEach((recipe) => {
     event.custom({
       type: 'rootsclassic:ritual',
       effect: 'rootsclassic:crafting',

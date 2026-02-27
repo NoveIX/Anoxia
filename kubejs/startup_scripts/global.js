@@ -1,28 +1,28 @@
 //priority:1000
 
 // Main namespace (GLOBAL)
-global.Anoxia = global.Anoxia || {};
-const Anoxia = global.Anoxia; // local alias
+global.anoxia = global.anoxia || {};
+const anoxia = global.anoxia; // local alias
 
 // Constant Namespace
-Anoxia.Constant = Anoxia.Constant || {};
-Anoxia.Constant.Tinker = Anoxia.Constant.Tinker || {};
+anoxia.constant = {};
+anoxia.constant.tinkerConstruct = {};
 
-// Function Namespace
-Anoxia.Function = Anoxia.Function || {};
-Anoxia.Function.Generic = Anoxia.Function.Generic || {};
-Anoxia.Function.Tinker = Anoxia.Function.Tinker || {};
+// function Namespace
+anoxia.function = {};
+anoxia.function.Generic = {};
+anoxia.function.tinkerConstruct = {};
 
 // Game Namespace
-Anoxia.Game = Anoxia.Game || {};
-Anoxia.Game.Item = Anoxia.Game.Item || {};
-Anoxia.Game.Fluid = Anoxia.Game.Fluid || {};
-Anoxia.Game.Recipe = Anoxia.Game.Recipe || {};
+anoxia.game = {};
+anoxia.game.item = {};
+anoxia.game.fluid = {};
+anoxia.game.recipe = {};
 
 //# ====================================================================================== #
 
 //#region RmOut item
-Anoxia.Game.Item.RmOut = [
+anoxia.game.item.rmOut = [
   //Ad Astra
   'ad_astra:tier_1_rocket',
   'ad_astra:tier_2_rocket',
@@ -431,7 +431,7 @@ Anoxia.Game.Item.RmOut = [
   //Summoning Altar
   'summoningrituals:indestructible_altar',
 
-  //Tinker Construct
+  //tinkerConstruct Construct
   'tconstruct:rose_gold_nugget',
   'tconstruct:rose_gold_ingot',
   'tconstruct:rose_gold_block',
@@ -446,7 +446,7 @@ Anoxia.Game.Item.RmOut = [
 //#endregion
 
 //#region RmIn item
-Anoxia.Game.Item.RmIn = [
+anoxia.game.item.rmIn = [
   'mysticalagriculture:dye_essence',
   'mysticalagriculture:rubber_essence',
   'mysticalagriculture:silicon_essence',
@@ -511,7 +511,7 @@ Anoxia.Game.Item.RmIn = [
 //#endregion
 
 //#region Jei add item
-Anoxia.Game.Item.JeiAdd = [
+anoxia.game.item.jeiAdd = [
   //Immersive
   'immersiveengineering:coke',
   'immersiveengineering:storage_aluminum',
@@ -575,7 +575,7 @@ Anoxia.Game.Item.JeiAdd = [
 //#endregion
 
 //#region Jei hide item
-Anoxia.Game.Item.JeiHide = [
+anoxia.game.item.jeiHide = [
   //Mekanism
   'mekanism:creative_chemical_tank',
   'mekanism:creative_fluid_tank',
@@ -630,7 +630,7 @@ Anoxia.Game.Item.JeiHide = [
 //# ====================================================================================== #
 
 //#region RmOut fluid
-Anoxia.Game.Fluid.RmOut = [
+anoxia.game.fluid.rmOut = [
   //EnderIO
   'enderio:dew_of_the_void',
   'enderio:vapor_of_levity',
@@ -640,7 +640,7 @@ Anoxia.Game.Fluid.RmOut = [
   'enderio:cloud_seed',
   'enderio:cloud_seed_concentrated',
 
-  //Tinker
+  //tinkerConstruct
   'tconstruct:molten_nicrosil',
   'tconstruct:molten_pewter',
   'tconstruct:molten_chromium',
@@ -648,7 +648,7 @@ Anoxia.Game.Fluid.RmOut = [
 //#endregion
 
 //#region RmIn fluid
-Anoxia.Game.Fluid.RmIn = [
+anoxia.game.fluid.rmIn = [
   //EnderIO
   'enderio:dew_of_the_void',
   'enderio:vapor_of_levity',
@@ -658,7 +658,7 @@ Anoxia.Game.Fluid.RmIn = [
   'enderio:cloud_seed',
   'enderio:cloud_seed_concentrated',
 
-  //Tinker
+  //tinkerConstruct
   'tconstruct:molten_nicrosil',
   'tconstruct:molten_pewter',
   'tconstruct:molten_chromium',
@@ -666,17 +666,17 @@ Anoxia.Game.Fluid.RmIn = [
 //#endregion
 
 //#region Jei add fluid
-Anoxia.Game.Fluid.JeiAdd = [];
+anoxia.game.fluid.jeiAdd = [];
 //#endregion
 
 //#region Jei hide fluid
-Anoxia.Game.Fluid.JeiHide = [];
+anoxia.game.fluid.jeiHide = [];
 //#endregion
 
 //# ====================================================================================== #
 
 //#region RmID
-Anoxia.Game.Recipe.RmId = [
+anoxia.game.recipe.rmId = [
   //Minecraft
   'minecraft:ens_ancient_debris',
 
@@ -793,7 +793,7 @@ Anoxia.Game.Recipe.RmId = [
   'productivebees:create/mixing/tconstruct/honeycomb_slimesteel',
   'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
 
-  //Tinker Construct
+  //tinkerConstruct Construct
   'tconstruct:smeltery/alloys/molten_pewter',
   'tconstruct:smeltery/melting/metal/pewter/raw',
   'tconstruct:smeltery/melting/metal/pewter/raw_block',

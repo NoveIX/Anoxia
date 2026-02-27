@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Mystical Seed
     //Crafting
     //T0
@@ -292,7 +292,7 @@ ServerEvents.recipes((event) => {
     'mysticalagriculture:seed/infusion/neutronium',
     'mysticalagriculture:seed/infusion/nitro_crystal',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -377,7 +377,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Reprocessor
-  const ReprocessorPattern = [
+  const reprocessorPattern = [
     //T0
     { get: 'mysticalagriculture:air_essence', put: 'mysticalagriculture:air_seeds' },
     { get: 'mysticalagriculture:earth_essence', put: 'mysticalagriculture:earth_seeds' },
@@ -520,7 +520,7 @@ ServerEvents.recipes((event) => {
     //{ get: "mysticalagriculture:neutronium_essence", put: "mysticalagriculture:neutronium_seeds" },
     //{ get: "mysticalagriculture:nitro_crystal_essence", put: "mysticalagriculture:nitro_crystal_seeds" },
   ];
-  ReprocessorPattern.forEach((recipe) => {
+  reprocessorPattern.forEach((recipe) => {
     event.custom({
       type: 'mysticalagriculture:reprocessor',
       input: { item: recipe.put },

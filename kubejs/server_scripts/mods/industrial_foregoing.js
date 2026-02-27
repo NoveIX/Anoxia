@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     'industrialforegoing:crusher/sand_silicon',
     'industrialforegoing:dissolution_chamber/simple_machine_frame',
     'industrialforegoing:dissolution_chamber/advanced_machine_frame',
@@ -33,7 +33,7 @@ ServerEvents.recipes((event) => {
     'industrialforegoing:dissolution_chamber/range_addon10',
     'industrialforegoing:dissolution_chamber/range_addon11',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -48,7 +48,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Dissolution Chamber
-  const DissolutionChamberPattern = [
+  const dissolutionChamberPattern = [
     //Machine Frame
     {
       get: { count: 1, item: 'industrialforegoing:machine_frame_simple' },
@@ -221,7 +221,7 @@ ServerEvents.recipes((event) => {
       time: 200,
     },
   ];
-  DissolutionChamberPattern.forEach((recipe) => {
+  dissolutionChamberPattern.forEach((recipe) => {
     event.custom({
       type: 'industrialforegoing:dissolution_chamber',
       input: recipe.put,
@@ -235,11 +235,11 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Crusher
-  const CrusherPattern = [
+  const crusherPattern = [
     { get: { tag: 'forge:dust' }, put: { tag: 'forge:sand' } },
     { get: { tag: 'forge:silicon' }, put: { tag: 'forge:dust' } },
   ];
-  CrusherPattern.forEach((recipe) => {
+  crusherPattern.forEach((recipe) => {
     event.custom({
       type: 'industrialforegoing:crusher',
       input: recipe.put,

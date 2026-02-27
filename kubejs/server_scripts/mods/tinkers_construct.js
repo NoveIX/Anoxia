@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region RemoveID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Create
     'createaddition:compat/tconstruct/amethyst_bronze',
     'createaddition:compat/tconstruct/slimesteel',
@@ -134,7 +134,7 @@ ServerEvents.recipes((event) => {
     'tcintegrations:smeltery/melting/metal/calorite/raw',
     'tcintegrations:smeltery/melting/metal/calorite/raw_block',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -147,7 +147,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Alloy
-  const AlloyPattern = [
+  const alloyPattern = [
     {
       get: { amount: 10, tag: 'tconstruct:molten_steel' },
       put: [
@@ -296,7 +296,7 @@ ServerEvents.recipes((event) => {
       degree: 900,
     },
   ];
-  AlloyPattern.forEach((recipe) => {
+  alloyPattern.forEach((recipe) => {
     event.custom({
       type: 'tconstruct:alloy',
       inputs: recipe.put,
@@ -309,26 +309,26 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Casting Basin
-  const CastingBasinPattern = [
+  const castingBasinPattern = [
     //Create
     {
       get: 'create:andesite_alloy',
       put: { amount: 90, tag: 'forge:molten_platinum' },
-      cooling: GetCoolingTick(Material.Platinum, GetIngot(1, 'Ingot')),
+      cooling: getCoolingTick(material.platinum, getIngot(1, 'ingot')),
       caster: { item: 'minecraft:polished_andesite' },
       consume: true,
     },
     {
       get: 'tconstruct:smeltery_controller',
       put: { amount: 360, tag: 'forge:molten_copper' },
-      cooling: GetCoolingTick(Material.Copper, GetIngot(4, 'Ingot')),
+      cooling: getCoolingTick(material.copper, getIngot(4, 'ingot')),
       caster: { tag: 'tconstruct:smeltery_bricks' },
       consume: true,
     },
     {
       get: 'tconstruct:foundry_controller',
       put: { amount: 1000, tag: 'tconstruct:molten_obsidian' },
-      cooling: GetCoolingTick(Material.Obsidian, 1),
+      cooling: getCoolingTick(material.obsidian, 1),
       caster: { tag: 'tconstruct:foundry_bricks' },
       consume: true,
     },
@@ -337,15 +337,15 @@ ServerEvents.recipes((event) => {
     {
       get: { tag: 'forge:storage_blocks/refined_glowstone' },
       put: { amount: 810, tag: 'forge:molten_refined_glowstone' },
-      cooling: GetCoolingTick(Material.RefinedGlowstone, GetIngot(1, 'Block')),
+      cooling: getCoolingTick(material.refinedGlowstone, getIngot(1, 'block')),
     },
     {
       get: { tag: 'forge:storage_blocks/refined_obsidian' },
       put: { amount: 810, tag: 'forge:molten_refined_obsidian' },
-      cooling: GetCoolingTick(Material.RefinedObsidian, GetIngot(1, 'Block')),
+      cooling: getCoolingTick(material.refinedObsidian, getIngot(1, 'block')),
     },
   ];
-  CastingBasinPattern.forEach((recipe) => {
+  castingBasinPattern.forEach((recipe) => {
     const json = {
       type: 'tconstruct:casting_basin',
       cooling_time: recipe.cooling,
@@ -363,12 +363,12 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Casting Table
-  const CastingTablePattern = [
+  const castingTablePattern = [
     //Anoxia
     {
       get: 'anoxia:obsidian_ingot',
       put: { amount: 250, tag: 'tconstruct:molten_obsidian' },
-      cooling: GetCoolingTick(Material.Obsidian, 1),
+      cooling: getCoolingTick(material.obsidian, 1),
       ingot: true,
     },
 
@@ -376,14 +376,14 @@ ServerEvents.recipes((event) => {
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 125, tag: 'tconstruct:molten_clay' },
-      cooling: GetCoolingTick(Material.Clay, 0.5),
+      cooling: getCoolingTick(material.clay, 0.5),
       caster: { item: 'minecraft:flint' },
       consume: true,
     },
     {
       get: 'tconstruct:seared_brick',
       put: { amount: 250, tag: 'tconstruct:seared_stone' },
-      cooling: GetCoolingTick(Material.Stone, 1),
+      cooling: getCoolingTick(material.stone, 1),
       ingot: true,
     },
 
@@ -391,14 +391,14 @@ ServerEvents.recipes((event) => {
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 125, tag: 'forge:magma' },
-      cooling: GetCoolingTick(Material.Magma, 0.5),
+      cooling: getCoolingTick(material.magma, 0.5),
       caster: { item: 'minecraft:flint' },
       consume: true,
     },
     {
       get: 'tconstruct:scorched_brick',
       put: { amount: 250, tag: 'tconstruct:scorched_stone' },
-      cooling: GetCoolingTick(Material.ScorchedStone, 1),
+      cooling: getCoolingTick(material.scorchedStone, 1),
       ingot: true,
     },
 
@@ -406,20 +406,20 @@ ServerEvents.recipes((event) => {
     {
       get: { tag: 'forge:nuggets/refined_glowstone' },
       put: { amount: 10, tag: 'forge:molten_refined_glowstone' },
-      cooling: GetCoolingTick(Material.RefinedGlowstone, GetIngot(1, 'Nugget')),
+      cooling: getCoolingTick(material.refinedGlowstone, getIngot(1, 'nugget')),
       nugget: true,
     },
     {
       get: { tag: 'forge:ingots/refined_glowstone' },
       put: { amount: 450, tag: 'forge:molten_osmium' },
-      cooling: GetCoolingTick(Material.Osmium, GetIngot(5, 'Ingot')),
+      cooling: getCoolingTick(material.osmium, getIngot(5, 'ingot')),
       caster: { tag: 'forge:dusts/glowstone' },
       consume: true,
     },
     {
       get: { tag: 'forge:ingots/refined_glowstone' },
       put: { amount: 90, tag: 'forge:molten_refined_glowstone' },
-      cooling: GetCoolingTick(Material.RefinedGlowstone, GetIngot(1, 'Ingot')),
+      cooling: getCoolingTick(material.refinedGlowstone, getIngot(1, 'ingot')),
       ingot: true,
     },
 
@@ -427,24 +427,24 @@ ServerEvents.recipes((event) => {
     {
       get: { tag: 'forge:nuggets/refined_obsidian' },
       put: { amount: 10, tag: 'forge:molten_refined_obsidian' },
-      cooling: GetCoolingTick(Material.RefinedObsidian, GetIngot(1, 'Nugget')),
+      cooling: getCoolingTick(material.refinedObsidian, getIngot(1, 'nugget')),
       nugget: true,
     },
     {
       get: { tag: 'forge:ingots/refined_obsidian' },
       put: { amount: 450, tag: 'forge:molten_osmium' },
-      cooling: GetCoolingTick(Material.Osmium, GetIngot(5, 'Ingot')),
+      cooling: getCoolingTick(material.osmium, getIngot(5, 'ingot')),
       caster: { tag: 'forge:dusts/refined_obsidian' },
       consume: true,
     },
     {
       get: { tag: 'forge:ingots/refined_obsidian' },
       put: { amount: 90, tag: 'forge:molten_refined_obsidian' },
-      cooling: GetCoolingTick(Material.RefinedObsidian, GetIngot(1, 'Ingot')),
+      cooling: getCoolingTick(material.refinedObsidian, getIngot(1, 'ingot')),
       ingot: true,
     },
   ];
-  CastingTablePattern.forEach((recipe) => {
+  castingTablePattern.forEach((recipe) => {
     const json = {
       type: 'tconstruct:casting_table',
       cooling_time: recipe.cooling,
@@ -452,8 +452,8 @@ ServerEvents.recipes((event) => {
       result: recipe.get,
     };
 
-    if (recipe.nugget) AddDualCastRecipe('nugget', json, event);
-    else if (recipe.ingot) AddDualCastRecipe('ingot', json, event);
+    if (recipe.nugget) addDualCastRecipe('nugget', json, event);
+    else if (recipe.ingot) addDualCastRecipe('ingot', json, event);
     else {
       ((json.cast = recipe.caster), (json.cast_consumed = recipe.consume));
       event.custom(json);
@@ -464,83 +464,83 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Melting
-  const MeltingPattern = [
+  const meltingPattern = [
     //Coal
-    { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'anoxia:materials/coal' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, FromAmount(100)) },
-    { get: { amount: 150, tag: 'forge:molten_coal' }, put: { tag: 'forge:ores/coal' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, FromAmount(150)) },
-    { get: { amount: 900, tag: 'forge:molten_coal' }, put: { tag: 'anoxia:storage_blocks/coal' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, FromAmount(900)) },
+    { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'anoxia:materials/coal' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(100)) },
+    { get: { amount: 150, tag: 'forge:molten_coal' }, put: { tag: 'forge:ores/coal' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(150)) },
+    { get: { amount: 900, tag: 'forge:molten_coal' }, put: { tag: 'anoxia:storage_blocks/coal' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(900)) },
 
     //Coke
-    //{ get: { amount: 200, tag: 'forge:molten_coal' }, put: { tag: 'forge:coal_coke' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, FromAmount(200)) },
-    //{ get: { amount: 200, tag: 'forge:molten_coal' }, put: { tag: 'forge:dusts/coal_coke' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, FromAmount(100)) },
-    //{ get: { amount: 1800, tag: 'forge:molten_coal' }, put: { tag: 'forge:storage_blocks/coal_coke' }, degree: 900, meltTime: GetMeltingTick(Material.Coal, FromAmount(1800)) },
+    //{ get: { amount: 200, tag: 'forge:molten_coal' }, put: { tag: 'forge:coal_coke' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(200)) },
+    //{ get: { amount: 200, tag: 'forge:molten_coal' }, put: { tag: 'forge:dusts/coal_coke' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(100)) },
+    //{ get: { amount: 1800, tag: 'forge:molten_coal' }, put: { tag: 'forge:storage_blocks/coal_coke' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(1800)) },
 
     //Mystical Agradditions
     //Inferium
-    { get: { amount: 810, fluid: 'mysticalagradditions:molten_inferium' }, put: { item: 'mysticalagriculture:inferium_ingot_block' }, degree: 800, meltTime: GetMeltingTick(Material.Inferium, FromAmount(810)) },
-    { get: { amount: 90, fluid: 'mysticalagradditions:molten_inferium' }, put: { item: 'mysticalagriculture:inferium_ingot' }, degree: 800, meltTime: GetMeltingTick(Material.Inferium, FromAmount(90)) },
-    { get: { amount: 10, fluid: 'mysticalagradditions:molten_inferium' }, put: { item: 'mysticalagriculture:inferium_nugget' }, degree: 800, meltTime: GetMeltingTick(Material.Inferium, FromAmount(10)) },
+    { get: { amount: 810, fluid: 'mysticalagradditions:molten_inferium' }, put: { item: 'mysticalagriculture:inferium_ingot_block' }, degree: 800, meltTime: getMeltingTick(material.inferium, fromAmount(810)) },
+    { get: { amount: 90, fluid: 'mysticalagradditions:molten_inferium' }, put: { item: 'mysticalagriculture:inferium_ingot' }, degree: 800, meltTime: getMeltingTick(material.inferium, fromAmount(90)) },
+    { get: { amount: 10, fluid: 'mysticalagradditions:molten_inferium' }, put: { item: 'mysticalagriculture:inferium_nugget' }, degree: 800, meltTime: getMeltingTick(material.inferium, fromAmount(10)) },
 
     //Prudentium
-    { get: { amount: 810, fluid: 'mysticalagradditions:molten_prudentium' }, put: { item: 'mysticalagriculture:prudentium_ingot_block' }, degree: 800, meltTime: GetMeltingTick(Material.Prudentium, FromAmount(810)) },
-    { get: { amount: 90, fluid: 'mysticalagradditions:molten_prudentium' }, put: { item: 'mysticalagriculture:prudentium_ingot' }, degree: 800, meltTime: GetMeltingTick(Material.Prudentium, FromAmount(90)) },
-    { get: { amount: 10, fluid: 'mysticalagradditions:molten_prudentium' }, put: { item: 'mysticalagriculture:prudentium_nugget' }, degree: 800, meltTime: GetMeltingTick(Material.Prudentium, FromAmount(10)) },
+    { get: { amount: 810, fluid: 'mysticalagradditions:molten_prudentium' }, put: { item: 'mysticalagriculture:prudentium_ingot_block' }, degree: 800, meltTime: getMeltingTick(material.prudentium, fromAmount(810)) },
+    { get: { amount: 90, fluid: 'mysticalagradditions:molten_prudentium' }, put: { item: 'mysticalagriculture:prudentium_ingot' }, degree: 800, meltTime: getMeltingTick(material.prudentium, fromAmount(90)) },
+    { get: { amount: 10, fluid: 'mysticalagradditions:molten_prudentium' }, put: { item: 'mysticalagriculture:prudentium_nugget' }, degree: 800, meltTime: getMeltingTick(material.prudentium, fromAmount(10)) },
 
     //Tertium
-    { get: { amount: 810, fluid: 'mysticalagradditions:molten_tertium' }, put: { item: 'mysticalagriculture:tertium_ingot_block' }, degree: 800, meltTime: GetMeltingTick(Material.Tertium, FromAmount(810)) },
-    { get: { amount: 90, fluid: 'mysticalagradditions:molten_tertium' }, put: { item: 'mysticalagriculture:tertium_ingot' }, degree: 800, meltTime: GetMeltingTick(Material.Tertium, FromAmount(90)) },
-    { get: { amount: 10, fluid: 'mysticalagradditions:molten_tertium' }, put: { item: 'mysticalagriculture:tertium_nugget' }, degree: 800, meltTime: GetMeltingTick(Material.Tertium, FromAmount(10)) },
+    { get: { amount: 810, fluid: 'mysticalagradditions:molten_tertium' }, put: { item: 'mysticalagriculture:tertium_ingot_block' }, degree: 800, meltTime: getMeltingTick(material.tertium, fromAmount(810)) },
+    { get: { amount: 90, fluid: 'mysticalagradditions:molten_tertium' }, put: { item: 'mysticalagriculture:tertium_ingot' }, degree: 800, meltTime: getMeltingTick(material.tertium, fromAmount(90)) },
+    { get: { amount: 10, fluid: 'mysticalagradditions:molten_tertium' }, put: { item: 'mysticalagriculture:tertium_nugget' }, degree: 800, meltTime: getMeltingTick(material.tertium, fromAmount(10)) },
 
     //Imperium
-    { get: { amount: 810, fluid: 'mysticalagradditions:molten_imperium' }, put: { item: 'mysticalagriculture:imperium_ingot_block' }, degree: 800, meltTime: GetMeltingTick(Material.Imperium, FromAmount(810)) },
-    { get: { amount: 90, fluid: 'mysticalagradditions:molten_imperium' }, put: { item: 'mysticalagriculture:imperium_ingot' }, degree: 800, meltTime: GetMeltingTick(Material.Imperium, FromAmount(90)) },
-    { get: { amount: 10, fluid: 'mysticalagradditions:molten_imperium' }, put: { item: 'mysticalagriculture:imperium_nugget' }, degree: 800, meltTime: GetMeltingTick(Material.Imperium, FromAmount(10)) },
+    { get: { amount: 810, fluid: 'mysticalagradditions:molten_imperium' }, put: { item: 'mysticalagriculture:imperium_ingot_block' }, degree: 800, meltTime: getMeltingTick(material.imperium, fromAmount(810)) },
+    { get: { amount: 90, fluid: 'mysticalagradditions:molten_imperium' }, put: { item: 'mysticalagriculture:imperium_ingot' }, degree: 800, meltTime: getMeltingTick(material.imperium, fromAmount(90)) },
+    { get: { amount: 10, fluid: 'mysticalagradditions:molten_imperium' }, put: { item: 'mysticalagriculture:imperium_nugget' }, degree: 800, meltTime: getMeltingTick(material.imperium, fromAmount(10)) },
 
     //Supremium
-    { get: { amount: 810, fluid: 'mysticalagradditions:molten_supremium' }, put: { item: 'mysticalagriculture:supremium_ingot_block' }, degree: 800, meltTime: GetMeltingTick(Material.Supremium, FromAmount(810)) },
-    { get: { amount: 90, fluid: 'mysticalagradditions:molten_supremium' }, put: { item: 'mysticalagriculture:supremium_ingot' }, degree: 800, meltTime: GetMeltingTick(Material.Supremium, FromAmount(90)) },
-    { get: { amount: 10, fluid: 'mysticalagradditions:molten_supremium' }, put: { item: 'mysticalagriculture:supremium_nugget' }, degree: 800, meltTime: GetMeltingTick(Material.Supremium, FromAmount(10)) },
+    { get: { amount: 810, fluid: 'mysticalagradditions:molten_supremium' }, put: { item: 'mysticalagriculture:supremium_ingot_block' }, degree: 800, meltTime: getMeltingTick(material.supremium, fromAmount(810)) },
+    { get: { amount: 90, fluid: 'mysticalagradditions:molten_supremium' }, put: { item: 'mysticalagriculture:supremium_ingot' }, degree: 800, meltTime: getMeltingTick(material.supremium, fromAmount(90)) },
+    { get: { amount: 10, fluid: 'mysticalagradditions:molten_supremium' }, put: { item: 'mysticalagriculture:supremium_nugget' }, degree: 800, meltTime: getMeltingTick(material.supremium, fromAmount(10)) },
 
     //Soulium
-    { get: { amount: 810, fluid: 'mysticalagradditions:molten_soulium' }, put: { item: 'mysticalagriculture:soulium_ingot_block' }, degree: 800, meltTime: GetMeltingTick(Material.Soulium, FromAmount(810)) },
-    { get: { amount: 90, fluid: 'mysticalagradditions:molten_soulium' }, put: { item: 'mysticalagriculture:soulium_ingot' }, degree: 800, meltTime: GetMeltingTick(Material.Soulium, FromAmount(90)) },
-    { get: { amount: 10, fluid: 'mysticalagradditions:molten_soulium' }, put: { item: 'mysticalagriculture:soulium_nugget' }, degree: 800, meltTime: GetMeltingTick(Material.Soulium, FromAmount(10)) },
+    { get: { amount: 810, fluid: 'mysticalagradditions:molten_soulium' }, put: { item: 'mysticalagriculture:soulium_ingot_block' }, degree: 800, meltTime: getMeltingTick(material.soulium, fromAmount(810)) },
+    { get: { amount: 90, fluid: 'mysticalagradditions:molten_soulium' }, put: { item: 'mysticalagriculture:soulium_ingot' }, degree: 800, meltTime: getMeltingTick(material.soulium, fromAmount(90)) },
+    { get: { amount: 10, fluid: 'mysticalagradditions:molten_soulium' }, put: { item: 'mysticalagriculture:soulium_nugget' }, degree: 800, meltTime: getMeltingTick(material.soulium, fromAmount(10)) },
 
     //Botania
-    { get: { amount: 810, tag: 'forge:molten_manasteel' }, put: { tag: 'forge:storage_blocks/manasteel' }, degree: 950, meltTime: GetMeltingTick(Material.ManaSteel, FromAmount(810)) },
-    { get: { amount: 90, tag: 'forge:molten_manasteel' }, put: { tag: 'forge:ingots/manasteel' }, degree: 950, meltTime: GetMeltingTick(Material.ManaSteel, FromAmount(90)) },
-    { get: { amount: 10, tag: 'forge:molten_manasteel' }, put: { tag: 'forge:nuggets/manasteel' }, degree: 950, meltTime: GetMeltingTick(Material.ManaSteel, FromAmount(10)) },
+    { get: { amount: 810, tag: 'forge:molten_manasteel' }, put: { tag: 'forge:storage_blocks/manasteel' }, degree: 950, meltTime: getMeltingTick(material.manaSteel, fromAmount(810)) },
+    { get: { amount: 90, tag: 'forge:molten_manasteel' }, put: { tag: 'forge:ingots/manasteel' }, degree: 950, meltTime: getMeltingTick(material.manaSteel, fromAmount(90)) },
+    { get: { amount: 10, tag: 'forge:molten_manasteel' }, put: { tag: 'forge:nuggets/manasteel' }, degree: 950, meltTime: getMeltingTick(material.manaSteel, fromAmount(10)) },
 
     //Ars Nouveau
-    { get: { amount: 400, tag: 'forge:molten_source_gem' }, put: { tag: 'forge:storage_blocks/source_gem' }, degree: 980, meltTime: GetMeltingTick(Material.Source, FromAmount(400)) },
-    { get: { amount: 100, tag: 'forge:molten_source_gem' }, put: { tag: 'forge:gems/source_gem' }, degree: 980, meltTime: GetMeltingTick(Material.Source, FromAmount(100)) },
+    { get: { amount: 400, tag: 'forge:molten_source_gem' }, put: { tag: 'forge:storage_blocks/source_gem' }, degree: 980, meltTime: getMeltingTick(material.source, fromAmount(400)) },
+    { get: { amount: 100, tag: 'forge:molten_source_gem' }, put: { tag: 'forge:gems/source_gem' }, degree: 980, meltTime: getMeltingTick(material.source, fromAmount(100)) },
 
     //Ad Astra
     //Desh
-    { get: { amount: 810, tag: 'forge:molten_desh' }, put: { tag: 'forge:storage_blocks/desh' }, degree: 500, meltTime: GetMeltingTick(Material.Desh, FromAmount(810)) },
-    { get: { amount: 90, tag: 'forge:molten_desh' }, put: { tag: 'forge:ingots/desh' }, degree: 500, meltTime: GetMeltingTick(Material.Desh, FromAmount(90)) },
-    { get: { amount: 10, tag: 'forge:molten_desh' }, put: { tag: 'forge:nuggets/desh' }, degree: 500, meltTime: GetMeltingTick(Material.Desh, FromAmount(10)) },
-    { get: { amount: 270, tag: 'forge:molten_desh' }, put: { tag: 'forge:ores/desh' }, degree: 500, meltTime: GetMeltingTick(Material.Desh, FromAmount(270)) },
-    { get: { amount: 120, tag: 'forge:molten_desh' }, put: { tag: 'forge:raw_materials/desh' }, degree: 500, meltTime: GetMeltingTick(Material.Desh, FromAmount(120)) },
-    { get: { amount: 1080, tag: 'forge:molten_desh' }, put: { tag: 'forge:storage_blocks/raw_desh' }, degree: 500, meltTime: GetMeltingTick(Material.Desh, FromAmount(1080)) },
+    { get: { amount: 810, tag: 'forge:molten_desh' }, put: { tag: 'forge:storage_blocks/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(810)) },
+    { get: { amount: 90, tag: 'forge:molten_desh' }, put: { tag: 'forge:ingots/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(90)) },
+    { get: { amount: 10, tag: 'forge:molten_desh' }, put: { tag: 'forge:nuggets/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(10)) },
+    { get: { amount: 270, tag: 'forge:molten_desh' }, put: { tag: 'forge:ores/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(270)) },
+    { get: { amount: 120, tag: 'forge:molten_desh' }, put: { tag: 'forge:raw_materials/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(120)) },
+    { get: { amount: 1080, tag: 'forge:molten_desh' }, put: { tag: 'forge:storage_blocks/raw_desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(1080)) },
 
     //Ostrum
-    { get: { amount: 810, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:storage_blocks/ostrum' }, degree: 500, meltTime: GetMeltingTick(Material.Ostrum, FromAmount(810)) },
-    { get: { amount: 90, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:ingots/ostrum' }, degree: 500, meltTime: GetMeltingTick(Material.Ostrum, FromAmount(90)) },
-    { get: { amount: 10, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:nuggets/ostrum' }, degree: 500, meltTime: GetMeltingTick(Material.Ostrum, FromAmount(10)) },
-    { get: { amount: 270, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:ores/ostrum' }, degree: 500, meltTime: GetMeltingTick(Material.Ostrum, FromAmount(270)) },
-    { get: { amount: 120, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:raw_materials/ostrum' }, degree: 500, meltTime: GetMeltingTick(Material.Ostrum, FromAmount(120)) },
-    { get: { amount: 1080, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:storage_blocks/raw_ostrum' }, degree: 500, meltTime: GetMeltingTick(Material.Ostrum, FromAmount(1080)) },
+    { get: { amount: 810, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:storage_blocks/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(810)) },
+    { get: { amount: 90, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:ingots/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(90)) },
+    { get: { amount: 10, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:nuggets/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(10)) },
+    { get: { amount: 270, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:ores/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(270)) },
+    { get: { amount: 120, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:raw_materials/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(120)) },
+    { get: { amount: 1080, tag: 'forge:molten_ostrum' }, put: { tag: 'forge:storage_blocks/raw_ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(1080)) },
 
     //Calorite
-    { get: { amount: 810, tag: 'forge:molten_calorite' }, put: { tag: 'forge:storage_blocks/calorite' }, degree: 500, meltTime: GetMeltingTick(Material.Calorite, FromAmount(810)) },
-    { get: { amount: 90, tag: 'forge:molten_calorite' }, put: { tag: 'forge:ingots/calorite' }, degree: 500, meltTime: GetMeltingTick(Material.Calorite, FromAmount(90)) },
-    { get: { amount: 10, tag: 'forge:molten_calorite' }, put: { tag: 'forge:nuggets/calorite' }, degree: 500, meltTime: GetMeltingTick(Material.Calorite, FromAmount(10)) },
-    { get: { amount: 270, tag: 'forge:molten_calorite' }, put: { tag: 'forge:ores/calorite' }, degree: 500, meltTime: GetMeltingTick(Material.Calorite, FromAmount(270)) },
-    { get: { amount: 120, tag: 'forge:molten_calorite' }, put: { tag: 'forge:raw_materials/calorite' }, degree: 500, meltTime: GetMeltingTick(Material.Calorite, FromAmount(120)) },
-    { get: { amount: 1080, tag: 'forge:molten_calorite' }, put: { tag: 'forge:storage_blocks/raw_calorite' }, degree: 500, meltTime: GetMeltingTick(Material.Calorite, FromAmount(1080)) },
+    { get: { amount: 810, tag: 'forge:molten_calorite' }, put: { tag: 'forge:storage_blocks/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(810)) },
+    { get: { amount: 90, tag: 'forge:molten_calorite' }, put: { tag: 'forge:ingots/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(90)) },
+    { get: { amount: 10, tag: 'forge:molten_calorite' }, put: { tag: 'forge:nuggets/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(10)) },
+    { get: { amount: 270, tag: 'forge:molten_calorite' }, put: { tag: 'forge:ores/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(270)) },
+    { get: { amount: 120, tag: 'forge:molten_calorite' }, put: { tag: 'forge:raw_materials/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(120)) },
+    { get: { amount: 1080, tag: 'forge:molten_calorite' }, put: { tag: 'forge:storage_blocks/raw_calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(1080)) },
   ];
-  MeltingPattern.forEach((recipe) => {
+  meltingPattern.forEach((recipe) => {
     event.custom({
       type: 'tconstruct:melting',
       ingredient: recipe.put,
@@ -554,7 +554,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region MeltingFuel
-  const MeltingFuelPattern = [
+  const meltingFuelPattern = [
     {
       put: { amount: 50, fluid: 'immersiveengineering:biodiesel' },
       tick: 12,
@@ -586,7 +586,7 @@ ServerEvents.recipes((event) => {
       degree: 2500,
     },
   ];
-  MeltingFuelPattern.forEach((recipe) => {
+  meltingFuelPattern.forEach((recipe) => {
     event.custom({
       type: 'tconstruct:melting_fuel',
       duration: recipe.tick, // Tick time for fluid amount

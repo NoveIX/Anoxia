@@ -1,5 +1,5 @@
 ServerEvents.recipes((event) => {
-  const FurnacePattern = [
+  const furnacePattern = [
     //Furnace
     { get: 'ironfurnaces:copper_furnace', put: '#forge:plates/copper', frame: 'minecraft:furnace' }, //Stone to Copper
     { get: 'ironfurnaces:iron_furnace', put: '#forge:plates/iron', frame: 'ironfurnaces:copper_furnace' }, //Copper to Iron
@@ -23,7 +23,7 @@ ServerEvents.recipes((event) => {
     { get: 'ironfurnaces:upgrade_obsidian2', put: '#forge:ingots/obsidian', frame: 'anoxia:compressed_cobblestone' }, //Crystal to Obsidian
     { get: 'ironfurnaces:upgrade_netherite', put: '#forge:plates/netherite', frame: 'anoxia:compressed_cobblestone' }, //Obsidian To Netherite
   ];
-  FurnacePattern.forEach((recipe) => {
+  furnacePattern.forEach((recipe) => {
     event.remove({ output: recipe.get });
     event.shaped(recipe.get, ['AAA', 'ABA', 'AAA'], { A: recipe.put, B: recipe.frame });
   });

@@ -1,10 +1,10 @@
 ServerEvents.recipes((event) => {
   //#region RemoveID
-  const RmRecipeID = ['aethersteel:aethersteel_nugget_recipe_1'];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  const rmRecipeId = ['aethersteel:aethersteel_nugget_recipe_1'];
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
-  //// # =================================================================================================== #
+  //# ====================================================================================== #
 
   //Remove Aethersteel
   event.remove({ output: 'aethersteel:aethersteel_ingot' });

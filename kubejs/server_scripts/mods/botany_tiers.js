@@ -1,439 +1,400 @@
 ServerEvents.tags('item', (event) => {
   //#region Botany Tag
-  /*   const BotanyTiersTag = [
-    { tag: 'botanypots:pots/t1', item: 'botanypots:terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:white_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:white_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:white_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:orange_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:orange_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:orange_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:magenta_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:magenta_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:magenta_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:light_blue_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:light_blue_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:light_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:yellow_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:yellow_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:yellow_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:lime_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:lime_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:lime_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:pink_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:pink_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:pink_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:gray_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:gray_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:light_gray_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:light_gray_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:light_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:cyan_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:cyan_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:cyan_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:purple_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:purple_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:purple_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:blue_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:blue_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:brown_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:brown_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:brown_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:green_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:green_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:green_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:red_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:red_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:red_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:black_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:black_concrete_botany_pot' },
-    { tag: 'botanypots:pots/t1', item: 'botanypots:black_glazed_terracotta_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:white_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:white_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:white_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:orange_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:orange_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:orange_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:magenta_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:magenta_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:magenta_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:light_blue_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:light_blue_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:light_blue_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:yellow_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:yellow_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:yellow_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:lime_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:lime_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:lime_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:pink_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:pink_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:pink_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:gray_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:gray_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:gray_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:light_gray_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:light_gray_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:light_gray_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:cyan_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:cyan_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:cyan_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:purple_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:purple_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:purple_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:blue_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:blue_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:blue_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:brown_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:brown_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:brown_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:green_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:green_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:green_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:red_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:red_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:red_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:black_terracotta_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:black_concrete_hopper_botany_pot' },
-    { tag: 'botanypots:pots/t1/hopper', item: 'botanypots:black_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_white_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_white_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_white_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_orange_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_orange_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_orange_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_magenta_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_magenta_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_magenta_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_light_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_light_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_light_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_yellow_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_yellow_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_yellow_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_lime_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_lime_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_lime_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_pink_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_pink_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_pink_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_light_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_light_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_light_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_cyan_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_cyan_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_cyan_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_purple_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_purple_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_purple_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_brown_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_brown_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_brown_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_green_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_green_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_green_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_red_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_red_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_red_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_black_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_black_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2', item: 'botanypotstiers:elite_black_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_white_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_white_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_white_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_orange_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_orange_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_orange_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_magenta_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_magenta_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_magenta_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_light_blue_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_light_blue_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_light_blue_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_yellow_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_yellow_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_yellow_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_lime_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_lime_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_lime_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_pink_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_pink_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_pink_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_gray_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_gray_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_gray_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_light_gray_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_light_gray_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_light_gray_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_cyan_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_cyan_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_cyan_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_purple_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_purple_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_purple_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_blue_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_blue_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_blue_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_brown_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_brown_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_brown_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_green_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_green_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_green_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_red_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_red_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_red_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_black_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_black_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t2/hopper', item: 'botanypotstiers:elite_black_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_white_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_white_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_white_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_orange_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_orange_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_orange_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_magenta_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_magenta_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_magenta_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_light_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_light_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_light_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_yellow_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_yellow_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_yellow_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_lime_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_lime_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_lime_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_pink_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_pink_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_pink_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_light_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_light_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_light_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_cyan_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_cyan_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_cyan_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_purple_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_purple_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_purple_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_brown_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_brown_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_brown_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_green_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_green_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_green_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_red_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_red_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_red_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_black_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_black_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3', item: 'botanypotstiers:ultra_black_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_white_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_white_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_white_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_orange_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_orange_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_orange_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_magenta_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_magenta_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_magenta_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_light_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_light_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_light_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_yellow_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_yellow_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_yellow_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_lime_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_lime_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_lime_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_pink_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_pink_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_pink_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_light_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_light_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_light_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_cyan_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_cyan_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_cyan_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_purple_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_purple_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_purple_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_brown_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_brown_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_brown_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_green_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_green_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_green_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_red_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_red_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_red_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_black_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_black_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t3/hopper', item: 'botanypotstiers:ultra_black_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_white_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_white_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_white_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_orange_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_orange_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_orange_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_magenta_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_magenta_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_magenta_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_light_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_light_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_light_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_yellow_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_yellow_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_yellow_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_lime_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_lime_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_lime_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_pink_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_pink_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_pink_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_light_gray_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_light_gray_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_light_gray_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_cyan_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_cyan_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_cyan_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_purple_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_purple_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_purple_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_blue_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_blue_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_blue_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_brown_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_brown_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_brown_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_green_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_green_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_green_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_red_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_red_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_red_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_black_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_black_concrete_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4', item: 'botanypotstiers:creative_black_glazed_terracotta_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_white_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_white_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_white_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_orange_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_orange_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_orange_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_magenta_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_magenta_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_magenta_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_light_blue_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_light_blue_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_light_blue_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_yellow_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_yellow_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_yellow_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_lime_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_lime_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_lime_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_pink_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_pink_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_pink_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_gray_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_gray_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_gray_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_light_gray_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_light_gray_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_light_gray_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_cyan_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_cyan_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_cyan_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_purple_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_purple_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_purple_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_blue_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_blue_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_blue_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_brown_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_brown_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_brown_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_green_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_green_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_green_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_red_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_red_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_red_glazed_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_black_terracotta_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_black_concrete_hopper_botany_pot' },
-    { tag: 'botanypotstiers:pots/t4/hopper', item: 'botanypotstiers:creative_black_glazed_terracotta_hopper_botany_pot' },
+  const botanyTiersTag = [
+    { tag: 'botanypots:pots/basic', item: 'botanypots:terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:white_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:white_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:white_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:orange_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:orange_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:orange_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:magenta_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:magenta_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:magenta_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:light_blue_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:light_blue_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:light_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:yellow_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:yellow_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:yellow_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:lime_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:lime_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:lime_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:pink_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:pink_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:pink_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:gray_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:gray_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:light_gray_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:light_gray_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:light_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:cyan_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:cyan_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:cyan_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:purple_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:purple_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:purple_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:blue_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:blue_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:brown_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:brown_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:brown_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:green_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:green_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:green_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:red_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:red_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:red_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:black_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:black_concrete_botany_pot' },
+    { tag: 'botanypots:pots/basic', item: 'botanypots:black_glazed_terracotta_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:white_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:white_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:white_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:orange_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:orange_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:orange_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:magenta_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:magenta_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:magenta_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:light_blue_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:light_blue_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:light_blue_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:yellow_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:yellow_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:yellow_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:lime_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:lime_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:lime_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:pink_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:pink_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:pink_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:gray_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:gray_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:gray_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:light_gray_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:light_gray_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:light_gray_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:cyan_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:cyan_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:cyan_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:purple_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:purple_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:purple_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:blue_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:blue_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:blue_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:brown_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:brown_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:brown_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:green_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:green_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:green_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:red_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:red_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:red_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:black_terracotta_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:black_concrete_hopper_botany_pot' },
+    { tag: 'botanypots:pots/basic/hopper', item: 'botanypots:black_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_white_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_white_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_white_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_orange_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_orange_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_orange_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_magenta_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_magenta_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_magenta_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_light_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_light_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_light_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_yellow_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_yellow_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_yellow_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_lime_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_lime_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_lime_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_pink_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_pink_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_pink_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_light_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_light_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_light_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_cyan_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_cyan_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_cyan_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_purple_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_purple_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_purple_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_brown_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_brown_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_brown_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_green_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_green_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_green_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_red_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_red_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_red_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_black_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_black_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron', item: 'botanypotstiers:elite_black_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_white_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_white_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_white_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_orange_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_orange_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_orange_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_magenta_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_magenta_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_magenta_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_light_blue_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_light_blue_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_light_blue_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_yellow_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_yellow_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_yellow_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_lime_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_lime_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_lime_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_pink_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_pink_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_pink_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_gray_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_gray_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_gray_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_light_gray_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_light_gray_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_light_gray_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_cyan_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_cyan_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_cyan_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_purple_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_purple_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_purple_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_blue_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_blue_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_blue_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_brown_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_brown_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_brown_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_green_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_green_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_green_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_red_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_red_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_red_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_black_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_black_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/saffron/hopper', item: 'botanypotstiers:elite_black_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_white_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_white_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_white_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_orange_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_orange_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_orange_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_magenta_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_magenta_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_magenta_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_light_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_light_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_light_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_yellow_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_yellow_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_yellow_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_lime_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_lime_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_lime_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_pink_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_pink_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_pink_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_light_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_light_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_light_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_cyan_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_cyan_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_cyan_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_purple_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_purple_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_purple_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_brown_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_brown_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_brown_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_green_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_green_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_green_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_red_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_red_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_red_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_black_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_black_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow', item: 'botanypotstiers:ultra_black_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_white_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_white_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_white_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_orange_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_orange_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_orange_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_magenta_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_magenta_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_magenta_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_light_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_light_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_light_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_yellow_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_yellow_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_yellow_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_lime_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_lime_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_lime_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_pink_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_pink_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_pink_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_light_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_light_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_light_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_cyan_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_cyan_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_cyan_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_purple_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_purple_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_purple_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_brown_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_brown_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_brown_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_green_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_green_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_green_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_red_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_red_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_red_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_black_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_black_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/shadow/hopper', item: 'botanypotstiers:ultra_black_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_white_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_white_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_white_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_orange_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_orange_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_orange_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_magenta_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_magenta_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_magenta_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_light_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_light_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_light_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_yellow_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_yellow_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_yellow_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_lime_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_lime_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_lime_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_pink_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_pink_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_pink_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_light_gray_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_light_gray_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_light_gray_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_cyan_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_cyan_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_cyan_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_purple_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_purple_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_purple_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_blue_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_blue_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_blue_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_brown_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_brown_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_brown_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_green_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_green_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_green_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_red_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_red_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_red_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_black_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_black_concrete_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson', item: 'botanypotstiers:creative_black_glazed_terracotta_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_white_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_white_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_white_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_orange_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_orange_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_orange_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_magenta_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_magenta_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_magenta_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_light_blue_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_light_blue_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_light_blue_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_yellow_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_yellow_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_yellow_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_lime_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_lime_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_lime_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_pink_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_pink_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_pink_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_gray_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_gray_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_gray_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_light_gray_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_light_gray_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_light_gray_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_cyan_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_cyan_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_cyan_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_purple_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_purple_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_purple_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_blue_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_blue_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_blue_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_brown_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_brown_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_brown_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_green_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_green_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_green_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_red_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_red_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_red_glazed_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_black_terracotta_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_black_concrete_hopper_botany_pot' },
+    { tag: 'botanypotstiers:pots/crimson/hopper', item: 'botanypotstiers:creative_black_glazed_terracotta_hopper_botany_pot' },
   ];
-  BotanyTiersTag.forEach((recipe) => event.add(recipe.tag, recipe.item)); */
-
-  //#region Configurazione
-  const colors = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black'];
-
-  const materials = ['terracotta', 'concrete', 'glazed_terracotta'];
-
-  const tiers = [
-    { id: 't1', namespace: 'botanypots', prefix: '', tagBase: 'botanypots:pots/t1' },
-    { id: 't2', namespace: 'botanypotstiers', prefix: 'elite_', tagBase: 'botanypotstiers:pots/t2' },
-    { id: 't3', namespace: 'botanypotstiers', prefix: 'ultra_', tagBase: 'botanypotstiers:pots/t3' },
-    { id: 't4', namespace: 'botanypotstiers', prefix: 'creative_', tagBase: 'botanypotstiers:pots/t4' },
-  ];
-  //#endregion
-
-  //#region Generazione Tag
-  tiers.forEach((tier) => {
-    // Itera per tipo: Vaso normale e Vaso con Hopper
-    [false, true].forEach((isHopper) => {
-      const hopperSuffix = isHopper ? '/hopper' : '';
-      const hopperItemPart = isHopper ? '_hopper_' : '_';
-
-      const tag = `${tier.tagBase}${hopperSuffix}`;
-
-      materials.forEach((material) => {
-        // 1. Genera variante senza colore (Solo per terracotta base, come nell'originale)
-        if (material === 'terracotta') {
-          const itemId = `${tier.namespace}:${tier.prefix}${material}${hopperItemPart}botany_pot`;
-          event.add(tag, itemId);
-        }
-
-        // 2. Genera varianti colorate per tutti i materiali
-        colors.forEach((color) => {
-          const itemId = `${tier.namespace}:${tier.prefix}${color}_${material}${hopperItemPart}botany_pot`;
-          event.add(tag, itemId);
-        });
-      });
-    });
-  });
-  //#endregion
+  botanyTiersTag.forEach((recipe) => event.add(recipe.tag, recipe.item));
 });
 //#endregion
 
@@ -442,7 +403,7 @@ ServerEvents.tags('item', (event) => {
 //#region Botany Tier
 ServerEvents.recipes((event) => {
   //Botany Tiers
-  /*   const PotsPattern = [
+  const potsPattern = [
     {
       //Terracotta
       frame: 'minecraft:terracotta',
@@ -1031,56 +992,8 @@ ServerEvents.recipes((event) => {
       t4pots: 'botanypotstiers:creative_black_glazed_terracotta_botany_pot',
       t4hprpots: 'botanypotstiers:creative_black_glazed_terracotta_hopper_botany_pot',
     },
-  ]; */
-
-  //#region Configurazione
-  const colors = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black'];
-
-  const materials = ['terracotta', 'concrete', 'glazed_terracotta'];
-
-  const tiers = [
-    { id: 't1', namespace: 'botanypots', prefix: '' },
-    { id: 't2', namespace: 'botanypotstiers', prefix: 'elite_' },
-    { id: 't3', namespace: 'botanypotstiers', prefix: 'ultra_' },
-    { id: 't4', namespace: 'botanypotstiers', prefix: 'creative_' },
   ];
-  //#endregion
-
-  //#region Helper Functions
-  function buildItemId(namespace, prefix, color, material, isHopper) {
-    const colorPart = color ? `${color}_` : '';
-    const hopperPart = isHopper ? '_hopper' : '';
-    return `${namespace}:${prefix}${colorPart}${material}${hopperPart}_botany_pot`;
-  }
-
-  function createPotEntry(frameColor, material) {
-    const entry = {
-      frame: `minecraft:${frameColor ? `${frameColor}_` : ''}${material}`,
-    };
-
-    tiers.forEach((tier) => {
-      entry[`${tier.id}pots`] = buildItemId(tier.namespace, tier.prefix, frameColor, material, false);
-      entry[`${tier.id}hprpots`] = buildItemId(tier.namespace, tier.prefix, frameColor, material, true);
-    });
-
-    return entry;
-  }
-  //#endregion
-
-  //#region Generazione PotsPattern
-  const PotsPattern = [];
-
-  // Caso speciale: terracotta senza colore (solo per materiale 'terracotta')
-  PotsPattern.push(createPotEntry(null, 'terracotta'));
-
-  // Tutte le combinazioni colore + materiale
-  colors.forEach((color) => {
-    materials.forEach((material) => {
-      PotsPattern.push(createPotEntry(color, material));
-    });
-  });
-  //#endregion
-  /*   PotsPattern.forEach((recipe) => {
+  potsPattern.forEach((recipe) => {
     //pots
     event.remove({ output: recipe.t1pots });
     event.remove({ output: recipe.t2pots });
@@ -1113,117 +1026,24 @@ ServerEvents.recipes((event) => {
     event.shaped(recipe.t4hprpots, ['A', 'B'], { A: recipe.t4pots, B: 'minecraft:hopper' });
 
     //Color Pot
-    event.shaped(recipe.t1pots, ['BAB', 'BBB'], { A: '#botanypots:pots/t1', B: recipe.frame });
-    event.shaped(recipe.t2pots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t2', B: recipe.frame });
-    event.shaped(recipe.t3pots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t3', B: recipe.frame });
-    event.shaped(recipe.t4pots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t4', B: recipe.frame });
-    event.shaped(recipe.t1hprpots, ['BAB', 'BBB'], { A: '#botanypots:pots/t1/hopper', B: recipe.frame });
-    event.shaped(recipe.t2hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t2/hopper', B: recipe.frame });
-    event.shaped(recipe.t3hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t3/hopper', B: recipe.frame });
-    event.shaped(recipe.t4hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/t4/hopper', B: recipe.frame });
-  }); */
+    event.shaped(recipe.t1pots, ['BAB', 'BBB'], { A: '#botanypots:pots/basic', B: recipe.frame });
+    event.shaped(recipe.t2pots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/saffron', B: recipe.frame });
+    event.shaped(recipe.t3pots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/shadow', B: recipe.frame });
+    event.shaped(recipe.t4pots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/crimson', B: recipe.frame });
+    event.shaped(recipe.t1hprpots, ['BAB', 'BBB'], { A: '#botanypots:pots/basic/hopper', B: recipe.frame });
+    event.shaped(recipe.t2hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/saffron/hopper', B: recipe.frame });
+    event.shaped(recipe.t3hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/shadow/hopper', B: recipe.frame });
+    event.shaped(recipe.t4hprpots, ['BAB', 'BBB'], { A: '#botanypotstiers:pots/crimson/hopper', B: recipe.frame });
+  });
 
   //Clear Pot
-  /* event.shapeless('botanypots:terracotta_botany_pot', ['#botanypots:pots/t1', 'supplementaries:soap']); //insert by Supplementary
-  event.shapeless('botanypotstiers:elite_terracotta_botany_pot', ['#botanypotstiers:pots/t2', 'supplementaries:soap']);
-  event.shapeless('botanypotstiers:ultra_terracotta_botany_pot', ['#botanypotstiers:pots/t3', 'supplementaries:soap']);
-  event.shapeless('botanypotstiers:creative_terracotta_botany_pot', ['#botanypotstiers:pots/t4', 'supplementaries:soap']);
-  event.shapeless('botanypots:terracotta_hopper_botany_pot', ['#botanypots:pots/t1/hopper', 'supplementaries:soap']); //insert by Supplementary
-  event.shapeless('botanypotstiers:elite_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t2/hopper', 'supplementaries:soap']);
-  event.shapeless('botanypotstiers:ultra_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t3/hopper', 'supplementaries:soap']);
-  event.shapeless('botanypotstiers:creative_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/t4/hopper', 'supplementaries:soap']); */
-
-  //#region Configurazione Upgrade
-  const UPGRADE_INGOTS = {
-    t1_to_t2: 'botanicalextramachinery:saffron_ingot',
-    t2_to_t3: 'botanicalextramachinery:shadow_ingot',
-    t3_to_t4: 'botanicalextramachinery:crimson_ingot',
-  };
-  const TIER_KEYS = ['t1', 't2', 't3', 't4'];
-  //#endregion
-
-  //#region Helper Functions
-  function addBasePot(event, frame, tier, isHopper, recipe) {
-    const key = `${tier}${isHopper ? 'hpr' : ''}pots`;
-    const pattern = isHopper ? ['ABA', 'AAA', ' C '] : ['ABA', 'AAA'];
-    const ingredients = {
-      A: frame,
-      B: 'minecraft:flower_pot',
-      ...(isHopper && { C: 'minecraft:hopper' }),
-    };
-    event.shaped(recipe[key], pattern, ingredients);
-  }
-
-  function addUpgrade(event, recipe, fromTier, toTier, ingot, isHopper) {
-    const fromKey = `${fromTier}${isHopper ? 'hpr' : ''}pots`;
-    const toKey = `${toTier}${isHopper ? 'hpr' : ''}pots`;
-    event.shaped(recipe[toKey], ['ABA'], { A: ingot, B: recipe[fromKey] });
-  }
-
-  function addHopperConvert(event, recipe, tier) {
-    const potKey = `${tier}pots`;
-    const hopKey = `${tier}hprpots`;
-    event.shaped(recipe[hopKey], ['A', 'B'], { A: recipe[potKey], B: 'minecraft:hopper' });
-  }
-
-  function addColorRecipe(event, recipe, tier, isHopper) {
-    const key = `${tier}${isHopper ? 'hpr' : ''}pots`;
-    const tagBase = tier === 't1' ? 'botanypots' : 'botanypotstiers';
-    const tag = `${tagBase}:pots/${tier}${isHopper ? '/hopper' : ''}`;
-    event.shaped(recipe[key], ['BAB', 'BBB'], { A: `#${tag}`, B: recipe.frame });
-  }
-  //#endregion
-
-  //#region Generazione Ricette Principali
-  PotsPattern.forEach((recipe) => {
-    // 1. Rimuovi ricette vanilla/esistenti
-    TIER_KEYS.forEach((t) => {
-      event.remove({ output: recipe[`${t}pots`] });
-      event.remove({ output: recipe[`${t}hprpots`] });
-    });
-
-    // 2. Ricette base T1 (con e senza hopper)
-    addBasePot(event, recipe.frame, 't1', false, recipe);
-    addBasePot(event, recipe.frame, 't1', true, recipe);
-
-    // 3. Upgrade tra tier + variante con hopper in crafting
-    Object.entries(UPGRADE_INGOTS).forEach(([key, ingot]) => {
-      const [from, to] = key.split('_to_');
-      // Upgrade standard
-      addUpgrade(event, recipe, from, to, ingot, false);
-      addUpgrade(event, recipe, from, to, ingot, true);
-      // Upgrade + hopper in crafting (3-slot recipe)
-      event.shaped(recipe[`${to}hprpots`], ['ABA', ' C '], {
-        A: recipe[`${from}pots`],
-        B: ingot,
-        C: 'minecraft:hopper',
-      });
-    });
-
-    // 4. Conversione diretta: pot già craftato + hopper = hopper version
-    TIER_KEYS.forEach((tier) => addHopperConvert(event, recipe, tier));
-
-    // 5. Ricette per cambio colore usando i tag
-    TIER_KEYS.forEach((tier) => {
-      addColorRecipe(event, recipe, tier, false);
-      addColorRecipe(event, recipe, tier, true);
-    });
-  });
-  //#endregion
-
-  //#region Ricette "Clear Pot" con sapone
-  const CLEAR_CONFIG = [
-    { tier: 't1', namespace: 'botanypots', prefix: '' },
-    { tier: 't2', namespace: 'botanypotstiers', prefix: 'elite_' },
-    { tier: 't3', namespace: 'botanypotstiers', prefix: 'ultra_' },
-    { tier: 't4', namespace: 'botanypotstiers', prefix: 'creative_' },
-  ];
-
-  CLEAR_CONFIG.forEach((cfg) => {
-    const tagBase = cfg.tier === 't1' ? 'botanypots' : 'botanypotstiers';
-    event.shapeless(`${cfg.namespace}:${cfg.prefix}terracotta_botany_pot`, [`#${tagBase}:pots/${cfg.tier}`, 'supplementaries:soap']);
-    event.shapeless(`${cfg.namespace}:${cfg.prefix}terracotta_hopper_botany_pot`, [`#${tagBase}:pots/${cfg.tier}/hopper`, 'supplementaries:soap']);
-  });
+  event.shapeless('botanypots:terracotta_botany_pot', ['#botanypots:pots/basic', 'supplementaries:soap']); //insert by Supplementary
+  event.shapeless('botanypotstiers:elite_terracotta_botany_pot', ['#botanypotstiers:pots/saffron', 'supplementaries:soap']);
+  event.shapeless('botanypotstiers:ultra_terracotta_botany_pot', ['#botanypotstiers:pots/shadow', 'supplementaries:soap']);
+  event.shapeless('botanypotstiers:creative_terracotta_botany_pot', ['#botanypotstiers:pots/crimson', 'supplementaries:soap']);
+  event.shapeless('botanypots:terracotta_hopper_botany_pot', ['#botanypots:pots/basic/hopper', 'supplementaries:soap']); //insert by Supplementary
+  event.shapeless('botanypotstiers:elite_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/saffron/hopper', 'supplementaries:soap']);
+  event.shapeless('botanypotstiers:ultra_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/shadow/hopper', 'supplementaries:soap']);
+  event.shapeless('botanypotstiers:creative_terracotta_hopper_botany_pot', ['#botanypotstiers:pots/crimson/hopper', 'supplementaries:soap']);
   //#endregion
 });
-//#endregion

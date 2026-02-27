@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Unification
     'enderio:sag_milling/sand', //Rm Silicon
     'enderio:sag_milling/flower_pot', //Rm Powdered Coal
@@ -12,7 +12,7 @@ ServerEvents.recipes((event) => {
     'enderio:sag_milling/lapis_ore', //Rm Powdered Lapis
     'enderio:sag_milling/quartz_ore', //Rm Powdered Quartz
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -90,7 +90,7 @@ ServerEvents.recipes((event) => {
 
   //#region SAG
   //Restore
-  const SAGPattern = [
+  const sagPattern = [
     {
       //Dust
       get: [
@@ -207,23 +207,13 @@ ServerEvents.recipes((event) => {
       rsflux: 2400,
     },
   ];
-  SAGPattern.forEach((recipe) => {
-    if (recipe.extra) {
-      event.custom({
-        type: 'enderio:sag_milling',
-        input: recipe.put,
-        outputs: recipe.get,
-        energy: recipe.rsflux,
-        bonus: recipe.extra,
-      });
-    } else {
-      event.custom({
-        type: 'enderio:sag_milling',
-        input: recipe.put,
-        outputs: recipe.get,
-        energy: recipe.rsflux,
-      });
-    }
+  sagPattern.forEach((recipe) => {
+    event.custom({
+      type: 'enderio:sag_milling',
+      input: recipe.put,
+      outputs: recipe.get,
+      energy: recipe.rsflux,
+    });
   });
   //#endregion
 });

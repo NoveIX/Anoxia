@@ -1,7 +1,7 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = ['actuallyadditions:pressing/canola'];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  const rmRecipeId = ['actuallyadditions:pressing/canola'];
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -41,8 +41,8 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
-  const PressingPattern = [{ getFluid: { Amount: 80, FluidName: 'actuallyadditions:canola_oil' }, putItem: { tag: 'forge:crops/canola' } }];
-  PressingPattern.forEach((recipe) => {
+  const pressingPattern = [{ getFluid: { Amount: 80, FluidName: 'actuallyadditions:canola_oil' }, putItem: { tag: 'forge:crops/canola' } }];
+  pressingPattern.forEach((recipe) => {
     event.custom({
       type: 'actuallyadditions:pressing',
       fluid: recipe.getFluid,
@@ -55,7 +55,7 @@ ServerEvents.recipes((event) => {
   //#region Empowering
   event.remove({ output: 'enderio:double_layer_capacitor' });
   event.remove({ output: 'enderio:octadic_capacitor' });
-  const EmpoweringPattern = [
+  const empoweringPattern = [
     {
       get: { item: 'enderio:double_layer_capacitor' },
       put: { tag: 'forge:dusts/coal' },
@@ -73,7 +73,7 @@ ServerEvents.recipes((event) => {
       sec: 900,
     },
   ];
-  EmpoweringPattern.forEach((recipe) => {
+  empoweringPattern.forEach((recipe) => {
     event.custom({
       type: 'actuallyadditions:empowering',
       base: recipe.put,

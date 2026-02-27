@@ -35,7 +35,7 @@ ServerEvents.recipes((event) => {
 
   //#region Chamber
   event.remove({ type: 'pneumaticcraft:pressure_chamber' });
-  const ChamberPattern = [
+  const chamberPattern = [
     {
       get: [{ item: 'pneumaticcraft:capacitor' }],
       put: [{ tag: 'forge:plastic' }, { tag: 'forge:ingots/compressed_iron' }, { tag: 'forge:ingots/red_alloy' }, { tag: 'anoxia:coils/electrum' }, { item: 'powah:capacitor_spirited' }],
@@ -85,7 +85,7 @@ ServerEvents.recipes((event) => {
       bar: 1.5,
     },
   ];
-  ChamberPattern.forEach((recipe) => {
+  chamberPattern.forEach((recipe) => {
     event.custom({
       type: 'pneumaticcraft:pressure_chamber',
       inputs: recipe.put,
@@ -97,9 +97,9 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
-  //#region Explosion
-  /* const ExplosionPattern = [];
-    ExplosionPattern.forEach((recipe) => {
+  //#region explosion
+  /* const explosionPattern = [];
+    explosionPattern.forEach((recipe) => {
         event.custom({
             type: "pneumaticcraft:explosion_crafting",
             input: recipe.put,

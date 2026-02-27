@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Unification
     'thermal:machines/pyrolyzer/pyrolyzer_logs', //Rm Creosote
     'thermal:machines/pyrolyzer/pyrolyzer_coal', //Rm Creosote
@@ -161,7 +161,7 @@ ServerEvents.recipes((event) => {
     //Redstone arsenal
     'redstone_arsenal:materials/flux_gem',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -340,7 +340,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Bottle
-  const BottlePattern = [
+  const bottlePattern = [
     {
       get: [{ item: 'anoxia:enderless_ingot_1' }],
       put: [
@@ -374,7 +374,7 @@ ServerEvents.recipes((event) => {
       rsflux: 5000,
     },
   ];
-  BottlePattern.forEach((recipe) => {
+  bottlePattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:bottler',
       ingredients: recipe.put,
@@ -387,7 +387,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Insolator
-  const InsolatorPattern = [
+  const insolatorPattern = [
     //T0
     { get: 'mysticalagriculture:air_essence', put: 'mysticalagriculture:air_seeds', rsflux: 100000 },
     { get: 'mysticalagriculture:earth_essence', put: 'mysticalagriculture:earth_seeds', rsflux: 100000 },
@@ -638,7 +638,7 @@ ServerEvents.recipes((event) => {
     { get: 'pamhc2crops:papyrusitem', put: 'pamhc2crops:papyrusseeditem', rsflux: 20000 },
     { get: 'pamhc2crops:sunchokeitem', put: 'pamhc2crops:sunchokeseeditem', rsflux: 20000 },
   ];
-  InsolatorPattern.forEach((recipe) => {
+  insolatorPattern.forEach((recipe) => {
     const json = {
       type: 'thermal:insolator',
       ingredient: { item: recipe.put },
@@ -661,7 +661,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Press
-  const PressPattern = [
+  const pressPattern = [
     //Unification
     {
       //thermal:sawdust => mekanism:sawdust
@@ -676,7 +676,7 @@ ServerEvents.recipes((event) => {
       rsflux: 400,
     },
   ];
-  PressPattern.forEach((recipe) => {
+  pressPattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:press',
       ingredients: recipe.put,
@@ -689,7 +689,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Pulverizer
-  const PulverizerPattern = [
+  const pulverizerPattern = [
     //Unification
     {
       //thermal:sawdust => mekanism:sawdust
@@ -707,7 +707,7 @@ ServerEvents.recipes((event) => {
       rsflux: 4000,
     },
   ];
-  PulverizerPattern.forEach((recipe) => {
+  pulverizerPattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:pulverizer',
       ingredient: recipe.put,
@@ -720,7 +720,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region PulverizerRecycle
-  const PulverizerRecyclePattern = [
+  const pulverizerRecyclePattern = [
     //Unification
     {
       //thermal:sawdust => mekanism:sawdust
@@ -732,7 +732,7 @@ ServerEvents.recipes((event) => {
       state: [{ tag: 'forge:tools/diamond', type: 'cofh_core:tag_exists' }],
     },
   ];
-  PulverizerRecyclePattern.forEach((recipe) => {
+  pulverizerRecyclePattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:pulverizer_recycle',
       ingredient: recipe.put,
@@ -746,7 +746,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Pyrolyzer
-  const PyrolyzerPattern = [
+  const pyrolyzerPattern = [
     //Unification
     {
       get: [{ item: 'minecraft:charcoal' }, { fluid: 'thermal:creosote', amount: 250 }],
@@ -764,7 +764,7 @@ ServerEvents.recipes((event) => {
       rsflux: 36000,
     },
   ];
-  PyrolyzerPattern.forEach((recipe) => {
+  pyrolyzerPattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:pyrolyzer',
       ingredient: recipe.put,
@@ -778,7 +778,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Refinery
-  const RefineryPattern = [
+  const refineryPattern = [
     {
       get: [
         { fluid: 'ad_astra:fuel', amount: 50 },
@@ -788,7 +788,7 @@ ServerEvents.recipes((event) => {
       rsflux: 6000,
     },
   ];
-  RefineryPattern.forEach((recipe) => {
+  refineryPattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:refinery',
       ingredient: recipe.put,
@@ -802,7 +802,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Smelter
-  const SmelterPattern = [
+  const smelterPattern = [
     {
       //ProjectRED Integration => Red Ingot
       get: [{ item: 'projectred_core:red_ingot', count: 1 }],
@@ -822,7 +822,7 @@ ServerEvents.recipes((event) => {
       rsflux: 32000,
     },
   ];
-  SmelterPattern.forEach((recipe) => {
+  smelterPattern.forEach((recipe) => {
     event.custom({
       type: 'thermal:smelter',
       ingredients: recipe.put,

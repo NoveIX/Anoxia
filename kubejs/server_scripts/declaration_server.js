@@ -1,26 +1,27 @@
 //priority:1000
 
 //#region Game Const
-const Anoxia = global.Anoxia;
-const GameItem = Anoxia.Game.Item;
-const GameFluid = Anoxia.Game.Fluid;
-const GameRecipe = Anoxia.Game.Recipe;
+
+const gameItem = anoxia.game.item;
+const gameFluid = anoxia.game.fluid;
+const gameRecipe = anoxia.game.recipe;
 //#endregion
 
 //#region Func Generic
-const FuncGeneric = Anoxia.Function.Generic;
-const ToTag = FuncGeneric.ToTag.bind(FuncGeneric);
+const funcGeneric = anoxia.function.generic;
+const toTag = funcGeneric.toTag.bind(funcGeneric);
+const isTagOrItem = funcGeneric.isTagOrItem.bind(funcGeneric);
 //#endregion
 
 //#region Const Tinker
-const Material = Anoxia.Constant.Tinker.Material;
+const material = anoxia.constant.tinkerConstruct.material;
 //#endregion
 
 //#region Func Tinker
-const FuncTinker = Anoxia.Function.Tinker;
-const GetIngot = FuncTinker.GetIngot.bind(FuncTinker);
-const FromAmount = FuncTinker.FromAmount.bind(FuncTinker);
-const GetCoolingTick = FuncTinker.GetCoolingTick.bind(FuncTinker);
-const GetMeltingTick = FuncTinker.GetMeltingTick.bind(FuncTinker);
-const AddDualCastRecipe = FuncTinker.AddDualCastRecipe.bind(FuncTinker);
+const funcTinker = anoxia.function.tinkerConstruct;
+const getIngot = funcTinker.getIngot.bind(funcTinker);
+const fromAmount = funcTinker.fromAmount.bind(funcTinker);
+const getCoolingTick = funcTinker.getCoolingTick.bind(funcTinker);
+const getMeltingTick = funcTinker.getMeltingTick.bind(funcTinker);
+const addDualCastRecipe = funcTinker.addDualCastRecipe.bind(funcTinker);
 //#endregion

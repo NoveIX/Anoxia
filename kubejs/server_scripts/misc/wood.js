@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Oak
     'immersiveengineering:sawmill/oak_log',
     'immersiveengineering:sawmill/oak_wood',
@@ -91,13 +91,13 @@ ServerEvents.recipes((event) => {
     //Thermal
     'thermal:machines/sawmill/sawmill_rubberwood_logs',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Func Wood
-  function WoodFarmerStrip(get, put) {
+  function woodFarmerStrip(get, put) {
     event.custom({
       type: 'farmersdelight:cutting',
       ingredients: [{ item: put }],
@@ -107,7 +107,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodFarmerChop(get, put) {
+  function woodFarmerChop(get, put) {
     event.custom({
       type: 'farmersdelight:cutting',
       ingredients: [{ item: put }],
@@ -116,7 +116,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodCreateStrip(get, put) {
+  function woodCreateStrip(get, put) {
     event.custom({
       type: 'create:cutting',
       ingredients: [{ item: put }],
@@ -125,7 +125,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodCreateSaw(get, put) {
+  function woodCreateSaw(get, put) {
     event.custom({
       type: 'create:cutting',
       ingredients: [{ item: put }],
@@ -134,7 +134,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodImmersiveOneStrip(get, srp) {
+  function woodImmersiveOneStrip(get, srp) {
     event.custom({
       type: 'immersiveengineering:sawmill',
       energy: 800,
@@ -144,7 +144,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodImmersiveStrip(get, srpLog, srpWood) {
+  function woodImmersiveStrip(get, srpLog, srpWood) {
     event.custom({
       type: 'immersiveengineering:sawmill',
       energy: 800,
@@ -154,7 +154,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodImmersiveSaw(get, put, srp) {
+  function woodImmersiveSaw(get, put, srp) {
     event.custom({
       type: 'immersiveengineering:sawmill',
       energy: 1600,
@@ -168,7 +168,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodThermalSaw(get, put) {
+  function woodThermalSaw(get, put) {
     event.custom({
       type: 'thermal:sawmill',
       ingredient: { tag: put },
@@ -181,7 +181,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function WoodMekanismSaw(get, put) {
+  function woodMekanismSaw(get, put) {
     event.custom({
       type: 'mekanism:sawing',
       input: { ingredient: { tag: put } },
@@ -195,7 +195,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Wood
-  const WoodPattern = [
+  const woodPattern = [
     //Minecraft
     { log: 'minecraft:oak_log', srpLog: 'minecraft:stripped_oak_log', wood: 'minecraft:oak_wood', srpWood: 'minecraft:stripped_oak_wood', plank: 'minecraft:oak_planks', logTag: 'minecraft:oak_logs' },
     { log: 'minecraft:spruce_log', srpLog: 'minecraft:stripped_spruce_log', wood: 'minecraft:spruce_wood', srpWood: 'minecraft:stripped_spruce_wood', plank: 'minecraft:spruce_planks', logTag: 'minecraft:spruce_logs' },
@@ -247,7 +247,7 @@ ServerEvents.recipes((event) => {
     //Thermal
     { log: 'thermal:rubberwood_log', srpLog: 'thermal:stripped_rubberwood_log', wood: 'thermal:rubberwood_wood', srpWood: 'thermal:stripped_rubberwood_wood', plank: 'thermal:rubberwood_planks', logTag: 'forge:rubberwood_logs' },
   ];
-  WoodPattern.forEach((recipe) => {
+  woodPattern.forEach((recipe) => {
     //Log
     if (recipe.log) {
       event.remove({ input: recipe.log, type: 'farmersdelight:cutting' });
@@ -257,25 +257,25 @@ ServerEvents.recipes((event) => {
       if (recipe.srpLog) {
         //Farmer
         event.remove({ input: recipe.srpLog, type: 'farmersdelight:cutting' });
-        WoodFarmerStrip(recipe.srpLog, recipe.log);
-        WoodFarmerChop(recipe.plank, recipe.srpLog);
+        woodFarmerStrip(recipe.srpLog, recipe.log);
+        woodFarmerChop(recipe.plank, recipe.srpLog);
 
         //Create
         event.remove({ input: recipe.srpLog, type: 'create:cutting' });
-        WoodCreateStrip(recipe.srpLog, recipe.log);
-        WoodCreateSaw(recipe.plank, recipe.srpLog);
+        woodCreateStrip(recipe.srpLog, recipe.log);
+        woodCreateSaw(recipe.plank, recipe.srpLog);
 
         //Immersive
-        WoodImmersiveSaw(recipe.plank, recipe.log, recipe.srpLog);
+        woodImmersiveSaw(recipe.plank, recipe.log, recipe.srpLog);
 
         //Ad Astra
-        if (recipe.log === 'ad_astra:glacian_log') WoodImmersiveOneStrip(recipe.plank, recipe.srpLog);
+        if (recipe.log === 'ad_astra:glacian_log') woodImmersiveOneStrip(recipe.plank, recipe.srpLog);
       }
 
       //Ad Astra
       if (recipe.log.startsWith('ad_astra') && recipe.log.endsWith('stem')) {
-        WoodFarmerChop(recipe.plank, recipe.log);
-        WoodCreateSaw(recipe.plank, recipe.log);
+        woodFarmerChop(recipe.plank, recipe.log);
+        woodCreateSaw(recipe.plank, recipe.log);
       }
     }
 
@@ -288,45 +288,45 @@ ServerEvents.recipes((event) => {
       if (recipe.srpWood) {
         //Farmer
         event.remove({ input: recipe.srpWood, type: 'farmersdelight:cutting' });
-        WoodFarmerStrip(recipe.srpWood, recipe.wood);
-        WoodFarmerChop(recipe.plank, recipe.srpWood);
+        woodFarmerStrip(recipe.srpWood, recipe.wood);
+        woodFarmerChop(recipe.plank, recipe.srpWood);
 
         //Create
         event.remove({ input: recipe.srpWood, type: 'create:cutting' });
-        WoodCreateStrip(recipe.srpWood, recipe.wood);
-        WoodCreateSaw(recipe.plank, recipe.srpWood);
+        woodCreateStrip(recipe.srpWood, recipe.wood);
+        woodCreateSaw(recipe.plank, recipe.srpWood);
 
         //Immersive
-        WoodImmersiveSaw(recipe.plank, recipe.wood, recipe.srpWood);
+        woodImmersiveSaw(recipe.plank, recipe.wood, recipe.srpWood);
       }
 
       //Ad Astra
       if (recipe.log.startsWith('ad_astra') && recipe.log.endsWith('cap')) {
-        WoodFarmerChop(recipe.plank, recipe.wood);
-        WoodCreateSaw(recipe.plank, recipe.wood);
+        woodFarmerChop(recipe.plank, recipe.wood);
+        woodCreateSaw(recipe.plank, recipe.wood);
       }
     }
 
     //Immersive
     if (recipe.srpLog && recipe.srpWood) {
-      WoodImmersiveStrip(recipe.plank, recipe.srpLog, recipe.srpWood);
+      woodImmersiveStrip(recipe.plank, recipe.srpLog, recipe.srpWood);
 
       //Ad Astra
-      if ([recipe.log, recipe.wood].every((i) => i.startsWith('ad_astra'))) WoodImmersiveStrip(recipe.plank, recipe.log, recipe.wood);
+      if ([recipe.log, recipe.wood].every((i) => i.startsWith('ad_astra'))) woodImmersiveStrip(recipe.plank, recipe.log, recipe.wood);
     }
 
     //Tag
     if (recipe.logTag) {
       //Crafting
-      event.remove({ output: recipe.plank, input: ToTag(recipe.logTag), type: 'minecraft:crafting_shaped' });
-      event.remove({ output: recipe.plank, input: ToTag(recipe.logTag), type: 'minecraft:crafting_shapeless' });
-      event.shapeless(recipe.plank, [ToTag(recipe.logTag)]);
+      event.remove({ output: recipe.plank, input: toTag(recipe.logTag), type: 'minecraft:crafting_shaped' });
+      event.remove({ output: recipe.plank, input: toTag(recipe.logTag), type: 'minecraft:crafting_shapeless' });
+      event.shapeless(recipe.plank, [toTag(recipe.logTag)]);
 
       //Thermal
-      WoodThermalSaw(recipe.plank, recipe.logTag);
+      woodThermalSaw(recipe.plank, recipe.logTag);
 
       //Mekanism
-      WoodMekanismSaw(recipe.plank, recipe.logTag);
+      woodMekanismSaw(recipe.plank, recipe.logTag);
     }
   });
   //#endregion

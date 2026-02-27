@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region RemoveID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Infusion
     'mekanism:infusion_conversion/carbon/from_coal',
     'mekanism:infusion_conversion/carbon/from_coal_block',
@@ -19,7 +19,7 @@ ServerEvents.recipes((event) => {
     'mekanism:processing/refined_glowstone/ingot/from_dust',
     'mekanism:processing/refined_obsidian/ingot/from_dust',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
@@ -51,7 +51,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Compressing
-  const CompressingPattern = [
+  const compressingPattern = [
     {
       get: { item: 'mekanism:ingot_refined_glowstone' },
       put: { ingredient: { tag: 'forge:dusts/glowstone' } },
@@ -63,7 +63,7 @@ ServerEvents.recipes((event) => {
       chem: { amount: 5, gas: 'mekanism:osmium' },
     },
   ];
-  CompressingPattern.forEach((recipe) => {
+  compressingPattern.forEach((recipe) => {
     event.custom({
       type: 'mekanism:compressing',
       itemInput: recipe.put,
@@ -76,7 +76,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Metallurgic Infusing
-  const MetallurgicPattern = [
+  const metallurgicPattern = [
     //Circuit
     {
       get: { item: 'mekanism:basic_control_circuit' },
@@ -120,7 +120,7 @@ ServerEvents.recipes((event) => {
       chem: { amount: 40, tag: 'mekanism:diamond' },
     },
   ];
-  MetallurgicPattern.forEach((recipe) => {
+  metallurgicPattern.forEach((recipe) => {
     event.custom({
       type: 'mekanism:metallurgic_infusing',
       itemInput: recipe.put,
@@ -133,7 +133,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Infusion
-  const InfusionPattern = [
+  const infusionPattern = [
     {
       get: { amount: 10, infuse_type: 'mekanism:carbon' },
       put: { ingredient: [{ tag: 'anoxia:materials/coal' }] },
@@ -151,7 +151,7 @@ ServerEvents.recipes((event) => {
       put: { ingredient: [{ tag: 'forge:storage_blocks/coal_coke' }] },
     },
   ];
-  InfusionPattern.forEach((recipe) => {
+  infusionPattern.forEach((recipe) => {
     event.custom({
       type: 'mekanism:infusion_conversion',
       input: recipe.put,

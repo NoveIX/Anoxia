@@ -1,7 +1,7 @@
 //priority:1000
 
 //#region Game Const
-const Anoxia = global.Anoxia;
-const GameItem = Anoxia.Game.Item;
-const GameFluid = Anoxia.Game.Fluid;
+const anoxia = global.anoxia;
+const gameItem = anoxia.game.item;
+const gameFluid = anoxia.game.fluid;
 //#endregion

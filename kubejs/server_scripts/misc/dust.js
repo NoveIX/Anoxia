@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Gem
     //Coal
     'immersiveengineering:crusher/coal',
@@ -200,24 +200,24 @@ ServerEvents.recipes((event) => {
     'thermalendergy:machine/pulverizer/pulverizer_melodium_ingot_to_dust',
     'thermalendergy:machine/pulverizer/pulverizer_stellarium_ingot_to_dust',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
 
   //#endregion
 
   //# ====================================================================================== #
 
   //#region func Dust
-  function DustCrafting(recipe) {
+  function dustCrafting(recipe) {
     // Hammer and tiny tnt
-    if (recipe.put.startsWith('forge:ingots')) event.shapeless(recipe.get, [ToTag(recipe.put), 'ae2:tiny_tnt']);
-    else event.shapeless(recipe.get, [ToTag(recipe.put), 'immersiveengineering:hammer']);
+    if (recipe.put.startsWith('forge:ingots')) event.shapeless(recipe.get, [toTag(recipe.put), 'ae2:tiny_tnt']);
+    else event.shapeless(recipe.get, [toTag(recipe.put), 'immersiveengineering:hammer']);
 
     //Earth Charge
-    if (['forge:gems/ruby', 'forge:gems/sapphire'].includes(recipe.put)) event.shapeless(recipe.get, [ToTag(recipe.put), 'thermal:earth_charge']);
+    if (['forge:gems/ruby', 'forge:gems/sapphire'].includes(recipe.put)) event.shapeless(recipe.get, [toTag(recipe.put), 'thermal:earth_charge']);
   }
 
   // Blood Magic
-  function DustBlood(recipe) {
+  function dustBlood(recipe) {
     if (recipe.ore) {
       event.custom({
         type: 'bloodmagic:alchemytable',
@@ -242,7 +242,7 @@ ServerEvents.recipes((event) => {
   }
 
   // Create
-  function DustCreate(recipe) {
+  function dustCreate(recipe) {
     const json = {
       type: 'create:milling',
       ingredients: [{ tag: recipe.put }],
@@ -257,7 +257,7 @@ ServerEvents.recipes((event) => {
   }
 
   // Immersive
-  function DustImmersive(recipe) {
+  function dustImmersive(recipe) {
     const json = {
       type: 'immersiveengineering:crusher',
       input: { tag: recipe.put },
@@ -275,7 +275,7 @@ ServerEvents.recipes((event) => {
   }
 
   // EnderIO
-  function DustEnderIO(recipe) {
+  function dustEnderIO(recipe) {
     const json = {
       type: 'enderio:sag_milling',
       input: { tag: recipe.put },
@@ -291,7 +291,7 @@ ServerEvents.recipes((event) => {
   }
 
   // Mekanism
-  function DustMekanism(recipe) {
+  function dustMekanism(recipe) {
     event.custom({
       type: 'mekanism:crushing',
       input: { ingredient: { tag: recipe.put } },
@@ -300,7 +300,7 @@ ServerEvents.recipes((event) => {
   }
 
   // Thermal
-  function DustThermal(recipe) {
+  function dustThermal(recipe) {
     const json = {
       type: 'thermal:pulverizer',
       ingredient: { tag: recipe.put },
@@ -318,7 +318,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Dust
-  const DustPattern = [
+  const dustPattern = [
     //Gem
     {
       get: 'mekanism:dust_coal',
@@ -448,15 +448,15 @@ ServerEvents.recipes((event) => {
     { get: 'thermalendergy:melodium_dust', put: 'forge:ingots/melodium', rsflux: 20000, processing: 2000 },
     { get: 'thermalendergy:stellarium_dust', put: 'forge:ingots/stellarium', rsflux: 24000, processing: 2400 },
   ];
-  DustPattern.forEach((recipe) => {
+  dustPattern.forEach((recipe) => {
     //Recipe
-    DustCrafting(recipe);
-    DustBlood(recipe);
-    DustCreate(recipe);
-    DustImmersive(recipe);
-    DustEnderIO(recipe);
-    DustMekanism(recipe);
-    DustThermal(recipe);
+    dustCrafting(recipe);
+    dustBlood(recipe);
+    dustCreate(recipe);
+    dustImmersive(recipe);
+    dustEnderIO(recipe);
+    dustMekanism(recipe);
+    dustThermal(recipe);
   });
   //#endregion
 });

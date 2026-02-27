@@ -1,5 +1,6 @@
 ServerEvents.recipes((event) => {
-  const TrapdoorPattern = [
+  //#region Trapdoor
+  const trapdoorPattern = [
     { get: 'minecraft:iron_trapdoor', put: '#forge:ingots/iron' },
     { get: 'ad_astra:steel_trapdoor', put: '#forge:ingots/steel' },
     { get: 'aethersteel:aethersteel_trapdoor', put: '#forge:ingots/aethersteel' },
@@ -11,8 +12,9 @@ ServerEvents.recipes((event) => {
     { get: 'enderio:dark_steel_trapdoor', put: '#forge:ingots/dark_steel' },
     { get: 'supplementaries:gold_trapdoor', put: '#forge:ingots/gold' },
   ];
-  TrapdoorPattern.forEach((recipe) => {
+  trapdoorPattern.forEach((recipe) => {
     event.remove({ output: recipe.get });
     event.shaped(Item.of(recipe.get, 2), ['AAA', 'AAA'], { A: recipe.put });
   });
+  //#endregion
 });

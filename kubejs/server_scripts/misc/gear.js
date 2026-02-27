@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Thermal Compat
     'thermal:compat/redstone_arsenal/press_rsa_flux_ingot_to_gear',
 
@@ -28,13 +28,13 @@ ServerEvents.recipes((event) => {
     'thermal:machines/press/press_invar_ingot_to_gear',
     'thermal:machines/press/press_constantan_ingot_to_gear',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Func Gear
-  function GearCreate(recipe, liquid) {
+  function gearCreate(recipe, liquid) {
     event.custom({
       type: 'create:compacting',
       ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { tag: recipe.put }, { tag: recipe.put }, { amount: 1000, fluid: liquid, nbt: {} }],
@@ -42,7 +42,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function GearImmersive(recipe) {
+  function gearImmersive(recipe) {
     event.custom({
       type: 'immersiveengineering:metal_press',
       energy: recipe.rsflux,
@@ -52,7 +52,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function GearThermal(recipe) {
+  function gearThermal(recipe) {
     event.custom({
       type: 'thermal:press',
       ingredients: [{ tag: recipe.put, count: 4 }, { item: 'thermal:press_gear_die' }],
@@ -61,49 +61,49 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  function GearTinker(recipe) {
+  function gearTinker(recipe) {
     const json = {
       type: 'tconstruct:casting_table',
-      cooling_time: GetCoolingTick(recipe.material, 4),
+      cooling_time: getCoolingTick(recipe.material, 4),
       fluid: { amount: 360, tag: `forge:molten_${recipe.molten}` },
       result: { item: recipe.get },
     };
 
     // Add single and multi Cast
-    AddDualCastRecipe('gear', json, event);
+    addDualCastRecipe('gear', json, event);
   }
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Gear
-  const GearPattern = [
+  const gearPattern = [
     //Thermal Metal
-    { get: 'thermal:iron_gear', put: 'forge:ingots/iron', molten: 'iron', material: Material.Iron, rsflux: 4000 },
-    { get: 'thermal:gold_gear', put: 'forge:ingots/gold', molten: 'gold', material: Material.Gold, rsflux: 4000 },
-    { get: 'thermal:copper_gear', put: 'forge:ingots/copper', molten: 'copper', material: Material.Copper, rsflux: 4000 },
-    { get: 'thermal:netherite_gear', put: 'forge:ingots/netherite', molten: 'netherite', material: Material.Netherite, rsflux: 12000, metal: 'hard' },
-    { get: 'thermal:tin_gear', put: 'forge:ingots/tin', molten: 'tin', material: Material.Tin, rsflux: 4000 },
-    { get: 'thermal:lead_gear', put: 'forge:ingots/lead', molten: 'lead', material: Material.Lead, rsflux: 4000 },
-    { get: 'thermal:silver_gear', put: 'forge:ingots/silver', molten: 'silver', material: Material.Silver, rsflux: 4000 },
-    { get: 'thermal:nickel_gear', put: 'forge:ingots/nickel', molten: 'nickel', material: Material.Nickel, rsflux: 4000 },
-    { get: 'thermal:signalum_gear', put: 'forge:ingots/signalum', molten: 'signalum', material: Material.Signalum, rsflux: 8000, metal: 'hard' },
-    { get: 'thermal:lumium_gear', put: 'forge:ingots/lumium', molten: 'lumium', material: Material.Lumium, rsflux: 8000, metal: 'hard' },
-    { get: 'thermal:enderium_gear', put: 'forge:ingots/enderium', molten: 'enderium', material: Material.Enderium, rsflux: 12000, metal: 'hard' },
-    { get: 'thermal:steel_gear', put: 'forge:ingots/steel', molten: 'steel', material: Material.Steel, rsflux: 6000 },
-    { get: 'thermal:rose_gold_gear', put: 'forge:ingots/rose_gold', molten: 'rose_gold', material: Material.RoseGold, rsflux: 6000 },
-    { get: 'thermal:bronze_gear', put: 'forge:ingots/bronze', molten: 'bronze', material: Material.Bronze, rsflux: 6000 },
-    { get: 'thermal:electrum_gear', put: 'forge:ingots/electrum', molten: 'electrum', material: Material.Electrum, rsflux: 6000 },
-    { get: 'thermal:invar_gear', put: 'forge:ingots/invar', molten: 'invar', material: Material.Invar, rsflux: 6000 },
-    { get: 'thermal:constantan_gear', put: 'forge:ingots/constantan', molten: 'constantan', material: Material.Constantan, rsflux: 6000 },
+    { get: 'thermal:iron_gear', put: 'forge:ingots/iron', molten: 'iron', material: material.iron, rsflux: 4000 },
+    { get: 'thermal:gold_gear', put: 'forge:ingots/gold', molten: 'gold', material: material.gold, rsflux: 4000 },
+    { get: 'thermal:copper_gear', put: 'forge:ingots/copper', molten: 'copper', material: material.copper, rsflux: 4000 },
+    { get: 'thermal:netherite_gear', put: 'forge:ingots/netherite', molten: 'netherite', material: material.netherite, rsflux: 12000, metal: 'hard' },
+    { get: 'thermal:tin_gear', put: 'forge:ingots/tin', molten: 'tin', material: material.tin, rsflux: 4000 },
+    { get: 'thermal:lead_gear', put: 'forge:ingots/lead', molten: 'lead', material: material.lead, rsflux: 4000 },
+    { get: 'thermal:silver_gear', put: 'forge:ingots/silver', molten: 'silver', material: material.silver, rsflux: 4000 },
+    { get: 'thermal:nickel_gear', put: 'forge:ingots/nickel', molten: 'nickel', material: material.nickel, rsflux: 4000 },
+    { get: 'thermal:signalum_gear', put: 'forge:ingots/signalum', molten: 'signalum', material: material.signalum, rsflux: 8000, metal: 'hard' },
+    { get: 'thermal:lumium_gear', put: 'forge:ingots/lumium', molten: 'lumium', material: material.lumium, rsflux: 8000, metal: 'hard' },
+    { get: 'thermal:enderium_gear', put: 'forge:ingots/enderium', molten: 'enderium', material: material.enderium, rsflux: 12000, metal: 'hard' },
+    { get: 'thermal:steel_gear', put: 'forge:ingots/steel', molten: 'steel', material: material.steel, rsflux: 6000 },
+    { get: 'thermal:rose_gold_gear', put: 'forge:ingots/rose_gold', molten: 'rose_gold', material: material.roseGold, rsflux: 6000 },
+    { get: 'thermal:bronze_gear', put: 'forge:ingots/bronze', molten: 'bronze', material: material.bronze, rsflux: 6000 },
+    { get: 'thermal:electrum_gear', put: 'forge:ingots/electrum', molten: 'electrum', material: material.electrum, rsflux: 6000 },
+    { get: 'thermal:invar_gear', put: 'forge:ingots/invar', molten: 'invar', material: material.invar, rsflux: 6000 },
+    { get: 'thermal:constantan_gear', put: 'forge:ingots/constantan', molten: 'constantan', material: material.constantan, rsflux: 6000 },
 
     //Thermal Gem
-    { get: 'thermal:lapis_gear', put: 'forge:gems/lapis', molten: 'lapis', material: Material.Lapis, rsflux: 2000 },
-    { get: 'thermal:diamond_gear', put: 'forge:gems/diamond', molten: 'diamond', material: Material.Diamond, rsflux: 8000 },
-    { get: 'thermal:emerald_gear', put: 'forge:gems/emerald', molten: 'emerald', material: Material.Emerald, rsflux: 8000 },
-    { get: 'thermal:quartz_gear', put: 'forge:gems/quartz', molten: 'quartz', material: Material.Quartz, rsflux: 2000 },
-    { get: 'thermal:ruby_gear', put: 'forge:gems/ruby', molten: 'ruby', material: Material.Ruby, rsflux: 6000 },
-    { get: 'thermal:sapphire_gear', put: 'forge:gems/sapphire', molten: 'sapphire', material: Material.Sapphire, rsflux: 6000 },
+    { get: 'thermal:lapis_gear', put: 'forge:gems/lapis', molten: 'lapis', material: material.lapis, rsflux: 2000 },
+    { get: 'thermal:diamond_gear', put: 'forge:gems/diamond', molten: 'diamond', material: material.diamond, rsflux: 8000 },
+    { get: 'thermal:emerald_gear', put: 'forge:gems/emerald', molten: 'emerald', material: material.emerald, rsflux: 8000 },
+    { get: 'thermal:quartz_gear', put: 'forge:gems/quartz', molten: 'quartz', material: material.quartz, rsflux: 2000 },
+    { get: 'thermal:ruby_gear', put: 'forge:gems/ruby', molten: 'ruby', material: material.ruby, rsflux: 6000 },
+    { get: 'thermal:sapphire_gear', put: 'forge:gems/sapphire', molten: 'sapphire', material: material.sapphire, rsflux: 6000 },
 
     //Thermal Endergy
     { get: 'thermalendergy:prismalium_gear', put: 'forge:ingots/prismalium', rsflux: 16000, metal: 'hard' },
@@ -119,22 +119,22 @@ ServerEvents.recipes((event) => {
     //Avaritia
     { get: 'avaritia:neutron_gear', put: 'forge:ingots/neutron', rsflux: 720000, metal: 'special' },
   ];
-  GearPattern.forEach((recipe) => {
+  gearPattern.forEach((recipe) => {
     //Remove
     event.remove({ output: recipe.get });
 
     // Gear Press
-    if (recipe.metal === 'special') GearThermal(recipe);
-    else if (recipe.metal === 'hard') (GearImmersive(recipe), GearThermal(recipe));
+    if (recipe.metal === 'special') gearThermal(recipe);
+    else if (recipe.metal === 'hard') (gearImmersive(recipe), gearThermal(recipe));
     else {
-      //const fluidId = recipe.put.startsWith('forge:gems/') ? 'minecraft:water' : 'minecraft:water';
-      //GearCreate(recipe, fluidId);
-      GearImmersive(recipe);
-      GearThermal(recipe);
+      //const fluidId = recipe.put.startsWith('forge:gems/') ? 'minecraft:water' : 'minecraft:lava';
+      //gearCreate(recipe, fluidId);
+      gearImmersive(recipe);
+      gearThermal(recipe);
     }
 
     //Molten
-    if (recipe.molten) GearTinker(recipe);
+    if (recipe.molten) gearTinker(recipe);
   });
   //#endregion
 });

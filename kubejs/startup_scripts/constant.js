@@ -1,76 +1,76 @@
 //priority:980
 
-Anoxia.Constant.Tinker.Material = {
+anoxia.constant.tinkerConstruct.material = {
   //Metal
-  Iron: { MeltPoint: 1538 },
-  Gold: { MeltPoint: 1064 },
-  Copper: { MeltPoint: 1085 },
-  Netherite: { MeltPoint: 2255 },
-  Tin: { MeltPoint: 232 },
-  Lead: { MeltPoint: 328 },
-  Silver: { MeltPoint: 961 },
-  Nickel: { MeltPoint: 1455 },
-  Platinum: { MeltPoint: 1768 },
-  Aluminum: { MeltPoint: 660 },
-  Desh: { MeltPoint: 1267 },
-  Ostrum: { MeltPoint: 1952 },
-  Calorite: { MeltPoint: 2937 },
-  Osmium: { MeltPoint: 3033 },
+  iron: 1538,
+  gold: 1064,
+  copper: 1085,
+  netherite: 2255,
+  tin: 232,
+  lead: 328,
+  silver: 961,
+  nickel: 1455,
+  platinum: 1768,
+  aluminum: 660,
+  desh: 1267,
+  ostrum: 1952,
+  calorite: 2937,
+  osmium: 3033,
 
   //Alloy
-  Steel: { MeltPoint: 1450 },
-  RoseGold: { MeltPoint: 960 },
-  Signalum: { MeltPoint: 1279 },
-  Lumium: { MeltPoint: 1357 },
-  Enderium: { MeltPoint: 1753 },
-  Bronze: { MeltPoint: 913 },
-  Electrum: { MeltPoint: 1064 },
-  Invar: { MeltPoint: 1427 },
-  Constantan: { MeltPoint: 1447 },
-  Brass: { MeltPoint: 945 },
-  RefinedGlowstone: { MeltPoint: 1929 },
-  RefinedObsidian: { MeltPoint: 2844 },
+  steel: 1450,
+  roseGold: 960,
+  signalum: 1279,
+  lumium: 1357,
+  enderium: 1753,
+  bronze: 913,
+  electrum: 1064,
+  invar: 1427,
+  constantan: 1447,
+  brass: 945,
+  refinedGlowstone: 1929,
+  refinedObsidian: 2844,
 
   //Gem
-  Lapis: { MeltPoint: 1533 },
-  Diamond: { MeltPoint: 3557 },
-  Emerald: { MeltPoint: 2852 },
-  Quartz: { MeltPoint: 1713 },
-  Ruby: { MeltPoint: 2047 },
-  Sapphire: { MeltPoint: 2047 },
-  Coal: { MeltPoint: 1126 },
+  lapis: 1533,
+  diamond: 3557,
+  emerald: 2852,
+  quartz: 1713,
+  ruby: 2047,
+  sapphire: 2047,
+  coal: 1126,
 
   //Stone
-  Clay: { MeltPoint: 1129 },
-  Stone: { MeltPoint: 1351 },
-  Magma: { MeltPoint: 1511 },
-  ScorchedStone: { MeltPoint: 1702 },
-  Obsidian: { MeltPoint: 2132 },
+  clay: 1129,
+  stone: 1351,
+  magma: 1511,
+  scorchedStone: 1702,
+  obsidian: 2132,
 
   //Essence
-  Inferium: { MeltPoint: 850 },
-  Prudentium: { MeltPoint: 1100 },
-  Tertium: { MeltPoint: 1350 },
-  Imperium: { MeltPoint: 1600 },
-  Supremium: { MeltPoint: 1850 },
-  Soulium: { MeltPoint: 1200 },
+  inferium: 850,
+  prudentium: 1100,
+  tertium: 1350,
+  imperium: 1600,
+  supremium: 1850,
+  soulium: 1200,
 
   //Magic Metal
-  ManaSteel: { MeltPoint: 1440 },
+  manaSteel: 1440,
 
   //Magic Gem
-  Source: { MeltPoint: 1623 },
+  source: 1623,
 };
 
-Anoxia.Constant.Tinker.SmeltingFactor = {
-  Furnace: { Heat: 0.8 },
-  Dimension: { Moon: -190 },
-  Environment: { Value: 6 },
+anoxia.constant.tinkerConstruct.smeltingFactor = {
+  furnace: { heat: 0.8 },
+  dimension: { moon: -190 },
+  environment: { value: 6 },
 };
 
-Anoxia.Constant.Tinker.AmountType = {
-  Block: 810,
-  Ingot: 90,
-  Nugget: 10,
-  Gem: 100,
+anoxia.constant.tinkerConstruct.amountType = {
+  block: 810,
+  ingot: 90,
+  nugget: 10,
+  gem: 100,
 };

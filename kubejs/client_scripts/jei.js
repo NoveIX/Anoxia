@@ -1,19 +1,19 @@
 //Item
 JEIEvents.hideItems((event) => {
-  GameItem.RmOut.forEach((item) => event.hide(item));
-  GameItem.RmIn.forEach((item) => event.hide(item));
-  GameItem.JeiHide.forEach((item) => event.hide(item));
+  gameItem.rmOut.forEach((item) => event.hide(item));
+  gameItem.rmIn.forEach((item) => event.hide(item));
+  gameItem.jeiHide.forEach((item) => event.hide(item));
 });
 
-JEIEvents.addItems((event) => GameItem.JeiAdd.forEach((item) => event.add(item)));
+JEIEvents.addItems((event) => gameItem.jeiAdd.forEach((item) => event.add(item)));
 
 //# ====================================================================================== #
 
 //Fluid
 JEIEvents.hideFluids((event) => {
-  GameFluid.RmOut.forEach((fluid) => event.hide(fluid));
-  GameFluid.RmIn.forEach((fluid) => event.hide(fluid));
-  GameFluid.JeiHide.forEach((item) => event.hide(item));
+  gameFluid.rmOut.forEach((fluid) => event.hide(fluid));
+  gameFluid.rmIn.forEach((fluid) => event.hide(fluid));
+  gameFluid.jeiHide.forEach((item) => event.hide(item));
 });
 
-JEIEvents.addFluids((event) => GameFluid.JeiAdd.forEach((fluid) => event.add(fluid)));
+JEIEvents.addFluids((event) => gameFluid.jeiAdd.forEach((fluid) => event.add(fluid)));

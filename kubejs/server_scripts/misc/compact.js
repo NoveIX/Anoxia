@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region RemoveID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Minecraft
     'cyclic:copper_ingot', //nugget => ingot
     'cyclic:netherite_ingot', //nugget => ingot
@@ -201,13 +201,13 @@ ServerEvents.recipes((event) => {
     'minecraft:infinity_nugget', //ingot => nugget
     'minecraft:infinity_block_from_infinity_ingot', //ingot => block
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Compact Thermal
-  function CompactThermalPack(get, put, rsflux) {
+  function compactThermalPack(get, put, rsflux) {
     const json = {
       type: 'thermal:press',
       result: [{ item: get }],
@@ -222,7 +222,7 @@ ServerEvents.recipes((event) => {
     event.custom(json);
   }
 
-  function CompactThermalUnpack(get, put, rsflux) {
+  function compactThermalUnpack(get, put, rsflux) {
     const json = {
       type: 'thermal:press',
       result: [{ item: get, count: 9 }],
@@ -241,7 +241,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Compact
-  const CompactPattern = [
+  const compactPattern = [
     //Minecraft
     {
       id: { ingot: 'minecraft:netherite_ingot', nugget: 'thermal:netherite_nugget', block: 'minecraft:netherite_block' },
@@ -396,18 +396,18 @@ ServerEvents.recipes((event) => {
       rsflux: 100000,
     },
   ];
-  CompactPattern.forEach((recipe) => {
+  compactPattern.forEach((recipe) => {
     // From Nugget To Ingot
-    if (recipe.id.ingot && (recipe.tag?.nugget || recipe.id.nugget)) CompactThermalPack(recipe.id.ingot, recipe.tag?.nugget || recipe.id.nugget, recipe.rsflux);
+    if (recipe.id.ingot && (recipe.tag?.nugget || recipe.id.nugget)) compactThermalPack(recipe.id.ingot, recipe.tag?.nugget || recipe.id.nugget, recipe.rsflux);
 
     // From Block To Ingot
-    if (recipe.id.ingot && (recipe.tag?.block || recipe.id.block)) CompactThermalUnpack(recipe.id.ingot, recipe.tag?.block || recipe.id.block, recipe.rsflux);
+    if (recipe.id.ingot && (recipe.tag?.block || recipe.id.block)) compactThermalUnpack(recipe.id.ingot, recipe.tag?.block || recipe.id.block, recipe.rsflux);
 
     // From Ingot To Nugget
-    if (recipe.id.nugget && (recipe.tag?.ingot || recipe.id.ingot)) CompactThermalUnpack(recipe.id.nugget, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
+    if (recipe.id.nugget && (recipe.tag?.ingot || recipe.id.ingot)) compactThermalUnpack(recipe.id.nugget, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
 
     // From Ingot To Block
-    if (recipe.id.block && (recipe.tag?.ingot || recipe.id.ingot)) CompactThermalPack(recipe.id.block, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
+    if (recipe.id.block && (recipe.tag?.ingot || recipe.id.ingot)) compactThermalPack(recipe.id.block, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
   });
   //#endregion
 });

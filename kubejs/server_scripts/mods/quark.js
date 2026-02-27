@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //Wood Chest
-  const ChestPattern = [
+  const chestPattern = [
     { get: 'quark:ancient_chest', put: '#quark:ancient_logs' },
     { get: 'quark:azalea_chest', put: '#quark:azalea_logs' },
     { get: 'quark:blossom_chest', put: '#quark:blossom_logs' },
@@ -15,7 +15,7 @@ ServerEvents.recipes((event) => {
     { get: 'quark:mangrove_chest', put: '#minecraft:mangrove_logs' },
     { get: 'quark:cherry_chest', put: '#minecraft:cherry_logs' },
   ];
-  ChestPattern.forEach((recipe) => {
+  chestPattern.forEach((recipe) => {
     event.remove({ output: recipe.get, input: recipe.put });
     event.shaped(recipe.get, ['AAA', 'A A', 'AAA'], { A: recipe.put });
   });

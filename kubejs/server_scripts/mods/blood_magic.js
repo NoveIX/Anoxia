@@ -1,6 +1,6 @@
 ServerEvents.recipes((event) => {
   //#region Remove ID
-  const RmRecipeID = [
+  const rmRecipeId = [
     //Botania
     'botanicadds:flowers/floating/necroidus',
     'botanicadds:flowers/floating/apicaria',
@@ -10,13 +10,13 @@ ServerEvents.recipes((event) => {
     'botanicadds:flowers/floating/vibrantia',
     'botanicadds:flowers/floating/energizera',
   ];
-  RmRecipeID.forEach((id) => event.remove({ id: id }));
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
   //# ====================================================================================== #
 
   //#region Altar
-  const AltarPattern = [
+  const altarPattern = [
     //Mekanism
     { get: 'mekanism:ultimate_tier_installer', put: 'mekanism:elite_tier_installer', syphon: 40000, consumption: 400, drain: 40, level: 4 },
 
@@ -98,7 +98,7 @@ ServerEvents.recipes((event) => {
     { get: 'botanicadds:flowers/floating/vibrantia', put: 'botanicadds:flowers/vibrantia', syphon: 1000, consumption: 20, drain: 5, level: 1 },
     { get: 'botanicadds:flowers/floating/energizera', put: 'botanicadds:flowers/energizera', syphon: 1000, consumption: 20, drain: 5, level: 1 },
   ];
-  AltarPattern.forEach((recipe) => {
+  altarPattern.forEach((recipe) => {
     event.remove({ output: recipe.get });
 
     const json = {

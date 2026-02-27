@@ -1,6 +1,6 @@
 ClientEvents.lang('en_us', (event) => {
   //#region Rename Item
-  const RenamePattern = [
+  const renamePattern = [
     { item: 'quark:sturdy_stone', new: 'Stasis Stone (Za Warudo! Toki wo tomare!)' },
     { item: 'thermal:coal_coke_block', new: 'Block of Coal Coke' },
     { item: 'industrialforegoing:tinydryrubber', new: 'Tiny Dry Rubber' },
@@ -11,13 +11,12 @@ ClientEvents.lang('en_us', (event) => {
     { item: 'thermal:coal_coke', new: 'Coal Coke' },
     { item: 'extendedcrafting:handheld_table', new: 'Crafting Table On A Stick' },
   ];
-  RenamePattern.forEach((name) => event.renameItem(name.item, name.new));
+  renamePattern.forEach((name) => event.renameItem(name.item, name.new));
   //#endregion
 
   //#region Rename Disk
-  const SizePattern = ['1k', '4k', '16k', '64k', '256k'];
-
-  const DiskTypePattern = [
+  const sizePattern = ['1k', '4k', '16k', '64k', '256k'];
+  const diskTypePattern = [
     //Drive
     { prefix: 'ae2:item_storage_cell_', new: 'ME Item Disk Drive' },
     { prefix: 'ae2:fluid_storage_cell_', new: 'ME Fluid Disk Drive' },
@@ -35,18 +34,13 @@ ClientEvents.lang('en_us', (event) => {
     { prefix: 'appbot:portable_mana_storage_cell_', new: 'Portable Mana Disk Drive' },
     { prefix: 'arseng:portable_source_cell_', new: 'Portable Source Disk Drive' },
   ];
-
-  const DiskRaname = [];
-
-  DiskTypePattern.forEach((type) => {
-    SizePattern.forEach((size) => {
+  diskTypePattern.forEach((type) => {
+    sizePattern.forEach((size) => {
       const itemID = type.prefix + size + (type.suffix ?? '');
-      const newName = size + ' ' + type.label;
-      DiskRaname.push({ item: itemID, new: newName });
+      const newName = size + ' ' + type.new;
+      event.renameItem(itemID, newName);
     });
   });
-
-  DiskRaname.forEach((name) => event.renameItem(name.item, name.new));
   //#endregion
 
   //# ====================================================================================== #
@@ -114,18 +108,13 @@ ClientEvents.lang('en_us', (event) => {
   function renameBotanyPots(event, materialId, materialName, colorId, colorName, typeId, typeName) {
     //Botany Pots
     //For default terracotta pots without color specification
-    if (!colorId) {
-      event.renameItem(`botanypots:${materialId}_${typeId}`, `${typeName}`);
-    }
+    if (!colorId) event.renameItem(`botanypots:${materialId}_${typeId}`, `${typeName}`);
 
     //For colored pots
     //Special case for terracotta - we use a shorter name format
-    if (materialId === 'terracotta') {
-      event.renameItem(`botanypots:${colorId}_${materialId}_${typeId}`, `${colorName} ${typeName}`);
-    } else {
-      //For Glazed and concrete with colors
-      event.renameItem(`botanypots:${colorId}_${materialId}_${typeId}`, `${colorName} ${materialName} ${typeName}`);
-    }
+    if (materialId === 'terracotta') event.renameItem(`botanypots:${colorId}_${materialId}_${typeId}`, `${colorName} ${typeName}`);
+    //For Glazed and concrete with colors
+    else event.renameItem(`botanypots:${colorId}_${materialId}_${typeId}`, `${colorName} ${materialName} ${typeName}`);
   }
 
   //Process standard botany pots (without tier)
@@ -134,11 +123,7 @@ ClientEvents.lang('en_us', (event) => {
     renameBotanyPots(event, 'terracotta', 'Terracotta', null, null, type.id, type.name);
 
     //Handle all material and color combinations
-    materials.forEach((material) => {
-      colors.forEach((color) => {
-        renameBotanyPots(event, material.id, material.name, color.id, color.name, type.id, type.name);
-      });
-    });
+    materials.forEach((material) => colors.forEach((color) => renameBotanyPots(event, material.id, material.name, color.id, color.name, type.id, type.name)));
   });
   //#endregion
 
@@ -158,33 +143,23 @@ ClientEvents.lang('en_us', (event) => {
   function renameBotanyPotsTier(event, tierId, tierName, materialId, materialName, colorId, colorName, typeId, typeName) {
     //Botany Pots
     //For default terracotta pots without color specification
-    if (!colorId) {
-      event.renameItem(`botanypots:${tierId}_${materialId}_${typeId}`, `${tierName} ${typeName}`);
-    }
+    if (!colorId) event.renameItem(`botanypots:${tierId}_${materialId}_${typeId}`, `${tierName} ${typeName}`);
 
     //For colored pots
     //Special case for terracotta - we use a shorter name format
-    if (materialId === 'terracotta') {
-      event.renameItem(`botanypots:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${typeName}`);
-    } else {
-      //For Glazed and concrete with colors
-      event.renameItem(`botanypots:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${materialName} ${typeName}`);
-    }
+    if (materialId === 'terracotta') event.renameItem(`botanypots:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${typeName}`);
+    //For Glazed and concrete with colors
+    else event.renameItem(`botanypots:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${materialName} ${typeName}`);
 
     //Botany Pots Tier
     //For default terracotta pots without color specification
-    if (!colorId) {
-      event.renameItem(`botanypotstiers:${tierId}_${materialId}_${typeId}`, `${tierName} ${typeName}`);
-    }
+    if (!colorId) event.renameItem(`botanypotstiers:${tierId}_${materialId}_${typeId}`, `${tierName} ${typeName}`);
 
     //For colored pots
     //Special case for terracotta - we use a shorter name format
-    if (materialId === 'terracotta') {
-      event.renameItem(`botanypotstiers:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${typeName}`);
-    } else {
-      //For Glazed and concrete with colors
-      event.renameItem(`botanypotstiers:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${materialName} ${typeName}`);
-    }
+    if (materialId === 'terracotta') event.renameItem(`botanypotstiers:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${typeName}`);
+    //For Glazed and concrete with colors
+    else event.renameItem(`botanypotstiers:${tierId}_${colorId}_${materialId}_${typeId}`, `${tierName} ${colorName} ${materialName} ${typeName}`);
   }
 
   //Process all tiered botany pot combinations
@@ -194,11 +169,7 @@ ClientEvents.lang('en_us', (event) => {
       renameBotanyPotsTier(event, tier.id, tier.name, 'terracotta', 'Terracotta', null, null, type.id, type.name);
 
       //Handle all material and color combinations
-      materials.forEach((material) => {
-        colors.forEach((color) => {
-          renameBotanyPotsTier(event, tier.id, tier.name, material.id, material.name, color.id, color.name, type.id, type.name);
-        });
-      });
+      materials.forEach((material) => colors.forEach((color) => renameBotanyPotsTier(event, tier.id, tier.name, material.id, material.name, color.id, color.name, type.id, type.name)));
     });
   });
   //#endregion

@@ -7,11 +7,11 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Elven Trade
-  const ElvenTradePattern = [
+  const elvenTradePattern = [
     //Aethersteel
     { get: [{ item: 'aethersteel:aetherslate' }], put: [{ item: 'anoxia:compressed_deepslate' }] },
   ];
-  ElvenTradePattern.forEach((recipe) => {
+  elvenTradePattern.forEach((recipe) => {
     event.custom({
       type: 'botania:elven_trade',
       ingredients: recipe.put,
@@ -23,14 +23,14 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Orechid
-  const OrechidPattern = [
+  const orechidPattern = [
     {
       get: { type: 'block', block: 'aethersteel:aether_debris' },
       put: { type: 'block', block: 'minecraft:deepslate' },
       perc: 3,
     },
   ];
-  OrechidPattern.forEach((recipe) => {
+  orechidPattern.forEach((recipe) => {
     event.custom({
       type: 'botania:orechid',
       input: recipe.put,

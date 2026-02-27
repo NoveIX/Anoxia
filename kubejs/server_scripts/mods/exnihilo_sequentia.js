@@ -1,4 +1,4 @@
-/* ServerEvents.recipes((event) => {
+ServerEvents.recipes((event) => {
   //StoneCrook
   event.remove({ output: 'exnihilosequentia:stone_crook' });
   event.shaped('exnihilosequentia:stone_crook', ['AA', ' A', ' A'], { A: '#forge:pebble/stone' });
@@ -6,7 +6,7 @@
   //# ====================================================================================== #
 
   //#region Compost
-  const CompostPattern = [
+  const compostPattern = [
     { put: { item: 'rootsclassic:elderberry' }, compost: 40 },
     { put: { item: 'rootsclassic:nightshade' }, compost: 40 },
     { put: { item: 'rootsclassic:blackcurrant' }, compost: 40 },
@@ -14,7 +14,7 @@
     { put: { item: 'rootsclassic:whitecurrant' }, compost: 40 },
     { put: { item: 'delightful:green_tea_leaf' }, compost: 40 },
   ];
-  CompostPattern.forEach((recipe) => {
+  compostPattern.forEach((recipe) => {
     event.custom({
       type: 'exnihilosequentia:compost',
       amount: recipe.compost,
@@ -26,7 +26,7 @@
   //# ====================================================================================== #
 
   //#region Crusher
-  const CrusherPattern = [
+  const crusherPattern = [
     {
       get: [{ chance: 1.0, count: 1, item: 'aethersteel:cobbled_aetherslate' }],
       put: { item: 'aethersteel:aetherslate' },
@@ -44,7 +44,7 @@
       put: { item: 'ad_astra:venus_cobblestone' },
     },
   ];
-  CrusherPattern.forEach((recipe) => {
+  crusherPattern.forEach((recipe) => {
     event.custom({
       type: 'exnihilosequentia:crushing',
       input: recipe.put,
@@ -56,8 +56,8 @@
   //# ====================================================================================== #
 
   //#region Precipitate
-  const FluidItemPattern = [{ get: { count: 1, item: 'ae2:sky_stone_block' }, put: { item: 'ae2:sky_dust' }, fluid: { amount: 1000, fluid: 'minecraft:lava' } }];
-  FluidItemPattern.forEach((recipe) => {
+  const fluidItemPattern = [{ get: { count: 1, item: 'ae2:sky_stone_block' }, put: { item: 'ae2:sky_dust' }, fluid: { amount: 1000, fluid: 'minecraft:lava' } }];
+  fluidItemPattern.forEach((recipe) => {
     event.custom({
       type: 'exnihilosequentia:precipitate',
       fluid: recipe.fluid,
@@ -71,7 +71,7 @@
 
   //#region Heat
   event.remove({ type: 'exnihilosequentia:heat' });
-  const HeatPattern = [
+  const heatPattern = [
     { under: 'minecraft:lava', multi: 3 },
     { under: 'minecraft:furnace', multi: 3, heat: true },
     { under: 'minecraft:blast_furnace', multi: 3, heat: true },
@@ -99,7 +99,7 @@
     { under: 'avaritia:neutron', multi: 250 },
     { under: 'avaritia:infinity', multi: 1000 },
   ];
-  HeatPattern.forEach((recipe) => {
+  heatPattern.forEach((recipe) => {
     const json = {
       type: 'exnihilosequentia:heat',
       amount: recipe.multi,
@@ -116,7 +116,7 @@
 
   //#region Sieve
   event.remove({ type: 'exnihilosequentia:sifting' });
-  const SievePattern = [
+  const sievePattern = [
     //#region Gravel drop
     {
       get: { item: 'minecraft:flint' },
@@ -837,323 +837,12 @@
     },
     //#endregion
   ];
-  SievePattern.forEach((recipe) => {
+  sievePattern.forEach((recipe) => {
     event.custom({
       type: 'exnihilosequentia:sifting',
       input: recipe.put,
       result: recipe.get,
       rolls: recipe.drop,
-    });
-  });
-  //#endregion
-});
- */
-
-ServerEvents.recipes((event) => {
-  // ==================== CONFIGURAZIONE ====================
-  const MESH_TIERS = ['string', 'flint', 'iron', 'diamond', 'emerald', 'netherite', 'aethersteel'].map((t) => `exnihilosequentia:${t}_mesh`);
-
-  const CONFIG = {
-    sieve: { processingTime: 200 }, // Aggiungi se necessario per il tuo modpack
-  };
-
-  // ==================== HELPER FUNCTIONS ====================
-  const addCompost = (input, amount) =>
-    event.custom({
-      type: 'exnihilosequentia:compost',
-      input: { item: input },
-      amount: amount,
-    });
-
-  const addCrusher = (input, output, chance = 1.0, count = 1) =>
-    event.custom({
-      type: 'exnihilosequentia:crushing',
-      input: { item: input },
-      results: [{ item: output, chance, count }],
-    });
-
-  const addPrecipitate = (input, fluid, fluidAmount, output, count = 1) =>
-    event.custom({
-      type: 'exnihilosequentia:precipitate',
-      input: { item: input },
-      fluid: { fluid, amount: fluidAmount },
-      result: { item: output, count },
-    });
-
-  const addHeat = (block, amount, { lit = false } = {}) => {
-    const json = {
-      type: 'exnihilosequentia:heat',
-      block,
-      amount,
-    };
-    if (lit) json.state = { lit: true };
-    event.custom(json);
-  };
-
-  const addSieve = (input, output, mesh, chance, tag = false) => {
-    const inputObj = tag ? { tag: input } : { item: input };
-    event.custom({
-      type: 'exnihilosequentia:sifting',
-      input: inputObj,
-      result: { item: output },
-      rolls: [{ mesh: `exnihilosequentia:${mesh}_mesh`, chance }],
-    });
-  };
-
-  // Helper per espandere drop con chance progressive su più mesh
-  const expandSieveDrops = (input, output, drops, tag = false) => {
-    drops.forEach(({ chance, mesh }) => {
-      addSieve(input, output, mesh, chance, tag);
-    });
-  };
-
-  // Helper per generare progressioni lineari di chance: base + (index * increment)
-  const progressiveDrops = (baseChance, increment, startTier = 0, endTier = MESH_TIERS.length - 1) => {
-    const drops = [];
-    for (let i = startTier; i <= endTier; i++) {
-      drops.push({ mesh: MESH_TIERS[i].replace('exnihilosequentia:', '').replace('_mesh', ''), chance: baseChance + (i - startTier) * increment });
-    }
-    return drops;
-  };
-
-  // ==================== RICETTE STATICHE ====================
-  // Stone Crook
-  event.remove({ output: 'exnihilosequentia:stone_crook' });
-  event.shaped('exnihilosequentia:stone_crook', ['AA', ' A', ' A'], { A: '#forge:pebble/stone' });
-
-  // Rimozioni globali
-  event.remove({ type: 'exnihilosequentia:heat' });
-  event.remove({ type: 'exnihilosequentia:sifting' });
-
-  // ==================== COMPOST ====================
-  //#region Compost
-  ['rootsclassic:elderberry', 'rootsclassic:nightshade', 'rootsclassic:blackcurrant', 'rootsclassic:redcurrant', 'rootsclassic:whitecurrant', 'delightful:green_tea_leaf'].forEach((item) => addCompost(item, 40));
-  //#endregion
-
-  // ==================== CRUSHER ====================
-  //#region Crusher
-  [
-    { in: 'aethersteel:aetherslate', out: 'aethersteel:cobbled_aetherslate' },
-    { in: 'ad_astra:moon_cobblestone', out: 'ad_astra:moon_sand' },
-    { in: 'ad_astra:mars_cobblestone', out: 'ad_astra:mars_sand' },
-    { in: 'ad_astra:venus_cobblestone', out: 'ad_astra:venus_sand' },
-  ].forEach(({ in: input, out: output }) => addCrusher(input, output));
-  //#endregion
-
-  // ==================== PRECIPITATE ====================
-  //#region Precipitate
-  addPrecipitate('ae2:sky_dust', 'minecraft:lava', 1000, 'ae2:sky_stone_block');
-  //#endregion
-
-  // ==================== HEAT SOURCES ====================
-  //#region Heat
-  const HEAT_SOURCES = [
-    { block: 'minecraft:lava', amount: 3 },
-    { block: 'minecraft:furnace', amount: 3, lit: true },
-    { block: 'minecraft:blast_furnace', amount: 3, lit: true },
-    { block: 'cobblefordays:tier_1', amount: 3 },
-    { block: 'cobblefordays:tier_2', amount: 4 },
-    { block: 'cobblefordays:tier_3', amount: 5 },
-    { block: 'cobblefordays:tier_4', amount: 6 },
-    { block: 'cobblefordays:tier_5', amount: 7 },
-    { block: 'minecraft:torch', amount: 1 },
-    { block: 'minecraft:fire', amount: 4 },
-    { block: 'minecraft:campfire', amount: 4, lit: true },
-    { block: 'minecraft:soul_torch', amount: 1 },
-    { block: 'minecraft:soul_fire', amount: 4 },
-    { block: 'minecraft:soul_campfire', amount: 4, lit: true },
-    { block: 'minecraft:magma_block', amount: 4 },
-    { block: 'botania:blaze_quartz', amount: 10 },
-    { block: 'botania:blaze_block', amount: 20 },
-    { block: 'mekanism:block_uranium', amount: 30 },
-    { block: 'bigreactors:blutonium_block', amount: 40 },
-    { block: 'bigreactors:magentite_block', amount: 40 },
-    { block: 'bigreactors:ludicrite_block', amount: 50 },
-    { block: 'bigreactors:ridiculite_block', amount: 60 },
-    { block: 'bigreactors:inanite_block', amount: 70 },
-    { block: 'bigreactors:insanite_block', amount: 80 },
-    { block: 'avaritia:neutron', amount: 250 },
-    { block: 'avaritia:infinity', amount: 1000 },
-  ];
-  HEAT_SOURCES.forEach((cfg) => addHeat(cfg.block, cfg.amount, { lit: cfg.lit }));
-  //#endregion
-
-  // ==================== SIEVE RECIPES ====================
-  //#region Sieve
-  const SIEVE_DATA = [
-    //#region Gravel
-    {
-      input: 'minecraft:gravel',
-      drops: [
-        { output: 'minecraft:flint', drops: progressiveDrops(0.125, 0.025, 0, 5) },
-        { output: 'minecraft:coal', drops: progressiveDrops(0.09, 0.03, 0, 5) },
-        { output: 'minecraft:lapis_lazuli', drops: progressiveDrops(0.05, 0.04, 1, 5) },
-        { output: 'minecraft:diamond', drops: progressiveDrops(0.008, 0.003, 2, 5) },
-        { output: 'minecraft:emerald', drops: progressiveDrops(0.008, 0.003, 2, 5) },
-        { output: 'minecraft:amethyst_shard', drops: progressiveDrops(0.01, 0.02, 3, 5) },
-        { output: 'exnihilosequentia:iron_pieces', drops: progressiveDrops(0.04, 0.04, 1, 5) },
-        { output: 'exnihilosequentia:lead_pieces', drops: progressiveDrops(0.04, 0.04, 2, 5) },
-        { output: 'exnihilosequentia:aluminum_pieces', drops: progressiveDrops(0.04, 0.04, 2, 5) },
-        { output: 'exnihilosequentia:platinum_pieces', drops: progressiveDrops(0.04, 0.04, 3, 5) },
-      ],
-    },
-    //#endregion
-
-    //#region Sand
-    {
-      input: 'minecraft:sand',
-      drops: [
-        { output: 'minecraft:cocoa_beans', drops: [{ mesh: 'string', chance: 0.3 }] },
-        { output: 'minecraft:sugar_cane', drops: [{ mesh: 'string', chance: 0.5 }] },
-        { output: 'minecraft:cactus', drops: [{ mesh: 'string', chance: 0.5 }] },
-        { output: 'ae2:certus_quartz_crystal', drops: progressiveDrops(0.03, 0.03, 1, 5) },
-        { output: 'projectred_core:electrotine_dust', drops: progressiveDrops(0.09, 0.03, 1, 5) },
-        { output: 'exnihilosequentia:copper_pieces', drops: progressiveDrops(0.04, 0.04, 1, 5) },
-        { output: 'exnihilosequentia:nickel_pieces', drops: progressiveDrops(0.04, 0.04, 2, 5) },
-        { output: 'exnihilosequentia:tin_pieces', drops: progressiveDrops(0.04, 0.04, 2, 5) },
-        { output: 'anoxia:osmium_pieces', drops: progressiveDrops(0.04, 0.04, 3, 5) },
-        { output: 'thermal:apatite', drops: progressiveDrops(0.01, 0.01, 2, 5) },
-        { output: 'thermal:niter', drops: progressiveDrops(0.01, 0.01, 2, 5) },
-        { output: 'thermal:cinnabar', drops: progressiveDrops(0.01, 0.01, 3, 5) },
-        { output: 'thermal:sulfur', drops: progressiveDrops(0.01, 0.01, 3, 5) },
-      ],
-    },
-    //#endregion
-
-    //#region Dust
-    {
-      input: 'exnihilosequentia:dust',
-      drops: [
-        { output: 'minecraft:bone_meal', drops: progressiveDrops(0.2, 0.015, 0, 5) },
-        { output: 'minecraft:gunpowder', drops: progressiveDrops(0.07, 0.01, 0, 5) },
-        { output: 'ae2:sky_dust', drops: progressiveDrops(0.02, 0.02, 0, 5) },
-        { output: 'ae2:certus_quartz_dust', drops: progressiveDrops(0.08, 0.04, 1, 5) },
-        { output: 'minecraft:redstone', drops: progressiveDrops(0.12, 0.03, 2, 5) },
-        { output: 'minecraft:glowstone_dust', drops: progressiveDrops(0.06, 0.03, 2, 5) },
-        { output: 'minecraft:blaze_powder', drops: progressiveDrops(0.05, 0.02, 2, 5) },
-        { output: 'exnihilosequentia:gold_pieces', drops: progressiveDrops(0.04, 0.04, 1, 5) },
-        { output: 'exnihilosequentia:silver_pieces', drops: progressiveDrops(0.04, 0.04, 2, 5) },
-        { output: 'exnihilosequentia:zinc_pieces', drops: progressiveDrops(0.04, 0.04, 2, 5) },
-        { output: 'exnihilosequentia:uranium_pieces', drops: progressiveDrops(0.04, 0.04, 3, 5) },
-      ],
-    },
-    //#endregion
-
-    //#region Crushed Netherrack
-    {
-      input: 'exnihilosequentia:crushed_netherrack',
-      drops: [
-        { output: 'exnihilosequentia:gold_pieces', drops: progressiveDrops(0.12, 0.04, 2, 5) },
-        {
-          output: 'anoxia:cobalt_pieces',
-          drops: [
-            { mesh: 'diamond', chance: 0.04 },
-            { mesh: 'emerald', chance: 0.08 },
-            { mesh: 'netherite', chance: 0.012 },
-          ],
-        },
-        {
-          output: 'anoxia:demonite_pieces',
-          drops: [
-            { mesh: 'emerald', chance: 0.04 },
-            { mesh: 'netherite', chance: 0.08 },
-          ],
-        },
-        { output: 'minecraft:ancient_debris', drops: progressiveDrops(0.008, 0.004, 3, 5) },
-        { output: 'mysticalagriculture:prosperity_shard', drops: progressiveDrops(0.1, 0.05, 3, 5) },
-        { output: 'thermal:ruby', drops: progressiveDrops(0.02, 0.02, 3, 5) },
-        { output: 'thermal:sapphire', drops: progressiveDrops(0.02, 0.02, 3, 5) },
-        { output: 'projectred_core:peridot', drops: progressiveDrops(0.02, 0.02, 3, 5) },
-      ],
-    },
-    //#endregion
-
-    //#region Soul Sand
-    {
-      input: 'minecraft:soul_sand',
-      drops: [
-        { output: 'minecraft:nether_wart', drops: [{ mesh: 'string', chance: 0.1 }] },
-        { output: 'minecraft:quartz', drops: progressiveDrops(0.4, 0.1, 1, 5) },
-        { output: 'minecraft:ghast_tear', drops: progressiveDrops(0.02, 0.01, 3, 5) },
-      ],
-    },
-    //#endregion
-
-    //#region Crushed End Stone
-    {
-      input: 'exnihilosequentia:crushed_end_stone',
-      drops: [
-        { output: 'mysticalagriculture:prosperity_shard', drops: progressiveDrops(0.1, 0.05, 3, 5) },
-        { output: 'anoxia:enderite_pieces', drops: progressiveDrops(0.01, 0.01, 3, 5) },
-        { output: 'minecraft:ender_pearl', drops: progressiveDrops(0.01, 0.01, 4, 5) },
-        { output: 'minecraft:ender_eye', drops: progressiveDrops(0.001, 0.001, 4, 5) },
-        { output: 'minecraft:chorus_fruit', drops: progressiveDrops(0.01, 0.01, 4, 5) },
-      ],
-    },
-    //#endregion
-
-    //#region Aetherslate
-    {
-      input: 'aethersteel:cobbled_aetherslate',
-      drops: [
-        {
-          output: 'aethersteel:aether_debris',
-          drops: [
-            { mesh: 'netherite', chance: 0.01 },
-            { mesh: 'aethersteel', chance: 0.02 },
-          ],
-        },
-      ],
-    },
-    //#endregion
-
-    //#region Stone Pebbles
-    { input: 'minecraft:stone', isTag: false, drops: ['andesite', 'basalt', 'blackstone', 'calcite', 'deepslate', 'diorite', 'dripstone', 'granite', 'stone', 'tuff'].map((type) => ({ output: `exnihilosequentia:${type}_pebble`, drops: [{ mesh: 'flint', chance: 0.2 }] })) },
-    //#endregion
-
-    //#region Dirt Drops
-    {
-      input: 'exnihilosequentia:dust',
-      drops: [
-        { output: 'minecraft:wheat_seeds', drops: [{ mesh: 'string', chance: 0.7 }] },
-        { output: 'minecraft:poppy', drops: [{ mesh: 'string', chance: 0.25 }] },
-        ...['sweet_berries', 'potato', 'carrot', 'bamboo'].map((item) => ({ output: `minecraft:${item}`, drops: [{ mesh: 'string', chance: 0.05 }] })),
-        { output: 'exnihilosequentia:grass_seeds', drops: [{ mesh: 'string', chance: 0.01 }] },
-        { output: 'exnihilosequentia:mycelium_spores', drops: [{ mesh: 'string', chance: 0.01 }] },
-        ...['oak', 'spruce', 'birch', 'jungle', 'acacia', 'dark_oak', 'mangrove', 'cherry'].map((type) => {
-          const item = type === 'mangrove' ? 'mangrove_propagule' : `${type}_sapling`;
-          return { output: `minecraft:${item}`, drops: [{ mesh: 'string', chance: 0.1 }] };
-        }),
-      ],
-    },
-    //#endregion
-
-    //#region Leaves (tag)
-    {
-      input: 'minecraft:leaves',
-      isTag: true,
-      drops: [
-        { output: 'exnihilosequentia:silkworm', drops: [{ mesh: 'string', chance: 0.25 }] },
-        { output: 'minecraft:apple', drops: [{ mesh: 'string', chance: 0.1 }] },
-        { output: 'minecraft:golden_apple', drops: [{ mesh: 'string', chance: 0.001 }] },
-        { output: 'minecraft:enchanted_golden_apple', drops: [{ mesh: 'string', chance: 0.0001 }] },
-        ...['elderberry', 'nightshade', 'blackcurrant', 'redcurrant', 'whitecurrant'].map((berry) => ({ output: `rootsclassic:${berry}`, drops: [{ mesh: 'string', chance: 0.1 }] })),
-        { output: 'delightful:green_tea_leaf', drops: [{ mesh: 'string', chance: 0.1 }] },
-      ],
-    },
-    //#endregion
-
-    //#region Space Sand
-    { input: 'ad_astra:moon_sand', drops: [{ output: 'anoxia:desh_pieces', drops: progressiveDrops(0.04, 0.04, 3, 5) }] },
-    { input: 'ad_astra:mars_sand', drops: [{ output: 'anoxia:ostrum_pieces', drops: progressiveDrops(0.04, 0.04, 3, 5) }] },
-    { input: 'ad_astra:venus_sand', drops: [{ output: 'anoxia:calorite_pieces', drops: progressiveDrops(0.04, 0.04, 3, 5) }] },
-    //#endregion
-  ];
-
-  // Generazione ricette sieve
-  SIEVE_DATA.forEach(({ input, drops, isTag = false }) => {
-    drops.forEach(({ output, drops: meshDrops }) => {
-      expandSieveDrops(input, output, meshDrops, isTag);
     });
   });
   //#endregion

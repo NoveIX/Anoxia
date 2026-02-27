@@ -19,7 +19,7 @@ ServerEvents.recipes((event) => {
 
   //#region Cutting
   event.remove({ output: 'projectred_core:silicon' });
-  const CuttingPattern = [
+  const cuttingPattern = [
     {
       //ProjectRED Silicon
       get: [{ item: 'projectred_core:silicon', count: 4 }],
@@ -27,7 +27,7 @@ ServerEvents.recipes((event) => {
       cutter: { tag: 'forge:tools/knives' },
     },
   ];
-  CuttingPattern.forEach((recipe) => {
+  cuttingPattern.forEach((recipe) => {
     event.custom({
       type: 'farmersdelight:cutting',
       ingredients: recipe.put,
