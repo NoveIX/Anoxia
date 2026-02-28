@@ -161,6 +161,10 @@ ServerEvents.recipes((event) => {
     { get: 'enderio:soularium_ingot', n0: 1, put1: 'forge:ingots/cognitive_alloy', n1: 1, put2: 'forge:ingots/gold', n2: 1, rsflux: 24000, alloy: 'ender' }, //Soularium Ingot
     { get: 'enderio:end_steel_ingot', n0: 1, put1: 'forge:end_stones', n1: 1, put2: 'forge:ingots/dark_steel', n2: 1, put3: 'forge:obsidian', n3: 1, rsflux: 36000, alloy: 'complex' }, //EndSteel Ingot
 
+    //Project Red
+    { get: 'projectred_core:red_ingot', n0: 1, put1: 'forge:ingots/copper', n1: 1, put2: 'forge:dusts/redstone', n2: 4, rsflux: 32000, alloy: 'simple' },
+    { get: 'projectred_core:electrotine_ingot', n0: 1, put1: 'forge:ingots/copper', n1: 1, put2: 'forge:dusts/electrotine', n2: 4, rsflux: 32000, alloy: 'simple' },
+
     //Redstone arsenal
     { get: 'redstone_arsenal:flux_ingot', n0: 1, put1: 'forge:ingots/electrum', n1: 1, put2: 'forge:dusts/redstone', n2: 4, rsflux: 24000, alloy: 'ender' },
 

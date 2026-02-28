@@ -218,59 +218,6 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
-  //#region Alloy
-  const alloyPattern = [
-    {
-      get: { base_ingredient: { item: 'projectred_core:red_ingot' }, count: 1 },
-      put: { base_ingredient: { tag: 'forge:ingots/copper' }, count: 1 },
-      add: { base_ingredient: { tag: 'forge:dusts/redstone' }, count: 4 },
-    },
-    {
-      get: { base_ingredient: { item: 'projectred_core:electrotine_ingot' }, count: 1 },
-      put: { base_ingredient: { tag: 'forge:ingots/copper' }, count: 1 },
-      add: { base_ingredient: { tag: 'forge:dusts/electrotine' }, count: 4 },
-    },
-  ];
-  alloyPattern.forEach((recipe) => {
-    event.custom({
-      type: 'immersiveengineering:alloy',
-      input0: recipe.put,
-      input1: recipe.add,
-      result: recipe.get,
-      time: 200,
-    });
-  });
-  //#endregion
-
-  //# ====================================================================================== #
-
-  //#region ArcFurnace
-  const arcFurnacePattern = [
-    {
-      get: [{ base_ingredient: { item: 'projectred_core:red_ingot' }, count: 1 }],
-      put: { base_ingredient: { tag: 'forge:ingots/copper' }, count: 1 },
-      add: [{ base_ingredient: { tag: 'forge:dusts/redstone' }, count: 4 }],
-    },
-    {
-      get: [{ base_ingredient: { item: 'projectred_core:electrotine_ingot' }, count: 1 }],
-      put: { base_ingredient: { tag: 'forge:ingots/copper' }, count: 1 },
-      add: [{ base_ingredient: { tag: 'forge:dusts/electrotine' }, count: 4 }],
-    },
-  ];
-  arcFurnacePattern.forEach((recipe) => {
-    event.custom({
-      type: 'immersiveengineering:arc_furnace',
-      input: recipe.put,
-      additives: recipe.add,
-      results: recipe.get,
-      energy: 32000,
-      time: 100,
-    });
-  });
-  //#endregion
-
-  //# ====================================================================================== #
-
   //#region BlastFurnace
   const blastFurnacePattern = [
     { get: { item: 'thermal:steel_ingot' }, put: { tag: 'forge:ingots/iron' }, qty: 1, tick: 2400 },

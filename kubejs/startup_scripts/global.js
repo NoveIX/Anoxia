@@ -11,6 +11,10 @@ anoxia.constant.tinkerConstruct = {};
 // function Namespace
 anoxia.function = {};
 anoxia.function.Generic = {};
+anoxia.function.create = {};
+anoxia.function.enderIO = {};
+anoxia.function.immersiveEngineering = {};
+anoxia.function.thermalSeries = {};
 anoxia.function.tinkerConstruct = {};
 
 // Game Namespace
