@@ -134,7 +134,10 @@ ServerEvents.tags('item', (event) => {
     { tag: 'createdeco:internal/plates/copper_plates', item: '#forge:plates/copper' },
     { tag: 'createdeco:internal/plates/zinc_plates', item: '#forge:plates/zinc' },
   ];
-  addTagPattern.forEach((recipe) => recipe.item.forEach((i) => event.add(recipe.tag, recipe.item)));
+  addTagPattern.forEach((recipe) => {
+    const itemId = Array.isArray(recipe.item) ? recipe.item : [recipe.item];
+    itemId.forEach((i) => event.add(recipe.tag, i));
+  });
 });
 //#endregion
 
@@ -159,7 +162,10 @@ ServerEvents.tags('block', (event) => {
     { tag: 'mm:machine_port/energy/input', block: ['mm:tiny_energy_port_input', 'mm:small_energy_port_input', 'mm:normal_energy_port_input', 'mm:reinforced_energy_port_input', 'mm:big_energy_port_input', 'mm:huge_energy_port_input', 'mm:ludicrous_energy_port_input', 'mm:ultimate_energy_port_input'] },
     { tag: 'mm:machine_port/energy/output', block: ['mm:tiny_energy_port_output', 'mm:small_energy_port_output', 'mm:normal_energy_port_output', 'mm:reinforced_energy_port_output', 'mm:big_energy_port_output', 'mm:huge_energy_port_output', 'mm:ludicrous_energy_port_output', 'mm:ultimate_energy_port_output'] },
   ];
-  addTagPattern.forEach((recipe) => recipe.block.forEach((b) => event.add(recipe.tag, b)));
+  addTagPattern.forEach((recipe) => {
+    const blockId = Array.isArray(recipe.block) ? recipe.block : [recipe.block];
+    blockId.forEach((b) => event.add(recipe.tag, b));
+  });
 });
 //#endregion
 
