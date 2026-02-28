@@ -129,11 +129,11 @@ MMEvents.createStructures((event) => {
         .key('E', { block: 'actuallyadditions:crusher_double' })
 
         //Port
-        .key('1', { tag: 'mm:machine_item_port_input' })
-        .key('2', { tag: 'mm:machine_item_port_output' })
-        .key('3', { tag: 'mm:machine_fluid_port_input' })
-        .key('4', { tag: 'mm:machine_fluid_port_output' })
-        .key('5', { tag: 'mm:machine_energy_port_input' });
+        .key('1', { tag: 'mm:machine_port/item/input' })
+        .key('2', { tag: 'mm:machine_port/item/output' })
+        .key('3', { tag: 'mm:machine_port/fluid/input' })
+        .key('4', { tag: 'mm:machine_port/fluid/output' })
+        .key('5', { tag: 'mm:machine_port/energy/input' });
     });
 
   //# ====================================================================================== #
@@ -156,9 +156,9 @@ MMEvents.createStructures((event) => {
         .key('E', { block: 'actuallyadditions:empowerer' })
 
         //port
-        .key('1', { tag: 'mm:machine_item_port_input' })
-        .key('2', { tag: 'mm:machine_item_port_output' })
-        .key('5', { tag: 'mm:machine_energy_port_input' });
+        .key('1', { tag: 'mm:machine_port/item/input' })
+        .key('2', { tag: 'mm:machine_port/item/output' })
+        .key('5', { tag: 'mm:machine_port/energy/input' });
     });
   //#endregion
 
@@ -187,9 +187,9 @@ MMEvents.createStructures((event) => {
         .key('H', { block: 'powah:energizing_orb' })
 
         //Port
-        .key('1', { tag: 'mm:machine_item_port_input' })
-        .key('2', { tag: 'mm:machine_item_port_output' })
-        .key('5', { tag: 'mm:machine_energy_port_input' });
+        .key('1', { tag: 'mm:machine_port/item/input' })
+        .key('2', { tag: 'mm:machine_port/item/output' })
+        .key('5', { tag: 'mm:machine_port/energy/input' });
     });
   //#endregion
 
@@ -220,10 +220,10 @@ MMEvents.createStructures((event) => {
         .key('L', { block: 'industrialforegoing:ore_laser_base' })
 
         //Port
-        .key('1', { tag: 'mm:machine_item_port_input' })
-        .key('2', { tag: 'mm:machine_item_port_output' })
-        .key('3', { tag: 'mm:machine_fluid_port_input' })
-        .key('5', { tag: 'mm:machine_energy_port_input' });
+        .key('1', { tag: 'mm:machine_port/item/input' })
+        .key('2', { tag: 'mm:machine_port/item/output' })
+        .key('3', { tag: 'mm:machine_port/fluid/input' })
+        .key('5', { tag: 'mm:machine_port/energy/input' });
     });
   //#endregion
 
@@ -293,9 +293,9 @@ MMEvents.createStructures((event) => {
         .key('G', { block: 'minecraft:hopper' })
 
         //Port
-        .key('1', { tag: 'mm:machine_item_port_input' })
-        .key('2', { tag: 'mm:machine_item_port_output' })
-        .key('5', { tag: 'mm:machine_energy_port_input' });
+        .key('1', { tag: 'mm:machine_port/item/input' })
+        .key('2', { tag: 'mm:machine_port/item/output' })
+        .key('5', { tag: 'mm:machine_port/energy/input' });
     });
   //#endregion
 
@@ -318,9 +318,9 @@ MMEvents.createStructures((event) => {
         .key('E', { block: 'mm:machine_circuit' })
 
         //Port
-        .key('1', { tag: 'mm:machine_item_port_input' })
-        .key('2', { tag: 'mm:machine_item_port_output' })
-        .key('5', { tag: 'mm:machine_energy_port_input' });
+        .key('1', { tag: 'mm:machine_port/item/input' })
+        .key('2', { tag: 'mm:machine_port/item/output' })
+        .key('5', { tag: 'mm:machine_port/energy/input' });
     });
   //#endregion
 });

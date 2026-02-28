@@ -28,55 +28,36 @@ ServerEvents.tags('item', (event) => {
   const addTagPattern = [
     //#region Anoxia
     //Coil
-    { tag: 'anoxia:coils/copper', item: 'createaddition:copper_spool' },
-    { tag: 'anoxia:coils/copper', item: 'immersiveengineering:wirecoil_copper' },
-    { tag: 'anoxia:coils/electrum', item: 'createaddition:electrum_spool' },
-    { tag: 'anoxia:coils/electrum', item: 'immersiveengineering:wirecoil_electrum' },
+    { tag: 'anoxia:coils/copper', item: ['createaddition:copper_spool', 'immersiveengineering:wirecoil_copper'] },
+    { tag: 'anoxia:coils/electrum', item: ['createaddition:electrum_spool', 'immersiveengineering:wirecoil_electrum'] },
 
     //Fertilizer
-    { tag: 'anoxia:fertilizers', item: 'minecraft:bone_meal' },
-    { tag: 'anoxia:fertilizers', item: 'minecraft:rotten_flesh' },
-    { tag: 'anoxia:fertilizers', item: 'farmersdelight:tree_bark' },
-    { tag: 'anoxia:fertilizers', item: 'farmersdelight:straw' },
+    { tag: 'anoxia:fertilizers', item: ['minecraft:bone_meal', 'minecraft:rotten_flesh', 'farmersdelight:tree_bark', 'farmersdelight:straw'] },
 
     //Furnace
-    { tag: 'anoxia:furnaces/stone', item: 'minecraft:furnace' },
-    { tag: 'anoxia:furnaces/stone', item: 'quark:deepslate_furnace' },
-    { tag: 'anoxia:furnaces/blackstone', item: 'nethersdelight:blackstone_furnace' },
-    { tag: 'anoxia:furnaces/blackstone', item: 'quark:blackstone_furnace' },
-    { tag: 'anoxia:furnaces', item: '#anoxia:furnaces/stone' },
-    { tag: 'anoxia:furnaces', item: '#anoxia:furnaces/blackstone' },
-    { tag: 'anoxia:blastfurnaces', item: 'minecraft:blast_furnace' },
-    { tag: 'anoxia:blastfurnaces', item: 'nethersdelight:blackstone_blast_furnace' },
-    { tag: 'anoxia:smokers', item: 'minecraft:smoker' },
-    { tag: 'anoxia:smokers', item: 'nethersdelight:nether_brick_smoker' },
+    { tag: 'anoxia:furnaces/stone', item: ['minecraft:furnace', 'quark:deepslate_furnace'] },
+    { tag: 'anoxia:furnaces/blackstone', item: ['nethersdelight:blackstone_furnace', 'quark:blackstone_furnace'] },
+    { tag: 'anoxia:furnaces', item: ['#anoxia:furnaces/stone', '#anoxia:furnaces/blackstone'] },
+    { tag: 'anoxia:blastfurnaces', item: ['minecraft:blast_furnace', 'nethersdelight:blackstone_blast_furnace'] },
+    { tag: 'anoxia:smokers', item: ['minecraft:smoker', 'nethersdelight:nether_brick_smoker'] },
 
     //Stone
     { tag: 'anoxia:stone/polished_andesite', item: 'minecraft:polished_andesite' },
 
     //Fermenter
-    { tag: 'anoxia:fermenter', item: 'minecraft:rotten_flesh' },
-    { tag: 'anoxia:fermenter', item: 'minecraft:fermented_spider_eye' },
-    { tag: 'anoxia:fermenter', item: 'minecraft:sugar' },
-    { tag: 'anoxia:fermenter', item: 'minecraft:brown_mushroom' },
-    { tag: 'anoxia:fermenter', item: 'minecraft:red_mushroom' },
-    { tag: 'anoxia:fermenter', item: 'minecraft:nether_wart' },
+    { tag: 'anoxia:fermenter', item: ['minecraft:rotten_flesh', 'minecraft:fermented_spider_eye', 'minecraft:sugar', 'minecraft:brown_mushroom', 'minecraft:red_mushroom', 'minecraft:nether_wart'] },
 
     //Coal
     { tag: 'anoxia:coal', item: 'minecraft:coal' },
     { tag: 'anoxia:charcoal', item: 'minecraft:charcoal' },
-    { tag: 'anoxia:gems/coal', item: 'minecraft:coal' },
-    { tag: 'anoxia:gems/coal', item: 'minecraft:charcoal' },
+    { tag: 'anoxia:gems/coal', item: ['minecraft:coal', 'minecraft:charcoal'] },
     { tag: 'anoxia:coal_dust', item: '#forge:dusts/coal' },
     { tag: 'anoxia:charcoal_dust', item: '#forge:dusts/charcoal' },
-    { tag: 'anoxia:dusts/coal', item: '#forge:dusts/coal' },
-    { tag: 'anoxia:dusts/coal', item: '#forge:dusts/charcoal' },
-    { tag: 'anoxia:materials/coal', item: '#anoxia:gems/coal' },
-    { tag: 'anoxia:materials/coal', item: '#anoxia:dusts/coal' },
+    { tag: 'anoxia:dusts/coal', item: ['#forge:dusts/coal', '#forge:dusts/charcoal'] },
+    { tag: 'anoxia:materials/coal', item: ['#anoxia:gems/coal', '#anoxia:dusts/coal'] },
     { tag: 'anoxia:storage_blocks/coal', item: 'minecraft:coal_block' },
     { tag: 'anoxia:storage_blocks/charcoal', item: 'thermal:charcoal_block' },
-    { tag: 'anoxia:storage_blocks/coals', item: 'minecraft:coal_block' },
-    { tag: 'anoxia:storage_blocks/coals', item: 'thermal:charcoal_block' },
+    { tag: 'anoxia:storage_blocks/coals', item: ['minecraft:coal_block', 'thermal:charcoal_block'] },
     //#endregion
 
     //# ====================================================================================== #
@@ -84,16 +65,12 @@ ServerEvents.tags('item', (event) => {
     //#region Forge
     { tag: 'forge:plastic', item: 'pneumaticcraft:plastic' },
     { tag: 'forge:dust', item: 'exnihilosequentia:dust' },
-    { tag: 'forge:flour', item: 'enderio:flour' },
-    { tag: 'forge:flour/wheat', item: 'enderio:flour' },
-    { tag: 'forge:flour', item: 'pneumaticcraft:wheat_flour' },
-    { tag: 'forge:flour/wheat', item: 'pneumaticcraft:wheat_flour' },
+    { tag: 'forge:flour', item: ['enderio:flour', 'pneumaticcraft:wheat_flour'] },
+    { tag: 'forge:flour/wheat', item: ['enderio:flour', 'pneumaticcraft:wheat_flour'] },
     //{ tag: "forge:dusts/flour", item: "create:wheat_flour" },
     //{ tag: "forge:ores/uranium", item: "#forge:ores/uraninite" },
     //{ tag: "forge:raw_materials/uranium", item: "powah:uraninite_raw" },
-    { tag: 'forge:pebble/stone', item: 'exnihilosequentia:stone_pebble' },
-    { tag: 'forge:pebble/stone', item: 'botania:pebble' },
-    { tag: 'forge:pebble/stone', item: 'twigs:pebble' },
+    { tag: 'forge:pebble/stone', item: ['exnihilosequentia:stone_pebble', 'botania:pebble', 'twigs:pebble'] },
 
     //gems
     { tag: 'forge:gems/flux_gem', item: 'redstone_arsenal:flux_gem' },
@@ -127,22 +104,26 @@ ServerEvents.tags('item', (event) => {
     //#endregion
 
     //Botania
-    { tag: 'botania:petals/flower', item: 'botania:white_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:light_gray_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:gray_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:black_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:brown_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:red_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:orange_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:yellow_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:lime_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:green_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:cyan_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:light_blue_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:blue_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:purple_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:magenta_petal' },
-    { tag: 'botania:petals/flower', item: 'botania:pink_petal' },
+    {
+      tag: 'botania:petals/flower',
+      item: [
+        'botania:light_gray_petal',
+        'botania:gray_petal',
+        'botania:black_petal',
+        'botania:brown_petal',
+        'botania:red_petal',
+        'botania:orange_petal',
+        'botania:yellow_petal',
+        'botania:lime_petal',
+        'botania:green_petal',
+        'botania:cyan_petal',
+        'botania:light_blue_petal',
+        'botania:blue_petal',
+        'botania:purple_petal',
+        'botania:magenta_petal',
+        'botania:pink_petal',
+      ],
+    },
 
     //Aethersteel integration ore
     { tag: 'forge:ingots', item: 'aethersteel:aethersteel_ingot' },
@@ -153,7 +134,7 @@ ServerEvents.tags('item', (event) => {
     { tag: 'createdeco:internal/plates/copper_plates', item: '#forge:plates/copper' },
     { tag: 'createdeco:internal/plates/zinc_plates', item: '#forge:plates/zinc' },
   ];
-  addTagPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
+  addTagPattern.forEach((recipe) => recipe.item.forEach((i) => event.add(recipe.tag, recipe.item)));
 });
 //#endregion
 
@@ -167,67 +148,18 @@ ServerEvents.tags('block', (event) => {
     { tag: 'forge:storage_blocks', block: 'bloodmagic:dungeon_metal' },
 
     //MM
-    //Item input port
-    { tag: 'mm:machine_item_port_input', block: 'mm:tiny_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:small_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:normal_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:reinforced_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:big_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:huge_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:ludicrous_item_port_input' },
-    { tag: 'mm:machine_item_port_input', block: 'mm:ultimate_item_port_input' },
+    //Item port
+    { tag: 'mm:machine_port/item/input', block: ['mm:tiny_item_port_input', 'mm:small_item_port_input', 'mm:normal_item_port_input', 'mm:reinforced_item_port_input', 'mm:big_item_port_input', 'mm:huge_item_port_input', 'mm:ludicrous_item_port_input', 'mm:ultimate_item_port_input'] },
+    { tag: 'mm:machine_port/item/output', block: ['mm:small_item_port_output', 'mm:normal_item_port_output', 'mm:reinforced_item_port_output', 'mm:big_item_port_output', 'mm:huge_item_port_output', 'mm:ludicrous_item_port_output', 'mm:ultimate_item_port_output'] },
 
-    //Item output port
-    { tag: 'mm:machine_item_port_output', block: 'mm:tiny_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:small_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:normal_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:reinforced_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:big_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:huge_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:ludicrous_item_port_output' },
-    { tag: 'mm:machine_item_port_output', block: 'mm:ultimate_item_port_output' },
-
-    //Fluid input port
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:tiny_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:small_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:normal_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:reinforced_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:big_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:huge_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:ludicrous_fluid_port_input' },
-    { tag: 'mm:machine_fluid_port_input', block: 'mm:ultimate_fluid_port_input' },
-
-    //Fluid output port
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:tiny_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:small_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:normal_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:reinforced_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:big_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:huge_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:ludicrous_fluid_port_output' },
-    { tag: 'mm:machine_fluid_port_output', block: 'mm:ultimate_fluid_port_output' },
-
-    //Energy input port
-    { tag: 'mm:machine_energy_port_input', block: 'mm:tiny_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:small_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:normal_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:reinforced_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:big_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:huge_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:ludicrous_energy_port_input' },
-    { tag: 'mm:machine_energy_port_input', block: 'mm:ultimate_energy_port_input' },
-
-    //Energy output port
-    { tag: 'mm:machine_energy_port_output', block: 'mm:tiny_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:small_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:normal_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:reinforced_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:big_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:huge_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:ludicrous_energy_port_output' },
-    { tag: 'mm:machine_energy_port_output', block: 'mm:ultimate_energy_port_output' },
+    //Fluid port
+    { tag: 'mm:machine_port/fluid/input', block: ['mm:tiny_fluid_port_input', 'mm:small_fluid_port_input', 'mm:normal_fluid_port_input', 'mm:reinforced_fluid_port_input', 'mm:big_fluid_port_input', 'mm:huge_fluid_port_input', 'mm:ludicrous_fluid_port_input', 'mm:ultimate_fluid_port_input'] },
+    { tag: 'mm:machine_port/fluid/output', block: ['mm:tiny_fluid_port_output', 'mm:small_fluid_port_output', 'mm:normal_fluid_port_output', 'mm:reinforced_fluid_port_output', 'mm:big_fluid_port_output', 'mm:huge_fluid_port_output', 'mm:ludicrous_fluid_port_output', 'mm:ultimate_fluid_port_output'] },
+    //Energy port
+    { tag: 'mm:machine_port/energy/input', block: ['mm:tiny_energy_port_input', 'mm:small_energy_port_input', 'mm:normal_energy_port_input', 'mm:reinforced_energy_port_input', 'mm:big_energy_port_input', 'mm:huge_energy_port_input', 'mm:ludicrous_energy_port_input', 'mm:ultimate_energy_port_input'] },
+    { tag: 'mm:machine_port/energy/output', block: ['mm:tiny_energy_port_output', 'mm:small_energy_port_output', 'mm:normal_energy_port_output', 'mm:reinforced_energy_port_output', 'mm:big_energy_port_output', 'mm:huge_energy_port_output', 'mm:ludicrous_energy_port_output', 'mm:ultimate_energy_port_output'] },
   ];
-  addTagPattern.forEach((recipe) => event.add(recipe.tag, recipe.block));
+  addTagPattern.forEach((recipe) => recipe.block.forEach((b) => event.add(recipe.tag, b)));
 });
 //#endregion
 
