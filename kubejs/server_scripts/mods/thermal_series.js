@@ -675,6 +675,11 @@ ServerEvents.recipes((event) => {
       put: [{ tag: 'forge:dusts/wood', count: 9 }, { item: 'thermal:press_packing_3x3_die' }],
       rsflux: 400,
     },
+    {
+      get: [{ item: 'minecraft:blaze_rod', count: 1 }],
+      put: [{ item: 'minecraft:blaze_powder', count: 5 }, { item: 'anoxia:press_rod_die' }],
+      rsflux: 1000,
+    },
   ];
   pressPattern.forEach((recipe) => {
     event.custom({
