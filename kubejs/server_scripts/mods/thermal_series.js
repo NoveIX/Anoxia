@@ -345,7 +345,7 @@ ServerEvents.recipes((event) => {
       get: [{ item: 'anoxia:enderless_ingot_1' }],
       put: [
         { item: 'anoxia:enderite_ingot', count: 1 },
-        { fluid: 'tconstruct:molten_manasteel', amount: 5760 },
+        { fluid: 'tcintegrations:molten_manasteel', amount: 5760 },
       ],
       rsflux: 5000,
     },
@@ -653,7 +653,7 @@ ServerEvents.recipes((event) => {
       ];
     }
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   });
   //#endregion

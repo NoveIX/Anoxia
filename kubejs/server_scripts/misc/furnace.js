@@ -88,10 +88,10 @@ ServerEvents.recipes((event) => {
       time: 100,
     };
 
-    // Add input
+    //Add input
     json.input = recipe.put.startsWith('forge:') ? { tag: recipe.put } : { item: recipe.put };
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
 
@@ -105,11 +105,11 @@ ServerEvents.recipes((event) => {
       is_smelting: true,
     };
 
-    // Add Inputs
+    //Add Inputs
     var itemOrTag = recipe.put.startsWith('forge:') ? { tag: recipe.put } : { item: recipe.put };
     json.inputs = [{ count: 1, ingredient: itemOrTag }];
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
   //#endregion
@@ -143,7 +143,7 @@ ServerEvents.recipes((event) => {
   furnacePattern.forEach((recipe) => {
     const itemOrTag = recipe.put.startsWith('forge:') ? toTag(recipe.put) : recipe.put;
 
-    // Add Recipe
+    //Add Recipe
     event.smelting(recipe.get, itemOrTag);
     furnaceEnderIO(recipe);
     if (recipe.metal) furnaceImmersive(recipe);

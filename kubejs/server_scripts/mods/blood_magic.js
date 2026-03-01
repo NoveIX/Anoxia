@@ -110,7 +110,7 @@ ServerEvents.recipes((event) => {
       upgradeLevel: recipe.level,
     };
 
-    // Input: tag o item
+    //Input: tag o item
     json.input = recipe.put.startsWith('forge:') ? { tag: recipe.put } : { item: recipe.put };
 
     event.custom(json);

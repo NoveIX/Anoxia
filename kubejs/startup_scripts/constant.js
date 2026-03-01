@@ -65,7 +65,7 @@ anoxia.constant.tinkerConstruct.material = {
 anoxia.constant.tinkerConstruct.smeltingFactor = {
   furnace: { heat: 0.8 },
   dimension: { moon: -190 },
-  environment: { value: 6 },
+  environment: { value: 8 },
 };
 
 anoxia.constant.tinkerConstruct.amountType = {

@@ -58,6 +58,9 @@ ServerEvents.tags('item', (event) => {
     { tag: 'anoxia:storage_blocks/coal', item: 'minecraft:coal_block' },
     { tag: 'anoxia:storage_blocks/charcoal', item: 'thermal:charcoal_block' },
     { tag: 'anoxia:storage_blocks/coals', item: ['minecraft:coal_block', 'thermal:charcoal_block'] },
+
+    //ingot
+    { tag: 'anoxia:ingots/enderite', item: 'anoxia:enderite_ingot' },
     //#endregion
 
     //# ====================================================================================== #

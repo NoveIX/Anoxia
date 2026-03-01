@@ -49,7 +49,7 @@ ServerEvents.recipes((event) => {
   function plateCrafting(recipe) {
     event.shapeless(recipe.get, [toTag(recipe.put), toTag(recipe.put), 'immersiveengineering:hammer']);
 
-    // Ad Astra Hammer
+    //Ad Astra Hammer
     event.custom({
       type: 'ad_astra:hammering',
       ingredients: [{ tag: recipe.put }, { tag: recipe.put }, { item: 'ad_astra:hammer' }],
@@ -92,7 +92,7 @@ ServerEvents.recipes((event) => {
       result: recipe.get,
     };
 
-    // Add single and multi Cast
+    //Add single and multi Cast
     addDualCastRecipe('plate', json, event);
   }
   //#endregion
@@ -199,7 +199,7 @@ ServerEvents.recipes((event) => {
     //Remove
     event.remove({ output: recipe.get });
 
-    // Plate Press
+    //Plate Press
     if (recipe.metal === 'special') plateThermal(recipe);
     else if (recipe.metal === 'hard') (plateImmersive(recipe), plateThermal(recipe));
     else (plateImmersive(recipe), plateThermal(recipe), plateCreate(recipe), plateCrafting(recipe));

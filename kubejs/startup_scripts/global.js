@@ -1,14 +1,14 @@
 //priority:1000
 
-// Main namespace (GLOBAL)
+//Main namespace (GLOBAL)
 global.anoxia = global.anoxia || {};
-const anoxia = global.anoxia; // local alias
+const anoxia = global.anoxia; //local alias
 
-// Constant Namespace
+//Constant Namespace
 anoxia.constant = {};
 anoxia.constant.tinkerConstruct = {};
 
-// function Namespace
+//function Namespace
 anoxia.function = {};
 anoxia.function.Generic = {};
 anoxia.function.create = {};
@@ -17,7 +17,7 @@ anoxia.function.immersiveEngineering = {};
 anoxia.function.thermalSeries = {};
 anoxia.function.tinkerConstruct = {};
 
-// Game Namespace
+//Game Namespace
 anoxia.game = {};
 anoxia.game.item = {};
 anoxia.game.fluid = {};
@@ -709,7 +709,7 @@ anoxia.game.recipe.rmId = [
 
   //Productive bees
   'productivebees:block_conversion/pams/lemon/stage1',
-  //'productivebees:/tconstruct/honeycomb/*', // => Disabled in Openloader
+  //'productivebees:/tconstruct/honeycomb/*', //=> Disabled in Openloader
   'productivebees:centrifuge/ae2/honeycomb_fluix',
   'productivebees:centrifuge/materials/honeycomb_silicon',
   'productivebees:centrifuge/ars_nouveau/honeycomb_arcane',
@@ -736,7 +736,7 @@ anoxia.game.recipe.rmId = [
   'productivebees:centrifuge/thermal/honeycomb_energized_glowstone',
   'productivebees:centrifuge/thermal/honeycomb_resonant_ender',
   'productivebees:centrifuge/tconstruct/honeycomb_amethyst_bronze',
-  //'productivebees:centrifuge/tconstruct/honeycomb_cobalt', // => Disabled in productive_bees.js
+  //'productivebees:centrifuge/tconstruct/honeycomb_cobalt', //=> Disabled in productive_bees.js
   'productivebees:centrifuge/tconstruct/honeycomb_ender_slimy',
   'productivebees:centrifuge/tconstruct/honeycomb_hepatizon',
   'productivebees:centrifuge/tconstruct/honeycomb_ichor_slimy',
@@ -784,7 +784,7 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/thermal/honeycomb_energized_glowstone',
   'productivebees:create/mixing/thermal/honeycomb_resonant_ender',
   'productivebees:create/mixing/tconstruct/honeycomb_amethyst_bronze',
-  //'productivebees:create/mixing/tconstruct/honeycomb_cobalt', // => Disabled in productive_bees.js
+  //'productivebees:create/mixing/tconstruct/honeycomb_cobalt', //=> Disabled in productive_bees.js
   'productivebees:create/mixing/tconstruct/honeycomb_ender_slimy',
   'productivebees:create/mixing/tconstruct/honeycomb_hepatizon',
   'productivebees:create/mixing/tconstruct/honeycomb_ichor_slimy',

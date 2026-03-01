@@ -69,7 +69,7 @@ ServerEvents.recipes((event) => {
       result: { item: recipe.get },
     };
 
-    // Add single and multi Cast
+    //Add single and multi Cast
     addDualCastRecipe('gear', json, event);
   }
   //#endregion
@@ -123,7 +123,7 @@ ServerEvents.recipes((event) => {
     //Remove
     event.remove({ output: recipe.get });
 
-    // Gear Press
+    //Gear Press
     if (recipe.metal === 'special') gearThermal(recipe);
     else if (recipe.metal === 'hard') (gearImmersive(recipe), gearThermal(recipe));
     else {

@@ -39,6 +39,7 @@ ServerEvents.recipes((event) => {
     'tconstruct:smeltery/casting/metal/refined_glowstone/ingot_sand_cast',
     'tconstruct:smeltery/casting/metal/refined_glowstone/nugget_gold_cast',
     'tconstruct:smeltery/casting/metal/refined_glowstone/nugget_sand_cast',
+    'tconstruct:compat/refined_obsidian_ingot',
     'tconstruct:smeltery/casting/metal/refined_obsidian/block',
     'tconstruct:smeltery/casting/metal/refined_obsidian/ingot_gold_cast',
     'tconstruct:smeltery/casting/metal/refined_obsidian/ingot_sand_cast',
@@ -151,7 +152,7 @@ ServerEvents.recipes((event) => {
     {
       get: { amount: 10, tag: 'tconstruct:molten_steel' },
       put: [
-        { amount: 100, tag: 'forge:molten_coal' }, // 9 Coal = 1 Ingot
+        { amount: 100, tag: 'forge:molten_coal' }, //9 Coal = 1 Ingot
         { amount: 10, tag: 'tconstruct:molten_iron' },
       ],
       degree: 950,
@@ -353,7 +354,7 @@ ServerEvents.recipes((event) => {
       result: recipe.get,
     };
 
-    if (recipe.cast) json.cast = recipe.caster;
+    if (recipe.caster) json.cast = recipe.caster;
     if (recipe.consume) json.cast_consumed = recipe.consume;
 
     event.custom(json);
@@ -559,39 +560,39 @@ ServerEvents.recipes((event) => {
       put: { amount: 50, fluid: 'immersiveengineering:biodiesel' },
       tick: 12,
       speed: 12,
-      degree: 1250,
+      degree: 1200,
     },
     {
       put: { amount: 50, fluid: 'tconstruct:blazing_blood' },
       tick: 14,
       speed: 14,
-      degree: 1500,
+      degree: 1400,
     },
     {
       put: { amount: 50, fluid: 'thermal:crude_oil' },
       tick: 16,
       speed: 16,
-      degree: 1750,
+      degree: 1600,
     },
     {
       put: { amount: 50, fluid: 'pneumaticcraft:kerosene' },
       tick: 18,
       speed: 18,
-      degree: 2000,
+      degree: 1800,
     },
     {
       put: { amount: 50, fluid: 'ad_astra:fuel' },
       tick: 20,
       speed: 20,
-      degree: 2500,
+      degree: 2000,
     },
   ];
   meltingFuelPattern.forEach((recipe) => {
     event.custom({
       type: 'tconstruct:melting_fuel',
-      duration: recipe.tick, // Tick time for fluid amount
+      duration: recipe.tick, //Tick time for fluid amount
       fluid: recipe.put,
-      rate: recipe.speed, // Speed multiplier 1.5
+      rate: recipe.speed, //Speed multiplier 1.5
       temperature: recipe.degree,
     });
   });

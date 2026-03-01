@@ -13,7 +13,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Item
-  // //Simple MM
+  //Simple MM
   event.shaped('mm:portal_item_port_input', [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: '#forge:ingots/obsidian', C: 'minecraft:obsidian', D: '#forge:chests/wooden' });
   event.shaped('mm:portal_item_port_output', ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: '#forge:ingots/obsidian', C: 'minecraft:obsidian', D: '#forge:chests/wooden' });
   event.shaped('mm:coke_oven_item_port_input', [' A ', 'BCB', 'DBD'], { A: 'minecraft:hopper', B: 'exnihilosequentia:porcelain_clay', C: 'immersiveengineering:cokebrick', D: '#forge:chests/wooden' });

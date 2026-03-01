@@ -208,7 +208,7 @@ ServerEvents.recipes((event) => {
 
   //#region func Dust
   function dustCrafting(recipe) {
-    // Hammer and tiny tnt
+    //Hammer and tiny tnt
     if (recipe.put.startsWith('forge:ingots')) event.shapeless(recipe.get, [toTag(recipe.put), 'ae2:tiny_tnt']);
     else event.shapeless(recipe.get, [toTag(recipe.put), 'immersiveengineering:hammer']);
 
@@ -216,7 +216,7 @@ ServerEvents.recipes((event) => {
     if (['forge:gems/ruby', 'forge:gems/sapphire'].includes(recipe.put)) event.shapeless(recipe.get, [toTag(recipe.put), 'thermal:earth_charge']);
   }
 
-  // Blood Magic
+  //Blood Magic
   function dustBlood(recipe) {
     if (recipe.ore) {
       event.custom({
@@ -241,7 +241,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  // Create
+  //Create
   function dustCreate(recipe) {
     const json = {
       type: 'create:milling',
@@ -249,14 +249,14 @@ ServerEvents.recipes((event) => {
       processingTime: recipe.processing,
     };
 
-    // add result
+    //add result
     json.results = recipe.create ? recipe.create.get : [{ item: recipe.get }];
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
 
-  // Immersive
+  //Immersive
   function dustImmersive(recipe) {
     const json = {
       type: 'immersiveengineering:crusher',
@@ -264,17 +264,17 @@ ServerEvents.recipes((event) => {
       energy: recipe.rsflux,
     };
 
-    // add result
+    //add result
     json.result = recipe.immersive ? recipe.immersive.primary : { base_ingredient: { item: recipe.get } };
 
-    // add secondaries
+    //add secondaries
     json.secondaries = recipe.immersive ? recipe.immersive.secondary : [];
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
 
-  // EnderIO
+  //EnderIO
   function dustEnderIO(recipe) {
     const json = {
       type: 'enderio:sag_milling',
@@ -283,14 +283,14 @@ ServerEvents.recipes((event) => {
       bonus: 'none',
     };
 
-    // add outputs
+    //add outputs
     json.outputs = recipe.enderio ? recipe.enderio.get : [{ item: recipe.get }];
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
 
-  // Mekanism
+  //Mekanism
   function dustMekanism(recipe) {
     event.custom({
       type: 'mekanism:crushing',
@@ -299,7 +299,7 @@ ServerEvents.recipes((event) => {
     });
   }
 
-  // Thermal
+  //Thermal
   function dustThermal(recipe) {
     const json = {
       type: 'thermal:pulverizer',
@@ -307,10 +307,10 @@ ServerEvents.recipes((event) => {
       energy: recipe.rsflux,
     };
 
-    // add result
+    //add result
     json.result = recipe.thermal ? recipe.thermal.get : [{ item: recipe.get }];
 
-    // Add Recipe
+    //Add Recipe
     event.custom(json);
   }
   //#endregion

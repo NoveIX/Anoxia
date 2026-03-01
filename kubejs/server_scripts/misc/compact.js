@@ -214,11 +214,11 @@ ServerEvents.recipes((event) => {
       energy: rsflux,
     };
 
-    // Use tag or id
+    //Use tag or id
     const itemOrTag = put.startsWith('forge:') ? { tag: put, count: 9 } : { item: put, count: 9 };
     json.ingredients = [itemOrTag, { item: 'thermal:press_packing_3x3_die' }];
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
 
@@ -229,11 +229,11 @@ ServerEvents.recipes((event) => {
       energy: rsflux,
     };
 
-    // Use tag or id
+    //Use tag or id
     const itemOrTag = put.startsWith('forge:') ? { tag: put, count: 1 } : { item: put, count: 1 };
     json.ingredients = [itemOrTag, { item: 'thermal:press_unpacking_die' }];
 
-    // Add recipe
+    //Add recipe
     event.custom(json);
   }
   //#endregion
@@ -397,16 +397,16 @@ ServerEvents.recipes((event) => {
     },
   ];
   compactPattern.forEach((recipe) => {
-    // From Nugget To Ingot
+    //From Nugget To Ingot
     if (recipe.id.ingot && (recipe.tag?.nugget || recipe.id.nugget)) compactThermalPack(recipe.id.ingot, recipe.tag?.nugget || recipe.id.nugget, recipe.rsflux);
 
-    // From Block To Ingot
+    //From Block To Ingot
     if (recipe.id.ingot && (recipe.tag?.block || recipe.id.block)) compactThermalUnpack(recipe.id.ingot, recipe.tag?.block || recipe.id.block, recipe.rsflux);
 
-    // From Ingot To Nugget
+    //From Ingot To Nugget
     if (recipe.id.nugget && (recipe.tag?.ingot || recipe.id.ingot)) compactThermalUnpack(recipe.id.nugget, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
 
-    // From Ingot To Block
+    //From Ingot To Block
     if (recipe.id.block && (recipe.tag?.ingot || recipe.id.ingot)) compactThermalPack(recipe.id.block, recipe.tag?.ingot || recipe.id.ingot, recipe.rsflux);
   });
   //#endregion
