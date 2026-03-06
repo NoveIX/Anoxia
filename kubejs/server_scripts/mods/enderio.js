@@ -75,6 +75,31 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
+  //#region Alloy
+  const AlloyPattern = [
+    {
+      get: { item: 'anoxia:enderless_ingot_5', count: 1 },
+      put: [
+        { count: 1, ingredient: { tag: 'forge:ingots/tungsten' } },
+        { count: 3, ingredient: { item: 'anoxia:enderless_ingot_4' } },
+        { count: 1, ingredient: { tag: 'forge:ingots/manyullyn' } },
+      ],
+      rsflux: 24000,
+    },
+  ];
+  AlloyPattern.forEach((recipe) => {
+    event.custom({
+      type: 'enderio:alloy_smelting',
+      inputs: recipe.put,
+      result: recipe.get,
+      experience: 0.3,
+      energy: recipe.rsflux,
+    });
+  });
+  //#endregion
+
+  //# ====================================================================================== #
+
   //#region Fire
   event.remove({ type: 'enderio:fire_crafting' });
   event.custom({
