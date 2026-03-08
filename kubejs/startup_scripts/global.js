@@ -707,6 +707,10 @@ anoxia.game.recipe.rmId = [
   'mekanismtools:refined_obsidian/nugget_from_blasting',
   'enderio:smelting/mekanismtools/refined_obsidian/nugget_from_smelting',
 
+  //Pneumatic Craft
+  'pneumaticcraft:thermo_plant/plastic_from_biodiesel',
+  'pneumaticcraft:thermo_plant/lubricant_from_biodiesel',
+
   //Productive bees
   'productivebees:block_conversion/pams/lemon/stage1',
   //'productivebees:/tconstruct/honeycomb/*', //=> Disabled in Openloader
@@ -775,6 +779,7 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/mysticalagriculture/honeycomb_prosperity',
   'productivebees:create/mixing/mysticalagriculture/honeycomb_soulium',
   'productivebees:create/mixing/pneumaticcraft/honeycomb_compressed_iron',
+  'productivebees:create/mixing/pneumaticcraft/honeycomb_oily',
   'productivebees:create/mixing/powah/honeycomb_energized_steel',
   'productivebees:create/mixing/powah/honeycomb_blazing_crystal',
   'productivebees:create/mixing/powah/honeycomb_niotic_crystal',
@@ -783,6 +788,7 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/thermal/honeycomb_destabilized_redstone',
   'productivebees:create/mixing/thermal/honeycomb_energized_glowstone',
   'productivebees:create/mixing/thermal/honeycomb_resonant_ender',
+  'productivebees:create/mixing/thermal/honeycomb_oily',
   'productivebees:create/mixing/tconstruct/honeycomb_amethyst_bronze',
   //'productivebees:create/mixing/tconstruct/honeycomb_cobalt', //=> Disabled in productive_bees.js
   'productivebees:create/mixing/tconstruct/honeycomb_ender_slimy',
@@ -797,7 +803,7 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/tconstruct/honeycomb_slimesteel',
   'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
 
-  //tinkerConstruct Construct
+  //Tinker Construct
   'tconstruct:smeltery/alloys/molten_pewter',
   'tconstruct:smeltery/melting/metal/pewter/raw',
   'tconstruct:smeltery/melting/metal/pewter/raw_block',

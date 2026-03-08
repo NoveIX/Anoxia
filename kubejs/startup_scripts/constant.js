@@ -5,6 +5,7 @@ anoxia.constant.tinkerConstruct.material = {
   iron: { meltPoint: 1538 },
   gold: { meltPoint: 1064 },
   copper: { meltPoint: 1085 },
+  ancientDebris: { meltPoint: 1985 },
   netherite: { meltPoint: 2255 },
   tin: { meltPoint: 232 },
   lead: { meltPoint: 328 },
