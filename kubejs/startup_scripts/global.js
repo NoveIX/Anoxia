@@ -779,7 +779,7 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/mysticalagriculture/honeycomb_inferium',
   'productivebees:create/mixing/mysticalagriculture/honeycomb_prosperity',
   'productivebees:create/mixing/mysticalagriculture/honeycomb_soulium',
-  'productivebees:create/mixing/immersiveengineering/honeycomb_hop_graphite',
+  'productivebees:create/mixing/immersivengineering/honeycomb_hop_graphite',
   'productivebees:create/mixing/pneumaticcraft/honeycomb_compressed_iron',
   'productivebees:create/mixing/pneumaticcraft/honeycomb_oily',
   'productivebees:create/mixing/powah/honeycomb_energized_steel',
