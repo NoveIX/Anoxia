@@ -1,4 +1,8 @@
 ServerEvents.recipes((event) => {
+  event.shapeless('mm:blueprint', ['#forge:paper', '#forge:dyes/blue']);
+
+  //# ====================================================================================== #
+
   //MM
   event.shaped('mm:machine_controller', [' A ', 'BCB', 'DBD'], { A: 'computercraft:monitor_advanced', B: '#forge:storage_blocks/redstone_alloy', C: 'anoxia:machine_casing', D: 'ae2:logic_processor' });
   event.shaped('anoxia:machine_casing', [' A ', 'ABA', ' A '], { A: 'anoxia:modularium_ingot', B: '#forge:storage_blocks/redstone_alloy' });

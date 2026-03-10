@@ -26,7 +26,7 @@ ServerEvents.recipes((event) => {
   event.blasting('anoxia:enderite_ingot', 'anoxia:raw_enderite', 0, 1200);
 
   //Obsidian Ingot
-  event.shapeless('anoxia:obsidian_with_iron', ['#forge:dusts/obsidian', '#forge:dusts/obsidian', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron']);
+  event.shapeless('anoxia:obsidian_with_iron', ['#forge:dusts/obsidian', '#forge:dusts/obsidian', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:nuggets/iron', '#forge:water/water']);
 
   //Press Rod Die
   event.shaped('anoxia:press_rod_die', [' A ', 'ABA', ' A '], { A: '#forge:plates/invar', B: 'minecraft:blaze_rod' });

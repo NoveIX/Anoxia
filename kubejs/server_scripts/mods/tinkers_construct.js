@@ -636,9 +636,9 @@ ServerEvents.recipes((event) => {
     { get: { amount: 10, tag: 'forge:molten_lumium' }, put: { tag: 'forge:nuggets/lumium' }, degree: 1400, meltTime: getMeltingTick(material.lumium, fromAmount(10)) },
     { get: { amount: 810, tag: 'forge:molten_enderium' }, put: { tag: 'forge:storage_blocks/enderium' }, degree: 1600, meltTime: getMeltingTick(material.enderium, fromAmount(810)) },
     { get: { amount: 30, tag: 'forge:molten_enderium' }, put: { tag: 'forge:coins/enderium' }, degree: 1600, meltTime: getMeltingTick(material.enderium, fromAmount(30)) },
-    { get: { amount: 90, tag: 'forge:molten_enderium' }, put: [{ tag: 'forge:dusts/enderium' }, { tag: 'forge:ingots/enderium' }, { tag: 'forge:plates/enderium' }], degree: 1600, meltTime: getMeltingTick(material.enderium, 1) },
+    { get: { amount: 90, tag: 'forge:molten_enderium' }, put: [{ tag: 'forge:dusts/enderium' }, { tag: 'forge:ingots/enderium' }, { tag: 'forge:plates/enderium' }], degree: 1600, meltTime: getMeltingTick(material.enderium, fromAmount(90)) },
     { get: { amount: 360, tag: 'forge:molten_enderium' }, put: { tag: 'forge:gears/enderium' }, degree: 1600, meltTime: getMeltingTick(material.enderium, fromAmount(360)) },
-    { get: { amount: 10, tag: 'forge:molten_enderium' }, put: { tag: 'forge:nuggets/enderium' }, degree: 1600, meltTime: getMeltingTick(material.enderium, fromAmount(100)) },
+    { get: { amount: 10, tag: 'forge:molten_enderium' }, put: { tag: 'forge:nuggets/enderium' }, degree: 1600, meltTime: getMeltingTick(material.enderium, fromAmount(10)) },
 
     //Coal
     { get: { amount: 100, tag: 'forge:molten_coal' }, put: { tag: 'anoxia:materials/coal' }, degree: 900, meltTime: getMeltingTick(material.coal, fromAmount(100)) },
@@ -647,6 +647,7 @@ ServerEvents.recipes((event) => {
 
     //Obsidian
     { get: { amount: 250, tag: 'tconstruct:molten_obsidian' }, put: { tag: 'forge:ingots/obsidian' }, degree: 1000, meltTime: getMeltingTick(material.obsidian, 1) },
+    { get: { amount: 500, tag: 'tconstruct:molten_obsidian' }, put: { item: 'anoxia:obsidian_with_iron' }, degree: 1000, meltTime: getMeltingTick(material.obsidian, 2) },
   ];
   meltingPattern.forEach((recipe) => {
     event.custom({
