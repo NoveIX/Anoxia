@@ -17,6 +17,7 @@ anoxia.constant.tinkerConstruct.material = {
   ostrum: { meltPoint: 1952 },
   calorite: { meltPoint: 2937 },
   osmium: { meltPoint: 3033 },
+  uranium: { meltPoint: 1132 },
 
   //Alloy
   steel: { meltPoint: 1450 },
