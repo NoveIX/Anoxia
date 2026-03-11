@@ -83,7 +83,7 @@ while true
 do
     "${ANOXIA_JAVA:-java}" @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.20.1-$FORGE_VERSION/unix_args.txt nogui || EXIT_CODE=$?
 
-    if [[ "${ANOXIA_RESTART:-true}" = "false" ]]; then
+    if [[ "${ANOXIA_RESTART:-true}" == "false" ]]; then
         exit 0
     fi
 
