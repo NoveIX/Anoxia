@@ -86,8 +86,8 @@ ServerEvents.recipes((event) => {
   //#region Energy
   const energyInPort = [
     //input
-    { get: '#forge:chests/wooden', put: 'anoxia:machine_casing' },
-    { get: 'mm:small_energy_port_input', put: '#forge:chests/wooden' },
+    { get: 'mm:tiny_energy_port_input', put: 'anoxia:machine_casing' },
+    { get: 'mm:small_energy_port_input', put: 'mm:tiny_energy_port_input' },
     { get: 'mm:normal_energy_port_input', put: 'mm:small_energy_port_input' },
     { get: 'mm:reinforced_energy_port_input', put: 'mm:normal_energy_port_input' },
     { get: 'mm:big_energy_port_input', put: 'mm:reinforced_energy_port_input' },

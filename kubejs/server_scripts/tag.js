@@ -156,7 +156,7 @@ ServerEvents.tags('block', (event) => {
     //MM
     //Item port
     { tag: 'mm:machine_port/item/input', block: ['mm:tiny_item_port_input', 'mm:small_item_port_input', 'mm:normal_item_port_input', 'mm:reinforced_item_port_input', 'mm:big_item_port_input', 'mm:huge_item_port_input', 'mm:ludicrous_item_port_input', 'mm:ultimate_item_port_input'] },
-    { tag: 'mm:machine_port/item/output', block: ['mm:small_item_port_output', 'mm:normal_item_port_output', 'mm:reinforced_item_port_output', 'mm:big_item_port_output', 'mm:huge_item_port_output', 'mm:ludicrous_item_port_output', 'mm:ultimate_item_port_output'] },
+    { tag: 'mm:machine_port/item/output', block: ['mm:tiny_item_port_output', 'mm:small_item_port_output', 'mm:normal_item_port_output', 'mm:reinforced_item_port_output', 'mm:big_item_port_output', 'mm:huge_item_port_output', 'mm:ludicrous_item_port_output', 'mm:ultimate_item_port_output'] },
 
     //Fluid port
     { tag: 'mm:machine_port/fluid/input', block: ['mm:tiny_fluid_port_input', 'mm:small_fluid_port_input', 'mm:normal_fluid_port_input', 'mm:reinforced_fluid_port_input', 'mm:big_fluid_port_input', 'mm:huge_fluid_port_input', 'mm:ludicrous_fluid_port_input', 'mm:ultimate_fluid_port_input'] },
