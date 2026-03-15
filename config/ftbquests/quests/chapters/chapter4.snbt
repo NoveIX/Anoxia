@@ -6,6 +6,242 @@
 	id: "3E2C2DD3055C9586"
 	order_index: 4
 	quest_links: [ ]
-	quests: [ ]
+	quests: [
+		{
+			id: "511AFB0C3CAAB6FA"
+			tasks: [{
+				id: "0679718BFB34E188"
+				item: "botania:white_mystical_flower"
+				type: "item"
+			}]
+			title: "Flower Power"
+			x: 0.0d
+			y: -2.5d
+		}
+		{
+			dependencies: ["511AFB0C3CAAB6FA"]
+			id: "491DAB8FCA9530AF"
+			tasks: [{
+				id: "01AED7F95DE58D32"
+				item: "botania:apothecary_default"
+				type: "item"
+			}]
+			title: "Botanical tinkering"
+			x: 0.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["511AFB0C3CAAB6FA"]
+			id: "2BB2A5B1102B0475"
+			tasks: [{
+				id: "3A4915D6BB2BA7F4"
+				item: "botania:flower_bag"
+				type: "item"
+			}]
+			title: "Better keep it safe"
+			x: 1.5d
+			y: -1.0d
+		}
+		{
+			dependencies: ["491DAB8FCA9530AF"]
+			id: "1A6C90A6AD65E97D"
+			tasks: [{
+				id: "78E05F7B409D14C7"
+				item: "botania:pure_daisy"
+				type: "item"
+			}]
+			title: "Pure White"
+			x: 0.0d
+			y: 0.5d
+		}
+		{
+			dependencies: ["1A6C90A6AD65E97D"]
+			id: "555CB9221CF89E77"
+			tasks: [{
+				count: 64L
+				id: "515A73C2E062E767"
+				item: { Count: 64, id: "botania:livingwood_log" }
+				type: "item"
+			}]
+			title: "Living wood"
+			x: -1.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1A6C90A6AD65E97D"]
+			id: "5703D0C1041C0F9B"
+			tasks: [{
+				count: 64L
+				id: "52BE7C33BE03C2A7"
+				item: { Count: 64, id: "botania:livingrock" }
+				type: "item"
+			}]
+			title: "Living... Stone?"
+			x: 1.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["555CB9221CF89E77"]
+			id: "32D21100DEEFA492"
+			tasks: [{
+				id: "3335537493DCBC0B"
+				item: {
+					Count: 1
+					id: "botania:twig_wand"
+					tag: {
+						color1: 0
+						color2: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "A wand to command"
+			x: -1.0d
+			y: 3.5d
+		}
+		{
+			dependencies: [
+				"32D21100DEEFA492"
+				"104E0CD2C2B6A43D"
+			]
+			id: "62EE29A47331403B"
+			tasks: [{
+				id: "446E43D5AC2B8EA0"
+				item: { Count: 8, id: "botania:mana_spreader" }
+				type: "item"
+			}]
+			title: "Mana manipulation"
+			x: -1.0d
+			y: 5.0d
+		}
+		{
+			dependencies: ["32D21100DEEFA492"]
+			id: "104E0CD2C2B6A43D"
+			tasks: [{
+				count: 4L
+				id: "717301EEDAAF2A2B"
+				item: { Count: 8, id: "botania:endoflame" }
+				type: "item"
+			}]
+			title: "Productive arsonist"
+			x: -2.5d
+			y: 5.0d
+		}
+		{
+			dependencies: ["5703D0C1041C0F9B"]
+			id: "2D205F775C5C9621"
+			tasks: [{
+				id: "3F726A5988B59B6A"
+				item: "botania:mana_pool"
+				type: "item"
+			}]
+			title: "Mana storage"
+			x: 1.0d
+			y: 3.5d
+		}
+		{
+			dependencies: ["104E0CD2C2B6A43D"]
+			id: "2DF1F67CD31C01A1"
+			tasks: [{
+				id: "0917380C8287942E"
+				item: "botania:floating_endoflame"
+				type: "item"
+			}]
+			title: "...and add a bit of blood"
+			x: -4.0d
+			y: 5.0d
+		}
+		{
+			dependencies: ["2D205F775C5C9621"]
+			id: "254348CFE3C8BB71"
+			tasks: [
+				{
+					count: 8L
+					id: "6774EC4E1D7DB523"
+					item: { Count: 8, id: "botania:manasteel_ingot" }
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "2E12451D657659D1"
+					item: { Count: 8, id: "botania:mana_powder" }
+					type: "item"
+				}
+				{
+					count: 4L
+					id: "31A7DE94EC450FF8"
+					item: { Count: 4, id: "botania:mana_pearl" }
+					type: "item"
+				}
+			]
+			title: "Mana upgrade"
+			x: 2.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["254348CFE3C8BB71"]
+			id: "11BA6438D61FFF0C"
+			tasks: [{
+				id: "1CB4A8A46BD20776"
+				item: "botania:crafting_halo"
+				type: "item"
+			}]
+			title: "Portable crafting table"
+			x: 4.0d
+			y: 3.5d
+		}
+		{
+			dependencies: [
+				"2D205F775C5C9621"
+				"254348CFE3C8BB71"
+			]
+			id: "1BB2BAA52663E6DB"
+			tasks: [{
+				id: "2CA4B2475C213ED2"
+				item: "botania:runic_altar"
+				type: "item"
+			}]
+			title: "Magic craft"
+			x: 1.0d
+			y: 5.0d
+		}
+		{
+			dependencies: [
+				"1BB2BAA52663E6DB"
+				"62EE29A47331403B"
+			]
+			id: "3025B9B80F6B65E9"
+			tasks: [
+				{
+					id: "76267703539510C6"
+					item: "botania:rune_mana"
+					type: "item"
+				}
+				{
+					id: "42CC683CFAE40F84"
+					item: "botania:rune_water"
+					type: "item"
+				}
+				{
+					id: "14907EDC265B547A"
+					item: "botania:rune_fire"
+					type: "item"
+				}
+				{
+					id: "3EFA21B9CF684E10"
+					item: "botania:rune_earth"
+					type: "item"
+				}
+				{
+					id: "06F13B71AAB718A8"
+					item: "botania:rune_air"
+					type: "item"
+				}
+			]
+			title: "Basic runes"
+			x: 1.0d
+			y: 6.5d
+		}
+	]
 	title: "Flower Power"
 }

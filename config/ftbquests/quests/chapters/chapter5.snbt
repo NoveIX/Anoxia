@@ -6,6 +6,15 @@
 	id: "0431178E3945D46F"
 	order_index: 5
 	quest_links: [ ]
-	quests: [ ]
+	quests: [{
+		id: "414064CFB3CFD991"
+		tasks: [{
+			id: "253F57D9F5CB1910"
+			item: "ad_astra:oxygen_distributor"
+			type: "item"
+		}]
+		x: 0.0d
+		y: 0.0d
+	}]
 	title: "Engineering Knowledge"
 }
