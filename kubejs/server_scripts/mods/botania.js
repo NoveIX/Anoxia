@@ -4,6 +4,26 @@ ServerEvents.recipes((event) => {
   event.shapeless('botania:fertilizer', ['minecraft:bone_meal', '#botania:petals/flower', '#botania:petals/flower', '#botania:petals/flower', '#botania:petals/flower']);
   event.shapeless('botania:fertilizer', ['botania:living_root']);
 
+  // Diluted Mana pool
+  event.remove({ output: 'botania:diluted_pool' });
+  event.shaped('botania:diluted_pool', ['A A', 'AAA'], { A: 'botania:livingrock' });
+
+  // Mana pool
+  event.remove({ output: 'botania:mana_pool' });
+  event.shaped('botania:mana_pool', ['CCC', 'ABA', 'AAA'], { A: 'botania:livingrock', B: 'botania:diluted_pool', C: ['botania:dragonstone', 'botania:pixie_dust'] });
+
+  // Dreaming pool
+  event.remove({ output: 'botanicadds:dreaming_pool' });
+  event.shaped('botania:dreaming_pool', ['CCC', 'ABA', 'AAA'], { A: 'botanicadds:dreamrock', B: 'botania:mana_pool', C: 'botania:gaia_ingot' });
+
+  // Runic altar
+  event.remove({ output: 'botania:runic_altar' });
+  event.shaped('botania:runic_altar', ['AAA', 'ABA', 'ACA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'], C: 'minecraft:enchanting_table' });
+
+  // Mana tablet
+  event.remove({ output: 'botania:mana_tablet' });
+  event.shaped('botania:mana_tablet', ['AAA', 'ABA', 'AAA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'] });
+
   //# ====================================================================================== #
 
   //#region Elven Trade
