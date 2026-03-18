@@ -219,7 +219,7 @@ ServerEvents.recipes((event) => {
     },
     {
       get: { count: 1, item: 'mysticalagriculture:coral_essence' },
-      put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneAir, { tag: 'minecraft:corals' }, { tag: 'minecraft:corals' }, essenceT2, essenceT2],
+      put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneAir, { tag: 'minecraft:coral_blocks' }, { tag: 'minecraft:coral_blocks' }, essenceT2, essenceT2],
       magic: ManaEssenceT2,
     },
     {

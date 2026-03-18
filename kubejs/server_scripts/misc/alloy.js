@@ -11,6 +11,9 @@ ServerEvents.recipes((event) => {
     //aetherstell.js => rm output: aetherstell_ingot
 
     //Create
+    'create:mixing/brass_ingot',
+    'createaddition:mixing/electrum',
+    'createaddition:compat/immersiveengineering/constantan',
     'thermal:compat/create/smelter_create_alloy_andesite_alloy',
 
     //EnderIO
@@ -155,7 +158,7 @@ ServerEvents.recipes((event) => {
     { get: 'enderio:redstone_alloy_ingot', n0: 1, put1: 'forge:ingots/red_alloy', n1: 1, put2: 'forge:silicon', n2: 1, put3: 'forge:ingots/graphite', n3: 1, rsflux: 4000, alloy: 'complex' }, //Redstone Alloy
     { get: 'enderio:conductive_alloy_ingot', n0: 1, put1: 'forge:ingots/redstone_alloy', n1: 1, put2: 'forge:ingots/iron', n2: 1, put3: 'forge:ingots/copper_alloy', n3: 1, rsflux: 8000, alloy: 'complex' }, //Conductive Alloy
     { get: 'enderio:pulsating_alloy_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:ender_pearls', n2: 1, rsflux: 18000, alloy: 'ender' }, //Pulsating Alloy
-    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'anoxia:dusts/coal', n2: 8, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot
+    { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'anoxia:dusts/coals', n2: 8, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot
     { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/iron', n1: 1, put2: 'forge:dusts/coal_coke', n2: 4, put3: 'forge:obsidian', n3: 1, rsflux: 48000, alloy: 'complex' }, //DarkSteel Ingot - Coke
     { get: 'enderio:dark_steel_ingot', n0: 1, put1: 'forge:ingots/steel', n1: 1, put2: 'forge:obsidian', n2: 1, rsflux: 24000, alloy: 'ender' }, //DarkSteel Ingot - Steel Alternative
     { get: 'enderio:soularium_ingot', n0: 1, put1: 'forge:ingots/cognitive_alloy', n1: 1, put2: 'forge:ingots/gold', n2: 1, rsflux: 24000, alloy: 'ender' }, //Soularium Ingot

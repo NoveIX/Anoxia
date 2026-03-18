@@ -44,7 +44,7 @@ ServerEvents.recipes((event) => {
     },
   });
 
-  //Anglesite
+  //Reverse Anglesite
   event.custom({
     type: 'alchemistry:dissolver',
     group: 'alchemistry:dissolver',
@@ -65,10 +65,18 @@ ServerEvents.recipes((event) => {
     },
   });
 
+  event.remove({ id: 'alchemistry:dissolver/carpets' });
   event.custom({
-    type: 'alchemistry:liquifier',
-    group: 'alchemistry:liquifier',
-    input: { count: 8, ingredient: { item: 'chemlib:oxygen' } },
-    result: { amount: '500', fluid: 'mekanism:oxygen' },
+    type: 'alchemistry:dissolver',
+    group: 'alchemistry:dissolver',
+    input: { count: 1, ingredient: { tag: 'minecraft:wool_carpets' } },
+    output: {
+      groups: [
+        { probability: 66.66666666666666, results: [{ count: 2, item: 'chemlib:keratin' }, { item: 'chemlib:triglyceride' }] },
+        { probability: 33.33333333333334, results: [{ item: 'minecraft:air' }] },
+      ],
+      rolls: 1,
+      weighted: false,
+    },
   });
 });

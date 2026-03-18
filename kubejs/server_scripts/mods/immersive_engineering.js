@@ -238,7 +238,7 @@ ServerEvents.recipes((event) => {
 
   //#region BlastFurnace Fuel
   const blastFurnaceFuelPattern = [
-    { fuel: { tag: 'anoxia:gems/coals' }, tick: 300 },
+    { fuel: { tag: 'anoxia:gems/coal' }, tick: 300 },
     { fuel: { tag: 'anoxia:storage_blocks/coals' }, tick: 2700 },
     { fuel: { tag: 'forge:coal_coke' }, tick: 1200 },
     { fuel: { tag: 'forge:storage_blocks/coal_coke' }, tick: 10800 },

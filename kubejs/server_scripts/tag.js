@@ -51,10 +51,8 @@ ServerEvents.tags('item', (event) => {
     { tag: 'anoxia:coal', item: 'minecraft:coal' },
     { tag: 'anoxia:charcoal', item: 'minecraft:charcoal' },
     { tag: 'anoxia:gems/coal', item: ['minecraft:coal', 'minecraft:charcoal'] },
-    { tag: 'anoxia:coal_dust', item: '#forge:dusts/coal' },
-    { tag: 'anoxia:charcoal_dust', item: '#forge:dusts/charcoal' },
-    { tag: 'anoxia:dusts/coal', item: ['#forge:dusts/coal', '#forge:dusts/charcoal'] },
-    { tag: 'anoxia:materials/coal', item: ['#anoxia:gems/coal', '#anoxia:dusts/coal'] },
+    { tag: 'anoxia:dusts/coals', item: ['#forge:dusts/coal', '#forge:dusts/charcoal'] },
+    { tag: 'anoxia:materials/coal', item: ['#anoxia:gems/coal', '#anoxia:dusts/coals'] },
     { tag: 'anoxia:storage_blocks/coal', item: 'minecraft:coal_block' },
     { tag: 'anoxia:storage_blocks/charcoal', item: 'thermal:charcoal_block' },
     { tag: 'anoxia:storage_blocks/coals', item: ['minecraft:coal_block', 'thermal:charcoal_block'] },
@@ -79,6 +77,7 @@ ServerEvents.tags('item', (event) => {
     { tag: 'forge:gems/flux_gem', item: 'redstone_arsenal:flux_gem' },
 
     //dusts
+    { tag: 'forge:dust/neutronium', item: 'avaritia:neutron_pile' },
     { tag: 'forge:dusts/neutronium', item: 'avaritia:neutron_pile' },
 
     //nuggets
@@ -104,6 +103,7 @@ ServerEvents.tags('item', (event) => {
     { tag: 'forge:storage_blocks', item: 'bloodmagic:dungeon_metal' },
     { tag: 'forge:storage_blocks/flux', item: 'redstone_arsenal:flux_metal_block' },
     { tag: 'forge:storage_blocks/flux_gem', item: 'redstone_arsenal:flux_gem_block' },
+    { tag: 'forge:storage_blocks/cobblestone', item: 'anoxia:compressed_cobblestone' },
     //#endregion
 
     //Botania
