@@ -14,15 +14,27 @@ ServerEvents.recipes((event) => {
 
   // Dreaming pool
   event.remove({ output: 'botanicadds:dreaming_pool' });
-  event.shaped('botania:dreaming_pool', ['CCC', 'ABA', 'AAA'], { A: 'botanicadds:dreamrock', B: 'botania:mana_pool', C: 'botania:gaia_ingot' });
+  event.shaped('botanicadds:dreaming_pool', ['CCC', 'ABA', 'AAA'], { A: 'botanicadds:dreamrock', B: 'botania:mana_pool', C: 'botania:gaia_ingot' });
 
   // Runic altar
-  event.remove({ output: 'botania:runic_altar' });
+  //Removed in HammerLib config
   event.shaped('botania:runic_altar', ['AAA', 'ABA', 'ACA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'], C: 'minecraft:enchanting_table' });
 
   // Mana tablet
   event.remove({ output: 'botania:mana_tablet' });
   event.shaped('botania:mana_tablet', ['AAA', 'ABA', 'AAA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'] });
+
+  // Mana pylon
+  event.remove({ output: 'botania:mana_pylon' });
+  event.shaped('botania:mana_pylon', [' A ', 'BCB', ' A '], { A: '#forge:ingots/manasteel', B: '#forge:ingots/gold', C: '#forge:gems/mana_diamond' });
+
+  // Natura pylon
+  event.remove({ output: 'botania:natura_pylon' });
+  event.shaped('botania:natura_pylon', [' A ', 'BCB', ' A '], { A: '#forge:ingots/terrasteel', B: '#botania:glimmering_livingwood_logs', C: 'botania:mana_pylon' });
+
+  // Gaia pylon
+  // Removed in HammerLib config
+  event.shaped('botanicadds:gaiasteel_pylon', [' A ', 'BCB', ' A '], { A: '#forge:ingots/gaiasteel', B: '#botania:glimmering_dreamwood_logs', C: 'botania:natura_pylon' });
 
   //# ====================================================================================== #
 
@@ -66,6 +78,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'mysticalagriculture:prosperity_seed_base' });
   const ManaInfusionPattern = [
     { get: 'mysticalagriculture:prosperity_seed_base', put: 'forge:seeds', magic: 5000 },
+    { get: Item.of('botanicadds:gaia_shard', 3), put: 'botania:life_essence', magic: 15000 },
 
     //Ad Astra Transmutation
     { get: 'ad_astra:moon_sand', put: 'ad_astra:mars_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },

@@ -31,7 +31,7 @@
         "botania:mana_infusion": {
             "botanicadds:mana_lapis": true,
             "botanicadds:mana_lapis_block": true,
-            "botanicadds:gaia_shard": true
+            "botanicadds:gaia_shard": false
         },
         "botania:pure_daisy": {
             "botanicadds:dreamwood_from_elvenwood": true
@@ -54,7 +54,7 @@
             "botanicadds:mana_stealer_sword": true,
             "botanicadds:elven_altar": true,
             "botanicadds:elven_brewery": true,
-            "botanicadds:dreaming_pool": true,
+            "botanicadds:dreaming_pool": false,
             "botanicadds:sculk_sensor": true,
             "botanicadds:tesseract_attune": true,
             "botanicadds:recipe_tweaks/mana_fluxfield": true,
