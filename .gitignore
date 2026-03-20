@@ -15,6 +15,7 @@
 /localconfigs
 /logs
 /mccm
+/mcsm
 /mod_data
 /modernfix
 /mods
@@ -29,13 +30,8 @@
 /screenshots
 /shaderpacks
 /tacz_*
-/world
+/tools
 .curseclient
-banned-ips.json
-banned-players.json
-eula.txt
-forge-1.20.1-47.4.10-installer.jar
-forge-1.20.1-47.4.10-installer.jar.log
 knownkeys.txt
 .qmenu_opened.marker
 ds_private_storage.json
@@ -49,10 +45,3 @@ servers.dat_old
 user-prefs.json
 usercache.json
 usernamecache.json
-liboc2rnet.so
-/libraries
-ops.json
-run.bat
-run.sh
-server.properties
-whitelist.json
