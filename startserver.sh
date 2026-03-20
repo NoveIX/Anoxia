@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -eu
 
-# To use a specific Java runtime, define the JAVA variable below with the full path to java.exe.
+# To use a specific Java runtime, define the JAVA variable below with the full path to java.
 # ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-arm64/bin/java
 
 # To disable automatic restarts, set the AUTO_RESTART variable to false.
