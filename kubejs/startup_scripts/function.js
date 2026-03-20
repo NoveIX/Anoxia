@@ -24,63 +24,49 @@ anoxia.function.generic = {
 
   itemOf(item, count, forceTag) {
     //Reassign parameters accordingly: treat 'count' as forceTag and unset count.
-    if (typeof count !== 'boolean') {
+    if (typeof count === 'boolean') {
       forceTag = count;
       count = undefined;
     }
 
     //Calculate the logic before creating the object
-    const isTag = forceTag || value.startsWith('forge:') || (value.includes('/') && !value.startsWith('minecraft:'));
+    const isTag = forceTag || item.startsWith('#');
 
     //Prepare the base object according to the type
     //If it is a tag, use { tag: ... }, otherwise { item: ... }
-    const baseData = isTag ? { tag: this.fromTag(item) } : { item: item };
+    const _json = isTag ? { tag: this.fromTag(item) } : { item: item };
 
     //(Optional) Add count if it is defined and not equal to 1
-    if (count && count > 0) baseData.count = count;
+    if (count && count > 0) _json.count = count;
 
-    //Return the builder object
-    return {
-      _json: baseData,
-
-      chance(chance) {
-        //'this' refers to the returned object, so _json is accessible.
-        this._json.chance = chance;
-        return this;
-      },
-
-      nbt(nbt) {
-        this._json.nbt = nbt;
-        return this;
-      },
+    // Add chance objct
+    _json.chance = function (chance) {
+      this.chance = chance;
+      return this;
     };
+
+    //Return json object
+    return _json;
   },
 
   fluidOf(fluid, amount, forceTag) {
     //Reassign parameters accordingly: treat 'amount' as forceTag and unset amount.
-    if (typeof amount !== 'boolean') {
+    if (typeof amount === 'boolean') {
       forceTag = amount;
       amount = undefined;
     }
 
     //Calculate the logic before creating the object
-    const isTag = forceTag || value.startsWith('forge:') || (value.includes('/') && !value.startsWith('minecraft:'));
+    const isTag = forceTag || fluid.startsWith('#');
 
     //Prepare the base object according to the type
     //If it is a tag, use { tag: ... }, otherwise { item: ... }
-    const baseData = isTag ? { fluidTag: this.fromTag(fluid) } : { fluid: fluid };
+    const _json = isTag ? { fluidTag: this.fromTag(fluid) } : { fluid: fluid };
 
     //(Optional) Add count if it is defined and not equal to 1
-    if (amount && amount > 0) baseData.amount = amount;
+    if (amount && amount > 0) _json.amount = amount;
 
-    return {
-      _json: baseData,
-
-      nbt(nbt) {
-        this._json.nbt = nbt;
-        return this;
-      },
-    };
+    return _json;
   },
 };
 //#endregion
