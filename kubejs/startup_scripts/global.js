@@ -75,6 +75,17 @@ anoxia.game.item.rmOut = [
   'botanicalextramachinery:mana_storage_cell_16m',
   'botanicalextramachinery:mana_storage_cell_64m',
   'botanicalextramachinery:mana_storage_cell_256m',
+  'botanicalextramachinery:base_orechid',
+  'botanicalextramachinery:upgraded_orechid',
+  'botanicalextramachinery:advanced_orechid',
+  'botanicalextramachinery:ultimate_orechid',
+  'botanicalmachinery:mana_battery_creative',
+  'botanicalextramachinery:catalyst_mana_infinity',
+  'botanicalextramachinery:catalyst_living_rock_infinity',
+  'botanicalextramachinery:catalyst_water_infinity',
+  'botanicalextramachinery:catalyst_seed_infinity',
+  'botanicalextramachinery:catalyst_stone_infinity',
+  'botanicalextramachinery:catalyst_wood_infinity',
 
   //ChemLib
   'chemlib:iron_plate',

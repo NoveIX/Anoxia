@@ -13,11 +13,11 @@ ServerEvents.recipes((event) => {
   event.shaped('botania:mana_pool', ['CCC', 'ABA', 'AAA'], { A: 'botania:livingrock', B: 'botania:diluted_pool', C: ['botania:dragonstone', 'botania:pixie_dust'] });
 
   // Dreaming pool
-  event.remove({ output: 'botanicadds:dreaming_pool' });
+  //Removed in HammerLib config
   event.shaped('botanicadds:dreaming_pool', ['CCC', 'ABA', 'AAA'], { A: 'botanicadds:dreamrock', B: 'botania:mana_pool', C: 'botania:gaia_ingot' });
 
   // Runic altar
-  //Removed in HammerLib config
+  event.remove({ output: 'botania:runic_altar' });
   event.shaped('botania:runic_altar', ['AAA', 'ABA', 'ACA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'], C: 'minecraft:enchanting_table' });
 
   // Mana tablet
@@ -78,7 +78,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'mysticalagriculture:prosperity_seed_base' });
   const ManaInfusionPattern = [
     { get: itemOf('mysticalagriculture:prosperity_seed_base'), put: 'forge:seeds', magic: 5000 },
-    { get: itemOf('botanicadds:gaia_shard', 3), put: 'botania:life_essence', magic: 15000 },
+    { get: itemOf('botanicadds:gaia_shard', 3), put: 'botania:life_essence', magic: 15000, alchemy: 'botanicadds:terra_catalyst' },
 
     //Ad Astra Transmutation
     { get: itemOf('ad_astra:moon_sand'), put: 'ad_astra:mars_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
@@ -959,37 +959,56 @@ ServerEvents.recipes((event) => {
     //#endregion
   ];
   RunicAltarPattern.forEach((recipe) => {
-    if (recipe.put[0].item === 'mysticalagriculture:prosperity_seed_base' && recipe.put[0].item === 'mysticalagriculture:soulium_seed_base') {
-      event.remove({ output: recipe.get.item });
-      event.custom({
-        type: 'botania:runic_altar',
-        ingredients: recipe.put,
-        output: recipe.get,
-        mana: recipe.magic,
-      });
-    } else {
-      event.custom({
-        type: 'botania:runic_altar',
-        ingredients: recipe.put,
-        output: recipe.get,
-        mana: recipe.magic,
-      });
-    }
+    if (recipe.put[0].item === 'mysticalagriculture:prosperity_seed_base' || recipe.put[0].item === 'mysticalagriculture:soulium_seed_base') event.remove({ output: recipe.get.item });
+
+    event.custom({
+      type: 'botania:runic_altar',
+      ingredients: recipe.put,
+      output: recipe.get,
+      mana: recipe.magic,
+    });
   });
   //#endregion
 
   //# ====================================================================================== #
 
   //#region TerraPlate
-  event.remove({ output: 'appbot:mana_cell_housing' });
   const TerraPlatePattern = [
     {
       get: { item: 'appbot:mana_cell_housing' },
       put: [{ item: 'ae2:fluid_cell_housing' }, { item: 'botania:elf_glass' }, { item: 'botania:manasteel_ingot' }, { item: 'botania:mana_pearl' }, { item: 'botania:mana_diamond' }],
       magic: 1000000,
     },
+
+    // Botanical machinery extra
+    {
+      get: { item: 'botanicalextramachinery:crystal_ingot' },
+      put: [{ tag: 'forge:ingots/manasteel' }, { tag: 'forge:ingots/elementium' }, { tag: 'forge:ingots/terrasteel' }, { tag: 'forge:glass/colorless' }, { tag: 'forge:glass/colorless' }, { tag: 'forge:glass/colorless' }],
+      magic: 250000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:malachite_ingot' },
+      put: [{ item: 'botanicalextramachinery:crystal_ingot' }, { item: 'botanicalextramachinery:crystal_dragonstone' }, { item: 'botania:gaia_ingot' }],
+      magic: 750000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:saffron_ingot' },
+      put: [{ item: 'botanicalextramachinery:malachite_ingot' }, { item: 'botanicalextramachinery:malachite_dragonstone' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }],
+      magic: 1000000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:shadow_ingot' },
+      put: [{ item: 'botanicalextramachinery:saffron_ingot' }, { item: 'botanicalextramachinery:saffron_dragonstone' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }],
+      magic: 1500000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:crimson_ingot' },
+      put: [{ item: 'botanicalextramachinery:shadow_ingot' }, { item: 'botanicalextramachinery:shadow_dragonstone' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }],
+      magic: 2000000,
+    },
   ];
   TerraPlatePattern.forEach((recipe) => {
+    //event.remove({ output: recipe.get, type: 'botania:terra_plate' });
     event.custom({
       type: 'botania:terra_plate',
       ingredients: recipe.put,
