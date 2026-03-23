@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -eu
 
 # To use a specific Java runtime, define the JAVA variable below with the full path to java.
@@ -28,24 +28,24 @@ fi
 
 # Install or download Minecraft Forge
 cd "$(dirname "$0")"
-if [[ ! -d libraries ]]; then
+if [ ! -d libraries ]; then
     echo "Forge not installed, installing now."
-    if [[ ! -f "$INSTALLER" ]]; then
+    if [ ! -f "$INSTALLER" ]; then
         echo "No Forge installer found, downloading now."
         # try wget
         if command -v wget >/dev/null 2>&1; then
             echo "DEBUG: (wget) Downloading $FORGE_URL"
             wget -O "$INSTALLER" "$FORGE_URL"
+
+        # try curl
+        elif command -v curl >/dev/null 2>&1; then
+            echo "DEBUG: (curl) Downloading $FORGE_URL"
+            curl -o "$INSTALLER" -L "$FORGE_URL"
+
         else
-            # try curl
-            if command -v curl >/dev/null 2>&1; then
-                echo "DEBUG: (curl) Downloading $FORGE_URL"
-                curl -o "$INSTALLER" -L "$FORGE_URL"
-            else
-                echo "Neither wget or curl were found on your system. Please install one and try again"
-                pause
-                exit 1
-            fi
+            echo "Neither wget or curl were found on your system. Please install one and try again"
+            pause
+            exit 1
         fi
     fi
 
@@ -54,7 +54,7 @@ if [[ ! -d libraries ]]; then
 fi
 
 # Create default server properties
-if [[ ! -f server.properties ]]; then
+if [ ! -f server.properties ]; then
     cat <<EOF > server.properties
 allow-flight=true
 difficulty=hard
@@ -65,14 +65,14 @@ EOF
 fi
 
 # End install only
-if [[ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]]; then
+if [ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]; then
     echo "INSTALL_ONLY: complete"
     exit 0
 fi
 
 # Check Java version
 JAVA_VERSION=$("${ANOXIA_JAVA:-java}" -fullversion 2>&1 | awk -F '"' '/version/ {print $2}' | cut -d'.' -f1)
-if [[ ! "$JAVA_VERSION" -ge 17 ]]; then
+if [ "$JAVA_VERSION" -lt 17 ]; then
     echo "Minecraft 1.20.1 requires Java 17 - found Java $JAVA_VERSION"
     pause
     exit 1
@@ -83,7 +83,7 @@ while true
 do
     "${ANOXIA_JAVA:-java}" @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.20.1-$FORGE_VERSION/unix_args.txt nogui || EXIT_CODE=$?
 
-    if [[ "${ANOXIA_RESTART:-true}" == "false" ]]; then
+    if [ "${ANOXIA_RESTART:-true}" = "false" ]; then
         exit 0
     fi
 
