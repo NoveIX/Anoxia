@@ -2,7 +2,7 @@
 set -eu
 
 # To use a specific Java runtime, define the JAVA variable below with the full path to java.
-# ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-arm64/bin/java
+# ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
 
 # To disable automatic restarts, set the ANOXIA_RESTART variable to false.
 # ANOXIA_RESTART=false
@@ -32,20 +32,23 @@ if [ ! -d libraries ]; then
     echo "Forge not installed, installing now."
     if [ ! -f "$INSTALLER" ]; then
         echo "No Forge installer found, downloading now."
+
         # try wget
         if command -v wget >/dev/null 2>&1; then
             echo "DEBUG: (wget) Downloading $FORGE_URL"
             wget -O "$INSTALLER" "$FORGE_URL"
-
-        # try curl
-        elif command -v curl >/dev/null 2>&1; then
-            echo "DEBUG: (curl) Downloading $FORGE_URL"
-            curl -o "$INSTALLER" -L "$FORGE_URL"
-
         else
-            echo "Neither wget or curl were found on your system. Please install one and try again"
-            pause
-            exit 1
+
+            # try curl
+            if command -v curl >/dev/null 2>&1; then
+                echo "DEBUG: (curl) Downloading $FORGE_URL"
+                curl -o "$INSTALLER" -L "$FORGE_URL"
+
+            else
+                echo "Neither wget or curl were found on your system. Please install one and try again"
+                pause
+                exit 1
+            fi
         fi
     fi
 
