@@ -4,6 +4,38 @@ ServerEvents.recipes((event) => {
   event.shapeless('botania:fertilizer', ['minecraft:bone_meal', '#botania:petals/flower', '#botania:petals/flower', '#botania:petals/flower', '#botania:petals/flower']);
   event.shapeless('botania:fertilizer', ['botania:living_root']);
 
+  // Diluted Mana pool
+  event.remove({ output: 'botania:diluted_pool' });
+  event.shaped('botania:diluted_pool', ['A A', 'AAA'], { A: 'botania:livingrock' });
+
+  // Mana pool
+  event.remove({ output: 'botania:mana_pool' });
+  event.shaped('botania:mana_pool', ['CCC', 'ABA', 'AAA'], { A: 'botania:livingrock', B: 'botania:diluted_pool', C: ['botania:dragonstone', 'botania:pixie_dust'] });
+
+  // Dreaming pool
+  //Removed in HammerLib config
+  event.shaped('botanicadds:dreaming_pool', ['CCC', 'ABA', 'AAA'], { A: 'botanicadds:dreamrock', B: 'botania:mana_pool', C: 'botania:gaia_ingot' });
+
+  // Runic altar
+  event.remove({ output: 'botania:runic_altar' });
+  event.shaped('botania:runic_altar', ['AAA', 'ABA', 'ACA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'], C: 'minecraft:enchanting_table' });
+
+  // Mana tablet
+  event.remove({ output: 'botania:mana_tablet' });
+  event.shaped('botania:mana_tablet', ['AAA', 'ABA', 'AAA'], { A: 'botania:livingrock', B: ['botania:mana_pearl', 'botania:mana_diamond', 'botanicalmachinery:mana_emerald'] });
+
+  // Mana pylon
+  event.remove({ output: 'botania:mana_pylon' });
+  event.shaped('botania:mana_pylon', [' A ', 'BCB', ' A '], { A: '#forge:ingots/manasteel', B: '#forge:ingots/gold', C: '#forge:gems/mana_diamond' });
+
+  // Natura pylon
+  event.remove({ output: 'botania:natura_pylon' });
+  event.shaped('botania:natura_pylon', [' A ', 'BCB', ' A '], { A: '#forge:ingots/terrasteel', B: '#botania:glimmering_livingwood_logs', C: 'botania:mana_pylon' });
+
+  // Gaia pylon
+  // Removed in HammerLib config
+  event.shaped('botanicadds:gaiasteel_pylon', [' A ', 'BCB', ' A '], { A: '#forge:ingots/gaiasteel', B: '#botania:glimmering_dreamwood_logs', C: 'botania:natura_pylon' });
+
   //# ====================================================================================== #
 
   //#region Elven Trade
@@ -45,39 +77,40 @@ ServerEvents.recipes((event) => {
   //#region Mana Infusion
   event.remove({ output: 'mysticalagriculture:prosperity_seed_base' });
   const ManaInfusionPattern = [
-    { get: 'mysticalagriculture:prosperity_seed_base', put: 'forge:seeds', magic: 5000 },
+    { get: itemOf('mysticalagriculture:prosperity_seed_base'), put: 'forge:seeds', magic: 5000 },
+    { get: itemOf('botanicadds:gaia_shard', 3), put: 'botania:life_essence', magic: 15000, alchemy: 'botanicadds:terra_catalyst' },
 
     //Ad Astra Transmutation
-    { get: 'ad_astra:moon_sand', put: 'ad_astra:mars_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:mars_sand', put: 'ad_astra:venus_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:venus_sand', put: 'ad_astra:moon_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:moon_stone', put: 'ad_astra:mars_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:mars_stone', put: 'ad_astra:venus_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:venus_stone', put: 'ad_astra:mercury_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:mercury_stone', put: 'ad_astra:glacio_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
-    { get: 'ad_astra:glacio_stone', put: 'ad_astra:moon_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:moon_sand'), put: 'ad_astra:mars_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:mars_sand'), put: 'ad_astra:venus_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:venus_sand'), put: 'ad_astra:moon_sand', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:moon_stone'), put: 'ad_astra:mars_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:mars_stone'), put: 'ad_astra:venus_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:venus_stone'), put: 'ad_astra:mercury_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:mercury_stone'), put: 'ad_astra:glacio_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
+    { get: itemOf('ad_astra:glacio_stone'), put: 'ad_astra:moon_stone', magic: 500, alchemy: 'botania:alchemy_catalyst' },
 
     //Ad Astra Duplication
-    { get: 'ad_astra:moon_sand', n0: 2, put: 'ad_astra:moon_sand', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:mars_sand', n0: 2, put: 'ad_astra:mars_sand', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:venus_sand', n0: 2, put: 'ad_astra:venus_sand', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:moon_stone', n0: 2, put: 'ad_astra:moon_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:mars_stone', n0: 2, put: 'ad_astra:mars_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:venus_stone', n0: 2, put: 'ad_astra:venus_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:mercury_stone', n0: 2, put: 'ad_astra:mercury_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
-    { get: 'ad_astra:glacio_stone', n0: 2, put: 'ad_astra:glacio_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:moon_sand'), n0: 2, put: 'ad_astra:moon_sand', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:mars_sand'), n0: 2, put: 'ad_astra:mars_sand', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:venus_sand'), n0: 2, put: 'ad_astra:venus_sand', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:moon_stone'), n0: 2, put: 'ad_astra:moon_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:mars_stone'), n0: 2, put: 'ad_astra:mars_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:venus_stone'), n0: 2, put: 'ad_astra:venus_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:mercury_stone'), n0: 2, put: 'ad_astra:mercury_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
+    { get: itemOf('ad_astra:glacio_stone'), n0: 2, put: 'ad_astra:glacio_stone', magic: 5000, alchemy: 'botania:conjuration_catalyst' },
 
     //AE2
-    { get: 'anoxia:mana_integration_processor', put: 'ae2:engineering_processor', magic: 500000, alchemy: 'ae2:dense_energy_cell' },
+    { get: itemOf('anoxia:mana_integration_processor'), put: 'ae2:engineering_processor', magic: 500000, alchemy: 'ae2:dense_energy_cell' },
 
     //Mekanism
-    { get: 'mekanism:elite_tier_installer', put: 'mekanism:advanced_tier_installer', magic: 1000000, alchemy: 'mekanism:elite_energy_cube' },
+    { get: itemOf('mekanism:elite_tier_installer'), put: 'mekanism:advanced_tier_installer', magic: 1000000, alchemy: 'mekanism:elite_energy_cube' },
   ];
   ManaInfusionPattern.forEach((recipe) => {
     const json = {
       type: 'botania:mana_infusion',
       mana: recipe.magic,
-      output: { item: recipe.get },
+      output: recipe.get,
     };
 
     //Input: tag o item
@@ -219,7 +252,7 @@ ServerEvents.recipes((event) => {
     },
     {
       get: { count: 1, item: 'mysticalagriculture:coral_essence' },
-      put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneAir, { tag: 'minecraft:corals' }, { tag: 'minecraft:corals' }, essenceT2, essenceT2],
+      put: [BotaniaSeed, RuneMana, RuneWater, RuneSummer, RuneAir, { tag: 'minecraft:coral_blocks' }, { tag: 'minecraft:coral_blocks' }, essenceT2, essenceT2],
       magic: ManaEssenceT2,
     },
     {
@@ -926,37 +959,56 @@ ServerEvents.recipes((event) => {
     //#endregion
   ];
   RunicAltarPattern.forEach((recipe) => {
-    if (recipe.put[0].item === 'mysticalagriculture:prosperity_seed_base' && recipe.put[0].item === 'mysticalagriculture:soulium_seed_base') {
-      event.remove({ output: recipe.get.item });
-      event.custom({
-        type: 'botania:runic_altar',
-        ingredients: recipe.put,
-        output: recipe.get,
-        mana: recipe.magic,
-      });
-    } else {
-      event.custom({
-        type: 'botania:runic_altar',
-        ingredients: recipe.put,
-        output: recipe.get,
-        mana: recipe.magic,
-      });
-    }
+    if (recipe.put[0].item === 'mysticalagriculture:prosperity_seed_base' || recipe.put[0].item === 'mysticalagriculture:soulium_seed_base') event.remove({ output: recipe.get.item });
+
+    event.custom({
+      type: 'botania:runic_altar',
+      ingredients: recipe.put,
+      output: recipe.get,
+      mana: recipe.magic,
+    });
   });
   //#endregion
 
   //# ====================================================================================== #
 
   //#region TerraPlate
-  event.remove({ output: 'appbot:mana_cell_housing' });
   const TerraPlatePattern = [
     {
       get: { item: 'appbot:mana_cell_housing' },
       put: [{ item: 'ae2:fluid_cell_housing' }, { item: 'botania:elf_glass' }, { item: 'botania:manasteel_ingot' }, { item: 'botania:mana_pearl' }, { item: 'botania:mana_diamond' }],
       magic: 1000000,
     },
+
+    // Botanical machinery extra
+    {
+      get: { item: 'botanicalextramachinery:crystal_ingot' },
+      put: [{ tag: 'forge:ingots/manasteel' }, { tag: 'forge:ingots/elementium' }, { tag: 'forge:ingots/terrasteel' }, { tag: 'forge:glass/colorless' }, { tag: 'forge:glass/colorless' }, { tag: 'forge:glass/colorless' }],
+      magic: 250000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:malachite_ingot' },
+      put: [{ item: 'botanicalextramachinery:crystal_ingot' }, { item: 'botanicalextramachinery:crystal_dragonstone' }, { item: 'botania:gaia_ingot' }],
+      magic: 750000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:saffron_ingot' },
+      put: [{ item: 'botanicalextramachinery:malachite_ingot' }, { item: 'botanicalextramachinery:malachite_dragonstone' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }],
+      magic: 1000000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:shadow_ingot' },
+      put: [{ item: 'botanicalextramachinery:saffron_ingot' }, { item: 'botanicalextramachinery:saffron_dragonstone' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }],
+      magic: 1500000,
+    },
+    {
+      get: { item: 'botanicalextramachinery:crimson_ingot' },
+      put: [{ item: 'botanicalextramachinery:shadow_ingot' }, { item: 'botanicalextramachinery:shadow_dragonstone' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }, { item: 'botania:gaia_ingot' }],
+      magic: 2000000,
+    },
   ];
   TerraPlatePattern.forEach((recipe) => {
+    //event.remove({ output: recipe.get, type: 'botania:terra_plate' });
     event.custom({
       type: 'botania:terra_plate',
       ingredients: recipe.put,

@@ -4,10 +4,10 @@ title Anoxia Server
 :: To use a specific Java runtime, define the JAVA variable below with the full path to java.exe.
 :: set ANOXIA_JAVA=C:\Program Files\Java\jdk-17\bin\java.exe
 
-:: To disable automatic restarts, set the AUTO_RESTART variable to false.
+:: To disable automatic restarts, set the ANOXIA_RESTART variable to false.
 :: set ANOXIA_RESTART=false
 
-:: To install the pack without starting the server, set the INSTALL_ONLY variable to true.
+:: To install the pack without starting the server, set the ANOXIA_INSTALL_ONLY variable to true.
 :: set ANOXIA_INSTALL_ONLY=true
 
 set FORGE_VERSION=47.4.10

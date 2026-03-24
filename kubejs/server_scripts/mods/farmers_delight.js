@@ -1,4 +1,11 @@
 ServerEvents.recipes((event) => {
+  //#region RemoveID
+  const rmRecipeID = ['delightful:food/sweet_berry_cheesecake_from_cheese'];
+  rmRecipeID.forEach((id) => event.remove({ id: id }));
+  //#endregion
+
+  // # =================================================================================================== #
+
   //Organic Compost
   event.remove({ output: 'farmersdelight:organic_compost' });
   event.shaped('farmersdelight:organic_compost', ['AAA', 'ABA', 'AAA'], { A: '#anoxia:fertilizers', B: 'minecraft:dirt' });
@@ -14,6 +21,10 @@ ServerEvents.recipes((event) => {
   //Blackstone Smoker
   event.remove({ output: 'nethersdelight:nether_brick_smoker' });
   event.shaped('nethersdelight:nether_brick_smoker', ['ABA', 'BCB', 'ABA'], { A: 'anoxia:compressed_cobblestone', B: 'minecraft:nether_bricks', C: '#anoxia:furnaces/stone' });
+
+  //Sweet Berry Cheesecake
+  //Remove id
+  event.shapeless('farmersdelight:sweet_berry_cheesecake', [Item.of('minecraft:sweet_berries', 6), '#forge:cheese', 'farmersdelight:pie_crust']);
 
   //# ====================================================================================== #
 
