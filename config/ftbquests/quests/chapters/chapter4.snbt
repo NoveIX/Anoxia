@@ -242,6 +242,230 @@
 			x: 1.0d
 			y: 6.5d
 		}
+		{
+			dependencies: ["2D205F775C5C9621"]
+			id: "508EC78A46DE2452"
+			tasks: [{
+				id: "4FA837F5F3C23BEB"
+				item: "botania:mana_bottle"
+				type: "item"
+			}]
+			title: "100% safe to drink"
+			x: 2.5d
+			y: 2.0d
+		}
+		{
+			dependencies: ["706D81CC90E1C2DC"]
+			id: "6ADD5061EC483B47"
+			tasks: [{
+				id: "0217520912B93704"
+				item: "botania:terrasteel_ingot"
+				type: "item"
+			}]
+			title: "Is that a Terraria reference?"
+			x: 1.0d
+			y: 9.5d
+		}
+		{
+			dependencies: ["6ADD5061EC483B47"]
+			id: "3A530A169B02CF73"
+			tasks: [
+				{
+					count: 3L
+					id: "6651FFB48F64408A"
+					item: { Count: 3, id: "botania:glimmering_livingwood" }
+					type: "item"
+				}
+				{
+					id: "05A6938F585AA7C4"
+					item: "botania:alfheim_portal"
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "0EF8ADDFD3F40601"
+					item: { Count: 2, id: "botania:natura_pylon" }
+					type: "item"
+				}
+			]
+			title: "A new dimension"
+			x: 1.0d
+			y: 11.0d
+		}
+		{
+			dependencies: ["3A530A169B02CF73"]
+			id: "2590984720AE9F40"
+			tasks: [
+				{
+					count: 8L
+					id: "3276ADD3FE1031C0"
+					item: { Count: 8, id: "botania:elementium_ingot" }
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "22601B192DFF5C40"
+					item: { Count: 8, id: "botania:pixie_dust" }
+					type: "item"
+				}
+				{
+					count: 4L
+					id: "7F86677A007353C6"
+					item: { Count: 4, id: "botania:dragonstone" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "001CC20B86CE9D4F"
+					item: { Count: 16, id: "botania:dreamwood_log" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "08F93A7CDBCBAC8C"
+					item: { Count: 16, id: "botania:elf_glass" }
+					type: "item"
+				}
+			]
+			title: "Space-temporal trading? I'll take it"
+			x: 2.5d
+			y: 11.0d
+		}
+		{
+			dependencies: ["2D205F775C5C9621"]
+			id: "27B1F3689D6A5319"
+			tasks: [{
+				id: "0B862A6E44C8DB6D"
+				item: "botania:brewery"
+				type: "item"
+			}]
+			title: "Magical Brewery"
+			x: 2.5d
+			y: 5.0d
+		}
+		{
+			dependencies: ["3025B9B80F6B65E9"]
+			id: "706D81CC90E1C2DC"
+			tasks: [
+				{
+					id: "685389A1A723DC8C"
+					item: "botania:terra_plate"
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "32BDEF6868F57022"
+					item: { Count: 2, id: "botania:spark" }
+					type: "item"
+				}
+			]
+			title: "That's... Expensive"
+			x: 1.0d
+			y: 8.0d
+		}
+		{
+			dependencies: ["6ADD5061EC483B47"]
+			id: "7B5A0C68E3F3E606"
+			tasks: [{
+				id: "7DBC3AC1213C89C5"
+				item: {
+					Count: 1
+					id: "botania:terra_sword"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "Why this is here? Wrong game, friend"
+			x: 2.5d
+			y: 9.5d
+		}
+		{
+			dependencies: ["11BA6438D61FFF0C"]
+			id: "51265F975F374C1D"
+			tasks: [{
+				id: "17D2192000EA5F7A"
+				item: "botania:auto_crafting_halo"
+				type: "item"
+			}]
+			title: "Upgrades aliens, upgrades"
+			x: 5.5d
+			y: 3.5d
+		}
+		{
+			dependencies: ["3A530A169B02CF73"]
+			id: "2BD67E50A3F2C032"
+			tasks: [{
+				count: 4L
+				id: "5EEA7646C3B1DECE"
+				item: { Count: 4, id: "botania:gaia_pylon" }
+				type: "item"
+			}]
+			title: "Why do i hear boss music?"
+			x: 1.0d
+			y: 12.5d
+		}
+		{
+			dependencies: ["2BD67E50A3F2C032"]
+			id: "21B6DBC374C0D5A5"
+			tasks: [{
+				id: "59FE8B2BFDDF509B"
+				item: "botania:gaia_ingot"
+				type: "item"
+			}]
+			title: "Rematch, baby"
+			x: 2.5d
+			y: 12.5d
+		}
+		{
+			dependencies: ["21B6DBC374C0D5A5"]
+			id: "0DAC103D9E793DE5"
+			tasks: [{
+				id: "2B16E8035CFC23C9"
+				item: "botania:dice"
+				type: "item"
+			}]
+			title: "Never again"
+			x: 4.0d
+			y: 12.5d
+		}
+		{
+			dependencies: ["27B1F3689D6A5319"]
+			id: "75464122F6A0C243"
+			tasks: [{
+				id: "02134B783D47F7C8"
+				item: "botania:vial"
+				type: "item"
+			}]
+			title: "Potion brewer"
+			x: 4.0d
+			y: 5.0d
+		}
+		{
+			dependencies: ["75464122F6A0C243"]
+			id: "35398617991DD83A"
+			tasks: [{
+				id: "38F1782CF8E93D69"
+				item: "botania:flask"
+				type: "item"
+			}]
+			title: "Potion drunkard"
+			x: 5.5d
+			y: 5.0d
+		}
+		{
+			dependencies: ["104E0CD2C2B6A43D"]
+			id: "1D256BA371D749CB"
+			tasks: [{
+				id: "07F8C069B569025A"
+				item: "botania:rosa_arcana"
+				type: "item"
+			}]
+			title: "Level drain"
+			x: -4.0d
+			y: 6.5d
+		}
 	]
 	title: "Flower Power"
 }
