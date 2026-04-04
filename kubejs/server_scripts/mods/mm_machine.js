@@ -45,8 +45,8 @@ ServerEvents.recipes((event) => {
     { get: 'mm:reinforced_item_port_output', put: 'mm:normal_item_port_output' },
     { get: 'mm:big_item_port_output', put: 'mm:reinforced_item_port_output' },
     { get: 'mm:huge_item_port_output', put: 'mm:big_item_port_output' },
-    { get: 'mm:huge_item_port_output', put: 'mm:huge_item_port_output' },
-    { get: 'mm:huge_item_port_output', put: 'mm:huge_item_port_output' },
+    { get: 'mm:ludicrous_item_port_output', put: 'mm:huge_item_port_output' },
+    { get: 'mm:ultimate_item_port_output', put: 'mm:ludicrous_item_port_output' },
   ];
   itemOutPort.forEach((recipe) => event.shaped(recipe.get, ['DBD', 'BCB', ' A '], { A: 'minecraft:hopper', B: 'anoxia:modularium_ingot', C: recipe.put, D: '#forge:chests/wooden' }));
   //#endregion
