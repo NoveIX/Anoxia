@@ -161,6 +161,7 @@ ServerEvents.tags('block', (event) => {
     //Fluid port
     { tag: 'mm:machine_port/fluid/input', block: ['mm:tiny_fluid_port_input', 'mm:small_fluid_port_input', 'mm:normal_fluid_port_input', 'mm:reinforced_fluid_port_input', 'mm:big_fluid_port_input', 'mm:huge_fluid_port_input', 'mm:ludicrous_fluid_port_input', 'mm:ultimate_fluid_port_input'] },
     { tag: 'mm:machine_port/fluid/output', block: ['mm:tiny_fluid_port_output', 'mm:small_fluid_port_output', 'mm:normal_fluid_port_output', 'mm:reinforced_fluid_port_output', 'mm:big_fluid_port_output', 'mm:huge_fluid_port_output', 'mm:ludicrous_fluid_port_output', 'mm:ultimate_fluid_port_output'] },
+
     //Energy port
     { tag: 'mm:machine_port/energy/input', block: ['mm:tiny_energy_port_input', 'mm:small_energy_port_input', 'mm:normal_energy_port_input', 'mm:reinforced_energy_port_input', 'mm:big_energy_port_input', 'mm:huge_energy_port_input', 'mm:ludicrous_energy_port_input', 'mm:ultimate_energy_port_input'] },
     { tag: 'mm:machine_port/energy/output', block: ['mm:tiny_energy_port_output', 'mm:small_energy_port_output', 'mm:normal_energy_port_output', 'mm:reinforced_energy_port_output', 'mm:big_energy_port_output', 'mm:huge_energy_port_output', 'mm:ludicrous_energy_port_output', 'mm:ultimate_energy_port_output'] },
