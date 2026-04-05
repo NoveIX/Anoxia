@@ -58,3 +58,5 @@ if /i "%ANOXIA_RESTART%" == "true" (
     timeout /t 10 /nobreak > NUL
     goto:START
 )
+
+pause
