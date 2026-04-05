@@ -4,89 +4,70 @@ set -eu
 # To use a specific Java runtime, define the JAVA variable below with the full path to java.
 # ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
 
-# To disable automatic restarts, set the ANOXIA_RESTART variable to false.
-# ANOXIA_RESTART=false
+# To enable automatic restarts, set the ANOXIA_RESTART variable to true.
+# ANOXIA_RESTART=true
 
 # To install the pack without starting the server, set the ANOXIA_INSTALL_ONLY variable to true.
 # ANOXIA_INSTALL_ONLY=true
 
-FORGE_VERSION=47.4.10
-INSTALLER="forge-1.20.1-$FORGE_VERSION-installer.jar"
-FORGE_URL="https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-$FORGE_VERSION/forge-1.20.1-$FORGE_VERSION-installer.jar"
 
-pause() {
-    printf "%s\n" "Press enter to continue..."
-    read ans
-}
+# Set versions for installer to use
+JAVA_VER=17
+MC_VER=1.20.1
+FORGE_VER=47.4.10
 
-# Check Java is installed
-if ! command -v "${ANOXIA_JAVA:-java}" >/dev/null 2>&1; then
-    echo "Minecraft 1.20.1 requires Java 17 - Java not found"
-    pause
+
+# Change to script directory
+cd $(dirname "$0")
+SCRIPT_DIR=$(pwd)
+SERVER_INSTALLER=$SCRIPT_DIR/ServerInstaller
+
+
+# Load installer function
+if [ -f "$SERVER_INSTALLER/installer.sh" ]; then
+    . "$SERVER_INSTALLER/installer.sh"
+else
+    echo "ERROR: file installer.sh not found!"
     exit 1
 fi
 
-# Install or download Minecraft Forge
-cd "$(dirname "$0")"
-if [ ! -d libraries ]; then
-    echo "Forge not installed, installing now."
-    if [ ! -f "$INSTALLER" ]; then
-        echo "No Forge installer found, downloading now."
-
-        # try wget
-        if command -v wget >/dev/null 2>&1; then
-            echo "DEBUG: (wget) Downloading $FORGE_URL"
-            wget -O "$INSTALLER" "$FORGE_URL"
-        else
-
-            # try curl
-            if command -v curl >/dev/null 2>&1; then
-                echo "DEBUG: (curl) Downloading $FORGE_URL"
-                curl -o "$INSTALLER" -L "$FORGE_URL"
-
-            else
-                echo "Neither wget or curl were found on your system. Please install one and try again"
-                pause
-                exit 1
-            fi
+# Check if java executable is defined, install java if not found, and set ANOXIA_JAVA variable
+if [ -z "${ANOXIA_JAVA:-}" ]; then
+    if [ ! -f "$SCRIPT_DIR/java/bin/java" ]; then
+        if ! install_local_java $JAVA_VER; then
+            exit 1
         fi
     fi
 
-    echo "Running Forge installer."
-    "${ANOXIA_JAVA:-java}" -jar "$INSTALLER" -installServer
-fi
-
-# Create default server properties
-if [ ! -f server.properties ]; then
-    cat <<EOF > server.properties
-allow-flight=true
-difficulty=hard
-enable-command-block=true
-motd=§3Project§r §2Anoxia§r §7Lunar§r §4Ruins§r
-max-tick-time=180000
-EOF
-fi
-
-# End install only
-if [ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]; then
-    echo "INSTALL_ONLY: complete"
-    exit 0
+    ANOXIA_JAVA=$SCRIPT_DIR/java/bin/java
 fi
 
 # Check Java version
-JAVA_VERSION=$("${ANOXIA_JAVA:-java}" -fullversion 2>&1 | awk -F '"' '/version/ {print $2}' | cut -d'.' -f1)
-if [ "$JAVA_VERSION" -lt 17 ]; then
-    echo "Minecraft 1.20.1 requires Java 17 - found Java $JAVA_VERSION"
-    pause
+JAVA_VERSION=$("$ANOXIA_JAVA" -fullversion 2>&1 | awk -F '"' '/version/ {print $2}' | cut -d'.' -f1)
+if [ "$JAVA_VERSION" -lt $JAVA_VER ]; then
+    echo "Minecraft $MC_VER requires Java $JAVA_VER - found Java $JAVA_VERSION"
     exit 1
 fi
 
-# Server Start or restart if crash handle on
-while true
-do
-    "${ANOXIA_JAVA:-java}" @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.20.1-$FORGE_VERSION/unix_args.txt nogui || EXIT_CODE=$?
+# Check if libraries directory exists, if not, run installer to install forge and libraries
+if [ ! -d "libraries" ]; then
+    if ! install_forge $ANOXIA_JAVA $MC_VER $FORGE_VER; then
+        exit 1
+    fi
+fi
 
-    if [ "${ANOXIA_RESTART:-true}" = "false" ]; then
+# Check if running in "Install Only" mode
+if [ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]; then
+    echo "Install completed the Server will NOT start."
+    exit 0
+fi
+
+# Server Start or restart if crash handle on
+while true; do
+    "$ANOXIA_JAVA" @user_jvm_args.txt @libraries/net/minecraftforge/forge/$MC_VER-$FORGE_VER/unix_args.txt nogui || EXIT_CODE=$?
+
+    # Restart Server
+    if [ "${ANOXIA_RESTART:-false}" = "false" ]; then
         exit 0
     fi
 

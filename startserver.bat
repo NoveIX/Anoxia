@@ -15,22 +15,26 @@ title Anoxia Server
 set "JAVA_VER=17"
 set "MC_VER=1.20.1"
 set "FORGE_VER=47.4.10"
-set "INSTALLER_DIR=%~dp0ServerInstaller"
 
-:: Set java binary or run installer to install java and set variable
+
+:: Change to script directory
+cd /D "%~dp0"
+set "SCRIPT_DIR=%CD%"
+set "SERVER_INSTALLER=%SCRIPT_DIR%\ServerInstaller"
+
+:: Check if java executable is defined, install java if not found, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
-    if not exist "%~dp0java\bin\java.exe" (
-        powershell -ExecutionPolicy Bypass -File "%INSTALLER_DIR%\Installer.ps1" -InstallJava -JavaVer "%JAVA_VER%"
+    if not exist "%SCRIPT_DIR%\java\bin\java.exe" (
+        powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\Installer.ps1" -InstallJava -JavaVer "%JAVA_VER%"
         if errorlevel 1 exit /b 1
     )
 
-    :: Set java path to bundled java
-    set "ANOXIA_JAVA=%~dp0java\bin\java.exe"
+    set "ANOXIA_JAVA=%SCRIPT_DIR%\java\bin\java.exe"
 )
 
 :: Check Java version
 for /f tokens^=2-5^ delims^=.-_^" %%j in ('"%ANOXIA_JAVA%" -fullversion 2^>^&1') do set "jver=%%j"
-if not %jver% geq %JAVA_VER%  (
+if %jver% lss %JAVA_VER%  (
     echo Minecraft %MC_VER% requires Java %JAVA_VER% - found Java %jver%
     pause
     exit /b 1
@@ -38,7 +42,7 @@ if not %jver% geq %JAVA_VER%  (
 
 :: Check if libraries directory exists, if not, run installer to install forge and libraries
 if not exist "libraries" (
-    powershell -ExecutionPolicy Bypass -File "%INSTALLER_DIR%\Installer.ps1" -InstallForge -JavaExe "%ANOXIA_JAVA%" -MCVer %MC_VER% -ForgeVer %FORGE_VER%
+    powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\Installer.ps1" -InstallForge -JavaExe "%ANOXIA_JAVA%" -MCVer %MC_VER% -ForgeVer %FORGE_VER%
     if errorlevel 1 exit /b 1
 )
 
@@ -50,7 +54,7 @@ if /i "%ANOXIA_INSTALL_ONLY%" == "true" (
 
 :START
 :: Server Start or restart if crash handle on
-"%ANOXIA_JAVA%" @user_jvm_args.txt @libraries/net/minecraftforge/forge/1.20.1-%FORGE_VER%/win_args.txt nogui
+"%ANOXIA_JAVA%" @user_jvm_args.txt @libraries/net/minecraftforge/forge/%MC_VER%-%FORGE_VER%/win_args.txt nogui
 
 :: Restart Server
 if /i "%ANOXIA_RESTART%" == "true" (

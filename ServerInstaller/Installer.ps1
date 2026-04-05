@@ -12,7 +12,7 @@ $WorkDir = Split-Path -Path $PSScriptRoot -Parent
 Set-Location -Path $WorkDir
 
 
-#region logging functions
+#region Logging functions
 function Write-LogInfo {
     param (
         [Parameter(Mandatory)]
@@ -61,7 +61,7 @@ function Invoke-PathCombine {
 #endregion
 
 
-#region utility functions
+#region Utility functions
 # Copy file or directory with progress bar
 function Copy-File {
     param (
@@ -133,7 +133,7 @@ function Get-SysArch {
     else {
         Write-Host "`n============================================"
         Write-Host "SYSTEM NOT SUPPORTED"
-        Write-Host "Detected architecture: $arch"
+        Write-Host "Detected architecture: $env:PROCESSOR_ARCHITECTURE"
         Write-Host "Required architecture: 64-bit (x64 or ARM64)"
         Write-Host "============================================`n"
         Pause; exit 1
@@ -169,7 +169,7 @@ function Invoke-DonwloadFiles {
 #endregion
 
 
-#region installation functions
+#region Installation functions
 # Install Java locally by downloading and extracting the JRE zip file
 function Install-LocalJava {
     param (
@@ -178,9 +178,9 @@ function Install-LocalJava {
     )
 
     # Set Java download URL and file name based on architecture and version
-    $SystemArch = Get-SysArch
-    $JavaZip = "OpenJDK17U-jre_${SystemArch}_windows.zip"
-    $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Version}/ga/windows/${SystemArch}/jre/hotspot/normal/eclipse"
+    $Arch = Get-SysArch
+    $JavaZip = "OpenJDK17U-jre_${Arch}_windows.zip"
+    $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Version}/ga/windows/${Arch}/jre/hotspot/normal/eclipse"
 
     # Download Java zip file
     if (-not (Test-Path -Path $JavaZip -PathType Leaf)) { Invoke-DonwloadFiles -File $JavaZip -URL $JavaUrl }
@@ -200,7 +200,7 @@ function Install-LocalJava {
             $Source = Get-ChildItem -Path $dir.FullName -Directory | Where-Object { $_.Name -match "jdk-${Version}|jre-${Version}" } | Select-Object -First 1
             Copy-File -Source $Source.FullName -Destination "java"
             Remove-Item -Path $dir -Force -Recurse
-            Write-LogInfo "Java setup completed copied in java"
+            Write-LogInfo "Java setup completed copied in java directory"
         }
         catch { Write-LogError "Failed to set up java directory. SysErr: $($_.Exception.Message)" ; Pause; exit 1 }
     }
@@ -234,7 +234,7 @@ function Install-Forge {
             Start-Process -FilePath $javaExe -ArgumentList "-jar `"$ForgeInstaller`" --installServer" -Wait -NoNewWindow
             Write-LogInfo "Forge installation completed"
         }
-        catch { Write-LogError "Failed to install Forge. SysErr: $($_.Exception.Message)"; Pause; exit 1 }
+        catch { Write-LogError "Failed to install Forge installer. SysErr: $($_.Exception.Message)"; Pause; exit 1 }
     }
     else { Write-LogInfo "Forge is already installed (libraries directory exists)" }
 }
