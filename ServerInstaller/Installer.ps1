@@ -72,14 +72,14 @@ function Copy-File {
         [Parameter(Mandatory)]
         [string]$Destination,
 
-        # Overwrite files at the destination if they already exist
+        # Overwrite files at the destination
         [switch]$Force,
 
         [ValidateNotNullOrEmpty()]
         [int]$DecimalPlace = 2
     )
 
-    # Create the destination if it does not exist
+    # Create the destination or check if contains files
     if (-not (Test-Path -Path $Destination -PathType Container)) { New-Item -Path $Destination -ItemType Directory -Force | Out-Null }
     else {
         if ((Get-ChildItem -Path $Destination -Force).Count -gt 0 -and -not $Force) {
@@ -111,11 +111,10 @@ function Copy-File {
         [double]$percent = ((($curItem / $totItem) + ($curByte / $totByte)) / 2) * 100
         [double]$percentComplete = [math]::Round($percent, $DecimalPlace)
         [string]$status = "Item $curItem of $totItem ($($percentComplete.ToString("N$DecimalPlace")) `%) - $($item.Name)"
-        Write-Progress -Id 0 -Activity "Copy in file progress..." -Status $status -PercentComplete $percentComplete
+        Write-Progress -Id 0 -Activity "Copy file in progress..." -Status $status -PercentComplete $percentComplete
 
         # Calculate path relative path on destination path
-        [string]$SourceRelativePath = $item.FullName.Substring((Resolve-Path $Source).Path.Length)
-        [string]$DestinationFullPath = Join-Path -Path $Destination -ChildPath $SourceRelativePath
+        [string]$DestinationFullPath = Join-Path -Path $Destination -ChildPath $item.FullName.Substring((Resolve-Path $Source).Path.Length)
 
         # Copy item to destination
         if ($item.PSIsContainer) { Copy-Item -Path $item.FullName -Destination (Split-Path $DestinationFullPath -Parent) -Force }
@@ -152,15 +151,16 @@ function Invoke-DonwloadFiles {
     )
 
     try {
-        Write-LogInfo "(WebRequest) Downloading $File"
-        Invoke-WebRequest -Uri $URL -OutFile $File -UseBasicParsing -ErrorAction Stop
+        Write-LogInfo "(BITS) Downloading $File"
+        Start-BitsTransfer -Source $URL -Destination $File
         Write-LogInfo "Download completed: $File"
+
     }
     catch {
-        Write-LogWarn "WebRequest failed, trying BITS"
+        Write-LogWarn "BITS failed, trying WebRequest"
         try {
-            Write-LogInfo "(BITS) Downloading $File"
-            Start-BitsTransfer -Source $URL -Destination $File
+            Write-LogInfo "(WebRequest) Downloading $File"
+            Invoke-WebRequest -Uri $URL -OutFile $File -UseBasicParsing -ErrorAction Stop
             Write-LogInfo "Download completed: $File"
         }
         catch { Write-LogError "Download failed: $File. SysErr: $($_.Exception.Message)" ; Pause; exit 1 }
