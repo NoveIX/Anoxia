@@ -163,6 +163,7 @@ anoxia.game.item.rmOut = [
   'enderio:powered_light_inverted',
   'enderio:powered_light_wireless',
   'enderio:powered_light_inverted_wireless',
+  'enderio:energy_conduit',
 
   //ExNihilo Sequentia
   'exnihilosequentia:andesite_crook',

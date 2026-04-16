@@ -13,6 +13,7 @@ ServerEvents.recipes((event) => {
     ['tconstruct:rose_gold_nugget', 'thermal:rose_gold_nugget'],
     ['tconstruct:rose_gold_ingot', 'thermal:rose_gold_ingot'],
     ['tconstruct:rose_gold_block', 'thermal:rose_gold_block'],
+    ['enderio:energy_conduit', 'enderio:energyy_conduit'],
 
     //Create Unification
     ['create:copper_sheet', '#forge:plates/copper'],
