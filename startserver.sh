@@ -20,7 +20,7 @@ FORGE_VER=47.4.10
 # Change to script directory
 cd $(dirname "$0")
 SCRIPT_DIR=$(pwd)
-SERVER_INSTALLER=$SCRIPT_DIR/ServerInstaller
+SERVER_INSTALLER=$SCRIPT_DIR/serverInstaller
 
 
 # Load installer function

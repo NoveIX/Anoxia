@@ -20,7 +20,7 @@ set "FORGE_VER=47.4.10"
 :: Change to script directory
 cd /D "%~dp0"
 set "SCRIPT_DIR=%CD%"
-set "SERVER_INSTALLER=%SCRIPT_DIR%\ServerInstaller"
+set "SERVER_INSTALLER=%SCRIPT_DIR%\serverInstaller"
 
 :: Check if java executable is defined, install java if not found, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
