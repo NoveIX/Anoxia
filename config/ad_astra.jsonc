@@ -15,7 +15,7 @@
     // Type: Integer
     "oxygenBarXOffset": 0,
     // Type: Integer
-    "oxygenBarYOffset": -20,
+    "oxygenBarYOffset": 0,
     // Type: Float
     "oxygenBarScale": 0.7,
     // Type: Integer
