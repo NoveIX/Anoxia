@@ -1,8 +1,6 @@
 
 #TacZ Additions - Client Config
 [client]
-	#If true, enables muzzle flash light rendering.
-	enableMuzzleFlash = true
 	#If true, recoil recovery is enabled (Default in TaCZ), disable to make recoil harder to control.
 	enableRecoilRecovery = true
 	#If false, disables all gun movement (sway, roll, etc).
