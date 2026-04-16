@@ -6,6 +6,14 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
+  event.remove({ output: 'actuallyadditions:atomic_reconstructor' });
+  event.shaped('actuallyadditions:atomic_reconstructor', ['ABA', 'BCD', 'ABA'], {
+    A: '#forge:ingots/iron',
+    B: '#forge:dusts/redstone',
+    C: 'actuallyadditions:iron_casing',
+    D: 'actuallyadditions:lens',
+  });
+
   //Powered Funrace
   event.remove({ output: 'actuallyadditions:powered_furnace' });
   event.shaped('actuallyadditions:powered_furnace', ['ABA', 'CDC', 'EFE'], {
@@ -59,7 +67,7 @@ ServerEvents.recipes((event) => {
     {
       get: { item: 'enderio:double_layer_capacitor' },
       put: { tag: 'forge:dusts/coal' },
-      extra: [{ item: 'enderio:basic_capacitor' }, { item: 'enderio:basic_capacitor' }, { tag: 'forge:ingots/energetic_alloy' }, { tag: 'forge:ingots/energetic_alloy' }],
+      extra: [{ item: 'enderio:basic_capacitor' }, { item: 'enderio:basic_capacitor' }, { tag: 'forge:ingots/dyngetic_alloy' }, { tag: 'forge:ingots/dyngetic_alloy' }],
       rsflux: 3750,
       color: 3335679,
       sec: 600,
@@ -67,7 +75,7 @@ ServerEvents.recipes((event) => {
     {
       get: { item: 'enderio:octadic_capacitor' },
       put: { tag: 'forge:storage_blocks/glowstone' },
-      extra: [{ item: 'enderio:double_layer_capacitor' }, { item: 'enderio:double_layer_capacitor' }, { tag: 'forge:ingots/vibrant_alloy' }, { tag: 'forge:ingots/vibrant_alloy' }],
+      extra: [{ item: 'enderio:double_layer_capacitor' }, { item: 'enderio:double_layer_capacitor' }, { tag: 'forge:ingots/vivrant_alloy' }, { tag: 'forge:ingots/vivrant_alloy' }],
       rsflux: 7500,
       color: 2745239,
       sec: 900,

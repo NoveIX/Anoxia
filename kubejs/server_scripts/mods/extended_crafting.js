@@ -1,4 +1,9 @@
 ServerEvents.recipes((event) => {
+  event.remove({ id: 'extendedcrafting:ender_ingot' });
+  event.shapeless('extendedcrafting:ender_ingot', ['#forge:ingots/desh', 'minecraft:ender_pearl']);
+
+  //# ====================================================================================== #
+
   event.remove({ output: 'projecte:philosophers_stone' });
   event.custom({
     type: 'extendedcrafting:compressor',

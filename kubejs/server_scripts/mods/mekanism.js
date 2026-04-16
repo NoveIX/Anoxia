@@ -30,11 +30,11 @@ ServerEvents.recipes((event) => {
 
   //Elite Circuit
   event.remove({ output: 'mekanism:elite_control_circuit' });
-  event.shaped('mekanism:elite_control_circuit', ['AAA', 'BCB', 'AAA'], { A: '#forge:ingots/enderium', B: 'mekanism:alloy_reinforced', C: 'mekanism:advanced_control_circuit' });
+  event.shaped('mekanism:elite_control_circuit', ['AAA', 'BCB', 'AAA'], { A: '#forge:ingots/vivid_alloy', B: 'mekanism:alloy_reinforced', C: 'mekanism:advanced_control_circuit' });
 
   //Utimate Circuit
   event.remove({ output: 'mekanism:ultimate_control_circuit' });
-  event.shaped('mekanism:ultimate_control_circuit', ['AAA', 'BCB', 'AAA'], { A: '#forge:ingots/melodium', B: 'mekanism:alloy_atomic', C: 'mekanism:elite_control_circuit' });
+  event.shaped('mekanism:ultimate_control_circuit', ['AAA', 'BCB', 'AAA'], { A: '#forge:ingots/thorium', B: 'mekanism:alloy_atomic', C: 'mekanism:elite_control_circuit' });
 
   //Steel Casing
   event.remove({ output: 'mekanism:steel_casing' });
