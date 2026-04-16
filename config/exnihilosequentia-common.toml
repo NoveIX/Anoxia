@@ -28,7 +28,7 @@
 	[barrel.mob_spawn]
 		#Number of seconds to spawn mobs (Default: 10)
 		#Range: > 1
-		secondsToSpawnMobs = 60
+		secondsToSpawnMobs = 180
 
 	#Compost Configs
 	[barrel.compost]
@@ -43,7 +43,7 @@
 	[barrel.fluid_transform]
 		#Number of seconds to transform fluids (Default: 10)
 		#Range: > 1
-		secondsToTransformFluid = 60
+		secondsToTransformFluid = 120
 
 #Crook Configs
 [crook]
@@ -79,7 +79,7 @@
 [infested_leaves]
 	#Number of seconds to for leaves to become completely infested (Default: 10)
 	#Range: > 1
-	secondsToTransformLeaves = 10
+	secondsToTransformLeaves = 15
 	#Percentage of the time that infested leaves will spread (Default: 0.3)
 	#Range: 0.001 ~ 1.0
 	spreadChance = 0.3
