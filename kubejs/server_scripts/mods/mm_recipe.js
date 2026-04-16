@@ -184,18 +184,18 @@ MMEvents.createProcesses((event) => {
     .structureId('mm:empowerer')
     .ticks(10)
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'enderio:basic_capacitor', count: 2 } })
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'forge:ingots/energetic_alloy', count: 2 } })
+    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'forge:ingots/dyngetic_alloy', count: 2 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'forge:dusts/coal', count: 1 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:energy', amount: 15000 } })
     .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'enderio:double_layer_capacitor', count: 1 } });
 
-  //Double Layer Capacitor
+  //Octadict Capacitor
   event
     .create('mm:empowerer_octadic_capacitor')
     .structureId('mm:empowerer')
     .ticks(10)
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'enderio:double_layer_capacitor', count: 2 } })
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'forge:ingots/vibrant_alloy', count: 2 } })
+    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'forge:ingots/vivrant_alloy', count: 2 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'forge:storage_blocks/glowstone', count: 1 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:energy', amount: 30000 } })
     .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'enderio:octadic_capacitor', count: 1 } });
@@ -426,26 +426,29 @@ MMEvents.createProcesses((event) => {
   event
     .create('mm:oven_charcoal')
     .structureId('mm:oven')
-    .ticks(900 * 0.5)
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'minecraft:logs', count: 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'minecraft:charcoal', count: 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 1000 } });
+    //.parallelProcessing(true) - NOT AVAILABLE CREATE LAG (add * 4) RESTORED RECIPE
+    .ticks(900 * 0.5 * 4)
+    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'minecraft:logs', count: 1 * 4 } })
+    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'minecraft:charcoal', count: 1 * 4 } })
+    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 250 * 2 * 4 } });
 
   event
     .create('mm:oven_coke')
     .structureId('mm:oven')
-    .ticks(1800 * 0.5)
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal', count: 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke', count: 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 4000 } });
+    //.parallelProcessing(true) - NOT AVAILABLE CREATE LAG (add * 4) RESTORED RECIPE
+    .ticks(1800 * 0.5 * 4)
+    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal', count: 1 * 4 } })
+    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke', count: 1 * 4 } })
+    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 500 * 2 * 4 } });
 
   event
     .create('mm:oven_coke_block')
     .structureId('mm:oven')
-    .ticks(16200 * 0.5)
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal_block', count: 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke_block', count: 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 18000 } });
+    //.parallelProcessing(true) - NOT AVAILABLE CREATE LAG (add * 4) RESTORED RECIPE)
+    .ticks(16200 * 0.5 * 4)
+    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal_block', count: 1 * 4 } })
+    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke_block', count: 1 * 4 } })
+    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 4500 * 2 * 4 } });
   //#endregion
 
   //# ====================================================================================== #
