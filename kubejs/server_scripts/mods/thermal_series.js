@@ -182,13 +182,17 @@ ServerEvents.recipes((event) => {
 
   //Servo
   event.remove({ output: 'thermal:redstone_servo' });
-  event.shaped('thermal:redstone_servo', ['A A', ' B ', 'A A'], { A: 'minecraft:redstone', B: 'minecraft:iron_ingot' });
+  event.shaped('thermal:redstone_servo', ['ABA', ' B ', 'ABA'], { A: 'minecraft:redstone', B: 'minecraft:iron_ingot' });
 
   //Vibrating Core
   event.remove({ output: 'thermalendergy:vibrating_core' });
   event.shaped('thermalendergy:vibrating_core', ['A  ', ' B ', '  A'], { A: '#forge:ingots/energetic_alloy', B: 'minecraft:echo_shard' });
 
   //Machine
+
+  //Aqueous accoumulator
+  event.remove({ output: 'thermal:device_water_gen' });
+  event.shaped('thermal:device_water_gen', ['ABA', 'CDC', 'AEA'], { A: '#forge:ingots/copper', B: '#forge:gears/iron', C: '#forge:glass', D: 'minecraft:bucket', E: 'thermal:redstone_servo' });
 
   //Machine Frame
   event.remove({ output: 'thermal:machine_frame' });
@@ -200,7 +204,7 @@ ServerEvents.recipes((event) => {
 
   //Redstone Furnace
   event.remove({ output: 'thermal:machine_furnace' });
-  event.shaped('thermal:machine_furnace', [' A ', 'BCB', 'DED'], { A: ['#forge:ingots/red_alloy', '#forge:ingots/electrotine_alloy'], B: 'ironfurnaces:diamond_furnace', C: 'thermal:machine_frame', D: '#forge:gears/gold', E: 'thermal:rf_coil' });
+  event.shaped('thermal:machine_furnace', [' A ', 'BCB', 'DED'], { A: '#forge:ingots/electrored_alloy', B: 'ironfurnaces:diamond_furnace', C: 'thermal:machine_frame', D: '#forge:gears/gold', E: 'thermal:rf_coil' });
 
   //Sawmill
   event.remove({ output: 'thermal:machine_sawmill' });

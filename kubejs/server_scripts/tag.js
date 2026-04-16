@@ -59,6 +59,9 @@ ServerEvents.tags('item', (event) => {
 
     //ingot
     { tag: 'anoxia:ingots/enderite', item: 'anoxia:enderite_ingot' },
+    { tag: 'forge:ingots/electrored_alloy', item: ['projectred_core:red_ingot', 'projectred_core:electrotine_ingot'] },
+    { tag: 'forge:ingots/dyngetic_alloy', item: ['enderio:energetic_alloy_ingot', 'enderio:dynamic_alloy_ingot'] },
+    { tag: 'forge:ingots/vivrant_alloy', item: ['enderio:vibrant_alloy_ingot', 'enderio:vivid_alloy_ingot'] },
     //#endregion
 
     //# ====================================================================================== #
@@ -95,6 +98,8 @@ ServerEvents.tags('item', (event) => {
     { tag: 'forge:ingots/neutronium', item: 'avaritia:neutron_ingot' },
     { tag: 'forge:ingots/infinity', item: 'avaritia:infinity_ingot' },
     { tag: 'forge:ingots/flux', item: 'redstone_arsenal:flux_ingot' },
+    { tag: 'forge:ingots/dynamic_alloy', item: 'enderio:dynamic_alloy_ingot' },
+    { tag: 'forge:ingots/vivid_alloy', item: 'enderio:vivid_alloy_ingot' },
 
     //blocks
     { tag: 'forge:storage_blocks/neutronium', item: 'avaritia:neutron' },

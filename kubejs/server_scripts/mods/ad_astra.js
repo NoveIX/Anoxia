@@ -16,7 +16,7 @@ ServerEvents.recipes((event) => {
 
   //Engine Fan
   event.remove({ output: 'ad_astra:engine_fan' });
-  event.shaped('ad_astra:engine_fan', [' A ', 'ABA', ' A '], { A: '#forge:plates/steel', B: '#forge:rods/iron' });
+  event.shaped('ad_astra:engine_fan', [' A ', 'ABA', ' A '], { A: '#forge:plates/steel', B: 'create:propeller' });
 
   //Cable Duct
   event.remove({ output: 'ad_astra:cable_duct' });

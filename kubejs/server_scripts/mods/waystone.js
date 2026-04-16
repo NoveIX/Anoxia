@@ -1,4 +1,7 @@
 ServerEvents.recipes((event) => {
+  event.remove({ output: 'waystones:warp_stone' });
+  event.shaped('waystones:warp_stone', ['ABA', 'BCB', 'ABA'], { A: '#forge:nuggets/manyullyn', B: 'minecraft:ender_eye', C: 'enderio:ender_crystal' });
+
   //Waystone
   event.remove({ output: 'waystones:waystone' });
   event.shaped('waystones:waystone', [' S ', 'SIS', 'OWO'], { S: 'minecraft:stone_bricks', I: 'waystones:warp_stone', O: 'minecraft:obsidian', W: 'architects_palette:warpstone' });

@@ -1,38 +1,11 @@
 //priority:20
 
-//Dimension
-const moon1 = 'ad_astra:lunar_wastelands';
-const mars1 = 'ad_astra:martian_wastelands';
-const mars2 = 'ad_astra:martian_canyon_creek';
-const mars3 = 'ad_astra:martian_polar_caps';
-const venus1 = 'ad_astra:venus_wastelands';
-const venus2 = 'ad_astra:infernal_venus_barrens';
-const mercury = 'ad_astra:mercury_deltas';
-const glacio1 = 'ad_astra:glacio_snowy_barrens';
-const glacio2 = 'ad_astra:glacio_ice_peaks';
-
-//Entity
-const zombie = 'minecraft:zombie';
-const skeleton = 'minecraft:skeleton';
-const magmaCube = 'minecraft:magma_cube';
-const blaze = 'minecraft:blaze';
-const witherSkeleton = 'minecraft:wither_skeleton';
-
 EntityJSEvents.biomeSpawns((event) => {
-  event.addSpawn(zombie, [moon1], 100, 3, 6);
-  event.addSpawn(skeleton, [moon1], 100, 3, 6);
-  event.addSpawn(witherSkeleton, [moon1], 10, 2, 3);
-  event.addSpawn(zombie, [mars1], 100, 3, 6);
-  event.addSpawn(skeleton, [mars1], 100, 3, 6);
-  event.addSpawn(witherSkeleton, [mars1], 10, 2, 3);
-  event.addSpawn(zombie, [mars2], 100, 3, 6);
-  event.addSpawn(skeleton, [mars2], 100, 3, 6);
-  event.addSpawn(witherSkeleton, [mars2], 10, 2, 3);
-  event.addSpawn(zombie, [mars3], 100, 3, 6);
-  event.addSpawn(skeleton, [mars3], 100, 3, 6);
-  event.addSpawn(witherSkeleton, [mars3], 10, 2, 3);
-  //Heat
-  //event.addSpawn(magmaCube, [IsVenus], 10, 2, 3);
-  //event.addSpawn(blaze, [IsVenus], 10, 2, 3);
-  //event.addSpawn(blaze, [IsMercury], 10, 2, 3);
+  const spawnPattern = [
+    { mob: 'minecraft:zombie', dim: ['ad_astra:lunar_wastelands', 'ad_astra:martian_wastelands', 'ad_astra:martian_canyon_creek', 'ad_astra:martian_polar_caps'], weight: 100, min: 3, max: 6 },
+    { mob: 'minecraft:skeleton', dim: ['ad_astra:lunar_wastelands', 'ad_astra:martian_wastelands', 'ad_astra:martian_canyon_creek', 'ad_astra:martian_polar_caps'], weight: 100, min: 3, max: 6 },
+    { mob: 'minecraft:wither_skeleton', dim: ['ad_astra:lunar_wastelands', 'ad_astra:martian_wastelands', 'ad_astra:martian_canyon_creek', 'ad_astra:martian_polar_caps'], weight: 10, min: 2, max: 3 },
+    { mob: 'minecraft:wither_skeleton', dim: ['ad_astra:lunar_wastelands', 'ad_astra:martian_wastelands', 'ad_astra:martian_canyon_creek', 'ad_astra:martian_polar_caps'], weight: 1, min: 1, max: 1 },
+  ];
+  spawnPattern.forEach((recipe) => event.addSpawn(recipe.mob, recipe.dim, recipe.weight, recipe.max, recipe.max));
 });
