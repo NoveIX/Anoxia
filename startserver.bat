@@ -25,7 +25,7 @@ set "SERVER_INSTALLER=%SCRIPT_DIR%\serverInstaller"
 :: Check if java executable is defined, install java if not found, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
     if not exist "%SCRIPT_DIR%\java\bin\java.exe" (
-        powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\Installer.ps1" -InstallJava -JavaVer "%JAVA_VER%"
+        powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\installer.ps1" -InstallJava -JavaVer "%JAVA_VER%"
         if errorlevel 1 exit /b 1
     )
 
@@ -42,7 +42,7 @@ if %jver% lss %JAVA_VER%  (
 
 :: Check if libraries directory exists, if not, run installer to install forge and libraries
 if not exist "libraries" (
-    powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\Installer.ps1" -InstallForge -JavaExe "%ANOXIA_JAVA%" -MCVer %MC_VER% -ForgeVer %FORGE_VER%
+    powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\installer.ps1" -InstallForge -JavaExe "%ANOXIA_JAVA%" -MCVer %MC_VER% -ForgeVer %FORGE_VER%
     if errorlevel 1 exit /b 1
 )
 
