@@ -22,11 +22,17 @@ cd /D "%~dp0"
 set "SCRIPT_DIR=%CD%"
 set "SERVER_INSTALLER=%SCRIPT_DIR%\serverInstaller"
 
+REM Check if installer exists
+if not exist "%SERVER_INSTALLER%\installer.bat" (
+    echo ERROR: file installer.bat not found!
+    pause & exit /b 1
+)
+
 :: Check if java executable is defined, install java if not found, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
     if not exist "%SCRIPT_DIR%\java\bin\java.exe" (
         powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\installer.ps1" -InstallJava -JavaVer "%JAVA_VER%"
-        if errorlevel 1 exit /b 1
+        if errorlevel 1 (pause & exit /b 1)
     )
 
     set "ANOXIA_JAVA=%SCRIPT_DIR%\java\bin\java.exe"
@@ -36,14 +42,13 @@ if not defined ANOXIA_JAVA (
 for /f tokens^=2-5^ delims^=.-_^" %%j in ('"%ANOXIA_JAVA%" -fullversion 2^>^&1') do set "jver=%%j"
 if %jver% lss %JAVA_VER%  (
     echo Minecraft %MC_VER% requires Java %JAVA_VER% - found Java %jver%
-    pause
-    exit /b 1
+    pause & exit /b 1
 )
 
 :: Check if libraries directory exists, if not, run installer to install forge and libraries
 if not exist "libraries" (
     powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\installer.ps1" -InstallForge -JavaExe "%ANOXIA_JAVA%" -MCVer %MC_VER% -ForgeVer %FORGE_VER%
-    if errorlevel 1 exit /b 1
+    if errorlevel 1 (pause & exit /b 1)
 )
 
 :: Check if running in "Install Only" mode
