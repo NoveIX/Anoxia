@@ -152,7 +152,7 @@ function Invoke-DonwloadFiles {
 
     try {
         Write-LogInfo "(BITS) Downloading $File"
-        Start-BitsTransfer -Source $URL -Destination $File
+        Start-BitsTransfer -Source $URL -Destination $File -ErrorAction Stop
         Write-LogInfo "Download completed: $File"
 
     }
@@ -179,7 +179,7 @@ function Install-LocalJava {
 
     # Set Java download URL and file name based on architecture and version
     $Arch = Get-SysArch
-    $JavaZip = "OpenJDK17U-jre_${Arch}_windows.zip"
+    $JavaZip = "OpenJDK${Version}U-jre_${Arch}_windows.zip"
     $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Version}/ga/windows/${Arch}/jre/hotspot/normal/eclipse"
 
     # Download Java zip file
@@ -197,7 +197,7 @@ function Install-LocalJava {
         # Move extracted Java directory to "java"
         try {
             $dir = Get-Item -Path "OpenJDK${Version}"
-            $Source = Get-ChildItem -Path $dir.FullName -Directory | Where-Object { $_.Name -match "jdk-${Version}|jre-${Version}" } | Select-Object -First 1
+            $Source = Get-ChildItem -Path $dir.FullName -Directory | Where-Object { $_.Name -match "(jdk|jre)-?${Version}" } | Select-Object -First 1
             Copy-File -Source $Source.FullName -Destination "java"
             Remove-Item -Path $dir -Force -Recurse
             Write-LogInfo "Java setup completed copied in java directory"

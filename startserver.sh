@@ -1,5 +1,8 @@
 #!/bin/sh
 set -eu
+printf '\033]0;Anoxia Server v0.3.0\007'
+
+
 
 # To use a specific Java runtime, define the JAVA variable below with the full path to java.
 # ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
@@ -11,19 +14,20 @@ set -eu
 # ANOXIA_INSTALL_ONLY=true
 
 
-# Set versions for installer to use
+
+# Set installer versions
 JAVA_VER=17
 MC_VER=1.20.1
 FORGE_VER=47.4.10
 
 
 # Change to script directory
-cd $(dirname "$0")
+cd "$(dirname "$0")"
 SCRIPT_DIR=$(pwd)
 SERVER_INSTALLER=$SCRIPT_DIR/serverInstaller
 
 
-# Load installer function
+# Check if installer exists
 if [ -f "$SERVER_INSTALLER/installer.sh" ]; then
     . "$SERVER_INSTALLER/installer.sh"
 else
@@ -31,10 +35,10 @@ else
     exit 1
 fi
 
-# Check if java executable is defined, install java if not found, and set ANOXIA_JAVA variable
+# Check if Java is available, install it if missing, and set ANOXIA_JAVA variable
 if [ -z "${ANOXIA_JAVA:-}" ]; then
     if [ ! -f "$SCRIPT_DIR/java/bin/java" ]; then
-        if ! install_local_java $JAVA_VER; then
+        if ! install_local_java "$JAVA_VER"; then
             exit 1
         fi
     fi
@@ -43,28 +47,34 @@ if [ -z "${ANOXIA_JAVA:-}" ]; then
 fi
 
 # Check Java version
-JAVA_VERSION=$("$ANOXIA_JAVA" -fullversion 2>&1 | awk -F '"' '/version/ {print $2}' | cut -d'.' -f1)
-if [ "$JAVA_VERSION" -lt $JAVA_VER ]; then
-    echo "Minecraft $MC_VER requires Java $JAVA_VER - found Java $JAVA_VERSION"
+RAW_VER=$("$ANOXIA_JAVA" -version 2>&1 | awk -F '"' '/version/ {print $2}')
+if echo "$RAW_VER" | grep -q "^1\."; then
+    JVER=$(echo "$RAW_VER" | cut -d'.' -f2)
+else
+    JVER=$(echo "$RAW_VER" | cut -d'.' -f1)
+fi
+
+if [ "$JVER" -lt "$JAVA_VER" ]; then
+    echo "Minecraft $MC_VER requires Java $JAVA_VER - found Java $JVER"
     exit 1
 fi
 
-# Check if libraries directory exists, if not, run installer to install forge and libraries
+# Check if libraries directory exists, install if missing
 if [ ! -d "libraries" ]; then
-    if ! install_forge $ANOXIA_JAVA $MC_VER $FORGE_VER; then
+    if ! install_forge "$ANOXIA_JAVA" "$MC_VER" "$FORGE_VER"; then
         exit 1
     fi
 fi
 
 # Check if running in "Install Only" mode
 if [ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]; then
-    echo "Install completed the Server will NOT start."
+    echo "INFO: Install completed the Server will NOT start."
     exit 0
 fi
 
-# Server Start or restart if crash handle on
+# Start server (auto-restart on crash)
 while true; do
-    "$ANOXIA_JAVA" @user_jvm_args.txt @libraries/net/minecraftforge/forge/$MC_VER-$FORGE_VER/unix_args.txt nogui || EXIT_CODE=$?
+    "$ANOXIA_JAVA" @user_jvm_args.txt @libraries/net/minecraftforge/forge/$MC_VER-$FORGE_VER/unix_args.txt nogui
 
     # Restart Server
     if [ "${ANOXIA_RESTART:-false}" = "false" ]; then

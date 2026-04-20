@@ -42,7 +42,7 @@ get_system_arch() {
         ;;
     esac
 
-    # retunrn the architecture
+    # return the architecture
     echo "$ARCH"
 }
 
@@ -76,7 +76,7 @@ install_local_java() {
     if ! ARCH=$(get_system_arch); then
         return 1
     fi
-    JAVA_ZIP="OpenJDK17U-jre_${ARCH}_linux.tar.gz"
+    JAVA_ZIP="OpenJDK${VERSION}U-jre_${ARCH}_linux.tar.gz"
     JAVA_URL="https://api.adoptium.net/v3/binary/latest/${VERSION}/ga/linux/${ARCH}/jre/hotspot/normal/eclipse"
 
     # Download Java zip file
@@ -97,7 +97,7 @@ install_local_java() {
         fi
 
         # Move extracted Java directory to "java"
-        SOURCE_DIR=$(find "$DEST_DIR" -maxdepth 1 -type d \( -name "jdk-${VERSION}*" -o -name "jre-${VERSION}*" \) | head -n 1)
+        SOURCE_DIR=$(find "$DEST_DIR" -maxdepth 1 -type d \( -name "*jdk*${VERSION}*" -o -name "*jre*${VERSION}*" \) | head -n 1)
 
         # Check if source directory was found
         if [ -z "$SOURCE_DIR" ]; then
@@ -137,9 +137,9 @@ install_forge(){
         log_info "Running Forge installer: $FORGE_INSTALLER"
 
         LOCAL_JAVA="$(pwd)/java/bin/java"
-        JAVA_BIN=${LOCAL_JAVA:-$JAVA_BIN}
+        JAVA_BIN=${LOCAL_JAVA:-"$JAVA_BIN"}
 
-        if $JAVA_BIN -jar "$FORGE_INSTALLER" --installServer; then
+        if "$JAVA_BIN" -jar "$FORGE_INSTALLER" --installServer; then
             log_info "Forge installation completed"
         else
             log_error "Failed to run Forge installer"
