@@ -1,7 +1,4 @@
 @echo off
-title Anoxia Server v%APP_VERSION%
-
-
 
 :: To use a specific Java runtime, define the JAVA variable below with the full path to java.exe.
 :: set "ANOXIA_JAVA=C:\Program Files\Eclipse Adoptium\jre-17.0.18.8-hotspot\bin\java.exe"
@@ -19,10 +16,13 @@ set "JAVA_VER=17"
 set "MC_VER=1.20.1"
 set "FORGE_VER=47.4.10"
 
+:: Set terminal title
+set "SCRIPT_DIR=%~dp0"
+set /p MPVER=<"%SCRIPT_DIR%version.txt"
+title Anoxia Server v%MPVER%
 
 :: Change to script directory
-cd /D "%~dp0"
-set "SCRIPT_DIR=%CD%"
+cd /D "%SCRIPT_DIR%"
 set "SERVER_INSTALLER=%SCRIPT_DIR%\serverInstaller"
 
 :: Check if installer exists

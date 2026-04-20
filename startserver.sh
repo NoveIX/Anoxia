@@ -1,8 +1,5 @@
 #!/bin/sh
 set -eu
-printf '\033]0;Anoxia Server v0.3.0\007'
-
-
 
 # To use a specific Java runtime, define the JAVA variable below with the full path to java.
 # ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
@@ -20,12 +17,14 @@ JAVA_VER=17
 MC_VER=1.20.1
 FORGE_VER=47.4.10
 
+# Set terminal title
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+MPVER=$(cat "$SCRIPT_DIR/version.txt")
+printf '\033]0;Anoxia Server v%s\007' "$MPVER"
 
-# Change to script directory
-cd "$(dirname "$0")"
-SCRIPT_DIR=$(pwd)
+# Change to script directory and set title
+cd "$SCRIPT_DIR"
 SERVER_INSTALLER=$SCRIPT_DIR/serverInstaller
-
 
 # Check if installer exists
 if [ -f "$SERVER_INSTALLER/installer.sh" ]; then
