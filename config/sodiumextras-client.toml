@@ -69,10 +69,10 @@
 			affectedByMoonPhase = true
 			#Configure max moon brightness level with darkness
 			#Range: 0.0 ~ 1.0
-			fullMoonBright = 0.5
+			fullMoonBright = 0.25
 			#Configure min moon brightness level with darkness
 			#Range: 0.0 ~ 1.0
-			newMoonBright = 0.25
+			newMoonBright = 0.0
 
 	[embeddiumextras.performance]
 		#Toggles JREI item rendering until searching
