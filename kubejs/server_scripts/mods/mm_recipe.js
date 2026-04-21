@@ -423,32 +423,37 @@ MMEvents.createProcesses((event) => {
   //# ====================================================================================== #
 
   //#region Coke Oven Recipes
-  event
-    .create('mm:oven_charcoal')
-    .structureId('mm:oven')
-    //.parallelProcessing(true) - NOT AVAILABLE CREATE LAG (output add * 4) RESTORED RECIPE)
-    .ticks(900 * 0.5)
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'minecraft:logs', count: 1 * 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'minecraft:charcoal', count: 1 * 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 250 * 2 * 4 } });
+  [0, 1, 2, 3].forEach((i) => {
+    // Charcoal
+    event
+      .create(`mm:oven_charcoal_${i}`)
+      .structureId('mm:oven')
+      .parallelProcessing(true)
+      .ticks(900 * 0.5)
+      .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', tag: 'minecraft:logs', count: 1 } })
+      .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'minecraft:charcoal', count: 1 } })
+      .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 250 * 2 } });
 
-  event
-    .create('mm:oven_coke')
-    .structureId('mm:oven')
-    //.parallelProcessing(true) - NOT AVAILABLE CREATE LAG (output add * 4) RESTORED RECIPE)
-    .ticks(1800 * 0.5)
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal', count: 1 * 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke', count: 1 * 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 500 * 2 * 4 } });
+    // Coke
+    event
+      .create(`mm:oven_coke_${i}`)
+      .structureId('mm:oven')
+      .parallelProcessing(true)
+      .ticks(1800 * 0.5)
+      .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal', count: 1 } })
+      .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke', count: 1 } })
+      .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 500 * 2 } });
 
-  event
-    .create('mm:oven_coke_block')
-    .structureId('mm:oven')
-    //.parallelProcessing(true) - NOT AVAILABLE CREATE LAG (output add * 4) RESTORED RECIPE)
-    .ticks(16200 * 0.5)
-    .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal_block', count: 1 * 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke_block', count: 1 * 4 } })
-    .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 4500 * 2 * 4 } });
+    // Coke Block
+    event
+      .create(`mm:oven_coke_block_${i}`)
+      .structureId('mm:oven')
+      .parallelProcessing(true)
+      .ticks(16200 * 0.5)
+      .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'minecraft:coal_block', count: 1 } })
+      .output({ type: 'mm:output/simple', ingredient: { type: 'mm:item', item: 'thermal:coal_coke_block', count: 1 } })
+      .output({ type: 'mm:output/simple', ingredient: { type: 'mm:fluid', fluid: 'immersiveengineering:creosote', amount: 4500 * 2 } });
+  });
   //#endregion
 
   //# ====================================================================================== #

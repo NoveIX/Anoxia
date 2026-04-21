@@ -527,7 +527,7 @@ anoxia.game.item.rmIn = [
 ];
 //#endregion
 
-//#region Jei add item
+//#region jei add item
 anoxia.game.item.jeiAdd = [
   //Immersive
   'immersiveengineering:coke',
@@ -591,7 +591,7 @@ anoxia.game.item.jeiAdd = [
 ];
 //#endregion
 
-//#region Jei hide item
+//#region jei hide item
 anoxia.game.item.jeiHide = [
   //Mekanism
   'mekanism:creative_chemical_tank',
@@ -682,11 +682,11 @@ anoxia.game.fluid.rmIn = [
 ];
 //#endregion
 
-//#region Jei add fluid
+//#region jei add fluid
 anoxia.game.fluid.jeiAdd = [];
 //#endregion
 
-//#region Jei hide fluid
+//#region jei hide fluid
 anoxia.game.fluid.jeiHide = [];
 //#endregion
 
@@ -947,5 +947,6 @@ anoxia.game.recipe.rmId = [
   'tconstruct:smeltery/melting/metal/choromium/block',
   'tconstruct:smeltery/melting/metal/choromium/dust',
 ];
+//#endregion
 
 //ServerEvents.recipes((event) => event.remove({ id: '' }));

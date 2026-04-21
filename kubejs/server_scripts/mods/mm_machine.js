@@ -238,7 +238,7 @@ MMEvents.createStructures((event) => {
     .create('mm:oven')
     .controllerId('mm:coke_oven_controller')
     .name('Industrial Coke Oven')
-    //.maxParallelRecipes(4) - NOT AVAILABLE CREATE LAG
+    .maxParallelRecipes(4)
     .layout((mach) => {
       mach
         .layer(['AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA'])
