@@ -34,7 +34,10 @@ if not exist "%SERVER_INSTALLER%\installer.ps1" (
 :: Check if Java is available, install it if missing, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
     if not exist "%SCRIPT_DIR%\java\bin\java.exe" (
-        powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\installer.ps1" -InstallJava -JavaVer "%JAVA_VER%"
+        powershell -ExecutionPolicy Bypass ^
+            -File "%SERVER_INSTALLER%\installer.ps1" ^
+            -InstallJava ^
+            -JavaVersion "%JAVA_VER%"
         if errorlevel 1 (pause & exit /b 1)
     )
 
@@ -53,6 +56,7 @@ for /f "tokens=1,2 delims=." %%a in ("%RAW_VER%") do (
     )
 )
 
+:: Check Java version compatibility with required Minecraft version
 if %JVER% lss %JAVA_VER% (
     echo Minecraft %MC_VER% requires Java %JAVA_VER% - found Java %JVER%
     pause & exit /b 1
@@ -60,7 +64,12 @@ if %JVER% lss %JAVA_VER% (
 
 :: Check if libraries directory exists, install if missing
 if not exist "libraries" (
-    powershell -ExecutionPolicy Bypass -File "%SERVER_INSTALLER%\installer.ps1" -InstallForge -JavaExe "%ANOXIA_JAVA%" -MCVer "%MC_VER%" -ForgeVer "%FORGE_VER%"
+    powershell -ExecutionPolicy Bypass ^
+        -File "%SERVER_INSTALLER%\installer.ps1" ^
+        -InstallForge ^
+        -JavaExe "%ANOXIA_JAVA%" ^
+        -MinecraftVersion "%MC_VER%" ^
+        -ForgeVersion "%FORGE_VER%"
     if errorlevel 1 (pause & exit /b 1)
 )
 

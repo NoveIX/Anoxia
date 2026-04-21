@@ -22,7 +22,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 MPVER=$(cat "$SCRIPT_DIR/version.txt")
 printf '\033]0;Anoxia Server v%s\007' "$MPVER"
 
-# Change to script directory and set title
+# Change to script directory
 cd "$SCRIPT_DIR"
 SERVER_INSTALLER=$SCRIPT_DIR/serverInstaller
 
@@ -47,12 +47,15 @@ fi
 
 # Check Java version
 RAW_VER=$("$ANOXIA_JAVA" -version 2>&1 | awk -F '"' '/version/ {print $2}')
+
+# Parse the version string
 if echo "$RAW_VER" | grep -q "^1\."; then
     JVER=$(echo "$RAW_VER" | cut -d'.' -f2)
 else
     JVER=$(echo "$RAW_VER" | cut -d'.' -f1)
 fi
 
+# Check Java version compatibility with required Minecraft version
 if [ "$JVER" -lt "$JAVA_VER" ]; then
     echo "Minecraft $MC_VER requires Java $JAVA_VER - found Java $JVER"
     exit 1

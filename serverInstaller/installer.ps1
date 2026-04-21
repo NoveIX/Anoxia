@@ -1,13 +1,26 @@
 param (
+    # Java
+    [Parameter(Mandatory, Position = 0, ParameterSetName = "Java")]
     [switch]$InstallJava,
-    [string]$JavaVer,
+
+    [Parameter(Mandatory, Position = 1, ParameterSetName = "Java")]
+    [string]$JavaVersion,
+
+    # Forge
+    [Parameter(Mandatory, Position = 0, ParameterSetName = "Forge")]
     [switch]$InstallForge,
+
+    [Parameter(Mandatory, Position = 1, ParameterSetName = "Forge")]
     [string]$JavaExe,
-    [string]$MCVer,
-    [string]$ForgeVer
+
+    [Parameter(Mandatory, Position = 2, ParameterSetName = "Forge")]
+    [string]$MinecraftVersion,
+
+    [Parameter(Mandatory, Position = 3, ParameterSetName = "Forge")]
+    [string]$ForgeVersion
 )
 
-# Change dir to server root dir
+# Change working dir to server root dir
 $WorkDir = Split-Path -Path $PSScriptRoot -Parent
 Set-Location -Path $WorkDir
 
@@ -15,38 +28,35 @@ Set-Location -Path $WorkDir
 #region Logging functions
 function Write-LogInfo {
     param (
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string]$Message
     )
 
     Write-Host "[" -NoNewline
     Write-Host "INFO" -ForegroundColor DarkCyan -NoNewline
-    Write-Host "]: " -NoNewline
-    Write-Host $Message
+    Write-Host "]: $Message"
 }
 
 function Write-LogWarn {
     param (
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string]$Message
     )
 
     Write-Host "[" -NoNewline
     Write-Host "WARN" -ForegroundColor DarkYellow -NoNewline
-    Write-Host "]: " -NoNewline
-    Write-Host $Message
+    Write-Host "]: $Message"
 }
 
 function Write-LogError {
     param (
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, Position = 0)]
         [string]$Message
     )
 
     Write-Host "[" -NoNewline
     Write-Host "ERROR" -ForegroundColor DarkRed -NoNewline
-    Write-Host "]: " -NoNewline
-    Write-Host $Message
+    Write-Host "]: $Message"
 }
 
 function Invoke-PathCombine {
@@ -92,7 +102,7 @@ function Copy-File {
     $Source = Resolve-Path -LiteralPath $Source
     $Destination = Resolve-Path -LiteralPath $Destination
 
-    # Recursive copy with attribute preservation
+    # Get all items to copy
     [array]$items = Get-ChildItem -Path $Source -Recurse -Force
 
     #Counter
@@ -103,7 +113,7 @@ function Copy-File {
     [double]$totByte = 0
     foreach ($item in $items) { $totByte += if (-not $item.PSIsContainer) { $item.Length } else { 1 } }
 
-    # Copy items
+    # Iterate through all items and copy them to the destination
     foreach ($item in $items) {
         # Progress bar
         $curItem++
@@ -113,10 +123,10 @@ function Copy-File {
         [string]$status = "Item $curItem of $totItem ($($percentComplete.ToString("N$DecimalPlace")) `%) - $($item.Name)"
         Write-Progress -Id 0 -Activity "Copy file in progress..." -Status $status -PercentComplete $percentComplete
 
-        # Calculate path relative path on destination path
+        # Build the destination path using the relative path from the source
         [string]$DestinationFullPath = Join-Path -Path $Destination -ChildPath $item.FullName.Substring((Resolve-Path $Source).Path.Length)
 
-        # Copy item to destination
+        # Copy item to destination (handle directories and files differently)
         if ($item.PSIsContainer) { Copy-Item -Path $item.FullName -Destination (Split-Path $DestinationFullPath -Parent) -Force }
         else { Copy-Item -Path $item.FullName -Destination $DestinationFullPath -Force }
     }
@@ -135,111 +145,120 @@ function Get-SysArch {
         Write-Host "Detected architecture: $env:PROCESSOR_ARCHITECTURE"
         Write-Host "Required architecture: 64-bit (x64 or ARM64)"
         Write-Host "============================================`n"
-        Pause; exit 1
+        exit 1
     }
 
     return $arch
 }
 
-# Download file with fallback to BITS if WebRequest fails
-function Invoke-DonwloadFiles {
+# Attempt file download via BITS, falling back to Invoke-WebRequest on failure
+function Invoke-DonwloadFile {
     param (
-        [Parameter(Mandatory)]
-        [string]$File,
-        [Parameter(Mandatory)]
-        [string]$URL
+        [Parameter(Mandatory, Position = 0)]
+        [string]$URL,
+
+        [Parameter(Mandatory, Position = 1)]
+        [string]$File
     )
 
     try {
         Write-LogInfo "(BITS) Downloading $File"
         Start-BitsTransfer -Source $URL -Destination $File -ErrorAction Stop
-        Write-LogInfo "Download completed: $File"
-
+        Write-LogInfo "Download completed"
     }
     catch {
         Write-LogWarn "BITS failed, trying WebRequest"
         try {
             Write-LogInfo "(WebRequest) Downloading $File"
             Invoke-WebRequest -Uri $URL -OutFile $File -UseBasicParsing -ErrorAction Stop
-            Write-LogInfo "Download completed: $File"
+            Write-LogInfo "Download completed"
         }
-        catch { Write-LogError "Download failed: $File. SysErr: $($_.Exception.Message)" ; Pause; exit 1 }
+        catch { Write-LogError "Download failed $File. SysErr: $($_.Exception.Message)" ; exit 1 }
     }
 }
 #endregion
 
 
 #region Installation functions
-# Install Java locally by downloading and extracting the JRE zip file
+# Install Java locally by downloading and extracting a JRE ZIP archive
 function Install-LocalJava {
     param (
         [Parameter(Mandatory)]
-        [string]$Version
+        [string]$MajorVersion
     )
 
-    # Set Java download URL and file name based on architecture and version
+    # Determine Java download URL and archive name based on version and system architecture
     $Arch = Get-SysArch
-    $JavaZip = "OpenJDK${Version}U-jre_${Arch}_windows.zip"
-    $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Version}/ga/windows/${Arch}/jre/hotspot/normal/eclipse"
+    $JavaZip = "OpenJDK${MajorVersion}U-jre_${Arch}_windows.zip"
+    $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${MajorVersion}/ga/windows/${Arch}/jre/hotspot/normal/eclipse"
 
-    # Download Java zip file
-    if (-not (Test-Path -Path $JavaZip -PathType Leaf)) { Invoke-DonwloadFiles -File $JavaZip -URL $JavaUrl }
+    # Download Java ZIP archive if it does not already exist locally
+    if (-not (Test-Path -Path $JavaZip -PathType Leaf)) { Invoke-DonwloadFile -URL $JavaUrl -File $JavaZip }
 
-    # Extract Java zip file
+    # Extract Java ZIP archive if target directory does not already exist
     if (-not (Test-Path -Path "java" -PathType Container)) {
         try {
+            $JavaUnzip = "OpenJDK${MajorVersion}U"
             Write-LogInfo "Extracting $JavaZip"
-            Expand-Archive -Path $JavaZip -DestinationPath "OpenJDK${Version}" -Force
-            Write-LogInfo "Extraction completed located in OpenJDK${Version}"
+            Expand-Archive -Path $JavaZip -DestinationPath $JavaUnzip -Force -ErrorAction Stop
+            Write-LogInfo "Extraction completed in $JavaUnzip"
         }
-        catch { Write-LogError "Failed to extract $JavaZip. SysErr: $($_.Exception.Message)"; Pause; exit 1 }
+        catch { Write-LogError "Java extraction failed. Archive: $JavaZip. SysErr: $($_.Exception.Message)"; exit 1 }
 
-        # Move extracted Java directory to "java"
         try {
-            $dir = Get-Item -Path "OpenJDK${Version}"
-            $Source = Get-ChildItem -Path $dir.FullName -Directory | Where-Object { $_.Name -match "(jdk|jre)-?${Version}" } | Select-Object -First 1
-            Copy-File -Source $Source.FullName -Destination "java"
-            Remove-Item -Path $dir -Force -Recurse
-            Write-LogInfo "Java setup completed copied in java directory"
+            # Locate extracted Java installation directory (JDK/JRE) within destination folder
+            #$JavaUnzip = Get-Item -Path $JavaUnzip
+            $JRESource = Get-ChildItem -Path $JavaUnzip -Directory | Where-Object { $_.Name -match "(jdk|jre)-?${MajorVersion}" } | Select-Object -First 1
+
+            # Validate that the Java source directory was found before proceeding
+            if (-not $JRESource) { Write-LogError "Failed to locate Java JDK/JRE directory in $JavaUnzip for version $MajorVersion"; exit 1 }
+
+            # Copy extracted Java directory content into "java" and clean up temporary folder
+            $DestDir = "java"
+            Copy-File -Source $JRESource.FullName -Destination $DestDir
+            Remove-Item -Path $JavaUnzip -Force -Recurse
+            Write-LogInfo "Local java setup completed. Installed in $DestDir"
         }
-        catch { Write-LogError "Failed to set up java directory. SysErr: $($_.Exception.Message)" ; Pause; exit 1 }
+        catch { Write-LogError "Local Java setup failed. SysErr: $($_.Exception.Message)" ; exit 1 }
     }
-    else { Write-LogInfo "Java is already set up (java directory exists)" }
+    else { Write-LogInfo "Local java already installed (java directory exists)" }
 }
 
-# Install Forge server by downloading the installer jar and running it with Java
+# Download and run the Forge installer JAR to set up the server
 function Install-Forge {
     param (
         [Parameter(Mandatory)]
         [string]$JavaExe,
+
         [Parameter(Mandatory)]
         [string]$MCVersion,
+
         [Parameter(Mandatory)]
         [string]$Version
     )
 
-    # Set Forge installer URL and file name based on version
+    # Build Forge installer URL and filename based on Minecraft and Forge versions
     $ForgeInstaller = "forge-${MCVersion}-${Version}-installer.jar"
     $ForgeUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/${MCVersion}-${Version}/${ForgeInstaller}"
 
-    # Download Forge installer
-    if (-not (Test-Path -Path $ForgeInstaller -PathType Leaf)) { Invoke-DonwloadFiles -File $ForgeInstaller -URL $ForgeUrl }
+    # Download Forge installer if it does not already exist locally
+    if (-not (Test-Path -Path $ForgeInstaller -PathType Leaf)) { Invoke-DonwloadFile -URL $ForgeUrl -File $ForgeInstaller }
 
-    # Run Forge installer
+    # Run Forge installer if Forge is not already installed (based on libraries directory)
     if (-not (Test-Path -Path "libraries" -PathType Container)) {
         try {
-            Write-LogInfo "Running Forge installer: $ForgeInstaller"
+            Write-LogInfo "Starting Forge server installer: $ForgeInstaller"
             $localJava = Invoke-PathCombine -Path $WorkDir, "java", "bin", "java.exe"
             $javaExe = if (-not (Test-Path -Path $javaExe -PathType Leaf)) { $localJava } else { $JavaExe }
             Start-Process -FilePath $javaExe -ArgumentList "-jar `"$ForgeInstaller`" --installServer" -Wait -NoNewWindow
-            Write-LogInfo "Forge installation completed"
+            Write-LogInfo "Forge server installation completed"
         }
-        catch { Write-LogError "Failed to install Forge installer. SysErr: $($_.Exception.Message)"; Pause; exit 1 }
+        catch { Write-LogError "Forge server installation failed. SysErr: $($_.Exception.Message)"; exit 1 }
     }
-    else { Write-LogInfo "Forge is already installed (libraries directory exists)" }
+    else { Write-LogInfo "Forge server is already installed (libraries directory exists)" }
 }
 #endregion
 
 # Main execution
-if ($InstallJava) { Install-LocalJava -Version $JavaVer; exit 0 }
-if ($InstallForge) { Install-Forge -JavaExe $JavaExe -MCVersion $MCVer -Version $ForgeVer; exit 0 }
+if ($InstallJava) { Install-LocalJava -MajorVersion $JavaVersion; exit 0 }
+if ($InstallForge) { Install-Forge -JavaExe $JavaExe -MCVersion $MinecraftVersion -Version $ForgeVersion; exit 0 }
