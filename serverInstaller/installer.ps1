@@ -246,14 +246,10 @@ function Install-Forge {
 
     # Run Forge installer if Forge is not already installed (based on libraries directory)
     if (-not (Test-Path -Path "libraries" -PathType Container)) {
-        try {
-            Write-LogInfo "Starting Forge server installer: $ForgeInstaller"
-            $localJava = Invoke-PathCombine -Path $WorkDir, "java", "bin", "java.exe"
-            $javaExe = if (-not (Test-Path -Path $javaExe -PathType Leaf)) { $localJava } else { $JavaExe }
-            Start-Process -FilePath $javaExe -ArgumentList "-jar `"$ForgeInstaller`" --installServer" -Wait -NoNewWindow
-            Write-LogInfo "Forge server installation completed"
-        }
-        catch { Write-LogError "Forge server installation failed. SysErr: $($_.Exception.Message)"; exit 1 }
+        Write-LogInfo "Starting Forge server installer: $ForgeInstaller"
+        & $javaExe -jar $ForgeInstaller --installServer
+        if ($LASTEXITCODE -ne 0) { Write-LogError "Forge server installation failed. Exit code: $LASTEXITCODE"; exit 1 }
+        Write-LogInfo "Forge server installation completed"
     }
     else { Write-LogInfo "Forge server is already installed (libraries directory exists)" }
 }

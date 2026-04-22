@@ -133,9 +133,6 @@ install_forge(){
     # Run Forge installer if Forge is not already installed (based on libraries directory)
     if [ ! -d "libraries" ]; then
         log_info "Starting Forge server installer: $FORGE_INSTALLER"
-
-        LOCAL_JAVA="$(pwd)/java/bin/java"
-        JAVA_BIN=${LOCAL_JAVA:-"$JAVA_BIN"}
         if "$JAVA_BIN" -jar "$FORGE_INSTALLER" --installServer; then
             log_info "Forge server installation completed"
         else

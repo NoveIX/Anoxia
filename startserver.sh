@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-# To use a specific Java runtime, define the JAVA variable below with the full path to java.
+# To use a specific Java runtime, define the ANOXIA_JAVA variable below with the full path to java.
 # ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
 
 # To enable automatic restarts, set the ANOXIA_RESTART variable to true.
@@ -45,10 +45,18 @@ if [ -z "${ANOXIA_JAVA:-}" ]; then
     ANOXIA_JAVA=$SCRIPT_DIR/java/bin/java
 fi
 
-# Check Java version
-RAW_VER=$("$ANOXIA_JAVA" -version 2>&1 | awk -F '"' '/version/ {print $2}')
+# Verify Java availability (file or PATH)
+if [ -f "$ANOXIA_JAVA" ]; then
+    : # Java found as direct executable path
+else
+    if ! command -v "$ANOXIA_JAVA" >/dev/null 2>&1; then
+        echo "ERROR: Java not found ($ANOXIA_JAVA)"
+        exit 1
+    fi
+fi
 
-# Parse the version string
+# Check Java version and parse the version string
+RAW_VER=$("$ANOXIA_JAVA" -version 2>&1 | awk -F '"' '/version/ {print $2}')
 if echo "$RAW_VER" | grep -q "^1\."; then
     JVER=$(echo "$RAW_VER" | cut -d'.' -f2)
 else

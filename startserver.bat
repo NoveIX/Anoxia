@@ -1,6 +1,6 @@
 @echo off
 
-:: To use a specific Java runtime, define the JAVA variable below with the full path to java.exe.
+:: To use a specific Java runtime, define the ANOXIA_JAVA variable below with the full path to java.exe.
 :: set "ANOXIA_JAVA=C:\Program Files\Eclipse Adoptium\jre-17.0.18.8-hotspot\bin\java.exe"
 
 :: To enable automatic restarts, set the ANOXIA_RESTART variable to true.
@@ -23,7 +23,7 @@ title Anoxia Server v%MPVER%
 
 :: Change to script directory
 cd /D "%SCRIPT_DIR%"
-set "SERVER_INSTALLER=%SCRIPT_DIR%\serverInstaller"
+set "SERVER_INSTALLER=%SCRIPT_DIR%serverInstaller"
 
 :: Check if installer exists
 if not exist "%SERVER_INSTALLER%\installer.ps1" (
@@ -33,7 +33,7 @@ if not exist "%SERVER_INSTALLER%\installer.ps1" (
 
 :: Check if Java is available, install it if missing, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
-    if not exist "%SCRIPT_DIR%\java\bin\java.exe" (
+    if not exist "%SCRIPT_DIR%java\bin\java.exe" (
         powershell -ExecutionPolicy Bypass ^
             -File "%SERVER_INSTALLER%\installer.ps1" ^
             -InstallJava ^
@@ -41,13 +41,22 @@ if not defined ANOXIA_JAVA (
         if errorlevel 1 (pause & exit /b 1)
     )
 
-    set "ANOXIA_JAVA=%SCRIPT_DIR%\java\bin\java.exe"
+    set "ANOXIA_JAVA=%SCRIPT_DIR%java\bin\java.exe"
 )
 
-:: Check Java version
-for /f tokens^=2-5^ delims^=-_^" %%j in ('"%ANOXIA_JAVA%" -fullversion 2^>^&1') do set "RAW_VER=%%j"
+:: Verify Java availability (file or PATH)
+if exist "%ANOXIA_JAVA%" (
+    rem Java found as direct executable path
+) else (
+    where %ANOXIA_JAVA% >nul 2>&1
+    if errorlevel 1 (
+        echo ERROR: Java not found ^( %ANOXIA_JAVA% ^)
+        pause & exit /b 1
+    )
+)
 
-:: Parse the version string
+:: Check Java version and parse the version string
+for /f tokens^=2-5^ delims^=-_^" %%j in ('"%ANOXIA_JAVA%" -fullversion 2^>^&1') do set "RAW_VER=%%j"
 for /f "tokens=1,2 delims=." %%a in ("%RAW_VER%") do (
     if "%%a"=="1" (
         set "JVER=%%b"
