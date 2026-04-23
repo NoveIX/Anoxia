@@ -3,7 +3,7 @@
 function Write-AsciiArt {
     param (
         [ValidateRange(0, 10)]
-        [int]$DisplaySeconds = 2,
+        [double]$DisplaySeconds = 2,
         [switch]$RandomColor,
         [switch]$Clear
     )
