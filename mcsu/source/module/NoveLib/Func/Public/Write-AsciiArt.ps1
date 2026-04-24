@@ -1,7 +1,8 @@
-# File: NoveLib\Func\Write-AsciiArt.ps1
+# File: NoveLib\Func\Public\Write-AsciiArt.ps1
 
 function Write-AsciiArt {
     param (
+        [Parameter(Position = 0)]
         [ValidateRange(0, 10)]
         [double]$DisplaySeconds = 2,
         [switch]$RandomColor,

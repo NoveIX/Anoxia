@@ -1,2 +1,3 @@
 @echo off
-powershell -ExecutionPolicy Bypass -File "%~dp0\src\mcsu.ps1" -Update
+powershell -ExecutionPolicy Bypass -File "%~dp0source\mcsu.ps1" -Update
+if errorlevel 1 (pause & exit /b 1)

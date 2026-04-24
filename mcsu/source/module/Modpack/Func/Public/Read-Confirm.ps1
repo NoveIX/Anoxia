@@ -1,4 +1,4 @@
-# File: Modpack\Func\Read-Confirm.ps1
+# File: Modpack\Func\Public\Read-Confirm.ps1
 
 function Read-Confirm {
     param (

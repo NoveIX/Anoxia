@@ -1,4 +1,5 @@
-# File: Modpack\Func\Invoke-GitClone.ps1
+# File: Modpack\Func\Public\Invoke-GitClone.ps1
+using namespace System.IO
 
 function Invoke-GitClone {
     param (
@@ -9,14 +10,14 @@ function Invoke-GitClone {
         [string]$Branch,
 
         [Parameter(Mandatory = $true, Position = 2)]
-        [string]$Path,
+        [DirectoryInfo]$Path,
 
         [Parameter(Position = 3)]
-        [string]$PrivateKey
+        [FileInfo]$PrivateKey
     )
 
     # Detect HTTPS or SSH Repository
-    if ($Url -like "git@*") { $env:GIT_SSH_COMMAND = "ssh -i `"$PrivateKey`" StrictHostKeyChecking=accept-new" }
+    if ($Url -like "git@*") { $env:GIT_SSH_COMMAND = "ssh -i `"$($PrivateKey.FullName)`" StrictHostKeyChecking=accept-new" }
 
     # Clone only the last commit
     $gitArgs = @("clone", "--depth", "1", "--single-branch")
@@ -25,7 +26,7 @@ function Invoke-GitClone {
     if ($Branch) { $gitArgs += @("-b", $Branch) }
 
     # Add Repo url and path
-    $gitArgs += @($Url, $Path)
+    $gitArgs += @($Url, $Path.FullName)
 
     # clone
     Write-GitLogHeader

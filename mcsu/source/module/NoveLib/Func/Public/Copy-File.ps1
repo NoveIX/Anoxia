@@ -1,13 +1,14 @@
-# File: NoveLib\Func\Copy-File.ps1
+# File: NoveLib\Func\Public\Copy-File.ps1
+using namespace System.IO
 
 function Copy-File {
     param (
         [Parameter(Mandatory)]
         [ValidateScript({ Test-Path $_ })]
-        [string]$Source,
+        [DirectoryInfo]$Source,
 
         [Parameter(Mandatory)]
-        [string]$Destination,
+        [DirectoryInfo]$Destination,
 
         # Overwrite files at the destination
         [switch]$Force,
@@ -24,10 +25,6 @@ function Copy-File {
             throw [System.InvalidOperationException]::new($sysMsg)
         }
     }
-
-    # Resolve full path
-    $Source = Resolve-Path -LiteralPath $Source
-    $Destination = Resolve-Path -LiteralPath $Destination
 
     # Get all items to copy
     [array]$items = Get-ChildItem -Path $Source -Recurse -Force
@@ -58,6 +55,5 @@ function Copy-File {
         else { Copy-Item -Path $item.FullName -Destination $DestinationFullPath -Force }
     }
 
-    Start-Sleep -Milliseconds 50
     Write-Progress -Id 0 -Activity "Copy completed" -Completed
 }
