@@ -4,9 +4,9 @@ using namespace System.IO
 
 function Invoke-PathCombine {
     param(
-        [Parameter( Mandatory = $true, ValueFromRemainingArguments)]
-        [object[]]$Path
+        [Parameter(Mandatory = $true, Position = 0, ValueFromRemainingArguments = $true)]
+        [string[]]$Path
     )
 
-    return [Path]::Combine([object[]](@($Path | ForEach-Object { $_ })))
+    return [string][Path]::Combine($Path)
 }

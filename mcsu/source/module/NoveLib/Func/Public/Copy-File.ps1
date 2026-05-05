@@ -1,15 +1,17 @@
 # File: NoveLib\Func\Public\Copy-File.ps1
 
+# TODO Convert in c#
+
 using namespace System
 using namespace System.IO
 
 function Copy-File {
     param (
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory = $true, Position = 0)]
         [ValidateScript({ Test-Path $_ })]
         [DirectoryInfo]$Source,
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory = $true, Position = 1)]
         [DirectoryInfo]$Destination,
 
         # Overwrite files at the destination
@@ -17,6 +19,9 @@ function Copy-File {
 
         # Preserver Attribute
         [switch]$PreserveAttributes,
+
+        #Progress Bar
+        [switch]$ProgressBar,
 
         [ValidateNotNullOrEmpty()]
         [int]$DecimalPlace = 2
@@ -38,23 +43,33 @@ Use the 'Force' parameter to overwrite the existing contents.
     # Get all items to copy
     [array]$items = Get-ChildItem -Path $Source -Recurse -Force
 
-    #Counter
-    [int]$curItem = 0
-    [int]$totItem = $items.Count
+    if ($ProgressBar) {
+        # Counter
+        [int]$curItem = 0
+        [int]$totItem = $items.Count
 
-    [int]$curByte = 0
-    [double]$totByte = 0
-    foreach ($item in $items) { $totByte += if (-not $item.PSIsContainer) { $item.Length } else { 1 } }
+        # Byte Counter
+        [int]$curByte = 0
+        [double]$totByte = 0
+        foreach ($item in $items) { $totByte += if (-not $item.PSIsContainer) { $item.Length } else { 1 } }
+    }
 
     # Iterate through all items and copy them to the destination
     foreach ($item in $items) {
+
         # Progress bar
-        $curItem++
-        $curByte += if (-not $item.PSIsContainer) { $item.Length } else { 1 }
-        [double]$percent = ((($curItem / $totItem) + ($curByte / $totByte)) / 2) * 100
-        [double]$percentComplete = [math]::Round($percent, $DecimalPlace)
-        [string]$status = "Item $curItem of $totItem ($($percentComplete.ToString("N$DecimalPlace")) `%) - $($item.Name)"
-        Write-Progress -Id 0 -Activity "Copy file in progress..." -Status $status -PercentComplete $percentComplete
+        if ($ProgressBar) {
+            $curItem++
+            $curByte += if (-not $item.PSIsContainer) { $item.Length } else { 1 }
+
+            # Calculate percentage complete (average of item and byte progress)
+            [double]$percent = ((($curItem / $totItem) + ($curByte / $totByte)) / 2) * 100
+            [double]$percentComplete = [math]::Round($percent, $DecimalPlace)
+
+            # Build the status message
+            [string]$status = "Item $curItem of $totItem ($($percentComplete.ToString("N$DecimalPlace")) `%) - $($item.Name)"
+            Write-Progress -Activity "Copy file in progress..." -Status $status -PercentComplete $percentComplete
+        }
 
         # Build the destination path using the relative path from the source
         [string]$DestinationFullPath = Join-Path -Path $Destination -ChildPath $item.FullName.Substring((Resolve-Path $Source).Path.Length)
@@ -74,5 +89,5 @@ Use the 'Force' parameter to overwrite the existing contents.
         }
     }
 
-    Write-Progress -Id 0 -Activity "Copy completed" -Completed
+    if ($ProgressBar) { Write-Progress -Activity "Copy file in progress..." -Completed }
 }
