@@ -58,16 +58,6 @@ function Write-LogError {
     Write-Host "ERROR" -ForegroundColor DarkRed -NoNewline
     Write-Host "]: $Message"
 }
-
-function Invoke-PathCombine {
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromRemainingArguments)]
-        [object[]]$Path
-    )
-
-    return [System.IO.Path]::Combine([string[]](@($Path | ForEach-Object { $_ })))
-}
 #endregion
 
 
