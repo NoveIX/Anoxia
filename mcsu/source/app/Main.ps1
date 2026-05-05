@@ -21,41 +21,41 @@ Clear-Host
 
 # ======================================[ Definition path ]======================================= #
 
-[string]$appPath = $PSScriptRoot                                                        # .\Modpack\mccm\source\app
-[string]$sourcePath = Split-Path -Path $appPath -Parent                                 # .\Modpack\mccm\source
-[string]$mccmPath = Split-Path -Path $sourcePath -Parent                                # .\Modpack\mccm
-[string]$ModpackPath = Split-Path -Path $mccmPath -Parent                               # .\Modpack
+[string]$appPath = $PSScriptRoot                                                            # .\Modpack\mcsu\source\app
+[string]$sourcePath = Split-Path -Path $appPath -Parent                                     # .\Modpack\mcsu\source
+[string]$mcsuPath = Split-Path -Path $sourcePath -Parent                                    # .\Modpack\mcsu
+[string]$ModpackPath = Split-Path -Path $mcsuPath -Parent                                   # .\Modpack
 
-[string]$GitPath = Join-Path -Path $ModpackPath -ChildPath ".git"                       # .\Modpack\.git
-[string]$WorkPath = $appPath                                                            # .\Modpack\mccm\source\app
+[string]$GitPath = Join-Path -Path $ModpackPath -ChildPath ".git"                           # .\Modpack\.git
+[string]$WorkPath = $appPath                                                                # .\Modpack\mcsu\source\app
 
-[string]$configPath = Join-Path -Path $mccmPath -ChildPath "config"                     # .\Modpack\mccm\config
-[string]$keyPath = Join-Path -Path $mccmPath -ChildPath "key"                           # .\Modpack\mccm\key
-[string]$logsPath = Join-Path -Path $mccmPath -ChildPath "logs"                         # .\Modpack\mccm\logs
-[string]$RepoPath = Join-Path -Path $mccmPath -ChildPath "repo"                         # .\Modpack\mccm\repo
+[string]$configPath = Join-Path -Path $mcsuPath -ChildPath "config"                         # .\Modpack\mcsu\config
+[string]$keyPath = Join-Path -Path $mcsuPath -ChildPath "key"                               # .\Modpack\mcsu\key
+[string]$logsPath = Join-Path -Path $mcsuPath -ChildPath "logs"                             # .\Modpack\mcsu\logs
+[string]$RepoPath = Join-Path -Path $mcsuPath -ChildPath "repo"                             # .\Modpack\mcsu\repo
 
-[string]$libPath = Join-Path -Path $sourcePath -ChildPath "library"                     # .\Modpack\mccm\source\library
-[string]$UpdatePath = Join-Path -Path $sourcePath -ChildPath "update"                   # .\Modpack\mccm\source\update
-[string]$ShellStartup = [Environment]::GetFolderPath("Startup")                         # Shell:Startup
-[string]$UserModulePath = Join-Path -Path $env:USERPROFILE -ChildPath "NoveLib"            # .\C:\Users\User\NoveLib
+[string]$libPath = Join-Path -Path $sourcePath -ChildPath "library"                         # .\Modpack\mcsu\source\library
+[string]$UpdatePath = Join-Path -Path $sourcePath -ChildPath "update"                       # .\Modpack\mcsu\source\update
+[string]$ShellStartup = [Environment]::GetFolderPath("Startup")                             # Shell:Startup
+[string]$UserModulePath = Join-Path -Path $env:USERPROFILE -ChildPath "NoveLib"             # .\C:\Users\User\NoveLib
 
 # ======================================[ Definition file ]======================================= #
 
 # Main and config
-[string]$MainPS1 = $MyInvocation.MyCommand.Path                                         # .\Modpack\mccm\source\app\Main.ps1
-[string]$ConfigPS1 = Join-Path -Path $configPath -ChildPath "MCCM-Common.ps1"           # .\Modpack\mccm\config\MCCM-Common.ps1
+[string]$MainPS1 = $MyInvocation.MyCommand.Path                                             # .\Modpack\mcsu\source\app\Main.ps1
+[string]$ConfigPS1 = Join-Path -Path $configPath -ChildPath "mcsu-config.ps1"               # .\Modpack\mcsu\config\mcsu-Common.ps1
 
 # load config
 . $ConfigPS1
 
 # ssh key
-[string]$PrivateKeyPath = Join-Path -Path $keyPath -ChildPath $PrivateKeyName           # .\Modpack\mccm\key\$PrivateKeyName
-[string]$PublicKeyPath = Join-Path -Path $keyPath -ChildPath $PublicKeyName             # .\Modpack\mccm\key\$PublicKeyName
+[string]$PrivateKeyPath = Join-Path -Path $keyPath -ChildPath $PrivateKeyName               # .\Modpack\mcsu\key\$PrivateKeyName
+[string]$PublicKeyPath = Join-Path -Path $keyPath -ChildPath $PublicKeyName                 # .\Modpack\mcsu\key\$PublicKeyName
 
 # Auto update
-[string]$AutoUpTXTPath = Join-Path -Path $UserModulePath -ChildPath $AutoUpdateTXT         # .\C:\Users\User\NoveLib\$AutoUpdateTXT
-[string]$AutoUpCMDPath = Join-Path -Path $UpdatePath -ChildPath $AutoUpdateCMD          # .\Modpack\mccm\source\update\$AutoUpdateCMD
-[string]$StartupAutoUpCMDPath = Join-Path -Path $ShellStartup -ChildPath $AutoUpdateCMD # Shell:Startup\$AutoUpdateCMD
+[string]$AutoUpTXTPath = Join-Path -Path $UserModulePath -ChildPath $AutoUpdateTXT          # .\C:\Users\User\NoveLib\$AutoUpdateTXT
+[string]$AutoUpCMDPath = Join-Path -Path $UpdatePath -ChildPath $AutoUpdateCMD              # .\Modpack\mcsu\source\update\$AutoUpdateCMD
+[string]$StartupAutoUpCMDPath = Join-Path -Path $ShellStartup -ChildPath $AutoUpdateCMD     # Shell:Startup\$AutoUpdateCMD
 
 # =======================================[ Import module ]======================================== #
 
@@ -68,9 +68,9 @@ try {
     foreach ($Manifest in $Manifests) { Import-Module $Manifest.Fullname -Force -ErrorAction Stop }
 
     # Log definition
-    $Script:DefaultLogSetting = Set-DefaultLogSetting -Filename "Anoxia_mccm" -Path $logsPath -DateLogName Date -LogFormat Time -ConsoleOutput Message
+    $Script:DefaultLogSetting = Set-DefaultLogSetting -Filename "Anoxia_mcsu" -Path $logsPath -DateLogName Date -LogFormat Time -ConsoleOutput Message
     Write-LogInfo "Inizialize..."
-    Write-AsciiArt
+    Write-AsciiArt -RandomColor
 }
 catch {
     Write-Host "`nError: Failed to import module: '$ModuleName'." -ForegroundColor Red
@@ -346,7 +346,7 @@ function Invoke-Repair {
         [string]$destDir = Split-Path $destPath -Leaf
 
         # If the folder exist in the modpack dir, remove it - Skip Tools
-        if ((Test-Path -Path $destPath) -and ($destPath -notlike "*mccm*")) {
+        if ((Test-Path -Path $destPath) -and ($destPath -notlike "*mcsu*")) {
             Remove-Item -Path $destPath -Recurse -Force
 
             if ($?) { Write-LogInfo "Deleted $destPath item in modpack folder" }
@@ -357,13 +357,13 @@ function Invoke-Repair {
 
     # Remove SSH key dir
     Remove-Item -Path $keyPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo "Deleted key folder in mccm folder" }
-    else { Write-LogWarn "Don't exist key folder in mccm folder" }
+    if ($?) { Write-LogInfo "Deleted key folder in mcsu folder" }
+    else { Write-LogWarn "Don't exist key folder in mcsu folder" }
 
     # Remove Repo dir
     Remove-Item -Path $RepoPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo "Deleted repo folder in mccm folder" }
-    else { Write-LogWarn "Don't exist repo folder in mccm folder" }
+    if ($?) { Write-LogInfo "Deleted repo folder in mcsu folder" }
+    else { Write-LogWarn "Don't exist repo folder in mcsu folder" }
 
     # Starting setup in repair mode
     Write-LogInfo "Delete completed"
@@ -390,13 +390,13 @@ function Invoke-Remove {
 
     # Remove key dir
     Remove-Item -Path $keyPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo -Message "Deleted key folder in mccm folder" }
-    else { Write-LogWarn -Message "Don't exist key folder in mccm folder" }
+    if ($?) { Write-LogInfo -Message "Deleted key folder in mcsu folder" }
+    else { Write-LogWarn -Message "Don't exist key folder in mcsu folder" }
 
     # Remove repo dir
     Remove-Item -Path $repoPath -Recurse -Force -ErrorAction SilentlyContinue
-    if ($?) { Write-LogInfo -Message "Deleted repo folder in mccm folder" }
-    else { Write-LogWarn -Message "Don't exist repo folder in mccm folder" }
+    if ($?) { Write-LogInfo -Message "Deleted repo folder in mcsu folder" }
+    else { Write-LogWarn -Message "Don't exist repo folder in mcsu folder" }
 
     # Remove NoveLib in local user temp
     Remove-Item -Path $UserModulePath -Recurse -Force -ErrorAction SilentlyContinue

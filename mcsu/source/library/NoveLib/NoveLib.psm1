@@ -1,10 +1,41 @@
 #region AsciiArt
-function Write-AsciiArt {
-    [CmdletBinding()]
-    param ()
+$colors = @(
+    "Red", "Green", "Yellow", "Blue",
+    "Magenta", "Cyan", "White", "DarkRed",
+    "DarkGreen", "DarkYellow", "DarkBlue",
+    "DarkMagenta", "DarkCyan"
+)
 
+function Get-RandomColor {
+    # All write host foreground color
+    return Get-Random -InputObject $colors
+}
+
+function Write-AsciiArt {
+    param (
+        [Parameter(Position = 0)]
+        [ValidateRange(0, 10)]
+        [double]$DisplaySeconds = 2,
+
+        # ValidateSet for Write-Host foreground colors
+        [Parameter(Position = 1)]
+        [ValidateSet("Red", "Green", "Yellow", "Blue",
+            "Magenta", "Cyan", "White", "DarkRed",
+            "DarkGreen", "DarkYellow", "DarkBlue",
+            "DarkMagenta", "DarkCyan")]
+        [string]$Color = "DarkCyan",
+
+        # Switch to enable random color
+        [switch]$RandomColor,
+        [switch]$Clear
+    )
+
+    # Get module information
+    $ver = $MyInvocation.MyCommand.Module.Version.ToString()
+    $author = $MyInvocation.MyCommand.Module.Author.ToString()
+
+    # Define ASCII Art
     $AsciiArt = @'
-                                                                
  /$$   /$$                               /$$       /$$ /$$      
 | $$$ | $$                              | $$      |__/| $$      
 | $$$$| $$  /$$$$$$  /$$    /$$ /$$$$$$ | $$       /$$| $$$$$$$ 
@@ -13,13 +44,14 @@ function Write-AsciiArt {
 | $$\  $$$| $$  | $$  \  $$$/ | $$_____/| $$      | $$| $$  | $$
 | $$ \  $$|  $$$$$$/   \  $/  |  $$$$$$$| $$$$$$$$| $$| $$$$$$$/
 |__/  \__/ \______/     \_/    \_______/|________/|__/|_______/ 
-                                                                
-By NoveIX - Ver. 1.1.0                                          
-                                                                
 '@
 
-    Write-Host $AsciiArt
-    Start-Sleep -Seconds 2
+    # Display ASCII Art
+    $ForegroundColor = if ($RandomColor) { Get-RandomColor } else { $Color }
+    Write-Host "`n$AsciiArt" -ForegroundColor $ForegroundColor
+    Write-Host "`nBy $author - Module Ver. $ver`n"
+    Start-Sleep -Seconds $DisplaySeconds
+    if ($Clear) { Clear-Host }
 }
 #endregion
 
