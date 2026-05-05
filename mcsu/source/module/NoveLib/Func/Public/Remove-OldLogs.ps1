@@ -13,7 +13,7 @@ function Remove-OldLog {
     $limit = (Get-Date).AddDays(-$Days)
 
     # Delete logs
-    Write-LogInfo "Removing logs older than $($limit.ToString("yyyy/MM/dd HH:mm:ss"))"
+    Write-LogInfo "Removing logs older than: $($limit.ToString("yyyy/MM/dd HH:mm:ss"))"
     $oldLogs = Get-ChildItem -Path $Path -File | Where-Object { $_.LastWriteTime -lt $limit }
 
     # Remove logs
