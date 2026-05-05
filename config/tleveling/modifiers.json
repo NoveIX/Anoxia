@@ -100,14 +100,14 @@
     {
       "item": "tconstruct:crossbow",
       "source": [
-        "tleveling:damage_entity"
+        "tleveling:ranged_damage_entity"
       ],
       "modifiers": []
     },
     {
       "item": "tconstruct:longbow",
       "source": [
-        "tleveling:damage_entity"
+        "tleveling:ranged_damage_entity"
       ],
       "modifiers": []
     },
