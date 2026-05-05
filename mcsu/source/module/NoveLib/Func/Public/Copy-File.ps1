@@ -75,8 +75,11 @@ Use the 'Force' parameter to overwrite the existing contents.
         [string]$DestinationFullPath = Join-Path -Path $Destination -ChildPath $item.FullName.Substring((Resolve-Path $Source).Path.Length)
 
         # Copy item to destination (handle directories and files differently)
-        if ($item.PSIsContainer) { Copy-Item -Path $item.FullName -Destination (Split-Path $DestinationFullPath -Parent) -Force }
-        else { Copy-Item -Path $item.FullName -Destination $DestinationFullPath -Force }
+        try {
+            if ($item.PSIsContainer) { Copy-Item -Path $item.FullName -Destination (Split-Path $DestinationFullPath -Parent) -Force -ErrorAction Stop }
+            else { Copy-Item -Path $item.FullName -Destination $DestinationFullPath -Force -ErrorAction Stop }
+        }
+        catch { Write-Warning -Message "($curItem of $totItem) Failed to copy: $($item.Name). Exception: $($_.Exception.Message)" }
 
         # restore attribute
         if ($PreserveAttributes) {
@@ -84,7 +87,7 @@ Use the 'Force' parameter to overwrite the existing contents.
             [FileSystemInfo]$destinationItem = Get-Item -Path $DestinationFullPath -Force
             if ($sourceItem -and $destinationItem) {
                 try { $destinationItem.Attributes = $sourceItem.Attributes }
-                catch { Write-Warning -Message "($curItem / $totItem) Failed to set attributes on: $DestinationFullPath - $($_.Exception.Message)" }
+                catch { Write-Warning -Message "($curItem of $totItem) Failed to set attributes on: $DestinationFullPath. Exception: $($_.Exception.Message)" }
             }
         }
     }

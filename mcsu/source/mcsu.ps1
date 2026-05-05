@@ -1,4 +1,5 @@
 # File: mcsu.ps1
+
 using namespace System
 
 
@@ -22,6 +23,8 @@ param (
     [switch]$Menu
 )
 
+# Constants
+$name = "anoxia"
 
 # Set background black
 [Console]::BackgroundColor = "Black"
@@ -33,12 +36,22 @@ Clear-Host
 
 # Resolve dir
 $mcsuDir = Split-Path $PSScriptRoot -Parent
-$logDir = Join-Path $mcsuDir "logs"
+$ConfigDir = Join-Path $mcsuDir "config"
+$LogDir = Join-Path $mcsuDir "logs"
 $SourceDir = Join-Path $mcsuDir "source"
 $ModuleDir = Join-Path $SourceDir "module"
 
+# Create Context
+$Context = [PSCustomObject]@{
+    Name         = $name
+    KeyDir       = Join-Path $mcsuDir "key"
+    RepoDir      = Join-Path $mcsuDir "repo"
+    StartupDir   = [Environment]::GetFolderPath("Startup")
+    MCModpackDir = Split-Path $mcsuDir -Parent
+}
 
-# =================================[ Definition path ]================================== #
+
+# ==================================[ Import modules ]================================== #
 
 
 # Import module
@@ -52,15 +65,37 @@ catch { throw [InvalidOperationException]::new("Failed to import module. Excepti
 
 # Show Logo
 Write-AsciiArt -DisplaySeconds 1.5 -RandomColor -Clear
-$LogSetting = New-LogSetting -Path $logDir -LogDate DateTimeHyphen -ConsolePrint -SetDefault
+
+
+# ==================================[ Initialization ]=================================== #
+
+
+# Read config
+try { $Config = Read-Config -FilePath (Join-Path $ConfigDir "mcsu-$name.json") -ErrorAction Stop }
+catch { throw [InvalidOperationException]::new("Failed to read config. Exception: $($_.Exception.Message)") }
+
+# Initialize log setting
+$null = New-LogSetting -Path $LogDir -Name "mcsu-$name" -LogFormat Simple -LogDate DateTimeHyphen -ConsolePrint -SetDefault
 
 
 # ====================================[ Execution ]===================================== #
 
 
 # Clear old logs
-Remove-OldLog -Path $logDir -Days 0
+Remove-OldLog -Path $logDir -Days 30
 
 
-# Check git is installed
+# Check git and ssh
 if (-not (Test-Git)) { Wait-BeforeExit }
+if (-not (Test-SSH)) { Wait-BeforeExit }
+
+# Execute
+if ($Install) { Install-Project -Config $Config -Context $Context }
+elseif ($Update) { Update-Project -Config $Config }
+elseif ($Repair) { Repair-Project -Config $Config }
+elseif ($Remove) { Remove-Project -Config $Config }
+elseif ($Menu) { Show-Menu -Config $Config }
+
+# Give time to read
+Wait-ReadTime
+exit 0

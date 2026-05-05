@@ -69,8 +69,8 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'Invoke-GitClone', 'Invoke-GitPull', 'Read-Config', 'Read-Confirm', 
-    'Write-Config', 'Test-Git', 'Wait-BeforeExit'
+    FunctionsToExport = 'Install-Project', 'Invoke-GitClone', 'Invoke-GitPull', 'Read-Config', 'Read-Confirm',
+    'Test-Git', 'Test-SSH', 'Wait-BeforeExit', 'Wait-ReadTime'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport   = @()

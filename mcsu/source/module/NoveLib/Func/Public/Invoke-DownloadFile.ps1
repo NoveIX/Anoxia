@@ -1,6 +1,6 @@
-# File: NoveLib\Func\Public\Invoke-DonwloadFile.ps1
+# File: NoveLib\Func\Public\Invoke-DownloadFile.ps1
 
-function Invoke-DonwloadFile {
+function Invoke-DownloadFile {
     param (
         [Parameter(Mandatory = $true, Position = 0)]
         [string]$Url,
