@@ -14,11 +14,17 @@ function Invoke-GitPull {
     # Detect HTTPS or SSH Repository
     [string]$origin = git.exe -C $Path.FullName config --get remote.origin.url
 
-    # Prepare SSH Commnand
-    if ($origin -like "git@*") { $env:GIT_SSH_COMMAND = "ssh -i `"$($PrivateKey.FullName)`" StrictHostKeyChecking=accept-new" }
+    # Prepare SSH Command
+    if ($origin -like 'git@*') {
+        if (-not $PrivateKey) {
+            throw [ArgumentException]::new("SSH repository detected but no private key provided.")
+        }
+
+        $env:GIT_SSH_COMMAND = "ssh -i `"$($PrivateKey.FullName)`" -o StrictHostKeyChecking=accept-new"
+    }
 
     # Update repository
     Write-GitHeader
-    git.exe -C $Path.FullName pull
+    & git.exe -C $Path.FullName pull
     Write-GitFooter
 }

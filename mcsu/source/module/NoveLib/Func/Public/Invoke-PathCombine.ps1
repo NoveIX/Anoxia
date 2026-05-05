@@ -8,5 +8,6 @@ function Invoke-PathCombine {
         [string[]]$Path
     )
 
+    # Call Path.Combine with the provided paths and return the result as a string
     return [string][Path]::Combine($Path)
 }

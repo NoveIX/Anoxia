@@ -9,6 +9,7 @@ function Invoke-DonwloadFile {
         [string]$File
     )
 
+    # Try downloading the file using Start-BitsTransfer, if it fails, fallback to Invoke-WebRequest
     try { Start-BitsTransfer -Source $Url -Destination $File -ErrorAction Stop }
     catch {
         try { Invoke-WebRequest -Uri $Url -OutFile $File -UseBasicParsing -ErrorAction Stop }

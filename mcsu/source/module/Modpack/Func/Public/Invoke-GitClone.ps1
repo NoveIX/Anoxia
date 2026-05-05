@@ -18,7 +18,13 @@ function Invoke-GitClone {
     )
 
     # Detect HTTPS or SSH Repository
-    if ($Url -like "git@*") { $env:GIT_SSH_COMMAND = "ssh -i `"$($PrivateKey.FullName)`" StrictHostKeyChecking=accept-new" }
+    if ($Url -like 'git@*') {
+        if (-not $PrivateKey) {
+            throw [ArgumentException]::new("SSH repository detected but no private key provided.")
+        }
+
+        $env:GIT_SSH_COMMAND = "ssh -i `"$($PrivateKey.FullName)`" -o StrictHostKeyChecking=accept-new"
+    }
 
     # Clone only the last commit
     $gitArgs = @("clone", "--depth", "1", "--single-branch")
@@ -31,6 +37,6 @@ function Invoke-GitClone {
 
     # clone
     Write-GitHeader
-    git.exe @args
+    & git.exe @gitArgs
     Write-GitFooter
 }
