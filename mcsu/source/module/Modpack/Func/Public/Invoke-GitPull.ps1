@@ -1,6 +1,6 @@
 # File: Modpack\Func\Public\Invoke-GitPull.ps1
-using namespace System.IO
 
+using namespace System.IO
 
 function Invoke-GitPull {
     param (
@@ -18,7 +18,7 @@ function Invoke-GitPull {
     if ($origin -like "git@*") { $env:GIT_SSH_COMMAND = "ssh -i `"$($PrivateKey.FullName)`" StrictHostKeyChecking=accept-new" }
 
     # Update repository
-    Write-GitLogHeader
+    Write-GitHeader
     git.exe -C $Path.FullName pull
-    Write-GitLogFooter
+    Write-GitFooter
 }

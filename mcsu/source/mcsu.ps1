@@ -48,7 +48,7 @@ try {
     if (-not $moduleManifest) { throw [InvalidOperationException]::new("No module manifest was found.") }
     foreach ($manifest in $moduleManifest) { Import-Module $manifest.FullName -Force -ErrorAction Stop }
 }
-catch { throw [InvalidOperationException]::new("Failed to import module. SysErr: $($_.Exception.Message)") }
+catch { throw [InvalidOperationException]::new("Failed to import module. Exception: $($_.Exception.Message)") }
 
 # Show Logo
 Write-AsciiArt -DisplaySeconds 1.5 -RandomColor -Clear

@@ -2,16 +2,16 @@
 
 function Invoke-DonwloadFile {
     param (
-        [Parameter(Mandatory, Position = 0)]
-        [string]$URL,
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Url,
 
-        [Parameter(Mandatory, Position = 1)]
+        [Parameter(Mandatory = $true, Position = 1)]
         [string]$File
     )
 
-    try { Start-BitsTransfer -Source $URL -Destination $File -ErrorAction Stop }
+    try { Start-BitsTransfer -Source $Url -Destination $File -ErrorAction Stop }
     catch {
-        try { Invoke-WebRequest -Uri $URL -OutFile $File -UseBasicParsing -ErrorAction Stop }
-        catch { Write-Host "Download failed $File. SysErr: $($_.Exception.Message)" ; exit 1 }
+        try { Invoke-WebRequest -Uri $Url -OutFile $File -UseBasicParsing -ErrorAction Stop }
+        catch { Write-Host "Download failed $File. Exception: $($_.Exception.Message)" ; exit 1 }
     }
 }

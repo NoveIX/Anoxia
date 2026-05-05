@@ -1,4 +1,5 @@
 # File: Modpack\Func\Public\Invoke-GitClone.ps1
+
 using namespace System.IO
 
 function Invoke-GitClone {
@@ -6,11 +7,11 @@ function Invoke-GitClone {
         [Parameter(Mandatory = $true, Position = 0)]
         [string]$Url,
 
-        [Parameter(Position = 1)]
-        [string]$Branch,
-
-        [Parameter(Mandatory = $true, Position = 2)]
+        [Parameter(Mandatory = $true, Position = 1)]
         [DirectoryInfo]$Path,
+
+        [Parameter(Position = 2)]
+        [string]$Branch,
 
         [Parameter(Position = 3)]
         [FileInfo]$PrivateKey
@@ -29,7 +30,7 @@ function Invoke-GitClone {
     $gitArgs += @($Url, $Path.FullName)
 
     # clone
-    Write-GitLogHeader
+    Write-GitHeader
     git.exe @args
-    Write-GitLogFooter
+    Write-GitFooter
 }

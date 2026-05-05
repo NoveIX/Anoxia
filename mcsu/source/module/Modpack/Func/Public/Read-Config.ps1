@@ -1,4 +1,5 @@
 # File: Modpack\Func\Public\Read-Config.ps1
+
 using namespace System.IO
 
 function Read-Config {

@@ -1,5 +1,7 @@
 # File: NoveLib.psm1
 
+using namespace System.IO
+
 # Module Var
 $moduleRoot = Split-Path $PSCommandPath -Parent
 
@@ -14,7 +16,7 @@ $dllPath = Join-Path $binDir $dllName
 
 # Load dll
 if (Test-Path $dllPath) { Import-Module $dllPath }
-else { throw "Assembly not found: $dllPath" }
+else { throw [FileNotFoundException]::new("Required assembly not found: $dllPath.") }
 
 # =====================================[ Function ]===================================== #
 

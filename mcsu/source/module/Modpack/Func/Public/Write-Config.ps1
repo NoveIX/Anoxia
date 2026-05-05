@@ -1,4 +1,5 @@
 # File: Modpack\Func\Public\Write-Config.ps1
+
 using namespace System.IO
 
 function Write-Config {

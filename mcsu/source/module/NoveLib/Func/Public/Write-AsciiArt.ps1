@@ -5,12 +5,20 @@ function Write-AsciiArt {
         [Parameter(Position = 0)]
         [ValidateRange(0, 10)]
         [double]$DisplaySeconds = 2,
+
+        # ValidateSet for Write-Host foreground colors
+        [Parameter(Position = 1)]
+        [ValidateSet("Black", "DarkBlue", "DarkGreen", "DarkCyan", "DarkRed", "DarkMagenta", "DarkYellow", "Gray", "DarkGray", "Blue", "Green", "Cyan", "Red", "Magenta", "Yellow", "White")]
+        [string]$Color = "DarkCyan",
+
+        # Switch to enable random color
         [switch]$RandomColor,
         [switch]$Clear
     )
 
-    # Get module version
+    # Get module information
     $ver = $MyInvocation.MyCommand.Module.Version.ToString()
+    $author = $MyInvocation.MyCommand.Module.Author.ToString()
 
     # Define ASCII Art
     $AsciiArt = @'
@@ -25,9 +33,9 @@ function Write-AsciiArt {
 '@
 
     # Display ASCII Art
-    $color = if ($RandomColor) { Get-RandomColor } else { "DarkCyan" }
-    Write-Host "`n$AsciiArt" -ForegroundColor $color
-    Write-Host "`nBy NoveIX - Module Ver. $ver`n"
+    $ForegroundColor = if ($RandomColor) { Get-RandomColor } else { $Color }
+    Write-Host "`n$AsciiArt" -ForegroundColor $ForegroundColor
+    Write-Host "`nBy $author - Module Ver. $ver`n"
     Start-Sleep -Seconds $DisplaySeconds
     if ($Clear) { Clear-Host }
 }

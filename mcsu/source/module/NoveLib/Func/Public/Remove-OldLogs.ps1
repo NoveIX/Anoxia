@@ -1,10 +1,12 @@
 # File: NoveLib\Func\Public\Remove-OldLogs.ps1
+
 using namespace System.IO
 
 function Remove-OldLog {
     param (
-        [int]$Days = 30,
-        [DirectoryInfo]$Path
+        [Parameter(Mandatory = $true)]
+        [DirectoryInfo]$Path,
+        [int]$Days = 30
     )
 
     # Calculate filter
