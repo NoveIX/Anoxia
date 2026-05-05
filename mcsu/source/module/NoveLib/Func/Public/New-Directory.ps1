@@ -1,9 +1,11 @@
 # File: NoveLib\Func\Public\New-Directory.ps1
 
+using namespace System.IO
+
 function New-Directory {
     param (
         [Parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true)]
-        [string[]]$Path,
+        [DirectoryInfo[]]$Path,
 
         [switch]$OutNull
     )

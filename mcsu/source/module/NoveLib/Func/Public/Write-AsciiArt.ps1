@@ -8,7 +8,10 @@ function Write-AsciiArt {
 
         # ValidateSet for Write-Host foreground colors
         [Parameter(Position = 1)]
-        [ValidateSet("Black", "DarkBlue", "DarkGreen", "DarkCyan", "DarkRed", "DarkMagenta", "DarkYellow", "Gray", "DarkGray", "Blue", "Green", "Cyan", "Red", "Magenta", "Yellow", "White")]
+        [ValidateSet("Red", "Green", "Yellow", "Blue",
+            "Magenta", "Cyan", "White", "DarkRed",
+            "DarkGreen", "DarkYellow", "DarkBlue",
+            "DarkMagenta", "DarkCyan")]
         [string]$Color = "DarkCyan",
 
         # Switch to enable random color
