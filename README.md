@@ -1,84 +1,69 @@
+
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-brightgreen?style=for-the-badge&logo=minecraft)](https://www.minecraft.net) [![Mod Loader](https://img.shields.io/badge/ModLoader-Forge-orange?style=for-the-badge)](https://files.minecraftforge.net) [![License](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge)](LICENSE)
+
+---
+
 # 🌙 Project Anoxia Lunar Ruins
 
-*Only for the brave who dare to survive on the Moon*
+<img src=".github/assets/selene.png" style="border-radius: 12px;" />
 
-![Anoxia Banner](./kubejs/assets/anoxia/banner/anoxia.png)
+Project Anoxia Lunar Ruins is an ultra-technical Minecraft modpack that pushes your engineering and survival skills to their limits. Build your lunar base, master complex technologies, and survive in one of the most hostile environments imaginable.
 
-Project Anoxia Lunar Ruins is an ultra-technical Minecraft modpack that pushes your engineering and survival skills to their limits. Build your lunar base, master complex technologies, and survive in one of the most hostile environments imaginable. This pack is NOT for everyone - only for those seeking a true challenge and have the courage to face the unforgiving lunar surface.
+Project Anoxia Lunar Ruins is the **official sequel** to [The Last Man on Moon](https://www.curseforge.com/minecraft/modpacks/tlmom), continuing the lunar survival experience with enhanced technology, deeper progression systems, and even greater challenges.
 
-**Project Anoxia Lunar Ruins is the official sequel to [The Last Man on Moon](https://www.curseforge.com/minecraft/modpacks/tlmom)**, continuing the lunar survival experience with enhanced technology, deeper progression systems, and even greater challenges.
+## 🚀 Features
 
-## ✨ Key Features
+- **Lunar Survival**: Explore and survive on the Moon with extreme challenges and resource scarcity.
+- **Advanced Technology**: Master mods like Create, Mekanism, and Ad Astra for complex machinery and space travel.
+- **Custom Recipes**: Enhanced material processing, compressed blocks, and unique crafting recipes via KubeJS scripts.
+- **Deep Progression**: Unlock powerful technologies through intricate questlines and research.
+- **Hostile Environment**: Face radiation, low gravity, and alien threats in a true survival experience.
 
-- **Advanced Technology Systems**: Master intricate tech trees and complex machinery
-- **Realistic Resource Management**: Every resource is precious in the lunar environment
-- **Power Engineering Challenges**: Design and maintain sophisticated power networks
-- **Automation Necessities**: Automate or die - manual processing won't be enough
-- **Atmospheric Survival**: Deal with oxygen, temperature, and radiation management
-- **Progressive Tech Tree**: Unlock technologies in a challenging progression system
-- **Interconnected Systems**: Create synergies between different mods' mechanics
-- **Guided Quest System**: Follow structured missions to navigate through the complex tech progression
+## 📋 Requirements
 
-## 📚 Quest System
+- **Minecraft Version**: 1.20.1
+- **Java Version**: 17 (recommended)
+- **Forge Version**: 47.4.10
+- **RAM**: At least 8GB recommended for smooth gameplay
 
-Project Anoxia Lunar Ruins features a comprehensive quest system that guides you through the modpack's progression:
+## 📦 Installation
 
-- **Tutorial Quests**: Learn the basics of lunar survival and initial technology setup
-- **Progression Chapters**: Structured chapters that follow the technological advancement path
-- **Challenge Quests**: Special missions that test your engineering and problem-solving skills
-- **Reward System**: Earn valuable resources and unique items by completing quest lines
-- **Documentation**: In-game documentation and tips to help you understand complex mechanics
+1. Download the modpack from [CurseForge](https://www.curseforge.com/minecraft/modpacks/anoxia).
+2. Import the modpack and select the appropriate profile.
+3. Launch and enjoy!
 
-## 🛠️ Main Mods
+## 🖥️ Server Setup
 
-- **Cooking for Blockheads**: THE MOST ESSENTIAL mod - because even astronauts need gourmet meals on the Moon! Without proper cuisine, your lunar base is doomed to fail!
-- **Mekanism**: Advanced machinery, power generation, and processing systems
-- **Applied Energistics 2**: Digital storage and complex autocrafting networks
-- **Thermal Series**: Resource processing and infrastructure development
-- **Ad Astra**: Space travel, oxygen management, and planetary exploration
-- **Create**: Mechanical automation, rotational power, and engineering solutions
-- **Masterful Machinery**: Custom multi-block machinery and complex production systems
-- **Botania**: Nature-based magic, automation, and unique resource generation
-- **Magical Crops**: Resource farming and magical agriculture systems
-- **Chemistry**: Chemical compounds, reactions, and advanced material processing
-- **Supporting Mods**: Carefully selected complementary mods that enhance the technical experience (and your lunar kitchen!)
+To run a server:
 
-## 💻 System Requirements
+1. Download the server files from the [CurseForge](https://www.curseforge.com/minecraft/modpacks/anoxia/files).
+2. Run `startserver.bat` (Windows) or `startserver.sh` (Linux/Mac).
+3. The script will automatically download and install a local Java 17 runtime inside the pack.
+4. (Optional) You can configure the script to use a custom Java installation by editing the script and specifying your preferred Java path.
+5. The installer will download necessary files automatically.
+6. Configure `server.properties` as needed.
+7. Invite friends to join your lunar adventure!
 
-- **Minecraft**: 1.20.x
-- **RAM**: Minimum 8GB dedicated (10GB+ recommended)
-- **Java**: Java 17 or higher
-- **Processor**: Intel Core i7 / AMD Ryzen 7 or better (heavy automation will tax your CPU)
-- **Storage**: SSD strongly recommended for faster loading times
-- **Graphics**: Dedicated GPU recommended for better performance
+**Note**: Server files are included for easy setup. Check `user_jvm_args.txt` for JVM arguments.
 
-## 📥 Installation
+## 🌿 Branches
 
-1. Download the modpack from one of the links below
-2. Install via CurseForge App, Prism Launcher, or other compatible launcher
-3. Allocate at least 8GB of RAM to the instance (10GB+ recommended)
-4. Launch the game and prepare for the ultimate lunar challenge!
+- [main](https://github.com/NoveIX/Anoxia) - Presentation Branch
+- [1.20](https://github.com/NoveIX/Anoxia/tree/1.20) - Development branch of Minecraft version 1.20.1
 
-## 🔗 Download
+## 🤝 Contributing
 
-[![CurseForge](https://img.shields.io/badge/CurseForge-Project%20Anoxia-orange?style=for-the-badge&logo=curseforge)](https://www.curseforge.com/minecraft/modpacks/anoxia)
+We welcome contributions! Feel free to:
 
-[![Join the Discord](https://img.shields.io/badge/Discord-Join%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/2bq996c5xF)
-
-## 🤝 Contribute
-
-Have suggestions or found bugs? Open an issue on our GitHub page or contact me through Discord!
+- Report bugs or suggest features via [GitHub Issues](https://github.com/NoveIX/Anoxia/issues).
+- Submit pull requests for improvements to scripts or configurations.
+- Join our [Discord](https://discord.gg/2bq996c5xF) to discuss ideas.
 
 ## 📜 License
 
 This modpack is distributed under GNU GPLv3. See the `LICENSE` file for more details.
+*Individual mods retain their original licenses.*
 
 ---
 
 *Created with ❤️ by [NoveIX]*
-
-## ⚠️ Fair Warning
-
-This modpack is designed to be challenging. You will fail. You will need to restart. You will learn from your mistakes. But for those who persevere, the satisfaction of building a thriving lunar colony using some of the most complex technical mods available makes it all worthwhile.
-
-Are you up for the challenge?
