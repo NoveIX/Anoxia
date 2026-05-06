@@ -20,6 +20,11 @@
     "prettier.arrowParens": "always",
     "prettier.endOfLine": "lf"
   },
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell",
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true
+  },
   "json.schemas": [
     {
       "fileMatch": ["/lang/*.json"],
