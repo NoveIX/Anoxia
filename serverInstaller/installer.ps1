@@ -33,7 +33,7 @@ function Write-LogInfo {
     )
 
     Write-Host "[" -NoNewline
-    Write-Host "INFO" -ForegroundColor DarkCyan -NoNewline
+    Write-Host "INFO" -ForegroundColor Blue -NoNewline
     Write-Host "]: $Message"
 }
 

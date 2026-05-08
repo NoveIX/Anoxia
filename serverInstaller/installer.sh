@@ -61,6 +61,8 @@ download_file() {
             return 1
         fi
     fi
+
+    return 0
 }
 
 
@@ -76,7 +78,9 @@ install_local_java() {
 
     # Download Java ZIP archive if it does not already exist locally
     if [ ! -f "$JAVA_ZIP" ]; then
-        download_file "$JAVA_URL" "$JAVA_ZIP"
+        if ! download_file "$JAVA_URL" "$JAVA_ZIP"; then
+            return 1
+        fi
     fi
 
     # Extract Java ZIP archive if target directory does not already exist
@@ -127,7 +131,9 @@ install_forge(){
 
     # Download Forge installer if it does not already exist locally
     if [ ! -f "$FORGE_INSTALLER" ]; then
-        download_file "$FORGE_URL" "$FORGE_INSTALLER"
+        if ! download_file "$FORGE_URL" "$FORGE_INSTALLER"; then
+            return 1
+        fi
     fi
 
     # Run Forge installer if Forge is not already installed (based on libraries directory)
