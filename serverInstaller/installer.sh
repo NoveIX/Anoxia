@@ -1,15 +1,7 @@
 # Logging functions
-log_info() {
-    printf "[\033[0;36mINFO\033[0m]: %s\n" "$*"
-}
-
-log_warn() {
-    printf "[\033[1;33mWARN\033[0m]: %s\n" "$*"
-}
-
-log_error() {
-    printf "[\033[0;31mERROR\033[0m]: %s\n" "$*"
-}
+log_info() { printf "[\033[94mINFO\033[0m]: %s\n" "$*"; }
+log_warn() { printf "[\033[33mWARN\033[0m]: %s\n" "$*"; }
+log_error() { printf "[\033[31mERROR\033[0m]: %s\n" "$*"; }
 
 
 
