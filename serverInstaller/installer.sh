@@ -49,7 +49,7 @@ download_file() {
             curl -# -L -o "$FILE" "$URL"
             log_info "Download completed"
         else
-            log_error "Neither curl nor wget is installed. Please install one of these tools to proceed."
+            log_error "Neither curl or wget is installed. Please install one of these tools to proceed."
             return 1
         fi
     fi
