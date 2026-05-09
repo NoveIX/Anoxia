@@ -76,6 +76,8 @@ else {
 Write-LogInfo "Expand CurseForge export zip"
 New-Directory -Path $tempDir | Out-Null
 Expand-Archive -Path $exportFile -DestinationPath $tempDir
+Start-Sleep -Seconds 10
+
 
 # Compress zip file client
 $clientItems = @(
@@ -100,6 +102,7 @@ $clientItems = @(
 Write-LogInfo "Copy repository client file to overrides dir"
 $client = $clientItems | ForEach-Object { Join-Path $repoDir $_ }
 Copy-Item -Path $client -Destination $(Join-Path $tempDir "overrides") -Force -Recurse
+Start-Sleep -Seconds 10
 
 
 # Generate CurseForge zip
@@ -109,16 +112,20 @@ New-Directory -Path $buildDir | Out-Null
 $clientRelease = Get-ChildItem -Path $tempDir -Force | ForEach-Object { $_.FullName }
 $build = Join-Path $buildDir "Anoxia-${Version}.zip"
 Compress-Archive -Path $clientRelease -DestinationPath $build -Force
+Start-Sleep -Seconds 10
 
 
 # Copy item to archive release
 Write-LogInfo "Copy Anoxia-${Version}.zip to release dir (OneDrive)"
 $releaseDir = Join-Path $anoxiOneDrive "Release"
 Copy-Item -Path $build -Destination $releaseDir -Force
+Start-Sleep -Seconds 10
+
 
 # Clean temp dir
 Write-LogInfo "Clean up temp dir to generate server zip"
 Remove-Item -Path $clientRelease -Recurse -Force
+Start-Sleep -Seconds 10
 
 
 
@@ -145,23 +152,30 @@ $serverItems = @(
 Write-LogInfo "Get server mod from server profile"
 $modsDirServer = Invoke-PathCombine -Path (Split-Path $modpackDir -Parent), "Project Anoxia Lunar Ruins Server", "mods"
 Copy-Item -Path $modsDirServer -Destination $tempDir -Recurse -Force -Exclude "*.disabled"
+Start-Sleep -Seconds 10
 
 
 # Copy repository client file to temp dir
 Write-LogInfo "Copy repository server file to temp dir"
 $server = $serverItems | ForEach-Object { Join-Path $repoDir $_ }
 Copy-Item -Path $server -Destination $tempDir -Force -Recurse
+Start-Sleep -Seconds 10
+
 
 # Generate CurseForge zip
 Write-LogInfo "Create server release zip"
 $serverRelease = Get-ChildItem -Path $tempDir -Force | ForEach-Object { $_.FullName }
 $build = Join-Path $buildDir "Anoxia-${Version}-Server.zip"
 Compress-Archive -Path $serverRelease -DestinationPath $build -Force
+Start-Sleep -Seconds 10
+
 
 # Copy item to archive release
 Write-LogInfo "Copy Anoxia-${Version}-Server.zip to release dir (OneDrive)"
 $releaseDir = Join-Path $anoxiOneDrive "Release"
 Copy-Item -Path $build -Destination $releaseDir -Force
+Start-Sleep -Seconds 10
+
 
 # Copy item to archive release
 Write-LogInfo "Clear temp dir"
