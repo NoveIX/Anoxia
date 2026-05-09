@@ -18,8 +18,12 @@ set "FORGE_VER=47.4.10"
 
 :: Set terminal title
 set "SCRIPT_DIR=%~dp0"
-set /p MPVER=<"%SCRIPT_DIR%version.txt"
-title Anoxia Server v%MPVER%
+if exist "%SCRIPT_DIR%version.txt" (
+    set /p MPVER=<"%SCRIPT_DIR%version.txt"
+    title Anoxia Server v%MPVER%
+) else (
+    title Anoxia Server
+)
 
 :: Change to script directory
 cd /D "%SCRIPT_DIR%"

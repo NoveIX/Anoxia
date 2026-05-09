@@ -12,6 +12,7 @@ if ($PSEdition -eq "Desktop") {
         "Windows PowerShell is not supported. Please use PowerShell 7+."
     )
 }
+
 # Set background black
 [Console]::BackgroundColor = "Black"
 Clear-Host

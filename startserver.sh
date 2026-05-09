@@ -19,8 +19,12 @@ FORGE_VER=47.4.10
 
 # Set terminal title
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-MPVER=$(cat "$SCRIPT_DIR/version.txt")
-printf '\033]0;Anoxia Server v%s\007' "$MPVER"
+if [ -f "$SCRIPT_DIR/version.txt" ]; then
+    MPVER=$(cat "$SCRIPT_DIR/version.txt")
+    printf '\033]0;Anoxia Server v%s\007' "$MPVER"
+else
+    printf '\033]0;Anoxia Server\007'
+fi
 
 # Change to script directory
 cd "$SCRIPT_DIR"
