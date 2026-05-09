@@ -37,16 +37,17 @@ Write-AsciiArt -RandomColor -Clear
 
 # ====================================[ Execution ]===================================== #
 
-$anoxiOneDrive = Invoke-PathCombine $env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia"
+$anoxiOneDrive = Invoke-PathCombine -Path $env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia"
 $exportDir = Join-Path $anoxiOneDrive "Export"
 $exportName = "Anoxia-${Version}.zip"
 $exportFile = Join-Path $exportDir $exportName
 
 # Wait for curse export
 $exitWhile = $false
+Write-LogInfo "Check export zip Anoxia-${Version}.zip"
 do {
     if (Test-Path $exportFile) {
-        $ans = Read-Confirm “Found Anoxia-${Version}.zip. Proceed to generate release ${Version}? [Y/n]:”
+        $ans = Read-Confirm "Found Anoxia-${Version}.zip. Proceed to generate release ${Version}"
         if (-not $ans) { Write-LogInfo "Operation cancelled by user."; exit 1 }
         $exitWhile = $true
     }
