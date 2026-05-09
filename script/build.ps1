@@ -11,19 +11,22 @@ param (
 [Console]::BackgroundColor = "Black"
 Clear-Host
 
-# ==================================[ Import modules ]================================== #
+# =================================[ Definition path ]================================== #
 
 # Resolve dir
 $scriptDir = $PSScriptRoot
 $modpackDir = Split-Path $scriptDir -Parent
-$ModuleDir = Join-Path $scriptDir "module"
+$moduleDir = Join-Path $scriptDir "module"
 $repoDir = Join-Path $scriptDir "repo"
+$tempDir = Join-Path $scriptDir "temp"
 $buildDir = Join-Path $scriptDir "build"
+
+# ==================================[ Import modules ]================================== #
 
 # Import module
 Write-Host "Initialization. Importing modules..."
 try {
-    $moduleManifest = Get-ChildItem -Path $ModuleDir -Recurse -Include "*.psd1" -ErrorAction Stop
+    $moduleManifest = Get-ChildItem -Path $moduleDir -Recurse -Include "*.psd1" -ErrorAction Stop
     if (-not $moduleManifest) { throw [InvalidOperationException]::new("No module manifest was found.") }
     foreach ($manifest in $moduleManifest) { Import-Module $manifest.FullName -Force -ErrorAction Stop }
 }
@@ -34,26 +37,38 @@ Write-AsciiArt -RandomColor -Clear
 
 # ====================================[ Execution ]===================================== #
 
-$dirToCopy = @(
-    "mods"
-    "resourcepacks"
-    "shaderpacks"
-)
+$anoxiOneDrive = Invoke-PathCombine $env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia"
+$exportDir = Join-Path $anoxiOneDrive "Export"
+$exportName = "Anoxia-${Version}.zip"
+$exportFile = Join-Path $exportDir $exportName
+
+# Wait for curse export
+$exitWhile = $false
+do {
+    if (Test-Path $exportFile) {
+        $ans = Read-Confirm “Found Anoxia-${Version}.zip. Proceed to generate release ${Version}? [Y/n]:”
+        if (-not $ans) { Write-LogInfo "Operation cancelled by user."; exit 1 }
+        $exitWhile = $true
+    }
+    else {
+        Start-Sleep -Seconds 1
+    }
+} while (-not $exitWhile)
 
 # Pull repository from github
 if (-not (Test-Path $repoDir -PathType Container)) {
+    Write-LogInfo "Clone Anoxia repository from github"
     Invoke-GitClone -Url "https://github.com/NoveIX/Anoxia.git" -Path $repoDir -Branch 1.20
 }
 else {
+    Write-LogInfo "Update Anoxia repository from github"
     Invoke-GitPull -Path $repoDir
 }
 
-# Copy directory mods to repository
-foreach ($dir in $dirToCopy) {
-    $source = Join-Path $modpackDir $dir
-    $destination = Join-Path $repoDir $dir
-    Copy-File -Source $source -Destination $destination -Force -PreserveAttributes -ProgressBar
-}
+# Expand CurseForge zip
+Write-LogInfo "Expand CurseForge export zip"
+New-Directory -Path $tempDir | Out-Null
+Expand-Archive -Path $exportFile -DestinationPath $tempDir
 
 # Compress zip file client
 $clientItems = @(
@@ -61,24 +76,43 @@ $clientItems = @(
     "defaultconfigs"
     "kubejs"
     "local"
-    "mods"
-    "resourcepacks"
-    "shaderpacks"
+
+    # CurseForge zip
+    # "mods"
+    # "resourcepacks"
+    # "shaderpacks"
+
     "tacz"
     "LICENSE"
     "README.md"
     "version.txt"
 )
 
-$client = $clientItems | ForEach-Object { Join-Path $repoDir $_ }
-$build = Join-Path $buildDir "Anoxia-${Version}.zip"
 
-New-Directory -Path $buildDir
+# Copy repository client file to overrides dir
+Write-LogInfo "Copy repository client file to overrides dir"
+$client = $clientItems | ForEach-Object { Join-Path $repoDir $_ }
+Copy-Item -Path $client -Destination (Join-Path $tempDir "overrides") -Force -Recurse
+
+
+# Generate CurseForge zip
+Write-LogInfo "Create CurseForge release zip"
+New-Directory -Path $buildDir | Out-Null
+
+$client = Get-ChildItem -Path $tempDir -Force
+$build = Join-Path $buildDir "Anoxia-${Version}.zip"
 Compress-Archive -Path $client -DestinationPath $build -Force
 
+
 # Copy item to archive release
-$exportDir = Invoke-PathCombine $env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia", "GitHub"
-Copy-Item -Path $build -Destination $exportDir -Force
+Write-LogInfo "Copy Anoxia-${Version}.zip to release dir (OneDrive)"
+$releaseDir = Join-Path $anoxiOneDrive "Release"
+Copy-Item -Path $build -Destination $releaseDir -Force
+
+
+# Clean temp dir
+Write-LogInfo "Clean up temp dir to generate server zip"
+Remove-Item -Path $client -Recurse -Force
 
 
 
@@ -88,7 +122,6 @@ $serverItems = @(
     "defaultconfigs"
     "kubejs"
     "local"
-    "mods"
     "serverInstaller"
     "tacz"
     "default-server.properties"
@@ -101,25 +134,29 @@ $serverItems = @(
     "version.txt"
 )
 
+
 # Take server mod from server profile
-$instancesDir = Split-Path $modpackDir -Parent
-$modsDirServer = Invoke-PathCombine $instancesDir, "Project Anoxia Lunar Ruins Server", "mods"
-
-# clear mods dir
-$source = $modsDirServer
-$destination = Join-Path $repoDir "mods"
-Remove-Item -Path $destination -Recurse -Force
-Copy-File -Source $source -Destination $destination -Force -PreserveAttributes -ProgressBar
-Remove-Item -Path $destination -Recurse -Force -Include "*.disabled"
+Write-LogInfo "Get server mod from server profile"
+$modsDirServer = Invoke-PathCombine (Split-Path $modpackDir -Parent), "Project Anoxia Lunar Ruins Server", "mods"
+Copy-Item -Path $modsDirServer -Destination $tempDir -Recurse -Force -Exclude "*.disabled"
 
 
+# Copy repository client file to temp dir
+Write-LogInfo "Copy repository server file to temp dir"
 $server = $serverItems | ForEach-Object { Join-Path $repoDir $_ }
-$build = Join-Path $buildDir "Anoxia-${Version}-Server.zip"
+Copy-Item -Path $server -Destination $tempDir -Force -Recurse
 
-New-Directory -Path $buildDir
-Compress-Archive -Path $server -DestinationPath $build -Force
+# Generate CurseForge zip
+Write-LogInfo "Create server release zip"
+$serverRelease = Get-ChildItem -Path $tempDir -Force
+$build = Join-Path $buildDir "Anoxia-${Version}-Server.zip"
+Compress-Archive -Path $serverRelease -DestinationPath $build -Force
 
 # Copy item to archive release
-$exportDir = Invoke-PathCombine $env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia", "GitHub"
-Copy-Item -Path $build -Destination $exportDir -Force
+Write-LogInfo "Copy Anoxia-${Version}-Server.zip to release dir (OneDrive)"
+$releaseDir = Join-Path $anoxiOneDrive "Release"
+Copy-Item -Path $build -Destination $releaseDir -Force
 
+# Copy item to archive release
+Write-LogInfo "Clear temp dir"
+Remove-Item -Path $serverRelease -Recurse -Force
