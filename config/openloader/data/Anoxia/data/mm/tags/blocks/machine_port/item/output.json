@@ -1,0 +1,12 @@
+{
+  "values": [
+    "mm:tiny_item_port_output",
+    "mm:small_item_port_output",
+    "mm:normal_item_port_output",
+    "mm:reinforced_item_port_output",
+    "mm:big_item_port_output",
+    "mm:huge_item_port_output",
+    "mm:ludicrous_item_port_output",
+    "mm:ultimate_item_port_output"
+  ]
+}

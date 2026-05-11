@@ -158,6 +158,7 @@ ServerEvents.tags('block', (event) => {
     { tag: 'forge:storage_blocks/hellforged', block: 'bloodmagic:dungeon_metal' },
     { tag: 'forge:storage_blocks', block: 'bloodmagic:dungeon_metal' },
 
+    /* -> Create tags in openloader/data/mm
     //MM
     //Item port
     { tag: 'mm:machine_port/item/input', block: ['mm:tiny_item_port_input', 'mm:small_item_port_input', 'mm:normal_item_port_input', 'mm:reinforced_item_port_input', 'mm:big_item_port_input', 'mm:huge_item_port_input', 'mm:ludicrous_item_port_input', 'mm:ultimate_item_port_input'] },
@@ -170,6 +171,7 @@ ServerEvents.tags('block', (event) => {
     //Energy port
     { tag: 'mm:machine_port/energy/input', block: ['mm:tiny_energy_port_input', 'mm:small_energy_port_input', 'mm:normal_energy_port_input', 'mm:reinforced_energy_port_input', 'mm:big_energy_port_input', 'mm:huge_energy_port_input', 'mm:ludicrous_energy_port_input', 'mm:ultimate_energy_port_input'] },
     { tag: 'mm:machine_port/energy/output', block: ['mm:tiny_energy_port_output', 'mm:small_energy_port_output', 'mm:normal_energy_port_output', 'mm:reinforced_energy_port_output', 'mm:big_energy_port_output', 'mm:huge_energy_port_output', 'mm:ludicrous_energy_port_output', 'mm:ultimate_energy_port_output'] },
+    */
   ];
   addTagPattern.forEach((recipe) => {
     const blockId = Array.isArray(recipe.block) ? recipe.block : [recipe.block];
