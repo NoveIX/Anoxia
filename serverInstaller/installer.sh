@@ -1,7 +1,7 @@
 # Logging functions
-log_info() { printf "[\033[94mINFO\033[0m]: %s\n" "$*"; }
-log_warn() { printf "[\033[33mWARN\033[0m]: %s\n" "$*"; }
-log_error() { printf "[\033[31mERROR\033[0m]: %s\n" "$*"; }
+log_info() { printf -- "%b%s%b: %s\n" "\033[94m" "info" "\033[0m" "$*"; }
+log_warn() { printf -- "%b%s%b: %s\n" "\033[33m" "warn" "\033[0m" "$*"; }
+log_warn() { printf -- "%b%s%b: %s\n" "\033[31m" "error" "\033[0m" "$*"; }
 
 
 
@@ -18,19 +18,17 @@ get_system_arch() {
             ARCH="aarch64"
         ;;
         *)
-            echo >&2
-            echo "============================================" >&2
-            echo "SYSTEM NOT SUPPORTED" >&2
-            echo "Detected architecture: $SYS_ARCH" >&2
-            echo "Required architecture: 64-bit (x64 or ARM64)" >&2
-            echo "============================================" >&2
-            echo >&2
+            printf -- "%s\n" "\n============================================\n" >&2
+            printf -- "%s\n" "SYSTEM NOT SUPPORTED\n" >&2
+            printf -- "%s\n" "Detected architecture: %s\n" "$SYS_ARCH" >&2
+            printf -- "%s\n" "Required architecture: 64-bit (x64 or ARM64)\n" >&2
+            printf -- "%s\n" "============================================\n\n" >&2
             return 1
         ;;
     esac
 
     # return the architecture
-    echo "$ARCH"
+    printf "%s\n" "$ARCH"
 }
 
 # Download a file using wget or curl, with fallback and error handling
@@ -42,19 +40,20 @@ download_file() {
         log_info "(wget) Downloading $FILE"
         wget -q --show-progress -O "$FILE" "$URL"
         log_info "Download completed"
-    else
-        log_warn "wget not found, trying curl"
-        if command -v curl >/dev/null 2>&1; then
-            log_info "(curl) Downloading $FILE"
-            curl -# -L -o "$FILE" "$URL"
-            log_info "Download completed"
-        else
-            log_error "Neither curl nor wget is installed. Please install one of these tools to proceed."
-            return 1
-        fi
+        return 0
     fi
 
-    return 0
+    log_warn "wget not found, trying curl"
+
+    if command -v curl >/dev/null 2>&1; then
+        log_info "(curl) Downloading $FILE"
+        curl -# -L -o "$FILE" "$URL"
+        log_info "Download completed"
+        return 0
+    fi
+
+    log_error "Neither curl nor wget is installed. Please install one of these tools to proceed."
+    return 1
 }
 
 
@@ -64,7 +63,7 @@ install_local_java() {
     MAJOR_VERSION="$1"
 
     # Determine Java download URL and archive name based on version and system architecture
-    ARCH=$(get_system_arch)
+    ARCH=$(get_system_arch) || return 1
     JAVA_ZIP="OpenJDK${MAJOR_VERSION}U-jre_${ARCH}_linux.tar.gz"
     JAVA_URL="https://api.adoptium.net/v3/binary/latest/${MAJOR_VERSION}/ga/linux/${ARCH}/jre/hotspot/normal/eclipse"
 
@@ -102,14 +101,14 @@ install_local_java() {
         if cp -r "$JRE_SOURCE"/* "$DEST_DIR"/ && rm -rf "$JAVA_UNZIP"; then
             log_info "Local Java setup completed. Installed in $DEST_DIR"
             return 0
-        else
-            log_error "Local Java setup failed (copy or cleanup error)"
-            return 1
         fi
-    else
-        log_info "Local java already installed ($DEST_DIR directory exists)"
-        return 0
+
+        log_error "Local Java setup failed (copy or cleanup error)"
+        return 1
     fi
+
+    log_info "Local java already installed ($DEST_DIR directory exists)"
+    return 0
 }
 
 install_forge(){
@@ -133,11 +132,13 @@ install_forge(){
         log_info "Starting Forge server installer: $FORGE_INSTALLER"
         if "$JAVA_BIN" -jar "$FORGE_INSTALLER" --installServer; then
             log_info "Forge server installation completed"
-        else
-            log_error "Forge server installation failed"
-            return 1
+            return 0
         fi
-    else
-        log_info "Forge server is already installed (libraries directory exists)"
+
+        log_error "Forge server installation failed"
+        return 1
     fi
+
+    log_info "Forge server is already installed (libraries directory exists)"
+    return 0
 }

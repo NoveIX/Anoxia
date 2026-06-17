@@ -1,4 +1,5 @@
 @echo off
+setlocal
 
 :: To use a specific Java runtime, define the ANOXIA_JAVA variable below with the full path to java.exe.
 :: set "ANOXIA_JAVA=C:\Program Files\Eclipse Adoptium\jre-17.0.18.8-hotspot\bin\java.exe"
@@ -11,23 +12,29 @@
 
 
 
-:: Set installer versions
+:: Set installer version
 set "JAVA_VER=17"
 set "MC_VER=1.20.1"
 set "FORGE_VER=47.4.10"
 
-:: Set terminal title
+:: Get modpack version
 set "SCRIPT_DIR=%~dp0"
-if exist "%SCRIPT_DIR%version.txt" (
-    set /p MPVER=<"%SCRIPT_DIR%version.txt"
-    title Anoxia Server v%MPVER%
-) else (
-    title Anoxia Server
+set "TITLE=Anoxia Server"
+set "MPVER="
+
+if exist "%SCRIPT_DIR%\version.txt" (
+    set /p MPVER=<"%SCRIPT_DIR%\version.txt"
 )
+
+if defined MPVER (
+    set "TITLE=%TITLE% v%MPVER%"
+)
+
+title %TITLE%
 
 :: Change to script directory
 cd /D "%SCRIPT_DIR%"
-set "SERVER_INSTALLER=%SCRIPT_DIR%serverInstaller"
+set "SERVER_INSTALLER=%SCRIPT_DIR%\serverInstaller"
 
 :: Check if installer exists
 if not exist "%SERVER_INSTALLER%\installer.ps1" (
@@ -37,7 +44,7 @@ if not exist "%SERVER_INSTALLER%\installer.ps1" (
 
 :: Check if Java is available, install it if missing, and set ANOXIA_JAVA variable
 if not defined ANOXIA_JAVA (
-    if not exist "%SCRIPT_DIR%java\bin\java.exe" (
+    if not exist "%SCRIPT_DIR%\java\bin\java.exe" (
         powershell -ExecutionPolicy Bypass ^
             -File "%SERVER_INSTALLER%\installer.ps1" ^
             -InstallJava ^
@@ -45,14 +52,12 @@ if not defined ANOXIA_JAVA (
         if errorlevel 1 (pause & exit /b 1)
     )
 
-    set "ANOXIA_JAVA=%SCRIPT_DIR%java\bin\java.exe"
+    set "ANOXIA_JAVA=%SCRIPT_DIR%\java\bin\java.exe"
 )
 
 :: Verify Java availability (file or PATH)
-if exist "%ANOXIA_JAVA%" (
-    rem Java found as direct executable path
-) else (
-    where %ANOXIA_JAVA% >nul 2>&1
+if not exist "%ANOXIA_JAVA%" (
+    where "%ANOXIA_JAVA%" >nul 2>&1
     if errorlevel 1 (
         echo ERROR: Java not found ^( %ANOXIA_JAVA% ^)
         pause & exit /b 1
