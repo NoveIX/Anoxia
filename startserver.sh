@@ -19,8 +19,8 @@ FORGE_VER=47.4.10
 
 # Get modpack version
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-MPVER=""
 TITLE="Anoxia Server"
+MPVER=""
 
 if [ -f "$SCRIPT_DIR/version.txt" ]; then
     read -r MPVER < "$SCRIPT_DIR/version.txt"
