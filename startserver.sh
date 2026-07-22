@@ -39,7 +39,7 @@ SERVER_INSTALLER="$SCRIPT_DIR/serverInstaller"
 
 # Check if installer exists
 if [ ! -f "$SERVER_INSTALLER/installer.sh" ]; then
-    printf -- "%s\n" "error: file installer.sh not found!"
+    printf 'error: file installer.sh not found!\n'
     exit 1
 fi
 
@@ -60,22 +60,22 @@ fi
 # Verify Java availability (file or PATH)
 if [ ! -f "$ANOXIA_JAVA" ]; then
     if ! command -v "$ANOXIA_JAVA" >/dev/null 2>&1; then
-        printf -- "%s\n" "error: Java not found ($ANOXIA_JAVA)"
+        printf '%s\n' "error: Java executable not found: $ANOXIA_JAVA"
         exit 1
     fi
 fi
 
 # Check Java version and parse the version string
 RAW_VER=$("$ANOXIA_JAVA" -version 2>&1 | awk -F '"' '/version/ {print $2}')
-if printf -- "%s\n" "$RAW_VER" | grep -q "^1\."; then
-    JVER=$(printf -- "%s\n" "$RAW_VER" | cut -d'.' -f2)
+if printf '%s\n' "$RAW_VER" | grep -q "^1\."; then
+    JVER=$(printf '%s\n' "$RAW_VER" | cut -d'.' -f2)
 else
-    JVER=$(printf -- "%s\n" "$RAW_VER" | cut -d'.' -f1)
+    JVER=$(printf '%s\n' "$RAW_VER" | cut -d'.' -f1)
 fi
 
 # Check Java version compatibility with required Minecraft version
 if [ "$JVER" -lt "$JAVA_VER" ]; then
-    printf -- "%s\n" "Minecraft $MC_VER requires Java $JAVA_VER - found Java $JVER"
+    printf '%s\n' "Minecraft $MC_VER requires Java $JAVA_VER (detected: Java $JVER)"
     exit 1
 fi
 
@@ -88,7 +88,7 @@ fi
 
 # Check if running in "Install Only" mode
 if [ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]; then
-    printf -- "%s\n" "info: Install completed the Server will NOT start."
+    printf 'Install completed the Server will NOT start.\n'
     exit 0
 fi
 
@@ -101,6 +101,6 @@ while true; do
         exit 0
     fi
 
-    printf -- "%s\n" "Restarting automatically in 10 seconds (press Ctrl + C to cancel)"
+    printf 'Restarting automatically in 10 seconds (press Ctrl + C to cancel)\n'
     sleep 10
 done

@@ -1,7 +1,7 @@
 # Logging functions
-log_info() { printf -- "%b%s%b: %s\n" "\033[94m" "info" "\033[0m" "$*"; }
-log_warn() { printf -- "%b%s%b: %s\n" "\033[33m" "warn" "\033[0m" "$*"; }
-log_warn() { printf -- "%b%s%b: %s\n" "\033[31m" "error" "\033[0m" "$*"; }
+log_info() { printf '%b%s%b: %s\n' "\033[94m" "info" "\033[0m" "$*"; }
+log_warn() { printf '%b%s%b: %s\n' "\033[33m" "warn" "\033[0m" "$*"; }
+log_warn() { printf '%b%s%b: %s\n' "\033[31m" "error" "\033[0m" "$*"; }
 
 
 
@@ -11,24 +11,20 @@ get_system_arch() {
     SYS_ARCH=$(uname -m)
 
     case "$SYS_ARCH" in
-        x86_64)
-            ARCH="x64"
-        ;;
-        aarch64)
-            ARCH="aarch64"
-        ;;
+        x86_64)  ARCH="x64"     ;;
+        aarch64) ARCH="aarch64" ;;
         *)
-            printf -- "%s\n" "\n============================================\n" >&2
-            printf -- "%s\n" "SYSTEM NOT SUPPORTED\n" >&2
-            printf -- "%s\n" "Detected architecture: %s\n" "$SYS_ARCH" >&2
-            printf -- "%s\n" "Required architecture: 64-bit (x64 or ARM64)\n" >&2
-            printf -- "%s\n" "============================================\n\n" >&2
+            printf '==================================================\n' >&2
+            printf 'UNSUPPORTED SYSTEM\n' >&2
+            printf 'Detected architecture : %s\n' "$SYS_ARCH" >&2
+            printf 'Required architecture : x86_64 or aarch64 (64-bit)\n' >&2
+            printf '==================================================\n' >&2
             return 1
         ;;
     esac
 
     # return the architecture
-    printf "%s\n" "$ARCH"
+    printf '%s\n' "$ARCH"
 }
 
 # Download a file using wget or curl, with fallback and error handling
