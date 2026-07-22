@@ -704,7 +704,7 @@ function Copy-File {
         [double]$percentComplete = [math]::Round($averagePercent, $decimalPlaces)
         [string]$percentString = $percentComplete.ToString("N$decimalPlaces")
         [string]$status = "Item $currentItem of $totalItems ($percentString `%) - $($item.Name)"
-        Write-Progress -Id 0 -Activity "Copy in item progress..." -Status $status -PercentComplete $percentComplete
+        Write-Progress -Id 0 -Activity "Copy in progress..." -Status $status -PercentComplete $percentComplete
 
         # Calculate path relative path on destination path
         [string]$SourceRelativePath = $item.FullName.Substring((Resolve-Path $Source).Path.Length)
