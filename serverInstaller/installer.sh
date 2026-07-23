@@ -15,7 +15,8 @@ get_system_arch() {
         aarch64) ARCH="aarch64" ;;
         *)
             printf '==================================================\n' >&2
-            printf 'UNSUPPORTED SYSTEM\n' >&2
+            printf '               SYSTEM NOT SUPPORTED\n' >&2
+            printf '\n'
             printf 'Detected architecture : %s\n' "$SYS_ARCH" >&2
             printf 'Required architecture : x86_64 or aarch64 (64-bit)\n' >&2
             printf '==================================================\n' >&2

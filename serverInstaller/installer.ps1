@@ -130,11 +130,12 @@ function Get-SysArch {
     if ($env:PROCESSOR_ARCHITECTURE -eq "AMD64") { $arch = "x64" }
     elseif ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") { $arch = "aarch64" }
     else {
-        Write-Host "`n============================================"
-        Write-Host "SYSTEM NOT SUPPORTED"
-        Write-Host "Detected architecture: $env:PROCESSOR_ARCHITECTURE"
-        Write-Host "Required architecture: 64-bit (x64 or ARM64)"
-        Write-Host "============================================`n"
+        Write-Host "`n==============================================="
+        Write-Host "              SYSTEM NOT SUPPORTED"
+        Write-Host
+        Write-Host "Detected architecture : $env:PROCESSOR_ARCHITECTURE"
+        Write-Host "Required architecture : AMD64 or ARM64 (64-bit)"
+        Write-Host "===============================================`n"
         exit 1
     }
 
