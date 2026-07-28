@@ -49,7 +49,7 @@ download_file() {
         return 0
     fi
 
-    log_error "Neither curl nor wget is installed. Please install one of these tools to proceed."
+    log_error "Neither wget nor curl is installed. Please install one of these tools to proceed."
     return 1
 }
 
