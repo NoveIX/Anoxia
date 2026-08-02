@@ -18,9 +18,8 @@
       "armor_ignore": 0.3,
       "head_shot_multiplier": 1.5,
       "damage_adjust": [
-        {"distance": 35, "damage": 7.5},
-        {"distance": 47, "damage": 6.5},
-        {"distance": 59, "damage": 5.5},
+        {"distance": 35, "damage": 7},
+        {"distance": 80, "damage": 5.5},
         {"distance": "infinite", "damage": 4.5}
       ]
     },
@@ -58,13 +57,13 @@
   ],
   "recoil": {
     "pitch": [
-      {"time": 0, "value": [0.55, 0.55]},
-      {"time": 0.3, "value": [0.55, 0.55]},
+      {"time": 0, "value": [0.4, 0.4]},
+      {"time": 0.3, "value": [0.4, 0.4]},
       {"time": 0.5, "value": [-0.15, -0.15]},
       {"time": 0.65, "value": [0, 0]}
     ],
     "yaw": [
-      {"time": 0, "value": [-0.45, 0.35]},
+      {"time": 0, "value": [-0.3, 0.2]},
       {"time": 0.3, "value": [-0.3, 0.2]},
       {"time": 0.5, "value": [0, 0]}
     ]

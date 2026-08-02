@@ -17,10 +17,18 @@
       "armor_ignore": 0.25,
       "head_shot_multiplier": 1.33,
       "damage_adjust": [
-        {"distance": 14, "damage": 64},
-        {"distance": 16, "damage": 48},
-        {"distance": 18, "damage": 32},
-        {"distance": "infinite", "damage": 16}
+        {
+          "distance": 15,
+          "damage": 64
+        },
+        {
+          "distance": 30,
+          "damage": 40
+        },
+        {
+          "distance": "infinite",
+          "damage": 24
+        }
       ]
     },
     "speed": 150,
@@ -75,9 +83,10 @@
   },
   "fire_mode_adjust": {
     "burst":{
-      "damage":-4,
-      "aim_inaccuracy": 1,
-      "other_inaccuracy": 1
+      "damage":-8,
+      "armor_ignore": -0.1,
+      "aim_inaccuracy": 1.35,
+      "other_inaccuracy": 1.35
     }
   },
   "recoil": {
@@ -102,8 +111,8 @@
    "inaccuracy": {
     "stand": 2.85,
     "move": 2.9,
-    "sneak": 2.85,
-    "lie": 2.85,
+    "sneak": 2.75,
+    "lie": 2.6,
     "aim": 2.6
   },
   "melee": {

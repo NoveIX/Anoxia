@@ -51,14 +51,13 @@
     // 额外伤害的内容，为空则表示没有任何额外伤害计算内容
     "extra_damage": {
       // 护甲穿透率，默认为 0，也就是没有穿甲伤害
-      "armor_ignore": 0.3,
+      "armor_ignore": 0.25,
       // 爆头伤害 x1.5
-      "head_shot_multiplier": 1.35,
+      "head_shot_multiplier": 1.5,
       // 距离-伤害分段常函数
       "damage_adjust": [
         {"distance": 30, "damage": 9},
-        {"distance": 43, "damage": 8},
-        {"distance": 56, "damage": 7},
+        {"distance": 60, "damage": 7.5},
         // 如果你忘记写这个无穷，那么超过上述距离，我就认为是 0
         {"distance": "infinite", "damage": 6}
       ]
@@ -150,6 +149,36 @@
 //    // 最大射速影响
 //    "max_rpm_mod": 1.2
 //  },
+  // 蓄力和延迟扳机
+//  "charging": {
+//    "semi": {
+//      // 蓄力模式
+//      // auto - 按住扳机蓄力，蓄满后自动发射
+//      // hold - 按住扳机蓄力，直到松开扳机才发射（如果满足阈值）
+//      // delay - 按下扳机后自动进行蓄力，蓄满后自动发射，无法取消
+//      "type": "hold",
+//      // 按下/松开扳机时每tick蓄力和减少的进度（非负）
+//      "increase_per_tick": 0.1,
+//      "decrease_per_tick": 0.5,
+//      // 开火后削减的蓄力进度
+//// 开火模式为全自动且蓄力模式为auto时，如果不重置的话第一发完成蓄力后可以按住扳机持续开火
+//      // 蓄力模式为hold时，如果开火后蓄力进度仍然大于阈值，即使松开扳机也会不受控制的持续开火（如果大于阈值的话不会触发decrease_per_tick）
+//      // 蓄力模式为delay时，此值无效（始终重置为0）
+//      "decrease_on_fire": 0.0,
+//      // 最大蓄力进度
+//      "max_charge": 1.0,
+//      // 开火阈值，蓄力至少进度达到此值时允许开火(仅hold模式生效)
+//      "fire_threshold": 0.6
+//    },
+//    "auto": {
+//      "type": "hold",
+//      "increase_per_tick": 0.2,
+//      "decrease_per_tick": 0.2,
+//      "decrease_on_fire": 0.1,
+//      "max_charge": 4.0,
+//      "fire_threshold": 1.5
+//    }
+//  },
   // 枪械抬起的动作时长，单位秒。
   // 抬起动作完成后，枪械可以进行开火、检视等行为
   "draw_time": 0.35,
@@ -238,13 +267,13 @@
   // 后坐力
   "recoil": {
     "pitch": [
-      {"time": 0, "value": [0.76, 0.76]},
-      {"time": 0.1, "value": [0.76, 0.76]},
+      {"time": 0, "value": [0.66, 0.66]},
+      {"time": 0.1, "value": [0.66, 0.66]},
       {"time": 0.45, "value": [-0.175, -0.175]},
       {"time": 0.6, "value": [0, 0]}
     ],
     "yaw": [
-      {"time": 0, "value": [-0.33, 0.28]},
+      {"time": 0, "value": [-0.23, 0.18]},
       {"time": 0.35, "value": [0, 0]}
     ]
   },

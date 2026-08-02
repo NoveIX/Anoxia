@@ -11,8 +11,7 @@
       "head_shot_multiplier": 1.33,
       "damage_adjust": [
         {"distance": 15, "damage": 30},
-        {"distance": 25, "damage": 25},
-        {"distance": 30, "damage": 20},
+        {"distance": 30, "damage": 25},
         {"distance": "infinite", "damage": 15}
       ]
     },
