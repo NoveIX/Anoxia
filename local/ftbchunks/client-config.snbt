@@ -189,7 +189,7 @@
 		# Scale of minimap
 		# Default: 1.0
 		# Range: 0.25 ~ 4.0
-		scale: 1.5d
+		scale: 1.0d
 		
 		# Always show player on minimap, even when rotation not locked
 		# Default: true
