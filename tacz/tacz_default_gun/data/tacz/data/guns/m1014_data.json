@@ -14,12 +14,13 @@
     "damage": 40,
     "tracer_count_interval": 0,
     "extra_damage": {
-      "armor_ignore": 0.25,
+      "armor_ignore": 0.33,
       "head_shot_multiplier": 1.33,
       "damage_adjust": [
         {"distance": 14, "damage": 40},
-        {"distance": 28, "damage": 32},
-        {"distance": "infinite", "damage": 24}
+        {"distance": 21, "damage": 32},
+        {"distance": 28, "damage": 24},
+        {"distance": "infinite", "damage": 16}
       ]
     },
     "speed": 150,

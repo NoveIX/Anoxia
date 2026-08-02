@@ -34,10 +34,11 @@
     "tracer_count_interval": 0,
     "extra_damage": {
       "armor_ignore": 0.2,
-      "head_shot_multiplier": 1.75,
+      "head_shot_multiplier": 1.25,
       "damage_adjust": [
         {"distance": 20, "damage": 12},
-        {"distance": 50, "damage": 11},
+        {"distance": 29, "damage": 11},
+        {"distance": 38, "damage": 10},
         {"distance": "infinite", "damage": 9}
       ]
     },
@@ -111,7 +112,7 @@
       "speed": 0,
       "knockback": 0,
       "armor_ignore": 0,
-      "head_shot_multiplier": -0.25,
+      "head_shot_multiplier": 0,
       "aim_inaccuracy": 0.05,
       "other_inaccuracy": 0.5
     }

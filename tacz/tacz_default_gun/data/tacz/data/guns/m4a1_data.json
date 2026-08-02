@@ -7,7 +7,7 @@
     60
   ],
   "bolt": "closed_bolt",
-  "rpm": 810,
+  "rpm": 700,
   "script": "tacz:xmag_reload_logic",
   "script_param": {
     "reload_feed": 1.40,
@@ -30,15 +30,16 @@
   "bullet": {
     "life": 0.75,
     "bullet_amount": 1,
-    "damage": 6.5,
+    "damage": 7,
     "tracer_count_interval": 0,
     "extra_damage": {
       "armor_ignore": 0.2,
-      "head_shot_multiplier": 1.5,
+      "head_shot_multiplier": 1.3,
       "damage_adjust": [
-        {"distance": 25, "damage": 6.5},
-        {"distance": 60, "damage": 5.5},
-        {"distance": "infinite", "damage": 4.5}
+        {"distance": 29, "damage": 7},
+        {"distance": 40, "damage": 6},
+        {"distance": 51, "damage": 5},
+        {"distance": "infinite", "damage": 4}
       ]
     },
     "speed": 270,
@@ -123,14 +124,14 @@
   */
   "recoil": {
     "pitch": [
-      {"time": 0, "value": [0.55, 0.55]},
-      {"time": 0.3, "value": [0.55, 0.55]},
+      {"time": 0, "value": [0.65, 0.65]},
+      {"time": 0.3, "value": [0.65, 0.65]},
       {"time": 0.5, "value": [-0.125, -0.125]},
       {"time": 0.65, "value": [0, 0]}
     ],
     "yaw": [
-      {"time": 0, "value": [-0.35, 0.25]},
-      {"time": 0.3, "value": [-0.35, 0.25]},
+      {"time": 0, "value": [-0.45, 0.35]},
+      {"time": 0.3, "value": [-0.45, 0.35]},
       {"time": 0.5, "value": [0, 0]}
     ]
   },

@@ -1,6 +1,6 @@
 {
   "ammo": "tacz:50ae",
-  "rpm": 300,
+  "rpm": 267,
   "script": "tacz:xmag_reload_logic",
   "script_param": {
     "reload_feed": 1.2,
@@ -27,11 +27,11 @@
     "tracer_count_interval": 0,
     "extra_damage": {
       "armor_ignore": 0.25,
-      "head_shot_multiplier": 1.75,
+      "head_shot_multiplier": 1.65,
       "damage_adjust": [
-        {"distance": 15, "damage": 16},
-        {"distance": 30, "damage": 14},
-        {"distance": 50, "damage": 12},
+        {"distance": 20, "damage": 16},
+        {"distance": 29, "damage": 14},
+        {"distance": 38, "damage": 12},
         {"distance": "infinite", "damage": 10}
       ]
     },
@@ -89,15 +89,15 @@
   ],
   "recoil": {
     "pitch": [
-      {"time": 0, "value": [0.95, 0.95]},
-      {"time": 0.4, "value": [0.95, 0.95]},
+      {"time": 0, "value": [1.05, 1.05]},
+      {"time": 0.4, "value": [1.05, 1.05]},
       {"time": 0.65, "value": [-0.225, -0.225]},
       {"time": 0.85, "value": [0.125, 0.125]},
       {"time": 1.1, "value": [0, 0]},
       {"time": 1.2, "value": [0, 0]}
     ],
     "yaw": [
-      {"time": 0, "value": [-0.3, 0.3]},
+      {"time": 0, "value": [-0.4, 0.4]},
       {"time": 0.5, "value": [0, 0]}
     ]
   },

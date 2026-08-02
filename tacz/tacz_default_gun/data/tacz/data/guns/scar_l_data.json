@@ -33,12 +33,13 @@
     "damage": 7.5,
     "tracer_count_interval": 0,
     "extra_damage": {
-      "armor_ignore": 0.25,
-      "head_shot_multiplier": 1.75,
+      "armor_ignore": 0.2,
+      "head_shot_multiplier": 1.3,
       "damage_adjust": [
         {"distance": 30, "damage": 7.5},
-        {"distance": 70, "damage": 6},
-        {"distance": "infinite", "damage": 5}
+        {"distance": 41, "damage": 6.5},
+        {"distance": 52, "damage": 5.5},
+        {"distance": "infinite", "damage": 4.5}
       ]
     },
     "speed": 290,
@@ -83,15 +84,15 @@
   },
   "recoil": {
     "pitch": [
-      {"time": 0, "value": [0.5, 0.5]},
-      {"time": 0.25, "value": [0.5, 0.5]},
+      {"time": 0, "value": [0.6, 0.6]},
+      {"time": 0.25, "value": [0.6, 0.6]},
       {"time": 0.45, "value": [-0.2, -0.2]},
       {"time": 0.6, "value": [0, 0]},
       {"time": 0.7, "value": [0, 0]}
     ],
     "yaw": [
-      {"time": 0, "value": [-0.2, 0.15]},
-      {"time": 0.35, "value": [-0.2, 0.15]},
+      {"time": 0, "value": [-0.3, 0.25]},
+      {"time": 0.35, "value": [-0.3, 0.25]},
       {"time": 0.5, "value": [0, 0]}
     ]
   },

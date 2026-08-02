@@ -18,9 +18,9 @@
       "head_shot_multiplier": 2,
       "damage_adjust": [
         {"distance": 48, "damage": 24},
-        {"distance": 96, "damage": 19},
-        {"distance": 190, "damage": 16},
-        {"distance": "infinite", "damage": 14}
+        {"distance": 61, "damage": 19},
+        {"distance": 74, "damage": 14},
+        {"distance": "infinite", "damage": 9}
       ]
     },
     "speed": 380,

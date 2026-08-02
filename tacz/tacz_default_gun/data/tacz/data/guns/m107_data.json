@@ -11,15 +11,16 @@
   "bullet": {
     "life": 1.1,
     "bullet_amount": 1,
-    "damage": 55,
+    "damage": 50,
     "tracer_count_interval": 0,
     "extra_damage": {
-      "armor_ignore": 0.5,
-      "head_shot_multiplier": 1.5,
+      "armor_ignore": 0.7,
+      "head_shot_multiplier": 1.75,
       "damage_adjust": [
         {"distance": 65, "damage": 50},
-        {"distance": 120, "damage": 40},
-        {"distance": "infinite", "damage": 35}
+        {"distance": 80, "damage": 40},
+        {"distance": 95, "damage": 30},
+        {"distance": "infinite", "damage": 20}
       ]
     },
     "speed": 400,
@@ -62,7 +63,8 @@
   },
   "crawl_recoil_multiplier": 0.33,
   "fire_mode": [
-    "semi"
+    "semi",
+    "auto"
   ],
   "recoil": {
     "pitch": [

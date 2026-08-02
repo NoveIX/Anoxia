@@ -1,6 +1,7 @@
 {
   "ammo": "tacz:357mag",
-  "rpm": 350,"script": "tacz:xmag_reload_logic",
+  "rpm": 350,
+  "script": "tacz:xmag_reload_logic",
   "script_param": {
     "reload_feed": 1.2,
     "reload_cooldown": 1.64,
@@ -28,11 +29,11 @@
       "armor_ignore": 0.2,
       "head_shot_multiplier": 1.8,
       "damage_adjust": [
-        {"distance": 18, "damage": 12},
-        {"distance": 36, "damage": 11},
-        {"distance": 55, "damage": 9},
+        {"distance": 20, "damage": 12},
+        {"distance": 29, "damage": 11},
+        {"distance": 38, "damage": 10},
         // 如果你忘记写这个无穷，那么超过上述距离，我就认为是 0
-        {"distance": "infinite", "damage": 7}
+        {"distance": "infinite", "damage": 9}
       ]
     },
     "speed": 200,
