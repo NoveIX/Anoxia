@@ -62,10 +62,12 @@ ServerEvents.recipes((event) => {
   }
 
   function gearTinker(recipe) {
+    let amount = recipe.put.startsWith('forge:gems') ? 400 : 360;
+
     const json = {
       type: 'tconstruct:casting_table',
       cooling_time: getCoolingTick(recipe.material, 4),
-      fluid: { amount: 360, tag: `forge:molten_${recipe.molten}` },
+      fluid: { amount: amount, tag: `tconstruct:molten_${recipe.molten}` },
       result: { item: recipe.get },
     };
 
@@ -98,12 +100,12 @@ ServerEvents.recipes((event) => {
     { get: 'thermal:constantan_gear', put: 'forge:ingots/constantan', molten: 'constantan', material: material.constantan, rsflux: 6000 },
 
     //Thermal Gem
-    { get: 'thermal:lapis_gear', put: 'forge:gems/lapis', molten: 'lapis', material: material.lapis, rsflux: 2000 },
+    { get: 'thermal:lapis_gear', put: 'forge:gems/lapis', rsflux: 2000 },
     { get: 'thermal:diamond_gear', put: 'forge:gems/diamond', molten: 'diamond', material: material.diamond, rsflux: 8000 },
     { get: 'thermal:emerald_gear', put: 'forge:gems/emerald', molten: 'emerald', material: material.emerald, rsflux: 8000 },
     { get: 'thermal:quartz_gear', put: 'forge:gems/quartz', molten: 'quartz', material: material.quartz, rsflux: 2000 },
-    { get: 'thermal:ruby_gear', put: 'forge:gems/ruby', molten: 'ruby', material: material.ruby, rsflux: 6000 },
-    { get: 'thermal:sapphire_gear', put: 'forge:gems/sapphire', molten: 'sapphire', material: material.sapphire, rsflux: 6000 },
+    { get: 'thermal:ruby_gear', put: 'forge:gems/ruby', rsflux: 6000 },
+    { get: 'thermal:sapphire_gear', put: 'forge:gems/sapphire', rsflux: 6000 },
 
     //Thermal Endergy
     { get: 'thermalendergy:prismalium_gear', put: 'forge:ingots/prismalium', rsflux: 16000, metal: 'hard' },
