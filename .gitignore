@@ -36,6 +36,7 @@
 knownkeys.txt
 .qmenu_opened.marker
 ds_private_storage.json
+defaultoptions.journal.json
 minecraftinstance.json
 oc2rnet.dll
 options.txt
