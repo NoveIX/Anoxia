@@ -1,14 +1,10 @@
 
 #TacZ Additions - Client Config
 [client]
-	#If true, recoil recovery is enabled (Default in TaCZ), disable to make recoil harder to control.
-	enableRecoilRecovery = true
 	#If false, disables all gun movement (sway, roll, etc).
 	enableGunMovement = true
 	#If false, disables sway/roll from strafing movement.
 	enableStrafeMovement = true
-	#Enable subtle camera sway when aiming with high-magnification scopes (4x+)
-	enableScopeSway = true
 	#Drag smoothing factor (lower = more inertia).
 	#Range: 0.0 ~ 1.0
 	dragSmoothing = 0.1
@@ -95,45 +91,6 @@
 		#Pivot point offset along Z axis for barrel kick rotation (distance from grip)
 		#Range: -2.0 ~ 2.0
 		kickPivot = 0.0
-
-	[client.gunTuck]
-		#If true, the gun pitches up when close to a wall.
-		enableGunTuck = true
-		#Distance in blocks at which gun tuck begins.
-		#Range: 0.1 ~ 3.0
-		tuckDistance = 1.0
-		#Maximum pitch angle when fully tucked (degrees). Negative values invert the movement.
-		#Range: -90.0 ~ 90.0
-		maxAngle = 60.0
-		#Maximum Z pullback when fully tucked.
-		#Range: -5.0 ~ 5.0
-		maxTranslate = 1.0
-
-	[client.scopeSway]
-		#Maximum sway arc when scoped (degrees)
-		#Range: -1.0 ~ 1.0
-		strength = 0.01
-		#Seconds per full sway cycle
-		#Range: 1.0 ~ 120.0
-		speed = 40.2
-		#Minimum zoom level required before scope sway activates
-		#Range: 1.0 ~ 100.0
-		minZoom = 4.0
-		#Milliseconds to hold crouch to stabilize sway
-		#Range: 0.0 ~ 10000.0
-		crouchStabilizeTime = 3000.0
-		#Milliseconds of sporadic sway after stabilizing
-		#Range: 0.0 ~ 10000.0
-		crouchSporadicTime = 3000.0
-		#Milliseconds cooldown after sporadic phase before you can stabilize again
-		#Range: 0.0 ~ 20000.0
-		crouchCooldownTime = 8000.0
-		#Multiplier for sway strength during sporadic phase
-		#Range: -10.0 ~ 10.0
-		sporadicSwayStrength = 7.0
-		#Multiplier for sway speed during sporadic phase
-		#Range: 0.1 ~ 5.0
-		sporadicSwaySpeed = 0.3
 
 [experimental]
 	#If true, shows floating magazine ammo text (experimental).
