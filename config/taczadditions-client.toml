@@ -30,7 +30,7 @@
 		pitchMultiplier = 1.2
 		#Roll factor when hip-firing. Negative values invert the movement.
 		#Range: -10.0 ~ 10.0
-		rollFactor = 2.75
+		rollFactor = 1.75
 		#Maximum pitch offset when hip-firing (degrees)
 		#Range: 0.0 ~ 45.0
 		maxHipPitch = 6.0

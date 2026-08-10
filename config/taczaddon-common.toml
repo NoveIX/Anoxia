@@ -1,0 +1,17 @@
+
+[GunSmithTable]
+	#Allow a gunsmith table to use materials from nearby loaded block inventories.
+	enableContainerReader = true
+	#Horizontal radius around the authoritative table position.
+	#Only loaded positions from Y-1 through Y+1 are inspected.
+	#Range: 1 ~ 16
+	containerScanRadius = 3
+	#Maximum number of craft executions accepted from one shift-click request.
+	#Range: 1 ~ 64
+	batchCraftMax = 64
+
+[Gameplay]
+	#Allow shooting to immediately interrupt a tactical reload
+	#when the gun still has fireable ammunition.
+	enableShootWhileReloading = false
+

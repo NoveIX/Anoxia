@@ -35,6 +35,7 @@
 .curseclient
 knownkeys.txt
 .qmenu_opened.marker
+cf-modpack.ico
 ds_private_storage.json
 defaultoptions.journal.json
 minecraftinstance.json
