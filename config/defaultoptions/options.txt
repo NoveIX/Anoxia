@@ -42,8 +42,8 @@ ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:["vanilla","tacz_resources","mod_resources","mm_resources","jaopca:inmemory","builtin/towntalk","Moonlight Mods Dynamic Assets","file/Tinkers_Loafers.zip","file/[NeoForge] Mekanism CTM-Fusion 1.1.zip","file/Extreme Reactors Retouch 0.8.5.zip","file/Ars Nouveau Refresh 1.0.zip","file/ReBotania_1.20-1.0.zip","file/ComputerCraft Greg Refreshed 1.1 - 1.20.1.zip","file/ModernQuestBook-1.20-1.20.1.zip","file/Better Fluix Pool.zip","file/Meme Music Discs 1.21.zip","file/Standardized Ingots v12.0.zip","file/Slightly-Improved-Font-1.1.5.zip","file/-1.21.2 Fresh Moves v3.1 (With Animated Eyes).zip","file/FreshAnimations_v1.10.4.zip","resources/Anoxia"]
-incompatibleResourcePacks:["builtin/towntalk","file/Pretty X Smart Pipez Mekanism.zip","file/Better Fluix Pool.zip","file/Simple Grass Flowers v1.9.5.zip","file/Meme Music Discs 1.21.zip","file/EnderEyes_26.1_v3.1.zip","file/Slightly-Improved-Font-1.1.5.zip"]
+resourcePacks:["vanilla","tacz_resources","mod_resources","mm_resources","jaopca:inmemory","builtin/towntalk","Moonlight Mods Dynamic Assets","file/fresh_waystones.zip","file/Tinkers_Loafers.zip","file/[NeoForge] Mekanism CTM-Fusion 1.1.zip","file/Pretty X Smart Pipez Mekanism.zip","file/ModernQuestBook-1.20-1.20.1.zip","file/Extreme Reactors Retouch 0.8.5.zip","file/ComputerCraft Greg Refreshed 1.1 - 1.20.1.zip","file/Better Fluix Pool.zip","file/ReBotania_1.20-1.0.zip","file/Ars Nouveau Refresh 1.0.zip","file/Simple Grass Flowers v2.0.0.zip","file/Standardized Ingots v12.0.zip","file/Meme Music Discs 1.21.zip","file/EnderEyes_26.2_v3.1.zip","file/Slightly-Improved-Font-1.1.5.zip","file/-1.21.2 Fresh Moves v3.1 (With Animated Eyes).zip","file/FreshAnimations_v1.10.4.zip","resources/Anoxia"]
+incompatibleResourcePacks:["builtin/towntalk","file/Pretty X Smart Pipez Mekanism.zip","file/Better Fluix Pool.zip","file/Meme Music Discs 1.21.zip","file/EnderEyes_26.2_v3.1.zip","file/Slightly-Improved-Font-1.1.5.zip"]
 lastServer:
 lang:en_us
 soundDevice:""
