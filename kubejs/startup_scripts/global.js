@@ -931,12 +931,12 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
 
   //Tinker Construct
-  'tconstruct:smeltery/alloys/molten_pewter',
-  'tconstruct:smeltery/melting/metal/pewter/raw',
-  'tconstruct:smeltery/melting/metal/pewter/raw_block',
   'tconstruct:smeltery/alloys/molten_nicrosil',
+  'tconstruct:smeltery/alloys/molten_pewter',
   'tconstruct:smeltery/melting/metal/nicrosil/raw',
   'tconstruct:smeltery/melting/metal/nicrosil/raw_block',
+  'tconstruct:smeltery/melting/metal/pewter/raw',
+  'tconstruct:smeltery/melting/metal/pewter/raw_block',
   'tconstruct:smeltery/melting/metal/choromium/raw',
   'tconstruct:smeltery/melting/metal/choromium/raw_block',
   'tconstruct:smeltery/melting/metal/choromium/ore_dense',
@@ -946,6 +946,11 @@ anoxia.game.recipe.rmId = [
   'tconstruct:smeltery/melting/metal/choromium/ingot',
   'tconstruct:smeltery/melting/metal/choromium/block',
   'tconstruct:smeltery/melting/metal/choromium/dust',
+  'tconstruct:smeltery/casting/metal/choromium/nugget_gold_cast',
+  'tconstruct:smeltery/casting/metal/choromium/nugget_sand_cast',
+  'tconstruct:smeltery/casting/metal/choromium/iron_gold_cast',
+  'tconstruct:smeltery/casting/metal/choromium/iron_sand_cast',
+  'tconstruct:smeltery/casting/metal/choromium/block',
 ];
 //#endregion
 
