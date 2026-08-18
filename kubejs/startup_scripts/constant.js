@@ -41,6 +41,7 @@ anoxia.constant.tinkerConstruct.material = {
   ruby: { meltPoint: 2047 },
   sapphire: { meltPoint: 2047 },
   coal: { meltPoint: 1126 },
+  amethyst: { meltPoint: 1678 },
 
   //Stone
   clay: { meltPoint: 1129 },
