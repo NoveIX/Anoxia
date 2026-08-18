@@ -40,7 +40,7 @@
 	#Whether or not to render first person bullet trail
 	FirstPersonBulletTracerEnable = true
 	#Disable the interact hud text in center of the screen
-	DisableInteractHudText = true
+	DisableInteractHudText = false
 	#Whether or not to automatically select the gun smith table's held item filter when opening it with a gun, attachment or ammo in main hand
 	AutoSelectGunSmithTableFilter = true
 	#Max time the damage counter will reset
