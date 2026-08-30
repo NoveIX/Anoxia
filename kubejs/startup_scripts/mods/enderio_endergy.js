@@ -27,8 +27,8 @@ StartupEvents.registry('item', (event) => {
   */
 });
 
+//Block
 StartupEvents.registry('block', (event) => {
-  //Block
   event.create('enderio:crude_steel_block').displayName('Crude Steel Block').soundType('metal').hardness(5.0).resistance(6.0).requiresTool(true).tagBlock('mineable/pickaxe').tagBlock('minecraft:crude_steel_block');
   event.create('enderio:dynamic_alloy_block').displayName('Dynamic Alloy Block').soundType('metal').hardness(5.0).resistance(6.0).requiresTool(true).tagBlock('mineable/pickaxe').tagBlock('minecraft:needs_stone_tool');
   event.create('enderio:vivid_alloy_block').displayName('Vivid Alloy Block').soundType('metal').hardness(5.0).resistance(6.0).requiresTool(true).tagBlock('mineable/pickaxe').tagBlock('minecraft:needs_stone_tool');

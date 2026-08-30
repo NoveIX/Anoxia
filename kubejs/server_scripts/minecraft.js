@@ -1,4 +1,7 @@
 ServerEvents.recipes((event) => {
+  const rmRecipeId = ['bhc:god_apple'];
+  rmRecipeId.forEach((id) => event.remove({ id: id }));
+
   //Cobblestone
   event.remove({ input: '#forge:pebble/stone', output: 'minecraft:cobblestone' });
   event.shaped('minecraft:cobblestone', ['AA', 'AA'], { A: '#forge:pebble/stone' });
@@ -47,7 +50,7 @@ ServerEvents.recipes((event) => {
   event.shaped(Item.of('minecraft:stick', 4), ['A', 'A'], { A: '#minecraft:logs' });
 
   //Golden Apple Upgrade
-  event.shaped('minecraft:enchanted_golden_apple', ['CBC', 'CAC', 'CCC'], { A: 'minecraft:golden_apple', B: '#forge:ingots/gold', C: '#forge:storage_blocks/gold' });
+  //event.shaped('minecraft:enchanted_golden_apple', ['CBC', 'CAC', 'CCC'], { A: 'minecraft:golden_apple', B: '#forge:ingots/gold', C: '#forge:storage_blocks/gold' });
 
   //Piston
   event.remove({ output: 'minecraft:piston' });

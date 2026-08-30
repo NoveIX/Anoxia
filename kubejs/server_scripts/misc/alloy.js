@@ -80,6 +80,21 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Func Alloy
+  function alloyCreateMixing(recipe) {
+    const heat = recipe.heat ?? 'heated';
+    const ingredients = [];
+
+    for (let i = 0; i < recipe.n1; i++) ingredients.push({ tag: recipe.put1 });
+    for (let i = 0; i < recipe.n2; i++) ingredients.push({ tag: recipe.put2 });
+
+    event.custom({
+      type: 'create:mixing',
+      heatRequirement: heat,
+      ingredients: ingredients,
+      results: [{ item: recipe.get, count: recipe.n0 }],
+    });
+  }
+
   function alloyImmersiveAlloy(recipe) {
     event.custom({
       type: 'immersiveengineering:alloy',
@@ -143,10 +158,10 @@ ServerEvents.recipes((event) => {
     { get: 'anoxia:modularium_ingot', n0: 1, put1: 'forge:ingots/vibrant_alloy', n1: 1, put2: 'forge:ingots/vivid_alloy', n2: 1, put3: 'forge:ingots/electrored_alloy', n3: 1, rsflux: 60000, alloy: 'complex' }, //Modularium
 
     //Minecraft
-    { get: 'minecraft:netherite_ingot', n0: 1, put1: 'forge:ingots/netherite_scrap', n1: 4, put2: 'forge:ingots/gold', n2: 4, rsflux: 24000, alloy: 'simple' }, //Netherite
+    { get: 'minecraft:netherite_ingot', n0: 1, put1: 'forge:ingots/netherite_scrap', n1: 4, put2: 'forge:ingots/gold', n2: 4, rsflux: 24000, heat: 'superheated', alloy: 'simple' }, //Netherite
 
     //Aethersteel
-    { get: 'aethersteel:aethersteel_ingot', n0: 1, put1: 'forge:ingots/aethersteel_scrap', n1: 4, put2: 'forge:ingots/netherite', n2: 4, rsflux: 48000, alloy: 'ender' }, //Aetherstell
+    { get: 'aethersteel:aethersteel_ingot', n0: 1, put1: 'forge:ingots/aethersteel_scrap', n1: 4, put2: 'forge:ingots/netherite', n2: 4, rsflux: 48000, heat: 'superheated', alloy: 'ender' }, //Aetherstell
 
     //Create
     { get: 'create:andesite_alloy', n0: 1, put1: 'anoxia:stone/polished_andesite', n1: 1, put2: 'forge:ingots/platinum', n2: 1, rsflux: 8000, alloy: 'simple' }, //Andesite Alloy
@@ -193,12 +208,24 @@ ServerEvents.recipes((event) => {
     { get: 'thermalendergy:stellarium_ingot', n0: 2, put1: 'forge:ingots/melodium', n1: 2, put2: 'forge:ingots/aethersteel', n2: 1, put3: 'forge:nether_stars', n3: 1, rsflux: 72000, alloy: 'complex' },
 
     //Tinker
-    { get: 'tconstruct:manyullyn_ingot', n0: 1, put1: 'forge:ingots/cobalt', n1: 3, put2: 'forge:ingots/netherite_scrap', n2: 1, rsflux: 24000, alloy: 'simple' },
+    { get: 'tconstruct:manyullyn_ingot', n0: 1, put1: 'forge:ingots/cobalt', n1: 3, put2: 'forge:ingots/netherite_scrap', n2: 1, heat: 'superheated', rsflux: 24000, alloy: 'simple' },
   ];
   alloyPattern.forEach((recipe) => {
-    if (recipe.alloy === 'simple') (alloyImmersiveAlloy(recipe), alloyImmersiveArc(recipe));
-    if (recipe.alloy === 'ender' || recipe.alloy === 'simple') (alloyEnderIO(recipe), alloyThermal(recipe));
-    if (recipe.alloy === 'complex') (alloyEnderIO(recipe), alloyThermal(recipe));
+    if (recipe.alloy === 'simple') {
+      alloyCreateMixing(recipe);
+      alloyImmersiveAlloy(recipe);
+      alloyImmersiveArc(recipe);
+    }
+
+    if (recipe.alloy === 'ender' || recipe.alloy === 'simple') {
+      alloyEnderIO(recipe);
+      alloyThermal(recipe);
+    }
+
+    if (recipe.alloy === 'complex') {
+      alloyEnderIO(recipe);
+      alloyThermal(recipe);
+    }
   });
   //#endregion
 });

@@ -65,13 +65,13 @@ ServerEvents.recipes((event) => {
     { get: 'immersiveengineering:stick_iron', put: 'forge:ingots/iron', molten: 'iron', material: material.iron, rsflux: 4000 },
     { get: 'immersiveengineering:stick_steel', put: 'forge:ingots/steel', molten: 'steel', material: material.steel, rsflux: 6000 },
     { get: 'immersiveengineering:stick_aluminum', put: 'forge:ingots/aluminum', molten: 'aluminum', material: material.aluminum, rsflux: 4000 },
-    { get: 'immersiveposts:stick_gold', put: 'forge:ingots/gold', molten: 'gold', material: material.gold, rsflux: 4000 },
-    { get: 'immersiveposts:stick_copper', put: 'forge:ingots/copper', molten: 'copper', material: material.copper, rsflux: 4000 },
+    //{ get: 'immersiveposts:stick_gold', put: 'forge:ingots/gold', molten: 'gold', material: material.gold, rsflux: 4000 },
+    //{ get: 'immersiveposts:stick_copper', put: 'forge:ingots/copper', molten: 'copper', material: material.copper, rsflux: 4000 },
     { get: 'immersiveposts:stick_lead', put: 'forge:ingots/lead', molten: 'lead', material: material.lead, rsflux: 4000 },
     { get: 'immersiveposts:stick_silver', put: 'forge:ingots/silver', molten: 'silver', material: material.silver, rsflux: 4000 },
     { get: 'immersiveposts:stick_nickel', put: 'forge:ingots/nickel', molten: 'nickel', material: material.nickel, rsflux: 4000 },
     { get: 'immersiveposts:stick_constantan', put: 'forge:ingots/constantan', molten: 'constantan', material: material.constantan, rsflux: 6000 },
-    //{get: 'immersiveposts:stick_electrum',put: 'forge:ingots/electrum'
+    //{get: 'immersiveposts:stick_electrum',put: 'forge:ingots/electrum', molten: 'electrum', material: material.electrum, rsflux: 6000 },
     { get: 'immersiveposts:stick_uranium', put: 'forge:ingots/uranium', molten: 'uranium', material: material.uranium, rsflux: 8000 },
   ];
   rodPattern.forEach((recipe) => {

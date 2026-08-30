@@ -200,9 +200,17 @@ ServerEvents.recipes((event) => {
     event.remove({ output: recipe.get });
 
     //Plate Press
-    if (recipe.metal === 'special') plateThermal(recipe);
-    else if (recipe.metal === 'hard') (plateImmersive(recipe), plateThermal(recipe));
-    else (plateImmersive(recipe), plateThermal(recipe), plateCreate(recipe), plateCrafting(recipe));
+    if (recipe.metal === 'special') {
+      plateThermal(recipe);
+    } else if (recipe.metal === 'hard') {
+      plateImmersive(recipe);
+      plateThermal(recipe);
+    } else {
+      plateImmersive(recipe);
+      plateThermal(recipe);
+      plateCreate(recipe);
+      plateCrafting(recipe);
+    }
 
     //Molten
     if (recipe.molten) plateTinker(recipe);
