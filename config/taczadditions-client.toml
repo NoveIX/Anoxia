@@ -150,38 +150,144 @@
 		#Range: -2.0 ~ 2.0
 		kickPivot = 0.0
 
-[pipScope]
-	#How a magnified optic shows its image.
-	#OFF narrows the whole screen FOV, which is what TaCZ does on its own.
-	#FAKE crops the frame that was already drawn into the lens, which is cheap but only as
-	#sharp as the screen it was sampled from.
-	#REAL draws the world a second time through the scope for true magnification, at the
-	#cost of a second world pass.
-	#A server can withhold this entirely, in which case OFF is used regardless.
-	#Allowed Values: OFF, FAKE, REAL
-	mode = "OFF"
-	#REAL only. Resolution the second pass is kept at, relative to the screen.
-	#This is the sharpness of the lens image, not the cost of drawing it: the pass itself
-	#always runs at screen resolution and is only scaled on the way into its own texture.
-	#Below 1.0 the lens is visibly soft and shimmers as you turn.
-	#Range: 0.25 ~ 2.0
-	realResolutionScale = 1.0
-	#REAL only. Magnification below which the cheap cropped image stands in for the second
-	#pass, which is the one setting here that actually removes work.
-	#A variable optic spends much of its life near the bottom of its range, so raising this
-	#to 2 or 3 skips the second world render most of the time. The cost is a visible step in
-	#sharpness as a scroll sweep crosses the value, which is why it defaults to off.
-	#1.0 always runs the second pass.
-	#Range: 1.0 ~ 50.0
-	realMinMagnification = 1.0
-	#REAL only. Draw the second pass every frame.
-	#If false, a still camera reuses the previous pass on alternate frames, which halves the
-	#cost but leaves the lens a frame behind whenever anything in it moves.
-	realRefreshEveryFrame = true
+	[client.freeAim]
+		#If true, the gun is no longer welded to the centre of the screen. Small mouse
+		#movements mostly aim the weapon inside a deadzone, with the camera following at a
+		#reduced speed until the gun reaches the edge and pushes it along at full speed.
+		#Where the shots go depends on the server: with affectsBulletAngle on they follow the
+		#barrel rather than the crosshair. The server must also allow it in the common config.
+		#The tuning below is deliberately heavy, roughly a body cam. Halve cameraAbsorb, lag
+		#and the movement values for something slight.
+		enabled = false
+		#Overall amount of the effect, scaling every offset below at once.
+		#0.0 is off, 1.0 is the tuning below as written, higher exaggerates it.
+		#Range: 0.0 ~ 5.0
+		strength = 1.0
+		#How much of the mouse moves the gun instead of the camera while the gun is still inside
+		#the deadzone. This is what makes it free aim rather than a gun that lags behind you.
+		#1.0 leaves the view completely still in there, so the weapon is what you are steering,
+		#and the camera is only pushed along once the gun reaches the deadzone edge.
+		#0.5 still turns the camera, at half speed, so the gun leads it instead of replacing it.
+		#0.0 turns the camera exactly as vanilla does and leaves only the trailing below.
+		#Range: 0.0 ~ 1.0
+		cameraAbsorb = 0.5
+		#How much of each camera turn the gun fails to follow, which drags it the other way.
+		#This only bites while the camera is actually turning, so with cameraAbsorb at 1.0 it is
+		#what pulls the weapon back toward centre as you swing past the deadzone.
+		#0.0 keeps the gun wherever you aimed it, 1.0 makes a fast turn shove it hard.
+		#Range: 0.0 ~ 1.0
+		lag = 0.35
+		#Half-width of the horizontal deadzone in degrees: how far the gun may drift sideways
+		#before the strong edge return takes over. Inside it only the weak centring pull applies.
+		#Range: 0.0 ~ 45.0
+		deadzoneYaw = 12.0
+		#Half-height of the vertical deadzone in degrees.
+		#Range: 0.0 ~ 45.0
+		deadzonePitch = 4.5
+		#Hard horizontal limit in degrees. The gun never swings past this no matter how fast you
+		#turn. Values below the deadzone are raised to it.
+		#Range: 0.0 ~ 60.0
+		maxYaw = 18.0
+		#Hard vertical limit in degrees.
+		#Range: 0.0 ~ 60.0
+		maxPitch = 13.0
+		#How quickly the gun creeps back to centre while it is still inside the deadzone, as a
+		#rate per second: 1.0 closes most of the gap in a second, 5.0 in a fifth of one.
+		#0.0 is true free aim, leaving it wherever it drifted until you push it to the edge.
+		#Range: 0.0 ~ 30.0
+		deadzoneReturn = 0.0
+		#How quickly the part of the swing past the deadzone is reeled in, per second.
+		#This is the weight of the gun: 2.0 is a heavy body cam drag, 8.0 and up snaps back
+		#against the deadzone edge almost as fast as you can turn.
+		#Range: 0.0 ~ 30.0
+		edgeReturn = 2.5
+		#How closely the drawn gun tracks the swing it is chasing, per second.
+		#Nothing here overshoots, so this only softens the once-a-tick shoves from movement
+		#and firing. Lower is heavier and more floaty, higher is more immediate.
+		#Range: 1.0 ~ 60.0
+		smoothing = 14.0
+		#Whether aiming down sights gets free aim at all.
+		#False fades it out as the sights come up, so a scoped shot lands on the reticle.
+		#True keeps the full hipfire swing while aimed, which makes a scope hard to hold on
+		#target and puts the shot along the barrel rather than under the reticle.
+		affectAiming = false
+		#How much horizontal drift also rolls the gun about its own length, in degrees per
+		#degree of drift. Negative values roll the other way.
+		#Range: -3.0 ~ 3.0
+		rollCoupling = 0.2
+		#Maximum roll from the coupling above, in degrees.
+		#Range: 0.0 ~ 45.0
+		maxRoll = 12.0
+		#How far the gun also slides across the view per degree of drift, in blocks.
+		#This is cosmetic and the shots do not follow it, so anything much above zero makes the
+		#weapon look further off target than it actually shoots. 0.0 keeps it pivoting in place.
+		#Range: -0.05 ~ 0.05
+		translate = 0.0
+		#How far each shot throws the gun off centre, in degrees.
+		#The catch-up above absorbs it, so a burst walks the weapon away from the crosshair and
+		#it drifts back between shots.
+		#Range: 0.0 ~ 20.0
+		fireKick = 2.5
+		#Fraction of the fire kick that goes sideways, randomly left or right.
+		#Range: 0.0 ~ 2.0
+		fireKickSpread = 0.8
+		#How much starting, stopping and strafing shoves the gun, in degrees per block per
+		#tick of speed change. This is the body cam half of the effect.
+		#Range: 0.0 ~ 200.0
+		moveInfluence = 40.0
+		#How much landing and falling throws the gun vertically, on the same scale.
+		#Range: 0.0 ~ 200.0
+		fallInfluence = 25.0
 
-[experimental]
-	#If true, shows floating magazine ammo text (experimental).
-	magazineText = false
-	#If true, renders laser dot particles when using laser attachments
-	enableLaserDot = true
+	[client.pipScope]
+		#How a magnified optic shows its image.
+		#OFF narrows the whole screen FOV, which is what TaCZ does on its own.
+		#FAKE crops the frame that was already drawn into the lens, which is cheap but only as
+		#sharp as the screen it was sampled from.
+		#REAL draws the world a second time through the scope for true magnification, at the
+		#cost of a second world pass.
+		#FAKE does not work with shader packs. It reuses the frame the game already drew, and a
+		#shader pack leaves no point in the frame where the world is finished but the gun has
+		#not been drawn yet, so the lens shows the scope itself. Use REAL or OFF under shaders.
+		#A server can withhold this entirely, in which case OFF is used regardless.
+		#Allowed Values: OFF, FAKE, REAL
+		mode = "OFF"
+		#REAL only. Resolution the second pass is kept at, relative to the screen.
+		#This is the sharpness of the lens image, not the cost of drawing it: the pass itself
+		#always runs at screen resolution and is only scaled on the way into its own texture.
+		#Below 1.0 the lens is visibly soft and shimmers as you turn.
+		#Range: 0.25 ~ 2.0
+		realResolutionScale = 1.0
+		#REAL only. Magnification below which the cheap cropped image stands in for the second
+		#pass, which is the one setting here that actually removes work.
+		#A variable optic spends much of its life near the bottom of its range, so raising this
+		#to 2 or 3 skips the second world render most of the time. The cost is a visible step in
+		#sharpness as a scroll sweep crosses the value, which is why it defaults to off.
+		#1.0 always runs the second pass.
+		#Range: 1.0 ~ 50.0
+		realMinMagnification = 1.0
+		#FAKE only. Smooth the cropped image instead of magnifying its pixels squarely.
+		#FAKE cannot show more detail than the screen already holds, so this does not sharpen
+		#anything: it only chooses how the shortfall reads. True blends between pixels, which
+		#looks softer but avoids the blocky edges that show up at high magnification. False
+		#keeps them crisp, which matches the rest of the game but grows visibly chunky as the
+		#magnification climbs.
+		fakeSmoothSampling = true
+		#REAL only. Draw the second pass every frame.
+		#If false, a still camera reuses the previous pass on alternate frames, which halves the
+		#cost but leaves the lens a frame behind whenever anything in it moves.
+		realRefreshEveryFrame = true
+
+	[client.waterEffects]
+		#If true, the underwater bubble trail is culled by the water surface, the way vanilla
+		#bubbles are: the trail is only visible with the camera underwater alongside it.
+		#If false, the trail draws through the surface so it can be read from above the water.
+		#Purely how it draws. Whether there is a trail at all is a server setting.
+		cullBubbleTrailBehindWater = true
+
+	[client.experimental]
+		#If true, shows floating magazine ammo text (experimental).
+		magazineText = false
+		#If true, renders laser dot particles when using laser attachments
+		enableLaserDot = true
 

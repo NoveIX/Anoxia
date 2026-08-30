@@ -3,8 +3,8 @@
 EntityJSEvents.biomeSpawns((event) => {
   let coldDim = ['ad_astra:lunar_wastelands', 'ad_astra:martian_wastelands', 'ad_astra:martian_canyon_creek', 'ad_astra:martian_polar_caps'];
   const spawnPattern = [
-    { mob: 'minecraft:zombie', dim: coldDim, weight: 100, min: 3, max: 4 },
-    { mob: 'minecraft:skeleton', dim: coldDim, weight: 75, min: 2, max: 3 },
+    { mob: 'minecraft:zombie', dim: coldDim, weight: 100, min: 1, max: 2 },
+    { mob: 'minecraft:skeleton', dim: coldDim, weight: 75, min: 1, max: 2 },
     { mob: 'minecraft:zombie_horse', dim: coldDim, weight: 30, min: 1, max: 2 },
     { mob: 'minecraft:skeleton_horse', dim: coldDim, weight: 25, min: 1, max: 2 },
     { mob: 'minecraft:wither_skeleton', dim: coldDim, weight: 15, min: 1, max: 2 },
