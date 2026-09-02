@@ -18,6 +18,9 @@ anoxia.constant.tinkerConstruct.material = {
   calorite: { meltPoint: 2937 },
   osmium: { meltPoint: 3033 },
   uranium: { meltPoint: 1132 },
+  cadmium: { meltPoint: 321 },
+  chromium: { meltPoint: 1907 },
+  tungsten: { meltPoint: 3422 },
 
   //Alloy
   steel: { meltPoint: 1450 },
@@ -45,6 +48,7 @@ anoxia.constant.tinkerConstruct.material = {
 
   //Stone
   clay: { meltPoint: 1129 },
+  glass: { meltPoint: 1555 },
   stone: { meltPoint: 1351 },
   magma: { meltPoint: 1511 },
   scorchedStone: { meltPoint: 1702 },

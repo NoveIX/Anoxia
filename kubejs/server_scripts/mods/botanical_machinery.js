@@ -309,6 +309,7 @@ ServerEvents.recipes((event) => {
 
   //# ====================================================================================== #
 
+  //Jaded Amaranthus
   event.remove({ output: 'botanicalextramachinery:jaded_amaranthus' });
   event.shaped('botanicalextramachinery:jaded_amaranthus', ['ABA', 'BCB', 'DED'], {
     A: 'botania:mana_ring_greater',

@@ -81,18 +81,17 @@ ServerEvents.recipes((event) => {
 
   //#region Func Alloy
   function alloyCreateMixing(recipe) {
-    const heat = recipe.heat ?? 'heated';
-    const ingredients = [];
-
-    for (let i = 0; i < recipe.n1; i++) ingredients.push({ tag: recipe.put1 });
-    for (let i = 0; i < recipe.n2; i++) ingredients.push({ tag: recipe.put2 });
-
-    event.custom({
+    const json = {
       type: 'create:mixing',
-      heatRequirement: heat,
-      ingredients: ingredients,
+      heatRequirement: recipe.heat ?? 'heated',
+      ingredients: [],
       results: [{ item: recipe.get, count: recipe.n0 }],
-    });
+    };
+
+    for (let i = 0; i < recipe.n1; i++) json.ingredients.push({ tag: recipe.put1 });
+    for (let i = 0; i < recipe.n2; i++) json.ingredients.push({ tag: recipe.put2 });
+
+    event.custom(json);
   }
 
   function alloyImmersiveAlloy(recipe) {
@@ -161,7 +160,7 @@ ServerEvents.recipes((event) => {
     { get: 'minecraft:netherite_ingot', n0: 1, put1: 'forge:ingots/netherite_scrap', n1: 4, put2: 'forge:ingots/gold', n2: 4, rsflux: 24000, heat: 'superheated', alloy: 'simple' }, //Netherite
 
     //Aethersteel
-    { get: 'aethersteel:aethersteel_ingot', n0: 1, put1: 'forge:ingots/aethersteel_scrap', n1: 4, put2: 'forge:ingots/netherite', n2: 4, rsflux: 48000, heat: 'superheated', alloy: 'ender' }, //Aetherstell
+    { get: 'aethersteel:aethersteel_ingot', n0: 1, put1: 'forge:ingots/aethersteel_scrap', n1: 4, put2: 'forge:ingots/netherite', n2: 4, rsflux: 48000, heat: 'superheated', alloy: 'simple' }, //Aetherstell
 
     //Create
     { get: 'create:andesite_alloy', n0: 1, put1: 'anoxia:stone/polished_andesite', n1: 1, put2: 'forge:ingots/platinum', n2: 1, rsflux: 8000, alloy: 'simple' }, //Andesite Alloy

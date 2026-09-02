@@ -68,6 +68,54 @@ anoxia.function.generic = {
 
     return _json;
   },
+
+  AddRmRecipeId(array, namespace, elements, suffixes) {
+    if (!Array.isArray(elements)) elements = [elements];
+    if (suffixes && !Array.isArray(suffixes)) suffixes = [suffixes];
+
+    elements.forEach((type) => {
+      if (suffixes) {
+        suffixes.forEach((suffix) => array.push(`${namespace}${type}${suffix}`));
+      } else {
+        array.push(`${namespace}/${type}`);
+      }
+    });
+  },
+
+  AddRmRecipeId2(array, namespace, elements) {
+    if (!Array.isArray(elements)) elements = [elements];
+
+    const _json = {
+      _prefix: [''],
+      _suffix: [''],
+
+      Prefix(prefix) {
+        this._prefix = Array.isArray(prefix) ? prefix : [prefix];
+        return this;
+      },
+
+      Suffix(suffix) {
+        this._suffix = Array.isArray(suffix) ? suffix : [suffix];
+        return this;
+      },
+    };
+
+    // Calculate all possible IDs
+    const ids = [];
+
+    elements.forEach((element) => {
+      _json._prefix.forEach((prefix) => {
+        _json._suffix.forEach((suffix) => {
+          ids.push(`${namespace}${prefix}${element}${suffix}`);
+        });
+      });
+    });
+
+    // Add generated IDs to the array
+    ids.forEach((id) => array.push(id));
+
+    return _json;
+  },
 };
 //#endregion
 

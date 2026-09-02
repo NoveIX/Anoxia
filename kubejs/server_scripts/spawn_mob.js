@@ -9,7 +9,7 @@ EntityJSEvents.biomeSpawns((event) => {
     { mob: 'minecraft:skeleton_horse', dim: coldDim, weight: 25, min: 1, max: 2 },
     { mob: 'minecraft:wither_skeleton', dim: coldDim, weight: 15, min: 1, max: 2 },
     { mob: 'minecraft:zombie_villager', dim: coldDim, weight: 10, min: 1, max: 2 },
-    { mob: 'minecraft:warden', dim: coldDim, weight: 1, min: 1, max: 1 },
+    { mob: 'minecraft:warden', dim: coldDim, weight: 0.75, min: 1, max: 1 },
   ];
   spawnPattern.forEach((recipe) => event.addSpawn(recipe.mob, recipe.dim, recipe.weight, recipe.max, recipe.max));
 });

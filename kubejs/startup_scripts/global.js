@@ -1,27 +1,7 @@
-//priority:1000
+//priority:940
 
-//Main namespace (GLOBAL)
-global.anoxia = global.anoxia || {};
-const anoxia = global.anoxia; //local alias
-
-//Constant Namespace
-anoxia.constant = {};
-anoxia.constant.tinkerConstruct = {};
-
-//function Namespace
-anoxia.function = {};
-anoxia.function.Generic = {};
-anoxia.function.create = {};
-anoxia.function.enderIO = {};
-anoxia.function.immersiveEngineering = {};
-anoxia.function.thermalSeries = {};
-anoxia.function.tinkerConstruct = {};
-
-//Game Namespace
-anoxia.game = {};
-anoxia.game.item = {};
-anoxia.game.fluid = {};
-anoxia.game.recipe = {};
+//Define generic func
+const funcGeneric = anoxia.function.generic;
 
 //# ====================================================================================== #
 
@@ -660,7 +640,6 @@ anoxia.game.fluid.rmOut = [
   //tinkerConstruct
   'tconstruct:molten_nicrosil',
   'tconstruct:molten_pewter',
-  'tconstruct:molten_chromium',
 ];
 //#endregion
 
@@ -678,7 +657,6 @@ anoxia.game.fluid.rmIn = [
   //tinkerConstruct
   'tconstruct:molten_nicrosil',
   'tconstruct:molten_pewter',
-  'tconstruct:molten_chromium',
 ];
 //#endregion
 
@@ -994,29 +972,18 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/tconstruct/honeycomb_sky_slimy',
   'productivebees:create/mixing/tconstruct/honeycomb_slimesteel',
   'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
-
-  //Tinker Construct
-  'tconstruct:smeltery/alloys/molten_nicrosil',
-  'tconstruct:smeltery/alloys/molten_pewter',
-  'tconstruct:smeltery/melting/metal/nicrosil/raw',
-  'tconstruct:smeltery/melting/metal/nicrosil/raw_block',
-  'tconstruct:smeltery/melting/metal/pewter/raw',
-  'tconstruct:smeltery/melting/metal/pewter/raw_block',
-  'tconstruct:smeltery/melting/metal/choromium/raw',
-  'tconstruct:smeltery/melting/metal/choromium/raw_block',
-  'tconstruct:smeltery/melting/metal/choromium/ore_dense',
-  'tconstruct:smeltery/melting/metal/choromium/ore_singular',
-  'tconstruct:smeltery/melting/metal/choromium/ore_sparse',
-  'tconstruct:smeltery/melting/metal/choromium/nugget',
-  'tconstruct:smeltery/melting/metal/choromium/ingot',
-  'tconstruct:smeltery/melting/metal/choromium/block',
-  'tconstruct:smeltery/melting/metal/choromium/dust',
-  'tconstruct:smeltery/casting/metal/choromium/nugget_gold_cast',
-  'tconstruct:smeltery/casting/metal/choromium/nugget_sand_cast',
-  'tconstruct:smeltery/casting/metal/choromium/iron_gold_cast',
-  'tconstruct:smeltery/casting/metal/choromium/iron_sand_cast',
-  'tconstruct:smeltery/casting/metal/choromium/block',
 ];
+
+//Tinker Construct
+const TypeCast = ['sand_cast', 'gold_cast'];
+
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/tungsten', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/uranium', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/bendalloy', ['raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/chromium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/cadmium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/brass', ['raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/electrum', ['raw', 'raw_block', 'wire']);
 //#endregion
 
 //ServerEvents.recipes((event) => event.remove({ id: '' }));
