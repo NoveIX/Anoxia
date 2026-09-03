@@ -22,15 +22,9 @@ anoxia.function.generic = {
     return value.startsWith('#') ? value.slice(1) : value;
   },
 
-  itemOf(item, count, forceTag) {
-    //Reassign parameters accordingly: treat 'count' as forceTag and unset count.
-    if (typeof count === 'boolean') {
-      forceTag = count;
-      count = undefined;
-    }
-
-    //Calculate the logic before creating the object
-    const isTag = forceTag || item.startsWith('#');
+  itemOf(item, count) {
+    //Check if item is a tag
+    const isTag = item.startsWith('#');
 
     //Prepare the base object according to the type
     //If it is a tag, use { tag: ... }, otherwise { item: ... }
@@ -49,18 +43,12 @@ anoxia.function.generic = {
     return _json;
   },
 
-  fluidOf(fluid, amount, forceTag) {
-    //Reassign parameters accordingly: treat 'amount' as forceTag and unset amount.
-    if (typeof amount === 'boolean') {
-      forceTag = amount;
-      amount = undefined;
-    }
-
-    //Calculate the logic before creating the object
-    const isTag = forceTag || fluid.startsWith('#');
+  fluidOf(fluid, amount) {
+    //Check if fluid is a tag
+    const isTag = fluid.startsWith('#');
 
     //Prepare the base object according to the type
-    //If it is a tag, use { tag: ... }, otherwise { item: ... }
+    //If it is a tag, use { tag: ... }, otherwise { fluid: ... }
     const _json = isTag ? { fluidTag: this.fromTag(fluid) } : { fluid: fluid };
 
     //(Optional) Add count if it is defined and not equal to 1
