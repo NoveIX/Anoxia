@@ -57,20 +57,7 @@ anoxia.function.generic = {
     return _json;
   },
 
-  AddRmRecipeId(array, namespace, elements, suffixes) {
-    if (!Array.isArray(elements)) elements = [elements];
-    if (suffixes && !Array.isArray(suffixes)) suffixes = [suffixes];
-
-    elements.forEach((type) => {
-      if (suffixes) {
-        suffixes.forEach((suffix) => array.push(`${namespace}${type}${suffix}`));
-      } else {
-        array.push(`${namespace}/${type}`);
-      }
-    });
-  },
-
-  AddRmRecipeId2(array, namespace, elements) {
+  AddRmRecipeId(array, namespace, elements) {
     if (!Array.isArray(elements)) elements = [elements];
 
     const _json = {

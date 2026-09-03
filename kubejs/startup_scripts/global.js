@@ -974,16 +974,14 @@ anoxia.game.recipe.rmId = [
   'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
 ];
 
-//Tinker Construct
-const TypeCast = ['sand_cast', 'gold_cast'];
-
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/bendalloy', ['raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/brass', ['raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/cadmium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/chromium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/electrum', ['raw', 'raw_block']);
+funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/steel', ['raw', 'raw_block']);
 funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/tungsten', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
 funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/uranium', ['ore_dense', 'ore_sparse']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/bendalloy', ['raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/chromium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/cadmium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/brass', ['raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/electrum', ['raw', 'raw_block', 'wire']);
 //#endregion
 
 //ServerEvents.recipes((event) => event.remove({ id: '' }));

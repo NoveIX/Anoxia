@@ -25,6 +25,7 @@ anoxia.constant.tinkerConstruct.material = {
   cadmium: { meltPoint: 321 },
   chromium: { meltPoint: 1907 },
   tungsten: { meltPoint: 3422 },
+  cobalt: { meltPoint: 1495 },
 
   //Alloy
   steel: { meltPoint: 1450 },
