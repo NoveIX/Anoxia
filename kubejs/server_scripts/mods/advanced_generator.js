@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
 
   //Basic turbine
   event.remove({ output: 'advgenerators:turbine_rotor_tier1' });
-  event.shaped('advgenerators:turbine_rotor_tier1', ['AAA', 'ABA', 'AAA'], { A: 'advgenerators:turbine_blade', B: '#forge:gears/iron' });
+  event.shaped('advgenerators:turbine_rotor_tier1', ['AAA', 'ABA', 'AAA'], { A: 'advgenerators:turbine_blade', B: 'create:shaft' });
 
   //Enhanced turbine
   event.remove({ output: 'advgenerators:turbine_rotor_tier2' });
