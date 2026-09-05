@@ -20,7 +20,8 @@
     "pamhc2crops",
     "pamhc2trees",
     "pamhc2foodextended",
-    "farmersdelight"
+    "farmersdelight",
+    "twilightforest"
   ],
   "stoneStrata": [
     "stone",
@@ -72,6 +73,7 @@
     "invar",
     "iridium",
     "iron",
+    "knightmetal",
     "lapis",
     "lead",
     "lumium",
