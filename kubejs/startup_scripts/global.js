@@ -57,13 +57,6 @@ gameItem.rmOut = [
   'createsifter:brass_sifter',
   'createsifter:dust',
   'createsifter:crushed_end_stone',
-  'createsifter:string_mesh',
-  'createsifter:andesite_mesh',
-  'createsifter:zinc_mesh',
-  'createsifter:brass_mesh',
-  'createsifter:custom_mesh',
-  'createsifter:advanced_brass_mesh',
-  'createsifter:advanced_custom_mesh',
 
   //Cyclic
   'cyclic:crafting_stick',
@@ -83,64 +76,14 @@ gameItem.rmOut = [
   'enderio:liquid_sunshine_bucket',
   'enderio:cloud_seed_bucket',
   'enderio:cloud_seed_concentrated_bucket',
-  'enderio:powdered_quartz',
-  'enderio:powdered_coal',
-  'enderio:powdered_iron',
-  'enderio:powdered_gold',
-  'enderio:powdered_copper',
-  'enderio:powdered_tin',
-  'enderio:powdered_ender_pearl',
-  'enderio:powdered_obsidian',
-  'enderio:powdered_cobalt',
-  'enderio:powdered_lapis_lazuli',
-  'enderio:powdered_quartz',
   'enderio:light',
   'enderio:light_inverted',
-  'enderio:powered_light',
-  'enderio:powered_light_inverted',
-  'enderio:powered_light_wireless',
-  'enderio:powered_light_inverted_wireless',
   'enderio:energy_conduit',
 
   //ExNihilo Sequentia
-  'exnihilosequentia:andesite_crook',
-  'exnihilosequentia:bamboo_crook',
-  'exnihilosequentia:basalt_crook',
-  'exnihilosequentia:blackstone_crook',
-  'exnihilosequentia:bone_crook',
-  'exnihilosequentia:calcite_crook',
-  'exnihilosequentia:deepslate_crook',
-  'exnihilosequentia:diorite_crook',
-  'exnihilosequentia:dripstone_crook',
-  'exnihilosequentia:granite_crook',
-  'exnihilosequentia:nether_brick_crook',
-  'exnihilosequentia:red_nether_brick_crook',
-  'exnihilosequentia:terracotta_crook',
-  'exnihilosequentia:tuff_crook',
-  'exnihilosequentia:andesite_hammer',
-  'exnihilosequentia:bamboo_hammer',
-  'exnihilosequentia:basalt_hammer',
-  'exnihilosequentia:blackstone_hammer',
-  'exnihilosequentia:bone_hammer',
-  'exnihilosequentia:calcite_hammer',
-  'exnihilosequentia:deepslate_hammer',
-  'exnihilosequentia:diorite_hammer',
-  'exnihilosequentia:dripstone_hammer',
-  'exnihilosequentia:granite_hammer',
-  'exnihilosequentia:nether_brick_hammer',
-  'exnihilosequentia:red_nether_brick_hammer',
-  'exnihilosequentia:terracotta_hammer',
-  'exnihilosequentia:tuff_hammer',
   'exnihilosequentia:end_cake',
 
   //Hammer Lib
-  'hammerlib:gears/wooden',
-  'hammerlib:gears/stone',
-  'hammerlib:gears/copper',
-  'hammerlib:gears/iron',
-  'hammerlib:gears/gold',
-  'hammerlib:gears/diamond',
-  'hammerlib:gears/netherite',
   'hammerlib:test_machine',
   'hammerlib:wrench',
 
@@ -148,17 +91,6 @@ gameItem.rmOut = [
   'immersiveengineering:coal_coke',
   'immersiveengineering:slag',
   'immersiveengineering:dust_wood',
-  'immersiveengineering:plate_copper',
-  'immersiveengineering:plate_aluminum',
-  'immersiveengineering:plate_lead',
-  'immersiveengineering:plate_silver',
-  'immersiveengineering:plate_nickel',
-  'immersiveengineering:plate_uranium',
-  'immersiveengineering:plate_constantan',
-  'immersiveengineering:plate_electrum',
-  'immersiveengineering:plate_steel',
-  'immersiveengineering:plate_iron',
-  'immersiveengineering:plate_gold',
   'immersiveposts:stick_electrum',
 
   //Industrial Foregoing
@@ -169,52 +101,12 @@ gameItem.rmOut = [
   'industrialforegoing:plastic',
 
   //Iron Furnace
-  'ironfurnaces:upgrade_iron',
-  'ironfurnaces:upgrade_gold',
-  'ironfurnaces:upgrade_crystal',
-  'ironfurnaces:upgrade_silver',
   'ironfurnaces:rainbow_core',
   'ironfurnaces:rainbow_plating',
   'ironfurnaces:million_furnace',
   'ironfurnaces:rainbow_coal',
 
   //Mekanism
-  'mekanism:basic_smelting_factory',
-  'mekanism:basic_enriching_factory',
-  'mekanism:basic_crushing_factory',
-  'mekanism:basic_compressing_factory',
-  'mekanism:basic_combining_factory',
-  'mekanism:basic_purifying_factory',
-  'mekanism:basic_injecting_factory',
-  'mekanism:basic_infusing_factory',
-  'mekanism:basic_sawing_factory',
-  'mekanism:advanced_smelting_factory',
-  'mekanism:advanced_enriching_factory',
-  'mekanism:advanced_crushing_factory',
-  'mekanism:advanced_compressing_factory',
-  'mekanism:advanced_combining_factory',
-  'mekanism:advanced_purifying_factory',
-  'mekanism:advanced_injecting_factory',
-  'mekanism:advanced_infusing_factory',
-  'mekanism:advanced_sawing_factory',
-  'mekanism:elite_smelting_factory',
-  'mekanism:elite_enriching_factory',
-  'mekanism:elite_crushing_factory',
-  'mekanism:elite_compressing_factory',
-  'mekanism:elite_combining_factory',
-  'mekanism:elite_purifying_factory',
-  'mekanism:elite_injecting_factory',
-  'mekanism:elite_infusing_factory',
-  'mekanism:elite_sawing_factory',
-  'mekanism:ultimate_smelting_factory',
-  'mekanism:ultimate_enriching_factory',
-  'mekanism:ultimate_crushing_factory',
-  'mekanism:ultimate_compressing_factory',
-  'mekanism:ultimate_combining_factory',
-  'mekanism:ultimate_purifying_factory',
-  'mekanism:ultimate_injecting_factory',
-  'mekanism:ultimate_infusing_factory',
-  'mekanism:ultimate_sawing_factory',
   'mekanism:dust_quartz',
 
   //MysticalAgriculture
@@ -271,6 +163,27 @@ funcGeneric.AddToArray(gameItem.rmOut, 'botanicalextramachinery:catalyst_', ['ma
 
 //ChemLib
 funcGeneric.AddToArray(gameItem.rmOut, 'chemlib:', ['iron', 'gold', 'copper', 'tin', 'lead', 'silver', 'nickel']).Suffix('_plate');
+
+//Create
+funcGeneric.AddToArray(gameItem.rmOut, 'createsifter:', ['string', 'andesite', 'zinc', 'brass', 'custom', 'advanced_brass', 'advanced_custom']).Suffix('_mesh');
+
+//EnderIO
+funcGeneric.AddToArray(gameItem.rmOut, 'enderio:powdered_', ['quartz', 'coal', 'iron', 'gold', 'copper', 'tin', 'ender_pearl', 'obsidian', 'cobalt', 'lapis_lazuli', 'quartz', 'light', 'light_inverted', 'light_wireless', 'light_inverted_wireless']);
+
+//ExNihilo Sequentia
+funcGeneric.AddToArray(gameItem.rmOut, 'exnihilosequentia:', ['andesite', 'bamboo', 'basalt', 'blackstone', 'bone', 'calcite', 'deepslate', 'diorite', 'dripstone', 'granite', 'nether_brick', 'red_nether_brick', 'terracotta', 'tuff']).Suffix(['_crook', '_hammer']);
+
+//Hammer Lib
+funcGeneric.AddToArray(gameItem.rmOut, 'hammerlib:gears/', ['wooden', 'stone', 'copper', 'iron', 'gold', 'diamond', 'netherite']);
+
+//Immersive Engineering
+funcGeneric.AddToArray(gameItem.rmOut, 'immersiveengineering:plate_', ['copper', 'aluminum', 'lead', 'silver', 'nickel', 'uranium', 'constantan', 'electrum', 'steel', 'iron', 'gold']);
+
+//Iron Furnace
+funcGeneric.AddToArray(gameItem.rmOut, 'ironfurnaces:upgrade_', ['iron', 'gold', 'crystal', 'silver']);
+
+//Mekanism
+funcGeneric.AddToArray(gameItem.rmOut, 'mekanism:', ['smelting', 'enriching', 'crushing', 'compressing', 'combining', 'purifying', 'injecting', 'infusing', 'sawing']).Prefix(['basic_', 'advanced_', 'elite_', 'ultimate_']).Suffix('_factory');
 
 //Mystical Agriculture
 funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['air', 'earth', 'water', 'fire', 'nature', 'dye', 'nether', 'coral', 'honey', 'prismarine', 'end', 'mystical_flower']).Suffix('_agglomeratio');
