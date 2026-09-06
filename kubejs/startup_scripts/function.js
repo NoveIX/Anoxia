@@ -57,37 +57,40 @@ anoxia.function.generic = {
     return _json;
   },
 
-  AddRmRecipeId(array, namespace, elements) {
+  AddToArray(array, namespace, elements) {
     if (!Array.isArray(elements)) elements = [elements];
 
     const _json = {
       _prefix: [''],
       _suffix: [''],
 
+      _generate() {
+        elements.forEach((element) => {
+          this._prefix.forEach((prefix) => {
+            this._suffix.forEach((suffix) => {
+              const id = `${namespace}${prefix}${element}${suffix}`;
+              array.push(id);
+              //console.log(`processing recipe: ${id}`);
+            });
+          });
+        });
+      },
+
       Prefix(prefix) {
         this._prefix = Array.isArray(prefix) ? prefix : [prefix];
+        this._generate();
         return this;
       },
 
       Suffix(suffix) {
         this._suffix = Array.isArray(suffix) ? suffix : [suffix];
+        this._generate();
         return this;
       },
     };
 
-    // Calculate all possible IDs
-    const ids = [];
-
-    elements.forEach((element) => {
-      _json._prefix.forEach((prefix) => {
-        _json._suffix.forEach((suffix) => {
-          ids.push(`${namespace}${prefix}${element}${suffix}`);
-        });
-      });
-    });
-
-    // Add generated IDs to the array
-    ids.forEach((id) => array.push(id));
+    // Generate IDs if neither Prefix nor Suffix is called
+    _json._generate();
 
     return _json;
   },
@@ -146,7 +149,7 @@ anoxia.function.create = {
 
 //#region Immersive
 anoxia.function.immersiveEngineering = {
-  itemOfImmersive(value, count, forceTag) {
+  /*   itemOfImmersive(value, count, forceTag) {
     return { base_ingredient: itemOf(value, forceTag), count: count };
   },
 
@@ -241,7 +244,7 @@ anoxia.function.immersiveEngineering = {
         return this;
       },
     };
-  },
+  }, */
 };
 //#endregion
 
@@ -249,7 +252,7 @@ anoxia.function.immersiveEngineering = {
 
 //#region EnderIO
 anoxia.function.enderIO = {
-  itemOfEnderIO(value, count, forceTag) {
+  /*   itemOfEnderIO(value, count, forceTag) {
     return { count: count, ingredient: itemOf(value, forceTag) };
   },
 
@@ -303,7 +306,7 @@ anoxia.function.enderIO = {
     };
   },
 
-  /*   sagMilling(event) {
+   sagMilling(event) {
     return {
       _json: {
         type: 'enderio:sag_milling',
@@ -365,7 +368,7 @@ anoxia.function.enderIO = {
 
 //#region Thermal Series
 anoxia.function.thermalSeries = {
-  //Induction Smelter
+  /*   //Induction Smelter
   smelter(event) {
     return {
       _json: {
@@ -445,7 +448,7 @@ anoxia.function.thermalSeries = {
         return this;
       },
     };
-  },
+  }, */
 };
 //#endregion
 
@@ -463,12 +466,12 @@ anoxia.function.tinkerConstruct = {
 
   getCoolingTick(material, ingot) {
     const base = ((material.meltPoint - dimension.moon) / environment.value) * ingot;
-    return Math.ceil(base / 20) * 20; //rounded to the nearest multiple of 20
+    return Math.max(Math.ceil(base / 20) * 20, 100); //minimum 5 seconds
   },
 
   getMeltingTick(material, ingot) {
     const base = ((material.meltPoint - dimension.moon) / (environment.value * furnace.heat)) * ingot;
-    return Math.ceil(base / 20) * 20; //rounded to the nearest multiple of 20
+    return Math.max(Math.ceil(base / 20) * 20, 200); //minimum 10 seconds
   },
 
   addDualCastRecipe(castType, json, event) {

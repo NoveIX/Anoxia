@@ -664,7 +664,8 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', chance: 0.25, ingredient: { type: 'mm:item', item: 'mysticalagriculture:prosperity_shard', count: 2 } })
     .output({ type: 'mm:output/simple', chance: 0.08, ingredient: { type: 'mm:item', item: 'thermal:ruby', count: 2 } })
     .output({ type: 'mm:output/simple', chance: 0.08, ingredient: { type: 'mm:item', item: 'thermal:sapphire', count: 2 } })
-    .output({ type: 'mm:output/simple', chance: 0.08, ingredient: { type: 'mm:item', item: 'projectred_core:peridot', count: 2 } });
+    .output({ type: 'mm:output/simple', chance: 0.08, ingredient: { type: 'mm:item', item: 'projectred_core:peridot', count: 2 } })
+    .output({ type: 'mm:output/simple', chance: 0.03, ingredient: { type: 'mm:item', item: 'bigreactors:benitoite_crystal', count: 2 } });
 
   //Soul Sand
   event
@@ -688,7 +689,8 @@ MMEvents.createProcesses((event) => {
     .output({ type: 'mm:output/simple', chance: 0.003, ingredient: { type: 'mm:item', item: 'minecraft:ender_eye', count: 2 } })
     .output({ type: 'mm:output/simple', chance: 0.03, ingredient: { type: 'mm:item', item: 'minecraft:chorus_fruit', count: 2 } })
     .output({ type: 'mm:output/simple', chance: 0.25, ingredient: { type: 'mm:item', item: 'mysticalagriculture:prosperity_shard', count: 2 } })
-    .output({ type: 'mm:output/simple', chance: 0.04, ingredient: { type: 'mm:item', item: 'anoxia:enderite_pieces', count: 2 } });
+    .output({ type: 'mm:output/simple', chance: 0.04, ingredient: { type: 'mm:item', item: 'anoxia:enderite_pieces', count: 2 } })
+    .output({ type: 'mm:output/simple', chance: 0.02, ingredient: { type: 'mm:item', item: 'bigreactors:anglesite_crystal', count: 2 } });
 
   //Aetherslate
   event

@@ -16,8 +16,8 @@ const itemOf = funcGeneric.itemOf.bind(funcGeneric);
 const fluidOf = funcGeneric.fluidOf.bind(funcGeneric);
 
 //Define immersive func
-const funcImmersive = anoxia.function.immersiveEngineering;
-const itemOfImmersive = funcImmersive.itemOfImmersive.bind(funcImmersive);
+//const funcImmersive = anoxia.function.immersiveEngineering;
+//const itemOfImmersive = funcImmersive.itemOfImmersive.bind(funcImmersive);
 
 //Define tinker func
 const funcTinker = anoxia.function.tinkerConstruct;

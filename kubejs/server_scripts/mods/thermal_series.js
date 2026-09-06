@@ -819,7 +819,7 @@ ServerEvents.recipes((event) => {
         { tag: 'forge:dusts/redstone', count: 2 },
         { tag: 'forge:ingots/osmium', count: 1 },
       ],
-      rsflux: 32000,
+      rsflux: 48000,
     },
     {
       //ProjectRED Integration => Electrotine Ingot
@@ -828,7 +828,7 @@ ServerEvents.recipes((event) => {
         { tag: 'forge:dusts/electrotine', count: 2 },
         { tag: 'forge:ingots/osmium', count: 1 },
       ],
-      rsflux: 32000,
+      rsflux: 48000,
     },
   ];
   smelterPattern.forEach((recipe) => {

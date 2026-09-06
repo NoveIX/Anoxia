@@ -341,6 +341,7 @@ ServerEvents.recipes((event) => {
         { item: 'thermal:ruby', chance: 0.04 },
         { item: 'thermal:sapphire', chance: 0.04 },
         { item: 'projectred_core:peridot', chance: 0.04 },
+        { item: 'bigreactors:benitoite_crystal', chance: 0.01 },
       ],
     },
     {
@@ -355,6 +356,7 @@ ServerEvents.recipes((event) => {
         { item: 'thermal:ruby', chance: 0.06 },
         { item: 'thermal:sapphire', chance: 0.06 },
         { item: 'projectred_core:peridot', chance: 0.06 },
+        { item: 'bigreactors:benitoite_crystal', chance: 0.02 },
       ],
     },
     {
@@ -369,6 +371,7 @@ ServerEvents.recipes((event) => {
         { item: 'thermal:ruby', chance: 0.08 },
         { item: 'thermal:sapphire', chance: 0.08 },
         { item: 'projectred_core:peridot', chance: 0.08 },
+        { item: 'bigreactors:benitoite_crystal', chance: 0.03 },
       ],
     },
     //#endregion
@@ -452,6 +455,7 @@ ServerEvents.recipes((event) => {
         { item: 'minecraft:chorus_fruit', chance: 0.02 },
         { item: 'mysticalagriculture:prosperity_shard', chance: 0.2 },
         { item: 'anoxia:enderite_pieces', chance: 0.03 },
+        { item: 'bigreactors:anglesite_crystal', chance: 0.01 },
       ],
     },
     {
@@ -463,6 +467,7 @@ ServerEvents.recipes((event) => {
         { item: 'minecraft:chorus_fruit', chance: 0.03 },
         { item: 'mysticalagriculture:prosperity_shard', chance: 0.25 },
         { item: 'anoxia:enderite_pieces', chance: 0.04 },
+        { item: 'bigreactors:anglesite_crystal', chance: 0.02 },
       ],
     },
     //#endregion

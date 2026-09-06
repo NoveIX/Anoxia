@@ -15,6 +15,7 @@ anoxia.constant.tinkerConstruct.material = {
   nickel: { meltPoint: 1455 },
   platinum: { meltPoint: 1768 },
   aluminum: { meltPoint: 660 },
+  zinc: { meltPoint: 420 },
 
   desh: { meltPoint: 1267 },
   ostrum: { meltPoint: 1952 },
@@ -33,6 +34,7 @@ anoxia.constant.tinkerConstruct.material = {
   signalum: { meltPoint: 1279 },
   lumium: { meltPoint: 1357 },
   enderium: { meltPoint: 1753 },
+  manyullyn: { meltPoint: 1875 },
 
   bronze: { meltPoint: 913 },
   electrum: { meltPoint: 1012 },
@@ -71,12 +73,19 @@ anoxia.constant.tinkerConstruct.material = {
 
   //Magic Metal
   manaSteel: { meltPoint: 1440 },
+  knightMetal: { meltPoint: 1640 },
+  slimeSteel: { meltPoint: 1560 },
+  amethystBronze: { meltPoint: 1250 },
+  pigIron: { meltPoint: 1130 },
+  hepatizon: { meltPoint: 1480 },
+  cinderSlime: { meltPoint: 1190 },
+  queensSlime: { meltPoint: 1310 },
 
   //Magic Gem
   source: { meltPoint: 1623 },
 
   //Organic Metal
-  steeleaf: { meltPoint: 1111 },
+  steeLeaf: { meltPoint: 1111 },
 };
 
 anoxia.constant.tinkerConstruct.smeltingFactor = {

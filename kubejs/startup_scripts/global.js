@@ -1,17 +1,18 @@
 //priority:940
 
+//Define Game item fluid and recipe
+const gameItem = anoxia.game.item;
+const gameFluid = anoxia.game.fluid;
+const gameRecipe = anoxia.game.recipe;
+
 //Define generic func
 const funcGeneric = anoxia.function.generic;
 
 //# ====================================================================================== #
 
 //#region RmOut item
-anoxia.game.item.rmOut = [
+gameItem.rmOut = [
   //Ad Astra
-  'ad_astra:tier_1_rocket',
-  'ad_astra:tier_2_rocket',
-  'ad_astra:tier_3_rocket',
-  'ad_astra:tier_4_rocket',
   'ad_astra:iron_plate',
   'ad_astra:steel_plate',
   'ad_astra:iron_rod',
@@ -28,53 +29,9 @@ anoxia.game.item.rmOut = [
   //AppliedFlux
   'appflux:sky_harden_insulating_resin',
   'appflux:mega_fe_cell_housing',
-  'appflux:core_1m',
-  'appflux:core_4m',
-  'appflux:core_16m',
-  'appflux:core_64m',
-  'appflux:core_256m',
-  'appflux:fe_1m_cell',
-  'appflux:fe_4m_cell',
-  'appflux:fe_16m_cell',
-  'appflux:fe_64m_cell',
-  'appflux:fe_256m_cell',
-  'appflux:fe_1m_portable_cell',
-  'appflux:fe_4m_portable_cell',
-  'appflux:fe_16m_portable_cell',
-  'appflux:fe_64m_portable_cell',
-  'appflux:fe_256m_portable_cell',
 
   //Botanical machinery extra
-  'botanicalextramachinery:cell_component_1m',
-  'botanicalextramachinery:cell_component_4m',
-  'botanicalextramachinery:cell_component_16m',
-  'botanicalextramachinery:cell_component_64m',
-  'botanicalextramachinery:cell_component_256m',
-  'botanicalextramachinery:mana_storage_cell_1m',
-  'botanicalextramachinery:mana_storage_cell_4m',
-  'botanicalextramachinery:mana_storage_cell_16m',
-  'botanicalextramachinery:mana_storage_cell_64m',
-  'botanicalextramachinery:mana_storage_cell_256m',
-  'botanicalextramachinery:base_orechid',
-  'botanicalextramachinery:upgraded_orechid',
-  'botanicalextramachinery:advanced_orechid',
-  'botanicalextramachinery:ultimate_orechid',
   'botanicalmachinery:mana_battery_creative',
-  'botanicalextramachinery:catalyst_mana_infinity',
-  'botanicalextramachinery:catalyst_living_rock_infinity',
-  'botanicalextramachinery:catalyst_water_infinity',
-  'botanicalextramachinery:catalyst_seed_infinity',
-  'botanicalextramachinery:catalyst_stone_infinity',
-  'botanicalextramachinery:catalyst_wood_infinity',
-
-  //ChemLib
-  'chemlib:iron_plate',
-  'chemlib:gold_plate',
-  'chemlib:copper_plate',
-  'chemlib:tin_plate',
-  'chemlib:lead_plate',
-  'chemlib:silver_plate',
-  'chemlib:nickel_plate',
 
   //Crete
   'create:copper_sheet',
@@ -264,138 +221,6 @@ anoxia.game.item.rmOut = [
   'mysticalagriculture:machine_frame',
   'mysticalagriculture:soul_extractor',
   'mysticalagriculture:soul_jar',
-  'mysticalagriculture:air_agglomeratio',
-  'mysticalagriculture:earth_agglomeratio',
-  'mysticalagriculture:water_agglomeratio',
-  'mysticalagriculture:fire_agglomeratio',
-  'mysticalagriculture:nature_agglomeratio',
-  'mysticalagriculture:dye_agglomeratio',
-  'mysticalagriculture:nether_agglomeratio',
-  'mysticalagriculture:coral_agglomeratio',
-  'mysticalagriculture:honey_agglomeratio',
-  'mysticalagriculture:prismarine_agglomeratio',
-  'mysticalagriculture:end_agglomeratio',
-  'mysticalagriculture:mystical_flower_agglomeratio',
-  'mysticalagriculture:dye_essence',
-  'mysticalagriculture:dye_seeds',
-  'mysticalagriculture:rubber_essence',
-  'mysticalagriculture:rubber_seeds',
-  'mysticalagriculture:silicon_essence',
-  'mysticalagriculture:silicon_seeds',
-  'mysticalagriculture:grains_of_infinity_essence',
-  'mysticalagriculture:grains_of_infinity_seeds',
-  'mysticalagriculture:mystical_flower_essence',
-  'mysticalagriculture:mystical_flower_seeds',
-  'mysticalagriculture:marble_essence',
-  'mysticalagriculture:marble_seeds',
-  'mysticalagriculture:limestone_essence',
-  'mysticalagriculture:limestone_seeds',
-  'mysticalagriculture:basalt_essence',
-  'mysticalagriculture:basalt_seeds',
-  'mysticalagriculture:bronze_essence',
-  'mysticalagriculture:bronze_seeds',
-  'mysticalagriculture:brass_essence',
-  'mysticalagriculture:brass_seeds',
-  'mysticalagriculture:graphite_essence',
-  'mysticalagriculture:graphite_seeds',
-  'mysticalagriculture:amethyst_bronze_essence',
-  'mysticalagriculture:amethyst_bronze_seeds',
-  'mysticalagriculture:slimesteel_essence',
-  'mysticalagriculture:slimesteel_seeds',
-  'mysticalagriculture:pig_iron_essence',
-  'mysticalagriculture:pig_iron_seeds',
-  'mysticalagriculture:copper_alloy_essence',
-  'mysticalagriculture:copper_alloy_seeds',
-  'mysticalagriculture:redstone_alloy_essence',
-  'mysticalagriculture:redstone_alloy_seeds',
-  'mysticalagriculture:conductive_alloy_essence',
-  'mysticalagriculture:conductive_alloy_seeds',
-  'mysticalagriculture:manasteel_essence',
-  'mysticalagriculture:manasteel_seeds',
-  'mysticalagriculture:ironwood_essence',
-  'mysticalagriculture:ironwood_seeds',
-  'mysticalagriculture:experience_essence',
-  'mysticalagriculture:experience_seeds',
-  'mysticalagriculture:steel_essence',
-  'mysticalagriculture:steel_seeds',
-  'mysticalagriculture:constantan_essence',
-  'mysticalagriculture:constantan_seeds',
-  'mysticalagriculture:electrum_essence',
-  'mysticalagriculture:electrum_seeds',
-  'mysticalagriculture:invar_essence',
-  'mysticalagriculture:invar_seeds',
-  'mysticalagriculture:mithril_essence',
-  'mysticalagriculture:mithril_seeds',
-  'mysticalagriculture:tungsten_essence',
-  'mysticalagriculture:tungsten_seeds',
-  'mysticalagriculture:titanium_essence',
-  'mysticalagriculture:titanium_seeds',
-  'mysticalagriculture:chrome_essence',
-  'mysticalagriculture:chrome_seeds',
-  'mysticalagriculture:signalum_essence',
-  'mysticalagriculture:signalum_seeds',
-  'mysticalagriculture:lumium_essence',
-  'mysticalagriculture:lumium_seeds',
-  'mysticalagriculture:flux_infused_ingot_essence',
-  'mysticalagriculture:flux_infused_ingot_seeds',
-  'mysticalagriculture:hop_graphite_essence',
-  'mysticalagriculture:hop_graphite_seeds',
-  'mysticalagriculture:rose_gold_essence',
-  'mysticalagriculture:rose_gold_seeds',
-  'mysticalagriculture:soularium_essence',
-  'mysticalagriculture:soularium_seeds',
-  'mysticalagriculture:dark_steel_essence',
-  'mysticalagriculture:dark_steel_seeds',
-  'mysticalagriculture:pulsating_alloy_essence',
-  'mysticalagriculture:pulsating_alloy_seeds',
-  'mysticalagriculture:energetic_alloy_essence',
-  'mysticalagriculture:energetic_alloy_seeds',
-  'mysticalagriculture:elementium_essence',
-  'mysticalagriculture:elementium_seeds',
-  'mysticalagriculture:refined_glowstone_essence',
-  'mysticalagriculture:refined_glowstone_seeds',
-  'mysticalagriculture:refined_obsidian_essence',
-  'mysticalagriculture:refined_obsidian_seeds',
-  'mysticalagriculture:compressed_iron_essence',
-  'mysticalagriculture:compressed_iron_seeds',
-  'mysticalagriculture:fluix_essence',
-  'mysticalagriculture:fluix_seeds',
-  'mysticalagriculture:energized_steel_essence',
-  'mysticalagriculture:energized_steel_seeds',
-  'mysticalagriculture:blazing_crystal_essence',
-  'mysticalagriculture:blazing_crystal_seeds',
-  'mysticalagriculture:iridium_essence',
-  'mysticalagriculture:iridium_seeds',
-  'mysticalagriculture:enderium_essence',
-  'mysticalagriculture:enderium_seeds',
-  'mysticalagriculture:flux_infused_gem_essence',
-  'mysticalagriculture:flux_infused_gem_seeds',
-  'mysticalagriculture:manyullyn_essence',
-  'mysticalagriculture:manyullyn_seeds',
-  'mysticalagriculture:queens_slime_essence',
-  'mysticalagriculture:queens_slime_seeds',
-  'mysticalagriculture:hepatizon_essence',
-  'mysticalagriculture:hepatizon_seeds',
-  'mysticalagriculture:vibrant_alloy_essence',
-  'mysticalagriculture:vibrant_alloy_seeds',
-  'mysticalagriculture:end_steel_essence',
-  'mysticalagriculture:end_steel_seeds',
-  'mysticalagriculture:terrasteel_essence',
-  'mysticalagriculture:terrasteel_seeds',
-  'mysticalagriculture:yellorium_essence',
-  'mysticalagriculture:yellorium_seeds',
-  'mysticalagriculture:cyanite_essence',
-  'mysticalagriculture:cyanite_seeds',
-  'mysticalagriculture:niotic_crystal_essence',
-  'mysticalagriculture:niotic_crystal_seeds',
-  'mysticalagriculture:spirited_crystal_essence',
-  'mysticalagriculture:spirited_crystal_seeds',
-  'mysticalagriculture:uraninite_essence',
-  'mysticalagriculture:uraninite_seeds',
-  'mysticalagriculture:neutronium_essence',
-  'mysticalagriculture:neutronium_seeds',
-  'mysticalagriculture:nitro_crystal_essence',
-  'mysticalagriculture:nitro_crystal_seeds',
   'mysticalagradditions:neutronium_crux',
   'mysticalagradditions:nitro_crystal_crux',
 
@@ -405,15 +230,6 @@ anoxia.game.item.rmOut = [
   //OpenComputer
   'oc2r:silicon_blend',
   'oc2r:silicon',
-
-  //Powah
-  'powah:ender_cell_starter',
-  'powah:ender_cell_basic',
-  'powah:ender_cell_hardened',
-  'powah:ender_cell_blazing',
-  'powah:ender_cell_niotic',
-  'powah:ender_cell_spirited',
-  'powah:ender_cell_nitro',
 
   //Simple Storage
   'storagenetwork:request_expanded',
@@ -440,194 +256,103 @@ anoxia.game.item.rmOut = [
   //Twilight Forest
   'twilightforest:uncrafting_table',
 ];
+
+//Ad Astra
+funcGeneric.AddToArray(gameItem.rmOut, 'ad_astra:tier_', ['1_rocket', '2_rocket', '3_rocket']);
+
+//Applied Flux
+funcGeneric.AddToArray(gameItem.rmOut, 'appflux:core_', ['1m', '4m', '16m', '64m', '256m']);
+funcGeneric.AddToArray(gameItem.rmOut, 'appflux:fe_', ['1m', '4m', '16m', '64m', '256m']).Suffix(['_cell', '_portable_cell']);
+
+//Botanical machinery extra
+funcGeneric.AddToArray(gameItem.rmOut, 'botanicalextramachinery:', ['1m', '4m', '16m', '64m', '256m']).Prefix(['cell_component_', 'mana_storage_cell_']);
+funcGeneric.AddToArray(gameItem.rmOut, 'botanicalextramachinery:', ['base', 'upgraded', 'advanced', 'ultimate']).Suffix('_orechid');
+funcGeneric.AddToArray(gameItem.rmOut, 'botanicalextramachinery:catalyst_', ['mana', 'living_rock', 'water', 'seed', 'stone', 'wood']).Suffix('_infinity');
+
+//ChemLib
+funcGeneric.AddToArray(gameItem.rmOut, 'chemlib:', ['iron', 'gold', 'copper', 'tin', 'lead', 'silver', 'nickel']).Suffix('_plate');
+
+//Mystical Agriculture
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['air', 'earth', 'water', 'fire', 'nature', 'dye', 'nether', 'coral', 'honey', 'prismarine', 'end', 'mystical_flower']).Suffix('_agglomeratio');
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['dye', 'rubber', 'silicon', 'grains_of_infinity', 'mystical_flower', 'marble', 'limestone', 'basalt', 'bronze', 'brass']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['graphite', 'amethyst_bronze', 'slimesteel', 'pig_iron', 'copper_alloy', 'redstone_alloy', 'conductive_alloy', 'manasteel', 'ironwood', 'experience']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['steel', 'constantan', 'electrum', 'invar', 'mithril', 'tungsten', 'titanium', 'chrome', 'signalum', 'lumium']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['flux_infused_ingot', 'hop_graphite', 'rose_gold', 'soularium', 'dark_steel', 'pulsating_alloy', 'energetic_alloy', 'elementium', 'refined_glowstone', 'refined_obsidian']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['compressed_iron', 'fluix', 'energized_steel', 'blazing_crystal', 'iridium', 'enderium', 'flux_infused_gem', 'manyullyn', 'queens_slime', 'hepatizon']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['vibrant_alloy', 'end_steel', 'terrasteel', 'yellorium', 'cyanite', 'niotic_crystal', 'spirited_crystal', 'uraninite', 'neutronium', 'nitro_crystaldye']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['rubber', 'silicon', 'grains_of_infinity', 'mystical_flower', 'marble', 'limestone', 'basalt', 'bronze', 'brass', 'graphite']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['amethyst_bronze', 'slimesteel', 'pig_iron', 'copper_alloy', 'redstone_alloy', 'conductive_alloy', 'manasteel', 'ironwood', 'experience', 'steel']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['constantan', 'electrum', 'invar', 'mithril', 'tungsten', 'titanium', 'chrome', 'signalum', 'lumium', 'flux_infused_ingot']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['hop_graphite', 'rose_gold', 'soularium', 'dark_steel', 'pulsating_alloy', 'energetic_alloy', 'elementium', 'refined_glowstone', 'refined_obsidian', 'compressed_iron']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['fluix', 'energized_steel', 'blazing_crystal', 'iridium', 'enderium', 'flux_infused_gem', 'manyullyn', 'queens_slime', 'hepatizon', 'vibrant_alloy']).Suffix(['_essence', '_seeds']);
+funcGeneric.AddToArray(gameItem.rmOut, 'mysticalagriculture:', ['end_steel', 'terrasteel', 'yellorium', 'cyanite', 'niotic_crystal', 'spirited_crystal', 'uraninite', 'neutronium', 'nitro_crystal']).Suffix(['_essence', '_seeds']);
+
+//Powah
+funcGeneric.AddToArray(gameItem.rmOut, 'powah:ender_cell_', ['starter', 'basic', 'hardened', 'blazing', 'niotic', 'spirited', 'nitro']);
+
 //#endregion
 
 //#region RmIn item
-anoxia.game.item.rmIn = [
-  'mysticalagriculture:dye_essence',
-  'mysticalagriculture:rubber_essence',
-  'mysticalagriculture:silicon_essence',
-  'mysticalagriculture:grains_of_infinity_essence',
-  'mysticalagriculture:mystical_flower_essence',
-  'mysticalagriculture:marble_essence',
-  'mysticalagriculture:limestone_essence',
-  'mysticalagriculture:basalt_essence',
-  'mysticalagriculture:bronze_essence',
-  'mysticalagriculture:brass_essence',
-  'mysticalagriculture:graphite_essence',
-  'mysticalagriculture:amethyst_bronze_essence',
-  'mysticalagriculture:slimesteel_essence',
-  'mysticalagriculture:pig_iron_essence',
-  'mysticalagriculture:copper_alloy_essence',
-  'mysticalagriculture:redstone_alloy_essence',
-  'mysticalagriculture:conductive_alloy_essence',
-  'mysticalagriculture:manasteel_essence',
-  'mysticalagriculture:ironwood_essence',
-  'mysticalagriculture:experience_essence',
-  'mysticalagriculture:steel_essence',
-  'mysticalagriculture:constantan_essence',
-  'mysticalagriculture:electrum_essence',
-  'mysticalagriculture:invar_essence',
-  'mysticalagriculture:mithril_essence',
-  'mysticalagriculture:tungsten_essence',
-  'mysticalagriculture:titanium_essence',
-  'mysticalagriculture:chrome_essence',
-  'mysticalagriculture:signalum_essence',
-  'mysticalagriculture:lumium_essence',
-  'mysticalagriculture:flux_infused_ingot_essence',
-  'mysticalagriculture:hop_graphite_essence',
-  'mysticalagriculture:rose_gold_essence',
-  'mysticalagriculture:soularium_essence',
-  'mysticalagriculture:dark_steel_essence',
-  'mysticalagriculture:pulsating_alloy_essence',
-  'mysticalagriculture:energetic_alloy_essence',
-  'mysticalagriculture:elementium_essence',
-  'mysticalagriculture:refined_glowstone_essence',
-  'mysticalagriculture:refined_obsidian_essence',
-  'mysticalagriculture:compressed_iron_essence',
-  'mysticalagriculture:fluix_essence',
-  'mysticalagriculture:energized_steel_essence',
-  'mysticalagriculture:blazing_crystal_essence',
-  'mysticalagriculture:iridium_essence',
-  'mysticalagriculture:enderium_essence',
-  'mysticalagriculture:flux_infused_gem_essence',
-  'mysticalagriculture:manyullyn_essence',
-  'mysticalagriculture:queens_slime_essence',
-  'mysticalagriculture:hepatizon_essence',
-  'mysticalagriculture:vibrant_alloy_essence',
-  'mysticalagriculture:end_steel_essence',
-  'mysticalagriculture:terrasteel_essence',
-  'mysticalagriculture:yellorium_essence',
-  'mysticalagriculture:cyanite_essence',
-  'mysticalagriculture:niotic_crystal_essence',
-  'mysticalagriculture:spirited_crystal_essence',
-  'mysticalagriculture:uraninite_essence',
-  'mysticalagriculture:neutronium_essence',
-  'mysticalagriculture:nitro_crystal_essence',
-];
+gameItem.rmIn = [];
+
+//Mystical Agriculture
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['dye', 'rubber', 'silicon', 'grains_of_infinity', 'mystical_flower', 'marble', 'limestone', 'basalt', 'bronze', 'brass']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['graphite', 'amethyst_bronze', 'slimesteel', 'pig_iron', 'copper_alloy', 'redstone_alloy', 'conductive_alloy', 'manasteel', 'ironwood', 'experience']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['steel', 'constantan', 'electrum', 'invar', 'mithril', 'tungsten', 'titanium', 'chrome', 'signalum', 'lumium']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['flux_infused_ingot', 'hop_graphite', 'rose_gold', 'soularium', 'dark_steel', 'pulsating_alloy', 'energetic_alloy', 'elementium', 'refined_glowstone', 'refined_obsidian']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['compressed_iron', 'fluix', 'energized_steel', 'blazing_crystal', 'iridium', 'enderium', 'flux_infused_gem', 'manyullyn', 'queens_slime', 'hepatizon']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['vibrant_alloy', 'end_steel', 'terrasteel', 'yellorium', 'cyanite', 'niotic_crystal', 'spirited_crystal', 'uraninite', 'neutronium', 'nitro_crystaldye']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['rubber', 'silicon', 'grains_of_infinity', 'mystical_flower', 'marble', 'limestone', 'basalt', 'bronze', 'brass', 'graphite']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['amethyst_bronze', 'slimesteel', 'pig_iron', 'copper_alloy', 'redstone_alloy', 'conductive_alloy', 'manasteel', 'ironwood', 'experience', 'steel']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['constantan', 'electrum', 'invar', 'mithril', 'tungsten', 'titanium', 'chrome', 'signalum', 'lumium', 'flux_infused_ingot']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['hop_graphite', 'rose_gold', 'soularium', 'dark_steel', 'pulsating_alloy', 'energetic_alloy', 'elementium', 'refined_glowstone', 'refined_obsidian', 'compressed_iron']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['fluix', 'energized_steel', 'blazing_crystal', 'iridium', 'enderium', 'flux_infused_gem', 'manyullyn', 'queens_slime', 'hepatizon', 'vibrant_alloy']).Suffix('_essence');
+funcGeneric.AddToArray(gameItem.rmIn, 'mysticalagriculture:', ['end_steel', 'terrasteel', 'yellorium', 'cyanite', 'niotic_crystal', 'spirited_crystal', 'uraninite', 'neutronium', 'nitro_crystal']).Suffix('_essence');
 //#endregion
 
 //#region jei add item
-anoxia.game.item.jeiAdd = [
+gameItem.jeiAdd = [
   //Immersive
   'immersiveengineering:coke',
-  'immersiveengineering:storage_aluminum',
-  'immersiveengineering:storage_lead',
-  'immersiveengineering:storage_silver',
-  'immersiveengineering:storage_nickel',
-  'immersiveengineering:storage_uranium',
-  'immersiveengineering:storage_constantan',
-  'immersiveengineering:storage_electrum',
-  'immersiveengineering:storage_steel',
 
   //EnderIO
   'enderio:clear_glass',
-  'enderio:clear_glass_p',
-  'enderio:clear_glass_np',
-  'enderio:clear_glass_m',
-  'enderio:clear_glass_nm',
-  'enderio:clear_glass_a',
-  'enderio:clear_glass_na',
-  'enderio:clear_glass_d',
-  'enderio:clear_glass_dp',
-  'enderio:clear_glass_dnp',
-  'enderio:clear_glass_dm',
-  'enderio:clear_glass_dnm',
-  'enderio:clear_glass_da',
-  'enderio:clear_glass_dna',
-  'enderio:clear_glass_e',
-  'enderio:clear_glass_ep',
-  'enderio:clear_glass_enp',
-  'enderio:clear_glass_em',
-  'enderio:clear_glass_enm',
-  'enderio:clear_glass_ea',
-  'enderio:clear_glass_ena',
-
   'enderio:fused_quartz',
-  'enderio:fused_quartz_p',
-  'enderio:fused_quartz_np',
-  'enderio:fused_quartz_m',
-  'enderio:fused_quartz_nm',
-  'enderio:fused_quartz_a',
-  'enderio:fused_quartz_na',
-  'enderio:fused_quartz_d',
-  'enderio:fused_quartz_dp',
-  'enderio:fused_quartz_dnp',
-  'enderio:fused_quartz_dm',
-  'enderio:fused_quartz_dnm',
-  'enderio:fused_quartz_da',
-  'enderio:fused_quartz_dna',
-  'enderio:fused_quartz_e',
-  'enderio:fused_quartz_ep',
-  'enderio:fused_quartz_enp',
-  'enderio:fused_quartz_em',
-  'enderio:fused_quartz_enm',
-  'enderio:fused_quartz_ea',
-  'enderio:fused_quartz_ena',
 
   //Mekanism
   'mekanism:creative_chemical_tank',
   'mekanism:creative_fluid_tank',
 ];
+
+//Immersive
+funcGeneric.AddToArray(gameItem.jeiAdd, 'immersiveengineering:storage_', ['aluminum', 'lead', 'silver', 'nickel', 'uranium', 'constantan', 'electrum', 'steel']);
+
+//EnderIO
+funcGeneric.AddToArray(gameItem.jeiAdd, '#enderio:clear_glass_', ['p', 'np', 'm', 'nm', 'a', 'na', 'd', 'dp', 'dnp', 'dm', 'dnm', 'da', 'dna', 'e', 'ep', 'enp', 'em', 'enm', 'ea', 'ena']);
+funcGeneric.AddToArray(gameItem.jeiAdd, '#enderio:fused_quartz_', ['p', 'np', 'm', 'nm', 'a', 'na', 'd', 'dp', 'dnp', 'dm', 'dnm', 'da', 'dna', 'e', 'ep', 'enp', 'em', 'enm', 'ea', 'ena']);
 //#endregion
 
 //#region jei hide item
-anoxia.game.item.jeiHide = [
+gameItem.jeiHide = [
   //Mekanism
   'mekanism:creative_chemical_tank',
   'mekanism:creative_fluid_tank',
 
   //EnderIO
   '#enderio:clear_glass',
-  '#enderio:clear_glass_p',
-  '#enderio:clear_glass_np',
-  '#enderio:clear_glass_m',
-  '#enderio:clear_glass_nm',
-  '#enderio:clear_glass_a',
-  '#enderio:clear_glass_na',
-  '#enderio:clear_glass_d',
-  '#enderio:clear_glass_dp',
-  '#enderio:clear_glass_dnp',
-  '#enderio:clear_glass_dm',
-  '#enderio:clear_glass_dnm',
-  '#enderio:clear_glass_da',
-  '#enderio:clear_glass_dna',
-  '#enderio:clear_glass_e',
-  '#enderio:clear_glass_ep',
-  '#enderio:clear_glass_enp',
-  '#enderio:clear_glass_em',
-  '#enderio:clear_glass_enm',
-  '#enderio:clear_glass_ea',
-  '#enderio:clear_glass_ena',
-
   '#enderio:fused_quartz',
-  '#enderio:fused_quartz_p',
-  '#enderio:fused_quartz_np',
-  '#enderio:fused_quartz_m',
-  '#enderio:fused_quartz_nm',
-  '#enderio:fused_quartz_a',
-  '#enderio:fused_quartz_na',
-  '#enderio:fused_quartz_d',
-  '#enderio:fused_quartz_dp',
-  '#enderio:fused_quartz_dnp',
-  '#enderio:fused_quartz_dm',
-  '#enderio:fused_quartz_dnm',
-  '#enderio:fused_quartz_da',
-  '#enderio:fused_quartz_dna',
-  '#enderio:fused_quartz_e',
-  '#enderio:fused_quartz_ep',
-  '#enderio:fused_quartz_enp',
-  '#enderio:fused_quartz_em',
-  '#enderio:fused_quartz_enm',
-  '#enderio:fused_quartz_ea',
-  '#enderio:fused_quartz_ena',
 ];
+
+//EnderIO
+funcGeneric.AddToArray(gameItem.jeiHide, '#enderio:clear_glass_', ['p', 'np', 'm', 'nm', 'a', 'na', 'd', 'dp', 'dnp', 'dm', 'dnm', 'da', 'dna', 'e', 'ep', 'enp', 'em', 'enm', 'ea', 'ena']);
+funcGeneric.AddToArray(gameItem.jeiHide, '#enderio:fused_quartz_', ['p', 'np', 'm', 'nm', 'a', 'na', 'd', 'dp', 'dnp', 'dm', 'dnm', 'da', 'dna', 'e', 'ep', 'enp', 'em', 'enm', 'ea', 'ena']);
+
 //#endregion
 
 //# ====================================================================================== #
 
 //#region RmOut fluid
-anoxia.game.fluid.rmOut = [
+gameFluid.rmOut = [
   //EnderIO
   'enderio:dew_of_the_void',
   'enderio:vapor_of_levity',
@@ -644,7 +369,7 @@ anoxia.game.fluid.rmOut = [
 //#endregion
 
 //#region RmIn fluid
-anoxia.game.fluid.rmIn = [
+gameFluid.rmIn = [
   //EnderIO
   'enderio:dew_of_the_void',
   'enderio:vapor_of_levity',
@@ -661,17 +386,17 @@ anoxia.game.fluid.rmIn = [
 //#endregion
 
 //#region jei add fluid
-anoxia.game.fluid.jeiAdd = [];
+gameFluid.jeiAdd = [];
 //#endregion
 
 //#region jei hide fluid
-anoxia.game.fluid.jeiHide = [];
+gameFluid.jeiHide = [];
 //#endregion
 
 //# ====================================================================================== #
 
 //#region RmID
-anoxia.game.recipe.rmId = [
+gameRecipe.rmId = [
   //Minecraft
   'minecraft:ens_ancient_debris',
 
@@ -680,71 +405,6 @@ anoxia.game.recipe.rmId = [
 
   //Create Addition
   'createaddition:compat/tconstruct/tinkers_bronze', // Void recipe copper + glass
-
-  //Create Sentry
-  'sentrymechanicalarm:cutting/ammo_cutting/9mm',
-  'sentrymechanicalarm:cutting/ammo_cutting/12g',
-  'sentrymechanicalarm:cutting/ammo_cutting/30_06',
-  'sentrymechanicalarm:cutting/ammo_cutting/40mm',
-  'sentrymechanicalarm:cutting/ammo_cutting/45_70',
-  'sentrymechanicalarm:cutting/ammo_cutting/45acp',
-  'sentrymechanicalarm:cutting/ammo_cutting/46x30',
-  'sentrymechanicalarm:cutting/ammo_cutting/50ae',
-  'sentrymechanicalarm:cutting/ammo_cutting/50bmg',
-  'sentrymechanicalarm:cutting/ammo_cutting/57x28',
-  'sentrymechanicalarm:cutting/ammo_cutting/58x42',
-  'sentrymechanicalarm:cutting/ammo_cutting/68x51fury',
-  'sentrymechanicalarm:cutting/ammo_cutting/308',
-  'sentrymechanicalarm:cutting/ammo_cutting/338',
-  'sentrymechanicalarm:cutting/ammo_cutting/357mag',
-  'sentrymechanicalarm:cutting/ammo_cutting/545x39',
-  'sentrymechanicalarm:cutting/ammo_cutting/556x45',
-  'sentrymechanicalarm:cutting/ammo_cutting/762x25',
-  'sentrymechanicalarm:cutting/ammo_cutting/762x39',
-  'sentrymechanicalarm:cutting/ammo_cutting/762x54',
-  'sentrymechanicalarm:cutting/ammo_cutting/rpg_rocket',
-  'sentrymechanicalarm:deploying/ammo_template/9mm',
-  'sentrymechanicalarm:deploying/ammo_template/12g',
-  'sentrymechanicalarm:deploying/ammo_template/30_06',
-  'sentrymechanicalarm:deploying/ammo_template/40mm',
-  'sentrymechanicalarm:deploying/ammo_template/45_70',
-  'sentrymechanicalarm:deploying/ammo_template/45acp',
-  'sentrymechanicalarm:deploying/ammo_template/46x30',
-  'sentrymechanicalarm:deploying/ammo_template/50ae',
-  'sentrymechanicalarm:deploying/ammo_template/50bmg',
-  'sentrymechanicalarm:deploying/ammo_template/57x28',
-  'sentrymechanicalarm:deploying/ammo_template/58x42',
-  'sentrymechanicalarm:deploying/ammo_template/68x51fury',
-  'sentrymechanicalarm:deploying/ammo_template/308',
-  'sentrymechanicalarm:deploying/ammo_template/338',
-  'sentrymechanicalarm:deploying/ammo_template/357mag',
-  'sentrymechanicalarm:deploying/ammo_template/545x39',
-  'sentrymechanicalarm:deploying/ammo_template/556x45',
-  'sentrymechanicalarm:deploying/ammo_template/762x25',
-  'sentrymechanicalarm:deploying/ammo_template/762x39',
-  'sentrymechanicalarm:deploying/ammo_template/762x54',
-  'sentrymechanicalarm:deploying/ammo_template/rpg_rocket',
-  'sentry:sequenced_assembly/assembly/9mm',
-  'sentry:sequenced_assembly/assembly/12g',
-  'sentry:sequenced_assembly/assembly/30_06',
-  'sentry:sequenced_assembly/assembly/40mm',
-  'sentry:sequenced_assembly/assembly/45_70',
-  'sentry:sequenced_assembly/assembly/45acp',
-  'sentry:sequenced_assembly/assembly/46x30',
-  'sentry:sequenced_assembly/assembly/50ae',
-  'sentry:sequenced_assembly/assembly/50bmg',
-  'sentry:sequenced_assembly/assembly/57x28',
-  'sentry:sequenced_assembly/assembly/58x42',
-  'sentry:sequenced_assembly/assembly/68x51fury',
-  'sentry:sequenced_assembly/assembly/308',
-  'sentry:sequenced_assembly/assembly/338',
-  'sentry:sequenced_assembly/assembly/357mag',
-  'sentry:sequenced_assembly/assembly/545x39',
-  'sentry:sequenced_assembly/assembly/556x45',
-  'sentry:sequenced_assembly/assembly/762x25',
-  'sentry:sequenced_assembly/assembly/762x39',
-  'sentry:sequenced_assembly/assembly/762x54',
-  'sentry:sequenced_assembly/assembly/rpg_rocket',
 
   //EnderIO
   'enderio:smelting/oc2r/silicon', //Rm Silicon
@@ -773,215 +433,66 @@ anoxia.game.recipe.rmId = [
   //Productive bees
   'productivebees:block_conversion/pams/lemon/stage1',
   //'productivebees:/tconstruct/honeycomb/*', //=> Disabled in Openloader
-  'productivebees:centrifuge/ae2/honeycomb_fluix',
-  'productivebees:centrifuge/materials/honeycomb_silicon',
-  'productivebees:centrifuge/ars_nouveau/honeycomb_arcane',
-  'productivebees:centrifuge/botania/honeycomb_manasteel',
-  'productivebees:centrifuge/botania/honeycomb_terrasteel',
-  'productivebees:centrifuge/botania/honeycomb_elementium',
-  'productivebees:centrifuge/botanicadds/honeycomb_gaiasteel',
-  'productivebees:centrifuge/dusts/honeycomb_bismuth',
-  'productivebees:centrifuge/dusts/honeycomb_titanium',
-  'productivebees:centrifuge/dusts/honeycomb_tungsten',
-  'productivebees:centrifuge/gems/honeycomb_peridot',
-  'productivebees:centrifuge/industrialforegoing/honeycomb_pink_slimy',
-  'productivebees:centrifuge/materials/honeycomb_plastic',
-  'productivebees:centrifuge/mekanism/honeycomb_refined_glowstone',
-  'productivebees:centrifuge/mekanism/honeycomb_refined_obsidian',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_inferium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_prudentium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_tertium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_imperium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_supremium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_insanium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_awakened_supremium',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_prosperity',
-  'productivebees:centrifuge/mysticalagriculture/honeycomb_soulium',
-  'productivebees:centrifuge/pneumaticcraft/honeycomb_compressed_iron',
-  'productivebees:centrifuge/powah/honeycomb_energized_steel',
-  'productivebees:centrifuge/powah/honeycomb_blazing_crystal',
-  'productivebees:centrifuge/powah/honeycomb_niotic_crystal',
-  'productivebees:centrifuge/powah/honeycomb_spirited_crystal',
-  'productivebees:centrifuge/powah/honeycomb_nitro_crystal',
-  'productivebees:centrifuge/raw_materials/honeycomb_iridium',
-  'productivebees:centrifuge/thermal/honeycomb_destabilized_redstone',
-  'productivebees:centrifuge/thermal/honeycomb_energized_glowstone',
-  'productivebees:centrifuge/thermal/honeycomb_resonant_ender',
-  'productivebees:centrifuge/tconstruct/honeycomb_amethyst_bronze',
-  //'productivebees:centrifuge/tconstruct/honeycomb_cobalt', //=> Disabled in productive_bees.js
-  'productivebees:centrifuge/tconstruct/honeycomb_ender_slimy',
-  'productivebees:centrifuge/tconstruct/honeycomb_hepatizon',
-  'productivebees:centrifuge/tconstruct/honeycomb_ichor_slimy',
-  'productivebees:centrifuge/tconstruct/honeycomb_knightslime',
-  'productivebees:centrifuge/tconstruct/honeycomb_manyullyn',
-  'productivebees:centrifuge/tconstruct/honeycomb_pig_iron',
-  'productivebees:centrifuge/tconstruct/honeycomb_queens_slime',
-  'productivebees:centrifuge/tconstruct/honeycomb_rose_gold',
-  'productivebees:centrifuge/tconstruct/honeycomb_sky_slimy',
-  'productivebees:centrifuge/tconstruct/honeycomb_slimesteel',
-  'productivebees:centrifuge/tconstruct/honeycomb_soulsteel',
-
-  'productivebees:create/mixing/ad_astra/honeycomb_oily',
-  'productivebees:create/mixing/ae2/honeycomb_silicon',
-  'productivebees:create/mixing/alloys/honeycomb_brazen',
-  'productivebees:create/mixing/alloys/honeycomb_steel',
-  'productivebees:create/mixing/alloys/honeycomb_signalum',
-  'productivebees:create/mixing/alloys/honeycomb_lumium',
-  'productivebees:create/mixing/alloys/honeycomb_enderium',
-  'productivebees:create/mixing/alloys/honeycomb_bronze',
-  'productivebees:create/mixing/alloys/honeycomb_electrum',
-  'productivebees:create/mixing/alloys/honeycomb_invar',
-  'productivebees:create/mixing/alloys/honeycomb_constantan',
-  'productivebees:create/mixing/ars_nouveau/honeycomb_arcane',
-  'productivebees:create/mixing/botania/honeycomb_manasteel',
-  'productivebees:create/mixing/botania/honeycomb_terrasteel',
-  'productivebees:create/mixing/botania/honeycomb_elementium',
-  'productivebees:create/mixing/botanicadds/honeycomb_gaiasteel',
-  'productivebees:create/mixing/chemlib/honeycomb_actinium',
-  'productivebees:create/mixing/chemlib/honeycomb_americium',
-  'productivebees:create/mixing/chemlib/honeycomb_antimony',
-  'productivebees:create/mixing/chemlib/honeycomb_argon',
-  'productivebees:create/mixing/chemlib/honeycomb_arsenic',
-  'productivebees:create/mixing/chemlib/honeycomb_astatine',
-  'productivebees:create/mixing/chemlib/honeycomb_barium',
-  'productivebees:create/mixing/chemlib/honeycomb_berkelium',
-  'productivebees:create/mixing/chemlib/honeycomb_beryllium',
-  'productivebees:create/mixing/chemlib/honeycomb_bohrium',
-  'productivebees:create/mixing/chemlib/honeycomb_boron',
-  'productivebees:create/mixing/chemlib/honeycomb_bromine',
-  'productivebees:create/mixing/chemlib/honeycomb_cadmium',
-  'productivebees:create/mixing/chemlib/honeycomb_calcium',
-  'productivebees:create/mixing/chemlib/honeycomb_californium',
-  'productivebees:create/mixing/chemlib/honeycomb_cerium',
-  'productivebees:create/mixing/chemlib/honeycomb_cesium',
-  'productivebees:create/mixing/chemlib/honeycomb_chlorine',
-  'productivebees:create/mixing/chemlib/honeycomb_chromium',
-  'productivebees:create/mixing/chemlib/honeycomb_copernicium',
-  'productivebees:create/mixing/chemlib/honeycomb_curium',
-  'productivebees:create/mixing/chemlib/honeycomb_darmstadtium',
-  'productivebees:create/mixing/chemlib/honeycomb_dubnium',
-  'productivebees:create/mixing/chemlib/honeycomb_dysprosium',
-  'productivebees:create/mixing/chemlib/honeycomb_einsteinium',
-  'productivebees:create/mixing/chemlib/honeycomb_erbium',
-  'productivebees:create/mixing/chemlib/honeycomb_europium',
-  'productivebees:create/mixing/chemlib/honeycomb_fermium',
-  'productivebees:create/mixing/chemlib/honeycomb_flerovium',
-  'productivebees:create/mixing/chemlib/honeycomb_fluorine',
-  'productivebees:create/mixing/chemlib/honeycomb_francium',
-  'productivebees:create/mixing/chemlib/honeycomb_gadolinium',
-  'productivebees:create/mixing/chemlib/honeycomb_gallium',
-  'productivebees:create/mixing/chemlib/honeycomb_germanium',
-  'productivebees:create/mixing/chemlib/honeycomb_hafnium',
-  'productivebees:create/mixing/chemlib/honeycomb_hassium',
-  'productivebees:create/mixing/chemlib/honeycomb_helium',
-  'productivebees:create/mixing/chemlib/honeycomb_holmium',
-  'productivebees:create/mixing/chemlib/honeycomb_hydrogen',
-  'productivebees:create/mixing/chemlib/honeycomb_indium',
-  'productivebees:create/mixing/chemlib/honeycomb_iodine',
-  'productivebees:create/mixing/chemlib/honeycomb_krypton',
-  'productivebees:create/mixing/chemlib/honeycomb_lanthanum',
-  'productivebees:create/mixing/chemlib/honeycomb_lawrencium',
-  'productivebees:create/mixing/chemlib/honeycomb_lithium',
-  'productivebees:create/mixing/chemlib/honeycomb_livermorium',
-  'productivebees:create/mixing/chemlib/honeycomb_lutetium',
-  'productivebees:create/mixing/chemlib/honeycomb_magnesium',
-  'productivebees:create/mixing/chemlib/honeycomb_manganese',
-  'productivebees:create/mixing/chemlib/honeycomb_meitnerium',
-  'productivebees:create/mixing/chemlib/honeycomb_mendelevium',
-  'productivebees:create/mixing/chemlib/honeycomb_mercury',
-  'productivebees:create/mixing/chemlib/honeycomb_molybdenum',
-  'productivebees:create/mixing/chemlib/honeycomb_moscovium',
-  'productivebees:create/mixing/chemlib/honeycomb_neodymium',
-  'productivebees:create/mixing/chemlib/honeycomb_neon',
-  'productivebees:create/mixing/chemlib/honeycomb_neptunium',
-  'productivebees:create/mixing/chemlib/honeycomb_nihonium',
-  'productivebees:create/mixing/chemlib/honeycomb_niobium',
-  'productivebees:create/mixing/chemlib/honeycomb_nitrogen',
-  'productivebees:create/mixing/chemlib/honeycomb_nobelium',
-  'productivebees:create/mixing/chemlib/honeycomb_oganesson',
-  'productivebees:create/mixing/chemlib/honeycomb_oxygen',
-  'productivebees:create/mixing/chemlib/honeycomb_palladium',
-  'productivebees:create/mixing/chemlib/honeycomb_phosphorus',
-  'productivebees:create/mixing/chemlib/honeycomb_plutonium',
-  'productivebees:create/mixing/chemlib/honeycomb_polonium',
-  'productivebees:create/mixing/chemlib/honeycomb_potassium',
-  'productivebees:create/mixing/chemlib/honeycomb_praseodymium',
-  'productivebees:create/mixing/chemlib/honeycomb_promethium',
-  'productivebees:create/mixing/chemlib/honeycomb_protactinium',
-  'productivebees:create/mixing/chemlib/honeycomb_radium',
-  'productivebees:create/mixing/chemlib/honeycomb_radon',
-  'productivebees:create/mixing/chemlib/honeycomb_rhenium',
-  'productivebees:create/mixing/chemlib/honeycomb_rhodium',
-  'productivebees:create/mixing/chemlib/honeycomb_roentgenium',
-  'productivebees:create/mixing/chemlib/honeycomb_rubidium',
-  'productivebees:create/mixing/chemlib/honeycomb_ruthenium',
-  'productivebees:create/mixing/chemlib/honeycomb_rutherfordium',
-  'productivebees:create/mixing/chemlib/honeycomb_samarium',
-  'productivebees:create/mixing/chemlib/honeycomb_scandium',
-  'productivebees:create/mixing/chemlib/honeycomb_selenium',
-  'productivebees:create/mixing/chemlib/honeycomb_seaborgium',
-  'productivebees:create/mixing/chemlib/honeycomb_silicium',
-  'productivebees:create/mixing/chemlib/honeycomb_sodium',
-  'productivebees:create/mixing/chemlib/honeycomb_strontium',
-  'productivebees:create/mixing/chemlib/honeycomb_tantalum',
-  'productivebees:create/mixing/chemlib/honeycomb_technetium',
-  'productivebees:create/mixing/chemlib/honeycomb_tellurium',
-  'productivebees:create/mixing/chemlib/honeycomb_tennessine',
-  'productivebees:create/mixing/chemlib/honeycomb_terbium',
-  'productivebees:create/mixing/chemlib/honeycomb_thallium',
-  'productivebees:create/mixing/chemlib/honeycomb_thorium',
-  'productivebees:create/mixing/chemlib/honeycomb_thulium',
-  'productivebees:create/mixing/chemlib/honeycomb_vanadium',
-  'productivebees:create/mixing/chemlib/honeycomb_xenon',
-  'productivebees:create/mixing/chemlib/honeycomb_ytterbium',
-  'productivebees:create/mixing/chemlib/honeycomb_yttrium',
-  'productivebees:create/mixing/chemlib/honeycomb_zirconium',
-  'productivebees:create/mixing/honeycomb_ether_gas',
-  'productivebees:create/mixing/irons_spellbooks/honeycomb_arcane_debris',
-  'productivebees:create/mixing/mekanism/honeycomb_refined_glowstone',
-  'productivebees:create/mixing/mekanism/honeycomb_refined_obsidian',
-  'productivebees:create/mixing/mysticalagriculture/honeycomb_prosperity',
-  'productivebees:create/mixing/mysticalagriculture/honeycomb_inferium',
-  'productivebees:create/mixing/mysticalagriculture/honeycomb_awakened_supremium',
-  'productivebees:create/mixing/mysticalagriculture/honeycomb_soulium',
-  'productivebees:create/mixing/immersivengineering/honeycomb_hop_graphite',
-  'productivebees:create/mixing/pneumaticcraft/honeycomb_compressed_iron',
-  'productivebees:create/mixing/pneumaticcraft/honeycomb_oily',
-  'productivebees:create/mixing/powah/honeycomb_energized_steel',
-  'productivebees:create/mixing/powah/honeycomb_blazing_crystal',
-  'productivebees:create/mixing/powah/honeycomb_niotic_crystal',
-  'productivebees:create/mixing/powah/honeycomb_spirited_crystal',
-  'productivebees:create/mixing/powah/honeycomb_nitro_crystal',
-  'productivebees:create/mixing/thermal/honeycomb_destabilized_redstone',
-  'productivebees:create/mixing/thermal/honeycomb_energized_glowstone',
-  'productivebees:create/mixing/thermal/honeycomb_resonant_ender',
-  'productivebees:create/mixing/thermal/honeycomb_oily',
-  'productivebees:create/mixing/thermalendergy/honeycomb_prismalium',
-  'productivebees:create/mixing/thermalendergy/honeycomb_melodium',
-  'productivebees:create/mixing/thermalendergy/honeycomb_stellarium',
-  'productivebees:create/mixing/tconstruct/honeycomb_amethyst_bronze',
-  //'productivebees:create/mixing/tconstruct/honeycomb_cobalt', //=> Disabled in productive_bees.js
-  'productivebees:create/mixing/tconstruct/honeycomb_ender_slimy',
-  'productivebees:create/mixing/tconstruct/honeycomb_hepatizon',
-  'productivebees:create/mixing/tconstruct/honeycomb_ichor_slimy',
-  'productivebees:create/mixing/tconstruct/honeycomb_knightslime',
-  'productivebees:create/mixing/tconstruct/honeycomb_manyullyn',
-  'productivebees:create/mixing/tconstruct/honeycomb_pig_iron',
-  'productivebees:create/mixing/tconstruct/honeycomb_queens_slime',
-  //'productivebees:create/mixing/tconstruct/honeycomb_rose_gold',
-  'productivebees:create/mixing/tconstruct/honeycomb_sky_slimy',
-  'productivebees:create/mixing/tconstruct/honeycomb_slimesteel',
-  'productivebees:create/mixing/tconstruct/honeycomb_soulsteel',
 ];
 
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/bendalloy', ['raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/brass', ['raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/cadmium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/chromium', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/electrum', ['raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/steel', ['raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/tungsten', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
-funcGeneric.AddRmRecipeId(anoxia.game.recipe.rmId, 'tconstruct:smeltery/melting/metal/uranium', ['ore_dense', 'ore_sparse']);
+//Productive Bees
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/', ['ae2/honeycomb_fluix', 'materials/honeycomb_silicon', 'ars_nouveau/honeycomb_arcane', 'botanicadds/honeycomb_gaiasteel', 'gems/honeycomb_peridot']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/', ['industrialforegoing/honeycomb_pink_slimy', 'materials/honeycomb_plastic', 'pneumaticcraft/honeycomb_compressed_iron', 'raw_materials/honeycomb_iridium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/botania/honeycomb_', ['manasteel', 'terrasteel', 'elementium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/dusts/honeycomb_', ['bismuth', 'titanium', 'tungsten']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/mekanism/honeycomb_', ['refined_glowstone', 'refined_obsidian']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/mysticalagriculture/honeycomb_', ['inferium', 'prudentium', 'tertium', 'imperium', 'supremium', 'insanium', 'awakened_supremium', 'prosperity', 'soulium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/powah/honeycomb_', ['energized_steel', 'blazing_crystal', 'niotic_crystal', 'spirited_crystal', 'nitro_crystal']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/thermal/honeycomb_', ['destabilized_redstone', 'energized_glowstone', 'resonant_ender']);
+//cobalt => Disabled in productive_bees.js
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:centrifuge/tconstruct/honeycomb_', ['amethyst_bronze', 'ender_slimy', 'hepatizon', 'ichor_slimy', 'knightslime', 'manyullyn', 'pig_iron', 'queens_slime', 'rose_gold', 'sky_slimy', 'slimesteel', 'soulsteel']);
+
+//Productive Bees create compat
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/', ['ad_astra/honeycomb_oily', 'ae2/honeycomb_silicon', 'ars_nouveau/honeycomb_arcane', 'botanicadds/honeycomb_gaiasteel', 'honeycomb_ether_gas', 'irons_spellbooks/honeycomb_arcane_debris', 'immersivengineering/honeycomb_hop_graphite']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/alloys/honeycomb_', ['brazen', 'steel', 'signalum', 'lumium', 'enderium', 'bronze', 'electrum', 'invar', 'constantan']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/botania/honeycomb_', ['manasteel', 'terrasteel', 'elementium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['actinium', 'americium', 'antimony', 'argon', 'arsenic', 'astatine', 'barium', 'berkelium', 'beryllium', 'bohrium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['boron', 'bromine', 'cadmium', 'calcium', 'californium', 'cerium', 'cesium', 'chlorine', 'chromium', 'copernicium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['curium', 'darmstadtium', 'dubnium', 'dysprosium', 'einsteinium', 'erbium', 'europium', 'fermium', 'flerovium', 'fluorine']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['francium', 'gadolinium', 'gallium', 'germanium', 'hafnium', 'hassium', 'helium', 'holmium', 'hydrogen', 'indium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['iodine', 'krypton', 'lanthanum', 'lawrencium', 'lithium', 'livermorium', 'lutetium', 'magnesium', 'manganese', 'meitnerium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['mendelevium', 'mercury', 'molybdenum', 'moscovium', 'neodymium', 'neon', 'neptunium', 'nihonium', 'niobium', 'nitrogen']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['nobelium', 'oganesson', 'oxygen', 'palladium', 'phosphorus', 'plutonium', 'polonium', 'potassium', 'praseodymium', 'promethium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['protactinium', 'radium', 'radon', 'rhenium', 'rhodium', 'roentgenium', 'rubidium', 'ruthenium', 'rutherfordium', 'samarium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['scandium', 'selenium', 'seaborgium', 'silicium', 'sodium', 'strontium', 'tantalum', 'technetium', 'tellurium', 'tennessine']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/chemlib/honeycomb_', ['terbium', 'thallium', 'thorium', 'thulium', 'vanadium', 'xenon', 'ytterbium', 'yttrium', 'zirconium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/mekanism/honeycomb_', ['refined_glowstone', 'refined_obsidian']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/mysticalagriculture/honeycomb_', ['prosperity', 'inferium', 'awakened_supremium', 'soulium']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/pneumaticcraft/honeycomb_', ['compressed_iron', 'oily']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/powah/honeycomb_', ['energized_steel', 'blazing_crystal', 'niotic_crystal', 'spirited_crystal', 'nitro_crystal']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/thermal/honeycomb_', ['destabilized_redstone', 'energized_glowstone', 'resonant_ender', 'oily']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/thermalendergy/honeycomb_', ['prismalium', 'melodium', 'stellarium']);
+//cobalt => Disabled in productive_bees.js
+funcGeneric.AddToArray(gameRecipe.rmId, 'productivebees:create/mixing/tconstruct/honeycomb_'[('amethyst_bronze', 'ender_slimy', 'hepatizon', 'ichor_slimy', 'knightslime', 'manyullyn', 'pig_iron', 'queens_slime', 'sky_slimy', 'slimesteel', 'soulsteel')]);
+
+//Create Sentry
+funcGeneric.AddToArray(gameRecipe.rmId, 'sentrymechanicalarm:cutting/ammo_cutting/'[('9mm', '12g', '30_06', '40mm', '45_70', '45acp', '46x30', '50ae', '50bmg', '57x28', '58x42', '68x51fury', '308', '338', '357mag', '545x39', '556x45', '762x25', '762x39', '762x54', 'rpg_rocket')]);
+funcGeneric.AddToArray(gameRecipe.rmId, 'sentrymechanicalarm:deploying/ammo_template/', ['9mm', '12g', '30_06', '40mm', '45_70', '45acp', '46x30', '50ae', '50bmg', '57x28', '58x42', '68x51fury', '308', '338', '357mag', '545x39', '556x45', '762x25', '762x39', '762x54', 'rpg_rocket']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'sentry:sequenced_assembly/assembly/', ['9mm', '12g', '30_06', '40mm', '45_70', '45acp', '46x30', '50ae', '50bmg', '57x28', '58x42', '68x51fury', '308', '338', '357mag', '545x39', '556x45', '762x25', '762x39', '762x54', 'rpg_rocket']);
+
+//Tinker Construct
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/steel/', ['raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/tin/', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/pewter/', ['raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/chromium/', ['raw', 'raw_block', 'ore_dense', 'ore_singular', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/duralumin/', ['raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/lead/', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/silver/', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/nickel/', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/zinc/', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/zinc/geore/', ['bud_large', 'bud_medium', 'bud_small', 'cluster']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/tungsten/', ['ore_dense', 'ore_singular', 'ore_sparse', 'raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/uranium/', ['ore_dense', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/nicrosil/', ['raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/cadmium/', ['raw', 'raw_block', 'ore_dense', 'ore_singular', 'ore_sparse']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/bendalloy/', ['raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/brass/', ['raw', 'raw_block']);
+funcGeneric.AddToArray(gameRecipe.rmId, 'tconstruct:smeltery/melting/metal/electrum/', ['raw', 'raw_block']);
 //#endregion
 
 //ServerEvents.recipes((event) => event.remove({ id: '' }));

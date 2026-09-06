@@ -535,6 +535,14 @@ ServerEvents.recipes((event) => {
         { chance: 0.06, mesh: 'netherite' },
       ],
     },
+    {
+      get: { item: 'bigreactors:benitoite_crystal' },
+      put: { item: 'exnihilosequentia:crushed_netherrack' },
+      drop: [
+        { chance: 0.01, mesh: 'emerald' },
+        { chance: 0.02, mesh: 'netherite' },
+      ],
+    },
     //#endregion
 
     //#region SoulSand drop
@@ -607,6 +615,11 @@ ServerEvents.recipes((event) => {
         { chance: 0.01, mesh: 'emerald' },
         { chance: 0.02, mesh: 'netherite' },
       ],
+    },
+    {
+      get: { item: 'bigreactors:anglesite_crystal' },
+      put: { item: 'exnihilosequentia:crushed_end_stone' },
+      drop: [{ chance: 0.01, mesh: 'netherite' }],
     },
     //#endregion
 
