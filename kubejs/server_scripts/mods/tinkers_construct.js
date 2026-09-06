@@ -964,13 +964,13 @@ ServerEvents.recipes((event) => {
     { get: { amount: 30, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:coins/gold' }, degree: 900, meltTime: getMeltingTick(material.gold, fromAmount(30)) },
 
     { get: { amount: 810, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:storage_blocks/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_copper' }, put: [{ tag: 'forge:ingots/copper' }, { tag: 'forge:dusts/copper' }, { tag: 'forge:sheetmetals/copper' }, { tag: 'forge:wires/copper' }], degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(90)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_copper' }, put: [{ tag: 'forge:ingots/copper' }, { tag: 'forge:dusts/copper' }, { tag: 'forge:plates/copper' }, { tag: 'forge:sheetmetals/copper' }, { tag: 'forge:wires/copper' }], degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(90)) },
     { get: { amount: 10, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:nuggets/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(10)) },
     { get: { amount: 360, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:gears/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(360)) },
     { get: { amount: 30, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:coins/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(30)) },
 
     { get: { amount: 810, tag: 'tconstruct:molten_netherite' }, put: { tag: 'forge:storage_blocks/netherite' }, degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_netherite' }, put: [{ tag: 'forge:ingots/netherite' }, { tag: 'forge:plates/netherite' }, { tag: 'forge:plates/copper' }, { tag: 'forge:dusts/netherite' }], degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(90)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_netherite' }, put: [{ tag: 'forge:ingots/netherite' }, { tag: 'forge:plates/netherite' }, { tag: 'forge:plates/netherite' }, { tag: 'forge:dusts/netherite' }], degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(90)) },
     { get: { amount: 10, tag: 'tconstruct:molten_netherite' }, put: { tag: 'forge:nuggets/netherite' }, degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(10)) },
     { get: { amount: 360, tag: 'tconstruct:molten_netherite' }, put: { tag: 'forge:gears/netherite' }, degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(360)) },
     { get: { amount: 30, tag: 'tconstruct:molten_netherite' }, put: { tag: 'forge:coins/netherite' }, degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(30)) },
