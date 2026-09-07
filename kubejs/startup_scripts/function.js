@@ -466,12 +466,13 @@ anoxia.function.tinkerConstruct = {
 
   getCoolingTick(material, ingot) {
     const base = ((material.meltPoint - dimension.moon) / environment.value) * ingot;
-    return Math.max(Math.ceil(base / 20) * 20, 100); //minimum 5 seconds
+    return Math.max(Math.ceil(base / 20) * 20, 100);
   },
 
   getMeltingTick(material, ingot) {
     const base = ((material.meltPoint - dimension.moon) / (environment.value * furnace.heat)) * ingot;
-    return Math.max(Math.ceil(base / 20) * 20, 200); //minimum 10 seconds
+    const ticks = Math.max(Math.ceil(base / 20) * 20, 200);
+    return ticks / 4;
   },
 
   addDualCastRecipe(castType, json, event) {

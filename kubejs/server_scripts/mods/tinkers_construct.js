@@ -36,29 +36,29 @@ ServerEvents.recipes((event) => {
 
   //AD ASTRA
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/desh/', ['block', 'ingot', 'nugget', 'ore_singular', 'raw', 'raw_block']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/desh/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/desh/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/melting/metal/desh/', ['block', 'ingot', 'nugget', 'ore_singular', 'raw', 'raw_block']);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/desh/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/desh/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/ostrum/', ['block', 'ingot', 'nugget', 'ore_singular', 'raw', 'raw_block']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/ostrum/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/ostrum/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/melting/metal/ostrum/', ['block', 'ingot', 'nugget', 'ore_singular', 'raw', 'raw_block']);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/ostrum/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/ostrum/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/calorite/', ['block', 'ingot', 'nugget', 'ore_singular', 'raw', 'raw_block']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/calorite/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/calorite/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/melting/metal/calorite/', ['block', 'ingot', 'nugget', 'ore_singular', 'raw', 'raw_block']);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/calorite/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/calorite/', 'block');
 
   //ARS NOUVEAU
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/source_gem/', ['block', 'gem']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/source/', 'gem').Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/source/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:melting/source_gem/', ['block', 'gem']);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:casting/source/', 'gem').Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:casting/source/', 'block');
 
   //BOTANIA
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/manasteel/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/manasteel/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/manasteel/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/melting/metal/manasteel/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/manasteel/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tcintegrations:smeltery/casting/metal/manasteel/', 'block');
 
   //CHEMLIB
 
@@ -159,29 +159,29 @@ ServerEvents.recipes((event) => {
 
   //MYSTICAL AGRICULTURE
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/inferium/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/inferium/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/inferium/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/melting/inferium/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/inferium/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/inferium/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/prudentium/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/prudentium/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/prudentium/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/melting/prudentium/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/prudentium/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/prudentium/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/tertium/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/tertium/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/tertium/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/melting/tertium/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/tertium/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/tertium/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/imperium/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/imperium/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/imperium/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/melting/imperium/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/imperium/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/imperium/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/supremium/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/supremium/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/supremium/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/melting/supremium/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/supremium/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/supremium/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/soulium/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/soulium/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/soulium/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/melting/soulium/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/soulium/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'mysticalagradditions:tconstruct/casting/soulium/', 'block');
 
   //THERMAL SERIES
 
@@ -239,45 +239,45 @@ ServerEvents.recipes((event) => {
 
   //TINKER CONSTRUCT
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/cobalt/', ['block', 'ingot', 'nugget', 'dust']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/cobalt/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/cobalt/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/cobalt/', ['block', 'ingot', 'nugget', 'dust']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/cobalt/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/cobalt/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/knightmetal/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/knightmetal/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/knightmetal/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/knightmetal/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/knightmetal/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/knightmetal/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/slimesteel/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/slimesteel/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/slimesteel/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/slimesteel/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/slimesteel/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/slimesteel/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/amethyst_bronze/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/amethyst_bronze/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/amethyst_bronze/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/amethyst_bronze/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/amethyst_bronze/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/amethyst_bronze/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/pig_iron/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/pig_iron/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/pig_iron/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/pig_iron/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/pig_iron/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/pig_iron/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/manyullyn/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/manyullyn/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/manyullyn/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/manyullyn/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/manyullyn/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/manyullyn/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/hepatizon/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/hepatizon/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/hepatizon/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/hepatizon/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/hepatizon/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/hepatizon/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/cinderslime/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/cinderslime/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/cinderslime/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/cinderslime/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/cinderslime/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/cinderslime/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/queens_slime/', ['block', 'ingot', 'nugget']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/queens_slime/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/queens_slime/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/queens_slime/', ['block', 'ingot', 'nugget']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/queens_slime/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/queens_slime/', 'block');
 
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/melting/metal/aluminum/', ['block', 'ingot', 'nugget', 'dust', 'plate', 'sheetmetal']);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/aluminum/', ['ingot', 'nugget']).Suffix(TypeCast);
-  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:tconstruct/casting/metal/aluminum/', 'block');
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/melting/metal/aluminum/', ['block', 'ingot', 'nugget', 'dust', 'plate', 'sheetmetal']);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/aluminum/', ['ingot', 'nugget']).Suffix(TypeCast);
+  funcGeneric.AddToArray(rmRecipeId, 'tconstruct:smeltery/casting/metal/aluminum/', 'block');
 
   //TWILIGHT FOREST
 
@@ -832,26 +832,26 @@ ServerEvents.recipes((event) => {
   const meltingPattern = [
     //AD ASTRA
 
-    { get: { amount: 810, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:storage_blocks/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tcintegrations:molten_desh' }, put: [{ tag: 'forge:ingots/desh' }, { tag: 'forge:dusts/desh' }, { tag: 'forge:plates/desh' }], degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:nuggets/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(10)) },
-    { get: { amount: 270, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:ores/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(270)) },
-    { get: { amount: 120, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:raw_materials/desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(120)) },
-    { get: { amount: 1080, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:storage_blocks/raw_desh' }, degree: 500, meltTime: getMeltingTick(material.desh, fromAmount(1080)) },
+    { get: { amount: 810, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:storage_blocks/desh' }, degree: 1000, meltTime: getMeltingTick(material.desh, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tcintegrations:molten_desh' }, put: [{ tag: 'forge:ingots/desh' }, { tag: 'forge:dusts/desh' }, { tag: 'forge:plates/desh' }], degree: 1000, meltTime: getMeltingTick(material.desh, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:nuggets/desh' }, degree: 1000, meltTime: getMeltingTick(material.desh, fromAmount(10)) },
+    { get: { amount: 270, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:ores/desh' }, degree: 1000, meltTime: getMeltingTick(material.desh, fromAmount(270)) },
+    { get: { amount: 120, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:raw_materials/desh' }, degree: 1000, meltTime: getMeltingTick(material.desh, fromAmount(120)) },
+    { get: { amount: 1080, tag: 'tcintegrations:molten_desh' }, put: { tag: 'forge:storage_blocks/raw_desh' }, degree: 1000, meltTime: getMeltingTick(material.desh, fromAmount(1080)) },
 
-    { get: { amount: 810, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:storage_blocks/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tcintegrations:molten_ostrum' }, put: [{ tag: 'forge:ingots/ostrum' }, { tag: 'forge:dusts/ostrum' }, { tag: 'forge:plates/ostrum' }], degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:nuggets/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(10)) },
-    { get: { amount: 270, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:ores/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(270)) },
-    { get: { amount: 120, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:raw_materials/ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(120)) },
-    { get: { amount: 1080, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:storage_blocks/raw_ostrum' }, degree: 500, meltTime: getMeltingTick(material.ostrum, fromAmount(1080)) },
+    { get: { amount: 810, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:storage_blocks/ostrum' }, degree: 1250, meltTime: getMeltingTick(material.ostrum, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tcintegrations:molten_ostrum' }, put: [{ tag: 'forge:ingots/ostrum' }, { tag: 'forge:dusts/ostrum' }, { tag: 'forge:plates/ostrum' }], degree: 1250, meltTime: getMeltingTick(material.ostrum, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:nuggets/ostrum' }, degree: 1250, meltTime: getMeltingTick(material.ostrum, fromAmount(10)) },
+    { get: { amount: 270, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:ores/ostrum' }, degree: 1250, meltTime: getMeltingTick(material.ostrum, fromAmount(270)) },
+    { get: { amount: 120, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:raw_materials/ostrum' }, degree: 1250, meltTime: getMeltingTick(material.ostrum, fromAmount(120)) },
+    { get: { amount: 1080, tag: 'tcintegrations:molten_ostrum' }, put: { tag: 'forge:storage_blocks/raw_ostrum' }, degree: 1250, meltTime: getMeltingTick(material.ostrum, fromAmount(1080)) },
 
-    { get: { amount: 810, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:storage_blocks/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tcintegrations:molten_calorite' }, put: [{ tag: 'forge:ingots/calorite' }, { tag: 'forge:dusts/calorite' }, { tag: 'forge:plates/calorite' }], degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:nuggets/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(10)) },
-    { get: { amount: 270, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:ores/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(270)) },
-    { get: { amount: 120, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:raw_materials/calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(120)) },
-    { get: { amount: 1080, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:storage_blocks/raw_calorite' }, degree: 500, meltTime: getMeltingTick(material.calorite, fromAmount(1080)) },
+    { get: { amount: 810, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:storage_blocks/calorite' }, degree: 1500, meltTime: getMeltingTick(material.calorite, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tcintegrations:molten_calorite' }, put: [{ tag: 'forge:ingots/calorite' }, { tag: 'forge:dusts/calorite' }, { tag: 'forge:plates/calorite' }], degree: 1500, meltTime: getMeltingTick(material.calorite, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:nuggets/calorite' }, degree: 1500, meltTime: getMeltingTick(material.calorite, fromAmount(10)) },
+    { get: { amount: 270, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:ores/calorite' }, degree: 1500, meltTime: getMeltingTick(material.calorite, fromAmount(270)) },
+    { get: { amount: 120, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:raw_materials/calorite' }, degree: 1500, meltTime: getMeltingTick(material.calorite, fromAmount(120)) },
+    { get: { amount: 1080, tag: 'tcintegrations:molten_calorite' }, put: { tag: 'forge:storage_blocks/raw_calorite' }, degree: 1500, meltTime: getMeltingTick(material.calorite, fromAmount(1080)) },
 
     //ARS NOUVEAU
 
@@ -878,17 +878,17 @@ ServerEvents.recipes((event) => {
     { get: { amount: 90, tag: 'tconstruct:molten_platinum' }, put: [{ tag: 'forge:ingots/platinum' }, { tag: 'forge:dusts/platinum' }, { tag: 'forge:plates/platinum' }], degree: 970, meltTime: getMeltingTick(material.platinum, fromAmount(90)) },
     { get: { amount: 10, tag: 'tconstruct:molten_platinum' }, put: { tag: 'forge:nuggets/platinum' }, degree: 970, meltTime: getMeltingTick(material.platinum, fromAmount(10)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_tungsten' }, put: { tag: 'forge:storage_blocks/tungsten' }, degree: 950, meltTime: getMeltingTick(material.tungsten, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_tungsten' }, put: [{ tag: 'forge:ingots/tungsten' }, { tag: 'forge:dusts/tungsten' }, { tag: 'forge:plates/tungsten' }], degree: 950, meltTime: getMeltingTick(material.tungsten, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_tungsten' }, put: { tag: 'forge:nuggets/tungsten' }, degree: 950, meltTime: getMeltingTick(material.tungsten, fromAmount(10)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_tungsten' }, put: { tag: 'forge:storage_blocks/tungsten' }, degree: 2000, meltTime: getMeltingTick(material.tungsten, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_tungsten' }, put: [{ tag: 'forge:ingots/tungsten' }, { tag: 'forge:dusts/tungsten' }, { tag: 'forge:plates/tungsten' }], degree: 2000, meltTime: getMeltingTick(material.tungsten, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_tungsten' }, put: { tag: 'forge:nuggets/tungsten' }, degree: 2000, meltTime: getMeltingTick(material.tungsten, fromAmount(10)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_chromium' }, put: { tag: 'forge:storage_blocks/chromium' }, degree: 950, meltTime: getMeltingTick(material.chromium, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_chromium' }, put: [{ tag: 'forge:ingots/chromium' }, { tag: 'forge:dusts/chromium' }, { tag: 'forge:plates/chromium' }], degree: 950, meltTime: getMeltingTick(material.chromium, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_chromium' }, put: { tag: 'forge:nuggets/chromium' }, degree: 950, meltTime: getMeltingTick(material.chromium, fromAmount(10)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_chromium' }, put: { tag: 'forge:storage_blocks/chromium' }, degree: 900, meltTime: getMeltingTick(material.chromium, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_chromium' }, put: [{ tag: 'forge:ingots/chromium' }, { tag: 'forge:dusts/chromium' }, { tag: 'forge:plates/chromium' }], degree: 900, meltTime: getMeltingTick(material.chromium, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_chromium' }, put: { tag: 'forge:nuggets/chromium' }, degree: 900, meltTime: getMeltingTick(material.chromium, fromAmount(10)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_cadmium' }, put: { tag: 'forge:storage_blocks/cadmium' }, degree: 950, meltTime: getMeltingTick(material.cadmium, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_cadmium' }, put: [{ tag: 'forge:ingots/cadmium' }, { tag: 'forge:dusts/cadmium' }, { tag: 'forge:plates/cadmium' }], degree: 950, meltTime: getMeltingTick(material.cadmium, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_cadmium' }, put: { tag: 'forge:nuggets/cadmium' }, degree: 950, meltTime: getMeltingTick(material.cadmium, fromAmount(10)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_cadmium' }, put: { tag: 'forge:storage_blocks/cadmium' }, degree: 294, meltTime: getMeltingTick(material.cadmium, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_cadmium' }, put: [{ tag: 'forge:ingots/cadmium' }, { tag: 'forge:dusts/cadmium' }, { tag: 'forge:plates/cadmium' }], degree: 294, meltTime: getMeltingTick(material.cadmium, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_cadmium' }, put: { tag: 'forge:nuggets/cadmium' }, degree: 294, meltTime: getMeltingTick(material.cadmium, fromAmount(10)) },
 
     //CREATE
 
@@ -951,23 +951,23 @@ ServerEvents.recipes((event) => {
     { get: { amount: 90, tag: 'tconstruct:molten_debris' }, put: { tag: 'forge:ingots/netherite_scrap' }, degree: 1175, meltTime: getMeltingTick(material.ancientDebris, fromAmount(90)) },
     { get: { amount: 10, tag: 'tconstruct:molten_debris' }, put: { tag: 'forge:nuggets/netherite_scrap' }, degree: 1175, meltTime: getMeltingTick(material.ancientDebris, fromAmount(10)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:storage_blocks/iron' }, degree: 900, meltTime: getMeltingTick(material.iron, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_iron' }, put: [{ tag: 'forge:ingots/iron' }, { tag: 'forge:dusts/iron' }, { tag: 'forge:plates/iron' }, { tag: 'forge:sheetmetals/iron' }, { tag: 'forge:wires/iron' }], degree: 900, meltTime: getMeltingTick(material.iron, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:nuggets/iron' }, degree: 900, meltTime: getMeltingTick(material.iron, fromAmount(10)) },
-    { get: { amount: 360, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:gears/iron' }, degree: 900, meltTime: getMeltingTick(material.iron, fromAmount(360)) },
-    { get: { amount: 30, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:coins/iron' }, degree: 900, meltTime: getMeltingTick(material.iron, fromAmount(30)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:storage_blocks/iron' }, degree: 800, meltTime: getMeltingTick(material.iron, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_iron' }, put: [{ tag: 'forge:ingots/iron' }, { tag: 'forge:dusts/iron' }, { tag: 'forge:plates/iron' }, { tag: 'forge:sheetmetals/iron' }, { tag: 'forge:wires/iron' }], degree: 800, meltTime: getMeltingTick(material.iron, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:nuggets/iron' }, degree: 800, meltTime: getMeltingTick(material.iron, fromAmount(10)) },
+    { get: { amount: 360, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:gears/iron' }, degree: 800, meltTime: getMeltingTick(material.iron, fromAmount(360)) },
+    { get: { amount: 30, tag: 'tconstruct:molten_iron' }, put: { tag: 'forge:coins/iron' }, degree: 800, meltTime: getMeltingTick(material.iron, fromAmount(30)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:storage_blocks/gold' }, degree: 900, meltTime: getMeltingTick(material.gold, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_gold' }, put: [{ tag: 'forge:ingots/gold' }, { tag: 'forge:dusts/gold' }, { tag: 'forge:plates/gold' }, { tag: 'forge:sheetmetals/gold' }, { tag: 'forge:wires/gold' }], degree: 900, meltTime: getMeltingTick(material.gold, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:nuggets/gold' }, degree: 900, meltTime: getMeltingTick(material.gold, fromAmount(10)) },
-    { get: { amount: 360, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:gears/gold' }, degree: 900, meltTime: getMeltingTick(material.gold, fromAmount(360)) },
-    { get: { amount: 30, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:coins/gold' }, degree: 900, meltTime: getMeltingTick(material.gold, fromAmount(30)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:storage_blocks/gold' }, degree: 700, meltTime: getMeltingTick(material.gold, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_gold' }, put: [{ tag: 'forge:ingots/gold' }, { tag: 'forge:dusts/gold' }, { tag: 'forge:plates/gold' }, { tag: 'forge:sheetmetals/gold' }, { tag: 'forge:wires/gold' }], degree: 700, meltTime: getMeltingTick(material.gold, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:nuggets/gold' }, degree: 700, meltTime: getMeltingTick(material.gold, fromAmount(10)) },
+    { get: { amount: 360, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:gears/gold' }, degree: 700, meltTime: getMeltingTick(material.gold, fromAmount(360)) },
+    { get: { amount: 30, tag: 'tconstruct:molten_gold' }, put: { tag: 'forge:coins/gold' }, degree: 700, meltTime: getMeltingTick(material.gold, fromAmount(30)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:storage_blocks/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_copper' }, put: [{ tag: 'forge:ingots/copper' }, { tag: 'forge:dusts/copper' }, { tag: 'forge:plates/copper' }, { tag: 'forge:sheetmetals/copper' }, { tag: 'forge:wires/copper' }], degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:nuggets/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(10)) },
-    { get: { amount: 360, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:gears/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(360)) },
-    { get: { amount: 30, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:coins/copper' }, degree: 900, meltTime: getMeltingTick(material.copper, fromAmount(30)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:storage_blocks/copper' }, degree: 500, meltTime: getMeltingTick(material.copper, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_copper' }, put: [{ tag: 'forge:ingots/copper' }, { tag: 'forge:dusts/copper' }, { tag: 'forge:plates/copper' }, { tag: 'forge:sheetmetals/copper' }, { tag: 'forge:wires/copper' }], degree: 500, meltTime: getMeltingTick(material.copper, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:nuggets/copper' }, degree: 500, meltTime: getMeltingTick(material.copper, fromAmount(10)) },
+    { get: { amount: 360, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:gears/copper' }, degree: 500, meltTime: getMeltingTick(material.copper, fromAmount(360)) },
+    { get: { amount: 30, tag: 'tconstruct:molten_copper' }, put: { tag: 'forge:coins/copper' }, degree: 500, meltTime: getMeltingTick(material.copper, fromAmount(30)) },
 
     { get: { amount: 810, tag: 'tconstruct:molten_netherite' }, put: { tag: 'forge:storage_blocks/netherite' }, degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(810)) },
     { get: { amount: 90, tag: 'tconstruct:molten_netherite' }, put: [{ tag: 'forge:ingots/netherite' }, { tag: 'forge:plates/netherite' }, { tag: 'forge:plates/netherite' }, { tag: 'forge:dusts/netherite' }], degree: 1250, meltTime: getMeltingTick(material.netherite, fromAmount(90)) },
@@ -1003,17 +1003,17 @@ ServerEvents.recipes((event) => {
 
     //THERMAL SERIES
 
-    { get: { amount: 810, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:storage_blocks/steel' }, degree: 900, meltTime: getMeltingTick(material.steel, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_steel' }, put: [{ tag: 'forge:ingots/steel' }, { tag: 'forge:dusts/steel' }, { tag: 'forge:plates/steel' }, { tag: 'forge:sheetmetals/steel' }, { tag: 'forge:wires/steel' }], degree: 900, meltTime: getMeltingTick(material.steel, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:nuggets/steel' }, degree: 900, meltTime: getMeltingTick(material.steel, fromAmount(10)) },
-    { get: { amount: 360, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:gears/steel' }, degree: 900, meltTime: getMeltingTick(material.steel, fromAmount(360)) },
-    { get: { amount: 30, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:coins/steel' }, degree: 900, meltTime: getMeltingTick(material.steel, fromAmount(30)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:storage_blocks/steel' }, degree: 950, meltTime: getMeltingTick(material.steel, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_steel' }, put: [{ tag: 'forge:ingots/steel' }, { tag: 'forge:dusts/steel' }, { tag: 'forge:plates/steel' }, { tag: 'forge:sheetmetals/steel' }, { tag: 'forge:wires/steel' }], degree: 950, meltTime: getMeltingTick(material.steel, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:nuggets/steel' }, degree: 950, meltTime: getMeltingTick(material.steel, fromAmount(10)) },
+    { get: { amount: 360, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:gears/steel' }, degree: 950, meltTime: getMeltingTick(material.steel, fromAmount(360)) },
+    { get: { amount: 30, tag: 'tconstruct:molten_steel' }, put: { tag: 'forge:coins/steel' }, degree: 950, meltTime: getMeltingTick(material.steel, fromAmount(30)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:storage_blocks/rose_gold' }, degree: 900, meltTime: getMeltingTick(material.roseGold, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_rose_gold' }, put: [{ tag: 'forge:ingots/rose_gold' }, { tag: 'forge:dusts/rose_gold' }, { tag: 'forge:plates/rose_gold' }], degree: 900, meltTime: getMeltingTick(material.roseGold, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:nuggets/rose_gold' }, degree: 900, meltTime: getMeltingTick(material.roseGold, fromAmount(10)) },
-    { get: { amount: 360, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:gears/rose_gold' }, degree: 900, meltTime: getMeltingTick(material.roseGold, fromAmount(360)) },
-    { get: { amount: 30, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:coins/rose_gold' }, degree: 900, meltTime: getMeltingTick(material.roseGold, fromAmount(30)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:storage_blocks/rose_gold' }, degree: 550, meltTime: getMeltingTick(material.roseGold, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_rose_gold' }, put: [{ tag: 'forge:ingots/rose_gold' }, { tag: 'forge:dusts/rose_gold' }, { tag: 'forge:plates/rose_gold' }], degree: 550, meltTime: getMeltingTick(material.roseGold, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:nuggets/rose_gold' }, degree: 550, meltTime: getMeltingTick(material.roseGold, fromAmount(10)) },
+    { get: { amount: 360, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:gears/rose_gold' }, degree: 550, meltTime: getMeltingTick(material.roseGold, fromAmount(360)) },
+    { get: { amount: 30, tag: 'tconstruct:molten_rose_gold' }, put: { tag: 'forge:coins/rose_gold' }, degree: 550, meltTime: getMeltingTick(material.roseGold, fromAmount(30)) },
 
     { get: { amount: 810, tag: 'tconstruct:molten_tin' }, put: { tag: 'forge:storage_blocks/tin' }, degree: 225, meltTime: getMeltingTick(material.tin, fromAmount(810)) },
     { get: { amount: 90, tag: 'tconstruct:molten_tin' }, put: [{ tag: 'forge:ingots/tin' }, { tag: 'forge:dusts/tin' }, { tag: 'forge:plates/tin' }], degree: 225, meltTime: getMeltingTick(material.tin, fromAmount(90)) },
@@ -1083,17 +1083,17 @@ ServerEvents.recipes((event) => {
 
     //TINKER CONSTRUCT
 
-    { get: { amount: 810, tag: 'tconstruct:molten_cobalt' }, put: { tag: 'forge:storage_blocks/cobalt' }, degree: 900, meltTime: getMeltingTick(material.cobalt, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_cobalt' }, put: [{ tag: 'forge:ingots/cobalt' }, { tag: 'forge:dusts/cobalt' }, { tag: 'forge:plates/cobalt' }], degree: 900, meltTime: getMeltingTick(material.cobalt, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_cobalt' }, put: { tag: 'forge:nuggets/cobalt' }, degree: 900, meltTime: getMeltingTick(material.cobalt, fromAmount(10)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_cobalt' }, put: { tag: 'forge:storage_blocks/cobalt' }, degree: 950, meltTime: getMeltingTick(material.cobalt, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_cobalt' }, put: [{ tag: 'forge:ingots/cobalt' }, { tag: 'forge:dusts/cobalt' }, { tag: 'forge:plates/cobalt' }], degree: 950, meltTime: getMeltingTick(material.cobalt, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_cobalt' }, put: { tag: 'forge:nuggets/cobalt' }, degree: 950, meltTime: getMeltingTick(material.cobalt, fromAmount(10)) },
 
     { get: { amount: 810, tag: 'tconstruct:molten_knightmetal' }, put: { tag: 'forge:storage_blocks/knightmetal' }, degree: 1300, meltTime: getMeltingTick(material.knightMetal, fromAmount(810)) },
     { get: { amount: 90, tag: 'tconstruct:molten_knightmetal' }, put: { tag: 'forge:ingots/knightmetal' }, degree: 1300, meltTime: getMeltingTick(material.knightMetal, fromAmount(90)) },
     { get: { amount: 10, tag: 'tconstruct:molten_knightmetal' }, put: { tag: 'forge:nuggets/knightmetal' }, degree: 1300, meltTime: getMeltingTick(material.knightMetal, fromAmount(10)) },
 
-    { get: { amount: 810, tag: 'tconstruct:molten_slimesteel' }, put: { tag: 'forge:storage_blocks/slimesteel' }, degree: 900, meltTime: getMeltingTick(material.slimeSteel, fromAmount(810)) },
-    { get: { amount: 90, tag: 'tconstruct:molten_slimesteel' }, put: { tag: 'forge:ingots/slimesteel' }, degree: 900, meltTime: getMeltingTick(material.slimeSteel, fromAmount(90)) },
-    { get: { amount: 10, tag: 'tconstruct:molten_slimesteel' }, put: { tag: 'forge:nuggets/slimesteel' }, degree: 900, meltTime: getMeltingTick(material.slimeSteel, fromAmount(10)) },
+    { get: { amount: 810, tag: 'tconstruct:molten_slimesteel' }, put: { tag: 'forge:storage_blocks/slimesteel' }, degree: 950, meltTime: getMeltingTick(material.slimeSteel, fromAmount(810)) },
+    { get: { amount: 90, tag: 'tconstruct:molten_slimesteel' }, put: { tag: 'forge:ingots/slimesteel' }, degree: 950, meltTime: getMeltingTick(material.slimeSteel, fromAmount(90)) },
+    { get: { amount: 10, tag: 'tconstruct:molten_slimesteel' }, put: { tag: 'forge:nuggets/slimesteel' }, degree: 950, meltTime: getMeltingTick(material.slimeSteel, fromAmount(10)) },
 
     { get: { amount: 810, tag: 'tconstruct:molten_amethyst_bronze' }, put: { tag: 'forge:storage_blocks/amethyst_bronze' }, degree: 820, meltTime: getMeltingTick(material.amethystBronze, fromAmount(810)) },
     { get: { amount: 90, tag: 'tconstruct:molten_amethyst_bronze' }, put: { tag: 'forge:ingots/amethyst_bronze' }, degree: 820, meltTime: getMeltingTick(material.amethystBronze, fromAmount(90)) },

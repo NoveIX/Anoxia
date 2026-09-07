@@ -708,7 +708,7 @@ MMEvents.createProcesses((event) => {
     .ticks(5)
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'ad_astra:moon_sand', count: 1 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:energy', amount: 6500 } })
-    .output({ type: 'mm:output/simple', chance: 0.16, ingredient: { type: 'mm:item', item: 'anoxia:desh_pieces', count: 2 } });
+    .output({ type: 'mm:output/simple', chance: 0.12, ingredient: { type: 'mm:item', item: 'anoxia:desh_pieces', count: 2 } });
 
   //Ostreum
   event
@@ -717,7 +717,7 @@ MMEvents.createProcesses((event) => {
     .ticks(5)
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'ad_astra:mars_sand', count: 1 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:energy', amount: 6500 } })
-    .output({ type: 'mm:output/simple', chance: 0.16, ingredient: { type: 'mm:item', item: 'anoxia:ostrum_pieces', count: 2 } });
+    .output({ type: 'mm:output/simple', chance: 0.12, ingredient: { type: 'mm:item', item: 'anoxia:ostrum_pieces', count: 2 } });
 
   //Calorite
   event
@@ -726,7 +726,7 @@ MMEvents.createProcesses((event) => {
     .ticks(5)
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:item', item: 'ad_astra:venus_sand', count: 1 } })
     .input({ type: 'mm:input/consume', ingredient: { type: 'mm:energy', amount: 6500 } })
-    .output({ type: 'mm:output/simple', chance: 0.16, ingredient: { type: 'mm:item', item: 'anoxia:calorite_pieces', count: 2 } });
+    .output({ type: 'mm:output/simple', chance: 0.12, ingredient: { type: 'mm:item', item: 'anoxia:calorite_pieces', count: 2 } });
 
   //#endregion
 
