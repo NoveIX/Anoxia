@@ -38,7 +38,7 @@ layout_action_executable_blocks {
 }
 
 element {
-  source = [source:local]/config/fancymenu/assets/anoxia_loading.png
+  source = [source:local]/config/fancymenu/assets/anoxia_booting.png
   repeat_texture = false
   nine_slice_texture = false
   nine_slice_texture_border_x = 5
