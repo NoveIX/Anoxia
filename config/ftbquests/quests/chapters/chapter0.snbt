@@ -7,9 +7,9 @@
 	id: "7EA8282C9BE604D9"
 	images: [{
 		height: 4.0d
-		image: "anoxia:textures/gui/anoxia_title.png"
+		image: "anoxia:textures/gui/anoxia_logo.png"
 		rotation: 0.0d
-		width: 15.0d
+		width: 16.0d
 		x: 0.0d
 		y: -3.0d
 	}]
@@ -19,8 +19,6 @@
 		{
 			description: [
 				"Welcome to &bProject Anoxia&r &4Lunar Ruins&r, the spiritual successor to &9The Last Man on Moon&r."
-				""
-				"This modpack brings the complexity and challenge of &2Project Ozone's Kappa Mode&r to a hostile lunar environment."
 				""
 				"Prepare yourself for a technical, difficult, and rewarding experience, where every step forward requires planning and ingenuity."
 			]
@@ -110,6 +108,41 @@
 			title: "Waystone"
 			x: 1.5d
 			y: 0.0d
+		}
+		{
+			dependencies: ["268F1E0871E3F46F"]
+			description: [
+				"The &2Tome of Documentation&r can absorb documentation books from other mods, allowing you to keep multiple guides in a single item."
+				""
+				"Combine the Tome with a mod's documentation book in a crafting table to absorb it. You can store multiple books, including duplicates."
+				""
+				""
+				"Using the Tome:"
+				""
+				"&9Right-click&r to open the menu and select a stored book."
+				""
+				"&9Shift + Right-click&r a modded block to automatically select that mod's book, if available."
+				""
+				"&9Punch the air&r to transform the book back into the Tome."
+				""
+				"&9Shift + Drop&r to remove the currently selected book from the Tome."
+			]
+			hide_dependency_lines: true
+			icon: "akashictome:tome"
+			id: "5BD8A8DF7A1D4557"
+			rewards: [{
+				count: 16
+				id: "0824A1E99DA5C256"
+				item: "minecraft:bread"
+				type: "item"
+			}]
+			tasks: [{
+				id: "49D36A666E163678"
+				type: "checkmark"
+			}]
+			title: "Tome of Documentation"
+			x: 0.0d
+			y: 1.5d
 		}
 	]
 	title: "Welcome"

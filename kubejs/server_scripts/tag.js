@@ -232,3 +232,18 @@ ServerEvents.tags('block', (event) => {
   tagsJAOPCAPattern.forEach((recipe) => event.add(recipe.tag, recipe.item));
 });
 //#endregion
+
+//# ====================================================================================== #
+
+//#region Mobs
+ServerEvents.tags('entity_type', (event) => {
+  const tagsMobPattern = [
+    { tag: 'ad_astra:entities/lives_without_oxygen', mob: ['artifacts:mimic', 'dummmmmmy:target_dummy'] },
+    { tag: 'ad_astra:entities/fire_immune', mob: ['minecraft:blaze', 'artifacts:mimic', 'dummmmmmy:target_dummy'] },
+  ];
+  tagsMobPattern.forEach((recipe) => {
+    const mobId = Array.isArray(recipe.mob) ? recipe.mob : [recipe.mob];
+    mobId.forEach((m) => event.add(recipe.tag, m));
+  });
+});
+//#endregion

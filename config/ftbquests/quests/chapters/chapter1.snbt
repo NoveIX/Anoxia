@@ -5,6 +5,14 @@
 	group: "6AD3CA4E618085FE"
 	icon: "akashictome:tome"
 	id: "3332445691791350"
+	images: [{
+		height: 4.0d
+		image: "anoxia:textures/gui/lunar_wastelands.png"
+		rotation: 0.0d
+		width: 16.0d
+		x: 0.0d
+		y: -4.5d
+	}]
 	order_index: 1
 	quest_links: [ ]
 	quests: [

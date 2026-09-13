@@ -3,7 +3,16 @@
 	default_quest_shape: ""
 	filename: "chapter4"
 	group: "6AD3CA4E618085FE"
+	icon: "botania:pure_daisy"
 	id: "3E2C2DD3055C9586"
+	images: [{
+		height: 4.0d
+		image: "anoxia:textures/gui/flower_power.png"
+		rotation: 0.0d
+		width: 14.0d
+		x: 0.0d
+		y: -5.0d
+	}]
 	order_index: 4
 	quest_links: [ ]
 	quests: [

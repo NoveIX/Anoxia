@@ -123,6 +123,9 @@ gameItem.rmOut = [
   'oc2r:silicon_blend',
   'oc2r:silicon',
 
+  //Re:Avaritia
+  'avaritia:tesseract',
+
   //Simple Storage
   'storagenetwork:request_expanded',
 

@@ -8,159 +8,43 @@ ServerEvents.recipes((event) => {
     'thermal:machines/pulverizer/pulverizer_logs', //Rm Sawdust
     'thermal:machines/pulverizer/pulverizer_diamond_tools', //Rm Sawdust
 
-    //Mystical Seed
-    //T0
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_air_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_earth_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_water_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_fire_seeds',
-
-    //T1
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_inferium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_stone_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_dirt_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_wood_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_ice_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_deepslate_seeds',
-
-    //T2
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_nature_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_dye_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_nether_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_coal_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_coral_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_honey_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_amethyst_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_pig_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_chicken_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_cow_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_sheep_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_squid_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_fish_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_slime_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_turtle_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_rubber_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_silicon_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_sulfur_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_aluminum_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_saltpeter_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_apatite_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_grains_of_infinity_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_mystical_flower_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_marble_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_limestone_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_basalt_seeds',
-
-    //T3
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_iron_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_copper_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_nether_quartz_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_glowstone_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_redstone_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_obsidian_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_prismarine_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_zombie_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_skeleton_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_creeper_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_spider_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_rabbit_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_tin_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_bronze_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_zinc_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_brass_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_silver_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_lead_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_graphite_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_amethyst_bronze_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_slimesteel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_pig_iron_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_blizz_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_blitz_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_basalz_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_copper_alloy_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_redstone_alloy_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_conductive_alloy_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_manasteel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_steeleaf_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_ironwood_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_sky_stone_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_certus_quartz_seeds',
-
-    //T4
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_gold_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_lapis_lazuli_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_end_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_experience_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_blaze_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_ghast_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_enderman_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_steel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_nickel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_constantan_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_electrum_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_invar_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_mithril_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_tungsten_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_titanium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_uranium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_chrome_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_ruby_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_sapphire_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_peridot_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_soulium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_signalum_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_lumium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_flux_infused_ingot_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_hop_graphite_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_cobalt_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_rose_gold_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_soularium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_dark_steel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_pulsating_alloy_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_energetic_alloy_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_elementium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_osmium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_fluorite_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_refined_glowstone_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_refined_obsidian_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_knightmetal_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_fiery_ingot_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_compressed_iron_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_fluix_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_energized_steel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_blazing_crystal_seeds',
-
-    //T5
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_diamond_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_emerald_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_netherite_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_wither_skeleton_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_platinum_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_iridium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_enderium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_flux_infused_gem_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_manyullyn_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_queens_slime_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_hepatizon_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_vibrant_alloy_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_end_steel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_terrasteel_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_yellorium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_cyanite_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_niotic_crystal_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_spirited_crystal_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_uraninite_seeds',
-
-    //T6
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_nether_star_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_dragon_egg_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_gaia_spirit_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_neutronium_seeds',
-    'thermal:compat/mysticalagriculture/insolator_mysticalag_nitro_crystal_seeds',
-
     //Redstone arsenal
     'redstone_arsenal:materials/flux_gem',
   ];
+
+  //Mystical Seed
+
+  //T0
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['air', 'earth', 'water', 'fire']).Suffix('_seeds');
+
+  //T1
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['inferium', 'stone', 'dirt', 'wood', 'ice', 'deepslate']).Suffix('_seeds');
+
+  //T2
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['nature', 'dye', 'nether', 'coal', 'coral', 'honey', 'amethyst', 'pig', 'chicken', 'cow']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['sheep', 'squid', 'fish', 'slime', 'turtle', 'rubber', 'silicon', 'sulfur', 'aluminum', 'saltpeter']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['apatite', 'grains_of_infinity', 'mystical_flower', 'marble', 'limestone', 'basalt']).Suffix('_seeds');
+
+  //T3
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['iron', 'copper', 'nether_quartz', 'glowstone', 'redstone', 'obsidian', 'prismarine', 'zombie', 'skeleton', 'creeper']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['spider', 'rabbit', 'tin', 'bronze', 'zinc', 'brass', 'silver', 'lead', 'graphite', 'amethyst_bronze']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['slimesteel', 'pig_iron', 'blizz', 'blitz', 'basalz', 'copper_alloy', 'redstone_alloy', 'conductive_alloy', 'manasteel', 'steeleaf']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['ironwood', 'sky_stone', 'certus_quartz']).Suffix('_seeds');
+
+  //T4
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['gold', 'lapis_lazuli', 'end', 'experience', 'blaze', 'ghast', 'enderman', 'steel', 'nickel', 'constantan']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['electrum', 'invar', 'mithril', 'tungsten', 'titanium', 'uranium', 'chrome', 'ruby', 'sapphire', 'peridot']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['soulium', 'signalum', 'lumium', 'flux_infused_ingot', 'hop_graphite', 'cobalt', 'rose_gold', 'soularium', 'dark_steel', 'pulsating_alloy']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['energetic_alloy', 'elementium', 'osmium', 'fluorite', 'refined_glowstone', 'refined_obsidian', 'knightmetal', 'fiery_ingot', 'compressed_iron', 'fluix']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['energized_steel', 'blazing_crystal']).Suffix('_seeds');
+
+  //T5
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['diamond', 'emerald', 'netherite', 'wither_skeleton', 'platinum', 'iridium', 'enderium', 'flux_infused_gem', 'manyullyn', 'queens_slime']).Suffix('_seeds');
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['hepatizon', 'vibrant_alloy', 'end_steel', 'terrasteel', 'yellorium', 'cyanite', 'niotic_crystal', 'spirited_crystal', 'uraninite']).Suffix('_seeds');
+
+  //T6
+  funcGeneric.AddToArray(rmRecipeId, 'thermal:compat/mysticalagriculture/insolator_mysticalag_', ['nether_star', 'dragon_egg', 'gaia_spirit', 'neutronium', 'nitro_crystal']).Suffix('_seeds');
+
   rmRecipeId.forEach((id) => event.remove({ id: id }));
   //#endregion
 
@@ -344,6 +228,7 @@ ServerEvents.recipes((event) => {
   //# ====================================================================================== #
 
   //#region Bottle
+  event.remove({ output: 'tesseract:tesseract' });
   const bottlePattern = [
     {
       get: [{ item: 'anoxia:enderless_ingot_1' }],
@@ -376,6 +261,14 @@ ServerEvents.recipes((event) => {
         { fluid: 'tconstruct:molten_enderium', amount: 720 },
       ],
       rsflux: 5000,
+    },
+    {
+      get: [{ item: 'tesseract:tesseract' }],
+      put: [
+        { item: 'thermal:machine_frame', count: 1 },
+        { fluid: 'thermal:ender', amount: 1000 },
+      ],
+      rsflux: 24000,
     },
   ];
   bottlePattern.forEach((recipe) => {

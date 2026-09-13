@@ -6,6 +6,14 @@
 	group: "2CE33932F10B325A"
 	icon: "chemlib:hydrogen"
 	id: "69059DA497BA1655"
+	images: [{
+		height: 4.0d
+		image: "anoxia:textures/gui/periodic_table.png"
+		rotation: 0.0d
+		width: 16.0d
+		x: 0.0d
+		y: -5.5d
+	}]
 	order_index: 0
 	quest_links: [ ]
 	quests: [

@@ -62,7 +62,7 @@ ServerEvents.recipes((event) => {
   }
 
   function gearTinker(recipe) {
-    let amount = recipe.put.startsWith('forge:gems') ? 400 : 360;
+    const amount = recipe.put.startsWith('forge:gems') ? 400 : 360;
 
     const json = {
       type: 'tconstruct:casting_table',
