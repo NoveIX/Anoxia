@@ -2,7 +2,7 @@
 	always_invisible: true
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
-	filename: "chapter0_command"
+	filename: "chapter_command"
 	group: ""
 	icon: "minecraft:command_block"
 	id: "2B998D4A1730908F"
