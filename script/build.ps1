@@ -296,8 +296,8 @@ Write-Host "Copy repository client file to minecraft dir"
 $ClientItems = $ClientDirs | ForEach-Object { Join-Path $RepoDir $_ }
 Copy-Item -Path $ClientItems -Destination $MinecraftDir -Recurse
 Copy-Item -Path $ProjectCoreDir -Destination $MinecraftDir -Recurse
-Copy-Item -Path $([System.IO.Path]::Combine($CtxDir, "prism", "anoxia_icon.png")) -Destination $MinecraftDir
-Copy-Item -Path $([System.IO.Path]::Combine($CtxDir, "prism", "mmc-pack.json")) -Destination $MinecraftDir
+Copy-Item -Path $([System.IO.Path]::Combine($CtxDir, "prism", "anoxia_icon.png")) -Destination $TempDir
+Copy-Item -Path $([System.IO.Path]::Combine($CtxDir, "prism", "mmc-pack.json")) -Destination $TempDir
 
 
 # Compress zip file client
