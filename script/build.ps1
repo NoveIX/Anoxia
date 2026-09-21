@@ -272,7 +272,7 @@ Clear-Dir -Path $TempDir
 
 #region Prism Client
 $MinecraftDir = Join-Path $TempDir "minecraft"
-$InstanceCFG = Join-Path $MinecraftDir "instance.cfg"
+$InstanceCFG = Join-Path $TempDir "instance.cfg"
 New-Dir -Path $MinecraftDir
 
 Write-Host "Get client mods from client profile"
@@ -282,7 +282,7 @@ $ProjectCoreDir = @(
     "shaderpacks"
 ) | ForEach-Object { Join-Path $ProjectDir $_ }
 
-$InstanceData = @"
+@"
 [General]
 ConfigVersion=1.3
 InstanceType=OneSix
