@@ -1,136 +1,325 @@
-# File: build.ps1
-
-# ====================================[ Parameter ]===================================== #
-
-param (
-    [Parameter(Mandatory = $true)]
-    [string]$Version
-)
-
+# Check PowerShell edition
 if ($PSEdition -eq "Desktop") {
     throw [System.InvalidOperationException]::new(
         "Windows PowerShell is not supported. Please use PowerShell 7+."
     )
 }
 
-# Set background black
-[Console]::BackgroundColor = "Black"
+# Define context dir
+try {
+    $CtxDir = $PSScriptRoot
+    $ProjectDir = Split-Path $CtxDir -Parent
+    $VersionFile = Join-Path $ProjectDir "version.txt"
+    $Version = (Get-Content $VersionFile -Raw).Trim()
+}
+catch {
+    throw [System.IO.FileNotFoundException]::new(
+        "Version file not found: '$VersionFile'.",
+        $VersionFile
+    )
+}
+
+# Set window console
+[System.Console]::BackgroundColor = "Black"
+[System.Console]::Title = "Anoxia - Build v$Version"
 Clear-Host
 
-# =================================[ Definition path ]================================== #
+# ====================================================================================== #
 
-# Resolve dir
-$scriptDir = $PSScriptRoot
-$modpackDir = Split-Path $scriptDir -Parent
-$moduleDir = Join-Path $scriptDir "module"
-$repoDir = Join-Path $scriptDir "repo"
-$tempDir = Join-Path $scriptDir "temp"
-$buildDir = Join-Path $scriptDir "build"
+#region Function
+function Read-Confirm {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Message
+    )
 
-# ==================================[ Import modules ]================================== #
+    # Ask to user
+    Write-Host "$Message [Y/n]: " -NoNewline
+    $ans = Read-Host
 
-# Import module
-Write-Host "Initialization. Importing modules..."
-try {
-    $moduleManifest = Get-ChildItem -Path $moduleDir -Recurse -Include "*.psd1" -ErrorAction Stop
-    if (-not $moduleManifest) { throw [InvalidOperationException]::new("No module manifest was found.") }
-    foreach ($manifest in $moduleManifest) { Import-Module $manifest.FullName -Force -ErrorAction Stop }
+    # Default = Yes if empty
+    if ([string]::IsNullOrWhiteSpace($ans)) {
+        return $true
+    }
+
+    # Normalize input
+    return $ans.Trim().ToUpper() -eq "Y"
 }
-catch { throw [InvalidOperationException]::new("Failed to import module. Exception: $($_.Exception.Message)") }
 
-# Show Logo
-Write-AsciiArt -RandomColor -Clear
+function Invoke-GitClone {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Url,
+
+        [Parameter(Mandatory = $true, Position = 1)]
+        [System.IO.DirectoryInfo]$Path,
+
+        [Parameter(Position = 2)]
+        [string]$Branch,
+
+        [Parameter(Position = 3)]
+        [System.IO.FileInfo]$PrivateKey
+    )
+
+    $gitSshCommand = $env:GIT_SSH_COMMAND
+
+    try {
+        # Configure SSH authentication
+        if ($Url -like 'git@*') {
+            if (-not $PrivateKey) {
+                throw [System.ArgumentException]::new(
+                    "SSH repository detected but no private key was provided."
+                )
+            }
+
+            if (-not $PrivateKey.Exists) {
+                throw [System.IO.FileNotFoundException]::new(
+                    "Private key file not found: $($PrivateKey.FullName)",
+                    $PrivateKey.FullName
+                )
+            }
+
+            if ($PrivateKey.PSIsContainer) {
+                throw [System.ArgumentException]::new(
+                    "The provided private key path is a directory: $($PrivateKey.FullName)"
+                )
+            }
+
+            if ($PrivateKey.Extension -eq '.pub') {
+                throw [System.ArgumentException]::new(
+                    "The provided private key appears to be a public key: $($PrivateKey.FullName)"
+                )
+            }
+
+            $env:GIT_SSH_COMMAND = @(
+                'ssh'
+                '-i'
+                "`"$($PrivateKey.FullName)`""
+                '-o'
+                'StrictHostKeyChecking=accept-new'
+            ) -join ' '
+        }
+
+        # Clone only the latest commit
+        $gitArgs = @(
+            'clone'
+            '--depth', '1'
+            '--single-branch'
+        )
+
+        # Clone specified branch
+        if ($Branch) {
+            $gitArgs += @(
+                '-b', $Branch
+            )
+        }
+
+        # Repository and destination
+        $gitArgs += @(
+            $Url
+            $Path.FullName
+        )
+
+        Write-Host "`n# ==========================[ Git ]========================== #`n"
+        & git.exe @gitArgs
+
+        if ($LASTEXITCODE -ne 0) {
+            throw [System.ComponentModel.Win32Exception]::new(
+                $LASTEXITCODE,
+                "git clone failed with exit code $LASTEXITCODE."
+            )
+        }
+
+        Write-Host "`n# =========================================================== #`n"
+    }
+    finally {
+        # Restore previous SSH configuration
+        $env:GIT_SSH_COMMAND = $gitSshCommand
+    }
+}
+
+function New-Dir {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Path
+    )
+
+    ([System.IO.DirectoryInfo]$Path).Create()
+}
+
+function Clear-Dir {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Path,
+
+        [switch]$Parent
+    )
+
+    $Directory = [System.IO.DirectoryInfo]$Path
+
+    if (-not $Directory.Exists) {
+        return
+    }
+
+    $Directory.EnumerateFileSystemInfos() | Remove-Item -Recurse -Force
+
+    if ($Parent) {
+        $Directory | Remove-Item -Recurse -Force
+    }
+}
+#endregion
 
 # ====================================[ Execution ]===================================== #
 
-$anoxiOneDrive = Invoke-PathCombine -Path $env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia"
-$exportDir = Join-Path $anoxiOneDrive "Export"
-$exportName = "Anoxia-${Version}.zip"
-$exportFile = Join-Path $exportDir $exportName
 
-# Wait for curse export
-$exitWhile = $false
-Write-LogInfo "Check export zip Anoxia-${Version}.zip"
-do {
-    if (Test-Path $exportFile) {
-        $ans = Read-Confirm "Found Anoxia-${Version}.zip. Proceed to generate release ${Version}"
-        if (-not $ans) { Write-LogInfo "Operation cancelled by user."; exit 1 }
-        $exitWhile = $true
-    }
-    else {
-        Start-Sleep -Seconds 1
-    }
-} while (-not $exitWhile)
+#region Setup build
 
-# Pull repository from github
-if (-not (Test-Path $repoDir -PathType Container)) {
-    Write-LogInfo "Clone Anoxia repository from github"
-    Invoke-GitClone -Url "https://github.com/NoveIX/Anoxia.git" -Path $repoDir -Branch 1.20
+# Define local Path
+$RepoDir = Join-Path $CtxDir "repo"
+$TempDir = Join-Path $CtxDir "temp"
+$BuildDir = Join-Path $CtxDir "build"
+
+# Define release path
+$AnoxiOneDrive = [System.IO.Path]::Combine($env:OneDrive, "Games", "Minecraft", "Modpack", "Anoxia")
+$ExportDir = Join-Path $AnoxiOneDrive "Export"
+$ReleaseDir = Join-Path $AnoxiOneDrive "Release"
+
+# Define File
+$BaseName = "Anoxia-${Version}"
+$ExportFileName = "$BaseName.zip"
+$ExportFilePath = Join-Path $ExportDir $ExportFileName
+
+# Define Release
+$CurseClientFileRLS = Join-Path $BuildDir "$BaseName-CurseForge.zip"
+$PrismClientRLS = Join-Path $BuildDir "$BaseName-Prism.zip"
+$ServerRLS = Join-Path $BuildDir "$BaseName-Server.zip"
+
+
+# Wait for CurseForge Export
+Write-Host "Check export zip $ExportFileName"
+if (Test-Path -Path $ExportFilePath -PathType Leaf) {
+
+    $ans = Read-Confirm "Found $ExportFileName. Proceed to generate release ${Version}"
+
+    if (-not $ans) {
+        Write-Host "Operation cancelled by user."
+        exit 1
+    }
 }
 else {
-    Write-LogInfo "Update Anoxia repository from github"
-    Invoke-GitPull -Path $repoDir
+    Write-Host "Export file not found."
+    exit 1
 }
 
+
+# Pull repository from github
+Write-Host "Clone Anoxia repository from github"
+Invoke-GitClone -Url "https://github.com/NoveIX/Anoxia.git" -Path $RepoDir -Branch 1.20
+
+#endregion
+
+
+# ====================================================================================== #
+
+
+#region Curse Client
+
 # Expand CurseForge zip
-Write-LogInfo "Expand CurseForge export zip"
-New-Directory -Path $tempDir | Out-Null
-Expand-Archive -Path $exportFile -DestinationPath $tempDir
-Start-Sleep -Seconds 10
+Write-Host "Expand CurseForge export zip"
+New-Dir -Path $TempDir
+Expand-Archive -Path $ExportFilePath -DestinationPath $TempDir
 
-
-# Compress zip file client
-$clientItems = @(
+# Select client dirs
+$ClientDirs = @(
     "config"
     "defaultconfigs"
     "kubejs"
     "local"
-
-    # CurseForge zip
-    # "mods"
-    # "resourcepacks"
-    # "shaderpacks"
-
     "tacz"
     "LICENSE"
-    "README.md"
+    #"README.md"
     "version.txt"
 )
 
 
+# Remove profile image from client zip
+Write-Host "Remove profile image from client"
+Clear-Dir -Path $(Join-Path $TempDir "profileImage") -Parent
+
+
 # Copy repository client file to overrides dir
-Write-LogInfo "Copy repository client file to overrides dir"
-$client = $clientItems | ForEach-Object { Join-Path $repoDir $_ }
-Copy-Item -Path $client -Destination $(Join-Path $tempDir "overrides") -Force -Recurse
-Start-Sleep -Seconds 10
+Write-Host "Copy repository client file to overrides dir"
+$ClientItems = $ClientDirs | ForEach-Object { Join-Path $RepoDir $_ }
+Copy-Item -Path $ClientItems -Destination $(Join-Path $TempDir "overrides") -Recurse
 
+New-Dir $BuildDir
 
-# Generate CurseForge zip
-Write-LogInfo "Create CurseForge release zip"
-New-Directory -Path $buildDir | Out-Null
-
-$clientRelease = Get-ChildItem -Path $tempDir -Force | ForEach-Object { $_.FullName }
-$build = Join-Path $buildDir "Anoxia-${Version}.zip"
-Compress-Archive -Path $clientRelease -DestinationPath $build -Force
-Start-Sleep -Seconds 10
-
-
-# Copy item to archive release
-Write-LogInfo "Copy Anoxia-${Version}.zip to release dir (OneDrive)"
-$releaseDir = Join-Path $anoxiOneDrive "Release"
-Copy-Item -Path $build -Destination $releaseDir -Force
-Start-Sleep -Seconds 10
+# Compress zip file client
+Write-Host "Create CurseForge client release zip"
+$ClientItems = Get-ChildItem -Path $TempDir -Force | ForEach-Object { $_.FullName }
+Compress-Archive -Path $ClientItems -DestinationPath $CurseClientFileRLS
 
 
 # Clean temp dir
-Write-LogInfo "Clean up temp dir to generate server zip"
-Remove-Item -Path $clientRelease -Recurse -Force
-Start-Sleep -Seconds 10
+Write-Host "Clean up temp dir"
+Clear-Dir -Path $TempDir
+
+#endregion
 
 
+# ====================================================================================== #
+
+
+#region Prism Client
+$MinecraftDir = Join-Path $TempDir "minecraft"
+$InstanceCFG = Join-Path $MinecraftDir "instance.cfg"
+New-Dir -Path $MinecraftDir
+
+Write-Host "Get client mods from client profile"
+$ProjectCoreDir = @(
+    "mods",
+    "resourcepacks",
+    "shaderpacks"
+) | ForEach-Object { Join-Path $ProjectDir $_ }
+
+$InstanceData = @"
+[General]
+ConfigVersion=1.3
+InstanceType=OneSix
+name=Project Anoxia Lunar Ruins v$Version
+iconKey=anoxia_icon
+"@ | Set-Content -Path $InstanceCFG
+
+
+# Copy repository client file
+Write-Host "Copy repository client file to minecraft dir"
+$ClientItems = $ClientDirs | ForEach-Object { Join-Path $RepoDir $_ }
+Copy-Item -Path $ClientItems -Destination $MinecraftDir -Recurse
+Copy-Item -Path $ProjectCoreDir -Destination $MinecraftDir -Recurse
+Copy-Item -Path $([System.IO.Path]::Combine($CtxDir, "prism", "anoxia_icon.png")) -Destination $MinecraftDir
+Copy-Item -Path $([System.IO.Path]::Combine($CtxDir, "prism", "mmc-pack.json")) -Destination $MinecraftDir
+
+
+# Compress zip file client
+Write-Host "Create Prism client release zip"
+$ClientItems = Get-ChildItem -Path $TempDir -Force | ForEach-Object { $_.FullName }
+Compress-Archive -Path $ClientItems -DestinationPath $PrismClientRLS
+
+
+# Clean temp dir
+Write-Host "Clean up temp dir"
+Clear-Dir -Path $TempDir
+
+#endregion
+
+
+# ====================================================================================== #
+
+
+#region Server
 
 # Compress zip file server
-$serverItems = @(
+$ServerDirs = @(
     "config"
     "defaultconfigs"
     "kubejs"
@@ -139,7 +328,7 @@ $serverItems = @(
     "tacz"
     "default-server.properties"
     "LICENSE"
-    "README.md"
+    #"README.md"
     "server-icon.png"
     "startserver.bat"
     "startserver.sh"
@@ -149,34 +338,41 @@ $serverItems = @(
 
 
 # Take server mod from server profile
-Write-LogInfo "Get server mod from server profile"
-$modsDirServer = Invoke-PathCombine -Path (Split-Path $modpackDir -Parent), "Project Anoxia Lunar Ruins Server", "mods"
-Copy-Item -Path $modsDirServer -Destination $tempDir -Recurse -Force -Exclude "*.disabled"
-Start-Sleep -Seconds 10
+Write-Host "Get server mods from server profile"
+$modsDir = [System.IO.Path]::Combine((Split-Path $ProjectDir -Parent), "Project Anoxia Lunar Ruins Server", "mods")
+Copy-Item -Path $modsDir -Destination $TempDir -Recurse -Exclude "*.disabled"
 
 
 # Copy repository client file to temp dir
-Write-LogInfo "Copy repository server file to temp dir"
-$server = $serverItems | ForEach-Object { Join-Path $repoDir $_ }
-Copy-Item -Path $server -Destination $tempDir -Force -Recurse
-Start-Sleep -Seconds 10
+Write-Host "Copy repository server file to temp dir"
+$serverItems = $ServerDirs | ForEach-Object { Join-Path $RepoDir $_ }
+Copy-Item -Path $serverItems -Destination $TempDir -Recurse
 
 
 # Generate CurseForge zip
-Write-LogInfo "Create server release zip"
-$serverRelease = Get-ChildItem -Path $tempDir -Force | ForEach-Object { $_.FullName }
-$build = Join-Path $buildDir "Anoxia-${Version}-Server.zip"
-Compress-Archive -Path $serverRelease -DestinationPath $build -Force
-Start-Sleep -Seconds 10
+Write-Host "Create server release zip"
+$serverItems = Get-ChildItem -Path $TempDir -Force | ForEach-Object { $_.FullName }
+Compress-Archive -Path $serverItems -DestinationPath $ServerRLS
+
+#endregion
 
 
-# Copy item to archive release
-Write-LogInfo "Copy Anoxia-${Version}-Server.zip to release dir (OneDrive)"
-$releaseDir = Join-Path $anoxiOneDrive "Release"
-Copy-Item -Path $build -Destination $releaseDir -Force
-Start-Sleep -Seconds 10
+# ====================================================================================== #
 
+
+#region Upload
 
 # Copy item to archive release
-Write-LogInfo "Clear temp dir"
-Remove-Item -Path $serverRelease -Recurse -Force
+Get-ChildItem -Path $BuildDir -Force | ForEach-Object {
+    Write-Host "Copy $([System.IO.Path]::GetFileName($_)) to release dir (OneDrive)"
+    Copy-Item -Path $_ -Destination $ReleaseDir
+}
+
+#endregion
+
+
+# Clean up dir
+Write-Host "Clear build, repo and temp dir"
+Clear-Dir -Path $BuildDir -Parent
+Clear-Dir -Path $RepoDir -Parent
+Clear-Dir -Path $TempDir -Parent
