@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:sledge_hammer",
+      "source": [
+        "tleveling:break_block"
+      ],
+      "modifiers": []
+    }
+  ]
+}

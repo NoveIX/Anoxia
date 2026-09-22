@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:hand_axe",
+      "source": [
+        "tleveling:break_block",
+        "tleveling:damage_entity"
+      ],
+      "modifiers": []
+    }
+  ]
+}

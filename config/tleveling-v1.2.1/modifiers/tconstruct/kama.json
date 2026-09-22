@@ -1,0 +1,13 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:kama",
+      "source": [
+        "tleveling:till",
+        "tleveling:shear",
+        "tleveling:break_block"
+      ],
+      "modifiers": []
+    }
+  ]
+}

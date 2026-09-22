@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:pickaxe",
+      "source": [
+        "tleveling:break_block"
+      ],
+      "modifiers": []
+    }
+  ]
+}

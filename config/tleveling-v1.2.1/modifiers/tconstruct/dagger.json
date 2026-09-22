@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:dagger",
+      "source": [
+        "tleveling:damage_entity"
+      ],
+      "modifiers": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:plate_helmet",
+      "source": [
+        "tleveling:take_damage"
+      ],
+      "modifiers": []
+    }
+  ]
+}

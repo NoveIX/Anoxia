@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:plate_chestplate",
+      "source": [
+        "tleveling:take_damage"
+      ],
+      "modifiers": []
+    }
+  ]
+}

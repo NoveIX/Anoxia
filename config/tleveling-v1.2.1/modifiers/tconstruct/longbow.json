@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:longbow",
+      "source": [
+        "tleveling:ranged_damage_entity"
+      ],
+      "modifiers": []
+    }
+  ]
+}

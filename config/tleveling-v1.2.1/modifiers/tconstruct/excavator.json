@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:excavator",
+      "source": [
+        "tleveling:break_block"
+      ],
+      "modifiers": []
+    }
+  ]
+}

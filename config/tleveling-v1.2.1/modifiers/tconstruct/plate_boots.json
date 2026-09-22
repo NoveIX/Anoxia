@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:plate_boots",
+      "source": [
+        "tleveling:take_damage"
+      ],
+      "modifiers": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:plate_leggings",
+      "source": [
+        "tleveling:take_damage"
+      ],
+      "modifiers": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:cleaver",
+      "source": [
+        "tleveling:damage_entity"
+      ],
+      "modifiers": []
+    }
+  ]
+}

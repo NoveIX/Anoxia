@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "item": "tconstruct:vein_hammer",
+      "source": [
+        "tleveling:break_block"
+      ],
+      "modifiers": []
+    }
+  ]
+}
