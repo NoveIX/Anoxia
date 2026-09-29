@@ -17,6 +17,8 @@ JAVA_VER=17
 MC_VER=1.20.1
 FORGE_VER=47.4.10
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 # Get modpack version
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 TITLE="Anoxia Server"
