@@ -324,7 +324,7 @@ $ServerDirs = @(
     "defaultconfigs"
     "kubejs"
     "local"
-    "serverInstaller"
+    "server"
     "tacz"
     "default-server.properties"
     "LICENSE"
