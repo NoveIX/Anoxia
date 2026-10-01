@@ -56,12 +56,31 @@ function Write-LogError {
 
 # ====================================================================================== #
 
+
 #region Utility func
 # Get system architecture (x64 or ARM64)
 function Get-SystemArch {
+
     switch ($env:PROCESSOR_ARCHITECTURE) {
+
+        'AMD64' { return 'x64' }
+        'ARM64' { return 'arm64' }
+
+        Default {
+            throw [System.PlatformNotSupportedException]::new(
+                "Unsupported processor architecture $env:PROCESSOR_ARCHITECTURE. Required architecture: AMD64 or ARM64."
+            )
+        }
+    }
+}
+
+function Get-JavaApiArch {
+
+    switch ($env:PROCESSOR_ARCHITECTURE) {
+
         'AMD64' { return 'x64' }
         'ARM64' { return 'aarch64' }
+
         Default {
             throw [System.PlatformNotSupportedException]::new(
                 "Unsupported processor architecture $env:PROCESSOR_ARCHITECTURE. Required architecture: AMD64 or ARM64."
@@ -115,7 +134,9 @@ function Invoke-FileDownload {
 }
 #endregion
 
+
 # ====================================================================================== #
+
 
 #region Install java
 # Download and install Java from Adoptium Temurin
@@ -123,21 +144,20 @@ function Install-Java {
 
     # Get system architecture
     $Arch = Get-SystemArch
+    $JavaArch = Get-JavaApiArch
 
     # Get Java package metadata from environment variables
     $Major = $env:JAVA_VERSION
-    $Package = $env:JAVA_PACKAGE.ToLower()
+    $Variant = $env:JAVA_VARIANT.ToLower()
 
-    # Build Java archive name
-    $JavaArchive = "Adoptium-OpenJDK${Major}U-${Package}_${Arch}_windows.zip"
-
-    # Build Java download URL
-    $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Major}/ga/windows/${Arch}/${Package}/hotspot/normal/eclipse"
+    # Build Java archive name and download URL
+    $JavaArchive = "Adoptium-OpenJDK${Major}U-${Variant}_${Arch}_windows.zip"
+    $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Major}/ga/windows/${JavaArch}/${Variant}/hotspot/normal/eclipse"
 
     # Build local Java paths
     $JavaZip = Join-Path -Path $env:ROOT -ChildPath $JavaArchive
     $JavaTemp = Join-Path -Path $env:ROOT -ChildPath "OpenJDK${Major}U"
-    $JavaRoot = [System.IO.Path]::Combine($env:ROOT, "java", "windows", $Package)
+    $JavaRoot = [System.IO.Path]::Combine($env:ROOT, "java", "windows", $Arch, $Variant, $Major)
 
 
     # Download Java archive if not already present
@@ -147,11 +167,12 @@ function Install-Java {
 
 
     # Install java if not already installed
-    if (-not (Test-Path -Path "java" -PathType Container)) {
+    if (-not (Test-Path -Path $JavaRoot -PathType Container)) {
+
         # Expand Java Archive
         try {
             Write-LogInfo "Extracting $JavaArchive"
-            Expand-Archive -Path $JavaZip -DestinationPath $JavaTemp -ErrorAction Stop
+            Expand-Archive -Path $JavaZip -DestinationPath $JavaTemp -Force -ErrorAction Stop
 
             Write-LogInfo "Extraction completed"
         }
@@ -168,7 +189,6 @@ function Install-Java {
             Where-Object { $_.Name -match "(jdk|jre)-?${Major}" } |
             Select-Object -First 1
 
-
             # Validate that the Java installation directory was found
             if (-not $JavaSource) {
                 throw [System.IO.DirectoryNotFoundException]::new(
@@ -182,7 +202,6 @@ function Install-Java {
                 New-Item -Path $JavaRoot -ItemType Directory -Force -ErrorAction Stop | Out-Null
             }
 
-
             # Copy Java installation contents to the final destination
             Write-LogInfo "Copying Java installation"
             Get-ChildItem -Path $JavaSource.FullName -Force -ErrorAction Stop |
@@ -194,8 +213,6 @@ function Install-Java {
             # Remove temporary extraction directory
             Remove-Item -Path $JavaTemp -Force -Recurse -ErrorAction Stop
 
-
-            # Log completion message
             Write-LogInfo "Java installation completed. Installed in '$JavaRoot'"
         }
         catch {
@@ -276,12 +293,20 @@ function Install-ModLoader {
 
             # Run mod loader installer
             Write-LogInfo "Installing $ModLoaderName"
-            & $env:JAVA_EXE -jar $ModLoaderZip --installServer
 
-            if ($LASTEXITCODE -ne 0) {
-                throw [System.InvalidOperationException]::new(
-                    "$ModLoaderName installation failed with exit code $LASTEXITCODE."
-                )
+            try {
+                Push-Location $env:ROOT
+
+                & $env:JAVA_EXE -jar $ModLoaderZip --installServer
+
+                if ($LASTEXITCODE -ne 0) {
+                    throw [System.InvalidOperationException]::new(
+                        "$ModLoaderName installation failed with exit code $LASTEXITCODE."
+                    )
+                }
+            }
+            finally {
+                Pop-Location
             }
 
             Write-LogInfo "Installation completed"

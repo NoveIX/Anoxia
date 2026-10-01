@@ -1,29 +1,47 @@
 #!/bin/sh
 set -e
 
-# To use a specific Java runtime, define the ANOXIA_JAVA variable below with the full path to java.
-# ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# To use a specific Java runtime, define the JAVA_EXE variable below with the full path to java.
+# JAVA_EXE="/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
 
-# To enable automatic restarts, set the ANOXIA_RESTART variable to true.
-# ANOXIA_RESTART=true
+# To enable automatic server restarts, set the SERVER_RESTART variable to true.
+# SERVER_RESTART="true"
 
-# To install the pack without starting the server, set the ANOXIA_INSTALL_ONLY variable to true.
-# ANOXIA_INSTALL_ONLY=true
+# To install the pack without starting the server, set the INSTALL_ONLY variable to true.
+# INSTALL_ONLY="true"
 
+
+# ====================================================================================== #
 
 
 # Set installer version
 JAVA_VER=17
 MC_VER=1.20.1
-FORGE_VER=47.4.10
+FORGE_VER=47.4.20
 
 # Get modpack version
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+ROOT=$(cd "$SCRIPT_DIR/../.." && pwd)
 TITLE="Anoxia Server"
 MPVER=""
 
-if [ -f "$SCRIPT_DIR/version.txt" ]; then
-    read -r MPVER < "$SCRIPT_DIR/version.txt"
+# Legacy info
+printf '\n'
+printf '# ======================================================= #\n'
+printf '\n'
+printf '%s Launcher\n' "$TITLE"
+printf '\n'
+printf 'NOTE: You are using the POSIX-compatible server launcher.\n'
+printf 'This launcher is an alternative to the Bash-based launcher.\n'
+printf '\n'
+printf 'Continuing in 30 seconds...\n'
+printf '\n'
+printf '# ======================================================= #\n'
+printf '\n'
+sleep 30
+
+if [ -f "$ROOT/version.txt" ]; then
+    read -r MPVER < "$ROOT/version.txt"
 fi
 
 if [ -n "$MPVER" ]; then
@@ -34,27 +52,27 @@ fi
 printf '\033]0;%s\007' "$TITLE"
 
 # Change to script directory
-cd "$SCRIPT_DIR"
-SERVER_INSTALLER="$SCRIPT_DIR/serverInstaller"
+cd "$ROOT"
+INSTALLER="$SCRIPT_DIR/installer/installer.sh"
 
 # Check if installer exists
-if [ ! -f "$SERVER_INSTALLER/installer.sh" ]; then
+if [ ! -f "$INSTALLER" ]; then
     printf 'error: file installer.sh not found!\n'
     exit 1
 fi
 
 # Load installer functions
-. "$SERVER_INSTALLER/installer.sh"
+. "$INSTALLER"
 
 # Check if Java is available, install it if missing, and set ANOXIA_JAVA variable
 if [ -z "$ANOXIA_JAVA" ]; then
-    if [ ! -f "$SCRIPT_DIR/java/bin/java" ]; then
+    if [ ! -f "$ROOT/java/bin/java" ]; then
         if ! install_local_java "$JAVA_VER"; then
             exit 1
         fi
     fi
 
-    ANOXIA_JAVA="$SCRIPT_DIR/java/bin/java"
+    ANOXIA_JAVA="$ROOT/java/bin/java"
 fi
 
 # Verify Java availability (file or PATH)

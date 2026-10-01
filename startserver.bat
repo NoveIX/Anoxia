@@ -18,7 +18,7 @@ setlocal
 
 :: Modpack root
 set "ROOT=%~dp0"
-set "ENV=%ROOT%server.env"
+set "ENV=%ROOT%server\server.env"
 set "LOAD=%ROOT%server\load-env.cmd"
 set "SETUP=%ROOT%server\setup.ps1"
 cd /D "%ROOT%"
@@ -36,7 +36,7 @@ if errorlevel 1 (
 )
 
 :: Terminal title
-title %CONSOLE_TITLE% v%MODPACK_VERSION%
+title %PROJECT_ID% %PROJECT_ROLE% v%MODPACK_VERSION%
 
 :: Check if setup.ps1 exists
 if not exist "%SETUP%" (
@@ -44,9 +44,19 @@ if not exist "%SETUP%" (
     pause & exit /b 1
 )
 
+:: Check system architecture
+if /i "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
+    set "JAVA_ARCH=x64"
+) else if /i "%PROCESSOR_ARCHITECTURE%"=="ARM64" (
+    set "JAVA_ARCH=arm64"
+) else (
+    echo ERROR: Unsupported processor architecture %PROCESSOR_ARCHITECTURE%. Required architecture: AMD64 or ARM64
+    exit /b 1
+)
+
 :: Check if Java is available, install it if missing, and set JAVA_EXE variable
 if not defined JAVA_EXE (
-    if not exist "%ROOT%\java\windows\%JAVA_PACKAGE%\bin\java.exe" (
+    if not exist "%ROOT%java\windows\%JAVA_ARCH%\%JAVA_VARIANT%\%JAVA_VERSION%\bin\java.exe" (
         powershell -ExecutionPolicy Bypass ^
             -File "%SETUP%" ^
             -InstallJava
@@ -57,7 +67,7 @@ if not defined JAVA_EXE (
         )
     )
 
-    set "JAVA_EXE=%ROOT%\java\windows\%JAVA_PACKAGE%\bin\java.exe"
+    set "JAVA_EXE=%ROOT%java\windows\%JAVA_ARCH%\%JAVA_VARIANT%\%JAVA_VERSION%\bin\java.exe"
 )
 
 :: Verify Java availability (file or PATH)
@@ -112,7 +122,7 @@ if /i "%INSTALL_ONLY%" == "true" (
 if /i "%SERVER_RESTART%" == "true" (
     echo Restarting automatically in 10 seconds ^(press Ctrl + C to cancel^)
     timeout /t 10 /nobreak > NUL
-    goto:START
+    goto :START
 )
 
 pause

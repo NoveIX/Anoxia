@@ -1,108 +1,128 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e
 
-# To use a specific Java runtime, define the ANOXIA_JAVA variable below with the full path to java.
-# ANOXIA_JAVA=/usr/lib/jvm/java-17-openjdk-amd64/bin/java
+# To use a specific Java runtime, define the JAVA_EXE variable below with the full path to java.
+# JAVA_EXE="/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
 
-# To enable automatic restarts, set the ANOXIA_RESTART variable to true.
-# ANOXIA_RESTART=true
+# To enable automatic server restarts, set the SERVER_RESTART variable to true.
+# SERVER_RESTART="true"
 
-# To install the pack without starting the server, set the ANOXIA_INSTALL_ONLY variable to true.
-# ANOXIA_INSTALL_ONLY=true
+# To install the pack without starting the server, set the INSTALL_ONLY variable to true.
+# INSTALL_ONLY="true"
 
 
 
-# Set installer version
-JAVA_VER=17
-MC_VER=1.20.1
-FORGE_VER=47.4.10
+# ====================================================================================== #
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# Get modpack version
-SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-TITLE="Anoxia Server"
-MPVER=""
 
-if [ -f "$SCRIPT_DIR/version.txt" ]; then
-    read -r MPVER < "$SCRIPT_DIR/version.txt"
-fi
+# Modpack root
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV="$ROOT/server/server.env"
+LOAD="$ROOT/server/load-env.sh"
+SETUP="$ROOT/server/setup.sh"
+cd "$ROOT"
 
-if [ -n "$MPVER" ]; then
-    TITLE="$TITLE v$MPVER"
-fi
-
-# Set terminal title
-printf '\033]0;%s\007' "$TITLE"
-
-# Change to script directory
-cd "$SCRIPT_DIR"
-SERVER_INSTALLER="$SCRIPT_DIR/serverInstaller"
-
-# Check if installer exists
-if [ ! -f "$SERVER_INSTALLER/installer.sh" ]; then
-    printf 'error: file installer.sh not found!\n'
+# Check if load-env.sh exists
+if [[ ! -f "$LOAD" ]]; then
+    printf "error: file not found '%s'\n" "$LOAD"
     exit 1
 fi
 
-# Load installer functions
-. "$SERVER_INSTALLER/installer.sh"
+# Load server environment
+if ! source "$LOAD" "$ENV"; then
+    exit 1
+fi
 
-# Check if Java is available, install it if missing, and set ANOXIA_JAVA variable
-if [ -z "$ANOXIA_JAVA" ]; then
-    if [ ! -f "$SCRIPT_DIR/java/bin/java" ]; then
-        if ! install_local_java "$JAVA_VER"; then
+# Terminal title
+printf '\033]0;%s %s v%s\007' "$PROJECT_ID" "$PROJECT_ROLE" "$MODPACK_VERSION"
+
+# Check if setup.sh exists
+if [[ ! -f "$SETUP" ]]; then
+    printf "error: file not found '%s'\n" "$SETUP"
+    exit 1
+fi
+
+# Load server environment
+if ! source "$SETUP"; then
+    exit 1
+fi
+
+#Check system architecture
+case "$(uname -m)" in
+
+    x86_64)
+        JAVA_ARCH="x64"
+    ;;
+
+    aarch64|arm64)
+        JAVA_ARCH="arm64"
+    ;;
+
+    *)
+        printf "error: unsupported processor architecture: %s. Supported architectures: x86_64, aarch64, or arm64\n" "$(uname -m)"
+        exit 1
+    ;;
+
+esac
+
+# Check if Java is available, install it if missing, and set JAVA_EXE variable
+if [[ -z "$JAVA_EXE" ]]; then
+    if [[ ! -f "$ROOT/java/linux/$JAVA_ARCH/${JAVA_VARIANT,,}/$JAVA_VERSION/bin/java" ]]; then
+        if ! install_java; then
             exit 1
         fi
     fi
 
-    ANOXIA_JAVA="$SCRIPT_DIR/java/bin/java"
+    JAVA_EXE="$ROOT/java/linux/$JAVA_ARCH/${JAVA_VARIANT,,}/$JAVA_VERSION/bin/java"
 fi
 
 # Verify Java availability (file or PATH)
-if [ ! -f "$ANOXIA_JAVA" ]; then
-    if ! command -v "$ANOXIA_JAVA" >/dev/null 2>&1; then
-        printf '%s\n' "error: Java executable not found: $ANOXIA_JAVA"
+if [[ ! -f "$JAVA_EXE" ]]; then
+    if ! command -v "$JAVA_EXE" >/dev/null 2>&1; then
+        printf "error: java not found '%s'\n" "$JAVA_EXE"
         exit 1
     fi
 fi
 
 # Check Java version and parse the version string
-RAW_VER=$("$ANOXIA_JAVA" -version 2>&1 | awk -F '"' '/version/ {print $2}')
-if printf '%s\n' "$RAW_VER" | grep -q "^1\."; then
-    JVER=$(printf '%s\n' "$RAW_VER" | cut -d'.' -f2)
+RAW_VER=$("$JAVA_EXE" -version 2>&1 | awk -F '"' '/version/ {print $2}')
+if [[ "$RAW_VER" == 1.* ]]; then
+    CTX_VER="${RAW_VER#1.}"
+    CTX_VER="${CTX_VER%%.*}"
 else
-    JVER=$(printf '%s\n' "$RAW_VER" | cut -d'.' -f1)
+    CTX_VER="${RAW_VER%%.*}"
 fi
 
 # Check Java version compatibility with required Minecraft version
-if [ "$JVER" -lt "$JAVA_VER" ]; then
-    printf '%s\n' "Minecraft $MC_VER requires Java $JAVA_VER (detected: Java $JVER)"
+if (( CTX_VER < JAVA_VERSION )); then
+    printf "Minecraft %s requires Java %s - found Java %s\n" \
+        "$MINECRAFT_VERSION" "$JAVA_VERSION" "$CTX_VER"
     exit 1
 fi
 
 # Check if libraries directory exists, install if missing
-if [ ! -d "libraries" ]; then
-    if ! install_forge "$ANOXIA_JAVA" "$MC_VER" "$FORGE_VER"; then
+if [[ ! -d "libraries" ]]; then
+    if ! install_mod_loader; then
         exit 1
     fi
 fi
 
 # Check if running in "Install Only" mode
-if [ "${ANOXIA_INSTALL_ONLY:-false}" = "true" ]; then
-    printf 'Install completed the Server will NOT start.\n'
+if [[ "${INSTALL_ONLY:-false}" == "true" ]]; then
+    printf "info: install completed the Server will NOT start.\n"
     exit 0
 fi
 
 # Start server (auto-restart on crash)
 while true; do
-    "$ANOXIA_JAVA" @user_jvm_args.txt @libraries/net/minecraftforge/forge/$MC_VER-$FORGE_VER/unix_args.txt nogui
+    "$JAVA_EXE" $JAVA_ARGS @libraries/net/minecraftforge/forge/$MINECRAFT_VERSION-$MINECRAFT_MOD_LOADER_VERSION/unix_args.txt nogui
 
     # Restart Server
-    if [ "${ANOXIA_RESTART:-false}" = "false" ]; then
+    if [[ "${SERVER_RESTART:-false}" != "true" ]]; then
         exit 0
     fi
 
-    printf 'Restarting automatically in 10 seconds (press Ctrl + C to cancel)\n'
+    printf 'restarting automatically in 10 seconds (press Ctrl + C to cancel)\n'
     sleep 10
 done

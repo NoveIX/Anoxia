@@ -3,7 +3,7 @@
 ENV_FILE="${1:-.env}"
 
 if [[ ! -f "$ENV_FILE" ]]; then
-    echo "ERROR: Environment file not found: $ENV_FILE" >&2
+    printf "error: environment file not found '%s'\n" "$ENV_FILE" >&2
     return 1 2>/dev/null || exit 1
 fi
 
@@ -22,3 +22,5 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     export "$key=$value"
 
 done < "$ENV_FILE"
+
+return 0 2>/dev/null || exit 0
