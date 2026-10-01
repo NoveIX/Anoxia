@@ -56,7 +56,7 @@ if /i "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
 
 :: Check if Java is available, install it if missing, and set JAVA_EXE variable
 if not defined JAVA_EXE (
-    if not exist "%ROOT%java\windows\%JAVA_ARCH%\%JAVA_VARIANT%\%JAVA_VERSION%\bin\java.exe" (
+    if not exist "%ROOT%java\windows-%JAVA_ARCH%-%JAVA_VARIANT%-%JAVA_VERSION%\bin\java.exe" (
         powershell -ExecutionPolicy Bypass ^
             -File "%SETUP%" ^
             -InstallJava
@@ -67,7 +67,7 @@ if not defined JAVA_EXE (
         )
     )
 
-    set "JAVA_EXE=%ROOT%java\windows\%JAVA_ARCH%\%JAVA_VARIANT%\%JAVA_VERSION%\bin\java.exe"
+    set "JAVA_EXE=%ROOT%java\windows-%JAVA_ARCH%-%JAVA_VARIANT%-%JAVA_VERSION%\bin\java.exe"
 )
 
 :: Verify Java availability (file or PATH)

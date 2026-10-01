@@ -151,13 +151,14 @@ function Install-Java {
     $Variant = $env:JAVA_VARIANT.ToLower()
 
     # Build Java archive name and download URL
-    $JavaArchive = "Adoptium-OpenJDK${Major}U-${Variant}_${Arch}_windows.zip"
+    $JavaArchive = "Adoptium-OpenJDK${Major}U-${Variant}-${Arch}-windows.zip"
     $JavaUrl = "https://api.adoptium.net/v3/binary/latest/${Major}/ga/windows/${JavaArch}/${Variant}/hotspot/normal/eclipse"
 
     # Build local Java paths
     $JavaZip = Join-Path -Path $env:ROOT -ChildPath $JavaArchive
     $JavaTemp = Join-Path -Path $env:ROOT -ChildPath "OpenJDK${Major}U"
-    $JavaRoot = [System.IO.Path]::Combine($env:ROOT, "java", "windows", $Arch, $Variant, $Major)
+    $JavaRoot = [System.IO.Path]::Combine($env:ROOT, "java", "windows-${Arch}-${Variant}-${Major}")
+    #$JavaRoot = [System.IO.Path]::Combine($env:ROOT, "java", "windows", $Arch, $Variant, $Major)
 
 
     # Download Java archive if not already present

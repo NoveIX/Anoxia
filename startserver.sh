@@ -68,13 +68,13 @@ esac
 
 # Check if Java is available, install it if missing, and set JAVA_EXE variable
 if [[ -z "$JAVA_EXE" ]]; then
-    if [[ ! -f "$ROOT/java/linux/$JAVA_ARCH/${JAVA_VARIANT,,}/$JAVA_VERSION/bin/java" ]]; then
+    if [[ ! -f "$ROOT/java/linux-${JAVA_ARCH}-${JAVA_VARIANT,,}-${JAVA_VERSION}/bin/java" ]]; then
         if ! install_java; then
             exit 1
         fi
     fi
 
-    JAVA_EXE="$ROOT/java/linux/$JAVA_ARCH/${JAVA_VARIANT,,}/$JAVA_VERSION/bin/java"
+    JAVA_EXE="$ROOT/java/linux-${JAVA_ARCH}-${JAVA_VARIANT,,}-${JAVA_VERSION}/bin/java"
 fi
 
 # Verify Java availability (file or PATH)

@@ -90,7 +90,7 @@ file_download() {
 
     # Try wget
     if command -v wget >/dev/null 2>&1; then
-        log_info "wget: Downloading $file"
+        log_info "wget: downloading $file"
 
         if ! wget -q --show-progress -O "$path" "$url"; then
             log_error "wget: download failed"
@@ -106,7 +106,7 @@ file_download() {
 
     # Try curl
     if command -v curl >/dev/null 2>&1; then
-        log_info "curl: Downloading $file"
+        log_info "curl: downloading $file"
 
         if ! curl -# -L -o "$path" "$url"; then
             log_error "curl: download failed"
@@ -139,7 +139,7 @@ function install_java() {
     local variant="${JAVA_VARIANT,,}"
 
     # Build Java archive name
-    local java_archive="Adoptium-OpenJDK${major}U-${variant}_${arch}_linux.tar.gz"
+    local java_archive="Adoptium-OpenJDK${major}U-${variant}-${arch}-linux.tar.gz"
 
     # Build Java download URL
     local java_url="https://api.adoptium.net/v3/binary/latest/${major}/ga/linux/${java_arch}/${variant}/hotspot/normal/eclipse"
@@ -147,7 +147,8 @@ function install_java() {
     # Build local Java paths
     local java_zip="$ROOT/$java_archive"
     local java_temp="$ROOT/OpenJDK${major}U"
-    local java_root="$ROOT/java/linux/$arch/$variant/$major"
+    local java_root="$ROOT/java/linux-${arch}-${variant}-${major}"
+    #local java_root="$ROOT/java/linux/${arch}/${variant}/${major}"
 
 
     # Download Java archive if not already present
