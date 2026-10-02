@@ -30,7 +30,7 @@ if not exist "%LOAD%" (
 )
 
 :: Load server environment
-call "%LOAD%" "%ENV%"
+call "%LOAD%"
 if errorlevel 1 (
     pause & exit /b 1
 )

@@ -305,6 +305,10 @@ function Install-ModLoader {
                         "$ModLoaderName installation failed with exit code $LASTEXITCODE."
                     )
                 }
+
+                # Remove mod loader run server script
+                Get-ChildItem -Path $env:ROOT -Filter "run.*" -File |
+                Remove-Item -Force
             }
             finally {
                 Pop-Location

@@ -1,8 +1,7 @@
 #region Logging
-function log() {
-    local level="$1"
-    local message="$2"
-    local color
+log() {
+    level="$1"
+    message="$2"
 
     case "$level" in
 
@@ -25,14 +24,14 @@ function log() {
 
     esac
 
-    printf '%b%s%b: %s\n' "$color" "${level,,}" '\033[0m' "$message"
+    printf '%b%s%b: %s\n' "$color" "$level" '\033[0m' "$message"
 }
 
-function log_info() {
+log_info() {
     log "info" "$1"
 }
 
-function log_error() {
+log_error() {
     log "error" "$1"
 }
 #endregion
@@ -43,7 +42,7 @@ function log_error() {
 
 #region Utility func
 # Get system architecture (x64 or ARM64)
-function get_system_arch() {
+system_arch() {
 
     case "$(uname -m)" in
 
@@ -63,7 +62,7 @@ function get_system_arch() {
     esac
 }
 
-function get_java_api_arch() {
+java_api_arch() {
 
     case "$(uname -m)" in
 
@@ -84,9 +83,9 @@ function get_java_api_arch() {
 
 # Download a file from a URL
 file_download() {
-    local path="$1"
-    local url="$2"
-    local file="$(basename "$path")"
+    path="$1"
+    url="$2"
+    file="$(basename "$path")"
 
     # Try wget
     if command -v wget >/dev/null 2>&1; then
@@ -128,37 +127,37 @@ file_download() {
 
 #region Install java
 # Download and install Java from Adoptium Temurin
-function install_java() {
+install_java() {
 
     # Get system architecture
-    local arch="$(get_system_arch)" || return 1
-    local java_arch="$(get_java_api_arch)" || return 1
+    arch="$(system_arch)" || return 1
+    java_arch="$(java_api_arch)" || return 1
 
     # Get Java package metadata from environment variables
-    local major="$JAVA_VERSION"
-    local variant="${JAVA_VARIANT,,}"
+    major="$JAVA_VERSION"
+    variant="$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')"
 
     # Build Java archive name
-    local java_archive="Adoptium-OpenJDK${major}U-${variant}-${arch}-linux.tar.gz"
+    java_archive="Adoptium-OpenJDK${major}U-${variant}-${arch}-linux.tar.gz"
 
     # Build Java download URL
-    local java_url="https://api.adoptium.net/v3/binary/latest/${major}/ga/linux/${java_arch}/${variant}/hotspot/normal/eclipse"
+    java_url="https://api.adoptium.net/v3/binary/latest/${major}/ga/linux/${java_arch}/${variant}/hotspot/normal/eclipse"
 
     # Build local Java paths
-    local java_zip="$ROOT/$java_archive"
-    local java_temp="$ROOT/OpenJDK${major}U"
-    local java_root="$ROOT/java/linux-${arch}-${variant}-${major}"
-    #local java_root="$ROOT/java/linux/${arch}/${variant}/${major}"
+    java_zip="$ROOT/$java_archive"
+    java_temp="$ROOT/OpenJDK${major}U"
+    java_root="$ROOT/java/linux-${arch}-${variant}-${major}"
+    #java_root="$ROOT/java/linux/${arch}/${variant}/${major}"
 
 
     # Download Java archive if not already present
-    if [[ ! -f "$java_zip" ]]; then
+    if [ ! -f "$java_zip" ]; then
         file_download "$java_zip" "$java_url" || return 1
     fi
 
 
     # Install Java if not already installed
-    if [[ ! -d "$java_root" ]]; then
+    if [ ! -d "$java_root" ]; then
 
         # Extract Java archive
         log_info "extracting $java_archive"
@@ -177,15 +176,13 @@ function install_java() {
 
 
         # Locate the extracted Java installation directory
-        local java_source="$(find "$java_temp" \
-            -maxdepth 1 \
-            -type d \
-            -regextype posix-extended \
-            -regex ".*/.*(jdk|jre).*${major}.*" \
-            -print -quit)"
+        java_source="$(find "$java_temp" -type d -print |
+            grep -E '/[^/]*(jdk|jre).*'"$major"'.*$' |
+            sed -n '1p')"
+
 
         # Validate that the Java installation directory was found
-        if [[ -z "$java_source" ]]; then
+        if [ -z "$java_source" ]; then
             log_error "failed to locate Java installation directory in '$java_temp' for version $major."
             return 1
         fi
@@ -200,7 +197,7 @@ function install_java() {
         # Copy Java installation contents to the final destination
         log_info "copying Java installation"
 
-        if ! cp -a "$java_source"/. "$java_root"/; then
+        if ! cp -R "$java_source"/. "$java_root"/; then
             log_error "failed to copy Java installation"
             return 1
         fi
@@ -232,13 +229,9 @@ function install_java() {
 install_mod_loader() {
 
     # Get mod loader metadata
-    local mc_ver="$MINECRAFT_VERSION"
-    local mod_loader="${MINECRAFT_MOD_LOADER,,}"
-    local mod_loader_ver="$MINECRAFT_MOD_LOADER_VERSION"
-
-    local mod_loader_name
-    local mod_loader_archive
-    local mod_loader_url
+    mc_ver="$MINECRAFT_VERSION"
+    mod_loader="$(printf '%s' "$MINECRAFT_MOD_LOADER" | tr '[:upper:]' '[:lower:]')"
+    mod_loader_ver="$MINECRAFT_MOD_LOADER_VERSION"
 
     # Build mod loader archive name and download URL
     case "$mod_loader" in
@@ -274,21 +267,21 @@ install_mod_loader() {
     esac
 
     # Build local mod loader paths
-    local mod_loader_zip="$ROOT/$mod_loader_archive"
-    local libraries_dir="$ROOT/libraries"
+    mod_loader_zip="$ROOT/$mod_loader_archive"
+    libraries_dir="$ROOT/libraries"
 
 
     # Download mod loader archive if not already present
-    if [[ ! -f "$mod_loader_zip" ]]; then
+    if [ ! -f "$mod_loader_zip" ]; then
         file_download "$mod_loader_zip" "$mod_loader_url" || return 1
     fi
 
 
     # Install mod loader if not already installed
-    if [[ ! -d "$libraries_dir" ]]; then
+    if [ ! -d "$libraries_dir" ]; then
 
         # Validate Java executable
-        if [[ ! -f "$JAVA_EXE" ]]; then
+        if [ ! -f "$JAVA_EXE" ]; then
             log_error "java executable not found: '$JAVA_EXE'."
             return 1
         fi
@@ -298,9 +291,11 @@ install_mod_loader() {
         log_info "installing $mod_loader_name"
 
         if ! "$JAVA_EXE" -jar "$mod_loader_zip" --installServer; then
-            log_error "$mod_loader_name installation failed with exit code $exit_code."
+            log_error "$mod_loader_name installation failed with exit code $?."
             return 1
         fi
+
+        rm -f "$ROOT"/run.*
 
         log_info "installation completed"
 

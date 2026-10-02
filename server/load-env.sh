@@ -1,19 +1,19 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-ENV_FILE="${1:-.env}"
-
-if [[ ! -f "$ENV_FILE" ]]; then
-    printf "error: environment file not found '%s'\n" "$ENV_FILE" >&2
+if [ ! -f "$ENV" ]; then
+    printf "error: environment file not found '%s'\n" "$ENV" >&2
     return 1 2>/dev/null || exit 1
 fi
 
-while IFS= read -r line || [[ -n "$line" ]]; do
+while IFS= read -r line || [ -n "$line" ]; do
 
     # Skip empty lines
-    [[ -z "$line" ]] && continue
+    [ -z "$line" ] && continue
 
     # Skip comments
-    [[ "$line" == \#* ]] && continue
+    case "$line" in
+        \#*) continue ;;
+    esac
 
     # Split KEY=VALUE
     key="${line%%=*}"
@@ -21,6 +21,6 @@ while IFS= read -r line || [[ -n "$line" ]]; do
 
     export "$key=$value"
 
-done < "$ENV_FILE"
+done < "$ENV"
 
 return 0 2>/dev/null || exit 0
