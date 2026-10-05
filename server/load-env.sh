@@ -1,10 +1,12 @@
 #!/bin/sh
 
+# Check if the environment file exists
 if [ ! -f "$ENV" ]; then
     printf "error: environment file not found '%s'\n" "$ENV" >&2
     return 1 2>/dev/null || exit 1
 fi
 
+# Load environment variables from the file
 while IFS= read -r line || [ -n "$line" ]; do
 
     # Skip empty lines

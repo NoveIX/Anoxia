@@ -17,8 +17,12 @@ log() {
             color='\033[31m'       # Red
         ;;
 
+        done)
+            color='\033[32m'       # Green
+        ;;
+
         *)
-            printf 'Invalid log level: %s\n' "$level" >&2
+            printf 'invalid log level: %s\n' "$level"
             return 1
         ;;
 
@@ -31,8 +35,16 @@ log_info() {
     log "info" "$1"
 }
 
+log_warn() {
+    log "warn" "$1"
+}
+
 log_error() {
-    log "error" "$1"
+    log "error" "$1" >&2
+}
+
+log_done() {
+    log "done" "$1"
 }
 #endregion
 
@@ -45,37 +57,45 @@ log_error() {
 system_arch() {
 
     case "$(uname -m)" in
-
-        x86_64)
-            printf 'x64\n'
+        x86_64|amd64)
+            arch='x64'
         ;;
 
         aarch64|arm64)
-            printf 'arm64\n'
+            arch='arm64'
         ;;
 
         *)
-            printf 'unsupported processor architecture %s. Required architecture: x86_64 or (aarch64|arm64)\n' \
-            "$(uname -m)" >&2
+            log_error "unsupported processor architecture $(uname -m). Supported architectures: x64 and arm64"
             return 1
         ;;
     esac
+
+    if [ "${1:-}" = 'javaapi' ] && [ "$arch" = 'arm64' ]; then
+        arch='aarch64'
+    fi
+
+    printf '%s\n' "$arch"
 }
 
-java_api_arch() {
+# Get operating system
+java_os() {
 
-    case "$(uname -m)" in
-
-        x86_64)
-            printf 'x64\n'
+    case "$(uname -s)" in
+        Linux)
+            if [ -f /etc/alpine-release ]; then
+                printf '%s\n' 'alpine-linux'
+            else
+                printf '%s\n' 'linux'
+            fi
         ;;
 
-        aarch64|arm64)
-            printf 'aarch64\n'
+        Darwin)
+            printf '%s\n' 'mac'
         ;;
 
         *)
-            printf 'error: unsupported processor architecture %s. Supported architectures: x86_64, aarch64, or arm64\n' "$(uname -m)" >&2
+            log_error "unsupported operating system $(uname -s). Supported operating systems: Linux, MacOS"
             return 1
         ;;
     esac
@@ -131,23 +151,24 @@ install_java() {
 
     # Get system architecture
     arch="$(system_arch)" || return 1
-    java_arch="$(java_api_arch)" || return 1
+    java_arch="$(system_arch "javaapi")" || return 1
+    java_os="$(java_os)" || return 1
 
     # Get Java package metadata from environment variables
     major="$JAVA_VERSION"
     variant="$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')"
 
     # Build Java archive name
-    java_archive="Adoptium-OpenJDK${major}U-${variant}-${arch}-linux.tar.gz"
+    java_archive="Adoptium-OpenJDK${major}U-${variant}-${arch}-${java_os}.tar.gz"
 
     # Build Java download URL
-    java_url="https://api.adoptium.net/v3/binary/latest/${major}/ga/linux/${java_arch}/${variant}/hotspot/normal/eclipse"
+    java_url="https://api.adoptium.net/v3/binary/latest/${major}/ga/${java_os}/${java_arch}/${variant}/hotspot/normal/eclipse"
 
     # Build local Java paths
     java_zip="$ROOT/$java_archive"
     java_temp="$ROOT/OpenJDK${major}U"
-    java_root="$ROOT/java/linux-${arch}-${variant}-${major}"
-    #java_root="$ROOT/java/linux/${arch}/${variant}/${major}"
+    java_root="$ROOT/java/${java_os}-${arch}-${variant}-${major}"
+    #java_root="$ROOT/java/${java_os}/${arch}/${variant}/${major}"
 
 
     # Download Java archive if not already present

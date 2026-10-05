@@ -1,11 +1,13 @@
 @echo off
 
-if not exist "%ENV%" (
-    echo ERROR: Environment file not found ^'%ENV%^'
+:: Check if the environment file exists
+if not exist "!ENV!" (
+    echo ERROR: Environment file not found ^'!ENV!^'
     exit /b 1
 )
 
-for /F "usebackq tokens=1,* delims==" %%A in ("%ENV%") do (
+:: Load environment variables from the file
+for /F "usebackq tokens=1,* delims==" %%A in ("!ENV!") do (
     if not "%%A:~0,1%"=="#" (
         set "%%A=%%B"
     )

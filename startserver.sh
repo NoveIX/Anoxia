@@ -48,42 +48,42 @@ if ! . "$SETUP"; then
     exit 1
 fi
 
-#Check system architecture
-case "$(uname -m)" in
-
-    x86_64)
-        JAVA_ARCH="x64"
-    ;;
-
-    aarch64|arm64)
-        JAVA_ARCH="arm64"
-    ;;
-
-    *)
-        printf "error: unsupported processor architecture: %s. Supported architectures: x86_64, aarch64, or arm64\n" "$(uname -m)"
-        exit 1
-    ;;
-
-esac
-
-# Convert Java variant to lowercase
-JAVA_VARIANT_LOWER=$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')
-
 # Check if Java is available, install it if missing, and set JAVA_EXE variable
 if [ -z "$JAVA_EXE" ]; then
-    if [ ! -f "$ROOT/java/linux-${JAVA_ARCH}-${JAVA_VARIANT_LOWER}-${JAVA_VERSION}/bin/java" ]; then
+
+    # Check system architecture
+    JAVA_ARCH="$(system_arch)" || exit 1
+
+    # Check OS
+    JAVA_OS="$(java_os)" || exit 1
+
+    # Convert Java variant to lowercase
+    JAVA_VARIANT_LOWER=$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')
+
+    # Java installation directory
+    JAVA_DIR="$ROOT/java/${JAVA_OS}-${JAVA_ARCH}-${JAVA_VARIANT_LOWER}-${JAVA_VERSION}"
+
+    # macOS Java archives contain Java inside Contents/Home
+    if [ "$JAVA_OS" = "mac" ]; then
+        JAVA_HOME="$JAVA_DIR/Contents/Home"
+    else
+        JAVA_HOME="$JAVA_DIR"
+    fi
+
+    # Check or install local java
+    JAVA_EXE="$JAVA_HOME/bin/java"
+
+    if [ ! -f "$JAVA_EXE" ]; then
         if ! install_java; then
             exit 1
         fi
     fi
-
-    JAVA_EXE="$ROOT/java/linux-${JAVA_ARCH}-${JAVA_VARIANT_LOWER}-${JAVA_VERSION}/bin/java"
 fi
 
 # Verify Java availability (file or PATH)
 if [ ! -f "$JAVA_EXE" ]; then
     if ! command -v "$JAVA_EXE" >/dev/null 2>&1; then
-        printf "error: java not found '%s'\n" "$JAVA_EXE"
+        log_error "java not found '$JAVA_EXE'"
         exit 1
     fi
 fi
@@ -103,8 +103,8 @@ esac
 
 # Check Java version compatibility with required Minecraft version
 if [ "$CTX_VER" -lt "$JAVA_VERSION" ]; then
-    printf "Minecraft %s requires Java %s - found Java %s\n" \
-        "$MINECRAFT_VERSION" "$JAVA_VERSION" "$CTX_VER"
+    printf 'Minecraft %s requires Java %s. Found Java %s\n' \
+    "$MINECRAFT_VERSION" "$JAVA_VERSION" "$CTX_VER"
     exit 1
 fi
 
@@ -117,7 +117,7 @@ fi
 
 # Check if running in "Install Only" mode
 if [ "${INSTALL_ONLY:-false}" = "true" ]; then
-    printf "info: install completed the Server will NOT start.\n"
+    log_done "install completed the server will NOT start"
     exit 0
 fi
 
@@ -130,6 +130,6 @@ while true; do
         exit 0
     fi
 
-    printf "restarting automatically in 10 seconds (press Ctrl + C to cancel)\n"
+    printf 'restarting automatically in 10 seconds (press Ctrl + C to cancel)\n'
     sleep 10
 done

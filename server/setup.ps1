@@ -1,10 +1,10 @@
 param (
     # Java
-    [Parameter(Mandatory = $true, ParameterSetName = 'java')]
+    [Parameter(Mandatory = $true, ParameterSetName = "java")]
     [switch]$InstallJava,
 
     # Mod Loader
-    [Parameter(Mandatory = $true, ParameterSetName = 'ModLoader')]
+    [Parameter(Mandatory = $true, ParameterSetName = "ModLoader")]
     [switch]$InstallModLoader
 )
 
@@ -60,26 +60,17 @@ function Write-LogError {
 #region Utility func
 # Get system architecture (x64 or ARM64)
 function Get-SystemArch {
+    param(
+        [switch]$JavaApi
+    )
 
     switch ($env:PROCESSOR_ARCHITECTURE) {
 
-        'AMD64' { return 'x64' }
-        'ARM64' { return 'arm64' }
-
-        Default {
-            throw [System.PlatformNotSupportedException]::new(
-                "Unsupported processor architecture $env:PROCESSOR_ARCHITECTURE. Required architecture: AMD64 or ARM64."
-            )
+        "AMD64" { return "x64" }
+        "ARM64" {
+            if ($JavaApi) { return "aarch64" }
+            return "arm64"
         }
-    }
-}
-
-function Get-JavaApiArch {
-
-    switch ($env:PROCESSOR_ARCHITECTURE) {
-
-        'AMD64' { return 'x64' }
-        'ARM64' { return 'aarch64' }
 
         Default {
             throw [System.PlatformNotSupportedException]::new(
@@ -144,7 +135,7 @@ function Install-Java {
 
     # Get system architecture
     $Arch = Get-SystemArch
-    $JavaArch = Get-JavaApiArch
+    $JavaArch = Get-SystemArch -JavaApi
 
     # Get Java package metadata from environment variables
     $Major = $env:JAVA_VERSION
@@ -243,26 +234,32 @@ function Install-ModLoader {
 
     # Build mod loader archive name and download URL
     switch ($ModLoader) {
-        'Forge' {
+        "Forge" {
             $ModLoaderName = "Forge"
             $ModLoaderArchive = "forge-${McVer}-${ModLoaderVer}-installer.jar"
             $ModLoaderUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/${McVer}-${ModLoaderVer}/${ModLoaderArchive}"
         }
-        <#         'NeoForge' {
+
+        <#
+        "NeoForge" {
         $ModLoaderName = "NeoForge"
             $ModLoaderArchive = "neoforge-${McVer}-${ModLoaderVer}-installer.jar"
             $ModLoaderUrl = "https://maven.neoforge.net/net/neoforge/neoforge/${McVer}-${ModLoaderVer}/${ModLoaderArchive}"
         }
-        'Fabric' {
+
+        "Fabric" {
         $ModLoaderName = "Fabric"
             $ModLoaderArchive = "fabric-installer-${McVer}-${ModLoaderVer}.jar"
             $ModLoaderUrl = "https://maven.fabricmc.net/net/fabricmc/fabric-installer/${ModLoaderVer}/${ModLoaderArchive}"
         }
-        'Quilt' {
+
+        "Quilt" {
         $ModLoaderName = "Quilt"
             $ModLoaderArchive = "quilt-installer-${McVer}-${ModLoaderVer}.jar"
             $ModLoaderUrl = "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/${ModLoaderVer}/${ModLoaderArchive}"
-        } #>
+        }
+        #>
+
         Default {
             throw [System.ArgumentException]::new(
                 "Unsupported Minecraft mod loader '$ModLoader'."
