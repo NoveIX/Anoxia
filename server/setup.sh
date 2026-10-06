@@ -75,6 +75,7 @@ system_arch() {
         arch='aarch64'
     fi
 
+    # Return system arch
     printf '%s\n' "$arch"
 }
 
@@ -83,15 +84,25 @@ java_os() {
 
     case "$(uname -s)" in
         Linux)
-            if [ -f /etc/alpine-release ]; then
-                printf '%s\n' 'alpine-linux'
-            else
-                printf '%s\n' 'linux'
+            os="linux"
+
+            if [ -f /etc/os-release ]; then
+
+                # Get os id from /etc
+                os_id=$(sed -n 's/^ID=//p' /etc/os-release)
+
+                # Remove optional double quotes.
+                os_id="${os_id#\"}"
+                os_id="${os_id%\"}"
+
+                if [ "$os_id" = "alpine" ]; then
+                    os="alpine-linux"
+                fi
             fi
         ;;
 
         Darwin)
-            printf '%s\n' 'mac'
+            os="mac"
         ;;
 
         *)
@@ -99,6 +110,9 @@ java_os() {
             return 1
         ;;
     esac
+
+    # Return api os
+    printf '%s\n' "$os"
 }
 
 # Download a file from a URL
