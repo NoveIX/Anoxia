@@ -25,7 +25,7 @@ cd /D "!ROOT!"
 
 :: Check if load-env.cmd exists
 if not exist "!LOAD!" (
-    echo ERROR: file not found ^'!LOAD!^'
+    echo ERROR: File not found ^'!LOAD!^'
     pause & exit /b 1
 )
 
@@ -40,7 +40,7 @@ title !PROJECT_ID! !PROJECT_ROLE! v!MODPACK_VERSION!
 
 :: Check if setup.ps1 exists
 if not exist "!SETUP!" (
-    echo ERROR: file not found ^'!SETUP!^'
+    echo ERROR: File not found ^'!SETUP!^'
     pause & exit /b 1
 )
 
