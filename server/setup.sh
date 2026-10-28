@@ -119,7 +119,7 @@ java_os() {
 file_download() {
     path="$1"
     url="$2"
-    file="$(basename "$path")"
+    file=$(basename "$path")
 
     # Try wget
     if command -v wget >/dev/null 2>&1; then
@@ -164,13 +164,13 @@ file_download() {
 install_java() {
 
     # Get system architecture
-    arch="$(system_arch)" || return 1
-    java_arch="$(system_arch "javaapi")" || return 1
-    java_os="$(java_os)" || return 1
+    arch=$(system_arch) || return 1
+    java_arch=$(system_arch "javaapi") || return 1
+    java_os=$(java_os) || return 1
 
     # Get Java package metadata from environment variables
     major="$JAVA_VERSION"
-    variant="$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')"
+    variant=$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')
 
     # Build Java archive name
     java_archive="Adoptium-OpenJDK${major}U-${variant}-${arch}-${java_os}.tar.gz"
@@ -211,9 +211,9 @@ install_java() {
 
 
         # Locate the extracted Java installation directory
-        java_source="$(find "$java_temp" -type d -print |
+        java_source=$(find "$java_temp" -type d -print |
             grep -E '/[^/]*(jdk|jre).*'"$major"'.*$' |
-            sed -n '1p')"
+            sed -n '1p')
 
 
         # Validate that the Java installation directory was found
@@ -265,7 +265,7 @@ install_mod_loader() {
 
     # Get mod loader metadata
     mc_ver="$MINECRAFT_VERSION"
-    mod_loader="$(printf '%s' "$MINECRAFT_MOD_LOADER" | tr '[:upper:]' '[:lower:]')"
+    mod_loader=$(printf '%s' "$MINECRAFT_MOD_LOADER" | tr '[:upper:]' '[:lower:]')
     mod_loader_ver="$MINECRAFT_MOD_LOADER_VERSION"
 
     # Build mod loader archive name and download URL

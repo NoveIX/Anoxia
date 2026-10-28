@@ -17,7 +17,7 @@ set -e
 
 
 # Modpack root
-ROOT="$(cd "$(dirname "$0")" && pwd)"
+ROOT=$(CDPATH= cd -P "$(dirname "$0")" && pwd -P)
 ENV="$ROOT/server/server.env"
 LOAD="$ROOT/server/load-env.sh"
 SETUP="$ROOT/server/setup.sh"
@@ -52,10 +52,10 @@ fi
 if [ -z "$JAVA_EXE" ]; then
 
     # Check system architecture
-    JAVA_ARCH="$(system_arch)" || exit 1
+    JAVA_ARCH=$(system_arch) || exit 1
 
     # Check OS
-    JAVA_OS="$(java_os)" || exit 1
+    JAVA_OS=$(java_os) || exit 1
 
     # Convert Java variant to lowercase
     JAVA_VARIANT_LOWER=$(printf '%s' "$JAVA_VARIANT" | tr '[:upper:]' '[:lower:]')
