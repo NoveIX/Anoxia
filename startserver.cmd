@@ -25,7 +25,7 @@ cd /D "!ROOT!"
 
 :: Check if load-env.cmd exists
 if not exist "!LOAD!" (
-    echo ERROR: File not found ^'!LOAD!^'
+    echo ERROR: File not found '!LOAD!'
     pause & exit /b 1
 )
 
@@ -35,14 +35,14 @@ if errorlevel 1 (
     pause & exit /b 1
 )
 
-:: Terminal title
-title !PROJECT_ID! !PROJECT_ROLE! v!MODPACK_VERSION!
-
 :: Check if setup.ps1 exists
 if not exist "!SETUP!" (
-    echo ERROR: File not found ^'!SETUP!^'
+    echo ERROR: File not found '!SETUP!'
     pause & exit /b 1
 )
+
+:: Terminal title
+title !PROJECT_ID! !PROJECT_ROLE! v!MODPACK_VERSION!
 
 :: Check if Java is available, install it if missing, and set JAVA_EXE variable
 if not defined JAVA_EXE (
@@ -76,7 +76,7 @@ if not defined JAVA_EXE (
 if not exist "!JAVA_EXE!" (
     where "!JAVA_EXE!" >nul 2>&1
     if errorlevel 1 (
-        echo ERROR: Java not found ^'!JAVA_EXE!^'
+        echo ERROR: Java not found '!JAVA_EXE!'
         pause & exit /b 1
     )
 )
