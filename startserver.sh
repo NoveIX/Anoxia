@@ -1,13 +1,13 @@
 #!/bin/sh
 set -e
 
-# To use a specific Java runtime, define the JAVA_EXE variable below with the full path to java.
+# To use a specific Java runtime, set JAVA_EXE to the full path of the Java executable.
 # JAVA_EXE="/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
 
-# To enable automatic server restarts, set the SERVER_RESTART variable to true.
+# To enable automatic server restarts, set SERVER_RESTART to true.
 # SERVER_RESTART="true"
 
-# To install the pack without starting the server, set the INSTALL_ONLY variable to true.
+# To install the server without starting it, set INSTALL_ONLY to true.
 # INSTALL_ONLY="true"
 
 
@@ -25,7 +25,7 @@ cd "$ROOT"
 
 # Check if load-env.sh exists
 if [ ! -f "$LOAD" ]; then
-    printf "error: file not found '%s'\n" "$LOAD"
+    printf "error: File not found '%s'\n" "$LOAD"
     exit 1
 fi
 
@@ -39,7 +39,7 @@ printf '\033]0;%s %s v%s\007' "$PROJECT_ID" "$PROJECT_ROLE" "$MODPACK_VERSION"
 
 # Check if setup.sh exists
 if [ ! -f "$SETUP" ]; then
-    printf "error: file not found '%s'\n" "$SETUP"
+    printf "error: File not found '%s'\n" "$SETUP"
     exit 1
 fi
 
@@ -83,7 +83,7 @@ fi
 # Verify Java availability (file or PATH)
 if [ ! -f "$JAVA_EXE" ]; then
     if ! command -v "$JAVA_EXE" >/dev/null 2>&1; then
-        log_error "java not found '$JAVA_EXE'"
+        log_error "Java not found '$JAVA_EXE'"
         exit 1
     fi
 fi
@@ -110,26 +110,37 @@ fi
 
 # Check if libraries directory exists, install if missing
 if [ ! -d "libraries" ]; then
-    if ! install_mod_loader; then
+    if ! install_loader; then
         exit 1
     fi
 fi
 
 # Check if running in "Install Only" mode
 if [ "${INSTALL_ONLY:-false}" = "true" ]; then
-    log_done "install completed the server will NOT start"
+    log_done "Install completed the server will NOT start"
     exit 0
 fi
 
 # Start server (auto-restart on crash)
+loader=$(printf '%s' "$MINECRAFT_LOADER" | tr '[:upper:]' '[:lower:]')
 while true; do
-    "$JAVA_EXE" $JAVA_ARGS @libraries/net/minecraftforge/forge/$MINECRAFT_VERSION-$MINECRAFT_MOD_LOADER_VERSION/unix_args.txt nogui
+    case "$loader" in
+        forge)
+            # Start Forge server
+            "$JAVA_EXE" $JAVA_ARGS "@libraries/net/minecraftforge/forge/$MINECRAFT_VERSION-$MINECRAFT_LOADER_VERSION/unix_args.txt" nogui
+        ;;
+
+        *)
+            log_error "Unsupported Minecraft loader: $loader"
+            exit 1
+        ;;
+    esac
 
     # Restart Server
     if [ "${SERVER_RESTART:-false}" != "true" ]; then
         exit 0
     fi
 
-    printf 'restarting automatically in 10 seconds (press Ctrl + C to cancel)\n'
+    printf 'Restarting automatically in 10 seconds (press Ctrl + C to cancel)\n'
     sleep 10
 done

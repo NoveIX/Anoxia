@@ -1,13 +1,13 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-:: To use a specific Java runtime, define the JAVA_EXE variable below with the full path to java.exe.
+:: To use a specific Java runtime, set JAVA_EXE to the full path of the Java executable.
 :: set "JAVA_EXE=C:\Program Files\Eclipse Adoptium\jre-17.0.18.8-hotspot\bin\java.exe"
 
-:: To enable automatic server restarts, set the SERVER_RESTART variable to true.
+:: To enable automatic server restarts, set SERVER_RESTART to true.
 :: set "SERVER_RESTART=true"
 
-:: To install the pack without starting the server, set the INSTALL_ONLY variable to true.
+:: To install the server without starting it, set INSTALL_ONLY to true.
 :: set "INSTALL_ONLY=true"
 
 
@@ -104,7 +104,7 @@ if !CTX_VER! lss !JAVA_VERSION! (
 if not exist "libraries" (
     powershell -ExecutionPolicy Bypass ^
         -File "!SETUP!" ^
-        -InstallModLoader
+        -InstallLoader
 
     :: Powershell exit code
     if errorlevel 1 (
@@ -121,7 +121,14 @@ if /i "!INSTALL_ONLY!" == "true" (
 
 :START
 :: Start server (auto-restart on crash)
-"!JAVA_EXE!" !JAVA_ARGS! @libraries/net/minecraftforge/forge/!MINECRAFT_VERSION!-!MINECRAFT_MOD_LOADER_VERSION!/win_args.txt nogui
+if /i "!MINECRAFT_LOADER!" == "Forge" (
+    :: Start forge server
+    "!JAVA_EXE!" !JAVA_ARGS! @libraries/net/minecraftforge/forge/!MINECRAFT_VERSION!-!MINECRAFT_LOADER_VERSION!/win_args.txt nogui
+
+) else (
+    echo "Unsupported Minecraft loader: !MINECRAFT_LOADER!" >&2
+    goto :EOF
+)
 
 :: Restart Server
 if /i "!SERVER_RESTART!" == "true" (

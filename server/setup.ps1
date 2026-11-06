@@ -3,9 +3,9 @@ param (
     [Parameter(Mandatory = $true, ParameterSetName = "java")]
     [switch]$InstallJava,
 
-    # Mod Loader
-    [Parameter(Mandatory = $true, ParameterSetName = "ModLoader")]
-    [switch]$InstallModLoader
+    # Minecraft Loader
+    [Parameter(Mandatory = $true, ParameterSetName = "Loader")]
+    [switch]$InstallLoader
 )
 
 
@@ -31,7 +31,7 @@ function Write-Log {
 
     Write-Host "[" -NoNewline
     Write-Host $Level.ToUpper() -ForegroundColor $Color -NoNewline
-    Write-Host "]: $Message"
+    Write-Host "] $Message"
 }
 
 function Write-LogInfo {
@@ -101,8 +101,7 @@ function Invoke-FileDownload {
         return
     }
     catch {
-        $ex = $_.Exception
-        Write-LogError "BITS: download failed: $($ex.Message)"
+        Write-LogError "BITS: download failed: $($_.Exception.Message)"
     }
 
     # Try WebRequest
@@ -114,8 +113,7 @@ function Invoke-FileDownload {
         return
     }
     catch {
-        $ex = $_.Exception
-        Write-LogError "WebRequest: download failed: $($ex.Message)"
+        Write-LogError "WebRequest: download failed: $($_.Exception.Message)"
     }
 
     # If both methods fail, throw an exception
@@ -169,8 +167,7 @@ function Install-Java {
             Write-LogInfo "Extraction completed"
         }
         catch {
-            $ex = $_.Exception
-            Write-LogError "Java extraction failed: $($ex.Message)"
+            Write-LogError "Java extraction failed: $($_.Exception.Message)"
             throw
         }
 
@@ -208,8 +205,7 @@ function Install-Java {
             Write-LogInfo "Java installation completed. Installed in '$JavaRoot'"
         }
         catch {
-            $ex = $_.Exception
-            Write-LogError "Java installation failed. Exception: $($ex.Message)"
+            Write-LogError "Java installation failed. $($_.Exception.Message)"
             throw
         }
     }
@@ -223,62 +219,54 @@ function Install-Java {
 # ====================================================================================== #
 
 
-#region Install Mod loader
-# Download and install Minecraft mod loader
-function Install-ModLoader {
+#region Install Minecraft loader
+# Download and install Minecraft loader
+function Install-Loader {
 
-    # Get mod loader metadata
+    # Get loader metadata
     $McVer = $env:MINECRAFT_VERSION
-    $ModLoader = $env:MINECRAFT_MOD_LOADER.ToLower()
-    $ModLoaderVer = $env:MINECRAFT_MOD_LOADER_VERSION
+    $Loader = $env:MINECRAFT_LOADER.ToLower()
+    $LoaderVer = $env:MINECRAFT_LOADER_VERSION
 
-    # Build mod loader archive name and download URL
-    switch ($ModLoader) {
-        "Forge" {
-            $ModLoaderName = "Forge"
-            $ModLoaderArchive = "forge-${McVer}-${ModLoaderVer}-installer.jar"
-            $ModLoaderUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/${McVer}-${ModLoaderVer}/${ModLoaderArchive}"
+    # Build loader archive name and download URL
+    try {
+        switch -CaseSensitive ($Loader) {
+
+            # Forge Server
+            "forge" {
+                $LoaderName = "Forge"
+                $LoaderArchive = "forge-${McVer}-${LoaderVer}-installer.jar"
+                $LoaderUrl = "https://maven.minecraftforge.net/net/minecraftforge/forge/${McVer}-${LoaderVer}/${LoaderArchive}"
+            }
+
+            # ====================================================================================== #
+
+            Default {
+                throw [System.ArgumentException]::new(
+                    "Unsupported Minecraft loader '$Loader'."
+                )
+            }
         }
 
-        <#
-        "NeoForge" {
-        $ModLoaderName = "NeoForge"
-            $ModLoaderArchive = "neoforge-${McVer}-${ModLoaderVer}-installer.jar"
-            $ModLoaderUrl = "https://maven.neoforge.net/net/neoforge/neoforge/${McVer}-${ModLoaderVer}/${ModLoaderArchive}"
-        }
-
-        "Fabric" {
-        $ModLoaderName = "Fabric"
-            $ModLoaderArchive = "fabric-installer-${McVer}-${ModLoaderVer}.jar"
-            $ModLoaderUrl = "https://maven.fabricmc.net/net/fabricmc/fabric-installer/${ModLoaderVer}/${ModLoaderArchive}"
-        }
-
-        "Quilt" {
-        $ModLoaderName = "Quilt"
-            $ModLoaderArchive = "quilt-installer-${McVer}-${ModLoaderVer}.jar"
-            $ModLoaderUrl = "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/${ModLoaderVer}/${ModLoaderArchive}"
-        }
-        #>
-
-        Default {
-            throw [System.ArgumentException]::new(
-                "Unsupported Minecraft mod loader '$ModLoader'."
-            )
-        }
+    }
+    catch {
+        $LoaderName = if ($LoaderName) { $LoaderName } else { $Loader }
+        Write-LogError "$LoaderName installation failed. $($_.Exception.Message)"
+        throw
     }
 
-    # Build local mod loader paths
-    $ModLoaderZip = Join-Path -Path $env:ROOT -ChildPath $ModLoaderArchive
+    # Build local loader paths
+    $LoaderJar = Join-Path -Path $env:ROOT -ChildPath $LoaderArchive
     $LibrariesDir = Join-Path -Path $env:ROOT -ChildPath "libraries"
 
 
-    # Download mod loader archive if not already present
-    if (-not (Test-Path -Path $ModLoaderZip -PathType Leaf)) {
-        Invoke-FileDownload -Path $ModLoaderZip -Url $ModLoaderUrl
+    # Download loader archive if not already present
+    if (-not (Test-Path -Path $LoaderJar -PathType Leaf)) {
+        Invoke-FileDownload -Path $LoaderJar -Url $LoaderUrl
     }
 
 
-    # Install mod loader if not already installed
+    # Install loader if not already installed
     if (-not (Test-Path -Path $LibrariesDir -PathType Container)) {
         try {
             # Validate Java executable
@@ -288,39 +276,48 @@ function Install-ModLoader {
                 )
             }
 
-
-            # Run mod loader installer
-            Write-LogInfo "Installing $ModLoaderName"
-
             try {
                 Push-Location $env:ROOT
 
-                & $env:JAVA_EXE -jar $ModLoaderZip --installServer
+                # Run the appropriate command based on the loader type
+                Write-LogInfo "Installing $LoaderName"
 
+                switch -CaseSensitive ($Loader) {
+                    "forge" {
+                        & $env:JAVA_EXE -jar $LoaderJar --installServer
+                    }
+
+                    Default {
+                        throw [System.ArgumentException]::new(
+                            "Unsupported Minecraft loader '$Loader'."
+                        )
+                    }
+                }
+
+                # Check loader installation
                 if ($LASTEXITCODE -ne 0) {
                     throw [System.InvalidOperationException]::new(
-                        "$ModLoaderName installation failed with exit code $LASTEXITCODE."
+                        "$LoaderName installation failed with exit code $LASTEXITCODE."
                     )
                 }
 
-                # Remove mod loader run server script
+                # Remove default run.* files created by the installer
                 Get-ChildItem -Path $env:ROOT -Filter "run.*" -File |
                 Remove-Item -Force
+
+                Write-LogInfo "Installation completed"
             }
             finally {
                 Pop-Location
             }
-
-            Write-LogInfo "Installation completed"
         }
         catch {
-            $ex = $_.Exception
-            Write-LogError "$ModLoaderName installation failed. Exception: $($ex.Message)"
+            Write-LogError "$LoaderName installation failed. $($_.Exception.Message)"
             throw
         }
     }
     else {
-        Write-LogInfo "$ModLoaderName already installed"
+        Write-LogInfo "$LoaderName already installed"
     }
 }
 #endregion
@@ -330,4 +327,4 @@ function Install-ModLoader {
 
 
 if ($InstallJava) { Install-Java }
-if ($InstallModLoader) { Install-ModLoader }
+if ($InstallLoader) { Install-Loader }

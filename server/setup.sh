@@ -28,7 +28,7 @@ log() {
 
     esac
 
-    printf '%b%s%b: %s\n' "$color" "$level" '\033[0m' "$message"
+    printf '%b%s%b %s\n' "$color" "$level" '\033[0m' "$message"
 }
 
 log_info() {
@@ -66,7 +66,7 @@ system_arch() {
         ;;
 
         *)
-            log_error "unsupported processor architecture $(uname -m). Supported architectures: x64 and arm64"
+            log_error "Unsupported processor architecture $(uname -m). Supported architectures: x64 and arm64"
             return 1
         ;;
     esac
@@ -106,7 +106,7 @@ java_os() {
         ;;
 
         *)
-            log_error "unsupported operating system $(uname -s). Supported operating systems: Linux, MacOS"
+            log_error "Unsupported operating system $(uname -s). Supported operating systems: Linux, MacOS"
             return 1
         ;;
     esac
@@ -150,7 +150,7 @@ file_download() {
         return 0
     fi
 
-    log_error "neither wget nor curl is installed. Please install one of these tools to proceed."
+    log_error "Neither wget nor curl is installed. Please install one of these tools to proceed."
     return 1
 }
 #endregion
@@ -195,19 +195,19 @@ install_java() {
     if [ ! -d "$java_root" ]; then
 
         # Extract Java archive
-        log_info "extracting $java_archive"
+        log_info "Extracting $java_archive"
 
         if ! mkdir -p "$java_temp"; then
-            log_error "failed to create extraction directory '$java_temp'"
+            log_error "Failed to create extraction directory '$java_temp'"
             return 1
         fi
 
         if ! tar -xzf "$java_zip" -C "$java_temp"; then
-            log_error "java extraction failed"
+            log_error "Java extraction failed"
             return 1
         fi
 
-        log_info "java extraction completed"
+        log_info "Java extraction completed"
 
 
         # Locate the extracted Java installation directory
@@ -218,39 +218,39 @@ install_java() {
 
         # Validate that the Java installation directory was found
         if [ -z "$java_source" ]; then
-            log_error "failed to locate Java installation directory in '$java_temp' for version $major."
+            log_error "Failed to locate Java installation directory in '$java_temp' for version $major."
             return 1
         fi
 
 
         # Ensure the final Java directory exists
         if ! mkdir -p "$java_root"; then
-            log_error "failed to create Java installation directory '$java_root'"
+            log_error "Failed to create Java installation directory '$java_root'"
             return 1
         fi
 
         # Copy Java installation contents to the final destination
-        log_info "copying Java installation"
+        log_info "Copying Java installation"
 
         if ! cp -R "$java_source"/. "$java_root"/; then
-            log_error "failed to copy Java installation"
+            log_error "Failed to copy Java installation"
             return 1
         fi
 
-        log_info "copy completed"
+        log_info "Copy completed"
 
 
         # Remove temporary extraction directory
         if ! rm -rf "$java_temp"; then
-            log_error "failed to remove temporary extraction directory '$java_temp'"
+            log_error "Failed to remove temporary extraction directory '$java_temp'"
             return 1
         fi
 
         # Log completion message
-        log_info "java installation completed. Installed in '$java_root'"
+        log_info "Java installation completed. Installed in '$java_root'"
 
     else
-        log_info "java already installed"
+        log_info "Java already installed"
     fi
 }
 #endregion
@@ -259,60 +259,57 @@ install_java() {
 # ====================================================================================== #
 
 
-#region Install Mod loader
-# Download and install Minecraft mod loader
-install_mod_loader() {
+#region Install Minecraft loader
+# Download and install Minecraft loader
+install_loader() {
 
-    # Get mod loader metadata
+    # Get loader metadata
     mc_ver="$MINECRAFT_VERSION"
-    mod_loader=$(printf '%s' "$MINECRAFT_MOD_LOADER" | tr '[:upper:]' '[:lower:]')
-    mod_loader_ver="$MINECRAFT_MOD_LOADER_VERSION"
+    loader=$(printf '%s' "$MINECRAFT_LOADER" | tr '[:upper:]' '[:lower:]')
+    loader_ver="$MINECRAFT_LOADER_VERSION"
 
-    # Build mod loader archive name and download URL
-    case "$mod_loader" in
+    # Check required dependencies
+    case "$loader" in
+        vanilla|fabric|quilt|paper)
+            for cmd in curl jq; do
+                if ! command -v "$cmd" >/dev/null 2>&1; then
+                    log_error "Required command $cmd not found"
+                    return 1
+                fi
+            done
+            ;;
+    esac
 
+    # Build loader archive name and download URL
+    case "$loader" in
+
+        # Forge Server
         forge)
-            mod_loader_name="Forge"
-            mod_loader_archive="forge-${mc_ver}-${mod_loader_ver}-installer.jar"
-            mod_loader_url="https://maven.minecraftforge.net/net/minecraftforge/forge/${mc_ver}-${mod_loader_ver}/${mod_loader_archive}"
+            loader_name="Forge"
+            loader_archive="forge-${mc_ver}-${loader_ver}-installer.jar"
+            loader_url="https://maven.minecraftforge.net/net/minecraftforge/forge/${mc_ver}-${loader_ver}/${loader_archive}"
         ;;
 
-        # neoforge)
-        #     mod_loader_name="NeoForge"
-        #     mod_loader_archive="neoforge-${mc_ver}-${mod_loader_ver}-installer.jar"
-        #     mod_loader_url="https://maven.neoforge.net/net/neoforge/neoforge/${mc_ver}-${mod_loader_ver}/${mod_loader_archive}"
-        #;;
-
-        # fabric)
-        #     mod_loader_name="Fabric"
-        #     mod_loader_archive="fabric-installer-${mc_ver}-${mod_loader_ver}.jar"
-        #     mod_loader_url="https://maven.fabricmc.net/net/fabricmc/fabric-installer/${mod_loader_ver}/${mod_loader_archive}"
-        #;;
-
-        # quilt)
-        #     mod_loader_name="Quilt"
-        #     mod_loader_archive="quilt-installer-${mc_ver}-${mod_loader_ver}.jar"
-        #     mod_loader_url="https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/${mod_loader_ver}/${mod_loader_archive}"
-        #;;
+        # ====================================================================================== #
 
         *)
-            log_error "unsupported Minecraft mod loader '$mod_loader'."
+            log_error "unsupported Minecraft mod loader $loader"
             return 1
         ;;
     esac
 
-    # Build local mod loader paths
-    mod_loader_zip="$ROOT/$mod_loader_archive"
+    # Build local loader paths
+    loader_jar="$ROOT/$loader_archive"
     libraries_dir="$ROOT/libraries"
 
 
-    # Download mod loader archive if not already present
-    if [ ! -f "$mod_loader_zip" ]; then
-        file_download "$mod_loader_zip" "$mod_loader_url" || return 1
+    # Download loader archive if not already present
+    if [ ! -f "$loader_jar" ]; then
+        file_download "$loader_jar" "$loader_url" || return 1
     fi
 
 
-    # Install mod loader if not already installed
+    # Install loader if not already installed
     if [ ! -d "$libraries_dir" ]; then
 
         # Validate Java executable
@@ -321,21 +318,31 @@ install_mod_loader() {
             return 1
         fi
 
+        # Run the appropriate command based on the loader type
+        log_info "installing $loader_name"
 
-        # Run mod loader installer
-        log_info "installing $mod_loader_name"
+        case "$loader" in
+            forge)
+                "$JAVA_EXE" -jar "$loader_jar" --installServer || {
+                    exit_code=$?
+                    log_error "$loader_name installation failed with exit code $exit_code."
+                    return 1
+                }
+            ;;
 
-        if ! "$JAVA_EXE" -jar "$mod_loader_zip" --installServer; then
-            log_error "$mod_loader_name installation failed with exit code $?."
-            return 1
-        fi
+            *)
+                log_error "Unsupported Minecraft loader $loader"
+                return 1
+            ;;
+        esac
 
+        # Remove default run.* files created by the installer
         rm -f "$ROOT"/run.*
 
-        log_info "installation completed"
+        log_info "Installation completed"
 
     else
-        log_info "$mod_loader_name already installed"
+        log_info "$loader_name already installed"
     fi
 }
 #endregion
